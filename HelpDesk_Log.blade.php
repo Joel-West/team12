@@ -37,7 +37,14 @@
 		<link href="Styles.css" rel="stylesheet" type="text/css">
 	</head>
 	<body>
-	<form action="<?php header('Location: http://35.204.60.31/Home');?>" method="post" id="form">
+	<?php>
+	//action="<?php header('Location: http://35.204.60.31/Home');?>"
+	f ($_SERVER['REQUEST_METHOD']== "POST") {
+		   header('Location: http://mywebsite.com/otherAction.php');
+	exit();
+	}
+   ?>
+	<form <method="post" id="form">
 		@csrf
 		<h1 class="center">Login</h1>
 		<div class="center">
