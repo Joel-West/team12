@@ -48,9 +48,10 @@
 		<div class="center">
 			<input type="text" name="Username" id="Username" placeholder="Username" value=""><br>
 			<input type="password" name="Password" id="Password" placeholder="Password" ><br>
-			<input type="button" name="submit" id="submit" value="Submit" style="font-size:18px;" onclick="Validate();"/><br>
+			<input type="button" name="btnsubmit" id="btnsubmit" value="Submit" style="font-size:18px;" onclick="Validate();"/><br>
 			Save Password: <input type="checkbox" id="checkSave" />
-			<!--<input type="submit" style="visibility:hidden/>-->
+			<!--<input type="submit" style="visibility:hidden"/>-->
+			<input type="submit" name="submit id="submit" value="" style="font-size:18px; visibility:hidden"/><br>
 		</div>
 	</form>
 	</body>
