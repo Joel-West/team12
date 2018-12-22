@@ -28,7 +28,7 @@
 			function Validate(){
 				var Username=document.getElementById("Username").value;
 				var Password=document.getElementById("Password").value;
-				if (Username == "Alice" && Password == "Password")
+				if (Username == "A" && Password == "P")
 				{
 					document.mainform.submit();
 				}
