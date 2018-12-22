@@ -17,7 +17,7 @@
 				WriteTime();
 			}			
 		</script>
-		<link href="Styles.css" rel="stylesheet" type="text/css">
+		<link href="/var/www/html/team-projects/resources/views/team12/Styles.css" rel="stylesheet" type="text/css">
 		<style type="text/css">
 			.mainButton
 			{
