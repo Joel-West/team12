@@ -6,6 +6,15 @@
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 		<script src="ExtraCode.js"></script>
 		<script type="text/javascript">
+			$('#form'.validate({
+				rules:
+				{Username:
+					{
+						required: true
+					}
+			},});
+			
+			
 			function Validate(){
 				var Username=document.getElementById("Username").value;
 				var Password=document.getElementById("Password").value;
@@ -17,7 +26,7 @@
 		<link href="Styles.css" rel="stylesheet" type="text/css">
 	</head>
 	<body>
-	<form action="http://35.204.60.31/Home" method="post">
+	<form action="http://35.204.60.31/Home" method="post" id="form">
 		@csrf
 		<h1 class="center">Login</h1>
 		<div class="center">
