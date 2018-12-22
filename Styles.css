@@ -1,0 +1,37 @@
+body
+{
+	font-family: "Apple Chancery", Times, serif;
+	background-color: #FFFFFF;
+}
+.center
+{
+	text-align:center;
+}
+body,td,th,input,label
+{
+	color: #000; 
+}
+table
+{
+	margin-left:auto;
+	margin-right:auto;
+}
+.titleDiv
+{
+	display: flex;
+	justify-content: center;
+	position: relative;
+}
+input[type=button], [type=submit], th
+{
+	background-color: #B5ED4E;
+}
+input[type=button], [type=submit]
+{
+	border-radius: 8px;
+}
+
+input[type=text], [type=password], tr
+{
+	background-color: #9FFF30;
+}
