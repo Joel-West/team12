@@ -7,13 +7,22 @@
 		<script src="ExtraCode.js"></script>
 		<script type="text/javascript">
 			$('#form'.validate({
+				alert("I am an alert box!");
 				rules:
-				{Username:
+				{
+					Username:
 					{
-						alert("I am an alert box!");
 						required: true
 					}
-			},});
+				},
+			    messages:
+				{
+					Username:
+					{
+						required: "Mandatory field"
+					}
+				}
+			});
 			
 			
 			function Validate(){
