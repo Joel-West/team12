@@ -19,7 +19,7 @@
 				}
 			}
 		</script>
-		<link rel="stylesheet" href="{{ asset('public/css/Styles.css') }}" type="text/css">
+		<link rel="stylesheet" href="{{ asset('css/Styles.css') }}" type="text/css">
 	</head>
 	<body>
 	<form id="mainform" name="mainform" method="post" action="http://35.204.60.31/Home">
