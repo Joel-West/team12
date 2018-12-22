@@ -10,7 +10,7 @@
 				var Username=document.getElementById("Username").value;
 				var Password=document.getElementById("Password").value;
 				if (Username == "Alice" && Password == "Password"){
-					location.replace("35.204.60.31/Home);
+					location.replace("35.204.60.31/Home");
 				}
 			}
 		</script>
