@@ -28,7 +28,7 @@
 			function Validate(){
 				var Username=document.getElementById("Username").value;
 				var Password=document.getElementById("Password").value;
-				if (Username == "Alice" && Password == "Password"){
+				if (Username == "A" && Password == "P"){
 					return true;
 				}
 				else
@@ -41,7 +41,7 @@
 	</head>
 	<body>
 	<!--action="header('Location: http://35.204.60.31/Home');"-->
-	<form <method="post" onsubmit="return Validate()" action="http://35.204.60.31/Home" id="form">
+	<form <onsubmit="return Validate()" method="post" action="http://35.204.60.31/Home" id="form">
 		@csrf
 		<h1 class="center">Login</h1>
 		<div class="center">
