@@ -37,8 +37,8 @@
 		<link href="Styles.css" rel="stylesheet" type="text/css">
 	</head>
 	<body>
-	<?php>
-	//action="<?php header('Location: http://35.204.60.31/Home');?>"
+	<?php
+	//action="<?php header('Location: http://35.204.60.31/Home');"
 	f ($_SERVER['REQUEST_METHOD']== "POST") {
 		   header('Location: http://35.204.60.31/Home');
 	exit();
