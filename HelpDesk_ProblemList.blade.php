@@ -9,7 +9,8 @@
 			function SaveChanges(page)
 			{
 				alert("Changes saved.");
-				GoToNewPage(page);
+				document.getElementById("mainform").action = "http://35.204.60.31/" + page;
+				document.getElementById("mainform").submit();
 			}
 			$(document).ready(function () {
     resize_to_fit();
