@@ -4,7 +4,7 @@
 		<meta content="text/html" charset="UTF-8" />
 		<title>HelpDesk_LogIn</title>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-		<script src="{{ asset('ExtraCode.js') }}"></script>
+		<script type="text/javascript" src="{{ URL::asset('js/ExtraCode.js') }}"></script>
 		<script type="text/javascript">			
 			function Validate(){
 				var Username=document.getElementById("Username").value;
@@ -19,7 +19,7 @@
 				}
 			}
 		</script>
-		<link href="{{ asset('Styles.css') }}" rel="stylesheet" type="text/css">
+		<link href="{{ asset('css/Styles.css') }}" rel="stylesheet" type="text/css">
 	</head>
 	<body>
 	<form id="mainform" name="mainform" method="post" action="http://35.204.60.31/Home">
