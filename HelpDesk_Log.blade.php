@@ -10,6 +10,7 @@
 				rules:
 				{Username:
 					{
+						alert("I am an alert box!");
 						required: true
 					}
 			},});
