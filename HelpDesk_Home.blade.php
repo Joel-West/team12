@@ -51,5 +51,6 @@
 		</div>
 		<input type="submit" value="You shouldn't be able to see me..." style="visibility:hidden"/> <!-- INVISIBLE SUBMIT BUTTON SO THAT SUBMIT FUNCTION WORKS, DO NOT TOUCH ME-->
 		<!--Fun mode (don't click if you have epilepsy...): <input id="checkFun" type="checkbox" onclick="Fun()"/>-->
+	</form>
 	</body>
 </html>

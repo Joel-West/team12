@@ -10,8 +10,10 @@
 		<link rel="stylesheet" href="{{ asset('css/Styles.css') }}" type="text/css">
 	</head>
 	<body onload="WriteTime()">
+	<form id="mainform" name="mainform" method="post" action="">
+		@csrf
 		<div class="titleDiv">
-			<input type="button" style="font-size:40px; position:absolute; left:0;" value="&#x2190" style="display:inline-block;" onClick="GoToNewPage('HelpDesk_Home.html');" />
+			<input type="button" style="font-size:40px; position:absolute; left:0;" value="&#x2190" style="display:inline-block;" onClick="GoToNewPage('Home');" />
 			<label id="dtLabel" style="font-size:26px; position:absolute; right:0;"></label>
 			<h2 id="headerId" style="style=display:inline-block; font-size:30px;">Call History</h2>	
 		</div>
@@ -73,5 +75,6 @@
 				<td>MS Paint preventing computer from turning off.</td>
 			</tr>
 		</table>
+	</form>
 	</body>
 </html>
