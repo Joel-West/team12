@@ -42,7 +42,7 @@
 	</head>
 	<body>
 	<!--action="header('Location: http://35.204.60.31/Home');"-->
-	<form id="mainform" name="mainform" action="http://35.204.60.31/Home">
+	<form id="mainform" name="mainform" method="post" action="http://35.204.60.31/Home.blade.php">
 		@csrf
 		<h1 class="center">Login</h1>
 		<div class="center">
