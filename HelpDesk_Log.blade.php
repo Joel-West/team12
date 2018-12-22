@@ -40,7 +40,7 @@
 	<?php>
 	//action="<?php header('Location: http://35.204.60.31/Home');?>"
 	f ($_SERVER['REQUEST_METHOD']== "POST") {
-		   header('Location: http://mywebsite.com/otherAction.php');
+		   header('Location: http://35.204.60.31/Home');
 	exit();
 	}
    ?>
