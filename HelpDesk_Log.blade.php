@@ -17,7 +17,7 @@
 		<link href="Styles.css" rel="stylesheet" type="text/css">
 	</head>
 	<body>
-	<form action="HelpDesk_Home.blade.php" method="get" id="log">
+	<form action="/var/www/html/team-projects/resources/views/team12/HelpDesk_Home.blade.php" method="get" id="log">
 		<h1 class="center">Login</h1>
 		<div class="center">
 			<input type="text" name="Username" id="Username" placeholder="Username" "value=""><br>
