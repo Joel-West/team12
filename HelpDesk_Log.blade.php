@@ -4,7 +4,7 @@
 		<meta content="text/html" charset="UTF-8" />
 		<title>HelpDesk_LogIn</title>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-		<script src="http://35.204.50.1/ExtraCode.js"></script>
+		<script src="/var/www/html/team-projects/resources/views/team12/ExtraCode.js"></script>
 		<script type="text/javascript">	
 			function Validate(){
 				var Username=document.getElementById("Username").value;
