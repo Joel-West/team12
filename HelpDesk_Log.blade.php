@@ -17,6 +17,7 @@
 		<link href="Styles.css" rel="stylesheet" type="text/css">
 	</head>
 	<body>
+	<form action="35.204.60.31/Home" method="get">
 		<h1 class="center">Login</h1>
 		<div class="center">
 			<input type="text" name="Username" id="Username" placeholder="Username" "value=""><br>
@@ -24,5 +25,6 @@
 			<input type="submit" name="submit" id="submit" value="Submit" style="font-size:18px;" onClick="Validate();" /><br>
 			Save Password: <input type="checkbox" id="checkSave" />
 		</div>
+	</form>
 	</body>
 </html>
