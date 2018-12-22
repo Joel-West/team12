@@ -5,7 +5,7 @@
 		<title>HelpDesk_Home</title>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 		<script src="ExtraCode.js"></script>
-		<script type="text/javascript">
+		<script type="text/javascript" src="{{ URL::asset('js/ExtraCode.js') }}"></script>
 			function Load()
 			{
 				//Fun();			
@@ -17,7 +17,7 @@
 				WriteTime();
 			}			
 		</script>
-		<link href="Styles.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="{{ asset('css/Styles.css') }}" type="text/css">
 		<style type="text/css">
 			.mainButton
 			{
