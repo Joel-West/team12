@@ -38,7 +38,7 @@
 	<form id="mainform" name="mainform" method="post" action="">
 		@csrf
 		<div class="titleDiv">
-			<input type="button" style="font-size:40px; position:absolute; left:0;" value="&#x2190" style="display:inline-block;" onClick="GoToNewPage('/');" />
+			<input type="button" style="font-size:40px; position:absolute; left:0;" value="&#x2190" style="display:inline-block;" onClick="GoToNewPage('');" />
 			<label id="dtLabel" style="font-size:26px; position:absolute; right:0;"></label>
 			<h2 id="header" style="style=display:inline-block; font-size:36px;">Welcome, </h2>	
 		</div>	
