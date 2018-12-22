@@ -42,11 +42,11 @@
 			<h2 id="header" style="style=display:inline-block; font-size:36px;">Welcome, </h2>	
 		</div>	
 		<div class="grid-class">
-			<input class="mainButton" type="button" value="New Call" onClick="NewCaller" />
-			<input class="mainButton" type="button" value="View Call History" onClick="GoToNewPage(CallHistory);" />
-			<input class="mainButton" type="button" value="View Problems List" onClick="GoToNewPage(ProblemList);" />
-			<input class="mainButton" type="button" value="View Personnel" onClick="GoToNewPage(PersonnelList);" />
-			<input class="mainButton" type="button" value="View/Edit Equipment" onClick="GoToNewPage(EquipmentList);" />
+			<input class="mainButton" type="button" value="New Call" onClick="GoToNewPage('NewCaller')" />
+			<input class="mainButton" type="button" value="View Call History" onClick="GoToNewPage('CallHistory');" />
+			<input class="mainButton" type="button" value="View Problems List" onClick="GoToNewPage('ProblemList');" />
+			<input class="mainButton" type="button" value="View Personnel" onClick="GoToNewPage('PersonnelList');" />
+			<input class="mainButton" type="button" value="View/Edit Equipment" onClick="GoToNewPage('EquipmentList');" />
 		</div>
 		<input type="submit" value="You shouldn't be able to see me..." style="visibility:hidden"/> <!-- INVISIBLE SUBMIT BUTTON SO THAT SUBMIT FUNCTION WORKS, DO NOT TOUCH ME-->
 		<!--Fun mode (don't click if you have epilepsy...): <input id="checkFun" type="checkbox" onclick="Fun()"/>-->
