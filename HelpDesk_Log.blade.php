@@ -42,13 +42,13 @@
 	</head>
 	<body>
 	<!--action="header('Location: http://35.204.60.31/Home');"-->
-	<form <method="post" action="http://35.204.60.31/Home" id="form" name="mainform">
+	<form method="post" action="http://35.204.60.31/Home" id="form" name="mainform">
 		@csrf
 		<h1 class="center">Login</h1>
 		<div class="center">
 			<input type="text" name="Username" id="Username" placeholder="Username" value=""><br>
 			<input type="password" name="Password" id="Password" placeholder="Password" ><br>
-			<input type="button" name="submit" id="submit" value="Submit" style="font-size:18px;" onclick="Validate()"/><br>
+			<input type="button" name="submit" id="submit" value="Submit" style="font-size:18px;" onclick="Validate();"/><br>
 			Save Password: <input type="checkbox" id="checkSave" />
 		</div>
 	</form>
