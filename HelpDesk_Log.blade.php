@@ -51,7 +51,7 @@
 			<input type="button" name="btnsubmit" id="btnsubmit" value="Submit" style="font-size:18px;" onclick="Validate();"/><br>
 			Save Password: <input type="checkbox" id="checkSave" />
 			<!--<input type="submit" style="visibility:hidden"/>-->
-			<input type="submit" style="visibility:hidden"/>
+			<input type="submit" value="You shouldn't be able to see me..."/>
 		</div>
 	</form>
 	</body>
