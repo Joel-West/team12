@@ -25,8 +25,7 @@
 			});
 			*/			
 			
-			$("submit").click(function(event){
-				event.preventDefault();
+			function Validate(){
 				var Username=document.getElementById("Username").value;
 				var Password=document.getElementById("Password").value;
 				if (Username == "A" && Password == "P")
@@ -49,7 +48,7 @@
 		<div class="center">
 			<input type="text" name="Username" id="Username" placeholder="Username" value=""><br>
 			<input type="password" name="Password" id="Password" placeholder="Password" ><br>
-			<input type="submit" name="submit" id="submit" value="Submit" style="font-size:18px;"/><br>
+			<input type="button" name="submit" id="submit" value="Submit" style="font-size:18px;" onclick="Validate()"/><br>
 			Save Password: <input type="checkbox" id="checkSave" />
 		</div>
 	</form>
