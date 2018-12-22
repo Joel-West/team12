@@ -6,7 +6,7 @@
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 		<script src="ExtraCode.js"></script>
 		<script type="text/javascript">
-			$('#form'.validate({
+			/*$('#form'.validate({
 				alert("I am an alert box!");
 				rules:
 				{
@@ -32,17 +32,18 @@
 					//location.replace("35.204.60.31/Home");
 				}
 			}
+			*/
 		</script>
 		<link href="Styles.css" rel="stylesheet" type="text/css">
 	</head>
 	<body>
-	<form action="http://35.204.60.31/Home" method="post" id="form">
+	<form action="<?php header('Location: http://35.204.60.31/Home');?>" method="post" id="form">
 		@csrf
 		<h1 class="center">Login</h1>
 		<div class="center">
 			<input type="text" name="Username" id="Username" placeholder="Username" "value=""><br>
 			<input type="password" name="Password" id="Password" placeholder="Password" ><br>
-			<input type="submit" name="submit" id="submit" value="Submit" style="font-size:18px;" onClick="Validate();" /><br>
+			<input type="submit" name="submit" id="submit" value="Submit" style="font-size:18px;" /><br>
 			Save Password: <input type="checkbox" id="checkSave" />
 		</div>
 	</form>
