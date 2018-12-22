@@ -10,7 +10,7 @@
 				var Username=document.getElementById("Username").value;
 				var Password=document.getElementById("Password").value;
 				if (Username == "Alice" && Password == "Password"){
-					location.replace("HelpDesk_Home.html?name="+Username);
+					location.replace("HelpDesk_Home.blade.php?name="+Username);
 				}
 			}
 		</script>
