@@ -18,6 +18,7 @@
 	</head>
 	<body>
 	<form action="http://35.204.60.31/Home" method="post">
+		@csrf
 		<h1 class="center">Login</h1>
 		<div class="center">
 			<input type="text" name="Username" id="Username" placeholder="Username" "value=""><br>
