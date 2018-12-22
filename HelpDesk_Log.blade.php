@@ -23,22 +23,25 @@
 					}
 				}
 			});
-			
+			*/			
 			
 			function Validate(){
 				var Username=document.getElementById("Username").value;
 				var Password=document.getElementById("Password").value;
 				if (Username == "Alice" && Password == "Password"){
-					//location.replace("35.204.60.31/Home");
+					return true;
+				}
+				else
+				{
+					return false;
 				}
 			}
-			*/
 		</script>
 		<link href="Styles.css" rel="stylesheet" type="text/css">
 	</head>
 	<body>
 	<!--action="header('Location: http://35.204.60.31/Home');"-->
-	<form <method="post" id="form">
+	<form <method="post" onsubmit="return Validate()" action="http://35.204.60.31/Home" id="form">
 		@csrf
 		<h1 class="center">Login</h1>
 		<div class="center">
