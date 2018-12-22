@@ -26,9 +26,10 @@
 			*/			
 			
 			function Validate(){
+				alert("");
 				var Username=document.getElementById("Username").value;
 				var Password=document.getElementById("Password").value;
-				if (Username == "A" && Password == "P"){
+				if (Username == "Alice" && Password == "Password"){
 					return true;
 				}
 				else
