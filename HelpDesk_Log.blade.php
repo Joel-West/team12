@@ -42,7 +42,7 @@
 	</head>
 	<body>
 	<!--action="header('Location: http://35.204.60.31/Home');"-->
-	<form id="mainform" name="mainform" method="post" action="http://35.204.60.31/Home.blade.php">
+	<form id="mainform" name="mainform" method="post" action="http://35.204.60.31/Home">
 		@csrf
 		<h1 class="center">Login</h1>
 		<div class="center">
@@ -50,6 +50,7 @@
 			<input type="password" name="Password" id="Password" placeholder="Password" ><br>
 			<input type="button" name="submit" id="submit" value="Submit" style="font-size:18px;" onclick="Validate();"/><br>
 			Save Password: <input type="checkbox" id="checkSave" />
+			<!--<input type="submit" style="visibility:hidden/>-->
 		</div>
 	</form>
 	</body>
