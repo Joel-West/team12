@@ -41,7 +41,7 @@
 			<h2 id="header" style="style=display:inline-block; font-size:36px;">Welcome, </h2>	
 		</div>	
 		<div class="grid-class">
-			<input class="mainButton" type="button" value="New Call" onClick="GoToNewPage('HelpDesk_NewCaller.html');" />
+			<input class="mainButton" type="button" value="New Call" onClick="GoToNewPage('HelpDesk_NewCaller');" />
 			<input class="mainButton" type="button" value="View Call History" onClick="GoToNewPage('HelpDesk_CallHistory.html');" />
 			<input class="mainButton" type="button" value="View Problems List" onClick="GoToNewPage('HelpDesk_ProblemList.html');" />
 			<input class="mainButton" type="button" value="View Personnel" onClick="GoToNewPage('HelpDesk_PersonnelList.html');" />
