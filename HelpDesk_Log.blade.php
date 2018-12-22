@@ -37,18 +37,12 @@
 		<link href="Styles.css" rel="stylesheet" type="text/css">
 	</head>
 	<body>
-	<?php
-	//action="<?php header('Location: http://35.204.60.31/Home');"
-	f ($_SERVER['REQUEST_METHOD']== "POST") {
-		   header('Location: http://35.204.60.31/Home');
-	exit();
-	}
-   ?>
+	<!--action="header('Location: http://35.204.60.31/Home');"-->
 	<form <method="post" id="form">
 		@csrf
 		<h1 class="center">Login</h1>
 		<div class="center">
-			<input type="text" name="Username" id="Username" placeholder="Username" "value=""><br>
+			<input type="text" name="Username" id="Username" placeholder="Username" value=""><br>
 			<input type="password" name="Password" id="Password" placeholder="Password" ><br>
 			<input type="submit" name="submit" id="submit" value="Submit" style="font-size:18px;" /><br>
 			Save Password: <input type="checkbox" id="checkSave" />
