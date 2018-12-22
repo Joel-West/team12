@@ -30,7 +30,7 @@
 				var Password=document.getElementById("Password").value;
 				if (Username == "A" && Password == "P")
 				{
-					document.mainform.submit();
+					document.getElementById("mainform").submit();
 				}
 				else
 				{
