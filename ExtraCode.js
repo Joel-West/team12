@@ -39,5 +39,6 @@ function WriteTime()
 }
 function GoToNewPage(page)
 {
-	location.replace(page);
+	document.getElementById("mainform").action = "http://35.204.60.31/" + page;
+	document.getElementById("mainform").submit();
 }
