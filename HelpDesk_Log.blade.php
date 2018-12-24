@@ -25,7 +25,7 @@
 				{
 					if(json && json[0]) //If result of php was a json array		
 					{
-						alert(json[0])
+						alert(json)
 					}
 					else
 					{
