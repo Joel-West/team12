@@ -22,11 +22,10 @@
 	$host='35.204.50.1';
 	$username = "root";
 	$password = "";
-	
+	/*
 	try 
 	{
 		echo json_encode("Ayyyy2");
-		
 		$con = new PDO("mysql:host=$host;dbname=team12database",$username,$password);
 		$con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$stmt = $con->prepare($sql);
@@ -34,11 +33,10 @@
 		$res = $stmt->setFetchMode(PDO::FETCH_ASSOC);
 		
 	}
-	catch()
+	catch(PDOException $e)
 	{
-	
 		echo json_encode("Connection failed".$e->getMessage());
 	}
-	
-	//echo json_encode($res);
+	echo json_encode($res);
+	*/
 ?>
