@@ -17,20 +17,21 @@
 	}
 	$value = json_encode($res->fetchAll());
 	echo $value; //Returns value of json array back to the form for display.*/
-	
+	$sql = $_REQUEST['sql'];
 	$host='35.204.50.1';
 	$username = "root";
 	$password = "";
 	try 
 	{
 		$con = new PDO("mysql:post=$host;dbname=team12database",$username,$password);
-		$con -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$stmt = $con->prepare($sql);
+		$stmt->execute();
+		$res = $stmt->setFetchMode(PDO::FETCH_ASSOC);
 	}
 	catch(PDOException $e)
 	{
 		echo "Connection failed".$e->getMessage();
 	}
-	$sql = $_REQUEST['sql'];
-	
-	echo json_encode($sql);
+	echo json_encode($res);
 ?>
