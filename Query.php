@@ -33,5 +33,5 @@
 	{
 		echo "Connection failed".$e->getMessage();
 	}
-	echo json_encode($res);
+	echo json_encode($stmt->fetchAll());
 ?>
