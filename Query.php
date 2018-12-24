@@ -23,6 +23,7 @@
 	$password = "";
 	try 
 	{
+		echo json_encode("Ayyyy");
 		$con = new PDO("mysql:post=$host;dbname=team12database",$username,$password);
 		$con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$stmt = $con->prepare($sql);
