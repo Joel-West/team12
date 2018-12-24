@@ -23,6 +23,7 @@
 				sql = "SELECT * FROM tblPersonnel";
 				$.get("Query.php", {'sql':sql},function(json) //Calls query.php, which handles the SQL query and sorting of result data.
 				{
+					alert("dffg");
 					if(json && json[0]) //If result of php was a json array		
 					{
 						alert(json[0])
