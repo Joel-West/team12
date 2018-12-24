@@ -21,7 +21,7 @@
 			function RunQuery()
 			{
 				sql = "SELECT * FROM tblPersonnel";
-				($.get("Query.php", {'sql':sql},function(json) //Calls Query.php, which handles the SQL query and sorting of result data.
+				$.get("Query.php", {'sql':sql},function(json) //Calls query.php, which handles the SQL query and sorting of result data.
 				{
 					if(json && json[0]) //If result of php was a json array		
 					{
@@ -31,7 +31,7 @@
 					{
 						alert("Sorry, no results found..."); //If no results, display error.
 					}
-				},'json'); 
+				},'json');
 			}
 		</script>
 		<link rel="stylesheet" href="{{ asset('css/Styles.css') }}" type="text/css">
