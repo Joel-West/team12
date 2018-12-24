@@ -102,6 +102,13 @@
 				<td>Support</td>
 				<td>01509-777294</td>
 			</tr>
+			<tr>
+				<td>53716</td>
+				<td>Jean Connor</td>
+				<td>Senior analyist</td>
+				<td>Analysis</td>
+				<td>01509-217947</td>
+			</td>
 		</table>
 		<div align="center">
 			<p>
