@@ -22,7 +22,7 @@
 	$host='35.204.50.1';
 	$username = "root";
 	$password = "";
-	/*
+	
 	try 
 	{
 		echo json_encode("Ayyyy2");
@@ -39,6 +39,6 @@
 	
 		echo json_encode("Connection failed".$e->getMessage());
 	}
-	*/
+	
 	//echo json_encode($res);
 ?>
