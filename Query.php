@@ -27,7 +27,9 @@
 		echo json_encode("Ayyyy2");
 		$con = new PDO("mysql:host=$host;dbname=team12database;charset=utf8mb4",$username,$password);
 		$con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
+		$stmt = $con->prepare($sql);
+		$stmt->execute();
+		$res = $stmt->setFetchMode(PDO::FETCH_ASSOC);
 	}
 	catch(PDOException $e)
 	{
