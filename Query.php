@@ -17,13 +17,14 @@
 	}
 	$value = json_encode($res->fetchAll());
 	echo $value; //Returns value of json array back to the form for display.*/
+	echo json_encode("Ayyyy1");
 	$sql = $_REQUEST['sql'];
 	$host='35.204.50.1';
 	$username = "root";
 	$password = "";
 	try 
 	{
-		echo json_encode("Ayyyy");
+		echo json_encode("Ayyyy2");
 		$con = new PDO("mysql:post=$host;dbname=team12database",$username,$password);
 		$con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$stmt = $con->prepare($sql);
