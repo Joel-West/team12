@@ -14,10 +14,11 @@
 		$stmt->execute();
 		$res = $stmt->setFetchMode(PDO::FETCH_ASSOC);
 		*/
+
 	}
 	catch(PDOException $e)
 	{
 		echo json_encode("Connection failed".$e->getMessage());
 	}
-	//echo json_encode($r);
+	//echo json_encode($r);	
 ?>
