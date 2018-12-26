@@ -1,5 +1,4 @@
 <?php
-	echo json_encode("Ayyyy1");
 	$sql = $_REQUEST['sql'];
 	$host='35.204.50.1';
 	$username = "root";
@@ -20,4 +19,5 @@
 		echo json_encode("Connection failed".$e->getMessage());
 	}
 	//echo json_encode($r);
+	echo json_encode("Ayyyy1");
 ?>
