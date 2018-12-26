@@ -4,6 +4,7 @@
 	$host='35.204.50.1';
 	$username = "root";
 	$password = "";
+	/*
 	try 
 	{
 		$con = new PDO("mysql:host=$host;dbname=team12database;charset=utf8mb4",$username,$password);
@@ -13,7 +14,6 @@
 		$stmt = $con->prepare($sql);
 		$stmt->execute();
 		$res = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-		*/
 	}
 	catch(PDOException $e)
 	{
