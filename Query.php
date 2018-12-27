@@ -12,7 +12,10 @@
 		{
 			//echo json_encode($row);
 		}
-		echo json_encode("fdfgfg");
+		for ($x = 0; $x <= 10; $x++
+		{
+			echo json_encode("fdfgfg");
+		}
 		$con = null;
 		
 
