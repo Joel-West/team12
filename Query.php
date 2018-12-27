@@ -23,5 +23,5 @@
 	{
 		echo json_encode("Connection failed".$e->getMessage());
 	}
-	echo json_encode($r);
+	echo json_encode($res);
 ?>
