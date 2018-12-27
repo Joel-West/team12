@@ -6,7 +6,8 @@
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 		<script type="text/javascript" src="{{ URL::asset('js/ExtraCode.js') }}"></script>
 		<script type="text/javascript">			
-			function Validate(){
+			function Validate()
+			{
 				var Username=document.getElementById("Username").value;
 				var Password=document.getElementById("Password").value;
 				if (Username == "A" && Password == "P")

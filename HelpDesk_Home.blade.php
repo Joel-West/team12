@@ -8,11 +8,8 @@
 		<script type="text/javascript">
 			function Load()
 			{
-				Fun();			
-				var urlStr = document.URL;
-				var url = new URL(urlStr);				
-				var c = url.searchParams.get("name");
-				//c = "Alice";
+				//Fun();						
+				var c = $_POST["username"];
 				document.getElementById("header").innerHTML += c + "!";
 				WriteTime();
 			}			
@@ -49,7 +46,7 @@
 			<input class="mainButton" type="button" value="View Personnel" onClick="GoToNewPage('PersonnelList');" />
 			<input class="mainButton" type="button" value="View/Edit Equipment" onClick="GoToNewPage('EquipmentList');" />
 		</div>
-		Fun mode (don't click if you have epilepsy...): <input id="checkFun" type="checkbox" onclick="Fun()"/>
+		<!--Fun mode (don't click if you have epilepsy...): <input id="checkFun" type="checkbox" onclick="Fun()"/>-->
 	</form>
 	</body>
 </html>
