@@ -3,26 +3,14 @@
 	$host='35.204.50.1';
 	$username = "root";
 	$password = "";
-	echo json_encode("Ayyyy1");
-	
 	try 
 	{
-		$con = new PDO("mysql:host=$host;dbname=team12database;charset=utf8mb4",$username,$password);
-		$con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		
-		$stmt = $con->prepare($sql);
-		$stmt->execute();
-		$res = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-		
+		$con = new PDO("mysql:host=$host;dbname=team12database",$username,$password);
+		foreach($con->query('SELECT * from tblPersonnel') as $row) {
+			print_r($row);
+		}
 		$con = null;
-		echo json_encode("Ayyyy2");
-		
-
-	}
-	catch(PDOException $e)
-	{
-		echo json_encode("Connection failed".$e->getMessage());
-	}
-	echo json_encode($r);
-	
+	}catch(PDOException $e){
+		print "Connection failed".$e->getMessage();
+	}	
 ?>
