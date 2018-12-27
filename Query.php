@@ -12,10 +12,10 @@
 		$stmt = $con->query($sql);
 		foreach ($con->query($sql) as $row)
 		{
-			echo $row['userID'] . "\t";
-			echo $row['username'] . "\t";
-			echo $row['password'] . "\t";
-			echo $row['admin'] . "\n";
+			echo json_encode($row['userID'] . "\t");
+			echo json_encode($row['username'] . "\t");
+			echo json_encode($row['password'] . "\t");
+			echo json_encode($row['admin'] . "\n");
 		}
 		$con = null;
 		
