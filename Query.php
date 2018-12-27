@@ -11,8 +11,8 @@
 		foreach ($stmt as $row)
 		{
 			//echo json_encode($row);
-			echo json_encode("fdfgfg");
 		}
+		echo json_encode("fdfgfg");
 		$con = null;
 		
 
