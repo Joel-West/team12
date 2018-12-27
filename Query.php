@@ -7,10 +7,12 @@
 	{
 		$con = new PDO("mysql:host=$host;dbname=team12database;charset=utf8mb4",$username,$password);
 		$con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		/*
 		$statement = $pdo->prepare($sql);
 		$statement->execute();
 		$results = $statement->fetchAll(PDO::FETCH_ASSOC);
 		echo (json_encode($results));
+		*/
 		$con = null;
 	}
 	catch(PDOException $e)
