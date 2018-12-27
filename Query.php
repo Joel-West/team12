@@ -10,13 +10,11 @@
 		$statement = $pdo->prepare($sql);
 		$statement->execute();
 		$results = $statement->fetchAll(PDO::FETCH_ASSOC);
-		$json = json_encode($results);
+		echo (json_encode($results));
 		$con = null;
 	}
 	catch(PDOException $e)
 	{
-		$json = ("Connection failed".$e->getMessage());
+		echo ("Connection failed".$e->getMessage());
 	}
-	
-	echo $json;
 ?>
