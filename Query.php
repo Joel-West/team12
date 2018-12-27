@@ -15,7 +15,9 @@
 		$stmt->execute();
 		echo json_encode($stmt);
 		$res = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-		
+		echo json_encode($stmt);
+	    echo json_encode(" res = ");
+		echo json_encode($res);
 		$con = null;
 		//echo json_encode("Ayyyy2");
 		
