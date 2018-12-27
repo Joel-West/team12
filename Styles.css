@@ -1,7 +1,7 @@
 body
 {
 	font-family: "Apple Chancery", Times, serif;
-	background-color: #FFFFFF;
+	background-color: #623767;
 }
 .center
 {
@@ -33,5 +33,5 @@ input[type=button], [type=submit]
 
 input[type=text], [type=password], tr
 {
-	background-color: #9FFF30;
+	background-color: #9F00FF;
 }
