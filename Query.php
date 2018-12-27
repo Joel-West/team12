@@ -4,19 +4,26 @@
 	$username = "root";
 	$password = "";
 	echo json_encode("Ayyyy1");
-	
+
+	$conn = new mysqli($host,$username,$password);
+
+	if ($conn->connect_error) {
+		die("Connection failed: " . $conn->connect_error);
+	}
+	echo "Yes lads";
+	/*
 	try 
 	{
 		$con = new PDO("mysql:host=$host;dbname=team12database;charset=utf8mb4",$username,$password);
 		$con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		
-		/*
+		
 		$stmt = $con->prepare($sql);
 		$stmt->execute();
 		$res = $stmt->setFetchMode(PDO::FETCH_ASSOC);
 		
 		$con = null;
-		*/
+		
 		echo json_encode("Ayyyy2");
 		
 
@@ -26,5 +33,5 @@
 		echo json_encode("Connection failed".$e->getMessage());
 	}
 	echo json_encode($r);
-	
+	*/
 ?>
