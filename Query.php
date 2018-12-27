@@ -3,7 +3,7 @@
 	$host='35.204.50.1';
 	$username = "root";
 	$password = "";
-	echo json_encode("Ayyyy1");
+	//echo json_encode("Ayyyy1");
 	
 	try 
 	{
@@ -15,7 +15,7 @@
 		$res = $stmt->setFetchMode(PDO::FETCH_ASSOC);
 		
 		$con = null;
-		echo json_encode("Ayyyy2");
+		//echo json_encode("Ayyyy2");
 		
 
 	}
@@ -23,5 +23,5 @@
 	{
 		echo json_encode("Connection failed".$e->getMessage());
 	}
-	echo json_encode($res);
+	echo json_encode($stmt);
 ?>
