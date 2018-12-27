@@ -10,9 +10,12 @@
 		$con = new PDO("mysql:host=$host;dbname=team12database;charset=utf8mb4",$username,$password);
 		$con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$stmt = $con->query($sql);
-		//$stmt = $con->prepare($sql);
-		$stmt->execute();
-		$res = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+		foreach ($con->query($sql) as $row)
+		{
+			echo $row['name'] . "\t";
+			echo $row['color'] . "\t";
+			echo $row['calories'] . "\n";
+		}
 		$con = null;
 		
 
@@ -21,5 +24,5 @@
 	{
 		echo json_encode("Connection failed".$e->getMessage());
 	}
-		echo json_encode($res);
+	echo json_encode($res);
 ?>
