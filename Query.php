@@ -9,17 +9,11 @@
 	{
 		$con = new PDO("mysql:host=$host;dbname=team12database;charset=utf8mb4",$username,$password);
 		$con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		
-		$stmt = $con->prepare($sql);
-		echo json_encode($stmt);
+		$stmt = $con->query($sql);
+		//$stmt = $con->prepare($sql);
 		$stmt->execute();
-		echo json_encode($stmt);
 		$res = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-		echo json_encode($stmt);
-	    echo json_encode(" res = ");
-		echo json_encode($res);
 		$con = null;
-		//echo json_encode("Ayyyy2");
 		
 
 	}
@@ -27,5 +21,5 @@
 	{
 		echo json_encode("Connection failed".$e->getMessage());
 	}
-	//echo json_encode($stmt);
+		echo json_encode($res);
 ?>
