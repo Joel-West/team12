@@ -3,7 +3,7 @@
 	$host='35.204.50.1';
 	$username = "root";
 	$password = "";
-	echo json_encode("Ayyyy1");
+	echo json_encode("Ayyyy123");
 
 	$conn = new mysqli($host,$username,$password);
 
