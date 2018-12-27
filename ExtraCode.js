@@ -18,7 +18,7 @@ function Fun()
 	else
 	{
 		fun = false;
-		document.body.style.backgroundColor = "#D6D6D6";
+		document.body.style.backgroundColor = "#FFFFFF";
 	}
 }
 

@@ -12,7 +12,7 @@
 				var urlStr = document.URL;
 				var url = new URL(urlStr);				
 				var c = url.searchParams.get("name");
-				c = "Alice";
+				//c = "Alice";
 				document.getElementById("header").innerHTML += c + "!";
 				WriteTime();
 			}			
