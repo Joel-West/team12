@@ -12,9 +12,10 @@
 		$stmt = $con->query($sql);
 		foreach ($con->query($sql) as $row)
 		{
-			echo $row['name'] . "\t";
-			echo $row['color'] . "\t";
-			echo $row['calories'] . "\n";
+			echo $row['userID'] . "\t";
+			echo $row['username'] . "\t";
+			echo $row['password'] . "\t";
+			echo $row['admin'] . "\n";
 		}
 		$con = null;
 		
