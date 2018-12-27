@@ -1,5 +1,5 @@
 <?php
-	$sql = $_REQUEST['sql'];
+	//$sql = $_REQUEST['sql'];
 	$host='35.204.50.1';
 	$username = "root";
 	$password = "";
