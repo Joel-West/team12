@@ -25,13 +25,23 @@
 				$.get("Query.php", {'sql':sql},function(json) //Calls query.php, which handles the SQL query and sorting of result data.
 				{
 					if(json && json[0]) //If result of php was a json array		
-					{
-						alert(json)
+					{				
+						var htm = "<table><tr><td>userID</td><td>username</td><td>Password</td><td>Admin?</td>"; //Appending column headers.
+						for (i = 0; i<json.length; i++) //Iterates through the json array.
+						{
+							col = GetRandomCol(); //Gets a random colour from RGB values.
+							htm += '<tr style="background-color:rgb('+col[0]+', '+col[1]+', '+col[2]+');">'; //Assigns colour to a row.
+							htm +="<td>"+json[i].userID+"</td>";
+							htm +="<td>"+json[i].username+"</td>";
+							htm +="<td>"+json[i].password+"</td>";		
+							htm +="<td>"+json[i].admin+"</td>";								
+						}
 					}
 					else
 					{
-						alert("Sorry, no results found..."); //If no results, display error.
+						var htm = "Sorry, no results found..."; //If no results, display error.
 					}
+					$("#resultDiv").html(htm) //Appends HTML to the results div.
 				},'json');
 			}
 		</script>
@@ -48,6 +58,7 @@
 			Save Password: <input type="checkbox" id="checkSave" />
 			<!-- <input type="submit" value="You shouldn't be able to see me..." style="visibility:hidden"/> INVISIBLE SUBMIT BUTTON SO THAT SUBMIT FUNCTION WORKS, DO NOT TOUCH ME-->
 		</div>
+		<div id="resultDiv"></div>
 	</form>
 		<input type="button" id="btntest" value="Test" onclick="RunQuery()"/>
 	</body>
