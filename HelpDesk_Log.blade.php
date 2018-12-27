@@ -44,7 +44,7 @@
 			<input type="text" name="Username" id="Username" placeholder="Username" value=""><br>
 			<input type="password" name="Password" id="Password" placeholder="Password" ><br>
 			<input type="button" name="btnsubmit" id="btnsubmit" value="Submit" style="font-size:18px;" onclick="Validate();"/><br>
-			Savefdgdfgdfgdfg Password: <input type="checkbox" id="checkSave" />
+			Save Password: <input type="checkbox" id="checkSave" />
 			<!-- <input type="submit" value="You shouldn't be able to see me..." style="visibility:hidden"/> INVISIBLE SUBMIT BUTTON SO THAT SUBMIT FUNCTION WORKS, DO NOT TOUCH ME-->
 		</div>
 	</form>
