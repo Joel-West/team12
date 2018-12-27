@@ -10,7 +10,7 @@
 	if ($conn->connect_error) {
 		die("Connection failed: " . $conn->connect_error);
 	}
-	echo "Yes lads";
+	echo json_encode("Yes lads");
 	/*
 	try 
 	{
