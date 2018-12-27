@@ -9,7 +9,11 @@
 	{
 		$con = new PDO("mysql:host=$host;dbname=team12database;charset=utf8mb4",$username,$password);
 		$con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		echo json_encode($con->query($sql));
+		$stmt = $con->query($sql);
+		foreach ($con->query($sql) as $row)
+		{
+			echo json_encode($row);
+		}
 		$con = null;
 		
 
