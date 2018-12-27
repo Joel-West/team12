@@ -10,7 +10,8 @@
 		$stmt = $con->query($sql);
 		foreach ($stmt as $row)
 		{
-			echo json_encode($row);
+			//echo json_encode($row);
+			echo json_encode("fdfgfg");
 		}
 		$con = null;
 		
