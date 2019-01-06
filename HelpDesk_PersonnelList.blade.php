@@ -6,6 +6,35 @@
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 		<script type="text/javascript" src="{{ URL::asset('js/ExtraCode.js') }}"></script>
 		<script type="text/javascript">
+			function RunQuery()
+			{
+				//sql = "SELECT * FROM tblUser WHERE username = '" + document.getElementById("Username").value + "'";
+				sql = "SELECT * FROM tblPersonnel;";
+				$.get("Query.php", {'sql':sql},function(json) //Calls query.php, which handles the SQL query and sorting of result data.
+				{
+					if(json && json[0]) //If result of php was a json array		
+					{				
+						var htm = "<table id="tbl" border="1">><tr><td>userID</td><td>name</td><td>Job Title</td><td>Department</td><td>Telephone Number</td>"; //Appending column headers.
+						for (i = 0; i<json.length; i++) //Iterates through the json array.
+						{
+							//col = GetRandomCol(); //Gets a random colour from RGB values.
+							//htm += '<tr style="background-color:rgb('+col[0]+', '+col[1]+', '+col[2]+');">'; //Assigns colour to a row.
+							htm += "<tr>";
+							htm +="<td>"+json[i].userID+"</td>";
+							htm +="<td>"+json[i].name+"</td>";
+							htm +="<td>"+json[i].jobTitle+"</td>";		
+							htm +="<td>"+json[i].departmet+"</td>";
+							htm +="<td>"+json[i].telephoneNumber+"</td>";
+							htm += "</tr>";							
+						}
+					}
+					else
+					{
+						var htm = "Sorry, no results found..."; //If no results, display error.
+					}
+					$("#resultDiv").html(htm) //Appends HTML to the results div.
+				},'json');
+			}
 		</script>
 		<link rel="stylesheet" href="{{ asset('css/Styles.css') }}" type="text/css">
 	</head>
@@ -18,6 +47,7 @@
 			<label id="dtLabel" style="font-size:26px; position:absolute; right:0;"></label>
 			<h2 id="headerId" style="style=display:inline-block; font-size:30px;">Personnel</h2>	
 		</div>
+		<!--
 		<table id="tbl" border="1">
 			<tr>
 				<th>ID</th>
@@ -110,7 +140,7 @@
 				<td>Analysis</td>
 				<td>01509-217947</td>
 			</td>
-		</table>
+		</table> -->
 		<div align="center">
 			<p>
 				Search:<input type="text"></input>		
