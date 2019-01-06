@@ -43,7 +43,7 @@ function GoToNewPage(page)
 {
 	location.replace(page);
 }
-
+/*
 function GetRows()
 {
 	var rows = $('#tbl tr').length;
@@ -70,3 +70,4 @@ function Delete()
 		selected = 0;
 	}
 }
+*/
