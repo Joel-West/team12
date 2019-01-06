@@ -32,7 +32,7 @@
 					{
 						var htm = "Sorry, no results found..."; //If no results, display error.
 					}
-					$("#resultDiv").html(htm) //Appends HTML to the results div.
+					$("#tableDiv").html(htm) //Appends HTML to the results div.
 				},'json');
 			}
 		</script>
@@ -47,6 +47,7 @@
 			<label id="dtLabel" style="font-size:26px; position:absolute; right:0;"></label>
 			<h2 id="headerId" style="style=display:inline-block; font-size:30px;">Personnel</h2>	
 		</div>
+		<div id="tableDiv"></div>
 		<!--
 		<table id="tbl" border="1">
 			<tr>

@@ -43,7 +43,7 @@
 					{
 						var htm = "Sorry, no results found..."; //If no results, display error.
 					}
-					$("#resultDiv").html(htm) //Appends HTML to the results div.
+					$("#tableDiv").html(htm) //Appends HTML to the results div.
 				},'json');
 			}
 		</script>
@@ -60,7 +60,7 @@
 			Save Password: <input type="checkbox" id="checkSave" />
 			<!-- <input type="submit" value="You shouldn't be able to see me..." style="visibility:hidden"/> INVISIBLE SUBMIT BUTTON SO THAT SUBMIT FUNCTION WORKS, DO NOT TOUCH ME-->
 		</div>
-		<div id="resultDiv"></div>
+		<div id="tableDiv"></div>
 	</form>
 		<input type="button" id="btntest" value="Test" onclick="RunQuery()"/>
 	</body>
