@@ -17,12 +17,6 @@
 				WriteTime();
 			}
 			
-			function GetRows()
-			{
-				var rows = $('#tbl tr').length;
-				return rows;
-			}
-			
 			function AddNewRow()
 			{
 				if (document.getElementById("txtSerial").value == false || document.getElementById("txtType").value == false || document.getElementById("txtMake").value == false)
@@ -51,27 +45,6 @@
 			}
 			
 			var selected = 0;
-			
-			function Delete()
-			{
-				if (selected == 0)
-				{
-					return;
-				}
-				if (confirm("Delete selected rows?"))
-				{
-					rows = GetRows();
-					for (i = rows-1; i > 0; i--)
-					{
-						if (document.getElementById("tbl").rows[i].style.backgroundColor != 'rgb(159, 255, 48)')
-						{
-							console.log("deleting t" + i);
-							document.getElementById("tbl").deleteRow(i);
-						}
-					}
-					selected = 0;
-				}
-			}
 			
 			$(document).ready(function()
 			{

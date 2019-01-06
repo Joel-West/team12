@@ -19,12 +19,6 @@
 				WriteTime();
 			}
 			
-			function GetRows()
-			{
-				var rows = $('#tbl tr').length;
-				return rows;
-			}
-			
 			function RunQuery()
 			{
 				sql = "SELECT * FROM tblPersonnel;";
@@ -55,27 +49,6 @@
 			}
 			
 			var selected = 0;
-			
-			function Delete()
-			{
-				if (selected == 0)
-				{
-					return;
-				}
-				if (confirm("Delete selected rows?"))
-				{
-					rows = GetRows();
-					for (i = rows-1; i > 0; i--)
-					{
-						if (document.getElementById("tbl").rows[i].style.backgroundColor != 'rgb(159, 255, 48)')
-						{
-							console.log("deleting t" + i);
-							document.getElementById("tbl").deleteRow(i);
-						}
-					}
-					selected = 0;
-				}
-			}
 			
 			function AddNewRow()
 			{
@@ -112,7 +85,6 @@
 			{
 				$("#tbl").on('click','tr',function(event)
 				{
-					alert("hi");
 					if ($(this).attr('id') != 't0')
 					{
 						if ($(this).css('background-color') == 'rgb(159, 255, 48)')
