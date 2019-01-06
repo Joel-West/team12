@@ -5,7 +5,19 @@
 		<title>HelpDesk_PersonnelList</title>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 		<script type="text/javascript" src="{{ URL::asset('js/ExtraCode.js') }}"></script>
-		<script type="text/javascript">
+		<script type="text/javascript">	
+			function Load()
+			{
+				RunQuery();
+				rows = GetRows();
+				for (i = 0; i < rows; i++)
+				{
+					document.getElementById("tbl").rows[i].style.backgroundColor = '#9FFF30';
+					document.getElementById("tbl").rows[i].id = "t" + i;
+				}
+				WriteTime();
+			}
+			
 			function RunQuery()
 			{
 				//sql = "SELECT * FROM tblUser WHERE username = '" + document.getElementById("Username").value + "'";
@@ -14,7 +26,7 @@
 				{
 					if(json && json[0]) //If result of php was a json array		
 					{				
-						var htm = "<table id='tbl' border='1'><tr><th>userID</th><th>name</th><th>Job Title</th><th>Department</th><th>Telephone Number</th>"; //Appending column headers.
+						var htm = "<table id='tbl' border='1'><tr><th>userID</th><th>Name</th><th>Job Title</th><th>Department</th><th>Telephone Number</th>"; //Appending column headers.
 						for (i = 0; i<json.length; i++) //Iterates through the json array.
 						{
 							//col = GetRandomCol(); //Gets a random colour from RGB values.
@@ -35,10 +47,43 @@
 					$("#tableDiv").html(htm) //Appends HTML to the results div.
 				},'json');
 			}
+			
+			var selected = 0;
+			
+			function AddNewRow()
+			{
+				if (document.getElementById("txtName").value == false || document.getElementById("txtJobTitle").value == false || document.getElementById("txtDepartment").value == false || document.getElementById("txtTelephoneNumber").value == false)
+				{
+					alert("Invalid input");
+					return;
+				}
+				rows = GetRows();
+				table = document.getElementById("tbl");
+				row = table.insertRow(rows);
+				cell0 = row.insertCell(0);
+				cell0.innerHTML = "";
+				cell1 = row.insertCell(0);
+				cell1.innerHTML = document.getElementById("txtName").value;
+				cell2 = row.insertCell(0);
+				cell2.innerHTML = document.getElementById("txtJobTitle).value;
+				cell3 = row.insertCell(0);
+				cell3.innerHTML = document.getElementById("txtDepartment").value;
+				cell4 = row.insertCell(0);
+				cell4.innerHTML = document.getElementById("txtTelephoneNumber").value;
+				document.getElementById("tbl").rows[rows].id = "t" + document.getElementById("tbl").rows[rows-1].id;
+				document.getElementById("tbl").rows[rows].style.backgroundColor = '#9FFF30';
+				alert("New equipment added.");
+			}
+			
+			function SaveChanges(page)
+			{
+				alert("Changes saved.");
+				GoToNewPage(page);
+			}
 		</script>
 		<link rel="stylesheet" href="{{ asset('css/Styles.css') }}" type="text/css">
 	</head>
-	<body onload="RunQuery()">
+	<body onload="Load()">
 	<form id="mainform" name="mainform" method="post" action="">
 		<input type='hidden' name="Username" value="<?php echo $_POST['Username']; ?>" />
 		@csrf
@@ -47,106 +92,18 @@
 			<label id="dtLabel" style="font-size:26px; position:absolute; right:0;"></label>
 			<h2 id="headerId" style="style=display:inline-block; font-size:30px;">Personnel</h2>	
 		</div>
-		<div id="tableDiv"></div>
-		<!--
-		<table id="tbl" border="1">
-			<tr>
-				<th>ID</th>
-				<th>Name</th>
-				<th>Job Title</th>
-				<th>Department</th>
-				<th>Telephone Number</th>
-			</tr>
-			<tr>
-				<td>42512</td>
-				<td>Alice Newman</td>
-				<td>Helpdesk operator</td>
-				<td>Support</td>
-				<td>01509-405414</td>
-			</tr>
-			<tr>
-				<td>13413</td>
-				<td>Sam Sheppard</td>
-				<td>Helpdesk operator</td>
-				<td>Support</td>
-				<td>01509-998487</td>
-			</tr>
-			<tr>
-				<td>56724</td>
-				<td>Sarah Knight</td>
-				<td>Junior software developer</td>
-				<td>Development</td>
-				<td>01509-672014</td>
-			</tr>
-			<tr>
-				<td>19836</td>
-				<td>Ryan Watts</td>
-				<td>Software analyst</td>
-				<td>Development</td>
-				<td>01509-371574</td>
-			</tr>
-			<tr>
-				<td>76521</td>
-				<td>Jim Flynn</td>
-				<td>Product design intern</td>
-				<td>Product design</td>
-				<td>01509-405137</td>
-			</tr>
-			<tr>
-				<td>65427</td>
-				<td>Jenny Holland</td>
-				<td>Senior recruitment officer</td>
-				<td>Human resources</td>
-				<td>01509-796566</td>
-			</tr>
-			<tr>
-				<td>99341</td>
-				<td>Ellie Morgan</td>
-				<td>Senior hardware designer</td>
-				<td>Product design</td>
-				<td>01509-826960</td>
-			</tr>
-			<tr>
-				<td>23753</td>
-				<td>Greg Howells</td>
-				<td>Senior software developer</td>
-				<td>Development</td>
-				<td>01509-478799</td>
-			</tr>
-			<tr>
-				<td>76251</td>
-				<td>Bert Linux</td>
-				<td>Hardware support specialist</td>
-				<td>Support</td>
-				<td>01509-545608</td>
-			</tr>
-			<tr>
-				<td>65672</td>
-				<td>Clara Mac</td>
-				<td>Software support specialist</td>
-				<td>Support</td>
-				<td>01509-046241</td>
-			</tr>
-			<tr>
-				<td>99345</td>
-				<td>Nick Windows</td>
-				<td>Networks support specialist</td>
-				<td>Support</td>
-				<td>01509-777294</td>
-			</tr>
-			<tr>
-				<td>53716</td>
-				<td>Jean Connor</td>
-				<td>Senior analyist</td>
-				<td>Analysis</td>
-				<td>01509-217947</td>
-			</td>
-		</table> -->
+		<div id="tableDiv"></div>	
 		<div align="center">
 			<p>
 				Search:<input type="text"></input>		
 				<input type="button" value="Submit"></input>
-			</p>	
+			</p>
+			<input type="button" value="Delete Selected Items" id="del" style="font-size:16px;" onclick="Delete()"/><br/><br/>
+			Name:<input id="txtName" type="text"></input><br/>
+			Job Title:<input id="txtJobTitle" type="text"></input><br/>
+			Department:<input id="txtDepartment" type="text"></input><br/>
+			Telephone Number:<input id="txtTelephoneNumber" type="text"></input><br/>
+			<input type="button" value="Add New Item" style="font-size:16px;" onclick="AddNewRow()"></input>	
 		</div>
 	</form>
 	</body>
