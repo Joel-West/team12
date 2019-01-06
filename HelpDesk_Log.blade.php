@@ -21,8 +21,8 @@
 			}
 			function RunQuery()
 			{
-				sql = "SELECT * FROM tblUser WHERE username = '" + document.getElementById("Username").value + "'";
-				//sql = "SELECT * FROM tblUser;";
+				//sql = "SELECT * FROM tblUser WHERE username = '" + document.getElementById("Username").value + "'";
+				sql = "SELECT * FROM tblUser;";
 				$.get("Query.php", {'sql':sql},function(json) //Calls query.php, which handles the SQL query and sorting of result data.
 				{
 					if(json && json[0]) //If result of php was a json array		
@@ -35,7 +35,8 @@
 							htm +="<td>"+json[i].userID+"</td>";
 							htm +="<td>"+json[i].username+"</td>";
 							htm +="<td>"+json[i].password+"</td>";		
-							htm +="<td>"+json[i].admin+"</td>";								
+							htm +="<td>"+json[i].admin+"</td>";
+							htm += "</tr>";
 						}
 					}
 					else
