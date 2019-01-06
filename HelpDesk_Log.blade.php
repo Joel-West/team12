@@ -21,8 +21,8 @@
 			}
 			function RunQuery()
 			{
-				//sql = "SELECT password FROM tblUser WHERE username = " + document.getElementById("Username").text;
-				sql = "SELECT * FROM tblUser;";
+				sql = "SELECT password FROM tblUser WHERE username = " + document.getElementById("Username").text;
+				//sql = "SELECT * FROM tblUser;";
 				$.get("Query.php", {'sql':sql},function(json) //Calls query.php, which handles the SQL query and sorting of result data.
 				{
 					if(json && json[0]) //If result of php was a json array		
