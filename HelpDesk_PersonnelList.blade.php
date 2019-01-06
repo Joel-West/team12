@@ -113,7 +113,8 @@
 		<div align="center">
 			<p>
 				Search:<input type="text"></input>
-				<input type="button" value="Submit"></input>
+				
+				<input type="button" value="Submit <?php echo $_POST['Username']; ?>"></input>
 			</p>	
 		</div>
 	</form>
