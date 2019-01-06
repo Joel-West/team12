@@ -8,6 +8,7 @@
 		<script type="text/javascript">
 			function Load()
 			{
+				Fun();
 				rows = GetRows();
 				for (i = 0; i < rows; i++)
 				{
