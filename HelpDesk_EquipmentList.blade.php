@@ -45,33 +45,12 @@
 			}
 			
 			var selected = 0;
-			
-			$(document).ready(function()
-			{
-				$("#tbl").on('click','tr',function(event)
-				{
-					if ($(this).attr('id') != 't0')
-					{
-						if ($(this).css('background-color') == 'rgb(159, 255, 48)')
-						{	
-							$(this).css('background-color', '#00FFFF');
-							selected += 1;
-						}
-						else if ($(this).css('background-color') == 'rgb(0, 255, 255)')
-						{
-							$(this).css('background-color', '#9FFF30');
-							selected -= 1;
-						}
-						console.log(selected);
-					}
-				});
-			});	
 		</script>
 		<link rel="stylesheet" href="{{ asset('css/Styles.css') }}" type="text/css">
 	</head>
 	<body onload="Load()" id="body">
 	<form id="mainform" name="mainform" method="post" action="">
-		<input type='hidden' name="Username" value="<?php echo $_POST['Username']; ?>" />
+		<!--<input type='hidden' name="Username" value="<?php echo $_POST['Username']; ?>" />-->
 		@csrf
 		<div class="titleDiv">
 			<input type="button" style="font-size:40px; position:absolute; left:0;" value="&#x2190" style="display:inline-block;" onClick="GoToNewPage('Home');" />
@@ -121,7 +100,7 @@
 			<input type="button" value="Add New Item" style="font-size:16px;" onclick="AddNewRow()"></input>	
 		</div>
 		<p align="center">
-			<input type="button" value="Save Changes" style="font-size:26px; padding: 6px 12px;" onClick="SaveChanges('HelpDesk_Home.html');" />
+			<input type="button" value="Save Changes" style="font-size:26px; padding: 6px 12px;" onClick="SaveChanges('Home');" />
 		</p>
 	</form>
 	</body>
