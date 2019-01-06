@@ -43,7 +43,7 @@ function GoToNewPage(page)
 {
 	location.replace(page);
 }
-/*
+
 function GetRows()
 {
 	var rows = $('#tbl tr').length;
@@ -70,4 +70,24 @@ function Delete()
 		selected = 0;
 	}
 }
-*/
+
+$(document).ready(function()
+{
+	$("#tbl").on('click','tr',function(event)
+	{
+		if ($(this).attr('id') != 't0')
+		{
+			if ($(this).css('background-color') == 'rgb(159, 255, 48)')
+			{	
+				$(this).css('background-color', '#00FFFF');
+				selected += 1;
+			}
+			else if ($(this).css('background-color') == 'rgb(0, 255, 255)')
+			{
+				$(this).css('background-color', '#9FFF30');
+				selected -= 1;
+			}
+			console.log(selected);
+		}
+	});
+});
