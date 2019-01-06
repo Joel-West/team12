@@ -14,7 +14,7 @@
 				{
 					if(json && json[0]) //If result of php was a json array		
 					{				
-						var htm = "<table id="tbl" border="1">><tr><td>userID</td><td>name</td><td>Job Title</td><td>Department</td><td>Telephone Number</td>"; //Appending column headers.
+						var htm = "<table id='tbl' border='1'>><tr><td>userID</td><td>name</td><td>Job Title</td><td>Department</td><td>Telephone Number</td>"; //Appending column headers.
 						for (i = 0; i<json.length; i++) //Iterates through the json array.
 						{
 							//col = GetRandomCol(); //Gets a random colour from RGB values.
@@ -38,7 +38,7 @@
 		</script>
 		<link rel="stylesheet" href="{{ asset('css/Styles.css') }}" type="text/css">
 	</head>
-	<body onload="WriteTime()">
+	<body onload="RunQuery()">
 	<form id="mainform" name="mainform" method="post" action="">
 		<input type='hidden' name="Username" value="<?php echo $_POST['Username']; ?>" />
 		@csrf
