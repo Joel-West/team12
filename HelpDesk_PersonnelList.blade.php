@@ -89,7 +89,7 @@
 				table = document.getElementById("tbl");
 				row = table.insertRow(rows);
 				cell0 = row.insertCell(0);
-				cell0.innerHTML = "";
+				cell0.innerHTML = "g";
 				cell1 = row.insertCell(0);
 				cell1.innerHTML = document.getElementById("txtName").value;
 				cell2 = row.insertCell(0);
