@@ -90,13 +90,13 @@
 				row = table.insertRow(rows);
 				cell0 = row.insertCell(0);
 				cell0.innerHTML = "g";
-				cell1 = row.insertCell(0);
+				cell1 = row.insertCell(1);
 				cell1.innerHTML = document.getElementById("txtName").value;
-				cell2 = row.insertCell(0);
+				cell2 = row.insertCell(2);
 				cell2.innerHTML = document.getElementById("txtJobTitle").value;
-				cell3 = row.insertCell(0);
+				cell3 = row.insertCell(3);
 				cell3.innerHTML = document.getElementById("txtDepartment").value;
-				cell4 = row.insertCell(0);
+				cell4 = row.insertCell(4);
 				cell4.innerHTML = document.getElementById("txtTelephoneNumber").value;
 				document.getElementById("tbl").rows[rows].id = "t" + document.getElementById("tbl").rows[rows-1].id;
 				document.getElementById("tbl").rows[rows].style.backgroundColor = '#9FFF30';
