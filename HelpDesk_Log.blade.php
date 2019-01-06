@@ -5,7 +5,15 @@
 		<title>HelpDesk_LogIn</title>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 		<script type="text/javascript" src="{{ URL::asset('js/ExtraCode.js') }}"></script>
-		<script type="text/javascript">			
+		<script type="text/javascript">
+			document.getElementById("mainform").addEventListener("keyup", function(event)
+			{
+				event.preventDefault();
+				if (event.keyCode === 13)
+				{
+					document.getElementById("btnsubmit").click();
+				}
+			});
 			function Validate()
 			{
 				var Username=document.getElementById("Username").value;

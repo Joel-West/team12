@@ -50,6 +50,7 @@
 	</head>
 	<body onload="Load()" id="body">
 	<form id="mainform" name="mainform" method="post" action="">
+		<input type='hidden' name="Username" value="" />
 		<!--<input type='hidden' name="Username" value="<?php echo $_POST['Username']; ?>" />-->
 		@csrf
 		<div class="titleDiv">
