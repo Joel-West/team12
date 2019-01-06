@@ -8,7 +8,7 @@
 		<script type="text/javascript">
 			function Load()
 			{
-				//Fun();
+				Fun();
 				WriteTime();
 			}			
 		</script>
@@ -45,7 +45,7 @@
 			<input class="mainButton" type="button" value="View Personnel" onClick="GoToNewPage('PersonnelList');" />
 			<input class="mainButton" type="button" value="View/Edit Equipment" onClick="GoToNewPage('EquipmentList');" />
 		</div>
-		<!--Fun mode (don't click if you have epilepsy...): <input id="checkFun" type="checkbox" onclick="Fun()"/>-->
+		Fun mode (don't click if you have epilepsy...): <input id="checkFun" type="checkbox" onclick="Fun()"/>
 	</form>
 	</body>
 </html>
