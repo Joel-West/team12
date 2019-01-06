@@ -12,7 +12,7 @@
 				document.getElementById("mainform").action = "http://35.204.60.31/" + page;
 				document.getElementById("mainform").submit();
 			}
-			
+			/*
 			$(document).ready(function () {
     resize_to_fit();
 });
@@ -24,7 +24,7 @@ function resize_to_fit(){
     if($('div#outer div').height() >= $('div#outer').height()){
         resize_to_fit();
     }
-}
+}*/
 		</script>
 		<link rel="stylesheet" href="{{ asset('css/Styles.css') }}" type="text/css">
 	</head>
@@ -37,6 +37,7 @@ function resize_to_fit(){
 			<label id="dtLabel" style="font-size:26px; position:absolute; right:0;"></label>
 			<h2 id="headerId" style="style=display:inline-block; font-size:30px;">Problem Details</h2>	
 		</div>
+		<div id="tableDiv">
 		<table id="tbl" border="1">
 			<tr>
 				<th>Problem Number</th>
@@ -115,6 +116,7 @@ function resize_to_fit(){
 				<td><div contenteditable><br/></div></td>
 			</tr>
 		</table>
+		</div>	
 		    <!--<div id="outer" style="width:200px; height:20px; border:1px solid red;">
 <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mollis dui felis, vel vehicula tortor cursus nec</div>
 </div>-->

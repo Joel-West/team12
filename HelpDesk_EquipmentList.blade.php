@@ -17,12 +17,6 @@
 				WriteTime();
 			}
 			
-			function GetRows()
-			{
-				var rows = $('#tbl tr').length;
-				return rows;
-			}
-			
 			function AddNewRow()
 			{
 				if (document.getElementById("txtSerial").value == false || document.getElementById("txtType").value == false || document.getElementById("txtMake").value == false)
@@ -51,48 +45,6 @@
 			}
 			
 			var selected = 0;
-			
-			function Delete()
-			{
-				if (selected == 0)
-				{
-					return;
-				}
-				if (confirm("Delete selected rows?"))
-				{
-					rows = GetRows();
-					for (i = rows-1; i > 0; i--)
-					{
-						if (document.getElementById("tbl").rows[i].style.backgroundColor != 'rgb(159, 255, 48)')
-						{
-							console.log("deleting t" + i);
-							document.getElementById("tbl").deleteRow(i);
-						}
-					}
-					selected = 0;
-				}
-			}
-			
-			$(document).ready(function()
-			{
-				$("#tbl").on('click','tr',function(event)
-				{
-					if ($(this).attr('id') != 't0')
-					{
-						if ($(this).css('background-color') == 'rgb(159, 255, 48)')
-						{	
-							$(this).css('background-color', '#00FFFF');
-							selected += 1;
-						}
-						else if ($(this).css('background-color') == 'rgb(0, 255, 255)')
-						{
-							$(this).css('background-color', '#9FFF30');
-							selected -= 1;
-						}
-						console.log(selected);
-					}
-				});
-			});	
 		</script>
 		<link rel="stylesheet" href="{{ asset('css/Styles.css') }}" type="text/css">
 	</head>
