@@ -5,7 +5,8 @@
 		<title>HelpDesk_PersonnelList</title>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 		<script type="text/javascript" src="{{ URL::asset('js/ExtraCode.js') }}"></script>
-		<script type="text/javascript">	
+		<script type="text/javascript">
+		
 			function Load()
 			{
 				RunQuery();
@@ -18,6 +19,12 @@
 				WriteTime();
 			}
 			
+			function GetRows()
+			{
+				var rows = $('#tbl tr').length;
+				return rows;
+			}
+			
 			function RunQuery()
 			{
 				//sql = "SELECT * FROM tblUser WHERE username = '" + document.getElementById("Username").value + "'";
@@ -26,7 +33,7 @@
 				{
 					if(json && json[0]) //If result of php was a json array		
 					{				
-						var htm = "<table id='tbl' border='1'><tr><th>ID</th><th>Name</th><th>Job Title</th><th>Department</th><th>Telephone Number</th>"; //Appending column headers.
+						var htm = "<table id='tbl' border='1'><tr><th>userID</th><th>Name</th><th>Job Title</th><th>Department</th><th>Telephone Number</th>"; //Appending column headers.
 						for (i = 0; i<json.length; i++) //Iterates through the json array.
 						{
 							//col = GetRandomCol(); //Gets a random colour from RGB values.
@@ -50,6 +57,27 @@
 			
 			var selected = 0;
 			
+			function Delete()
+			{
+				if (selected == 0)
+				{
+					return;
+				}
+				if (confirm("Delete selected rows?"))
+				{
+					rows = GetRows();
+					for (i = rows-1; i > 0; i--)
+					{
+						if (document.getElementById("tbl").rows[i].style.backgroundColor != 'rgb(159, 255, 48)')
+						{
+							console.log("deleting t" + i);
+							document.getElementById("tbl").deleteRow(i);
+						}
+					}
+					selected = 0;
+				}
+			}
+			
 			function AddNewRow()
 			{
 				if (document.getElementById("txtName").value == false || document.getElementById("txtJobTitle").value == false || document.getElementById("txtDepartment").value == false || document.getElementById("txtTelephoneNumber").value == false)
@@ -65,7 +93,7 @@
 				cell1 = row.insertCell(0);
 				cell1.innerHTML = document.getElementById("txtName").value;
 				cell2 = row.insertCell(0);
-				cell2.innerHTML = document.getElementById("txtJobTitle").value;
+				cell2.innerHTML = document.getElementById("txtJobTitle).value;
 				cell3 = row.insertCell(0);
 				cell3.innerHTML = document.getElementById("txtDepartment").value;
 				cell4 = row.insertCell(0);
@@ -80,6 +108,27 @@
 				alert("Changes saved.");
 				GoToNewPage(page);
 			}
+			
+			$(document).ready(function()
+			{
+				$("#tbl").on('click','tr',function(event)
+				{
+					if ($(this).attr('id') != 't0')
+					{
+						if ($(this).css('background-color') == 'rgb(159, 255, 48)')
+						{	
+							$(this).css('background-color', '#00FFFF');
+							selected += 1;
+						}
+						else if ($(this).css('background-color') == 'rgb(0, 255, 255)')
+						{
+							$(this).css('background-color', '#9FFF30');
+							selected -= 1;
+						}
+						console.log(selected);
+					}
+				});
+			});	
 		</script>
 		<link rel="stylesheet" href="{{ asset('css/Styles.css') }}" type="text/css">
 	</head>
