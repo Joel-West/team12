@@ -12,6 +12,7 @@
 				document.getElementById("mainform").action = "http://35.204.60.31/" + page;
 				document.getElementById("mainform").submit();
 			}
+			/*
 			$(document).ready(function () {
     resize_to_fit();
 });
@@ -24,6 +25,7 @@ function resize_to_fit(){
         resize_to_fit();
     }
 }
+*/
 		</script>
 		<link rel="stylesheet" href="{{ asset('css/Styles.css') }}" type="text/css">
 	</head>
