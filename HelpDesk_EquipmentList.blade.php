@@ -35,9 +35,9 @@
 				row = table.insertRow(rows);
 				cell0 = row.insertCell(0);
 				cell0.innerHTML = document.getElementById("txtSerial").value;
-				cell1 = row.insertCell(0);
+				cell1 = row.insertCell(1);
 				cell1.innerHTML = document.getElementById("txtType").value;
-				cell2 = row.insertCell(0);
+				cell2 = row.insertCell(2);
 				cell2.innerHTML = document.getElementById("txtMake").value;
 				document.getElementById("tbl").rows[rows].id = "t" + document.getElementById("tbl").rows[rows-1].id;
 				document.getElementById("tbl").rows[rows].style.backgroundColor = '#9FFF30';
