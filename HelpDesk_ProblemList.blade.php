@@ -29,6 +29,7 @@ function resize_to_fit(){
 	</head>
 	<body onload="WriteTime()">
 	<form id="mainform" name="mainform" method="post" action="">
+		<input type='hidden' name="Username" value="<?php echo $_POST['Username']; ?>" />
 		@csrf
 		<div class="titleDiv">
 			<input type="button" style="font-size:40px; position:absolute; left:0;" value="&#x2190" style="display:inline-block;" onClick="GoToNewPage('Home');" />
