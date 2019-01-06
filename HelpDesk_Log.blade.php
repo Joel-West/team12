@@ -6,14 +6,14 @@
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 		<script type="text/javascript" src="{{ URL::asset('js/ExtraCode.js') }}"></script>
 		<script type="text/javascript">
-			document.addEventListener("keyup", function(event)
-			{
-				event.preventDefault();
-				if (event.keyCode === 13)
+			document.onkeydown=function(evt){
+				var keyCode = evt ? (evt.which ? evt.which : evt.keyCode) : event.keyCode;
+				if(keyCode == 13)
 				{
-					document.getElementById("btnsubmit").click();
+					//your function call here
+					document.Validate();
 				}
-			});
+			}
 			function Validate()
 			{
 				var Username=document.getElementById("Username").value;
