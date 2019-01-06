@@ -65,7 +65,7 @@
 				cell1 = row.insertCell(0);
 				cell1.innerHTML = document.getElementById("txtName").value;
 				cell2 = row.insertCell(0);
-				cell2.innerHTML = document.getElementById("txtJobTitle).value;
+				cell2.innerHTML = document.getElementById("txtJobTitle").value;
 				cell3 = row.insertCell(0);
 				cell3.innerHTML = document.getElementById("txtDepartment").value;
 				cell4 = row.insertCell(0);
