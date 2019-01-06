@@ -27,7 +27,6 @@
 			
 			function RunQuery()
 			{
-				//sql = "SELECT * FROM tblUser WHERE username = '" + document.getElementById("Username").value + "'";
 				sql = "SELECT * FROM tblPersonnel;";
 				$.get("Query.php", {'sql':sql},function(json) //Calls query.php, which handles the SQL query and sorting of result data.
 				{
@@ -113,6 +112,7 @@
 			{
 				$("#tbl").on('click','tr',function(event)
 				{
+					alert("hi");
 					if ($(this).attr('id') != 't0')
 					{
 						if ($(this).css('background-color') == 'rgb(159, 255, 48)')
