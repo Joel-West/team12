@@ -5,11 +5,16 @@
 		<title>HelpDesk_PersonnelList</title>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 		<script type="text/javascript" src="{{ URL::asset('js/ExtraCode.js') }}"></script>
-		<script type="text/javascript">
-		
+		<script type="text/javascript">	
 			function Load()
 			{
 				RunQuery();
+				setTimeout(function(){rows = GetRows();}, 10);
+				for (i = 0; i < rows; i++)
+				{
+					//document.getElementById("tbl").rows[i].style.backgroundColor = '#9FFF30';
+					document.getElementById("tbl").rows[i].id = "t" + i;
+				}
 				WriteTime();
 			}
 			
@@ -40,12 +45,6 @@
 					}
 					$("#tableDiv").html(htm) //Appends HTML to the results div.
 				},'json');
-				rows = GetRows();
-				for (i = 0; i < rows; i++)
-				{
-					//document.getElementById("tbl").rows[i].style.backgroundColor = '#9FFF30';
-					document.getElementById("tbl").rows[i].id = "t" + i;
-				}
 			}
 			
 			var selected = 0;
