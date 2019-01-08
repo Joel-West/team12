@@ -13,7 +13,7 @@
 				rows = GetRows();
 				for (i = 0; i < rows; i++)
 				{
-					document.getElementById("tbl").rows[i].style.backgroundColor = '#9FFF30';
+					document.getElementById("tbl").rows[i].style.backgroundColor = '#111111';
 					document.getElementById("tbl").rows[i].id = "t" + i;
 				}
 				WriteTime();
@@ -61,7 +61,7 @@
 				table = document.getElementById("tbl");
 				row = table.insertRow(rows);
 				cell0 = row.insertCell(0);
-				cell0.innerHTML = "g";
+				cell0.innerHTML = "-";
 				cell1 = row.insertCell(1);
 				cell1.innerHTML = document.getElementById("txtName").value;
 				cell2 = row.insertCell(2);
@@ -105,6 +105,9 @@
 			Telephone Number:<input id="txtTelephoneNumber" type="text"></input><br/>
 			<input type="button" value="Add New Item" style="font-size:16px;" onclick="AddNewRow()"></input>	
 		</div>
+		<p align="center">
+			<input type="button" value="Save Changes" style="font-size:26px; padding: 6px 12px;" onClick="SaveChanges('Home');" />
+		</p>
 	</form>
 	</body>
 </html>
