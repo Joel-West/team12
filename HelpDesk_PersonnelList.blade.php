@@ -80,6 +80,12 @@
 				alert("Changes saved.");
 				GoToNewPage(page);
 			}
+			
+			function Test()
+			{
+				var rows = document.getElementById('tbl').getElementsByTagName("tr").length;
+				console.log("Rows = " + rows);
+			}
 		</script>
 		<link rel="stylesheet" href="{{ asset('css/Styles.css') }}" type="text/css">
 	</head>
@@ -108,7 +114,7 @@
 		<p align="center">
 			<input type="button" value="Save Changes" style="font-size:26px; padding: 6px 12px;" onClick="SaveChanges('Home');" />
 		</p>
-		<input type="button" value="Test" onclick="GetRows()"
+		<input type="button" value="Test" onclick="Test()"
 	</form>
 	</body>
 </html>
