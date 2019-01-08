@@ -73,24 +73,21 @@ function Delete()
 	}
 }
 
-$(document).ready(function()
+$("#tbl").on('click','tr',function(event)
 {
-	$("#tbl").on('click','tr',function(event)
+	console.log("Clicked!");
+	if ($(this).attr('id') != 't0')
 	{
-		console.log("Clicked!");
-		if ($(this).attr('id') != 't0')
-		{
-			if ($(this).css('background-color') == 'rgb(159, 255, 48)')
-			{	
-				$(this).css('background-color', '#00FFFF');
-				selected += 1;
-			}
-			else if ($(this).css('background-color') == 'rgb(0, 255, 255)')
-			{
-				$(this).css('background-color', '#9FFF30');
-				selected -= 1;
-			}
-			console.log(selected);
+		if ($(this).css('background-color') == 'rgb(159, 255, 48)')
+		{	
+			$(this).css('background-color', '#00FFFF');
+			selected += 1;
 		}
-	});
+		else if ($(this).css('background-color') == 'rgb(0, 255, 255)')
+		{
+			$(this).css('background-color', '#9FFF30');
+			selected -= 1;
+		}
+		console.log(selected);
+	}
 });
