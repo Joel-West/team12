@@ -41,7 +41,6 @@
 					$("#tableDiv").html(htm) //Appends HTML to the results div.
 				},'json');
 				rows = GetRows();
-				console.log("rows = " + rows);
 				for (i = 0; i < rows; i++)
 				{
 					//document.getElementById("tbl").rows[i].style.backgroundColor = '#9FFF30';
@@ -109,6 +108,7 @@
 		<p align="center">
 			<input type="button" value="Save Changes" style="font-size:26px; padding: 6px 12px;" onClick="SaveChanges('Home');" />
 		</p>
+		<input type="button" value="Test" onclick="GetRows()"
 	</form>
 	</body>
 </html>

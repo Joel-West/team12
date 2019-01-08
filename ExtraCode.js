@@ -48,6 +48,7 @@ function GoToNewPage(page)
 function GetRows()
 {
 	var rows = document.getElementById('tbl').getElementsByTagName("tr").length;
+	console.log("Rows = " + rows);
 	return rows;
 }
 
