@@ -59,7 +59,7 @@
 		</div>
 		<div id="tableDiv">
 			<table id="tbl" border="1">
-				<tr id="first">
+				<tr>
 					<th>Serial Number</th>
 					<th>Equipment Type</th>
 					<th>Equipment Make</th>

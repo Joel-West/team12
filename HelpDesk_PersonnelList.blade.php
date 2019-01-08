@@ -11,13 +11,6 @@
 			{
 				RunQuery();
 				WriteTime();
-				rows = GetRows();
-				console.log("rows = " + rows);
-				for (i = 0; i < rows; i++)
-				{
-					//document.getElementById("tbl").rows[i].style.backgroundColor = '#9FFF30';
-					document.getElementById("tbl").rows[i].id = "t" + i;
-				}
 			}
 			
 			function RunQuery()
@@ -27,7 +20,7 @@
 				{
 					if(json && json[0]) //If result of php was a json array		
 					{				
-						var htm = "<table id='tbl' border='1'><tr id='first'><th>userID</th><th>Name</th><th>Job Title</th><th>Department</th><th>Telephone Number</th></tr>"; //Appending column headers.
+						var htm = "<table id='tbl' border='1'><tr><th>userID</th><th>Name</th><th>Job Title</th><th>Department</th><th>Telephone Number</th></tr>"; //Appending column headers.
 						for (i = 0; i<json.length; i++) //Iterates through the json array.
 						{
 							//col = GetRandomCol(); //Gets a random colour from RGB values.
@@ -47,6 +40,13 @@
 					}
 					$("#tableDiv").html(htm) //Appends HTML to the results div.
 				},'json');
+				rows = GetRows();
+				console.log("rows = " + rows);
+				for (i = 0; i < rows; i++)
+				{
+					//document.getElementById("tbl").rows[i].style.backgroundColor = '#9FFF30';
+					document.getElementById("tbl").rows[i].id = "t" + i;
+				}
 			}
 			
 			var selected = 0;
