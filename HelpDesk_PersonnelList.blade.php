@@ -11,23 +11,6 @@
 				RunQuery();
 				WriteTime();
 			}
-			/*
-			$("body").on('DOMSubtreeModified', "#tableDiv", function()
-			{
-				console.log("DIV CHANGED!");
-				rows = GetRows();
-				for (i = 0; i < rows; i++)
-				{
-					//document.getElementById("tbl").rows[i].style.backgroundColor = '#9FFF30';
-					document.getElementById("tbl").rows[i].id = "t" + i;
-				}
-			});
-			*/
-			
-			jQuery('#tableDiv').bind('DOMSubtreeModified',function(event)
-			{
-				console.log("Something has changed inside div");
-			});
 			
 			function RunQuery()
 			{
@@ -36,12 +19,12 @@
 				{
 					if(json && json[0]) //If result of php was a json array		
 					{				
-						var htm = "<table id='tbl' border='1'><tr><th>userID</th><th>Name</th><th>Job Title</th><th>Department</th><th>Telephone Number</th></tr>"; //Appending column headers.
+						var htm = "<table id='tbl' border='1'><tr id='t0'><th>userID</th><th>Name</th><th>Job Title</th><th>Department</th><th>Telephone Number</th></tr>"; //Appending column headers.
 						for (i = 0; i<json.length; i++) //Iterates through the json array.
 						{
 							//col = GetRandomCol(); //Gets a random colour from RGB values.
 							//htm += '<tr style="background-color:rgb('+col[0]+', '+col[1]+', '+col[2]+');">'; //Assigns colour to a row.
-							htm += "<tr>";
+							htm += "<tr id='t" + i + "'>";
 							htm +="<td>"+json[i].userID+"</td>";
 							htm +="<td>"+json[i].name+"</td>";
 							htm +="<td>"+json[i].jobTitle+"</td>";		
