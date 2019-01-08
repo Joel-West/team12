@@ -14,7 +14,7 @@
 				console.log("rows = " + rows);
 				for (i = 0; i < rows; i++)
 				{
-					document.getElementById("tbl").rows[i].style.backgroundColor = '#111111';
+					//document.getElementById("tbl").rows[i].style.backgroundColor = '#9FFF30';
 					document.getElementById("tbl").rows[i].id = "t" + i;
 				}
 				WriteTime();
