@@ -16,7 +16,7 @@
 						//document.getElementById("tbl").rows[i].style.backgroundColor = '#9FFF30';
 						document.getElementById("tbl").rows[i].id = "t" + i;
 					}
-					}, 10);
+					}, 2000);
 				WriteTime();
 			}
 			
