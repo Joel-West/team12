@@ -16,6 +16,7 @@
 					document.getElementById("tbl").rows[i].id = "t" + i;
 				}
 				WriteTime();
+			}
 			
 			function RunQuery()
 			{
