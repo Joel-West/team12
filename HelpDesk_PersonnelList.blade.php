@@ -27,7 +27,7 @@
 				{
 					if(json && json[0]) //If result of php was a json array		
 					{				
-						var htm = "<table id='tbl' border='1'><tr><th>userID</th><th>Name</th><th>Job Title</th><th>Department</th><th>Telephone Number</th>"; //Appending column headers.
+						var htm = "<table id='tbl' border='1'><tr id='first'><th>userID</th><th>Name</th><th>Job Title</th><th>Department</th><th>Telephone Number</th></tr>"; //Appending column headers.
 						for (i = 0; i<json.length; i++) //Iterates through the json array.
 						{
 							//col = GetRandomCol(); //Gets a random colour from RGB values.
