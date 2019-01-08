@@ -11,6 +11,7 @@
 			{
 				RunQuery();
 				rows = GetRows();
+				console.log("rows = " + rows);
 				for (i = 0; i < rows; i++)
 				{
 					document.getElementById("tbl").rows[i].style.backgroundColor = '#111111';
