@@ -13,6 +13,7 @@
 			}
 			
 			$('.tableDiv').bind('DOMNodeInserted DOMNodeRemoved', function()
+			{
 				console.log("DIV CHANGED!");
 				rows = GetRows();
 				for (i = 0; i < rows; i++)
