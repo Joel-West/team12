@@ -9,16 +9,13 @@
 			function Load()
 			{
 				RunQuery();
-				setTimeout(function(){
-					rows = GetRows();
-					for (i = 0; i < rows; i++)
-					{
-						//document.getElementById("tbl").rows[i].style.backgroundColor = '#9FFF30';
-						document.getElementById("tbl").rows[i].id = "t" + i;
-					}
-					}, 20);
+				rows = GetRows();
+				for (i = 0; i < rows; i++)
+				{
+					//document.getElementById("tbl").rows[i].style.backgroundColor = '#9FFF30';
+					document.getElementById("tbl").rows[i].id = "t" + i;
+				}
 				WriteTime();
-			}
 			
 			function RunQuery()
 			{
@@ -45,10 +42,9 @@
 					{
 						var htm = "Sorry, no results found..."; //If no results, display error.
 					}
-					$("#tableDiv").html(htm) //Appends HTML to the results div.
+					document.getElementById("tableDiv").innerHTML = htm//Appends HTML to the results div.
 				},'json');
 			}
-			
 			var selected = 0;
 			
 			function AddNewRow()
