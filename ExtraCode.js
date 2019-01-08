@@ -76,7 +76,7 @@ function Delete()
 
 	$(document).on('click','tr',function(event)
 	{
-		console.log("Clicked!");
+		console.log($(this).attr('id'));
 		if ($(this).attr('id') != 't0')
 		{
 			if ($(this).css('background-color') == 'rgb(159, 255, 48)')
