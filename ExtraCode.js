@@ -73,7 +73,8 @@ function Delete()
 	}
 }
 
-	$(document).on("click", "tr", function(event) {
+
+	$(document).on('click','tr',function(event)
 	{
 		console.log("Clicked!");
 		if ($(this).attr('id') != 't0')
