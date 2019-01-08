@@ -80,13 +80,6 @@
 				alert("Changes saved.");
 				GoToNewPage(page);
 			}
-			
-			function GetRows()
-			{
-				var rows = document.getElementById('tbl').getElementsByTagName("tr").length;
-				console.log("Rows = " + rows);
-				return rows;
-			}
 		</script>
 		<link rel="stylesheet" href="{{ asset('css/Styles.css') }}" type="text/css">
 	</head>
