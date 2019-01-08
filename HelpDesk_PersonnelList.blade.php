@@ -9,12 +9,14 @@
 			function Load()
 			{
 				RunQuery();
-				setTimeout(function(){rows = GetRows();}, 10);
-				for (i = 0; i < rows; i++)
-				{
-					//document.getElementById("tbl").rows[i].style.backgroundColor = '#9FFF30';
-					document.getElementById("tbl").rows[i].id = "t" + i;
-				}
+				setTimeout(function(){
+					rows = GetRows();
+					for (i = 0; i < rows; i++)
+					{
+						//document.getElementById("tbl").rows[i].style.backgroundColor = '#9FFF30';
+						document.getElementById("tbl").rows[i].id = "t" + i;
+					}
+					}, 10);
 				WriteTime();
 			}
 			
