@@ -31,6 +31,20 @@ function GetRandomCol() //Function chooses 3 random values between 60 and 255, w
 	return x;
 }
 
+function WriteTime()
+{
+	var dt = new Date();
+	options = {day: 'numeric', month: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric'}
+	document.getElementById("dtLabel").innerHTML = dt.toLocaleDateString("en-UK", options);
+	var wait = setTimeout(WriteTime, 1000); //Checks the time every second.
+}
+
+function GoToNewPage(page)
+{
+	document.getElementById("mainform").action = "http://35.204.60.31/" + page;
+	document.getElementById("mainform").submit();
+}
+
 function GetRows()
 {
 	var rows = $('#tbl tr').length;
@@ -77,16 +91,4 @@ $(document).ready(function()
 			console.log(selected);
 		}
 	});
-});	
-
-function WriteTime()
-{
-	var dt = new Date();
-	options = {day: 'numeric', month: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric'}
-	document.getElementById("dtLabel").innerHTML = dt.toLocaleDateString("en-UK", options);
-	var wait = setTimeout(WriteTime, 1000); //Checks the time every second.
-}
-function GoToNewPage(page)
-{
-	location.replace(page);
-}
+});
