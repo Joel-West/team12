@@ -10,6 +10,7 @@
 			function Load()
 			{
 				RunQuery();
+				WriteTime();
 				rows = GetRows();
 				console.log("rows = " + rows);
 				for (i = 0; i < rows; i++)
@@ -17,7 +18,6 @@
 					//document.getElementById("tbl").rows[i].style.backgroundColor = '#9FFF30';
 					document.getElementById("tbl").rows[i].id = "t" + i;
 				}
-				WriteTime();
 			}
 			
 			function RunQuery()
