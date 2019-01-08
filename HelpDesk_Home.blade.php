@@ -9,8 +9,7 @@
 			function Load()
 			{
 				//Fun();
-				var c = "<?php echo $_POST['Username']; ?>";
-				document.getElementById("header").innerHTML += c + "!";
+
 				WriteTime();
 			}			
 		</script>
