@@ -11,7 +11,7 @@
 				RunQuery();
 				WriteTime();
 			}
-			
+			/*
 			$("body").on('DOMSubtreeModified', "#tableDiv", function()
 			{
 				console.log("DIV CHANGED!");
@@ -21,6 +21,12 @@
 					//document.getElementById("tbl").rows[i].style.backgroundColor = '#9FFF30';
 					document.getElementById("tbl").rows[i].id = "t" + i;
 				}
+			});
+			*/
+			
+			jQuery('#tableDiv').bind('DOMSubtreeModified',function(event)
+			{
+				console.log("Something has changed inside div");
 			});
 			
 			function RunQuery()
