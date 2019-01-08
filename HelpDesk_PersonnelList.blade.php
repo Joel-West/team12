@@ -43,7 +43,7 @@
 					{
 						var htm = "Sorry, no results found..."; //If no results, display error.
 					}
-					document.getElementById("tableDiv").innerHTML = htm//Appends HTML to the results div.
+					document.getElementById("tableDiv").innerHTML = htm; //Appends HTML to the results div.
 				},'json');
 			}
 			var selected = 0;
