@@ -47,7 +47,7 @@ function GoToNewPage(page)
 
 function GetRows()
 {
-	var rows = $('#tbl tr').length;
+	var rows = document.getElementById('tbl').getElementsByTagName("tr").length;
 	return rows;
 }
 
