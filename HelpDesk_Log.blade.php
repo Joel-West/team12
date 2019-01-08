@@ -6,19 +6,6 @@
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 		<script type="text/javascript" src="{{ URL::asset('js/ExtraCode.js') }}"></script>
 		<script type="text/javascript">
-			// Get the input field
-			var input = document.getElementById("Password");
-
-			// Execute a function when the user releases a key on the keyboard
-			input.addEventListener("keyup", function(event) {
-			  // Cancel the default action, if needed
-			  event.preventDefault();
-			  // Number 13 is the "Enter" key on the keyboard
-			  if (event.keyCode === 13) {
-				// Trigger the button element with a click
-				Validate();
-			  }
-			});
 			function Validate()
 			{
 				var Username=document.getElementById("Username").value;
