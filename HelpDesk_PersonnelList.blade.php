@@ -12,7 +12,7 @@
 				WriteTime();
 			}
 			
-			$('.tableDiv').bind('DOMNodeInserted DOMNodeRemoved', function()
+			$("body").on('DOMSubtreeModified', "#tableDiv", function()
 			{
 				console.log("DIV CHANGED!");
 				rows = GetRows();
