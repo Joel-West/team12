@@ -32,7 +32,7 @@
 	<body onload="Load()">
 	<form id="mainform" name="mainform" method="post" action="">
 		@csrf
-		<input type='hidden' name="Username" value="<?php echo $_POST['Username']; ?>" />
+		<input type='text' name="Username" value="<?php echo $_POST['Username']; ?>" />
 		<div class="titleDiv">
 			<input type="button" style="font-size:40px; position:absolute; left:0;" value="&#x2190" style="display:inline-block;" onClick="GoToNewPage('');" />
 			<label id="dtLabel" style="font-size:26px; position:absolute; right:0;"></label>
