@@ -73,9 +73,7 @@ function Delete()
 	}
 }
 
-$(document).ready(function()
-{
-	$("#tbl").on('click','tr',function(event)
+	$(document).on("click", "tr", function(event) {
 	{
 		console.log("Clicked!");
 		if ($(this).attr('id') != 't0')
@@ -93,4 +91,3 @@ $(document).ready(function()
 			console.log(selected);
 		}
 	});
-});
