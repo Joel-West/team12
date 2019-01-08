@@ -24,7 +24,7 @@
 						{
 							//col = GetRandomCol(); //Gets a random colour from RGB values.
 							//htm += '<tr style="background-color:rgb('+col[0]+', '+col[1]+', '+col[2]+');">'; //Assigns colour to a row.
-							htm += "<tr id='t" + i + "'>";
+							htm += "<tr id='t" + i+1 + "'>";
 							htm +="<td>"+json[i].userID+"</td>";
 							htm +="<td>"+json[i].name+"</td>";
 							htm +="<td>"+json[i].jobTitle+"</td>";		
