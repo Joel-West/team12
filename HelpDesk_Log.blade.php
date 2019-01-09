@@ -18,7 +18,7 @@
 					{
 						if (json[0].password == Password) //If input password is valid.
 						{
-							document.getElementById("User").value = (explode(" ", json[0].name))[0] + "," + json[0].admin; //Sets user data to be posted (name and admin status).
+							document.getElementById("User").value =  (json[0].name).split(' ')[0]+ "," + json[0].admin; //Sets user data to be posted (name and admin status).
 							document.getElementById("mainform").submit(); //Submit the form (moving to the home page).
 						}
 						else
