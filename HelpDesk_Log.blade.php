@@ -10,7 +10,7 @@
 			{
 				var Username=document.getElementById("Username").value; //Get username and password from text boxes.
 				var Password=document.getElementById("Password").value;
-				sql = "SELECT * FROM tblUser WHERE username = '" + Username"'"; //Query retrieves password associated with input username.
+				sql = "SELECT * FROM tblUser WHERE username = '" + Username + "'"; //Query retrieves password associated with input username.
 				$.get("Query.php", {'sql':sql},function(json) //Calls Query.php, which handles the SQL query and sorting of result data.
 				{
 					valid = true;
