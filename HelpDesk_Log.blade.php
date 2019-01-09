@@ -10,7 +10,7 @@
 			{
 				var Username=document.getElementById("Username").value; //Get username and password from text boxes.
 				var Password=document.getElementById("Password").value;
-				sql = "SELECT tblUser.username, tblUser.password, tblUser.admin, tblPersonnel.name FROM tblUser INNER JOIN tblPersonnel ON tblUser.userID = tblPersonnel.userID WHERE tblUser.username = '" + Username + "'"; //Query retrieves password associated with input username.
+				sql = "SELECT tblUser.password, tblUser.admin, tblPersonnel.name FROM tblUser INNER JOIN tblPersonnel ON tblUser.userID = tblPersonnel.userID WHERE tblUser.username = '" + Username + "'"; //Query retrieves password, admin status and name associated with input username.
 				$.get("Query.php", {'sql':sql},function(json) //Calls Query.php, which handles the SQL query and sorting of result data.
 				{
 					valid = true;
@@ -18,7 +18,7 @@
 					{
 						if (json[0].password == Password) //If input password is valid.
 						{
-							document.getElementById("User").value = json[0].name + "," + json[0].admin; //Sets user data to be posted (name and admin status).
+							document.getElementById("User").value = substr(json[0].name, 0, strrpos(json[0].name, ' ')) + "," + json[0].admin; //Sets user data to be posted (name and admin status).
 							document.getElementById("mainform").submit(); //Submit the form (moving to the home page).
 						}
 						else
