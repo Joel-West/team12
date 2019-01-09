@@ -9,13 +9,13 @@
 			function Load()
 			{
 				//Fun();
+				document.getElementById("header").value = <?php echo (array($_POST['User']))[0]; ?>
 				WriteTime();
-				console.log("<?php $_POST['User']; ?>");
 			}			
 		</script>
 		<link rel="stylesheet" href="{{ asset('css/Styles.css') }}" type="text/css"> <!-- Import external CSS stylesheet that contains presentation info that applies to all the pages. -->
-		<style type="text/css">
-			 <!-- CSS that defines appearance and placement of main buttons.-->
+		<!-- CSS that defines appearance and placement of main buttons.-->
+		<style type="text/css">	 
 			.mainButton
 			{
 				font-size:40px;
@@ -38,7 +38,7 @@
 		<div class="titleDiv"> <!-- Div containing elements at the top of the page. -->
 			<input type="button" style="font-size:40px; position:absolute; left:0;" value="&#x2190" style="display:inline-block;" onClick="GoToNewPage('');" /> <!-- Back button. -->
 			<label id="dtLabel" style="font-size:26px; position:absolute; right:0;"></label> <!-- Label to contain current data/time. -->
-			<h2 id="header" style="style=display:inline-block; font-size:36px;">Welcome, <?php echo json_encode($_POST['User']); ?></h2> <!-- Heading containing a welcome message to the user. -->
+			<h2 id="header" style="style=display:inline-block; font-size:36px;"></h2> <!-- Heading containing a welcome message to the user. -->
 		</div>	
 		<div class="grid-class"> <!-- Div containing main buttons that link to other pages. -->
 			<input class="mainButton" type="button" disabled value="New Call" onClick="GoToNewPage('NewCaller')" />
