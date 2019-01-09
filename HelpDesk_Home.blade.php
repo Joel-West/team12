@@ -9,8 +9,8 @@
 			function Load()
 			{
 				//Fun();
-				console.log("<?php echo $_POST['User']; ?>");
-				document.getElementById("header").value = "<?php echo (array($_POST['User']))[0]; ?>";
+				console.log("<?php echo (array($_POST['User'])); ?>");
+				document.getElementById("header").value = "<?php echo (array($_POST['User'])); ?>";
 				WriteTime();
 			}			
 		</script>
