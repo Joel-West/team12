@@ -10,7 +10,7 @@
 			{
 				var Username=document.getElementById("Username").value; //Get username and password from text boxes.
 				var Password=document.getElementById("Password").value;
-				sql = "SELECT * FROM tblUser WHERE username = '" + Username + "'"; //Query retrieves password associated with input username.
+				sql = "SELECT tblUser.username, tblUser.password, tblUser.admin, tblPersonnel.name FROM tblUser INNER JOIN tblPersonnel WHERE tblUser.username = '" + Username + "'"; //Query retrieves password associated with input username.
 				$.get("Query.php", {'sql':sql},function(json) //Calls Query.php, which handles the SQL query and sorting of result data.
 				{
 					valid = true;
@@ -18,21 +18,8 @@
 					{
 						if (json[0].password == Password) //If input password is valid.
 						{
-							sql2 = "SELECT name FROM tblPersonnel WHERE userID = '" + json[0].userID + "'"; //Query to get the name of the user from the personnel table.
-							console.log(json[0]);
-							$.get("Query.php", {'sql':sql2},function(json2) //Calls Query.php, which handles the SQL query and sorting of result data for the 2nd query.
-							{
-								console.log(json2);
-								if (json2 && json2[0]) //If any data has been retrieved from 2nd query.
-								{
-									document.getElementById("User").value = json2[0].name + "," + json[0].admin; //Sets user data to be posted (name and admin status).
-									document.getElementById("mainform").submit(); //Submit the form (moving to the home page).
-								}
-								else
-								{
-									valid = false;
-								}
-							},'json2');
+							document.getElementById("User").value = json[0].name + "," + json[0].admin; //Sets user data to be posted (name and admin status).
+							document.getElementById("mainform").submit(); //Submit the form (moving to the home page).
 						}
 						else
 						{
