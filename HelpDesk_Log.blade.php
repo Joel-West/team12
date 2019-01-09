@@ -61,8 +61,7 @@
 					}
 					$("#tableDiv").html(htm) //Appends HTML to the results div.
 				},'json');
-				*/
-			}
+			}*/			
 		</script>
 		<link rel="stylesheet" href="{{ asset('css/Styles.css') }}" type="text/css"> <!-- Import external CSS stylesheet that contains presentation info that applies to all the pages. -->
 	</head>
