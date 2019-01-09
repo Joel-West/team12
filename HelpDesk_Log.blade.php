@@ -19,7 +19,7 @@
 						if (json[0].password == Password) //If input password is valid.
 						{
 							sql2 = "SELECT name FROM tblPersonnel WHERE userID = '" + json[0].userID + "'"; //Query to get the name of the user from the personnel table.
-							$.get("Query.php", {'sql2':sql},function(json2) //Calls Query.php, which handles the SQL query and sorting of result data for the 2nd query.
+							$.get("Query.php", {'sql2':sql2},function(json2) //Calls Query.php, which handles the SQL query and sorting of result data for the 2nd query.
 							{
 								console.log(json2);
 								if (json2 && json2[0]) //If any data has been retrieved from 2nd query.
