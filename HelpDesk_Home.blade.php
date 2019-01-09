@@ -9,7 +9,7 @@
 			function Load()
 			{
 				//Fun();
-				alert("<?php x=parse_str((array($_POST['User']))[0]); echo x; ?>");
+				alert("<?php echo (array($_POST['User']))[0]; ?>");
 				document.getElementById("header").value = "<?php echo (array($_POST['User']))[0]; ?>";
 				WriteTime();
 			}			
