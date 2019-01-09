@@ -18,8 +18,7 @@
 					{
 						if (json[0].password == Password) //If input password is valid.
 						{
-							document.getElementsByName("User").value = json[0];
-							alert(document.getElementsByName("User").value);
+							document.getElementById("User").value = json[0].username + "," + json[0].admin;
 							document.getElementById("mainform").submit(); //Submit the form (moving to the home page).
 						}
 						else
@@ -77,7 +76,7 @@
 			<input type="button" name="btnsubmit" id="btnsubmit" value="Submit" style="font-size:18px;" onclick="Validate();"/><br> <!-- Rather than submitting form straight away, the submit button runs function to check if username/password is valid.-->
 			Save Password: <input type="checkbox" id="checkSave" />
 		</div>
-		<input type='hidden' name="User" value="" /> <!-- Hidden tag used to store posted user data before it is submitted. -->
+		<input type='hidden' id="User" name="User" value="" /> <!-- Hidden tag used to store posted user data before it is submitted. -->
 	</form>
 		<!--<input type="button" id="btntest" value="Test" onclick="RunQuery()"/><div id="tableDiv"></div>-->
 	</body>
