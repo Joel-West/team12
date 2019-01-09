@@ -14,7 +14,8 @@
 		</script>
 		<link rel="stylesheet" href="{{ asset('css/Styles.css') }}" type="text/css"> <!-- Import external CSS stylesheet that contains presentation info that applies to all the pages. -->
 		<style type="text/css">
-			.mainButton <!-- CSS for the large buttons that link to other pages. -->
+			 <!-- CSS that defines appearance and placement of main buttons.
+			.mainButton
 			{
 				font-size:40px;
 				font-weight:bold;
@@ -22,7 +23,7 @@
 				width: 80%;
 				margin: auto;
 			}
-			.grid-class <!-- CSS that defines placement of main buttons -->
+			.grid-class
 			{
 				display: grid;
 				grid-template-columns: auto;
@@ -32,11 +33,11 @@
 	<body onload="Load()">
 	<form id="mainform" name="mainform" method="post" action=""> <!-- This form will post data to an initially unspecified page when submitted. -->
 		@csrf <!--Token to validates requests to server. -->
-		<input type='hidden' name="Username" value="<?php echo $_POST['Username']; ?>" /><!-- Hidden tag used to store posted username so that it can later be posted to other pages, then back to the home page. -->
+		<input type='hidden' name="User" value="<?php echo $_POST['User']; ?>" /><!-- Hidden tag used to store posted user data so that it can later be posted to other pages, then back to the home page. -->
 		<div class="titleDiv"> <!-- Div containing elements at the top of the page. -->
 			<input type="button" style="font-size:40px; position:absolute; left:0;" value="&#x2190" style="display:inline-block;" onClick="GoToNewPage('');" /> <!-- Back button. -->
 			<label id="dtLabel" style="font-size:26px; position:absolute; right:0;"></label> <!-- Label to contain current data/time. -->
-			<h2 id="header" style="style=display:inline-block; font-size:36px;">Welcome, <?php echo $_POST['Username']; ?></h2>	 <!-- Heading containing a welcome message to the user. -->
+			<h2 id="header" style="style=display:inline-block; font-size:36px;">Welcome, <?php echo $_POST['user.username']; ?></h2>	 <!-- Heading containing a welcome message to the user. -->
 		</div>	
 		<div class="grid-class"> <!-- Div containing main buttons that link to other pages. -->
 			<input class="mainButton" type="button" disabled value="New Call" onClick="GoToNewPage('NewCaller')" />

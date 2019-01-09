@@ -11,7 +11,7 @@
 	</head>
 	<body onload="WriteTime()">
 	<form id="mainform" name="mainform" method="post" action=""> <!-- This form will post data to an initially unspecified page when submitted. -->
-		<input type='hidden' name="Username" value="<?php echo $_POST['Username']; ?>" /> <!-- Hidden tag used to store posted username so that it can later be posted back to the home page. -->
+		<input type='hidden' name="User" value="<?php echo $_POST['User']; ?>" /> <!-- Hidden tag used to store posted user data so that it can later be posted back to the home page. -->
 		@csrf <!--Token to validates requests to server. -->
 		<div class="titleDiv"> <!-- Div containing elements at the top of the page. -->
 			<input type="button" style="font-size:40px; position:absolute; left:0;" value="&#x2190" style="display:inline-block;" onClick="GoToNewPage('Home');" /> <!-- Back button. -->
