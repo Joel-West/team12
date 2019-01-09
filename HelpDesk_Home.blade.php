@@ -11,7 +11,6 @@
 				//Fun();
 				WriteTime();
 				console.log("<?php echo json_encode($_POST['User']); ?>");
-				console.log("<?php echo json_encode($_POST['User.username']); ?>");
 			}			
 		</script>
 		<link rel="stylesheet" href="{{ asset('css/Styles.css') }}" type="text/css"> <!-- Import external CSS stylesheet that contains presentation info that applies to all the pages. -->
