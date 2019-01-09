@@ -82,7 +82,7 @@
 			<label id="dtLabel" style="font-size:26px; position:absolute; right:0;"></label> <!-- Label to contain current data/time. -->
 			<h2 id="headerId" style="style=display:inline-block; font-size:30px;">Personnel</h2> <!-- Heading containing name of page. -->
 		</div>
-		<div id="tableDiv" style="font-size:26px;"> <!-- Div containing data table. -->
+		<div id="tableDiv"> <!-- Div containing data table. -->
 			Loading data...
 		</div>
 		<div align="center">
