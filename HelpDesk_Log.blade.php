@@ -3,27 +3,43 @@
 	<head>
 		<meta content="text/html" charset="UTF-8" />
 		<title>HelpDesk_LogIn</title>
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-		<script type="text/javascript" src="{{ URL::asset('js/ExtraCode.js') }}"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> <!-- Get JQuery library from google. -->
+		<script type="text/javascript" src="{{ URL::asset('js/ExtraCode.js') }}"></script> <!-- Import JS file containing functions that are used in multiple other files -->
 		<script type="text/javascript">
-			function Validate()
+			function Validate() //Function to check if username/password are valid.
 			{
-				var Username=document.getElementById("Username").value;
+				var Username=document.getElementById("Username").value; //Get username and password from text boxes.
 				var Password=document.getElementById("Password").value;
-				if (Username == "A" && Password == "P")
+				sql = "SELECT * FROM tblUser WHERE username = '" + Username"'";
+				$.get("Query.php", {'sql':sql},function(json) //Calls Query.php, which handles the SQL query and sorting of result data.
 				{
-					document.getElementById("mainform").submit();
-				}
-				else
-				{
-					alert("Uhhhhhh mate what you doing?");
-				}
+					valid = true;
+					if (json)
+					{
+						if (json[0].password == Password)
+						{
+							document.getElementById("mainform").submit();
+						}
+						else
+						{
+							valid = false;
+						}
+					}
+					else
+					{
+						valid = false;
+					}
+					if (!valid)
+					{
+						alert("Invalid username or password.");
+					}
+				},'json');
 			}
 			function RunQuery()
 			{
 				//sql = "SELECT * FROM tblUser WHERE username = '" + document.getElementById("Username").value + "'";
 				sql = "SELECT * FROM tblUser;";
-				$.get("Query.php", {'sql':sql},function(json) //Calls query.php, which handles the SQL query and sorting of result data.
+				$.get("Query.php", {'sql':sql},function(json) //Calls Query.php, which handles the SQL query and sorting of result data.
 				{
 					if(json && json[0]) //If result of php was a json array		
 					{				
@@ -45,6 +61,7 @@
 					}
 					$("#tableDiv").html(htm) //Appends HTML to the results div.
 				},'json');
+				*/
 			}
 		</script>
 		<link rel="stylesheet" href="{{ asset('css/Styles.css') }}" type="text/css">
@@ -58,10 +75,9 @@
 			<input type="password" name="Password" id="Password" placeholder="Password" ><br>
 			<input type="button" name="btnsubmit" id="btnsubmit" value="Submit" style="font-size:18px;" onclick="Validate();"/><br>
 			Save Password: <input type="checkbox" id="checkSave" />
-			<!-- <input type="submit" value="You shouldn't be able to see me..." style="visibility:hidden"/> INVISIBLE SUBMIT BUTTON SO THAT SUBMIT FUNCTION WORKS, DO NOT TOUCH ME-->
 		</div>
 		<div id="tableDiv"></div>
 	</form>
-		<input type="button" id="btntest" value="Test" onclick="RunQuery()"/>
+		<!--<input type="button" id="btntest" value="Test" onclick="RunQuery()"/>-->
 	</body>
 </html>
