@@ -1,31 +1,39 @@
+/*This file is imported into all the pages, and thus any CSS within will be applied to any page on the host.*/
+
 body
 {
 	font-family: "Apple Chancery", Times, serif;
 	background-color: #FFFFFF;
 }
+
 .center
 {
 	text-align:center;
 }
+
 body,td,th,input,label
 {
 	color: #000; 
 }
+
 table
 {
 	margin-left:auto;
 	margin-right:auto;
 }
+
 .titleDiv
 {
 	display: flex;
 	justify-content: center;
 	position: relative;
 }
+
 input[type=button], [type=submit], th
 {
 	background-color: #B5ED4E;
 }
+
 input[type=button], [type=submit]
 {
 	border-radius: 8px;

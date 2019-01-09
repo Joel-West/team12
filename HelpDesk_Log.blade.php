@@ -10,15 +10,15 @@
 			{
 				var Username=document.getElementById("Username").value; //Get username and password from text boxes.
 				var Password=document.getElementById("Password").value;
-				sql = "SELECT * FROM tblUser WHERE username = '" + Username"'";
+				sql = "SELECT * FROM tblUser WHERE username = '" + Username"'"; //Query retrieves password associated with input username.
 				$.get("Query.php", {'sql':sql},function(json) //Calls Query.php, which handles the SQL query and sorting of result data.
 				{
 					valid = true;
-					if (json)
+					if (json) //If any data has been retrieved.
 					{
-						if (json[0].password == Password)
+						if (json[0].password == Password) //If input password is valid.
 						{
-							document.getElementById("mainform").submit();
+							document.getElementById("mainform").submit(); //Submit the form (moving to the home page).
 						}
 						else
 						{
@@ -29,15 +29,15 @@
 					{
 						valid = false;
 					}
-					if (!valid)
+					if (!valid) //If either username or password are irrelevant.
 					{
 						alert("Invalid username or password.");
 					}
 				},'json');
 			}
+			/*<<<Example for extracting data creating a database table that is displayed!>>>
 			function RunQuery()
 			{
-				//sql = "SELECT * FROM tblUser WHERE username = '" + document.getElementById("Username").value + "'";
 				sql = "SELECT * FROM tblUser;";
 				$.get("Query.php", {'sql':sql},function(json) //Calls Query.php, which handles the SQL query and sorting of result data.
 				{
@@ -64,20 +64,19 @@
 				*/
 			}
 		</script>
-		<link rel="stylesheet" href="{{ asset('css/Styles.css') }}" type="text/css">
+		<link rel="stylesheet" href="{{ asset('css/Styles.css') }}" type="text/css"> <!-- Import external CSS stylesheet that contains presentation info that applies to all the pages. -->
 	</head>
 	<body>
-	<form id="mainform" name="mainform" method="post" action="http://35.204.60.31/Home">
-		@csrf
+	<form id="mainform" name="mainform" method="post" action="http://35.204.60.31/Home"> <!-- This form will post data to the home page when submitted. -->
+		@csrf <!--Token to validates requests to server. -->
 		<h1 class="center">Login</h1>
 		<div class="center">
-			<input type="text" name="Username" id="Username" placeholder="Username" value=""><br>
+			<input type="text" name="Username" id="Username" placeholder="Username" value=""><br>  <!-- HTML input fields for form data. -->
 			<input type="password" name="Password" id="Password" placeholder="Password" ><br>
-			<input type="button" name="btnsubmit" id="btnsubmit" value="Submit" style="font-size:18px;" onclick="Validate();"/><br>
+			<input type="button" name="btnsubmit" id="btnsubmit" value="Submit" style="font-size:18px;" onclick="Validate();"/><br> <!-- Rather than submitting form straight away, the submit button runs function to check if username/password is valid.-->
 			Save Password: <input type="checkbox" id="checkSave" />
 		</div>
-		<div id="tableDiv"></div>
 	</form>
-		<!--<input type="button" id="btntest" value="Test" onclick="RunQuery()"/>-->
+		<!--<input type="button" id="btntest" value="Test" onclick="RunQuery()"/><div id="tableDiv"></div>-->
 	</body>
 </html>

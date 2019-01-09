@@ -1,6 +1,6 @@
 fun = false;
 
-window.setInterval(function()
+window.setInterval(function() //Function used for fun mode.
 {
 	if (fun == true)
 	{
@@ -9,7 +9,7 @@ window.setInterval(function()
 	}
 }, 100);
 
-function Fun()
+function Fun() //Fun mode function. Used for testing changing colour of elements dynamically.
 {
 	if (document.getElementById("checkFun").checked)
 	{
@@ -22,7 +22,7 @@ function Fun()
 	}
 }
 
-function GetRandomCol() //Function chooses 3 random values between 60 and 255, which will later be used to generate an RGB colour. Rewritten from PHP to JS.
+function GetRandomCol() //Function chooses 3 random values between 60 and 255, which will later be used to generate an RGB colour.
 {
 	var x = [];
 	x[0] = Math.floor(Math.random()*255);
@@ -31,42 +31,42 @@ function GetRandomCol() //Function chooses 3 random values between 60 and 255, w
 	return x;
 }
 
-function WriteTime()
+function WriteTime() //Writes current time (up to the minute) to a label at the top-right of the current page.
 {
 	var dt = new Date();
-	options = {day: 'numeric', month: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric'}
-	document.getElementById("dtLabel").innerHTML = dt.toLocaleDateString("en-UK", options);
+	options = {day: 'numeric', month: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric'} //Sets the time format.
+	document.getElementById("dtLabel").innerHTML = dt.toLocaleDateString("en-UK", options); //Assigns time to label.
 	var wait = setTimeout(WriteTime, 1000); //Checks the time every second.
 }
 
-function GoToNewPage(page)
+function GoToNewPage(page) //Function that submits the main form of the current page, changing the page to that specified in the 'page' variable.
 {
-	document.getElementById("mainform").action = "http://35.204.60.31/" + page;
-	document.getElementById("mainform").submit();
+	document.getElementById("mainform").action = "http://35.204.60.31/" + page; //Defines page that data will be posted to.
+	document.getElementById("mainform").submit(); //Submits form.
 }
 
-function GetRows()
+function GetRows() //Function for returning the number of rows in a data table.
 {
 	var rows = document.getElementById('tbl').getElementsByTagName("tr").length;
-	console.log("Rows = " + rows);
+	console.log("Rows = " + rows); //Logs to console for debugging purposes.
 	return rows;
 }
 
-function Delete()
+function Delete() //Function for deleting selected rows from a table.
 {
-	if (selected == 0)
+	if (selected == 0) //if no rows are selected, leave function.
 	{
 		return;
 	}
-	if (confirm("Delete selected rows?"))
+	if (confirm("Delete selected rows?")) //Get user confirmation.
 	{
 		rows = GetRows();
-		for (i = rows-1; i > 0; i--)
+		for (i = rows-1; i > 0; i--) //Iterate through the rows of the table.
 		{
-			if (document.getElementById("tbl").rows[i].style.backgroundColor != 'rgb(159, 255, 48)')
+			if (document.getElementById("tbl").rows[i].style.backgroundColor != 'rgb(159, 255, 48)') //If row is selected.
 			{
 				console.log("deleting t" + i);
-				document.getElementById("tbl").deleteRow(i);
+				document.getElementById("tbl").deleteRow(i); //Delete the row.
 			}
 		}
 		selected = 0;
@@ -74,19 +74,19 @@ function Delete()
 }
 
 
-	$(document).on('click','tr',function(event)
+	$(document).on('click','tr',function(event) //Function for selecting/deselecting rows.
 	{
-		console.log($(this).attr('id'));
-		if ($(this).attr('id') != 't0')
+		console.log($(this).attr('id')); //Logs ID (for debugging).
+		if ($(this).attr('id') != 't0') //If not the header.
 		{
-			if ($(this).css('background-color') == 'rgb(159, 255, 48)')
+			if ($(this).css('background-color') == 'rgb(159, 255, 48)') //If deselected (if green).
 			{	
-				$(this).css('background-color', '#00FFFF');
+				$(this).css('background-color', '#00FFFF'); //Select.
 				selected += 1;
 			}
-			else if ($(this).css('background-color') == 'rgb(0, 255, 255)')
+			else if ($(this).css('background-color') == 'rgb(0, 255, 255)') //If selected (if blue).
 			{
-				$(this).css('background-color', '#9FFF30');
+				$(this).css('background-color', '#9FFF30'); //Deselect.
 				selected -= 1;
 			}
 			console.log(selected);
