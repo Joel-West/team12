@@ -14,8 +14,9 @@
 				$.get("Query.php", {'sql':sql},function(json) //Calls Query.php, which handles the SQL query and sorting of result data.
 				{
 					valid = true;
-					if (json) //If any data has been retrieved.
+					if (json && json[0]) //If any data has been retrieved.
 					{
+						console.log(json);
 						if (json[0].password == Password) //If input password is valid.
 						{
 							document.getElementById("mainform").submit(); //Submit the form (moving to the home page).
