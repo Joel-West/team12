@@ -26,6 +26,7 @@
 			}
 			.grid-class
 			{
+				position: relative;
 				display: grid;
 				grid-template-columns: auto;
 			}
@@ -46,9 +47,9 @@
 			<input class="mainButton" type="button" value="View Problems List" onClick="GoToNewPage('ProblemList');" />
 			<input class="mainButton" type="button" value="View Personnel" onClick="GoToNewPage('PersonnelList');" />
 			<input class="mainButton" type="button" value="View/Edit Equipment" onClick="GoToNewPage('EquipmentList');" />
+			<input type="button" style="font-size:26px; position:absolute; right:1;" value="Analytics" onClick="GoToNewPage('Analytics')" />
 		</div>
 		<br>
-		<input type="button" style="font-size:26px; position:absolute; right:1;" value="Analytics" onClick="GoToNewPage('Analytics')" /> <!-- Button leading to analytics page -->
 		<!--Fun mode (don't click if you have epilepsy...): <input id="checkFun" type="checkbox" onclick="Fun()"/>-->
 	</form>
 	</body>
