@@ -48,7 +48,7 @@
 			<input class="mainButton" type="button" value="View/Edit Equipment" onClick="GoToNewPage('EquipmentList');" />
 		</div>
 		<br>
-		<input type="button" style="font-size:26px; position:absolute; right:10;" value="Analytics" onClick="GoToNewPage('Analytics')" /> <!-- Button leading to analytics page -->
+		<input type="button" style="font-size:26px; position:absolute; right:1;" value="Analytics" onClick="GoToNewPage('Analytics')" /> <!-- Button leading to analytics page -->
 		<!--Fun mode (don't click if you have epilepsy...): <input id="checkFun" type="checkbox" onclick="Fun()"/>-->
 	</form>
 	</body>
