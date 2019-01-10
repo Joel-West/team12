@@ -8,9 +8,20 @@
 		<script type="text/javascript">
 			function Load()
 			{
+				SetPrivileges("<?php echo $_POST['User']; ?>") //Enter function that defines what functions are available to user based on status.
 				//Fun();
 				WriteTime(); //Function that writes the current time at the top of the page.
-			}			
+			}		
+
+			function SetPrivileges(userData) //Function that checks if user is an admin or analyst and adjusts available buttons accordingly.
+			{
+				admin = (explode(",", userData))[1]; //Retrieves admin/analyst status from userData that was earlier posted from previous form.
+				analyst = (explode(",", userData))[2];
+				if (admin == 0 && analyst == 0)
+				{
+					document.getElementById("btnAnalytics").style.display="none";
+				}
+			}
 		</script>
 		<link rel="stylesheet" href="{{ asset('css/Styles.css') }}" type="text/css"> <!-- Import external CSS stylesheet that contains presentation info that applies to all the pages. -->
 		<!-- CSS that defines appearance and placement of main buttons.-->
@@ -38,7 +49,7 @@
 		<div class="titleDiv"> <!-- Div containing elements at the top of the page. -->
 			<input type="button" style="font-size:40px; position:absolute; left:0;" value="&#x2190" style="display:inline-block;" onClick="GoToNewPage('');" /> <!-- Back button. -->
 			<label id="dtLabel" style="font-size:26px; position:absolute; right:0;"></label> <!-- Label to contain current data/time. -->
-			<h2 id="header" style="style=display:inline-block; font-size:36px;">Welcome, <?php echo (explode("," ,$_POST['User']))[0]; ?>!</h2> <!-- Heading containing a welcome message to the user. -->
+			<h2 id="header" style="style=display:inline-block; font-size:36px;">Welcome, <?php echo (explode(",", $_POST['User']))[0]; ?>!</h2> <!-- Heading containing a welcome message to the user. -->
 		</div>	
 		<div class="grid-class"> <!-- Div containing main buttons that link to other pages. -->
 			<input class="mainButton" type="button" disabled value="New Call" onClick="GoToNewPage('NewCaller')" />
@@ -46,7 +57,7 @@
 			<input class="mainButton" type="button" value="View Problems List" onClick="GoToNewPage('ProblemList');" />
 			<input class="mainButton" type="button" value="View Personnel" onClick="GoToNewPage('PersonnelList');" />
 			<input class="mainButton" type="button" value="View Equipment" onClick="GoToNewPage('EquipmentList');" />
-			<input class="mainButton" type="button" value="Analytics" onClick="GoToNewPage('Analytics')" />
+			<input class="mainButton" type="button" id="btnAnalytics" value="Analytics" onClick="GoToNewPage('Analytics')" />
 		</div>
 		<br>
 		<!--Fun mode (don't click if you have epilepsy...): <input id="checkFun" type="checkbox" onclick="Fun()"/>-->
