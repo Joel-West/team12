@@ -8,7 +8,6 @@
 		<script type="text/javascript">
 			function Load()
 			{
-				console.log(document.getElementById("User").value);
 				//Fun();
 				WriteTime(); //Function that writes the current time at the top of the page.
 			}			
@@ -35,7 +34,7 @@
 	<body onload="Load()">
 	<form id="mainform" name="mainform" method="post" action=""> <!-- This form will post data to an initially unspecified page when submitted. -->
 		@csrf <!--Token to validates requests to server. -->
-		<input type='hidden' name="User" value="<?php echo $_POST['User']; ?>" /><!-- Hidden tag used to store posted user data so that it can later be posted to other pages, then back to the home page. -->
+		<input type='label' name="User" value="<?php echo $_POST['User']; ?>" /><!-- Hidden tag used to store posted user data so that it can later be posted to other pages, then back to the home page. -->
 		<div class="titleDiv"> <!-- Div containing elements at the top of the page. -->
 			<input type="button" style="font-size:40px; position:absolute; left:0;" value="&#x2190" style="display:inline-block;" onClick="GoToNewPage('');" /> <!-- Back button. -->
 			<label id="dtLabel" style="font-size:26px; position:absolute; right:0;"></label> <!-- Label to contain current data/time. -->
