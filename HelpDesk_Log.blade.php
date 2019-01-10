@@ -10,7 +10,7 @@
 			{
 				var Username=document.getElementById("Username").value; //Get username and password from text boxes.
 				var Password=document.getElementById("Password").value;
-				sql = "SELECT tblUser.password, tblUser.admin, tblPersonnel.name FROM tblUser INNER JOIN tblPersonnel ON tblUser.userID = tblPersonnel.userID WHERE tblUser.username = '" + Username + "'"; //Query retrieves password, admin status and name associated with input username.
+				sql = "SELECT tblUser.password, tblUser.admin, tblPersonnel.name, tblPersonnel.jobTitle FROM tblUser INNER JOIN tblPersonnel ON tblUser.userID = tblPersonnel.userID WHERE tblUser.username = '" + Username + "'"; //Query retrieves password, admin status, name job title associated with input username.
 				$.get("Query.php", {'sql':sql},function(json) //Calls Query.php, which handles the SQL query and sorting of result data.
 				{
 					valid = true;
@@ -18,7 +18,13 @@
 					{
 						if (json[0].password == Password) //If input password is valid.
 						{
-							document.getElementById("User").value =  (json[0].name).split(' ')[0]+ "," + json[0].admin; //Sets user data to be posted (name and admin status).
+							specialist = false;
+							if (json[0].jobTitle.includes("specialist")) //Checks if user is a specialist.
+							{
+								specialist = true;
+							}
+							document.getElementById("User").value =  (json[0].name).split(' ')[0]+ "," + json[0].admin + "," + specialist; //Sets user data to be posted (name and admin/specialist status).
+							alert(document.getElementById("User").value);
 							document.getElementById("mainform").submit(); //Submit the form (moving to the home page).
 						}
 						else

@@ -6,7 +6,7 @@
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> <!-- Get JQuery library from google. -->
 		<script type="text/javascript" src="{{ URL::asset('js/ExtraCode.js') }}"></script> <!-- Import JS file containing functions that are used in multiple other files -->
 		<script type="text/javascript">
-			function SaveChanges(page) //Function fo saving data back to database.
+			function SaveChanges(page) //Function for saving data back to database.
 			{
 				alert("Changes saved.");
 				document.getElementById("mainform").action = "http://35.204.60.31/" + page; //Assigns form to go to home page on submit.
