@@ -18,13 +18,12 @@
 					{
 						if (json[0].password == Password) //If input password is valid.
 						{
-							specialist = false;
+							specialist = 0;
 							if (json[0].jobTitle.includes("specialist")) //Checks if user is a specialist.
 							{
-								specialist = true;
+								specialist = 1;
 							}
 							document.getElementById("User").value =  (json[0].name).split(' ')[0]+ "," + json[0].admin + "," + specialist; //Sets user data to be posted (name and admin/specialist status).
-							alert(document.getElementById("User").value);
 							document.getElementById("mainform").submit(); //Submit the form (moving to the home page).
 						}
 						else

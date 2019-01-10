@@ -8,8 +8,9 @@
 		<script type="text/javascript">
 			function Load()
 			{
+				console.log(document.getElementById("User").value);
 				//Fun();
-				WriteTime();
+				WriteTime(); //Function that writes the current time at the top of the page.
 			}			
 		</script>
 		<link rel="stylesheet" href="{{ asset('css/Styles.css') }}" type="text/css"> <!-- Import external CSS stylesheet that contains presentation info that applies to all the pages. -->
@@ -46,7 +47,8 @@
 			<input class="mainButton" type="button" value="View Personnel" onClick="GoToNewPage('PersonnelList');" />
 			<input class="mainButton" type="button" value="View/Edit Equipment" onClick="GoToNewPage('EquipmentList');" />
 		</div>
-		<input type="button" style="font-size:26px; position:absolute; right:0;" value="Analytics" onClick="GoToNewPage('Analytics')" /> <!-- Button leading to analytics page -->
+		<br>
+		<input type="button" style="font-size:26px; position:absolute; right:10;" value="Analytics" onClick="GoToNewPage('Analytics')" /> <!-- Button leading to analytics page -->
 		<!--Fun mode (don't click if you have epilepsy...): <input id="checkFun" type="checkbox" onclick="Fun()"/>-->
 	</form>
 	</body>
