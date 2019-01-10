@@ -19,7 +19,7 @@
 						if (json[0].password == Password) //If input password is valid.
 						{
 							analysis = 0;
-							if (json[0] == "Analysis") //Checks if user is in the analytics department.
+							if (json[0].department == "Analysis") //Checks if user is in the analytics department.
 							{
 								analysis = 1;
 							}
