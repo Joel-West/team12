@@ -15,8 +15,8 @@
 
 			function SetPrivileges(userData) //Function that checks if user is an admin or analyst and adjusts available buttons accordingly.
 			{
-				admin = (explode(",", userData))[1]; //Retrieves admin/analyst status from userData that was earlier posted from previous form.
-				analyst = (explode(",", userData))[2];
+				admin = (userData.split(","))[1]; //Retrieves admin/analyst status from userData that was earlier posted from previous form.
+				analyst = (userData.split(","))[2];
 				if (admin == 0 && analyst == 0)
 				{
 					document.getElementById("btnAnalytics").style.display="none";
