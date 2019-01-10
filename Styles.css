@@ -43,3 +43,8 @@ input[type=text], [type=password], tr
 {
 	background-color: #9FFF30;
 }
+
+input[type=button], [disabled]
+{
+	opacity: 0.3;
+}
