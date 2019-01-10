@@ -19,7 +19,7 @@
 				analyst = (userData.split(","))[2];
 				if (admin == 0 && analyst == 0)
 				{
-					document.getElementById("btnAnalytics").style.display="none";
+					document.getElementById("btnAnalytics").disabled = true;
 				}
 			}
 		</script>
