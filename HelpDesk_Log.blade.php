@@ -10,7 +10,12 @@
 			{
 				var Username=document.getElementById("Username").value; //Get username and password from text boxes.
 				var Password=document.getElementById("Password").value;
+				if (Username.includes("'")) //Protects against SQL injection.
+				{
+					return;
+				}
 				sql = "SELECT tblUser.password, tblUser.admin, tblPersonnel.name, tblPersonnel.department FROM tblUser INNER JOIN tblPersonnel ON tblUser.userID = tblPersonnel.userID WHERE tblUser.username = '" + Username + "'"; //Query retrieves password, admin status, name and department associated with input username.
+				
 				$.get("Query.php", {'sql':sql},function(json) //Calls Query.php, which handles the SQL query and sorting of result data.
 				{
 					valid = true;
