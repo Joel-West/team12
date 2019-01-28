@@ -18,6 +18,8 @@
 		  sql = "SELECT userID FROM tblPersonnel WHERE name = '" + Username +"'"; 
 		  $.get("Query.php", {'sql':sql},function(json){
 			if (json && json[0]){
+			  console.log(json);
+			  console.log(json[0]);
 			  if (json[1]){
 				console.log(json[1]);
 				alert("There are multiple " + Username + ". Please type their user ID as well");
