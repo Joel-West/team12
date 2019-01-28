@@ -10,7 +10,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
 	<script type="text/javascript">
-	   jQuery('#CallerName'.on('input propertychange paste', function() {
+	   jQuery('#CallerName').on('input propertychange paste', function() {
 		var Username=document.getElementById("CallerName").value;
 		if (Username.includes("'")){
 		} else{
