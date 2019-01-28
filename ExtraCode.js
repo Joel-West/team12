@@ -106,8 +106,8 @@ $(document).on('click','tr',function(event) //Function for selecting/deselecting
 	{
 		document.getElementById("btnAdd").value = "Update Item";
 		rowNum = GetSelectedRow(); //Gets the row that is selected.
-		document.getElementById("txtName").value = document.getElementById("tbl").rows[rowNum][1]
-		document.getElementById("txtJobTitle").value = document.getElementById("tbl").rows[rowNum][2].innerHTML;
+		document.getElementById("txtName").value = document.getElementById("tbl").rows[rowNum].cells[1]
+		document.getElementById("txtJobTitle").value = document.getElementById("tbl").rows[rowNum].cells[2].innerHTML
 	}
 	else
 	{
