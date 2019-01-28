@@ -10,7 +10,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
 	<script type="text/javascript">
-	  $('#CallerName').on('input', function() {
+	  autofillId(){
 		console.log("Change");
 	    var Username=document.getElementById("CallerName").value;
 	    if (Username.includes("'")){
@@ -26,7 +26,7 @@
 			}
 		  })
 	    }
-      });
+      };
 	</script>
   </head>
   
@@ -40,7 +40,7 @@
 		  <br>
 		</div>
 		<div class="col-6">
-		  Caller Name: <input type="text" name="CallerName" id="CallerName">
+		  Caller Name: <input type="text" name="CallerName" id="CallerName" onchange="autofillId()">
 		</div>
 		<div class="col-6">
 		  Caller ID: <input type="text" name="CallerID" id="CallerID">
