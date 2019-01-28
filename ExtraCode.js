@@ -85,6 +85,18 @@ function GetSelectedRow() //Returns selected row (if only one is selected).
 	}
 }
 
+function AddPressed() //Function to add new row to the local data table.
+{
+	if (selected == 1) //If only 1 row is selected, thus if updating row.
+	{
+		UpdateRow();
+	}
+	else //Else, if adding row
+	{
+		AddRow()
+	}
+}
+
 $(document).on('click','tr',function(event) //Function for selecting/deselecting rows.
 {
 	console.log($(this).attr('id')); //Logs ID (for debugging).

@@ -39,7 +39,7 @@
 				},'json');
 			}
 			
-			function AddNewRow() //Function to add new row to the local data table.
+			function AddRow()
 			{
 				if (document.getElementById("txtName").value == false || document.getElementById("txtJobTitle").value == false || document.getElementById("txtDepartment").value == false || document.getElementById("txtTelephoneNumber").value == false)
 				{
@@ -62,6 +62,17 @@
 				document.getElementById("tbl").rows[rows].id = "t" + document.getElementById("tbl").rows[rows-1].id; //Sets ID of new row.
 				document.getElementById("tbl").rows[rows].style.backgroundColor = '#9FFF30'; //Sets background colour of new row.
 				alert("New equipment added."); //Success message.
+			}
+			
+			function UpdateRow()
+			{
+				row = document.getElementById("tbl").rows[GetSelectedRow());
+				row.cells[1] = document.getElementById("txtName").value;
+				row.cells[2] = document.getElementById("txtJobTitle").value;
+				row.cells[3] = document.getElementById("txtDepartment").value;
+				row.cells[4] = document.getElementById("txtTelephoneNumber").value;
+				
+				
 			}
 			
 			function SaveChanges(page) //Function that saves table data back to database.
@@ -95,7 +106,7 @@
 			Job Title:<input id="txtJobTitle" type="text"></input><br/>
 			Department:<input id="txtDepartment" type="text"></input><br/>
 			Telephone Number:<input id="txtTelephoneNumber" type="text"></input><br/>
-			<input type="button" id = "btnAdd" value="Add New Item" style="font-size:16px;" onclick="AddNewRow()"></input>	
+			<input type="button" id = "btnAdd" value="Add New Item" style="font-size:16px;" onclick="AddPressed()"></input>	
 		</div>
 		<p align="center">
 			<input type="button" value="Save Changes" style="font-size:26px; padding: 6px 12px;" onClick="SaveChanges('Home');" /> <!-- Button for submitting changes to table. -->
