@@ -27,9 +27,9 @@
 				document.getElementById("CallerID").value = json[0].userID;
 			  }
 			}
-		  })
+		  },'json');
 	    }
-      };
+      }
 	</script>
   </head>
   
