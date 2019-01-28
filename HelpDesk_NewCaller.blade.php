@@ -26,6 +26,8 @@
 			  } else{
 				document.getElementById("CallerID").value = json[0].userID;
 			  }
+			}else{
+			  document.getElementById("CallerID").value = "";
 			}
 		  },'json');
 	    }
