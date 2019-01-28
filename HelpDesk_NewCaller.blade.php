@@ -17,16 +17,28 @@
 		  sql = "SELECT userID FROM tblPersonnel WHERE name = '" + Username +"'"; 
 		  $.get("Query.php", {'sql':sql},function(json){
 			if (json && json[0]){
-			  console.log(json);
-			  console.log(json[0].userID);
 			  if (json[1]){
-				console.log(json[1].userID);
 				alert("There are multiple " + Username + ". Please type their user ID as well");
 			  } else{
 				document.getElementById("CallerID").value = json[0].userID;
 			  }
 			} else{
 			  document.getElementById("CallerID").value = " ";
+			}
+		  },'json');
+	    }
+      }
+	  
+	  function autofillName(){
+	    var UserID=document.getElementById("CallerID").value;
+	    if (UserID.includes("'")){
+		} else{
+		  sql = "SELECT name FROM tblPersonnel WHERE userID = '" + UserID +"'"; 
+		  $.get("Query.php", {'sql':sql},function(json){
+			if (json && json[0]){
+			  document.getElementById("CallerName").value = json[0].name;
+			} else{
+			  document.getElementById("CallerName").value = " ";
 			}
 		  },'json');
 	    }
