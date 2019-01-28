@@ -102,7 +102,7 @@ $(document).on('click','tr',function(event) //Function for selecting/deselecting
 		}
 		console.log(selected);
 	}
-	if selected == 1
+	if (selected == 1)
 	{
 		document.getElementById("btnAdd").value = "Update Item";
 		rowNum = GetSelectedRow(); //Gets the row that is selected.
