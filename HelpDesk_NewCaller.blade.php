@@ -11,7 +11,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
 	<script type="text/javascript">
 	  function autofillId(){
-		console.log("Change");
 	    var Username=document.getElementById("CallerName").value;
 	    if (Username.includes("'")){
 		} else{
@@ -26,8 +25,8 @@
 			  } else{
 				document.getElementById("CallerID").value = json[0].userID;
 			  }
-			}else{
-			  document.getElementById("CallerID").value = "";
+			} else{
+			  document.getElementById("CallerID").value = " ";
 			}
 		  },'json');
 	    }
