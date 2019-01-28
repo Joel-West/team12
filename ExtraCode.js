@@ -73,22 +73,48 @@ function Delete() //Function for deleting selected rows from a table.
 	}
 }
 
-
-	$(document).on('click','tr',function(event) //Function for selecting/deselecting rows.
+function GetSelectedRow() //Returns selected row (if only one is selected).
+{
+	rows = GetRows();
+	for (i = rows-1; i > 0; i--) //Iterate through the rows of the table.
 	{
-		console.log($(this).attr('id')); //Logs ID (for debugging).
-		if ($(this).attr('id') != 't0') //If not the header.
+		if (document.getElementById("tbl").rows[i].style.backgroundColor != 'rgb(159, 255, 48)') //If row is selected.
 		{
-			if ($(this).css('background-color') == 'rgb(159, 255, 48)') //If deselected (if green).
-			{	
-				$(this).css('background-color', '#00FFFF'); //Select.
-				selected += 1;
-			}
-			else if ($(this).css('background-color') == 'rgb(0, 255, 255)') //If selected (if blue).
-			{
-				$(this).css('background-color', '#9FFF30'); //Deselect.
-				selected -= 1;
-			}
-			console.log(selected);
+			return i;
 		}
-	});
+	}
+}
+
+$(document).on('click','tr',function(event) //Function for selecting/deselecting rows.
+{
+	console.log($(this).attr('id')); //Logs ID (for debugging).
+	if ($(this).attr('id') != 't0') //If not the header.
+	{
+		if ($(this).css('background-color') == 'rgb(159, 255, 48)') //If deselected (if green).
+		{	
+			$(this).css('background-color', '#00FFFF'); //Select.
+			selected += 1;
+		}
+		else if ($(this).css('background-color') == 'rgb(0, 255, 255)') //If selected (if blue).
+		{
+			$(this).css('background-color', '#9FFF30'); //Deselect.
+			selected -= 1;
+		}
+		console.log(selected);
+	}
+	if selected == 1
+	{
+		document.getElementById("btnAdd").value = "Update Item";
+		rowNum = GetSelectedRow(); //Gets the row that is selected.
+		document.getElementById("txtName").value = document.getElementById("tbl").rows[rowNum][1]
+		document.getElementById("txtJobTitle").value = document.getElementById("tbl").rows[rowNum][2].innerHTML;
+	}
+	else
+	{
+		document.getElementById("btnAdd").value = "Add New Item";
+		document.getElementById("txtName").value = "";
+		document.getElementById("txtJobTitle").value = "";
+		document.getElementById("txtDepartment").value = "";
+		document.getElementById("txtTelephoneNumber").value = "";
+	}
+});
