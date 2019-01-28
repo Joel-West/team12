@@ -66,7 +66,7 @@
 			
 			function UpdateRow()
 			{
-				row = document.getElementById("tbl").rows[GetSelectedRow());
+				row = document.getElementById("tbl").rows[GetSelectedRow()];
 				row.cells[1] = document.getElementById("txtName").value;
 				row.cells[2] = document.getElementById("txtJobTitle").value;
 				row.cells[3] = document.getElementById("txtDepartment").value;
