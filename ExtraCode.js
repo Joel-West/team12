@@ -70,6 +70,7 @@ function Delete() //Function for deleting selected rows from a table.
 			}
 		}
 		selected = 0;
+		CheckIfUpdateOrAdd();
 	}
 }
 
@@ -114,6 +115,11 @@ $(document).on('click','tr',function(event) //Function for selecting/deselecting
 		}
 		console.log(selected);
 	}
+	CheckIfUpdateOrAdd();
+});
+
+function CheckIfUpdateOrAdd() //The 'add' button into an 'update' button and populate the text boxes, if exactly one row is selected.
+{
 	if (selected == 1)
 	{
 		document.getElementById("btnAdd").value = "Update Item";
@@ -131,4 +137,4 @@ $(document).on('click','tr',function(event) //Function for selecting/deselecting
 		document.getElementById("txtDepartment").value = "";
 		document.getElementById("txtTelephoneNumber").value = "";
 	}
-});
+}

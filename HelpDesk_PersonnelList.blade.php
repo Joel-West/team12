@@ -70,9 +70,7 @@
 				row.cells[1] = document.getElementById("txtName").value;
 				row.cells[2] = document.getElementById("txtJobTitle").value;
 				row.cells[3] = document.getElementById("txtDepartment").value;
-				row.cells[4] = document.getElementById("txtTelephoneNumber").value;
-				
-				
+				row.cells[4] = document.getElementById("txtTelephoneNumber").value;	
 			}
 			
 			function SaveChanges(page) //Function that saves table data back to database.
