@@ -106,8 +106,10 @@ $(document).on('click','tr',function(event) //Function for selecting/deselecting
 	{
 		document.getElementById("btnAdd").value = "Update Item";
 		rowNum = GetSelectedRow(); //Gets the row that is selected.
-		document.getElementById("txtName").value = document.getElementById("tbl").rows[rowNum].cells[1]
-		document.getElementById("txtJobTitle").value = document.getElementById("tbl").rows[rowNum].cells[2].innerHTML
+		document.getElementById("txtName").value = document.getElementById("tbl").rows[rowNum].cells[1].innerHTML;
+		document.getElementById("txtJobTitle").value = document.getElementById("tbl").rows[rowNum].cells[2].innerHTML;
+		document.getElementById("txtDepartment").value = document.getElementById("tbl").rows[rowNum].cells[3].innerHTML;
+		document.getElementById("txtTelephoneNumber").value = document.getElementById("tbl").rows[rowNum].cells[4].innerHTML;
 	}
 	else
 	{
