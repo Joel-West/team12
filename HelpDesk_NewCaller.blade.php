@@ -11,6 +11,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
 	<script type="text/javascript">
 	   jQuery('#CallerName').on('input propertychange paste', function() {
+		console.log("Change");
 		var Username=document.getElementById("CallerName").value;
 		if (Username.includes("'")){
 		} else{
