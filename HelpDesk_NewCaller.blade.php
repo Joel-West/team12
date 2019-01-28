@@ -13,19 +13,17 @@
 	   jQuery('#CallerName'.on('input propertychange paste', function() {
 		var Username=document.getElementById("CallerName").value;
 		if (Username.includes("'")){
-		}
-		else{
+		} else{
 		  sql = "SELECT userID FROM tblPersonnel WHERE name = '" + Username +"'"; 
 		  $.get("Query.php", {'sql':sql},function(json){
 			if (json && json[0]){
 			  if (json[1]){
 				alert("There are multiple " + Username + ". Please type their user ID as well");
-			  }
-			  else{
+			  } else{
 				document.getElementById("CallerID").value = json[0];
 			  }
 			}
-		  }
+		  })
 	    }
        });
 	</script>
