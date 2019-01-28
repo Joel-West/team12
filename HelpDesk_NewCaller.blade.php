@@ -20,7 +20,7 @@
 			if (json && json[0]){
 			  console.log(json);
 			  console.log(json[0].userID);
-			  if (json[1].userID){
+			  if (json[1]){
 				console.log(json[1].userID);
 				alert("There are multiple " + Username + ". Please type their user ID as well");
 			  } else{
