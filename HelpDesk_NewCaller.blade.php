@@ -59,7 +59,7 @@
 		  Caller Name: <input type="text" name="CallerName" id="CallerName" onchange="autofillId()">
 		</div>
 		<div class="col-6">
-		  Caller ID: <input type="text" name="CallerID" id="CallerID">
+		  Caller ID: <input type="text" name="CallerID" id="CallerID" onchange="autofillName()">
 		</div>
 		<div class="col-12">
 		  Notes on call<br>
