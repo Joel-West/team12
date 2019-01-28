@@ -9,6 +9,26 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+	   jQuery('#CallerName'.on('input propertychange paste', function() {
+		var Username=document.getElementById("CallerName").value;
+		if (Username.includes("'")){
+		  }
+		else{
+		  sql = "SELECT userID FROM tblPersonnel WHERE name = '" + Username +"'"; 
+		  $.get("Query.php", {'sql':sql},function(json){
+			if (json && json[0]){
+			  if (json[1]){
+				alert("There are multiple " + Username + ". Please type their user ID as well");
+			  }
+			  else if{
+				document.getElementById("CallerID").value = json[0];
+			  }
+			}
+		  }
+	    }
+       });
+	</script>
   </head>
   
   <body>
