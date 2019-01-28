@@ -95,7 +95,7 @@
 			Job Title:<input id="txtJobTitle" type="text"></input><br/>
 			Department:<input id="txtDepartment" type="text"></input><br/>
 			Telephone Number:<input id="txtTelephoneNumber" type="text"></input><br/>
-			<input type="button" value="Add New Item" style="font-size:16px;" onclick="AddNewRow()"></input>	
+			<input type="button" id = "btnAdd" value="Add New Item" style="font-size:16px;" onclick="AddNewRow()"></input>	
 		</div>
 		<p align="center">
 			<input type="button" value="Save Changes" style="font-size:26px; padding: 6px 12px;" onClick="SaveChanges('Home');" /> <!-- Button for submitting changes to table. -->
