@@ -24,7 +24,7 @@
 				console.log(json[1].userID);
 				alert("There are multiple " + Username + ". Please type their user ID as well");
 			  } else{
-				document.getElementById("CallerID").value = json[0];
+				document.getElementById("CallerID").value = json[0].userID;
 			  }
 			}
 		  })
