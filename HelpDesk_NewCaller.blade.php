@@ -50,7 +50,7 @@
 		  $('#newProblemCollapse').collapse('hide');
 		  $('#existingProblemCollapseProblemCollapse').collapse('hide');
 		}
-		else if(document.getElementById)("Problems").value == "New Problem"){
+		else if(document.getElementById("Problems").value == "New Problem"){
 		  $('#newProblemCollapse').collapse('show');
 		  $('#existingProblemCollapseProblemCollapse').collapse('hide');
 		}
@@ -93,7 +93,7 @@
 		<div class="col-2"></div>
 		<div class="col-4"></div>
 		<div class="col-4">
-		  Notes on call<br>
+		  Notes on call:<br>
 		  <textarea class="form-control" rows="5" id="notes" ></textarea>
 		  <br>
 		  <br>
