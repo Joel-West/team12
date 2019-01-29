@@ -46,6 +46,7 @@
 	  
 	  function problem(){
 		  console.log("Problem");
+		  $('#newProblemCollapse').collapse('toggle');
 	  }
 	  
 	  function Test(){
@@ -93,6 +94,10 @@
 			<option value="Overheated Computer">Overheated Computer</option>
 			<option value="MS Paint won't close">MS Paint won't close</option>
 		  </select>
+		</div>
+		<div class="col-4">
+		<div class="collapse" id="newProblemCollapse">
+		Hey look,it worked.
 		</div>
 	  </div>
 	</div>
