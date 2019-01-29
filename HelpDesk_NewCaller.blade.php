@@ -73,8 +73,7 @@
 		</div>
 		<div class="col-4">
 		  Notes on call<br>
-		  <textarea rows="4" cols="40" style="resize:none" >
-		  </textarea>
+		  <textarea class="form-control" rows="5" id="notes" ></textarea>
 		  <br>
 		  <br>
 		  Select Problem:
