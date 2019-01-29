@@ -65,7 +65,7 @@
 		</div>
 		<div class="col-2"></div>
 		<div class="col-8 d-inline-flex bg-primary">
-		  <form class="form-inline">
+		  <form class="form-inline-flex">
 		    <label for="CallerName" class="mr-sm-2">Caller Name:</label>
 		    <input type="text" name="CallerName" id="CallerName" onchange="autofillId()" class="form-control mb-2 mr-sm-2">
 			<label for="CallerID" class="ml-sm-2">Caller ID:</label>
