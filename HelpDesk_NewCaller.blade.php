@@ -68,13 +68,18 @@
 		  <br>
 		  <br>
 		  Select Problem:
-		  <select onchange="LabelChange()" id="Problems">
-			<option value=""></option>
-			<option value="New Problem">New Problem</option>
-			<option value="Broken Capslock">Broken Capslock</option>
-			<option value="Overheated Computer">Overheated Computer</option>
-			<option value="MS Paint won't close">MS Paint won't close</option>
-		  </select>
+		  <div class="dropdown">
+		    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+			  Please Select
+			</button>
+			<div class="dropdown-menu">
+			  <a class="dropdown-item">New Problem</a>
+			  <h5 class="dropdown-header">Existing Problems</h5>
+			  <a class="dropdown-item">Broken Capslock</a>
+			  <a class="dropdown-item">Overheated Computer</a>
+			  <a class="dropdown-item">MS Paint won't close</a>
+			</div>
+		  </div>
 		</div>
 	  </div>
 	</div>
