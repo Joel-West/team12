@@ -65,11 +65,13 @@
 		</div>
 		<div class="col-2"></div>
 		<div class="col-8 d-inline-flex bg-primary">
-		  <form class="form-inline-flex">
+		  <form class="form-inline">
 		    <label for="CallerName" class="mr-sm-2">Caller Name:</label>
 		    <input type="text" name="CallerName" id="CallerName" onchange="autofillId()" class="form-control mb-2 mr-sm-2">
-			<label for="CallerID" class="ml-sm-2">Caller ID:</label>
-		    <input type="text" name="CallerID" id="CallerID" onchange="autofillName()" class="form-control mb-2 ml-sm-2">
+			<div class="d-flex ml-auto">
+			  <label for="CallerID" class="ml-sm-2">Caller ID:</label>
+		      <input type="text" name="CallerID" id="CallerID" onchange="autofillName()" class="form-control mb-2 ml-sm-2">
+		    </div>
 		  </form>
 		</div>
 		<div class="col-2"></div>
