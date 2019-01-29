@@ -9,7 +9,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="{{ URL::asset('js/ExtraCode.js') }}"></script>
 	<script type="text/javascript">
+	  function Load(){
+		WriteTime(); //Function that writes the current time at the top of the page.
+	  }
+	
 	  function autofillId(){
 	    var Username=document.getElementById("CallerName").value;
 	    if (Username.includes("'")){
@@ -66,7 +71,7 @@
 	</script>
   </head>
   
-  <body>
+  <body onload="Load()">
 	<div class="container">
 	  <div class="row" align="center">
 		<div class="col-12">
