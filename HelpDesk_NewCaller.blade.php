@@ -67,8 +67,8 @@
 		<div class="col-8">
 		  <form class="form-inline">
 		    <label for="CallerName" class="mr-sm-2">Caller Name:</label>
-		    <input type="text" name="CallerName" id="CallerName" onchange="autofillId()" class="form-control mb-2 mr-sm-2 float-left">
-			<label for="CallerID" class="mr-sm-2">Caller ID:</label>
+		    <input type="text" name="CallerName" id="CallerName" onchange="autofillId()" class="form-control mb-2 mr-sm-2">
+			<label for="CallerID" class="mr-sm-2 float-right">Caller ID:</label>
 		    <input type="text" name="CallerID" id="CallerID" onchange="autofillName()" class="form-control mb-2 mr-sm-2 float-right">
 		  </form>
 		</div>
