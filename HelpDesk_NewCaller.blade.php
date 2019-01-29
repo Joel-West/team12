@@ -12,7 +12,7 @@
 	<script type="text/javascript" src="{{ URL::asset('js/ExtraCode.js') }}"></script>
 	<script type="text/javascript">
 	  function Load(){
-		WriteTime(); //Function that writes the current time at the top of the page.
+		WriteTime();
 	  }
 	
 	  function autofillId(){
