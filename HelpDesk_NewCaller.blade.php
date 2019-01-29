@@ -23,7 +23,7 @@
 				document.getElementById("CallerID").value = json[0].userID;
 			  }
 			} else{
-			  document.getElementById("CallerID").value = " ";
+			  document.getElementById("CallerID").value = "";
 			}
 		  },'json');
 	    }
@@ -38,7 +38,7 @@
 			if (json && json[0]){
 			  document.getElementById("CallerName").value = json[0].name;
 			} else{
-			  document.getElementById("CallerName").value = " ";
+			  document.getElementById("CallerName").value = "";
 			}
 		  },'json');
 	    }
