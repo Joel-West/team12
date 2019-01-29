@@ -76,9 +76,9 @@
 	  <form id="mainform" name="mainform" method="post" action="">
 	    @csrf
 		<input type='hidden' name="User" value="<?php echo $_POST['User']; ?>" />
-        <div class="titleDiv col-12 clearfix bg-info"> <!-- Div containing elements at the top of the page. -->
-		  <input type="button" class="btn ml-sm-2" align="left" value="&#x2190" onClick="GoToNewPage('Home');" /> <!-- Back button. -->
-		  <label id="dtLabel" class="mr-sm-2" align="right">
+        <div class="titleDiv col-12 d-flex"> <!-- Div containing elements at the top of the page. -->
+		  <input type="button" class="btn mr-auto" value="&#x2190" onClick="GoToNewPage('Home');" /> <!-- Back button. -->
+		  <label id="dtLabel" class="ml-auto" >
 	    </div>
 	  </form>
 	  <div class="row" align="center">
