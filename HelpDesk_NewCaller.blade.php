@@ -45,8 +45,19 @@
       }
 	  
 	  function problem(){
-		  console.log("Problem");
-		  $('#newProblemCollapse').collapse('toggle');
+		console.log("Problem");
+		if (document.getElementById("Problems").value == ""){
+		  $('#newProblemCollapse').collapse('hide');
+		  $('#existingProblemCollapseProblemCollapse').collapse('hide');
+		}
+		else if(document.getElementById)("Problems").value == "New Problem"){
+		  $('#newProblemCollapse').collapse('show');
+		  $('#existingProblemCollapseProblemCollapse').collapse('hide');
+		}
+		else{
+		  $('#newProblemCollapse').collapse('hide');
+		  $('#existingProblemCollapseProblemCollapse').collapse('show');
+		}
 	  }
 	  
 	  function Test(){
@@ -88,7 +99,7 @@
 		  <br>
 		  Select Problem:
 		  <select onchange="problem()" id="Problems" class="custom-select" >
-			<option selected>Choose Problem</option>
+			<option selected value = "">Choose Problem</option>
 			<option value="New Problem">New Problem</option>
 			<option value="Broken Capslock">Broken Capslock</option>
 			<option value="Overheated Computer">Overheated Computer</option>
@@ -96,9 +107,13 @@
 		  </select>
 		</div>
 		<div class="col-4"></div>
-		<div class="col-12 collapse" id="newProblemCollapse">
+		<div class="collapse" id="newProblemCollapse">
 		Hey look,it worked.
 		</div>
+		<div class="collapse" id="existingProblemCollapse">
+		BOO
+		</div>
+
 	  </div>
 	</div>
 	
