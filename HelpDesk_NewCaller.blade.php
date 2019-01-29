@@ -43,6 +43,10 @@
 		  },'json');
 	    }
       }
+	  
+	  function Test(){
+		  console.log("Clicked");
+	  }
 	</script>
   </head>
   
@@ -69,7 +73,7 @@
 		  <br>
 		  Select Problem:
 		  <div class="dropdown">
-		    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+		    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" onclick="Test()">
 			  Please Select
 			</button>
 			<div class="dropdown-menu">
