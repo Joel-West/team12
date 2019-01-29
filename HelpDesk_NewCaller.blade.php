@@ -64,7 +64,7 @@
 		  <br>
 		</div>
 		<div class="col-3"></div>
-		<div class="col-6">
+		<div class="col-7">
 		  <form class="form-inline">
 		    <label for="CallerName" class="mr-sm-2">Caller Name:</label>
 		    <input type="text" name="CallerName" id="CallerName" onchange="autofillId()" class="form-control mb-2 mr-sm-2">
@@ -72,7 +72,7 @@
 		    <input type="text" name="CallerID" id="CallerID" onchange="autofillName()" class="form-control mb-2 mr-sm-2">
 		  </form>
 		</div>
-		<div class="col-3"></div>
+		<div class="col-2"></div>
 		<div class="col-4"></div>
 		<div class="col-4">
 		  Notes on call<br>
