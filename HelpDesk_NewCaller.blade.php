@@ -63,14 +63,13 @@
 		  <h6>Time and data will be recorded on submit</h6>
 		  <br>
 		</div>
+		<div class="col-3"></div>
 		<div class="col-6">
 		  Caller Name: <input type="text" name="CallerName" id="CallerName" onchange="autofillId()" class="form-control">
-		</div>
-		<div class="col-6">
 		  Caller ID: <input type="text" name="CallerID" id="CallerID" onchange="autofillName()" class="form-control">
 		</div>
-		<div class="col-4">
-		</div>
+		<div class="col-3"></div>
+		<div class="col-4"></div>
 		<div class="col-4">
 		  Notes on call<br>
 		  <textarea class="form-control" rows="5" id="notes" ></textarea>
