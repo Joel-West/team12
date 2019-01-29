@@ -73,12 +73,12 @@
 		</div>
 		<div class="col-4">
 		  Notes on call<br>
-		  <textarea rows="4" cols="50" style="resize:none" align="left">
+		  <textarea rows="4" cols="40" style="resize:none" >
 		  </textarea>
 		  <br>
 		  <br>
 		  Select Problem:
-		  <select onchange="problem()" id="Problems" class="custom-select" align="left">
+		  <select onchange="problem()" id="Problems" class="custom-select" >
 			<option selected>Choose Problem</option>
 			<option value="New Problem">New Problem</option>
 			<option value="Broken Capslock">Broken Capslock</option>
