@@ -107,10 +107,10 @@
 		  </select>
 		</div>
 		<div class="col-4"></div>
-		<div class="collapse" id="newProblemCollapse">
+		<div class="collapse col-12" id="newProblemCollapse">
 		Hey look,it worked.
 		</div>
-		<div class="collapse" id="existingProblemCollapse">
+		<div class="collapse col-12" id="existingProblemCollapse">
 		BOO
 		</div>
 
