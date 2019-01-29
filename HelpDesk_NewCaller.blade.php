@@ -74,6 +74,10 @@
   <body onload="Load()">
 	<div class="container">
 	  <div class="row" align="center">
+		<div class="titleDiv"> <!-- Div containing elements at the top of the page. -->
+		  <input type="button" style="font-size:40px; position:absolute; left:0;" value="&#x2190" style="display:inline-block;" onClick="GoToNewPage('Home');" /> <!-- Back button. -->
+		  <label id="dtLabel" style="font-size:26px; position:absolute; right:0;">
+		</div>
 		<div class="col-12">
 		  <h1>Call Details</h1>
 		  <h5>The operator logging in is Alice #999999</h5>
