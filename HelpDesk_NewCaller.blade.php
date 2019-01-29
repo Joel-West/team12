@@ -48,15 +48,15 @@
 		console.log("Problem");
 		if (document.getElementById("Problems").value == ""){
 		  $('#newProblemCollapse').collapse('hide');
-		  $('#existingProblemCollapseProblemCollapse').collapse('hide');
+		  $('#existingProblemCollapse').collapse('hide');
 		}
 		else if(document.getElementById("Problems").value == "New Problem"){
 		  $('#newProblemCollapse').collapse('show');
-		  $('#existingProblemCollapseProblemCollapse').collapse('hide');
+		  $('#existingProblemCollapse').collapse('hide');
 		}
 		else{
 		  $('#newProblemCollapse').collapse('hide');
-		  $('#existingProblemCollapseProblemCollapse').collapse('show');
+		  $('#existingProblemCollapse').collapse('show');
 		}
 	  }
 	  
