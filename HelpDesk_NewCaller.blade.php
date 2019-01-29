@@ -95,7 +95,7 @@
 			<option value="MS Paint won't close">MS Paint won't close</option>
 		  </select>
 		</div>
-		<div class="col-4">
+		<div class="col-4"></div>
 		<div class="col-12 collapse" id="newProblemCollapse">
 		Hey look,it worked.
 		</div>
