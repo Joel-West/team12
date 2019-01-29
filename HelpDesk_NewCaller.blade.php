@@ -69,7 +69,9 @@
 		<div class="col-6">
 		  Caller ID: <input type="text" name="CallerID" id="CallerID" onchange="autofillName()">
 		</div>
-		<div class="col-4" align="center">
+		<div class="col-4">
+		</div>
+		<div class="col-4">
 		  Notes on call<br>
 		  <textarea rows="4" cols="50" style="resize:none">
 		  </textarea>
