@@ -73,11 +73,11 @@
 		  <br>
 		  Select Problem:
 		  <div class="dropdown">
-		    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" onclick="Test()">
+		    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
 			  Please Select
 			</button>
-			<div class="dropdown-menu">
-			  <a class="dropdown-item">New Problem</a>
+			<div class="dropdown-menu" onclick="Test()">
+			  <a class="dropdown-item" onclick="Test()">New Problem</a>
 			  <h5 class="dropdown-header">Existing Problems</h5>
 			  <a class="dropdown-item">Broken Capslock</a>
 			  <a class="dropdown-item">Overheated Computer</a>
