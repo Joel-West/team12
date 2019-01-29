@@ -44,12 +44,8 @@
 	    }
       }
 	  
-	  function newProblem(){
-		  console.log("New");
-	  }
-	  
-	  function existingProblem(){
-		  console.log("Exist");
+	  function problem(){
+		  console.log("Problem");
 	  }
 	  
 	  function Test(){
@@ -80,18 +76,13 @@
 		  <br>
 		  <br>
 		  Select Problem:
-		  <div class="dropdown">
-		    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-			  Please Select
-			</button>
-			<div class="dropdown-menu" >
-			  <a class="dropdown-item" onclick="newProblem()">New Problem</a>
-			  <h5 class="dropdown-header">Existing Problems</h5>
-			  <a class="dropdown-item" onclick="existingProblem()">Broken Capslock</a>
-			  <a class="dropdown-item" onclick="existingProblem()">Overheated Computer</a>
-			  <a class="dropdown-item" onclick="existingProblem()">MS Paint won't close</a>
-			</div>
-		  </div>
+		  <select onchange="problem()" id="Problems" class="custom-select">
+			<option selected>Choose Problem</option>
+			<option value="New Problem">New Problem</option>
+			<option value="Broken Capslock">Broken Capslock</option>
+			<option value="Overheated Computer">Overheated Computer</option>
+			<option value="MS Paint won't close">MS Paint won't close</option>
+		  </select>
 		</div>
 	  </div>
 	</div>
