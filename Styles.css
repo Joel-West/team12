@@ -13,7 +13,10 @@ body
 
 body,td,th,input,label
 {
-	color: #000; 
+	color: #000;
+	font-family: "Apple Chancery", Times, serif;
+	font-weight: bold;
+	
 }
 
 table
