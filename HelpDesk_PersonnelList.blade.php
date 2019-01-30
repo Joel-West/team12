@@ -96,7 +96,7 @@
 		</div>
 		<br/>
 		<div class="row" align="center">
-		<div id="tableDiv" class="col-8"> <!-- Div containing data table. -->
+		<div id="tableDiv" class="col-8 scrollbar"> <!-- Div containing data table. -->
 			Loading data...
 		</div>
 		<br/>
