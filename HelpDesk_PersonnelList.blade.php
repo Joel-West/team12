@@ -94,6 +94,7 @@
 			<label id="dtLabel" style="font-size:26px; position:absolute; right:0;"></label> <!-- Label to contain current data/time. -->
 			<h2 id="headerId" style="font-weight: bold; style=display:inline-block; font-size:30px;">Personnel</h2> <!-- Heading containing name of page. -->
 		</div>
+		<br/>
 		<div class="row" align="center">
 		<div id="tableDiv" class="col-8"> <!-- Div containing data table. -->
 			Loading data...
@@ -110,10 +111,10 @@
 			Department:<input id="txtDepartment" type="text"></input><br/>
 			Telephone Number:<input id="txtTelephoneNumber" type="text"></input><br/>
 			<input type="button" id = "btnAdd" value="Add New Item" style="font-size:16px;" onclick="AddPressed()"></input>	
-		</div>
-		<p align="center">
+			<p align="center">
 			<input type="button" value="Save Changes" style="font-size:26px; padding: 6px 12px;" onClick="SaveChanges('Home');" /> <!-- Button for submitting changes to table. -->
-		</p>
+			</p>
+		</div>
 		</div>
 	</form>
 	</div>
