@@ -96,7 +96,7 @@
 		</div>
 		<br/>
 		<div class="row" align="center">
-		<div id="tableDiv" class="col-8" style="overflow-y: scroll; height:800px; width:700px;"> <!-- Div containing data table. -->
+		<div id="tableDiv" class="col-8" style="overflow-y: scroll; height:90%;"> <!-- Div containing data table. -->
 			Loading data...
 		</div>
 		<br/>
