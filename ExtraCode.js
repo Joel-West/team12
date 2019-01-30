@@ -1,4 +1,6 @@
 fun = false;
+delList = []; //List of rows to be deleted when changes are saved to actual database.
+updList = []; //List of rows to be updated when changes are saved to actual database.
 
 window.setInterval(function() //Function used for fun mode.
 {
@@ -8,6 +10,18 @@ window.setInterval(function() //Function used for fun mode.
 		document.body.style.backgroundColor = "rgb("+col[0]+", "+col[1]+", "+col[2]+")";
 	}
 }, 100);
+
+function ListContains(list, value) //Function returns true if an item is in a list.
+{
+	for (i = 0; i < list.length; i++)
+	{
+		if list[i] == value
+		{
+			return true;
+		}
+	}
+	return false;
+}
 
 function Fun() //Fun mode function. Used for testing changing colour of elements dynamically.
 {
