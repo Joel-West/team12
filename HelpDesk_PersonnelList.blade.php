@@ -86,7 +86,7 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
 		<link rel="stylesheet" href="{{ asset('css/Styles.css') }}" type="text/css"> <!-- Import external CSS stylesheet that contains presentation info that applies to all the pages. -->
 	</head>
-	<body onload="Load()" style="height:100%"> <div class="container">
+	<body onload="Load()"> <div class="container" style="display: flex; flex-flow: column; height:100%">
 	<form id="mainform" name="mainform" method="post" action=""> <!-- This form will post data to an initially unspecified page when submitted. -->
 		<input type='hidden' name="User" value="<?php echo $_POST['User']; ?>" /> <!-- Hidden tag used to store posted user data so that it can later be posted back to the home page. -->
 		@csrf <!--Token to validates requests to server. -->
@@ -97,7 +97,7 @@
 		</div>
 		<br/>
 		<div class="row" align="center">
-		<div id="tableDiv" class="col-8" style="overflow-y: scroll; height:90%;"> <!-- Div containing data table. -->
+		<div id="tableDiv" class="col-8" style="overflow-y: scroll; height:90%;  flex: 2;"> <!-- Div containing data table. -->
 			Loading data...
 		</div>
 		<br/>
