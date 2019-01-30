@@ -63,7 +63,7 @@
 				cell4.innerHTML = document.getElementById("txtTelephoneNumber").value;
 				document.getElementById("tbl").rows[rows].id = "t" + document.getElementById("tbl").rows[rows-1].id; //Sets ID of new row.
 				document.getElementById("tbl").rows[rows].style.backgroundColor = '#9FFF30'; //Sets background colour of new row.
-				alert("New personnel added."); //Success message.
+				//alert("New personnel added."); //Success message.
 			}
 			
 			function UpdateRow() //Function that updates the selected row.
@@ -78,7 +78,7 @@
 					updList.push(row.cells[0].innerHTML); //Add the ID of the row to the list of rows to by updated when changes are commited to the actual database.
 					console.log(updList);
 				}
-				alert("Personnel updated successfully");
+				//alert("Personnel updated successfully");
 			}
 			
 			function SaveChanges(page) //Function that saves table data back to database.
@@ -91,7 +91,7 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
 		<link rel="stylesheet" href="{{ asset('css/Styles.css') }}" type="text/css"> <!-- Import external CSS stylesheet that contains presentation info that applies to all the pages. -->
 	</head>
-	<body onload="Load()"> <div class="container">
+	<body onload="Load()" style="height:100%;"> <div class="container">
 	<form id="mainform" name="mainform" method="post" action=""> <!-- This form will post data to an initially unspecified page when submitted. -->
 		<input type='hidden' name="User" value="<?php echo $_POST['User']; ?>" /> <!-- Hidden tag used to store posted user data so that it can later be posted back to the home page. -->
 		@csrf <!--Token to validates requests to server. -->
@@ -102,7 +102,7 @@
 		</div>
 		<br/>
 		<div class="row" align="center">
-		<div id="tableDiv" class="col-8" style="overflow-y: scroll; height:700px;"> <!-- Div containing data table. -->
+		<div id="tableDiv" class="col-8" style="overflow-y: scroll; height:90%;"> <!-- Div containing data table. -->
 			Loading data...
 		</div>
 		<br/>
@@ -117,6 +117,7 @@
 			Department:<input id="txtDepartment" type="text"></input><br/>
 			Telephone Number:<input id="txtTelephoneNumber" type="text"></input><br/>
 			<input type="button" id = "btnAdd" value="Add New Item" style="font-size:16px;" onclick="AddPressed()"></input>	
+			<br/>
 			<br/>
 			<p align="center">
 			<input type="button" value="Save Changes" style="font-size:26px; padding: 6px 12px;" onClick="SaveChanges('Home');" /> <!-- Button for submitting changes to table. -->
