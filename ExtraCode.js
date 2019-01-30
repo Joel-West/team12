@@ -15,7 +15,7 @@ function ListContains(list, value) //Function returns true if an item is in a li
 {
 	for (i = 0; i < list.length; i++)
 	{
-		if list[i] == value
+		if (list[i] == value)
 		{
 			return true;
 		}
