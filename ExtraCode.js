@@ -80,10 +80,12 @@ function Delete() //Function for deleting selected rows from a table.
 			if (document.getElementById("tbl").rows[i].style.backgroundColor != 'rgb(159, 255, 48)') //If row is selected.
 			{
 				console.log("deleting t" + i);
+				delList.push(document.getElementById("tbl").rows[i].cells[0].innerHTML);
 				document.getElementById("tbl").deleteRow(i); //Delete the row.
 			}
 		}
 		selected = 0;
+		console.log(delList);
 		CheckIfUpdateOrAdd();
 	}
 }
