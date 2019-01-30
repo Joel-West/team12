@@ -73,9 +73,9 @@
 				row.cells[2].innerHTML = document.getElementById("txtJobTitle").value;
 				row.cells[3].innerHTML = document.getElementById("txtDepartment").value;
 				row.cells[4].innerHTML = document.getElementById("txtTelephoneNumber").value;
-				if (!ListContains(updList, row.cells[0])) //if selected row is not already marked to be updated when changes are saved to the database later.
+				if (!ListContains(updList, row.cells[0].innerHTML)) //if selected row is not already marked to be updated when changes are saved to the database later.
 				{
-					updList.push(row.cells[0]); //Add the ID of the row to the list of rows to by updated when changes are commited to the actual database.
+					updList.push(row.cells[0].innerHTML); //Add the ID of the row to the list of rows to by updated when changes are commited to the actual database.
 					console.log(updList);
 				}
 				alert("Personnel updated successfully");
