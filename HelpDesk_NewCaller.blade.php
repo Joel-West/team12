@@ -20,7 +20,7 @@
 	    if (Username.includes("'")){
 		} else{
 		  sql = "SELECT userID FROM tblPersonnel WHERE name = '" + Username +"'"; 
-		  $.get("Query.php", {'sql':sql},function(json){
+		  $.get("Query.php", {'sql':sql, 'returnData':true},function(json){
 			if (json && json[0]){
 			  if (json[1]){
 				alert("There are multiple " + Username + ". Please type their user ID as well");
