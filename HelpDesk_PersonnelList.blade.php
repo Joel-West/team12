@@ -21,7 +21,7 @@
 				{
 					if(json && json[0]) //If result of php file was a json array.	
 					{				
-						var htm = "<table id='tbl' border='1'><tr id='t0'><th>userID</th><th>Name</th><th>Job Title</th><th>Department</th><th>Telephone Number</th></tr>"; //Appending column headers.
+						var htm = "<table class='table' id='tbl' border='1'><tr id='t0'><th scope='col'>userID</th><th scope='col'>Name</th><th scope='col'>Job Title</th><th scope='col'>Department</th><th scope='col'>Telephone Number</th></tr>"; //Appending column headers.
 						for (i = 0; i<json.length; i++) //Iterates through the json array of results.
 						{
 							htm += "<tr id='t" + (i+1) + "' style='background-color:rgb(159, 255, 48);'>"; //Sets colour and ID of row.
@@ -73,7 +73,7 @@
 				row.cells[2].innerHTML = document.getElementById("txtJobTitle").value;
 				row.cells[3].innerHTML = document.getElementById("txtDepartment").value;
 				row.cells[4].innerHTML = document.getElementById("txtTelephoneNumber").value;
-				if (!ListContains(updList, row.cells[0].innerHTML) && row.cells[0].innerHTML!= "-") //if selected row is not already marked to be updated when changes are saved to the database later and is not a new row.
+				if (!ListContains(updList, row.cells[0].innerHTML) && row.cells[0].innerHTML != "-") //if selected row is not already marked to be updated when changes are saved to the database later and is not a new row.
 				{
 					updList.push(row.cells[0].innerHTML); //Add the ID of the row to the list of rows to by updated when changes are commited to the actual database.
 					console.log(updList);
@@ -102,7 +102,7 @@
 		</div>
 		<br/>
 		<div class="row" align="center">
-		<div id="tableDiv" class="col-8" style="overflow-y: scroll; height:700;"> <!-- Div containing data table. -->
+		<div id="tableDiv" class="col-8 table-wrapper-scroll-y"> <!-- Div containing data table. -->
 			Loading data...
 		</div>
 		<br/>
