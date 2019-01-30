@@ -63,7 +63,7 @@
 				cell4.innerHTML = document.getElementById("txtTelephoneNumber").value;
 				document.getElementById("tbl").rows[rows].id = "t" + document.getElementById("tbl").rows[rows-1].id; //Sets ID of new row.
 				document.getElementById("tbl").rows[rows].style.backgroundColor = '#9FFF30'; //Sets background colour of new row.
-				//alert("New personnel added."); //Success message.
+				alert("New personnel added."); //Success message.
 			}
 			
 			function UpdateRow() //Function that updates the selected row.
@@ -73,6 +73,11 @@
 				row.cells[2].innerHTML = document.getElementById("txtJobTitle").value;
 				row.cells[3].innerHTML = document.getElementById("txtDepartment").value;
 				row.cells[4].innerHTML = document.getElementById("txtTelephoneNumber").value;
+				if !ListContains(updList, row.cells[0]) //if selected row is not already marked to be updated when changes are saved to the database later.
+				{
+					updList.push(row.cells[0]); //Add the ID of the row to the list of rows to by updated when changes are commited to the actual database.
+					console.log(updList);
+				}
 				alert("Personnel updated successfully");
 			}
 			
