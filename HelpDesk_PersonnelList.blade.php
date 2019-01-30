@@ -85,7 +85,7 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
 		<link rel="stylesheet" href="{{ asset('css/Styles.css') }}" type="text/css"> <!-- Import external CSS stylesheet that contains presentation info that applies to all the pages. -->
 	</head>
-	<body onload="Load()">
+	<body onload="Load()"> <div class="container">
 	<form id="mainform" name="mainform" method="post" action=""> <!-- This form will post data to an initially unspecified page when submitted. -->
 		<input type='hidden' name="User" value="<?php echo $_POST['User']; ?>" /> <!-- Hidden tag used to store posted user data so that it can later be posted back to the home page. -->
 		@csrf <!--Token to validates requests to server. -->
@@ -94,11 +94,12 @@
 			<label id="dtLabel" style="font-size:26px; position:absolute; right:0;"></label> <!-- Label to contain current data/time. -->
 			<h2 id="headerId" style="font-weight: bold; style=display:inline-block; font-size:30px;">Personnel</h2> <!-- Heading containing name of page. -->
 		</div>
-		<div id="tableDiv"> <!-- Div containing data table. -->
+		<div class="row" align="center">
+		<div id="tableDiv" class="col-8"> <!-- Div containing data table. -->
 			Loading data...
 		</div>
 		<br/>
-		<div align="center">
+		<div id="inputDiv" align="center" class="col-4">
 			<p>
 				Search:<input type="text"></input> <!-- Box for searching the table for specific strings. -->
 				<input type="button" value="Submit"></input> <!-- Submits search on press -->
@@ -113,6 +114,8 @@
 		<p align="center">
 			<input type="button" value="Save Changes" style="font-size:26px; padding: 6px 12px;" onClick="SaveChanges('Home');" /> <!-- Button for submitting changes to table. -->
 		</p>
+		</div>
 	</form>
+	</div>
 	</body>
 </html>
