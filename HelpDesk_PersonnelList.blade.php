@@ -8,6 +8,7 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>	
 		<script type="text/javascript" src="{{ URL::asset('js/ExtraCode.js') }}"></script> <!-- Import JS file containing functions that are used in multiple other files -->
 		<script type="text/javascript">	
+
 			function Load() //Function that runs when file loads.
 			{
 				sql = "SELECT * FROM tblPersonnel;"; //Simple query to get all data from table.
@@ -21,7 +22,7 @@
 				{
 					if(json && json[0]) //If result of php file was a json array.	
 					{				
-						var htm = "<table class='table' id='tbl' border='1'><thead><tr id='t0'><th scope='col'>userID</th><th scope='col'>Name</th><th scope='col'>Job Title</th><th scope='col'>Department</th><th scope='col'>Telephone Number</th></tr></thead>"; //Appending column headers.
+						var htm = "<table class='table' id='tbl' border='1'><tr id='t0'><th scope='col'>userID</th><th scope='col'>Name</th><th scope='col'>Job Title</th><th scope='col'>Department</th><th scope='col'>Telephone Number</th></tr>"; //Appending column headers.
 						for (i = 0; i<json.length; i++) //Iterates through the json array of results.
 						{
 							htm += "<tr id='t" + (i+1) + "' style='background-color:rgb(159, 255, 48);'>"; //Sets colour and ID of row.
@@ -30,7 +31,7 @@
 							htm +="<td>"+json[i].jobTitle+"</td>";		
 							htm +="<td>"+json[i].department+"</td>";
 							htm +="<td>"+json[i].telephoneNumber+"</td>";
-							htm += "</tr></table>";							
+							htm += "</tr>";							
 						}
 					}
 					else
@@ -90,14 +91,15 @@
 		</script>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
 		<link rel="stylesheet" href="{{ asset('css/Styles.css') }}" type="text/css"> <!-- Import external CSS stylesheet that contains presentation info that applies to all the pages. -->
-		    <style>
-	.table-wrapper-scroll-y {
-	display: block;
-	max-height: 200px;
-	overflow-y: auto;
-	-ms-overflow-style: -ms-autohiding-scrollbar;
-	}
-	</style>
+		<style>
+		.table-wrapper-scroll-y
+		{
+		display: block;
+		max-height: 200px;
+		overflow-y: auto;
+		-ms-overflow-style: -ms-autohiding-scrollbar;
+		}
+		</style>
 	</head>
 	<body onload="Load()" style="height:100%;"> <div class="container">
 	<form id="mainform" name="mainform" method="post" action=""> <!-- This form will post data to an initially unspecified page when submitted. -->
