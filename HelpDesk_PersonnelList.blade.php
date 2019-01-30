@@ -63,7 +63,7 @@
 				cell4.innerHTML = document.getElementById("txtTelephoneNumber").value;
 				document.getElementById("tbl").rows[rows].id = "t" + document.getElementById("tbl").rows[rows-1].id; //Sets ID of new row.
 				document.getElementById("tbl").rows[rows].style.backgroundColor = '#9FFF30'; //Sets background colour of new row.
-				alert("New equipment added."); //Success message.
+				alert("New personnel added."); //Success message.
 			}
 			
 			function UpdateRow() //Function that updates the selected row.
@@ -73,6 +73,7 @@
 				row.cells[2].innerHTML = document.getElementById("txtJobTitle").value;
 				row.cells[3].innerHTML = document.getElementById("txtDepartment").value;
 				row.cells[4].innerHTML = document.getElementById("txtTelephoneNumber").value;
+				alert("Personnel updated successfully");
 			}
 			
 			function SaveChanges(page) //Function that saves table data back to database.
@@ -96,7 +97,7 @@
 		</div>
 		<br/>
 		<div class="row" align="center">
-		<div id="tableDiv" class="col-8" style="overflow-y: scroll; height:90%;"> <!-- Div containing data table. -->
+		<div id="tableDiv" class="col-8" style="overflow-y: scroll; height:200%;"> <!-- Div containing data table. -->
 			Loading data...
 		</div>
 		<br/>
