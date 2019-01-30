@@ -96,7 +96,7 @@
 		</div>
 		<br/>
 		<div class="row" align="center">
-		<div id="tableDiv" class="col-8 scrollbar"> <!-- Div containing data table. -->
+		<div id="tableDiv" class="col-8 table-wrapper-scroll-y"> <!-- Div containing data table. -->
 			Loading data...
 		</div>
 		<br/>
@@ -111,6 +111,7 @@
 			Department:<input id="txtDepartment" type="text"></input><br/>
 			Telephone Number:<input id="txtTelephoneNumber" type="text"></input><br/>
 			<input type="button" id = "btnAdd" value="Add New Item" style="font-size:16px;" onclick="AddPressed()"></input>	
+			<br/>
 			<p align="center">
 			<input type="button" value="Save Changes" style="font-size:26px; padding: 6px 12px;" onClick="SaveChanges('Home');" /> <!-- Button for submitting changes to table. -->
 			</p>
