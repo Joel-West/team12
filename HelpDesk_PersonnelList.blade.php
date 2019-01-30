@@ -4,6 +4,8 @@
 		<meta content="text/html" charset="UTF-8" />
 		<title>HelpDesk_PersonnelList</title>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> <!-- Get JQuery library from google. -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>	
 		<script type="text/javascript" src="{{ URL::asset('js/ExtraCode.js') }}"></script> <!-- Import JS file containing functions that are used in multiple other files -->
 		<script type="text/javascript">	
 			function Load() //Function that runs when file loads.
@@ -64,9 +66,9 @@
 				alert("New equipment added."); //Success message.
 			}
 			
-			function UpdateRow()
+			function UpdateRow() //Function that updates the selected row.
 			{
-				row = document.getElementById("tbl").rows[GetSelectedRow()];
+				row = document.getElementById("tbl").rows[GetSelectedRow()]; //Gets the details of the row that is selected.
 				row.cells[1].innerHTML = document.getElementById("txtName").value;
 				row.cells[2].innerHTML = document.getElementById("txtJobTitle").value;
 				row.cells[3].innerHTML = document.getElementById("txtDepartment").value;
@@ -80,6 +82,7 @@
 			
 			var selected = 0; //Global variable corresponding to number of highlighted table rows.
 		</script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
 		<link rel="stylesheet" href="{{ asset('css/Styles.css') }}" type="text/css"> <!-- Import external CSS stylesheet that contains presentation info that applies to all the pages. -->
 	</head>
 	<body onload="Load()">
