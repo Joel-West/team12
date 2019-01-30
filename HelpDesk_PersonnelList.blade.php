@@ -21,7 +21,7 @@
 				{
 					if(json && json[0]) //If result of php file was a json array.	
 					{				
-						var htm = "<table class='table' id='tbl' border='1'><tr id='t0'><th scope='col'>userID</th><th scope='col'>Name</th><th scope='col'>Job Title</th><th scope='col'>Department</th><th scope='col'>Telephone Number</th></tr>"; //Appending column headers.
+						var htm = "<table class='table' id='tbl' border='1'><thead><tr id='t0'><th scope='col'>userID</th><th scope='col'>Name</th><th scope='col'>Job Title</th><th scope='col'>Department</th><th scope='col'>Telephone Number</th></tr></thead><tbody>"; //Appending column headers.
 						for (i = 0; i<json.length; i++) //Iterates through the json array of results.
 						{
 							htm += "<tr id='t" + (i+1) + "' style='background-color:rgb(159, 255, 48);'>"; //Sets colour and ID of row.
@@ -30,7 +30,7 @@
 							htm +="<td>"+json[i].jobTitle+"</td>";		
 							htm +="<td>"+json[i].department+"</td>";
 							htm +="<td>"+json[i].telephoneNumber+"</td>";
-							htm += "</tr>";							
+							htm += "</tr></tbody></table>";							
 						}
 					}
 					else
