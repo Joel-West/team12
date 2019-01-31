@@ -67,45 +67,6 @@ function GetRows() //Function for returning the number of rows in a data table.
 	return rows;
 }
 
-function Delete() //Function for deleting selected rows from a table.
-{
-	if (selected == 0) //if no rows are selected, leave function.
-	{
-		return;
-	}
-	if (confirm("Delete selected rows?")) //Get user confirmation.
-	{
-		rows = GetRows();
-		for (i = rows-1; i > 0; i--) //Iterate through the rows of the table.
-		{
-			if (document.getElementById("tbl").rows[i].style.backgroundColor != 'rgb(159, 255, 48)') //If row is selected.
-			{
-				console.log("deleting t" + i);
-				if (document.getElementById("tbl").rows[i].cells[0].innerHTML != "-") //If not a new item.
-				{
-					indexInUpdList = updList.indexOf(document.getElementById("tbl").rows[i].cells[0].innerHTML); //Get index of deleted item in update list.
-					if (indexInUpdList > -1)
-					{
-						updList.splice(indexInUpdList, 1); //Delete row from the update list - if record is deleted, it will not need to be updated.
-					}
-					if (document.getElementById("tbl").rows[i].cells[0].innerHTML.includes("(new)")) //If row is a new row, decrement number of new rows.
-					{
-						newRowCount -=1;
-					}
-					else
-					{
-						delList.push(document.getElementById("tbl").rows[i].cells[0].innerHTML); //Add record id to list of rows that will be deleted from the actual database later.
-					}
-				}
-				document.getElementById("tbl").deleteRow(i); //Delete the row.
-			}
-		}
-		selected = 0;
-		console.log(delList);
-		CheckIfUpdateOrAdd();
-	}
-}
-
 function GetSelectedRow() //Returns selected row (if only one is selected).
 {
 	rows = GetRows();

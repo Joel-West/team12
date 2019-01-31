@@ -110,6 +110,78 @@
 				//alert("Personnel updated successfully");
 			}
 			
+			function Delete() //Function for deleting selected rows from a table.
+			{
+				if (selected == 0) //if no rows are selected, leave function.
+				{
+					return;
+				}
+				if (confirm("Delete selected rows?")) //Get user confirmation.
+				{
+					rows = GetRows();
+					for (i = rows-1; i > 0; i--) //Iterate through the rows of the table.
+					{
+						deleteRow = false; //Variable holding if row will actually be deleted.
+						if (document.getElementById("tbl").rows[i].style.backgroundColor != 'rgb(159, 255, 48)') //If row is selected.
+						{
+							deleteRow = true;
+							id = document.getElementById("tbl").rows[i].cells[0].innerHTML;
+							if (!id.includes("(new)") && CheckIfUser(id)) //If not a new row and if ID is in tblUser.
+							{
+								if (!confirm("Deleting this row will result in a user being deleted from the users table. Are you sure that you wish to continue?")) //Check if user wishes to delete from user table as well.
+								{
+									deleteRow = false;
+								}
+								else
+								{
+									userDelList.push(id); //Add row to list of rows to be deleted from tblUser when changes are saved.
+								}
+							}							
+						}
+						if (deleteRow == true) //If should be deleted after validation.
+						{
+							console.log("deleting t" + i);
+							if (document.getElementById("tbl").rows[i].cells[0].innerHTML.includes("(new)")) //If row is a new row, decrement number of new rows.
+							{
+								newRowCount -=1;
+							}
+							else
+							{
+								indexInUpdList = updList.indexOf(document.getElementById("tbl").rows[i].cells[0].innerHTML); //Get index of deleted item in update list.
+								if (indexInUpdList > -1)
+								{
+									updList.splice(indexInUpdList, 1); //Delete row from the update list - if record is deleted, it will not need to be updated.
+								}
+								delList.push(document.getElementById("tbl").rows[i].cells[0].innerHTML); //Add record id to list of rows that will be deleted from the actual database later.
+							}
+							document.getElementById("tbl").deleteRow(i); //Delete the row.
+						}
+					}
+					selected = 0;
+					console.log(delList);
+					CheckIfUpdateOrAdd();
+				}
+			}
+			
+			function CheckIfUser(id) //Returns true if the user is in the users table.
+			{
+				sql = "SELECT * FROM tblUser WHERE userID = " + id + ";"; //Get record from tblUser if there is a row with the given ID.
+				$.get("Query.php", {'sql':sql, 'returnData':true},function(json) //Calls query.php, which handles the SQL query and sorting of result data.
+				{
+					if(json && json[0]) //If result of php file was a json array, as thus a result exists.
+					{		
+						show_message("in users");					
+						return true;
+						
+					}
+					else
+					{
+						show_message("not in users");
+						return false;
+					}
+				},'json');
+			}
+			
 			function Search() //Function for searching table based on text box input.
 			{
 				search = true; //Defines whether search will go ahead.
@@ -159,6 +231,13 @@
 						sql+=row.cells[4].innerHTML + "); ";
 					}
 				}
+				if (userDelList.length > 0)
+				{
+					for (i = 0; i< userDelList.length; i++)
+					{
+						sql+="DELETE FROM tblUser WHERE userID = " + userDelList[i] + "; ";
+					}
+				}
 				alert(sql);
 				/*
 				$.get("Query.php", {'sql':sql, 'returnData':false},function(json) //Calls query.php, which handles the SQL query and sorting of result data.
@@ -170,11 +249,13 @@
 					}
 				},'json');
 				alert("Changes saved.");
-				updList = "";
-				delList = "";
+				updList = [];
+				delList = [];
+				userDelList = [];
 				*/
 			}
 			
+			userDelList = []; //List of IDs that will be deleted from the user table.
 			var selected = 0; //Global variable corresponding to number of highlighted table rows.
 		</script>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
