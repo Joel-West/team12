@@ -92,7 +92,7 @@
 				document.getElementById("tbl").rows[rows].id = "t" + document.getElementById("tbl").rows[rows-1].id; //Sets ID of new row.
 				document.getElementById("tbl").rows[rows].style.backgroundColor = '#9FFF30'; //Sets background colour of new row.
 				newRowCount+=1;
-				//alert("New personnel added."); //Success message.
+				alert("New personnel added."); //Success message.
 			}
 			
 			function UpdateRow() //Function that updates the selected row.
@@ -107,7 +107,7 @@
 					updList.push(row.cells[0].innerHTML); //Add the ID of the row to the list of rows to by updated when changes are commited to the actual database.
 					console.log(updList);
 				}
-				//alert("Personnel updated successfully");
+				alert("Personnel updated successfully.");
 			}
 			
 			function Delete() //Function for deleting selected rows from a table.
@@ -183,7 +183,7 @@
 						sql+="name = '"+ row.cells[1].innerHTML + "', ";
 						sql+="jobTitle = '"+ row.cells[2].innerHTML + "', ";
 						sql+="department = '"+ row.cells[3].innerHTML + "', ";
-						sql+="telephoneNumber = "+ row.cells[4].innerHTML + ", ";
+						sql+="telephoneNumber = "+ row.cells[4].innerHTML + " ";
 						sql+="WHERE userID = " + id + "; ";
 					}
 				}
