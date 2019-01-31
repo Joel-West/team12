@@ -128,9 +128,10 @@
 							id = document.getElementById("tbl").rows[i].cells[0].innerHTML;
 							if (!id.includes("(new)") && CheckIfUser(id)) //If not a new row and if ID is in tblUser.
 							{
-								if (!confirm("Deleting this row will result in a user being deleted from the users table. Are you sure that you wish to continue?")) //Check if user wishes to delete from user table as well.
+								if (!confirm("Deleting one of these rows will result in a user being deleted from the users table. Are you sure that you wish to continue?")) //Check if user wishes to delete from user table as well.
 								{
 									deleteRow = false;
+									return;
 								}
 								else
 								{
@@ -165,6 +166,7 @@
 			
 			function CheckIfUser(id) //Returns true if the user is in the users table.
 			{
+				alert("hi")
 				sql = "SELECT * FROM tblUser WHERE userID = " + id + ";"; //Get record from tblUser if there is a row with the given ID.
 				$.get("Query.php", {'sql':sql, 'returnData':true},function(json) //Calls query.php, which handles the SQL query and sorting of result data.
 				{
