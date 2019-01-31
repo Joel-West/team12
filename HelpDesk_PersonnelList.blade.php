@@ -126,6 +126,7 @@
 						{
 							deleteRow = true;
 							id = document.getElementById("tbl").rows[i].cells[0].innerHTML;
+							alert(id.includes("(new)"));
 							if (!id.includes("(new)") && CheckIfUser(id)) //If not a new row and if ID is in tblUser.
 							{
 								if (!confirm("Deleting one of these rows will result in a user being deleted from the users table. Are you sure that you wish to continue?")) //Check if user wishes to delete from user table as well.
@@ -169,17 +170,13 @@
 				sql = "SELECT * FROM tblUser WHERE userID = " + id + ";"; //Get record from tblUser if there is a row with the given ID.
 				$.get("Query.php", {'sql':sql, 'returnData':true},function(json) //Calls query.php, which handles the SQL query and sorting of result data.
 				{
-					alert(json);
-					alert(json[0]);
 					if (json[0] != undefined) //If result of php file was a json array, as thus a result exists.
-					{		
-						alert("in users");					
+					{						
 						return true;
 						
 					}
 					else
 					{
-						alert("not in users");
 						return false;
 					}
 				},'json');
