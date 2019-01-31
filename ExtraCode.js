@@ -169,6 +169,7 @@ function SortTable(column) //Function sorts table by the selected column.
 	i = 0;
 	while (swapping) //Loops until no swapping is performed.
 	{
+		console.log(GetRows()-1);
 		swapping = false;
 		for (i = 1; i < GetRows()-1; i++) //Iterate through all rows apart from top row.
 		{
