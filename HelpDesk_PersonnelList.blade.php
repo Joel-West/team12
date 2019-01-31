@@ -126,7 +126,6 @@
 						{
 							deleteRow = true;
 							id = document.getElementById("tbl").rows[i].cells[0].innerHTML;
-							alert(CheckIfUser(id));
 							if (!id.includes("(new)") && CheckIfUser(id)) //If not a new row and if ID is in tblUser.
 							{
 								if (!confirm("Deleting one of these rows will result in a user being deleted from the users table. Are you sure that you wish to continue?")) //Check if user wishes to delete from user table as well.
@@ -173,7 +172,7 @@
 				{
 					if (json[0] != undefined) //If result of php file was a json array, as thus a result exists.
 					{				
-					
+						alert("Should be true");
 						res = true;	
 					}
 				},'json');
