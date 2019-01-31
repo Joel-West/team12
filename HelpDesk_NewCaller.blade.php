@@ -78,10 +78,13 @@
 		  Navbar
 	  </a>
       <div class="navbar-nav">
-		<a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-		<a class="nav-item nav-link" href="#">Features</a>
-		<a class="nav-item nav-link" href="#">Pricing</a>
-		<a class="nav-item nav-link disabled" href="#">Disabled</a>
+		<a class="nav-item nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+		<a class="nav-item nav-link active" href="#">New Call</a>
+		<a class="nav-item nav-link" href="#">Call History</a>
+		<a class="nav-item nav-link" href="#">Problems List</a>
+		<a class="nav-item nav-link" href="#">Personnel</a>
+		<a class="nav-item nav-link" href="#">Equipment</a>
+		<a class="nav-item nav-link" href="#">Analytics</a>
 	  </div>
 	</header>
 	<div class="container-fluid">
