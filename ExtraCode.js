@@ -197,16 +197,16 @@ function SortTable(column) //Function sorts table by the selected column.
 		}
 	}
 	cell = table.rows[0].cells[column]; //Gets relevant header cell.
-	if (cell.innerHTML.includes("&#x2193") || cell.innerHTML.includes("&#x2191"))
+	if (cell.innerHTML.includes("↓") || cell.innerHTML.includes("↓"))
 	{
 		alert("Aaaaah");
 	}
 	if (direction == "asc") //If ascending, draw up arrow in header cell.
 	{
-		cell.innerHTML += " &#x2193";
+		cell.innerHTML += "&#x2193";
 	}
 	else //If descending, draw down arrow in header cell.
 	{
-		cell.innerHTML += " &#x2191";
+		cell.innerHTML += "&#x2191";
 	}
 }
