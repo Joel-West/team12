@@ -102,7 +102,7 @@
 				row.cells[2].innerHTML = document.getElementById("txtJobTitle").value;
 				row.cells[3].innerHTML = document.getElementById("txtDepartment").value;
 				row.cells[4].innerHTML = document.getElementById("txtTelephoneNumber").value;
-				if (!ListContains(updList, row.cells[0].innerHTML) && !row.cells[0].innerHTML.indexOf("(new)") != -1) //If selected row is not already marked to be updated when changes are saved to the database later and is not a new row.
+				if (!ListContains(updList, row.cells[0].innerHTML) && !row.cells[0].innerHTML.indexOf("(new)") != 0) //If selected row is not already marked to be updated when changes are saved to the database later and is not a new row.
 				{
 					updList.push(row.cells[0].innerHTML); //Add the ID of the row to the list of rows to by updated when changes are commited to the actual database.
 					console.log(updList);
@@ -148,7 +148,7 @@
 				for (i = 0; i < GetRows(); i++) //Iterate through all rows to find new rows.
 				{
 					row = document.getElementById("tbl").rows[i];
-					if (row.cells[0].innerHTML.indexOf("(new)") != -1) //If record is new.
+					if (row.cells[0].innerHTML.indexOf("(new)") != 0) //If record is new.
 					{
 						row.cells[0].innerHTML = row.cells[0].innerHTML.replace("(new)", '') //Remove the 'new' tag from the record.
 						sql+="INSERT INTO tblPersonnel VALUES (";
