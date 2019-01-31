@@ -63,7 +63,7 @@ function GoToNewPage(page) //Function that submits the main form of the current 
 function GetRows() //Function for returning the number of rows in a data table.
 {
 	var rows = document.getElementById('tbl').getElementsByTagName("tr").length;
-	console.log("Rows = " + rows); //Logs to console for debugging purposes.
+	//console.log("Rows = " + rows); //Logs to console for debugging purposes.
 	return rows;
 }
 
@@ -170,7 +170,7 @@ function SortTable(column) //Function sorts table by the selected column.
 	while (swapping) //Loops until no swapping is performed.
 	{
 		swapping = false;
-		for (i = 1; i < rows.length-1; i++) //Iterate through all rows apart from top row.
+		for (i = 1; i < GetRows()-1; i++) //Iterate through all rows apart from top row.
 		{
 			shouldSwap = false;
 			item1 = table.rows[i].cells[column]; //Gets 2 items to compare.
