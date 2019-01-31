@@ -81,13 +81,16 @@ function Delete() //Function for deleting selected rows from a table.
 			if (document.getElementById("tbl").rows[i].style.backgroundColor != 'rgb(159, 255, 48)') //If row is selected.
 			{
 				console.log("deleting t" + i);
-				
 				if (document.getElementById("tbl").rows[i].cells[0].innerHTML != "-") //If not a new item.
 				{
 					indexInUpdList = updList.indexOf(document.getElementById("tbl").rows[i].cells[0].innerHTML); //Get index of deleted item in update list.
 					if (indexInUpdList > -1)
 					{
 						updList.splice(indexInUpdList, 1); //Delete row from the update list - if record is deleted, it will not need to be updated.
+					}
+					if (row.cells[0].innerHTML.indexOf("(new)") != -1) //If row is a new row, decrement number of new rows.
+					{
+						newRowCount -=1;
 					}
 					delList.push(document.getElementById("tbl").rows[i].cells[0].innerHTML); //Add record id to list of rows that will be deleted from the actual database later.
 				}
