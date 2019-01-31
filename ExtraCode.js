@@ -81,8 +81,14 @@ function Delete() //Function for deleting selected rows from a table.
 			if (document.getElementById("tbl").rows[i].style.backgroundColor != 'rgb(159, 255, 48)') //If row is selected.
 			{
 				console.log("deleting t" + i);
+				
 				if (document.getElementById("tbl").rows[i].cells[0].innerHTML != "-") //If not a new item.
 				{
+					indexInUpdList = updList.indexOf(document.getElementById("tbl").rows[i].cells[0].innerHTML); //Get index of deleted item in update list.
+					if indexInUpdList > -1
+					{
+						updList.splice(indexInUpdList, 1); //Delete row from the update list - if record is deleted, it will not need to be updated.
+					}
 					delList.push(document.getElementById("tbl").rows[i].cells[0].innerHTML); //Add record id to list of rows that will be deleted from the actual database later.
 				}
 				document.getElementById("tbl").deleteRow(i); //Delete the row.
@@ -157,6 +163,18 @@ function CheckIfUpdateOrAdd() //The 'add' button into an 'update' button and pop
 		document.getElementById("txtDepartment").value = "";
 		document.getElementById("txtTelephoneNumber").value = "";
 	}
+}
+
+function GetRowWithID(id) //Returns row of a column with a given ID (first column, which is presumed to be the primary key).
+{
+	for (i = 0; i<GetRows(); i++)
+	{
+		if document.getElementById("tbl").rows[i] == id;
+		{
+			return i;
+		}
+	}
+	return -1;
 }
 
 function SortTable(column) //Function sorts table by the selected column.

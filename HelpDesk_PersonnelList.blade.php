@@ -104,7 +104,40 @@
 			
 			function SaveChanges(page) //Function that saves table data back to database.
 			{
+				sql = "";
+				for (i = 0; i < delList.length; i++) //Iterate through delete list (deletion performed first as it reduces database size, making other operations quicker).
+				{
+					sql+="DELETE FROM tblPersonnel WHERE userID == $delList[i];"
+				}
+				for (i = 0; i < updList.length; i++) //Iterate through delete list (deletion performed first as it reduces database size, making other operations quicker).
+				{
+					rowNum = GetRowWithID(updList[i]); //Gets the row number in the local table that corresponds to the ID in the updList.
+					if (rowNum != -1) //If row exists.
+					{
+						row = document.getElementById("tbl").rows[rowNum]; //Get row of local table that is being saved to database.
+						sql+="UPDATE tblPersonnel SET name = '$(row.cells[1].innerHTML)', jobTitle = '$(row.cells[2].innerHTML)', department = '$(row.cells[3].innerHTML)', = $(row.cells[4].innerHTML) WHERE userID == updList[i];";
+					}
+				}
+				for (i = 0; i < GetRows(); i++)
+				{
+					row = document.getElementById("tbl").rows[i];
+					if row.cells[0] == "-"
+					{
+						sql+="INSERT INTO tblPersonnel VALUES (NULL, '$(row.cells[1].innerHTML)', '$(row.cells[2].innerHTML)', '$(row.cells[3].innerHTML)', $(row.cells[4].innerHTML));";
+					}
+				}
+				alert(sql);
+				/*
+				$.get("Query.php", {'sql':sql, 'returnData':false},function(json) //Calls query.php, which handles the SQL query and sorting of result data.
+				{
+					if(json && json[0]) //If result of php file was a json array.	
+					{				
+						alert(json);
+						alert(json[0]);
+					}
+				},'json');
 				alert("Changes saved.");
+				*/
 			}
 			
 			var selected = 0; //Global variable corresponding to number of highlighted table rows.
