@@ -50,10 +50,30 @@
 			
 			function AddRow() //Adds a new row to the table, from data in the text boxes.
 			{
-				if (document.getElementById("txtName").value == false || document.getElementById("txtJobTitle").value == false || document.getElementById("txtDepartment").value == false || document.getElementById("txtTelephoneNumber").value == false ||
-				document.getElementById("txtID").value == false || isNaN(document.getElementById("txtID").value) || isNaN(document.getElementById("txtTelephoneNumber").value) || GetRowWithID(document.getElementById("txtID").value) != -1)
+				   
+				if (document.getElementById("txtID").value == false|| isNaN(document.getElementById("txtID").value) || GetRowWithID(document.getElementById("txtID").value) != -1))
 				{
-					alert("Invalid input"); //Returns error if data input from text boxes is invalid.
+					alert("Invalid ID"); //Returns error if data input from text boxes is invalid.
+					return;
+				}
+				else if (document.getElementById("txtName").value == false)
+				{
+					alert("Invalid name"); //Returns error if data input from text boxes is invalid.
+					return;
+				}
+				else if (document.getElementById("txtJobTitle").value == false)
+				{
+					alert("Invalid job title"); //Returns error if data input from text boxes is invalid.
+					return;
+				}
+				else if (document.getElementById("txtDepartment").value == false)
+				{
+					alert("Invalid department"); //Returns error if data input from text boxes is invalid.
+					return;
+				}
+				else if (document.getElementById("txtTelephoneNumber").value == false || isNaN(document.getElementById("txtTelephoneNumber").value))
+				{
+					alert("Invalid telephone number"); //Returns error if data input from text boxes is invalid.
 					return;
 				}
 				rows = GetRows(); //Gets number of rows.
@@ -122,7 +142,7 @@
 						sql+="jobTitle = '"+ row.cells[2].innerHTML + "', ";
 						sql+="department = '"+ row.cells[3].innerHTML + "', ";
 						sql+="telephoneNumber = "+ row.cells[4].innerHTML + ", ";
-						sql+="WHERE userID == " + id + "; ";
+						sql+="WHERE userID = " + id + "; ";
 					}
 				}
 				for (i = 0; i < GetRows(); i++) //Iterate through all rows to find new rows.
