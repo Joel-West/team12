@@ -114,6 +114,7 @@
 					rowNum = GetRowWithID(updList[i]); //Gets the row number in the local table that corresponds to the ID in the updList.
 					if (rowNum != -1) //If row exists.
 					{
+						alert(rowNum);
 						row = document.getElementById("tbl").rows[rowNum]; //Get row of local table that is being saved to database.
 						sql+="UPDATE tblPersonnel SET ";
 						sql+="name = '"+ row.cells[1].innerHTML + "', ";
@@ -146,6 +147,8 @@
 					}
 				},'json');
 				alert("Changes saved.");
+				updList = "";
+				delList = "";
 				*/
 			}
 			
