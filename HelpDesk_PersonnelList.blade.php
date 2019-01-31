@@ -115,7 +115,12 @@
 					if (rowNum != -1) //If row exists.
 					{
 						row = document.getElementById("tbl").rows[rowNum]; //Get row of local table that is being saved to database.
-						sql+="UPDATE tblPersonnel SET name = '$(row.cells[1].innerHTML)', jobTitle = '$(row.cells[2].innerHTML)',";// department = '$(row.cells[3].innerHTML)', = $(row.cells[4].innerHTML) WHERE userID == updList[i];";
+						sql+="UPDATE tblPersonnel SET ";
+						sql += "name = '$(row.cells[1].innerHTML)', ";
+						sql+="jobTitle = '$(row.cells[2].innerHTML)', ";
+						sql+="department = '$(row.cells[3].innerHTML)', ";
+						sql+="telephoneNumber = $(row.cells[4].innerHTML) ";
+						sql+="WHERE userID == updList[i];";
 					}
 				}
 				for (i = 0; i < GetRows(); i++)
