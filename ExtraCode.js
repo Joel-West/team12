@@ -176,6 +176,7 @@ function SortTable(column) //Function sorts table by the selected column.
 			}
 			else //Else, use numeric comparison.
 			{
+				alert("numeric");
 				if ((direction == "asc" && item1.innerHTML > item2.innerHTML) ||
 				(direction == "desc" && item1.innerHTML < item2.innerHTML)) //If conditions for swapping are true.
 				{
