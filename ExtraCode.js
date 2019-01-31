@@ -177,7 +177,7 @@ function SortTable(column) //Function sorts table by the selected column.
 			else //Else, use numeric comparison.
 			{
 				if ((direction == "asc" && item1.innerHTML > item2.innerHTML) ||
-				(direction == "desc" && item1.innerHTML) < item2.innerHTML)) //If conditions for swapping are true.
+				(direction == "desc" && item1.innerHTML < item2.innerHTML)) //If conditions for swapping are true.
 				{
 					shouldSwap = true; //If swap to be made, break out.
 					break;
@@ -190,10 +190,34 @@ function SortTable(column) //Function sorts table by the selected column.
 			swapping = true;
 			swapCount++;
 		}
-		else if (swapCount == 0 && direction == "asc") //If nothing has been swapped while trying to sort ascending, sort descending.
+		if (direction == "asc")
 		{
-			direction = "desc";
-			swapping = true;
+			if (swapCount == 0) //If nothing has been swapped while trying to sort ascending, sort descending.
+			{
+				direction = "desc";
+				swapping = true;
+				cell = table.rows[0].cells[column];
+				if (cell.innerHTML.includes(" &#x2191"))
+				{
+					cell.innerHTML.replace(" &#x2191", " &#x2193");
+				}
+				else
+				{
+					cell.innerHTML += " &#x2193";
+				}
+			}
+			else
+			{
+				cell = table.rows[0].cells[column];
+				if (cell.innerHTML.includes(" &#x2193"))
+				{
+					cell.innerHTML.replace(" &#x2193", " &#x2191");
+				}
+				else
+				{
+					cell.innerHTML += " &#x2191";
+				}
+			}
 		}
 	}
 }
