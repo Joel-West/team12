@@ -112,17 +112,17 @@
 				}
 				for (i = 0; i < updList.length; i++) //Iterate through delete list (deletion performed first as it reduces database size, making other operations quicker).
 				{
-					rowNum = GetRowWithID(updList[i]); //Gets the row number in the local table that corresponds to the ID in the updList.
+					id = updList[i]
+					rowNum = GetRowWithID(id); //Gets the row number in the local table that corresponds to the ID in the updList.
 					if (rowNum != -1) //If row exists.
 					{
-						alert("row = " + rowNum);
 						row = document.getElementById("tbl").rows[rowNum]; //Get row of local table that is being saved to database.
 						sql+="UPDATE tblPersonnel SET ";
 						sql+="name = '"+ row.cells[1].innerHTML + "', ";
 						sql+="jobTitle = '"+ row.cells[2].innerHTML + "', ";
 						sql+="department = '"+ row.cells[3].innerHTML + "', ";
 						sql+="telephoneNumber = "+ row.cells[4].innerHTML + ", ";
-						sql+="WHERE userID == " + updList[i] + "; ";
+						sql+="WHERE userID == " + id + "; ";
 					}
 				}
 				for (i = 0; i < GetRows(); i++) //Iterate through all rows to find new rows.
