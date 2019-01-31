@@ -83,7 +83,7 @@
 		<a class="nav-item nav-link" href="#" onClick="GoToNewPage('EquipmentList');">Equipment</a>
 		<a class="nav-item nav-link" href="#" onClick="GoToNewPage('Analytics');">Analytics</a>
 	  </div>
-	  <a class="navbar-brand mr-0 mr-md-2" href="#">
+	  <a class="navbar-brand flex-row ml-md-auto d-none d-md-flex" href="#">
 		<img src="https://www.goodfreephotos.com/albums/vector-images/screwdriver-and-wrench-vector-clipart.png" width="30" height="30" class="d-inline-block align-top" alt="">
 		  Make-It-All
 	  </a>
