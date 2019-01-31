@@ -176,7 +176,7 @@ function GetRowWithID(id) //Returns row of a column with a given ID (first colum
 		alert(document.getElementById("tbl").rows[i].cells[0].innerHTML);
 		alert(id);
 		alert(document.getElementById("tbl").rows[i].cells[0].innerHTML == id);
-		if (document.getElementById("tbl").rows[i].cells[0].innerHTML == id);
+		if (document.getElementById("tbl").rows[i].cells[0].innerHTML == id)
 		{
 			alert("i = " + i);
 			return i;
