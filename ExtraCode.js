@@ -169,7 +169,7 @@ function GetRowWithID(id) //Returns row of a column with a given ID (first colum
 {
 	for (i = 0; i<GetRows(); i++)
 	{
-		if (document.getElementById("tbl").rows[i] == id);
+		if (document.getElementById("tbl").rows[i].cells[0].innerHTML == id);
 		{
 			return i;
 		}
