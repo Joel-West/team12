@@ -126,7 +126,10 @@
 						{
 							deleteRow = true;
 							id = document.getElementById("tbl").rows[i].cells[0].innerHTML;
-							if (!id.includes("(new)") && CheckIfUser(id)) //If not a new row and if ID is in tblUser.
+							res = false;
+							CheckIfUser(id);
+							alert(res);
+							if (!id.includes("(new)") && res == true) //If not a new row and if ID is in tblUser.
 							{
 								if (!confirm("Deleting one of these rows will result in a user being deleted from the users table. Are you sure that you wish to continue?")) //Check if user wishes to delete from user table as well.
 								{
@@ -167,7 +170,6 @@
 			function CheckIfUser(id) //Returns true if the user is in the users table.
 			{
 				sql = "SELECT * FROM tblUser WHERE userID = " + id + ";"; //Get record from tblUser if there is a row with the given ID.
-				res = false;
 				$.get("Query.php", {'sql':sql, 'returnData':true},function(json) //Calls query.php, which handles the SQL query and sorting of result data.
 				{
 					if (json[0] != undefined) //If result of php file was a json array, as thus a result exists.
@@ -176,8 +178,6 @@
 						res = true;	
 					}
 				},'json');
-				alert(res);
-				return res;
 			}
 			
 			function Search() //Function for searching table based on text box input.
