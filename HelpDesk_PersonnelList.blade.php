@@ -51,7 +51,7 @@
 			function AddRow() //Adds a new row to the table, from data in the text boxes.
 			{
 				if (document.getElementById("txtName").value == false || document.getElementById("txtJobTitle").value == false || document.getElementById("txtDepartment").value == false || document.getElementById("txtTelephoneNumber").value == false ||
-				document.getElementById("txtID").value == false || isNaN(document.getElementById("txtID").value) || isNaN(document.getElementById("txtTelephoneNumber").value))
+				document.getElementById("txtID").value == false || isNaN(document.getElementById("txtID").value) || isNaN(document.getElementById("txtTelephoneNumber").value) || GetRowWithID(document.getElementById("txtID").value) != -1)
 				{
 					alert("Invalid input"); //Returns error if data input from text boxes is invalid.
 					return;
@@ -96,7 +96,7 @@
 				if (delList.length > 0 || updList.length > 0 || newRowCount > 0)
 				{
 					
-					if (!confirm("You have unsaved changes to the database. Searching will cause these changes to be cleared. Continue?"))
+					if (!confirm("You have unsaved changes to the database. Searching will cause these changes to be cleared. Continue?")) //Warn user about losing data on searching.
 					{
 						alert("No searchy for you!");
 					}
@@ -125,12 +125,12 @@
 						sql+="WHERE userID == " + updList[i] + "; ";
 					}
 				}
-				for (i = 0; i < GetRows(); i++)
+				for (i = 0; i < GetRows(); i++) //Iterate through all rows to find new rows.
 				{
 					row = document.getElementById("tbl").rows[i];
-					if (row.cells[0].innerHTML.indexOf("(new)") != -1)
+					if (row.cells[0].innerHTML.indexOf("(new)") != -1) //If record is new.
 					{
-						row.cells[0].innerHTML.replace("(new)", '')
+						row.cells[0].innerHTML = row.cells[0].innerHTML.replace("(new)", '') //Remove the 'new' tag from the record.
 						sql+="INSERT INTO tblPersonnel VALUES (";
 						sql+=row.cells[0].innerHTML + ", ";
 						sql+="'" + row.cells[1].innerHTML + "', ";
@@ -190,7 +190,7 @@
 				<input type="button" class="btn" value="Submit" onclick="Search()"></input> <!-- Submits search on press -->
 			</p>
 			<input type="button" class="btn" value="Delete Selected Items" id="del" style="font-size:16px;" onclick="Delete()"/><br/><br/> <!-- Delete button that calls function within ExtraCode.js when pressed. -->
-			Name:<input id="txtID" type="text"></input><br/> <!-- Input fields for adding a new row. -->
+			ID:<input id="txtID" type="text"></input><br/> <!-- Input fields for adding a new row. -->
 			Name:<input id="txtName" type="text"></input><br/>
 			Job Title:<input id="txtJobTitle" type="text"></input><br/>
 			Department:<input id="txtDepartment" type="text"></input><br/>
