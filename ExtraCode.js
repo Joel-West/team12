@@ -165,6 +165,10 @@ function SortTable(column) //Function sorts table by the selected column.
 			shouldSwap = false;
 			item1 = table.rows[i].cells[column]; //Gets 2 items to compare.
 			item2 = table.rows[i+1].cells[column];
+			alert(item1);
+			alert(item2);
+			alert(isNaN(item1));
+			alert(isNaN(item2));
 			if (isNaN(item1) || isNaN(item2)) //If either item is not a number, use string comparison.
 			{
 				if ((direction == "asc" && item1.innerHTML.toLowerCase() > item2.innerHTML.toLowerCase()) ||
@@ -191,34 +195,33 @@ function SortTable(column) //Function sorts table by the selected column.
 			swapping = true;
 			swapCount++;
 		}
-		if (direction == "asc")
+		if (direction == "asc" && swapCount == 0) //If nothing has been swapped while trying to sort ascending, sort descending.
 		{
-			if (swapCount == 0) //If nothing has been swapped while trying to sort ascending, sort descending.
-			{
-				direction = "desc";
-				swapping = true;
-				cell = table.rows[0].cells[column];
-				if (cell.innerHTML.includes(" &#x2191"))
-				{
-					cell.innerHTML.replace(" &#x2191", " &#x2193");
-				}
-				else
-				{
-					cell.innerHTML += " &#x2193";
-				}
-			}
-			else
-			{
-				cell = table.rows[0].cells[column];
-				if (cell.innerHTML.includes(" &#x2193"))
-				{
-					cell.innerHTML.replace(" &#x2193", " &#x2191");
-				}
-				else
-				{
-					cell.innerHTML += " &#x2191";
-				}
-			}
+			direction = "desc";
+			swapping = true;
+		}
+	}
+	cell = table.rows[0].cells[column]; //Gets relevant header cell.
+	if (direction == "asc") //If ascending, draw up arrow in header cell.
+	{
+		if (cell.innerHTML.includes(" &#x2193")) //If there is an up arrow.
+		{
+			cell.innerHTML.replace(" &#x2193", " &#x2191"); //Replace up arrow with down arrow.
+		}
+		else
+		{
+			cell.innerHTML += " &#x2191"; //Otherwise just add down arrow to header.
+		}
+	}
+	else //If descending, draw down arrow in header cell.
+	{
+		if (cell.innerHTML.includes(" &#x2191")) //If there is a down arrow.
+		{
+			cell.innerHTML.replace(" &#x2191", " &#x2193"); //Replace down arrow with up arrow.
+		}
+		else
+		{
+			cell.innerHTML += " &#x2193"; //Otherwise just add up arrow to header.
 		}
 	}
 }
