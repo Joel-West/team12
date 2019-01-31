@@ -107,7 +107,7 @@
 				sql = "";
 				for (i = 0; i < delList.length; i++) //Iterate through delete list (deletion performed first as it reduces database size, making other operations quicker).
 				{
-					sql+="DELETE FROM tblPersonnel WHERE userID == ${delList[i]};"
+					sql+="DELETE FROM tblPersonnel WHERE userID == " + delList[i] + "; ";
 				}
 				for (i = 0; i < updList.length; i++) //Iterate through delete list (deletion performed first as it reduces database size, making other operations quicker).
 				{
@@ -116,11 +116,11 @@
 					{
 						row = document.getElementById("tbl").rows[rowNum]; //Get row of local table that is being saved to database.
 						sql+="UPDATE tblPersonnel SET ";
-						sql+="name = '${row.cells[1].innerHTML}', ";
-						sql+="jobTitle = '${row.cells[2].innerHTML}', ";
-						sql+="department = '${row.cells[3].innerHTML}', ";
-						sql+="telephoneNumber = ${row.cells[4].innerHTML} ";
-						sql+="WHERE userID == ${updList[i]};";
+						sql+="name = '"+ row.cells[1].innerHTML} + "', ";
+						sql+="jobTitle = '"+ row.cells[1].innerHTML} + "', ";
+						sql+="department = '"+ row.cells[1].innerHTML} + "', ";
+						sql+="telephoneNumber = "+ row.cells[4].innerHTML} + ", ";
+						sql+="WHERE userID == " + updList[i] + "; ";
 					}
 				}
 				for (i = 0; i < GetRows(); i++)
@@ -128,7 +128,7 @@
 					row = document.getElementById("tbl").rows[i];
 					if (row.cells[0] == "-")
 					{
-					sql+="INSERT INTO tblPersonnel VALUES (NULL, '${row.cells[1].innerHTML}', '${row.cells[2].innerHTML}', '${row.cells[3].innerHTML}', ${row.cells[4].innerHTML});";
+					sql+="INSERT INTO tblPersonnel VALUES (NULL, '${row.cells[1].innerHTML}', '${row.cells[2].innerHTML}', '${row.cells[3].innerHTML}', ${row.cells[4].innerHTML}); ";
 					}
 				}
 				alert(sql);
