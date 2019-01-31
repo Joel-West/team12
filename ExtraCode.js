@@ -176,7 +176,6 @@ function SortTable(column) //Function sorts table by the selected column.
 			}
 			else //Else, use numeric comparison.
 			{
-				alert("numeric");
 				if ((direction == "asc" && item1.innerHTML > item2.innerHTML) ||
 				(direction == "desc" && item1.innerHTML < item2.innerHTML)) //If conditions for swapping are true.
 				{
@@ -198,26 +197,16 @@ function SortTable(column) //Function sorts table by the selected column.
 		}
 	}
 	cell = table.rows[0].cells[column]; //Gets relevant header cell.
+	if (cell.innerHTML.includes("&#x2193") || cell.innerHTML.includes("&#x2191"))
+	{
+		alert("Aaaaah");
+	}
 	if (direction == "asc") //If ascending, draw up arrow in header cell.
 	{
-		if (cell.innerHTML.includes(" &#x2193")) //If there is an up arrow.
-		{
-			cell.innerHTML.replace(" &#x2193", " &#x2191"); //Replace up arrow with down arrow.
-		}
-		else
-		{
-			cell.innerHTML += " &#x2191"; //Otherwise just add down arrow to header.
-		}
+		cell.innerHTML += " &#x2193";
 	}
 	else //If descending, draw down arrow in header cell.
 	{
-		if (cell.innerHTML.includes(" &#x2191")) //If there is a down arrow.
-		{
-			cell.innerHTML.replace(" &#x2191", " &#x2193"); //Replace down arrow with up arrow.
-		}
-		else
-		{
-			cell.innerHTML += " &#x2193"; //Otherwise just add up arrow to header.
-		}
+		cell.innerHTML += " &#x2191";
 	}
 }
