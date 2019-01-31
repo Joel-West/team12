@@ -167,10 +167,10 @@
 			function CheckIfUser(id) //Returns true if the user is in the users table.
 			{
 				sql = "SELECT * FROM tblUser WHERE userID = " + id + ";"; //Get record from tblUser if there is a row with the given ID.
-				$.get("Query.php", {'sql':sql, 'returnData':true},function(json) //Calls query.php, which handles the SQL query and sorting of result data.
+				$.get("Query.php", {'sql':sql, 'returnData':true},function(json2) //Calls query.php, which handles the SQL query and sorting of result data.
 				{
 					alert("hi")
-					if(json && json[0]) //If result of php file was a json array, as thus a result exists.
+					if(json2 && json2[0]) //If result of php file was a json array, as thus a result exists.
 					{		
 						show_message("in users");					
 						return true;
@@ -181,7 +181,7 @@
 						show_message("not in users");
 						return false;
 					}
-				},'json');
+				},'json2');
 			}
 			
 			function Search() //Function for searching table based on text box input.
