@@ -116,10 +116,10 @@
 					{
 						row = document.getElementById("tbl").rows[rowNum]; //Get row of local table that is being saved to database.
 						sql+="UPDATE tblPersonnel SET ";
-						sql+="name = '"+ row.cells[1].innerHTML} + "', ";
-						sql+="jobTitle = '"+ row.cells[1].innerHTML} + "', ";
-						sql+="department = '"+ row.cells[1].innerHTML} + "', ";
-						sql+="telephoneNumber = "+ row.cells[4].innerHTML} + ", ";
+						sql+="name = '"+ row.cells[1].innerHTML + "', ";
+						sql+="jobTitle = '"+ row.cells[1].innerHTML + "', ";
+						sql+="department = '"+ row.cells[1].innerHTML + "', ";
+						sql+="telephoneNumber = "+ row.cells[4].innerHTML + ", ";
 						sql+="WHERE userID == " + updList[i] + "; ";
 					}
 				}
