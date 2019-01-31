@@ -150,6 +150,8 @@ function CheckIfUpdateOrAdd() //The 'add' button into an 'update' button and pop
 	{
 		document.getElementById("btnAdd").value = "Update Item";
 		rowNum = GetSelectedRow(); //Gets the row that is selected.
+		document.getElementById("txtID").value = document.getElementById("tbl").rows[rowNum].cells[0].innerHTML;
+		document.getElementById("txtID").disabled = true;
 		document.getElementById("txtName").value = document.getElementById("tbl").rows[rowNum].cells[1].innerHTML;
 		document.getElementById("txtJobTitle").value = document.getElementById("tbl").rows[rowNum].cells[2].innerHTML;
 		document.getElementById("txtDepartment").value = document.getElementById("tbl").rows[rowNum].cells[3].innerHTML;
@@ -158,6 +160,8 @@ function CheckIfUpdateOrAdd() //The 'add' button into an 'update' button and pop
 	else
 	{
 		document.getElementById("btnAdd").value = "Add New Item";
+		document.getElementById("txtID").value = "";
+		document.getElementById("txtID").disabled = false;
 		document.getElementById("txtName").value = "";
 		document.getElementById("txtJobTitle").value = "";
 		document.getElementById("txtDepartment").value = "";
@@ -169,6 +173,8 @@ function GetRowWithID(id) //Returns row of a column with a given ID (first colum
 {
 	for (i = 0; i<GetRows(); i++)
 	{
+		alert(document.getElementById("tbl").rows[i].cells[0].innerHTML);
+		alert(id);
 		if (document.getElementById("tbl").rows[i].cells[0].innerHTML == id);
 		{
 			return i;

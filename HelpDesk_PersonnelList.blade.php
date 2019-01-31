@@ -50,7 +50,8 @@
 			
 			function AddRow() //Adds a new row to the table, from data in the text boxes.
 			{
-				if (document.getElementById("txtName").value == false || document.getElementById("txtJobTitle").value == false || document.getElementById("txtDepartment").value == false || document.getElementById("txtTelephoneNumber").value == false)
+				if (document.getElementById("txtName").value == false || document.getElementById("txtJobTitle").value == false || document.getElementById("txtDepartment").value == false || document.getElementById("txtTelephoneNumber").value == false ||
+				document.getElementById("txtID").value == false || isNaN(document.getElementById("txtID").value) || isNaN(document.getElementById("txtTelephoneNumber").value))
 				{
 					alert("Invalid input"); //Returns error if data input from text boxes is invalid.
 					return;
@@ -59,7 +60,7 @@
 				table = document.getElementById("tbl");
 				row = table.insertRow(rows); //Adds new empty row.
 				cell0 = row.insertCell(0); //Inserts and modifies each cell of the new row in turn.
-				cell0.innerHTML = "-"; //Until it has been added to the database, the first field (the auto-number) is left as null.
+				cell0.innerHTML = document.getElementById("txtID").value + "(new)"; //Until it has been added to the database, the first field is given a '(new)' tag.
 				cell1 = row.insertCell(1);
 				cell1.innerHTML = document.getElementById("txtName").value;
 				cell2 = row.insertCell(2);
@@ -81,7 +82,7 @@
 				row.cells[2].innerHTML = document.getElementById("txtJobTitle").value;
 				row.cells[3].innerHTML = document.getElementById("txtDepartment").value;
 				row.cells[4].innerHTML = document.getElementById("txtTelephoneNumber").value;
-				if (!ListContains(updList, row.cells[0].innerHTML) && row.cells[0].innerHTML != "-") //if selected row is not already marked to be updated when changes are saved to the database later and is not a new row.
+				if (!ListContains(updList, row.cells[0].innerHTML) && !row.cells[0].includes("(new)")) //If selected row is not already marked to be updated when changes are saved to the database later and is not a new row.
 				{
 					updList.push(row.cells[0].innerHTML); //Add the ID of the row to the list of rows to by updated when changes are commited to the actual database.
 					console.log(updList);
@@ -127,9 +128,11 @@
 				for (i = 0; i < GetRows(); i++)
 				{
 					row = document.getElementById("tbl").rows[i];
-					if (row.cells[0] == "-")
+					if (row.cells[0].includes("(new)"))
 					{
-						sql+="INSERT INTO tblPersonnel VALUES (NULL, ";
+						row.cells[0].innerHTML.replace("(new)", '')
+						sql+="INSERT INTO tblPersonnel VALUES (";
+						sql+=row.cells[0].innerHTML + ", ";
 						sql+="'" + row.cells[1].innerHTML + "', ";
 						sql+="'" + row.cells[2].innerHTML + "', "
 						sql+="'" + row.cells[3].innerHTML +"', "
@@ -187,7 +190,8 @@
 				<input type="button" class="btn" value="Submit" onclick="Search()"></input> <!-- Submits search on press -->
 			</p>
 			<input type="button" class="btn" value="Delete Selected Items" id="del" style="font-size:16px;" onclick="Delete()"/><br/><br/> <!-- Delete button that calls function within ExtraCode.js when pressed. -->
-			Name:<input id="txtName" type="text"></input><br/> <!-- Input fields for adding a new row. -->
+			Name:<input id="txtID" type="text"></input><br/> <!-- Input fields for adding a new row. -->
+			Name:<input id="txtName" type="text"></input><br/>
 			Job Title:<input id="txtJobTitle" type="text"></input><br/>
 			Department:<input id="txtDepartment" type="text"></input><br/>
 			Telephone Number:<input id="txtTelephoneNumber" type="text"></input><br/>
