@@ -78,13 +78,13 @@
 		  Make-It-All
 	  </a>
       <div class="navbar-nav">
-		<a class="nav-item nav-link" onClick="GoToNewPage('Home');">Home <span class="sr-only">(current)</span></a>
-		<a class="nav-item nav-link active">New Call</a>
-		<a class="nav-item nav-link" onClick="GoToNewPage('CallHistory');">Call History</a>
-		<a class="nav-item nav-link" onClick="GoToNewPage('ProblemList');">Problems List</a>
-		<a class="nav-item nav-link" onClick="GoToNewPage('Personnel');">Personnel</a>
-		<a class="nav-item nav-link" onClick="GoToNewPage('EquipmentList');">Equipment</a>
-		<a class="nav-item nav-link" onClick="GoToNewPage('Analytics');">Analytics</a>
+		<a class="nav-item nav-link" href="#" onClick="GoToNewPage('Home');">Home <span class="sr-only">(current)</span></a>
+		<a class="nav-item nav-link active" href="#">New Call</a>
+		<a class="nav-item nav-link" href="#" onClick="GoToNewPage('CallHistory');">Call History</a>
+		<a class="nav-item nav-link" href="#" onClick="GoToNewPage('ProblemList');">Problems List</a>
+		<a class="nav-item nav-link" href="#" onClick="GoToNewPage('PersonnelList');">Personnel</a>
+		<a class="nav-item nav-link" href="#" onClick="GoToNewPage('EquipmentList');">Equipment</a>
+		<a class="nav-item nav-link" href="#" onClick="GoToNewPage('Analytics');">Analytics</a>
 	  </div>
 	</header>
 	<div class="container-fluid">
