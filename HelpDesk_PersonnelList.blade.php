@@ -171,15 +171,15 @@
 				{
 					alert(json);
 					alert(json[0]);
-					if (json && json[0]) //If result of php file was a json array, as thus a result exists.
+					if (json[0] != undefined) //If result of php file was a json array, as thus a result exists.
 					{		
-						show_message("in users");					
+						alert("in users");					
 						return true;
 						
 					}
 					else
 					{
-						show_message("not in users");
+						alert("not in users");
 						return false;
 					}
 				},'json');
