@@ -176,8 +176,8 @@ function SortTable(column) //Function sorts table by the selected column.
 			}
 			else //Else, use numeric comparison.
 			{
-				if ((direction == "asc" && item1.innerHTML > item2.innerHTML) ||
-				(direction == "desc" && item1.innerHTML < item2.innerHTML)) //If conditions for swapping are true.
+				if ((direction == "asc" && parseFloat(item1.innerHTML) > parseFloat(item2.innerHTML)) ||
+				(direction == "desc" && parseFloat(item1.innerHTML) < parseFloat(item2.innerHTML))) //If conditions for swapping are true.
 				{
 					shouldSwap = true; //If swap to be made, break out.
 					break;
