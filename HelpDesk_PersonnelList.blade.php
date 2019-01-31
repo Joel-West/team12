@@ -121,7 +121,7 @@
 				for (i = 0; i < GetRows(); i++)
 				{
 					row = document.getElementById("tbl").rows[i];
-					if row.cells[0] == "-"
+					if (row.cells[0] == "-")
 					{
 						sql+="INSERT INTO tblPersonnel VALUES (NULL, '$(row.cells[1].innerHTML)', '$(row.cells[2].innerHTML)', '$(row.cells[3].innerHTML)', $(row.cells[4].innerHTML));";
 					}
