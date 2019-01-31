@@ -196,7 +196,7 @@ function SortTable(column) //Function sorts table by the selected column.
 			swapping = true;
 		}
 	}
-	alert(table.colspan);
+	alert(table.rows[0].colspan);
 	/*
 	for (i = 0; i < )
 	{
