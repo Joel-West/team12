@@ -176,8 +176,8 @@ function SortTable(column) //Function sorts table by the selected column.
 			shouldSwap = false;
 			item1 = table.rows[i].cells[column]; //Gets 2 items to compare.
 			item2 = table.rows[i+1].cells[column];
-			if ((direction == "asc" && item1.innerHTML.toLowerCase() > item1.innerHTML.toLowerCase()) ||
-			(direction == "desc" && item1.innerHTML.toLowerCase() < item1.innerHTML.toLowerCase())) //If conditions for swapping are true.
+			if ((direction == "asc" && item1.innerHTML.toLowerCase() > item2.innerHTML.toLowerCase()) ||
+			(direction == "desc" && item1.innerHTML.toLowerCase() < item2.innerHTML.toLowerCase())) //If conditions for swapping are true.
 			{
 				shouldSwap = true; //If swap to be made, break out.
 				break;
