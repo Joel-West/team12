@@ -51,7 +51,7 @@
 			function AddRow() //Adds a new row to the table, from data in the text boxes.
 			{
 				   
-				if (document.getElementById("txtID").value == false|| isNaN(document.getElementById("txtID").value) || GetRowWithID(document.getElementById("txtID").value) != -1)
+				if (document.getElementById("txtID").value == false|| isNaN(document.getElementById("txtID").value) || GetRowWithID(document.getElementById("txtID").value) != -1 || GetRowWithID(document.getElementById("txtID").value + "(new)") != -1)
 				{
 					alert("Invalid ID"); //Returns error if data input from text boxes is invalid.
 					return;
@@ -102,7 +102,7 @@
 				row.cells[2].innerHTML = document.getElementById("txtJobTitle").value;
 				row.cells[3].innerHTML = document.getElementById("txtDepartment").value;
 				row.cells[4].innerHTML = document.getElementById("txtTelephoneNumber").value;
-				if (!ListContains(updList, row.cells[0].innerHTML) && !row.cells[0].innerHTML.indexOf("(new)") != 0) //If selected row is not already marked to be updated when changes are saved to the database later and is not a new row.
+				if (!ListContains(updList, row.cells[0].innerHTML) && !row.cells[0].innerHTML.innerHTML.includes("(new)")) //If selected row is not already marked to be updated when changes are saved to the database later and is not a new row.
 				{
 					updList.push(row.cells[0].innerHTML); //Add the ID of the row to the list of rows to by updated when changes are commited to the actual database.
 					console.log(updList);
