@@ -196,11 +196,18 @@ function SortTable(column) //Function sorts table by the selected column.
 			swapping = true;
 		}
 	}
-	cell = table.rows[0].cells[column]; //Gets relevant header cell.
-	if (cell.innerHTML.includes("↑") || cell.innerHTML.includes("↓")) //If arrow already exists in header cell.
+	alert(table.colspan);
+	/*
+	for (i = 0; i < )
 	{
-		cell.innerHTML = cell.innerHTML.slice(0, -1); //Remove current arrow from header cell.
+		cell = table.rows[0].cells[i]; //Gets relevant header cell.
+		if (cell.innerHTML.includes("↑") || cell.innerHTML.includes("↓")) //If arrow already exists in header cell.
+		{
+			cell.innerHTML = cell.innerHTML.slice(0, -1); //Remove current arrow from header cell.
+		}
 	}
+	*/
+	cell = table.rows[0].cells[column]; //Gets relevant header cell.
 	if (direction == "asc") //If ascending, draw up arrow in header cell.
 	{
 		cell.innerHTML += "&#x2193";
