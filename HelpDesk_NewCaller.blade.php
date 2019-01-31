@@ -72,23 +72,23 @@
   </head>
   
   <body onload="Load()">
+    <nav class="navbar navbar-dark navbar-expand-lg bg-dark">
+	  <a class="navbar-brand" href="#">
+		<img src="https://pbs.twimg.com/profile_images/378800000734794736/4f71f1537b67cb5d74c5aa5913604d68.jpeg" width="30" height="30" class="d-inline-block align-top" alt="">
+		  Navbar
+	  </a>
+      <div class="navbar-nav">
+		<a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+		<a class="nav-item nav-link" href="#">Features</a>
+		<a class="nav-item nav-link" href="#">Pricing</a>
+		<a class="nav-item nav-link disabled" href="#">Disabled</a>
+	  </div>
+	</nav>
 	<div class="container-fluid">
 	  <form id="mainform" name="mainform" method="post" action="">
 	    @csrf
 		<input type='hidden' name="User" value="<?php echo $_POST['User']; ?>" />
         <div class="titleDiv col-12 d-flex"> <!-- Div containing elements at the top of the page. -->
-		  <nav class="navbar navbar-dark navbar-expand-lg bg-dark">
-	        <a class="navbar-brand" href="#">
-		      <img src="https://pbs.twimg.com/profile_images/378800000734794736/4f71f1537b67cb5d74c5aa5913604d68.jpeg" width="30" height="30" class="d-inline-block align-top" alt="">
-		      Navbar
-		    </a>
-		    <div class="navbar-nav">
-		      <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-		      <a class="nav-item nav-link" href="#">Features</a>
-		      <a class="nav-item nav-link" href="#">Pricing</a>
-		      <a class="nav-item nav-link disabled" href="#">Disabled</a>
-	        </div>
-	      </nav>
 		  <input type="button" class="btn mr-auto" value="&#x2190" onClick="GoToNewPage('Home');" /> <!-- Back button. -->
 		  <label id="dtLabel" class="ml-auto" >
 	    </div>
