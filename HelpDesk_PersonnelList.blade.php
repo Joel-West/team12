@@ -148,7 +148,7 @@
 				for (i = 0; i < GetRows(); i++) //Iterate through all rows to find new rows.
 				{
 					row = document.getElementById("tbl").rows[i];
-					if (row.cells[0].innerHTML.indexOf("(new)") != 0) //If record is new.
+					if (row.cells[0].innerHTML.includes("(new)")) //If record is new.
 					{
 						row.cells[0].innerHTML = row.cells[0].innerHTML.replace("(new)", '') //Remove the 'new' tag from the record.
 						sql+="INSERT INTO tblPersonnel VALUES (";
