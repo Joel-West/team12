@@ -202,20 +202,20 @@
 					}
 				}
 				alert(sql);
-				
-				$.get("Query.php", {'sql':sql, 'returnData':false},function(json) //Calls query.php, which handles the SQL query and sorting of result data.
+				if (sql != "") //If there is any SQL to run.
 				{
-					if(json && json[0]) //If result of php file was a json array.	
-					{				
-						alert(json);
-						alert(json[0]);
-					}
-				},'json');
-				alert("Changes saved.");
-				
-				updList = [];
-				delList = [];
-				userDelList = [];
+					$.get("Query.php", {'sql':sql, 'returnData':false},function(json) //Calls query.php, which handles the SQL query and sorting of result data.
+					{
+						if(json && json[0]) //If result of php file was a json array.	
+						{				
+							alert(json);
+							alert(json[0]);
+						}
+					},'json');
+					updList = []; //Clear lists of pending changes.
+					delList = [];
+					alert("Changes saved.");
+				}
 			}
 			
 			var selected = 0; //Global variable corresponding to number of highlighted table rows.
