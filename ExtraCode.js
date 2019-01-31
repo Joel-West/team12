@@ -165,11 +165,7 @@ function SortTable(column) //Function sorts table by the selected column.
 			shouldSwap = false;
 			item1 = table.rows[i].cells[column]; //Gets 2 items to compare.
 			item2 = table.rows[i+1].cells[column];
-			alert(item1);
-			alert(item2);
-			alert(isNaN(item1));
-			alert(isNaN(item2));
-			if (isNaN(item1) || isNaN(item2)) //If either item is not a number, use string comparison.
+			if (isNaN(item1.innerHTML) || isNaN(item2.innerHTML)) //If either item is not a number, use string comparison.
 			{
 				if ((direction == "asc" && item1.innerHTML.toLowerCase() > item2.innerHTML.toLowerCase()) ||
 				(direction == "desc" && item1.innerHTML.toLowerCase() < item2.innerHTML.toLowerCase())) //If conditions for swapping are true.
