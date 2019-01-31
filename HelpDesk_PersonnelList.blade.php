@@ -116,7 +116,7 @@
 				{
 					return;
 				}
-				if (confirm("Delete selected rows?")) //Get user confirmation.
+				if (confirm("If any of these rows are found in the table of users, they will also be deleted. Delete selected rows?")) //Get user confirmation.
 				{
 					rows = GetRows();
 					for (i = rows-1; i > 0; i--) //Iterate through the rows of the table.
@@ -124,23 +124,7 @@
 						deleteRow = false; //Variable holding if row will actually be deleted.
 						if (document.getElementById("tbl").rows[i].style.backgroundColor != 'rgb(159, 255, 48)') //If row is selected.
 						{
-							deleteRow = true;
-							id = document.getElementById("tbl").rows[i].cells[0].innerHTML;
-							res = false;
-							CheckIfUser(id);
-							alert(res);
-							if (!id.includes("(new)") && res == true) //If not a new row and if ID is in tblUser.
-							{
-								if (!confirm("Deleting one of these rows will result in a user being deleted from the users table. Are you sure that you wish to continue?")) //Check if user wishes to delete from user table as well.
-								{
-									deleteRow = false;
-									return;
-								}
-								else
-								{
-									userDelList.push(id); //Add row to list of rows to be deleted from tblUser when changes are saved.
-								}
-							}							
+							deleteRow = true;						
 						}
 						if (deleteRow == true) //If should be deleted after validation.
 						{
@@ -167,19 +151,6 @@
 				}
 			}
 			
-			function CheckIfUser(id) //Returns true if the user is in the users table.
-			{
-				sql = "SELECT * FROM tblUser WHERE userID = " + id + ";"; //Get record from tblUser if there is a row with the given ID.
-				$.get("Query.php", {'sql':sql, 'returnData':true},function(json) //Calls query.php, which handles the SQL query and sorting of result data.
-				{
-					if (json[0] != undefined) //If result of php file was a json array, as thus a result exists.
-					{				
-						alert("Should be true");
-						res = true;	
-					}
-				},'json');
-			}
-			
 			function Search() //Function for searching table based on text box input.
 			{
 				search = true; //Defines whether search will go ahead.
@@ -199,6 +170,7 @@
 				for (i = 0; i < delList.length; i++) //Iterate through delete list (deletion performed first as it reduces database size, making other operations quicker).
 				{
 					sql+="DELETE FROM tblPersonnel WHERE userID = " + delList[i] + "; ";
+					sql+="DELETE FROM tblUser WHERE userID = " + delList[i] + "; ";
 				}
 				for (i = 0; i < updList.length; i++) //Iterate through delete list (deletion performed first as it reduces database size, making other operations quicker).
 				{
@@ -229,13 +201,6 @@
 						sql+=row.cells[4].innerHTML + "); ";
 					}
 				}
-				if (userDelList.length > 0)
-				{
-					for (i = 0; i< userDelList.length; i++)
-					{
-						sql+="DELETE FROM tblUser WHERE userID = " + userDelList[i] + "; ";
-					}
-				}
 				alert(sql);
 				/*
 				$.get("Query.php", {'sql':sql, 'returnData':false},function(json) //Calls query.php, which handles the SQL query and sorting of result data.
@@ -253,8 +218,6 @@
 				userDelList = [];
 			}
 			
-			res = false; //Global variable that needs to be defined so that data can be returned in the function 'CheckIfUser'.
-			userDelList = []; //List of IDs that will be deleted from the user table.
 			var selected = 0; //Global variable corresponding to number of highlighted table rows.
 		</script>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
