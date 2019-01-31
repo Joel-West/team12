@@ -78,6 +78,7 @@
 		  Make-It-All
 	  </a>
       <div class="navbar-nav">
+		<a class="nav-item nav-link" href="#">&#x2190</a>
 		<a class="nav-item nav-link" href="#" onClick="GoToNewPage('Home');">Home <span class="sr-only">(current)</span></a>
 		<a class="nav-item nav-link active" href="#">New Call</a>
 		<a class="nav-item nav-link" href="#" onClick="GoToNewPage('CallHistory');">Call History</a>
