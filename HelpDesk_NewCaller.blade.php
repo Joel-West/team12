@@ -73,7 +73,7 @@
   
   <body onload="Load()">
     <header class="navbar flex-column flex-md-row bd-navbar navbar-dark navbar-expand-lg bg-dark">
-	  <a class="navbar-brand" href="#">
+	  <a class="navbar-brand mr-0 mr-md-2" href="#">
 		<img src="https://pbs.twimg.com/profile_images/378800000734794736/4f71f1537b67cb5d74c5aa5913604d68.jpeg" width="30" height="30" class="d-inline-block align-top" alt="">
 		  Navbar
 	  </a>
