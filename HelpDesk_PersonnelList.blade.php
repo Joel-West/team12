@@ -97,7 +97,7 @@
 					
 					if (!confirm("You have unsaved changes to the database. Searching will cause these changes to be cleared. Continue?"))
 					{
-						show_message("Not going ahead...");
+						alert("No searchy for you!");
 					}
 				}
 			}
