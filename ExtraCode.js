@@ -171,8 +171,9 @@ function CheckIfUpdateOrAdd() //The 'add' button into an 'update' button and pop
 
 function GetRowWithID(id) //Returns row of a column with a given ID (first column, which is presumed to be the primary key).
 {
-	for (i = 0; i<GetRows(); i++)
+	for (i = 1; i<GetRows(); i++)
 	{
+		alert(GetRows());
 		alert(document.getElementById("tbl").rows[i].cells[0].innerHTML);
 		alert(id);
 		alert(document.getElementById("tbl").rows[i].cells[0].innerHTML == id);
