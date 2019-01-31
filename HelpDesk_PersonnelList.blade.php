@@ -51,7 +51,7 @@
 			function AddRow() //Adds a new row to the table, from data in the text boxes.
 			{
 				   
-				if (document.getElementById("txtID").value == false|| isNaN(document.getElementById("txtID").value) || GetRowWithID(document.getElementById("txtID").value) != -1))
+				if (document.getElementById("txtID").value == false|| isNaN(document.getElementById("txtID").value) || GetRowWithID(document.getElementById("txtID").value) != -1)
 				{
 					alert("Invalid ID"); //Returns error if data input from text boxes is invalid.
 					return;
