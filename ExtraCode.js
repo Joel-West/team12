@@ -196,7 +196,7 @@ function SortTable(column) //Function sorts table by the selected column.
 			swapping = true;
 		}
 	}
-	for (i = 0; i < table.rows[0].cells.length; i+=)
+	for (i = 0; i < table.rows[0].cells.length; i++)
 	{
 		cell = table.rows[0].cells[i]; //Gets relevant header cell.
 		if (cell.innerHTML.includes("↑") || cell.innerHTML.includes("↓")) //If arrow already exists in header cell.
