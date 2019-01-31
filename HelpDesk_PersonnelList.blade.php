@@ -170,14 +170,15 @@
 				res = false;
 				$.get("Query.php", {'sql':sql, 'returnData':true},function(json) //Calls query.php, which handles the SQL query and sorting of result data.
 				{
+					res = false;
 					if (json[0] != undefined) //If result of php file was a json array, as thus a result exists.
 					{				
 						alert("Should be true");
 						res = true;	
 					}
+					alert(res);
+					return res;
 				},'json');
-				alert(res);
-				return res;
 			}
 			
 			function Search() //Function for searching table based on text box input.
