@@ -126,9 +126,10 @@
 						{
 							deleteRow = true;
 							id = document.getElementById("tbl").rows[i].cells[0].innerHTML;
+							alert(!id.includes("(new)"));
+							alert(CheckIfUser(id));
 							if (!id.includes("(new)") && CheckIfUser(id)) //If not a new row and if ID is in tblUser.
 							{
-								alert(id.includes("(new)"));
 								if (!confirm("Deleting one of these rows will result in a user being deleted from the users table. Are you sure that you wish to continue?")) //Check if user wishes to delete from user table as well.
 								{
 									deleteRow = false;
