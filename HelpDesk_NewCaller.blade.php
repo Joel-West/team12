@@ -20,7 +20,7 @@
 	    if (Username.includes("'")){
 		} else{
 		  sql = "SELECT userID FROM tblPersonnel WHERE name = '" + Username +"'"; 
-		  $.get("Query.php", {'sql':sql, 'returnData':true},function(json){
+		  $.get("Query.php", {'sql':sql},function(json){
 			if (json && json[0]){
 			  if (json[1]){
 				alert("There are multiple " + Username + ". Please type their user ID as well");
@@ -72,7 +72,7 @@
   </head>
   
   <body onload="Load()">
-	<div class="container">
+	<div class="container-fluid">
 	  <form id="mainform" name="mainform" method="post" action="">
 	    @csrf
 		<input type='hidden' name="User" value="<?php echo $_POST['User']; ?>" />
