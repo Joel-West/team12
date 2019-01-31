@@ -1,6 +1,7 @@
 fun = false;
 delList = []; //List of rows to be deleted when changes are saved to actual database.
 updList = []; //List of rows to be updated when changes are saved to actual database.
+newRowCount = 0; //Varaible storing number of new rows.
 
 window.setInterval(function() //Function used for fun mode.
 {
@@ -155,5 +156,42 @@ function CheckIfUpdateOrAdd() //The 'add' button into an 'update' button and pop
 		document.getElementById("txtJobTitle").value = "";
 		document.getElementById("txtDepartment").value = "";
 		document.getElementById("txtTelephoneNumber").value = "";
+	}
+}
+
+function SortTable(column) //Function sorts table by the selected column.
+{
+	table = document.getElementById("tbl");
+	swapping = true;
+	shouldSwap = false;
+	swapCount = 0;
+	direction = "asc"; //Default direction is ascending.
+	i = 0;
+	while (swapping) //Loops until no swapping is performed.
+	{
+		swapping = false;
+		for (i = 1; i < rows.length-1; i++) //Iterate through all rows apart from top row.
+		{
+			shouldSwap = false;
+			item1 = table.rows[i].cells[column]; //Gets 2 items to compare.
+			item2 = table.rows[i+1].cells[column];
+			if ((direction == "asc" && item1.innerHTML.toLowerCase() > item1.innerHTML.toLowerCase()) ||
+			(direction == "desc" && item1.innerHTML.toLowerCase() < item1.innerHTML.toLowerCase())) //If conditions for swapping are true.
+			{
+				shouldSwap = true; //If swap to be made, break out.
+				break;
+			}		
+		}
+		if (shouldSwap)
+		{
+			table.rows[i].parentNode.insertBefore(table.rows[i + 1], table.rows[i]); //Swap rows.
+			swapping = true;
+			swapCount++;
+		}
+		else if (swapCount == 0 && direction == "asc") //If nothing has been swapped while trying to sort ascending, sort descending.
+		{
+			direction = "desc";
+			swapping = true;
+		}
 	}
 }

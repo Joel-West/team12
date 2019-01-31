@@ -16,13 +16,18 @@
 				WriteTime(); //Function that writes the current time at the top of the page.
 			}
 			
-			function RunQuery(sql)
+			function RunQuery(sql) //Function for running a query to the personnel table and getting building a table.
 			{
 				$.get("Query.php", {'sql':sql, 'returnData':true},function(json) //Calls query.php, which handles the SQL query and sorting of result data.
 				{
 					if(json && json[0]) //If result of php file was a json array.	
 					{				
-						var htm = "<table class='table' id='tbl' border='1'><tr id='t0'><th scope='col'>userID</th><th scope='col'>Name</th><th scope='col'>Job Title</th><th scope='col'>Department</th><th scope='col'>Telephone Number</th></tr>"; //Appending column headers.
+						var htm = "<table class='table' id='tbl' border='1'>
+						htm+="<tr id='t0'><th onclick='SortTable(0)' scope='col'>userID</th>;
+						htm+="<th onclick='SortTable(1)' scope='col'>Name</th>"
+						htm+="<th onclick='SortTable(2)'scope='col'>Job Title</th>"
+						htm+="<th onclick='SortTable(3)'scope='col'>Department</th>"
+						htm+="<th onclick='SortTable(4)'scope='col'>Telephone Number</th></tr>"; //Appending column headers.
 						for (i = 0; i<json.length; i++) //Iterates through the json array of results.
 						{
 							htm += "<tr id='t" + (i+1) + "' style='background-color:rgb(159, 255, 48);'>"; //Sets colour and ID of row.
@@ -39,10 +44,11 @@
 						var htm = "Sorry, no results found..."; //If no results, display error.
 					}
 					document.getElementById("tableDiv").innerHTML = htm; //Appends HTML to tableDiv.
+					newRowCount = 0;
 				},'json');
 			}
 			
-			function AddRow()
+			function AddRow() //Adds a new row to the table, from data in the text boxes.
 			{
 				if (document.getElementById("txtName").value == false || document.getElementById("txtJobTitle").value == false || document.getElementById("txtDepartment").value == false || document.getElementById("txtTelephoneNumber").value == false)
 				{
@@ -64,6 +70,7 @@
 				cell4.innerHTML = document.getElementById("txtTelephoneNumber").value;
 				document.getElementById("tbl").rows[rows].id = "t" + document.getElementById("tbl").rows[rows-1].id; //Sets ID of new row.
 				document.getElementById("tbl").rows[rows].style.backgroundColor = '#9FFF30'; //Sets background colour of new row.
+				newRowCount+=1;
 				//alert("New personnel added."); //Success message.
 			}
 			
@@ -80,6 +87,19 @@
 					console.log(updList);
 				}
 				//alert("Personnel updated successfully");
+			}
+			
+			function Search() //Function for searching table based on text box input.
+			{
+				search = true; //Defines whether search will go ahead.
+				if (delList.length > 0 || updList.length > 0 || newRowCount > 0)
+				{
+					
+					if (!confirm("You have unsaved changes to the database. Searching will cause these changes to be cleared. Continue?"))
+					{
+						show_message("Not going ahead...");
+					}
+				}
 			}
 			
 			function SaveChanges(page) //Function that saves table data back to database.
@@ -119,7 +139,7 @@
 		<div id="inputDiv" align="center" class="col-4">
 			<p>
 				Search:<input type="text"></input> <!-- Box for searching the table for specific strings. -->
-				<input type="button" class="btn" value="Submit"></input> <!-- Submits search on press -->
+				<input type="button" class="btn" value="Submit" onclick="Search()"></input> <!-- Submits search on press -->
 			</p>
 			<input type="button" class="btn" value="Delete Selected Items" id="del" style="font-size:16px;" onclick="Delete()"/><br/><br/> <!-- Delete button that calls function within ExtraCode.js when pressed. -->
 			Name:<input id="txtName" type="text"></input><br/> <!-- Input fields for adding a new row. -->
