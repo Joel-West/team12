@@ -73,10 +73,6 @@
   
   <body onload="Load()">
     <header class="navbar flex-column flex-md-row bd-navbar navbar-dark navbar-expand-lg bg-dark">
-	  <a class="navbar-brand mr-0 mr-md-2" href="#">
-		<img src="https://www.goodfreephotos.com/albums/vector-images/screwdriver-and-wrench-vector-clipart.png" width="30" height="30" class="d-inline-block align-top" alt="">
-		  Make-It-All
-	  </a>
       <div class="navbar-nav">
 		<a class="nav-item nav-link" href="#">&#x2190</a>
 		<a class="nav-item nav-link" href="#" onClick="GoToNewPage('Home');">Home <span class="sr-only">(current)</span></a>
@@ -87,6 +83,10 @@
 		<a class="nav-item nav-link" href="#" onClick="GoToNewPage('EquipmentList');">Equipment</a>
 		<a class="nav-item nav-link" href="#" onClick="GoToNewPage('Analytics');">Analytics</a>
 	  </div>
+	  <a class="navbar-brand mr-0 mr-md-2" href="#">
+		<img src="https://www.goodfreephotos.com/albums/vector-images/screwdriver-and-wrench-vector-clipart.png" width="30" height="30" class="d-inline-block align-top" alt="">
+		  Make-It-All
+	  </a>
 	</header>
 	<div class="container-fluid">
 	  <form id="mainform" name="mainform" method="post" action="">
