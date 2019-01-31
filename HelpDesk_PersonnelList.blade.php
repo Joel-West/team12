@@ -128,10 +128,7 @@
 				sql = "";
 				for (i = 0; i < delList.length; i++) //Iterate through delete list (deletion performed first as it reduces database size, making other operations quicker).
 				{
-					if (row.cells[0].innerHTML.indexOf("(new)") == -1) //If not a new row.
-					{
-						sql+="DELETE FROM tblPersonnel WHERE userID = " + delList[i] + "; ";
-					}
+					sql+="DELETE FROM tblPersonnel WHERE userID = " + delList[i] + "; ";
 				}
 				for (i = 0; i < updList.length; i++) //Iterate through delete list (deletion performed first as it reduces database size, making other operations quicker).
 				{

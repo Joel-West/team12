@@ -92,7 +92,10 @@ function Delete() //Function for deleting selected rows from a table.
 					{
 						newRowCount -=1;
 					}
-					delList.push(document.getElementById("tbl").rows[i].cells[0].innerHTML); //Add record id to list of rows that will be deleted from the actual database later.
+					else
+					{
+						delList.push(document.getElementById("tbl").rows[i].cells[0].innerHTML); //Add record id to list of rows that will be deleted from the actual database later.
+					}
 				}
 				document.getElementById("tbl").deleteRow(i); //Delete the row.
 			}
