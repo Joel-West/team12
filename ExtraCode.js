@@ -197,9 +197,9 @@ function SortTable(column) //Function sorts table by the selected column.
 		}
 	}
 	cell = table.rows[0].cells[column]; //Gets relevant header cell.
-	if (cell.innerHTML.includes("↓") || cell.innerHTML.includes("↓"))
+	if (cell.innerHTML.includes("↑") || cell.innerHTML.includes("↓")) //If arrow already exists in header cell.
 	{
-		alert("Aaaaah");
+		cell.innerHTML = cell.innerHTML.slice(0, -1); //Remove current arrow from header cell.
 	}
 	if (direction == "asc") //If ascending, draw up arrow in header cell.
 	{
