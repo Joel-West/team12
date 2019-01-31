@@ -72,7 +72,7 @@
   </head>
   
   <body onload="Load()">
-    <nav class="navbar navbar-dark navbar-expand-lg bg-dark">
+    <header class="navbar flex-column flex-md-row bd-navbar navbar-dark navbar-expand-lg bg-dark">
 	  <a class="navbar-brand" href="#">
 		<img src="https://pbs.twimg.com/profile_images/378800000734794736/4f71f1537b67cb5d74c5aa5913604d68.jpeg" width="30" height="30" class="d-inline-block align-top" alt="">
 		  Navbar
@@ -83,7 +83,7 @@
 		<a class="nav-item nav-link" href="#">Pricing</a>
 		<a class="nav-item nav-link disabled" href="#">Disabled</a>
 	  </div>
-	</nav>
+	</header>
 	<div class="container-fluid">
 	  <form id="mainform" name="mainform" method="post" action="">
 	    @csrf
