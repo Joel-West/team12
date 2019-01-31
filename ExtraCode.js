@@ -88,7 +88,7 @@ function Delete() //Function for deleting selected rows from a table.
 					{
 						updList.splice(indexInUpdList, 1); //Delete row from the update list - if record is deleted, it will not need to be updated.
 					}
-					if (row.cells[0].innerHTML.indexOf("(new)") != -1) //If row is a new row, decrement number of new rows.
+					if (document.getElementById("tbl").rows[i].cells[0].innerHTML.indexOf("(new)") != 0) //If row is a new row, decrement number of new rows.
 					{
 						newRowCount -=1;
 					}
