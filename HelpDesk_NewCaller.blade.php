@@ -11,8 +11,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="{{ URL::asset('js/ExtraCode.js') }}"></script>
 	<script type="text/javascript">
-	  var previous = <?php htmlspecialchars($_GET['previous']); ?>;
-	  
 	  function Load(){
 		WriteTime();
 	  }
@@ -76,7 +74,7 @@
   <body onload="Load()">
     <header class="navbar flex-column flex-md-row bd-navbar navbar-dark navbar-expand-lg bg-dark">
       <div class="navbar-nav">
-		<a class="nav-item nav-link" href="#" onClick="GoToNewPage(previous);">&#x2190</a>
+		<a class="nav-item nav-link" href="#" onClick="GoToNewPage(document.getElementById('Previous').value)">&#x2190</a>
 		<a class="nav-item nav-link" href="#" onClick="GoToNewPage('Home?previous=NewCaller');">Home</a>
 		<a class="nav-item nav-link active" href="#">New Call <span class="sr-only">(current)</span></a>
 		<a class="nav-item nav-link" href="#" onClick="GoToNewPage('CallHistory?previous=NewCaller');">Call History</a>
@@ -94,6 +92,7 @@
 	  <form id="mainform" name="mainform" method="post" action="">
 	    @csrf
 		<input type='hidden' name="User" value="<?php echo $_POST['User']; ?>" />
+		<label type='hidden' name='Previous' id='Previous' value="<?php echo $_GET['previous']; ?>" />
         <div class="titleDiv col-12 d-flex"> <!-- Div containing elements at the top of the page. -->
 		  <label id="dtLabel" class="ml-auto" >
 	    </div>
