@@ -75,14 +75,14 @@
     <header class="navbar flex-column flex-md-row bd-navbar navbar-dark navbar-expand-lg bg-dark">
       <div class="navbar-nav-scroll">
 	    <ul class="navbar-nav bd-navbar-nav flex-row">
-		  <li class="nav-item nav-link" href="#" onClick="GoToNewPage(document.getElementById('Previous').value)">&#x2190 </li>
-		  <li class="nav-item nav-link" href="#" onClick="GoToNewPage('Home?previous=NewCaller');">Home</li>
-		  <li class="nav-item nav-link active" href="#">New Call <span class="sr-only">(current)</span></li>
-		  <li class="nav-item nav-link" href="#" onClick="GoToNewPage('CallHistory?previous=NewCaller');">Call History</li>
-		  <li class="nav-item nav-link" href="#" onClick="GoToNewPage('ProblemList?previous=NewCaller');">Problems List</li>
-		  <li class="nav-item nav-link" href="#" onClick="GoToNewPage('PersonnelList?previous=NewCaller');">Personnel</li>
-		  <li class="nav-item nav-link" href="#" onClick="GoToNewPage('EquipmentList?previous=NewCaller');">Equipment</li>
-		  <li class="nav-item nav-link" href="#" onClick="GoToNewPage('Analytics?previous=NewCaller');">Analytics</li>
+		  <a class="nav-item nav-link" href="#" onClick="GoToNewPage(document.getElementById('Previous').value)">&#x2190 </a>
+		  <a class="nav-item nav-link" href="#" onClick="GoToNewPage('Home?previous=NewCaller');">Home</a>
+		  <a class="nav-item nav-link active" href="#">New Call <span class="sr-only">(current)</span></a>
+		  <a class="nav-item nav-link" href="#" onClick="GoToNewPage('CallHistory?previous=NewCaller');">Call History</a>
+		  <a class="nav-item nav-link" href="#" onClick="GoToNewPage('ProblemList?previous=NewCaller');">Problems List</a>
+		  <a class="nav-item nav-link" href="#" onClick="GoToNewPage('PersonnelList?previous=NewCaller');">Personnel</a>
+		  <a class="nav-item nav-link" href="#" onClick="GoToNewPage('EquipmentList?previous=NewCaller');">Equipment</a>
+		  <a class="nav-item nav-link" href="#" onClick="GoToNewPage('Analytics?previous=NewCaller');">Analytics</a>
 	    </ul>
 	  </div>
 	  <a class="navbar-brand ml-md-auto" href="#">
