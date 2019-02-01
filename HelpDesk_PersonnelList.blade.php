@@ -103,6 +103,7 @@
 			
 			function UpdateRow() //Function that updates the selected row.
 			{
+				console.log("Hi there");
 				row = document.getElementById("tbl").rows[GetSelectedRow()]; //Gets the details of the row that is selected.
 				row.cells[1].innerHTML = document.getElementById("txtName").value;
 				row.cells[2].innerHTML = document.getElementById("txtJobTitle").value;
