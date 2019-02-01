@@ -53,7 +53,7 @@
 		</div>	
 		<div class="grid-class"> <!-- Div containing main buttons that link to other pages. -->
 			<input class="mainButton" type="button" value="New Call" onClick="GoToNewPage('NewCaller')" />
-			<input class="mainButton" type="button" value="View Call History" onClick="GoToNewPage('CallHistory');" />
+			<input class="mainButton" type="button" value="View Call History" onClick="GoToNewPage('CallHistory?previous=Home');" />
 			<input class="mainButton" type="button" value="View Problems List" onClick="GoToNewPage('ProblemList');" />
 			<input class="mainButton" type="button" value="View Personnel" onClick="GoToNewPage('PersonnelList');" />
 			<input class="mainButton" type="button" value="View Equipment" onClick="GoToNewPage('EquipmentList');" />
