@@ -73,7 +73,7 @@
   
   <body onload="Load()">
     <header class="navbar flex-column flex-md-row bd-navbar navbar-dark navbar-expand-lg bg-dark">
-      <div class="navbar-nav">
+      <div class="navbar-nav-scroll bd-navbar flex-row">
 		<a class="nav-item nav-link" href="#" onClick="GoToNewPage(document.getElementById('Previous').value)">&#x2190</a>
 		<a class="nav-item nav-link" href="#" onClick="GoToNewPage('Home?previous=NewCaller');">Home</a>
 		<a class="nav-item nav-link active" href="#">New Call <span class="sr-only">(current)</span></a>
