@@ -21,7 +21,7 @@
 				{
 					if(json && json[0]) //If result of php file was a json array.	
 					{				
-						document.getElementById("lblWorstHardware").innerHTML = json[0].serialNumber;
+						document.getElementById("lblWorstHardware").innerHTML = json[0].serialNumber + " (" + json[0].equipmentMake + " " + json[0].equipmentType + ")";
 					}
 					else
 					{
