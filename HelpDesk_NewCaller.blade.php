@@ -74,14 +74,14 @@
   <body onload="Load()">
     <header class="navbar flex-column flex-md-row bd-navbar navbar-dark navbar-expand-lg bg-dark">
       <div class="navbar-nav">
-		<a class="nav-item nav-link" href="#">&#x2190</a>
-		<a class="nav-item nav-link" href="#" onClick="GoToNewPage('Home');">Home <span class="sr-only">(current)</span></a>
-		<a class="nav-item nav-link active" href="#">New Call</a>
-		<a class="nav-item nav-link" href="#" onClick="GoToNewPage('CallHistory');">Call History</a>
-		<a class="nav-item nav-link" href="#" onClick="GoToNewPage('ProblemList');">Problems List</a>
-		<a class="nav-item nav-link" href="#" onClick="GoToNewPage('PersonnelList');">Personnel</a>
-		<a class="nav-item nav-link" href="#" onClick="GoToNewPage('EquipmentList');">Equipment</a>
-		<a class="nav-item nav-link" href="#" onClick="GoToNewPage('Analytics');">Analytics</a>
+		<a class="nav-item nav-link" href="#" onClick="GoToNewPage('Home');">&#x2190</a>
+		<a class="nav-item nav-link" href="#" onClick="GoToNewPage('Home?previous=NewCaller');">Home</a>
+		<a class="nav-item nav-link active" href="#">New Call <span class="sr-only">(current)</span></a>
+		<a class="nav-item nav-link" href="#" onClick="GoToNewPage('CallHistory?previous=NewCaller');">Call History</a>
+		<a class="nav-item nav-link" href="#" onClick="GoToNewPage('ProblemList?previous=NewCaller');">Problems List</a>
+		<a class="nav-item nav-link" href="#" onClick="GoToNewPage('PersonnelList?previous=NewCaller');">Personnel</a>
+		<a class="nav-item nav-link" href="#" onClick="GoToNewPage('EquipmentList?previous=NewCaller');">Equipment</a>
+		<a class="nav-item nav-link" href="#" onClick="GoToNewPage('Analytics?previous=NewCaller');">Analytics</a>
 	  </div>
 	  <a class="navbar-brand flex-row ml-md-auto d-none d-md-flex" href="#">
 		<img src="https://www.goodfreephotos.com/albums/vector-images/screwdriver-and-wrench-vector-clipart.png" width="30" height="30" class="d-inline-block align-top" alt="">
@@ -92,10 +92,6 @@
 	  <form id="mainform" name="mainform" method="post" action="">
 	    @csrf
 		<input type='hidden' name="User" value="<?php echo $_POST['User']; ?>" />
-        <div class="titleDiv col-12 d-flex"> <!-- Div containing elements at the top of the page. -->
-		  <input type="button" class="btn mr-auto" value="&#x2190" onClick="GoToNewPage('Home');" /> <!-- Back button. -->
-		  <label id="dtLabel" class="ml-auto" >
-	    </div>
 	  </form>
 	  <div class="row" align="center">
 		<div class="col-12">
