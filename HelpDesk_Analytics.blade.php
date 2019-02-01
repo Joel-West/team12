@@ -13,16 +13,19 @@
 				WriteTime(); //Function that writes the current time at the top of the page.
 			}
 
-			
+			function GetWorstHardware()
+			{
+				return "abc"
+			}
 			
 		</script>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"> <!-- Bootstrap CSS stylesheet. -->
 		<link rel="stylesheet" href="{{ asset('css/Styles.css') }}" type="text/css"> <!-- Import external CSS stylesheet that contains presentation info that applies to all the pages. -->
 		<style>
-			.lbl
-			{
-				font-size:24px;
-			}
+		.lbl
+		{
+			font-size:24px;
+		}
 		</style>
 	
 	</head>
@@ -41,7 +44,7 @@
 				<div class="row" align="center">
 					<div id="analyticsDiv">  <!-- Div containing analytics info. -->
 						<!-- Put stuff in here. -->
-						<label id="lblWorstHardware" class="lbl text-center">Hi</label>
+						<label id="lblWorstHardware" class="lbl" value="GetWorstHardware()"></label>
 					</div>
 				</div>
 			</form>
