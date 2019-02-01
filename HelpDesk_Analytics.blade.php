@@ -22,6 +22,7 @@
 			.lbl
 			{
 				font-size:24px;
+				text-align:center;
 			}
 		</style>
 	
