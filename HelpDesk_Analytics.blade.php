@@ -14,18 +14,18 @@
 				GetWorstHardware();
 			}
 
-			function GetWorstHardware()
+			function GetWorstHardware() //Function finds the most faulty piece of hardware and outputs this to the user.
 			{
-				sql = "SELECT * FROM tblEquipment;"
+				sql = "SELECT serialNumber, equipmentType, equipmentMake, COUNT(serialNumber) AS occurence FROM tblEquipment GROUP BY serialNumbeR ORDER BY occurence DESC LIMIT 1, 1;";
 				$.get("Query.php", {'sql':sql, 'returnData':true},function(json) //Calls query.php, which handles the SQL query and sorting of result data.
 				{
 					if(json && json[0]) //If result of php file was a json array.	
 					{				
-						document.getElementById("lblWorstHardware").innerHTML = "Hardware with most problems logged: " + json[0].serialNumber + " (" + json[0].equipmentMake + " " + json[0].equipmentType + ")";
+						document.getElementById("lblWorstHardware").innerHTML = "Hardware with most problems logged: " + json[0].serialNumber + " (" + json[0].equipmentMake + " " + json[0].equipmentType + ") - " + occurence + " times.";
 					}
 					else
 					{
-						var htm = "Sorry, no results found..."; //If no results, display error.
+						document.getElementById("lblWorstHardware").innerHTML = "Not enough data to calculate"; //If no results, display error.
 					}
 				},'json');
 			}
