@@ -15,7 +15,8 @@
 			}
 	function GetWorstHardware()	
 	{
-		sql="select * from tblEquipment;"
+		sql="select serialNumber, Count(serialNumber) as occurence from tblProblem Group By serialNumber Order By occurence Desc Limit 0,1;"
+		
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json)
 		{
 			if(json && json[0])
@@ -28,12 +29,11 @@
 			}
 		},"json");
 	}	
+	
 
 
-document.getElementById("label1").innerHTML='Mouse';
 
-			
-			
+
 		</script>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"> <!-- Bootstrap CSS stylesheet. -->
 		<link rel="stylesheet" href="{{ asset('css/Styles.css') }}" type="text/css"> <!-- Import external CSS stylesheet that contains presentation info that applies to all the pages. -->
@@ -60,7 +60,7 @@ document.getElementById("label1").innerHTML='Mouse';
 				<div class="row" align="center">
 					<div id="analyticsDiv">  <!-- Div containing analytics info. -->
 						<!-- Put stuff in here. -->
-						<label id="label1" class="labelClass">Hi</label>
+						<label id="label1" class="labelClass"></label>
 					</div>
 				</div>
 			</form>
