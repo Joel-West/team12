@@ -51,7 +51,7 @@
 			
 			$(document).on('DOMSubtreeModified','td',function()
 			{
-				alert($(this).attr('id'));
+				console.log($(this).attr('id'));
 			});
 			
 			function AddRow() //Adds a new row to the table, from data in the text boxes.
