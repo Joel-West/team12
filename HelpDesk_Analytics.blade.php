@@ -34,7 +34,7 @@
 				<div class="row" align="center">
 					<div id="analyticsDiv">  <!-- Div containing analytics info. -->
 						<!-- Put stuff in here. -->
-						<label id="lblWorstHardware" style="position: relative; left:50%;"></label>;
+						<label id="lblWorstHardware" style="position: relative; left:50%;">Hi</label>
 					</div>
 				</div>
 			</form>
