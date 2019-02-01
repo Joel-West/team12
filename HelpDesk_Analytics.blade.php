@@ -16,7 +16,18 @@
 
 			function GetWorstHardware()
 			{
-				document.getElementById("lblWorstHardware").innerHTML = "keyboard";
+				sql = "SELECT * FROM tblEquipment;"
+				$.get("Query.php", {'sql':sql, 'returnData':true},function(json) //Calls query.php, which handles the SQL query and sorting of result data.
+				{
+					if(json && json[0]) //If result of php file was a json array.	
+					{				
+						document.getElementById("lblWorstHardware").innerHTML = json[0].serialNumber;
+					}
+					else
+					{
+						var htm = "Sorry, no results found..."; //If no results, display error.
+					}
+				},'json');
 			}
 			
 		</script>
