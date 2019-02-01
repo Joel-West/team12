@@ -29,7 +29,9 @@
 		<link rel="stylesheet" href="{{ asset('css/Styles.css') }}" type="text/css"> <!-- Import external CSS stylesheet that contains presentation info that applies to all the pages. -->
 		<style>
 		.labelClass 
-		(font-size:24px;)
+		(
+		font-size:24px;
+		)
 		</style>
 			</head>
 	<body onload="Load()">
@@ -45,9 +47,7 @@
 				</div>
 				<div class="row" align="center">
 					<div id="analyticsDiv">  <!-- Div containing analytics info. -->
-<label id='label1' class='labelClass'> 
-HI
-</label>
+<label id='label1' class='labelClass'> HI </label>
 						
 					</div>
 				</div>
