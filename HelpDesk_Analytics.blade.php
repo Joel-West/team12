@@ -21,7 +21,7 @@
 				{
 					if(json) //If result of php file was a json array.	
 					{			
-						if ((json[0].serialNumber == "") //If the most popular serial number is "" (all software/network problems have this value).
+						if (json[0].serialNumber == "") //If the most popular serial number is "" (all software/network problems have this value).
 						{
 							rec = json[1]; //Use the 2nd most common serial number.
 						}
