@@ -31,11 +31,11 @@
 						for (i = 0; i<json.length; i++) //Iterates through the json array of results.
 						{
 							htm += "<tr id='t" + (i+1) + "' style='background-color:rgb(159, 255, 48);'>"; //Sets colour and ID of row.
-							htm +="<td'>"+json[i].userID+"</td>";
-							htm +="<td'>"+json[i].name+"</td>";
-							htm +="<td'>"+json[i].jobTitle+"</td>";		
-							htm +="<td'>"+json[i].department+"</td>";
-							htm +="<td'>"+json[i].telephoneNumber+"</td>";
+							htm +="<td>"+json[i].userID+"</td>";
+							htm +="<td>"+json[i].name+"</td>";
+							htm +="<td>"+json[i].jobTitle+"</td>";		
+							htm +="<td>"+json[i].department+"</td>";
+							htm +="<td>"+json[i].telephoneNumber+"</td>";
 							htm += "</tr>";							
 						}
 					}
