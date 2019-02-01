@@ -225,10 +225,10 @@
 		<style>
 		.table-wrapper-scroll-y <!-- class for table, allowing it to scroll. -->
 		{
-		display: block;
-		max-height: 850px;
-		overflow-y: auto;
-		-ms-overflow-style: -ms-autohiding-scrollbar;
+			display: block;
+			max-height: 850px;
+			overflow-y: auto;
+			-ms-overflow-style: -ms-autohiding-scrollbar;
 		}
 		</style>
 	</head>
