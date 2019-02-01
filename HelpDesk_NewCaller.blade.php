@@ -74,7 +74,7 @@
   <body onload="Load()">
     <header class="navbar flex-column flex-md-row bd-navbar navbar-dark navbar-expand-lg bg-dark">
       <div class="navbar-nav">
-		<a class="nav-item nav-link" href="#" onClick="GoToNewPage(echo $_GET['previous']);">&#x2190</a>
+		<a class="nav-item nav-link" href="#" onClick="GoToNewPage(<script>echo $_GET['previous']</script>);">&#x2190</a>
 		<a class="nav-item nav-link" href="#" onClick="GoToNewPage('Home?previous=NewCaller');">Home</a>
 		<a class="nav-item nav-link active" href="#">New Call <span class="sr-only">(current)</span></a>
 		<a class="nav-item nav-link" href="#" onClick="GoToNewPage('CallHistory?previous=NewCaller');">Call History</a>
