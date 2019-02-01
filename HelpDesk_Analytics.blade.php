@@ -11,8 +11,12 @@
 			function Load() //Function that runs when file loads.
 			{
 				WriteTime(); //Function that writes the current time at the top of the page.
+				GetWorstHardware();
 			}
-
+function GetWorstHardware
+{
+document.getElementById("label1").innerHTML='Mouse';
+}
 			
 			
 		</script>
