@@ -26,7 +26,7 @@
 			{
 			document.getElementById("label1").innerHTML="Can't find appropriate data";
 			}
-		}
+		},"json");
 	}	
 
 
