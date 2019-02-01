@@ -15,13 +15,13 @@
 			}
 	function GetWorstHardware()	
 	{
-		sql="select serialNumber, Count(serialNumber) as occurence from tblProblem Group By serialNumber Order By occurence Desc Limit 0,1;"
+		sql= "SELECT tblEquipment.serialNumber, tblEquipment.equipmentType, tblEquipment.equipmentMake, COUNT(tblProblem.serialNumber) AS occurence FROM tblProblem INNER JOIN tblEquipment ON tblProblem.serialNumber = tblEquipment.serialNumber GROUP BY tblEquipment.serialNumber ORDER BY occurence DESC LIMIT 0, 1;"; //SQL statement gets most common serial number in problem list.
 		
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json)
 		{
 			if(json && json[0])
 			{
-			document.getElementById("label1").innerHTML="Hardware most problems logged:"+json[0].serialNumber;
+			document.getElementById("lblWorstHardware").innerHTML = "Hardware with most problems logged: " + json[0].serialNumber + " (" + json[0].equipmentMake + " " + json[0].equipmentType + ") - " + json[0].occurence + " times.";
 			}
 			else
 			{
