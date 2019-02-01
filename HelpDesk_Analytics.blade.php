@@ -11,35 +11,11 @@
 			function Load() //Function that runs when file loads.
 			{
 				WriteTime(); //Function that writes the current time at the top of the page.
-				GetWorstHardware();
 			}
 
-			function GetWorstHardware() //Function finds the most faulty piece of hardware and outputs this to the user.
-			{
-				sql = "SELECT tblEquipment.serialNumber, tblEquipment.equipmentType, tblEquipment.equipmentMake, COUNT(tblProblem.serialNumber) AS occurence FROM tblProblem INNER JOIN tblEquipment ON tblProblem.serialNumber = tblEquipment.serialNumber GROUP BY tblEquipment.serialNumber ORDER BY occurence DESC LIMIT 0, 1;"; //SQL statement gets most common serial number in problem list.
-				$.get("Query.php", {'sql':sql, 'returnData':true},function(json) //Calls query.php, which handles the SQL query and sorting of result data.
-				{
-					if(json && json[0]) //If result of php file was a json array.	
-					{			
-						document.getElementById("lblWorstHardware").innerHTML = "Hardware with most problems logged: " + json[0].serialNumber + " (" + json[0].equipmentMake + " " + json[0].equipmentType + ") - " + json[0].occurence + " times.";
-					}
-					else
-					{
-						document.getElementById("lblWorstHardware").innerHTML = "Not enough data to calculate"; //If no results, display error.
-					}
-				},'json');
-			}
-			
 		</script>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"> <!-- Bootstrap CSS stylesheet. -->
 		<link rel="stylesheet" href="{{ asset('css/Styles.css') }}" type="text/css"> <!-- Import external CSS stylesheet that contains presentation info that applies to all the pages. -->
-		<style>
-		.lbl
-		{
-			font-size:24px;
-		}
-		</style>
-	
 	</head>
 	<body onload="Load()">
 		<div class="container"> <!-- Container holds elements together using Bootstrap. -->
@@ -51,12 +27,10 @@
 					<label id="dtLabel" style="font-size:26px; position:absolute; right:0;"></label> <!-- Label to contain current data/time. -->
 					<h2 id="headerId" style="style=display:inline-block; font-size:30px;">Analytics</h2> <!-- Heading containing name of page. -->
 				</div>
-				<br/>
-				<br/>
 				<div class="row" align="center">
 					<div id="analyticsDiv">  <!-- Div containing analytics info. -->
 						<!-- Put stuff in here. -->
-						<label id="lblWorstHardware" class="lbl"></label>
+						
 					</div>
 				</div>
 			</form>
