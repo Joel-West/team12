@@ -10,6 +10,17 @@
 		<script type="text/javascript">
 			function Load() //Function that runs when file loads.
 			{
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
 				WriteTime(); //Function that writes the current time at the top of the page.
 			}
 
@@ -18,7 +29,7 @@
 		<link rel="stylesheet" href="{{ asset('css/Styles.css') }}" type="text/css"> <!-- Import external CSS stylesheet that contains presentation info that applies to all the pages. -->
 	</head>
 	<body onload="Load()">
-		<div class="container"> <!-- Container holds elements together using Bootstrap. -->
+		<div class="container-`fluid"> <!-- Container holds elements together using Bootstrap. -->
 			<form id="mainform" name="mainform" method="post" action=""> <!-- This form will post data to an initially unspecified page when submitted. -->
 				<input type='hidden' name="User" value="<?php echo $_POST['User']; ?>" /> <!-- Hidden tag used to store posted user data so that it can later be posted back to the home page. -->
 				@csrf <!--Token to validates requests to server. -->
