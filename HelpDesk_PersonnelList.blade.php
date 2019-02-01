@@ -103,12 +103,15 @@
 			
 			function UpdateRow() //Function that updates the selected row.
 			{
-				console.log("Hi there");
 				row = document.getElementById("tbl").rows[GetSelectedRow()]; //Gets the details of the row that is selected.
 				row.cells[1].innerHTML = document.getElementById("txtName").value;
+				alert("");
 				row.cells[2].innerHTML = document.getElementById("txtJobTitle").value;
+				alert("");
 				row.cells[3].innerHTML = document.getElementById("txtDepartment").value;
+				alert("");
 				row.cells[4].innerHTML = document.getElementById("txtTelephoneNumber").value;
+				alert("");
 				if (!ListContains(updList, row.cells[0].innerHTML) && !row.cells[0].innerHTML.includes("(new)")) //If selected row is not already marked to be updated when changes are saved to the database later and is not a new row.
 				{
 					updList.push(row.cells[0].innerHTML); //Add the ID of the row to the list of rows to by updated when changes are commited to the actual database.
