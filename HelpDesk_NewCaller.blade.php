@@ -11,7 +11,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="{{ URL::asset('js/ExtraCode.js') }}"></script>
 	<script type="text/javascript">
-	  var previous = <?php echo htmlspecialchars($_GET['previous']); ?>;
+	  var previous = <?php htmlspecialchars($_GET['previous']); ?>;
 	  
 	  function Load(){
 		WriteTime();
