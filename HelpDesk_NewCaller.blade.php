@@ -74,7 +74,7 @@
   <body onload="Load()">
     <header class="navbar flex-column flex-md-row bd-navbar navbar-dark navbar-expand-lg bg-dark">
       <div class="navbar-nav">
-		<a class="nav-item nav-link" href="#" onClick="<?php echo $_GET['previous']; ?>">&#x2190</a>
+		<a class="nav-item nav-link" href="#" onClick="GoToNewPage(<?php echo $_GET['previous']; ?>);">&#x2190</a>
 		<a class="nav-item nav-link" href="#" onClick="GoToNewPage('Home?previous=NewCaller');">Home</a>
 		<a class="nav-item nav-link active" href="#">New Call <span class="sr-only">(current)</span></a>
 		<a class="nav-item nav-link" href="#" onClick="GoToNewPage('CallHistory?previous=NewCaller');">Call History</a>
@@ -92,6 +92,9 @@
 	  <form id="mainform" name="mainform" method="post" action="">
 	    @csrf
 		<input type='hidden' name="User" value="<?php echo $_POST['User']; ?>" />
+        <div class="titleDiv col-12 d-flex"> <!-- Div containing elements at the top of the page. -->
+		  <label id="dtLabel" class="ml-auto" >
+	    </div>
 	  </form>
 	  <div class="row" align="center">
 		<div class="col-12">
