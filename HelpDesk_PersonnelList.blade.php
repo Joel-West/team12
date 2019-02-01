@@ -31,11 +31,11 @@
 						for (i = 0; i<json.length; i++) //Iterates through the json array of results.
 						{
 							htm += "<tr id='t" + (i+1) + "' style='background-color:rgb(159, 255, 48);'>"; //Sets colour and ID of row.
-							htm +="<td>"+json[i].userID+"</td>";
-							htm +="<td>"+json[i].name+"</td>";
-							htm +="<td>"+json[i].jobTitle+"</td>";		
-							htm +="<td>"+json[i].department+"</td>";
-							htm +="<td>"+json[i].telephoneNumber+"</td>";
+							htm +="<td id='id'>"+json[i].userID+"</td>";
+							htm +="<td id='name'>"+json[i].name+"</td>";
+							htm +="<td id='jobTitle'>"+json[i].jobTitle+"</td>";		
+							htm +="<td id='department'>"+json[i].department+"</td>";
+							htm +="<td id='telephoneNumber'>"+json[i].telephoneNumber+"</td>";
 							htm += "</tr>";							
 						}
 					}
@@ -51,7 +51,34 @@
 			
 			$(document).on('DOMSubtreeModified','td',function()
 			{
-				console.log("");
+				console.log($(this).attr('id')); //Logs ID (for debugging).
+				/*
+				if (document.getElementById("txtID").value == false || isNaN(document.getElementById("txtID").value) || GetRowWithID(document.getElementById("txtID").value) != -1 || GetRowWithID(document.getElementById("txtID").value + "(new)") != -1)
+				{
+					alert("Invalid ID"); //Returns error if data input from text boxes is invalid.
+					return;
+				}
+				else if (document.getElementById("txtName").value == false)
+				{
+					alert("Invalid name"); //Returns error if data input from text boxes is invalid.
+					return;
+				}
+				else if (document.getElementById("txtJobTitle").value == false)
+				{
+					alert("Invalid job title"); //Returns error if data input from text boxes is invalid.
+					return;
+				}
+				else if (document.getElementById("txtDepartment").value == false)
+				{
+					alert("Invalid department"); //Returns error if data input from text boxes is invalid.
+					return;
+				}
+				else if (document.getElementById("txtTelephoneNumber").value == false || isNaN(document.getElementById("txtTelephoneNumber").value))
+				{
+					alert("Invalid telephone number"); //Returns error if data input from text boxes is invalid.
+					return;
+				}
+				*/
 			});
 			
 			function AddRow() //Adds a new row to the table, from data in the text boxes.
@@ -105,13 +132,9 @@
 			{
 				row = document.getElementById("tbl").rows[GetSelectedRow()]; //Gets the details of the row that is selected.
 				row.cells[1].innerHTML = document.getElementById("txtName").value;
-				alert("");
 				row.cells[2].innerHTML = document.getElementById("txtJobTitle").value;
-				alert("");
 				row.cells[3].innerHTML = document.getElementById("txtDepartment").value;
-				alert("");
 				row.cells[4].innerHTML = document.getElementById("txtTelephoneNumber").value;
-				alert("");
 				if (!ListContains(updList, row.cells[0].innerHTML) && !row.cells[0].innerHTML.includes("(new)")) //If selected row is not already marked to be updated when changes are saved to the database later and is not a new row.
 				{
 					updList.push(row.cells[0].innerHTML); //Add the ID of the row to the list of rows to by updated when changes are commited to the actual database.
@@ -172,11 +195,6 @@
 						alert("No searchy for you!");
 					}
 				}
-			}
-			
-			function TableCellChange()
-			{
-				alert("Hello there");
 			}
 			
 			function SaveChanges(page) //Function that saves table data back to database.
