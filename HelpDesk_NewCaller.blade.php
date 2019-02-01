@@ -92,7 +92,7 @@
 	  <form id="mainform" name="mainform" method="post" action="">
 	    @csrf
 		<input type='hidden' name="User" value="<?php echo $_POST['User']; ?>" />
-		<label type='hidden' name='Previous' id='Previous' value="<?php echo $_GET['previous']; ?>" />
+		<label name='Previous' id='Previous' value="<?php echo $_GET['previous']; ?>" />
         <div class="titleDiv col-12 d-flex"> <!-- Div containing elements at the top of the page. -->
 		  <label id="dtLabel" class="ml-auto" >
 	    </div>
