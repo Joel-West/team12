@@ -11,11 +11,12 @@
 			function Load() //Function that runs when file loads.
 			{
 				WriteTime(); //Function that writes the current time at the top of the page.
+				GetWorstHardware();
 			}
 
 			function GetWorstHardware()
 			{
-				return "abc"
+				document.getElementById("lblWorstHardware").innerHTML = "keyboard";
 			}
 			
 		</script>
@@ -44,7 +45,7 @@
 				<div class="row" align="center">
 					<div id="analyticsDiv">  <!-- Div containing analytics info. -->
 						<!-- Put stuff in here. -->
-						<label id="lblWorstHardware" class="lbl" value="GetWorstHardware()"></label>
+						<label id="lblWorstHardware" class="lbl"></label>
 					</div>
 				</div>
 			</form>
