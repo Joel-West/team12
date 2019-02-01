@@ -30,7 +30,7 @@
 				<div class="row" align="center">
 					<div id="analyticsDiv">  <!-- Div containing analytics info. -->
 						<!-- Put stuff in here. -->
-						
+						<label id="lblWorstHardware">Hello there</label>;
 					</div>
 				</div>
 			</form>
