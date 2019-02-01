@@ -10,33 +10,24 @@
 		<script type="text/javascript">
 			function Load() //Function that runs when file loads.
 			{
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
 				WriteTime(); //Function that writes the current time at the top of the page.
 			}
 
+			
+			
 		</script>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"> <!-- Bootstrap CSS stylesheet. -->
 		<link rel="stylesheet" href="{{ asset('css/Styles.css') }}" type="text/css"> <!-- Import external CSS stylesheet that contains presentation info that applies to all the pages. -->
 		<style>
-		.labelClass 
-		(
-		font-size:24px;
-		)
+		.lbl
+		{
+			font-size:24px;
+		}
 		</style>
-			</head>
-	<body onload="Load()">
 	
-		<div class="container-`fluid"> <!-- Container holds elements together using Bootstrap. -->
+	</head>
+	<body onload="Load()">
+		<div class="container"> <!-- Container holds elements together using Bootstrap. -->
 			<form id="mainform" name="mainform" method="post" action=""> <!-- This form will post data to an initially unspecified page when submitted. -->
 				<input type='hidden' name="User" value="<?php echo $_POST['User']; ?>" /> <!-- Hidden tag used to store posted user data so that it can later be posted back to the home page. -->
 				@csrf <!--Token to validates requests to server. -->
@@ -47,17 +38,10 @@
 				</div>
 				<br/>
 				<br/>
-				<br/>
-								<br/>
-												<br/>
-																<br/>
-																				<br/>
-																				
-												
 				<div class="row" align="center">
 					<div id="analyticsDiv">  <!-- Div containing analytics info. -->
-<label id='label1' class='labelClass'> HI </label>
-						
+						<!-- Put stuff in here. -->
+						<label id="lblWorstHardware" class="lbl">Hi</label>
 					</div>
 				</div>
 			</form>
