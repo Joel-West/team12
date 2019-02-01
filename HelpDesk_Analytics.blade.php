@@ -21,17 +21,16 @@
 				{
 					if(json) //If result of php file was a json array.	
 					{			
+						var rec;
 						if (json[0].serialNumber == "") //If the most popular serial number is "" (all software/network problems have this value).
 						{
 							rec = json[1]; //Use the 2nd most common serial number.
-							alert(json[1].serialNumber);
-							alert(rec.serialNumber);
 						}
 						else
 						{
 							rec = json[0]; //Else, use the most common serial number.
 						}
-						document.getElementById("lblWorstHardware").innerHTML = "Hardware with most problems logged: " + rec[0].serialNumber + " - " + rec[0].occurence + " times.";
+						document.getElementById("lblWorstHardware").innerHTML = "Hardware with most problems logged: " + rec.serialNumber + " - " + rec.occurence + " times.";
 					}
 					else
 					{
