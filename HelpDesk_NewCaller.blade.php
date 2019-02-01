@@ -11,6 +11,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="{{ URL::asset('js/ExtraCode.js') }}"></script>
 	<script type="text/javascript">
+	  var previous = <?php echo htmlspecialchars($_GET['previous']); ?>;
+	  
 	  function Load(){
 		WriteTime();
 	  }
@@ -74,7 +76,7 @@
   <body onload="Load()">
     <header class="navbar flex-column flex-md-row bd-navbar navbar-dark navbar-expand-lg bg-dark">
       <div class="navbar-nav">
-		<a class="nav-item nav-link" href="#" onClick="GoToNewPage(<?php echo htmlspecialchars($_GET['previous']); ?>);">&#x2190</a>
+		<a class="nav-item nav-link" href="#" onClick="GoToNewPage(previous);">&#x2190</a>
 		<a class="nav-item nav-link" href="#" onClick="GoToNewPage('Home?previous=NewCaller');">Home</a>
 		<a class="nav-item nav-link active" href="#">New Call <span class="sr-only">(current)</span></a>
 		<a class="nav-item nav-link" href="#" onClick="GoToNewPage('CallHistory?previous=NewCaller');">Call History</a>
