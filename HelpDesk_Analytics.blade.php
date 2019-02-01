@@ -45,6 +45,10 @@
 					<label id="dtLabel" style="font-size:26px; position:absolute; right:0;"></label> <!-- Label to contain current data/time. -->
 					<h2 id="headerId" style="style=display:inline-block; font-size:30px;">Analytics</h2> <!-- Heading containing name of page. -->
 				</div>
+				<br/>
+				<br/>
+				<br/>
+												
 				<div class="row" align="center">
 					<div id="analyticsDiv">  <!-- Div containing analytics info. -->
 <label id='label1' class='labelClass'> HI </label>
