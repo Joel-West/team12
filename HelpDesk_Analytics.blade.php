@@ -22,7 +22,6 @@
 			.lbl
 			{
 				font-size:24px;
-				text-align:center;
 			}
 		</style>
 	
@@ -42,7 +41,7 @@
 				<div class="row" align="center">
 					<div id="analyticsDiv">  <!-- Div containing analytics info. -->
 						<!-- Put stuff in here. -->
-						<label id="lblWorstHardware" class="lbl">Hi</label>
+						<label id="lblWorstHardware" class="lbl text-center">Hi</label>
 					</div>
 				</div>
 			</form>
