@@ -84,7 +84,6 @@
 			<input type="text" name="Username" id="Username" placeholder="Username" value=""><br>  <!-- HTML input fields for form data. -->
 			<input type="password" name="Password" id="Password" placeholder="Password" ><br>
 			<input type="button" name="btnsubmit" id="btnsubmit" value="Submit" style="font-size:18px;" onclick="Validate();"/><br> <!-- Rather than submitting form straight away, the submit button runs function to check if username/password is valid.-->
-			Save Password: <input type="checkbox" id="checkSave" />
 		</div>
 		<input type='hidden' id="User" name="User" value="" /> <!-- Hidden tag used to store posted user data before it is submitted. -->
 	</form>
