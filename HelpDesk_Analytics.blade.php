@@ -21,7 +21,7 @@
 		{
 			if(json && json[0])
 			{
-			document.getElementById("lblWorstHardware").innerHTML = "Hardware with most problems logged: " + json[0].serialNumber + " (" + json[0].equipmentMake + " " + json[0].equipmentType + ") - " + json[0].occurence + " times.";
+			document.getElementById("label1").innerHTML = "Hardware with most problems logged: " + json[0].serialNumber + " (" + json[0].equipmentMake + " " + json[0].equipmentType + ") - " + json[0].occurence + " times.";
 			}
 			else
 			{
