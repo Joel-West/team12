@@ -16,12 +16,20 @@
 
 			function GetWorstHardware() //Function finds the most faulty piece of hardware and outputs this to the user.
 			{
-				sql = "SELECT serialNumber, equipmentType, equipmentMake, COUNT(serialNumber) AS occurence FROM tblEquipment GROUP BY serialNumbeR ORDER BY occurence DESC LIMIT 1, 1;";
+				sql = "SELECT serialNumber, COUNT(serialNumber) AS occurence FROM tblProblem GROUP BY serialNumber ORDER BY occurence DESC LIMIT 0, 2;"; //SQL statement gets two most common serial numbers in problem list.
 				$.get("Query.php", {'sql':sql, 'returnData':true},function(json) //Calls query.php, which handles the SQL query and sorting of result data.
 				{
-					if(json && json[0]) //If result of php file was a json array.	
-					{				
-						document.getElementById("lblWorstHardware").innerHTML = "Hardware with most problems logged: " + json[0].serialNumber + " (" + json[0].equipmentMake + " " + json[0].equipmentType + ") - " + json[0].occurence + " times.";
+					if(json) //If result of php file was a json array.	
+					{			
+						if ((json[0].serialNumber == "") //If the most popular serial number is "" (all software/network problems have this value).
+						{
+							rec = json[1]; //Use the 2nd most common serial number.
+						}
+						else
+						{
+							rec = json[0]; //Else, use the most common serial number.
+						}
+						document.getElementById("lblWorstHardware").innerHTML = "Hardware with most problems logged: " + rec[0].serialNumber + " - " + rec[0].occurence + " times.";
 					}
 					else
 					{
