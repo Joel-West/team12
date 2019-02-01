@@ -19,7 +19,7 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"> <!-- Bootstrap CSS stylesheet. -->
 		<link rel="stylesheet" href="{{ asset('css/Styles.css') }}" type="text/css"> <!-- Import external CSS stylesheet that contains presentation info that applies to all the pages. -->
 		<style>
-		.lbl
+		.labelClass
 		{
 			font-size:24px;
 		}
@@ -41,7 +41,7 @@
 				<div class="row" align="center">
 					<div id="analyticsDiv">  <!-- Div containing analytics info. -->
 						<!-- Put stuff in here. -->
-						<label id="lblWorstHardware" class="lbl">Hi</label>
+						<label id="label1" class="labelClass">Hi</label>
 					</div>
 				</div>
 			</form>
