@@ -13,10 +13,25 @@
 				WriteTime(); //Function that writes the current time at the top of the page.
 				GetWorstHardware();
 			}
-function GetWorstHardware()
-{
+	function GetWorstHardware()	
+	{
+		sql="select * from tblEquipment;"
+		$.get("Query.php", {'sql':sql, 'returnData':true},function(json)
+		{
+			if(json && json[0])
+			{
+			document.getElementById("label1").innerHTML="Hardware most problems logged:"+json[0].serialNumber;
+			}
+			else
+			{
+			document.getElementById("label1").innerHTML="Can't find appropriate data";
+			}
+		}
+	}	
+
+
 document.getElementById("label1").innerHTML='Mouse';
-}
+
 			
 			
 		</script>
