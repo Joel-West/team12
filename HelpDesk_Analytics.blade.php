@@ -13,6 +13,8 @@
 				WriteTime(); //Function that writes the current time at the top of the page.
 			}
 
+			
+			
 		</script>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"> <!-- Bootstrap CSS stylesheet. -->
 		<link rel="stylesheet" href="{{ asset('css/Styles.css') }}" type="text/css"> <!-- Import external CSS stylesheet that contains presentation info that applies to all the pages. -->
@@ -27,10 +29,12 @@
 					<label id="dtLabel" style="font-size:26px; position:absolute; right:0;"></label> <!-- Label to contain current data/time. -->
 					<h2 id="headerId" style="style=display:inline-block; font-size:30px;">Analytics</h2> <!-- Heading containing name of page. -->
 				</div>
+				<br/>
+				<br/>
 				<div class="row" align="center">
 					<div id="analyticsDiv">  <!-- Div containing analytics info. -->
 						<!-- Put stuff in here. -->
-						<label id="lblWorstHardware">Hello there</label>;
+						<label id="lblWorstHardware" style="position: relative; left:50%;"></label>;
 					</div>
 				</div>
 			</form>
