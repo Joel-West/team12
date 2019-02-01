@@ -48,7 +48,8 @@
 				},'json');
 			}
 			
-			$('#tbl tr td').on("DOMSubtreeModified", function()
+			
+			$(document).on('DOMSubtreeModified','td',function()
 			{
 				alert('changed');
 			});
