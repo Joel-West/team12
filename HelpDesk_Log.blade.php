@@ -6,6 +6,13 @@
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> <!-- Get JQuery library from google. -->
 		<script type="text/javascript" src="{{ URL::asset('js/ExtraCode.js') }}"></script> <!-- Import JS file containing functions that are used in multiple other files -->
 		<script type="text/javascript">
+		
+			$(document).keypress(function(e){
+    				if (e.which == 13){
+        				$("#btnsubmit").click();
+    				}
+			});
+			
 			function Validate() //Function to check if username/password are valid.
 			{
 				var Username=document.getElementById("Username").value; //Get username and password from text boxes.
