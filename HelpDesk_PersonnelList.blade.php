@@ -232,41 +232,42 @@
 		}
 		</style>
 	</head>
-	<body onload="Load()" style="height:100%;"> <div class="container">
-	<form id="mainform" name="mainform" method="post" action=""> <!-- This form will post data to an initially unspecified page when submitted. -->
-		<input type='hidden' name="User" value="<?php echo $_POST['User']; ?>" /> <!-- Hidden tag used to store posted user data so that it can later be posted back to the home page. -->
-		@csrf <!--Token to validates requests to server. -->
-		<div class="titleDiv"> <!-- Div containing elements at the top of the page. -->
-			<input type="button" class="btn" style="font-size:40px; position:absolute; left:0;" value="&#x2190" style="display:inline-block;" onClick="GoToNewPage('Home');" /> <!-- Back button. -->
-			<label id="dtLabel" style="font-size:26px; position:absolute; right:0;"></label> <!-- Label to contain current data/time. -->
-			<h2 id="headerId" style="font-weight: bold; style=display:inline-block; font-size:30px;">Personnel</h2> <!-- Heading containing name of page. -->
+	<body onload="Load()" style="height:100%;">
+		<div class="container"> <!-- Container holds elements together using Bootstrap. -->
+			<form id="mainform" name="mainform" method="post" action=""> <!-- This form will post data to an initially unspecified page when submitted. -->
+				<input type='hidden' name="User" value="<?php echo $_POST['User']; ?>" /> <!-- Hidden tag used to store posted user data so that it can later be posted back to the home page. -->
+				@csrf <!--Token to validates requests to server. -->
+				<div class="titleDiv"> <!-- Div containing elements at the top of the page. -->
+					<input type="button" style="font-size:40px; position:absolute; left:0;" value="&#x2190" style="display:inline-block;" onClick="GoToNewPage('Home');" /> <!-- Back button. -->
+					<label id="dtLabel" style="font-size:26px; position:absolute; right:0;"></label> <!-- Label to contain current data/time. -->
+					<h2 id="headerId" style="font-weight: bold; style=display:inline-block; font-size:30px;">Personnel</h2> <!-- Heading containing name of page. -->
+				</div>
+				<br/>
+				<div class="row" align="center">
+					<div id="tableDiv" class="col-8 table-wrapper-scroll-y"> <!-- Div containing data table. -->
+						Loading data...
+					</div>
+					<br/>
+					<div id="inputDiv" align="center" class="col-4">
+						<p>
+							Search:<input type="text"></input> <!-- Box for searching the table for specific strings. -->
+							<input type="button" class="btn" value="Submit" onclick="Search()"></input> <!-- Submits search on press -->
+						</p>
+						<input type="button" class="btn" value="Delete Selected Items" id="del" style="font-size:16px;" onclick="Delete()"/><br/><br/> <!-- Delete button that calls function within ExtraCode.js when pressed. -->
+						ID:<input id="txtID" type="text"></input><br/> <!-- Input fields for adding a new row. -->
+						Name:<input id="txtName" type="text"></input><br/>
+						Job Title:<input id="txtJobTitle" type="text"></input><br/>
+						Department:<input id="txtDepartment" type="text"></input><br/>
+						Telephone Number:<input id="txtTelephoneNumber" type="text"></input><br/>
+						<input type="button" class="btn" id="btnAdd" value="Add New Item" style="font-size:16px;" onclick="AddPressed()"></input>	
+						<br/>
+						<br/>
+						<p align="center">
+						<input type="button" class="btn" value="Save Changes" style="font-size:26px; padding: 6px 12px;" onClick="SaveChanges('Home');" /> <!-- Button for submitting changes to table. -->
+						</p>
+					</div>
+				</div>
+		</form>
 		</div>
-		<br/>
-		<div class="row" align="center">
-		<div id="tableDiv" class="col-8 table-wrapper-scroll-y"> <!-- Div containing data table. -->
-			Loading data...
-		</div>
-		<br/>
-		<div id="inputDiv" align="center" class="col-4">
-			<p>
-				Search:<input type="text"></input> <!-- Box for searching the table for specific strings. -->
-				<input type="button" class="btn" value="Submit" onclick="Search()"></input> <!-- Submits search on press -->
-			</p>
-			<input type="button" class="btn" value="Delete Selected Items" id="del" style="font-size:16px;" onclick="Delete()"/><br/><br/> <!-- Delete button that calls function within ExtraCode.js when pressed. -->
-			ID:<input id="txtID" type="text"></input><br/> <!-- Input fields for adding a new row. -->
-			Name:<input id="txtName" type="text"></input><br/>
-			Job Title:<input id="txtJobTitle" type="text"></input><br/>
-			Department:<input id="txtDepartment" type="text"></input><br/>
-			Telephone Number:<input id="txtTelephoneNumber" type="text"></input><br/>
-			<input type="button" class="btn" id="btnAdd" value="Add New Item" style="font-size:16px;" onclick="AddPressed()"></input>	
-			<br/>
-			<br/>
-			<p align="center">
-			<input type="button" class="btn" value="Save Changes" style="font-size:26px; padding: 6px 12px;" onClick="SaveChanges('Home');" /> <!-- Button for submitting changes to table. -->
-			</p>
-		</div>
-		</div>
-	</form>
-	</div>
 	</body>
 </html>
