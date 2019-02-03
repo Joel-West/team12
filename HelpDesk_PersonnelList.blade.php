@@ -44,7 +44,7 @@
 						newRowCount = 0;
 					}
 				}
-				str = doc.getElementById(txtSearch).value.toUpperCase();
+				str = document.getElementById(txtSearch).value.toUpperCase();
 				sql = "SELECT * FROM tblPersonnel WHERE upper(userID) LIKE '%"+str+"%' OR upper(name) LIKE '%"+str+"%' OR upper(jobTitle) LIKE '%"+str+"%' OR upper(department) LIKE '%"+str+"%' OR upper(telephoneNumber) LIKE '%"+str+"%' OR upper(specialist) LIKE '%"+str+"%';"; //Query that returns all database records with a cell containing search string.
 				RunQuery(sql); //Runs function get gets data from database and display it in tableDiv.
 			}
