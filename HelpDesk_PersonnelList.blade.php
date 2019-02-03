@@ -29,8 +29,11 @@
 			
 			function ResetTable()
 			{
-				sql = "SELECT * FROM tblPersonnel;"; //Simple query to get all data from table.
-				RunQuery(sql); //Runs function get gets data from database and display it in tableDiv.
+				if (getElementById(txtSearch).value == "")
+				{
+					sql = "SELECT * FROM tblPersonnel;"; //Simple query to get all data from table.
+					RunQuery(sql); //Runs function get gets data from database and display it in tableDiv.
+				}
 			}
 			
 			function Search() //Function for searching table based on text box input.
@@ -351,7 +354,7 @@
 					<div id="rightDiv" align="center" class="col-3">
 						<div id="searchDiv">
 							<p>
-								Search:<input id="txtSearch" type="text" onchange="ResetTable()"></input> <!-- Box for searching the table for specific strings. -->
+								Search:<input id="txtSearch" type="text" onkeydown="ResetTable()"></input> <!-- Box for searching the table for specific strings. -->
 								<input type="button" class="btn" id="btnSearch" value="Submit" onclick="Search()"></input> <!-- Submits search on press -->
 							</p>
 						</div>
