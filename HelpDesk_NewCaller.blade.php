@@ -89,6 +89,20 @@
 		}
 	  }
 	  
+	  function newProblemCreation(){
+		var html;
+	    var sql = "SELECT problem FROM tblProblem";
+		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
+		  if (json && json[0]){
+			html+= "<select id='chooseProblem' class='custom-select' >"
+			for (i = 0; i < json.length; i++){
+			  html+="<option selected value = '" + json[i] "'>" + json[i] + "</option>"
+			}
+		    document.getElementById("newProblemCollapse").innerHTML = html;
+		}
+		
+	  }
+	  
 	  function Test(){
 		  console.log("Clicked");
 	  }
@@ -157,7 +171,7 @@
 		</div>
 		<div class="col-4"></div>
 		<div class="collapse col-12" id="newProblemCollapse">
-		Hey look,it worked.
+		  
 		</div>
 		<div class="collapse col-12" id="existingProblemCollapse">
 		BOO
