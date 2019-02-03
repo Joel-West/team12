@@ -98,7 +98,7 @@
 			html+= "<option selected value = 'Choose'>Please Choose</option>";
 			html+= "<option value = 'NewProblem'>New Problem</option>";
 			for (i = 0; i < json.length; i++){
-			  html+="<option value = '" + json[i] + "'>" + json[i] + "</option>";
+			  html+="<option value = '" + json[i].problem + "'>" + json[i].problem + "</option>";
 			}
 			html+="</select>";
 		    document.getElementById("chooseNewProblemCombo").innerHTML = html;
@@ -163,7 +163,7 @@
 		  <textarea class="form-control" rows="5" id="notes" ></textarea>
 		  <br>
 		  <br>
-		  Select Problem:
+		  Select New Problem:
 		  <select onchange="problem()" id="Problems" class="custom-select" >
 			<option selected value = "">Choose Problem</option>
 			<option value="New Problem">New Problem</option>
