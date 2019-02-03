@@ -204,8 +204,8 @@
 				row.cells[4].innerHTML = document.getElementById("txtTelephoneNumber").value;
 				row.cells[5].innerHTML = GetSpecialistAsString(document.getElementById("chkSpecialist").checked);
 				row.style.backgroundColor = '#9FFF30';
-				CheckIfUpdateOrAdd();
 				selected = 0;
+				CheckIfUpdateOrAdd();
 				if (!ListContains(updList, row.cells[0].innerHTML) && !row.cells[0].innerHTML.includes("(new)")) //If selected row is not already marked to be updated when changes are saved to the database later and is not a new row.
 				{
 					updList.push(row.cells[0].innerHTML); //Add the ID of the row to the list of rows to by updated when changes are commited to the actual database.
