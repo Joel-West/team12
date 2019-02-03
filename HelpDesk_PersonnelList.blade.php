@@ -29,7 +29,8 @@
 						htm+="<th onclick='SortTable(1)' scope='col'>Name</th>";
 						htm+="<th onclick='SortTable(2)'scope='col'>Job Title</th>";
 						htm+="<th onclick='SortTable(3)'scope='col'>Department</th>";
-						htm+="<th onclick='SortTable(4)'scope='col'>Telephone Number</th></tr>"; //Appending column headers.
+						htm+="<th onclick='SortTable(4)'scope='col'>Telephone Number</th></tr>";
+						htm+="<th onclick='SortTable(5)'scope='col'>Specialist</th></tr>"; //Appending column headers.
 						for (i = 0; i<json.length; i++) //Iterates through the json array of results.
 						{
 							htm += "<tr id='t" + (i+1) + "' style='background-color:rgb(159, 255, 48);'>"; //Sets colour and ID of row.
@@ -38,6 +39,7 @@
 							htm +="<td id='jobTitle'>"+json[i].jobTitle+"</td>";		
 							htm +="<td id='department'>"+json[i].department+"</td>";
 							htm +="<td id='telephoneNumber'>"+json[i].telephoneNumber+"</td>";
+							htm +="<td id='specialist'>"+json[i].specialist+"</td>";
 							htm += "</tr>";							
 						}
 					}
@@ -50,38 +52,88 @@
 				},'json');
 			}
 			
+			function GetSpecialistAsBool(specialist) //Gets the specialist value from a table as a string and returns a boolean.
+			{
+				if (specialist == "yes")
+				{
+					return true;
+				}
+				else
+				{
+					return false;
+				}
+			}
+			
+			function GetSpecialistAsString(specialist) //Gets the specialist value from the checkbox as a boolean and returns a string.
+			{
+				if (specialist == true)
+				{
+					return "Yes";
+				}
+				else
+				{
+					return "No";
+				}
+			}		
 			
 			$(document).on('DOMSubtreeModified','td',function() //Function runs when table cell is clicked, helps against SQL injection by validating when cell contents is changed.
 			{
 				console.log($(this).attr('id')); //Logs ID (for debugging).
 			});
 			
+			function CheckIfUpdateOrAdd() //The 'add' button into an 'update' button and populate the text boxes, if exactly one row is selected.
+			{
+				if (selected == 1)
+				{
+					document.getElementById("btnAdd").value = "Update Item";
+					rowNum = GetSelectedRow(); //Gets the row that is selected.
+					document.getElementById("txtID").value = document.getElementById("tbl").rows[rowNum].cells[0].innerHTML;
+					document.getElementById("txtID").disabled = true;
+					document.getElementById("txtName").value = document.getElementById("tbl").rows[rowNum].cells[1].innerHTML;
+					document.getElementById("txtJobTitle").value = document.getElementById("tbl").rows[rowNum].cells[2].innerHTML;
+					document.getElementById("txtDepartment").value = document.getElementById("tbl").rows[rowNum].cells[3].innerHTML;
+					document.getElementById("txtTelephoneNumber").value = document.getElementById("tbl").rows[rowNum].cells[4].innerHTML;
+					document.getElementById("CheckIfUpdateOrAdd").checked = GetSpecialistAsBool(document.getElementById("tbl").rows[rowNum].cells[4].innerHTML);
+				}
+				else
+				{
+					document.getElementById("btnAdd").value = "Add New Item";
+					document.getElementById("txtID").value = "";
+					document.getElementById("txtID").disabled = false;
+					document.getElementById("txtName").value = "";
+					document.getElementById("txtJobTitle").value = "";
+					document.getElementById("txtDepartment").value = "";
+					document.getElementById("txtTelephoneNumber").value = "";
+					document.getElementById("CheckIfUpdateOrAdd").checked = false;
+				}
+			}		
+			
 			function AddRow() //Adds a new row to the table, from data in the text boxes.
 			{
 				   
 				if (document.getElementById("txtID").value == false|| isNaN(document.getElementById("txtID").value) || GetRowWithID(document.getElementById("txtID").value) != -1 || GetRowWithID(document.getElementById("txtID").value + "(new)") != -1)
 				{
-					alert("Invalid ID"); //Returns error if data input from text boxes is invalid.
+					alert("Invalid ID"); //Returns error if data input from text box is invalid.
 					return;
 				}
 				else if (document.getElementById("txtName").value == false)
 				{
-					alert("Invalid name"); //Returns error if data input from text boxes is invalid.
+					alert("Invalid name"); //Returns error if data input from text box is invalid.
 					return;
 				}
 				else if (document.getElementById("txtJobTitle").value == false)
 				{
-					alert("Invalid job title"); //Returns error if data input from text boxes is invalid.
+					alert("Invalid job title"); //Returns error if data input from text box is invalid.
 					return;
 				}
 				else if (document.getElementById("txtDepartment").value == false)
 				{
-					alert("Invalid department"); //Returns error if data input from text boxes is invalid.
+					alert("Invalid department"); //Returns error if data input from text box is invalid.
 					return;
 				}
 				else if (document.getElementById("txtTelephoneNumber").value == false || isNaN(document.getElementById("txtTelephoneNumber").value))
 				{
-					alert("Invalid telephone number"); //Returns error if data input from text boxes is invalid.
+					alert("Invalid telephone number"); //Returns error if data input from text box is invalid.
 					return;
 				}
 				rows = GetRows(); //Gets number of rows.
@@ -97,6 +149,8 @@
 				cell3.innerHTML = document.getElementById("txtDepartment").value;
 				cell4 = row.insertCell(4);
 				cell4.innerHTML = document.getElementById("txtTelephoneNumber").value;
+				cell5 = row.insertCell(5);
+				cell5.innerHTML = GetSpecialistAsString(document.getElementById("chkSpecialist").checked);
 				document.getElementById("tbl").rows[rows].id = "t" + document.getElementById("tbl").rows[rows-1].id; //Sets ID of new row.
 				document.getElementById("tbl").rows[rows].style.backgroundColor = '#9FFF30'; //Sets background colour of new row.
 				newRowCount+=1;
@@ -110,6 +164,7 @@
 				row.cells[2].innerHTML = document.getElementById("txtJobTitle").value;
 				row.cells[3].innerHTML = document.getElementById("txtDepartment").value;
 				row.cells[4].innerHTML = document.getElementById("txtTelephoneNumber").value;
+				row.cells[5].innerHTML =  GetSpecialistAsString(document.getElementById("chkSpecialist").checked);
 				if (!ListContains(updList, row.cells[0].innerHTML) && !row.cells[0].innerHTML.includes("(new)")) //If selected row is not already marked to be updated when changes are saved to the database later and is not a new row.
 				{
 					updList.push(row.cells[0].innerHTML); //Add the ID of the row to the list of rows to by updated when changes are commited to the actual database.
@@ -268,6 +323,7 @@
 						Job Title:<input id="txtJobTitle" type="text"></input><br/>
 						Department:<input id="txtDepartment" type="text"></input><br/>
 						Telephone Number:<input id="txtTelephoneNumber" type="text"></input><br/>
+						Specialist:<input id="chkSpecialist" type="checkbox"></input><br/>
 						<input type="button" class="btn" id="btnAdd" value="Add New Item" style="font-size:16px;" onclick="AddPressed()"></input>	
 						<br/>
 						<br/>
