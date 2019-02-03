@@ -29,7 +29,7 @@
 			
 			function ResetTable()
 			{
-				if (getElementById(txtSearch).value == "")
+				if (document.getElementById(txtSearch).value == "") //If not searching anything.
 				{
 					sql = "SELECT * FROM tblPersonnel;"; //Simple query to get all data from table.
 					RunQuery(sql); //Runs function get gets data from database and display it in tableDiv.
