@@ -215,8 +215,15 @@ function SortTable(column) //Function sorts table by the selected column.
 	}
 }
 
+function SetUserData()
+{
+	userData = document.getElementsByName('User');
+	userData.addEventListener('DOMSubtreeModified', UserDataChanged);
+	return "<?php echo $_POST['User']; ?>";
+}
+
 function UserDataChanged(e)
 {
 	userData = document.getElementsByName('User');
-	console.log(userData.innerHTML);
+	alert(userData.innerHTML);
 }
