@@ -58,29 +58,28 @@ function GoToNewPage(page) //Function that submits the main form of the current 
 {
 	admin = (userData.split(","))[2]; //Retrieves admin/analyst status from userData that was earlier posted from previous form.
 	analyst = (userData.split(","))[3];
+	go = true; //Variable stores if form should be sent or not.
 	switch(page) //An additional layer of validation to check that the user is authorised to go to the new page.
 	{
 		case "NewCaller":
-			alert(!admin);
-			alert(analyst);
-			alert(!admin && analyst);
 			if (!admin && analyst)
 			{
 				alert("in");
-				return;
+				go = false;
 			}
 		break;
 		case "Analytics":
 			if (!admin && !analyst)
 			{
-				return;
+				go = false;
 			}
 		break;
-		default:
+		if (go) //if valid (e.g. if user has access to next page).
+		{
 			SetUserDataToPost();
 			document.getElementById("mainform").action = "http://35.204.60.31/" + page + "?previous=" + currentPage; //Defines page that data will be posted to.
 			document.getElementById("mainform").submit(); //Submits form.
-		break;
+		}
 	}
 }
 
