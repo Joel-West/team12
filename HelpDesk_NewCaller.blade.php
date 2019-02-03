@@ -178,7 +178,7 @@
 		<div class="col-3"></div>
 		<div class="collapse col-6" id="newProblemCollapse">
 		  Select Problem:
-		  <div id="chooseNewProblemComboCombo"></div>
+		  <div id="chooseNewProblemCombo"></div>
 		</div>
 		<div class="col-3"></div>
 		
