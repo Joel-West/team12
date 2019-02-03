@@ -254,10 +254,13 @@
 					sql+="DELETE FROM tblUser WHERE userID = " + delList[i] + "; ";
 					sql+="DELETE FROM tblSpecialisation WHERE userID = " + delList[i] + "; ";
 				}
+				console.log("length = " +updList.length);
 				for (i = 0; i < updList.length; i++) //Iterate through delete list (deletion performed first as it reduces database size, making other operations quicker).
 				{
-					id = updList[i]
+					id = updList[i];
+					console.log("id = " + id);
 					rowNum = GetRowWithID(id); //Gets the row number in the local table that corresponds to the ID in the updList.
+					console.log("rowNum = " + rowNum);
 					if (rowNum != -1) //If row exists.
 					{
 						row = document.getElementById("tbl").rows[rowNum]; //Get row of local table that is being saved to database.
