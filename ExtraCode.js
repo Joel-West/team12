@@ -228,7 +228,7 @@ function UserDataChanged(e)
 	alert(userData.innerHTML);
 }
 
-$("input").change(function()
+$("Password").change(function()
 {
 	alert("The text has been changed.");
 });
