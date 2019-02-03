@@ -65,6 +65,7 @@ function GoToNewPage(page) //Function that submits the main form of the current 
 			{
 				return;
 			}
+		break;
 		case "Analytics":
 			if (!admin && !analyst)
 			{
