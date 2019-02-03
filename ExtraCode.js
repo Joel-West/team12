@@ -66,6 +66,7 @@ function GoToNewPage(page) //Function that submits the main form of the current 
 			alert(!admin && analyst);
 			if (!admin && analyst)
 			{
+				alert("in");
 				return;
 			}
 		break;
