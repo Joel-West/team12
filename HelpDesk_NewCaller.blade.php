@@ -95,6 +95,7 @@
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
 		  if (json && json[0]){
 			html+= "<select id='chooseProblem' class='custom-select' >";
+			html+= "<option selected value = 'Choose'></option>";
 			for (i = 0; i < json.length; i++){
 			  html+="<option selected value = '" + json[i] + "'>" + json[i] + "</option>";
 			}
