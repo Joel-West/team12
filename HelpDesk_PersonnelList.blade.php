@@ -49,36 +49,9 @@
 			}
 			
 			
-			$(document).on('DOMSubtreeModified','td',function()
+			$(document).on('DOMSubtreeModified','td',function() //Function runs when table cell is clicked, helps against SQL injection by validating when cell contents is changed.
 			{
 				console.log($(this).attr('id')); //Logs ID (for debugging).
-				/*
-				if (document.getElementById("txtID").value == false || isNaN(document.getElementById("txtID").value) || GetRowWithID(document.getElementById("txtID").value) != -1 || GetRowWithID(document.getElementById("txtID").value + "(new)") != -1)
-				{
-					alert("Invalid ID"); //Returns error if data input from text boxes is invalid.
-					return;
-				}
-				else if (document.getElementById("txtName").value == false)
-				{
-					alert("Invalid name"); //Returns error if data input from text boxes is invalid.
-					return;
-				}
-				else if (document.getElementById("txtJobTitle").value == false)
-				{
-					alert("Invalid job title"); //Returns error if data input from text boxes is invalid.
-					return;
-				}
-				else if (document.getElementById("txtDepartment").value == false)
-				{
-					alert("Invalid department"); //Returns error if data input from text boxes is invalid.
-					return;
-				}
-				else if (document.getElementById("txtTelephoneNumber").value == false || isNaN(document.getElementById("txtTelephoneNumber").value))
-				{
-					alert("Invalid telephone number"); //Returns error if data input from text boxes is invalid.
-					return;
-				}
-				*/
 			});
 			
 			function AddRow() //Adds a new row to the table, from data in the text boxes.
@@ -269,7 +242,7 @@
 	<body onload="Load()" style="height:100%;">
 		<div class="container"> <!-- Container holds elements together using Bootstrap. -->
 			<form id="mainform" name="mainform" method="post" action=""> <!-- This form will post data to an initially unspecified page when submitted. -->
-				<input type='hidden' name="User" value="<?php echo $_POST['User']; ?>" /> <!-- Hidden tag used to store posted user data so that it can later be posted back to the home page. -->
+				<input type='hidden' name="User"/> <!-- Hidden tag used to store posted user data so that it can later be posted back to the home page. -->
 				@csrf <!--Token to validates requests to server. -->
 				<div class="titleDiv"> <!-- Div containing elements at the top of the page. -->
 					<input type="button" style="font-size:40px; position:absolute; left:0;" value="&#x2190" style="display:inline-block;" onClick="GoToNewPage('Home');" /> <!-- Back button. -->
