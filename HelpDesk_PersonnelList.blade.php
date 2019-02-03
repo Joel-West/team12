@@ -24,8 +24,7 @@
 				admin = (userData.split(","))[2]; //Retrieves admin/analyst status from userData that was earlier posted from previous form.
 				if (admin == 0)
 				{
-					document.getElementById("btnSave").disabled = true;
-					document.getElementById("btnAdd").disabled = true;
+					$(‘#inputDiv :input’).attr(‘disabled’, true);
 				}
 			}
 			
@@ -187,7 +186,8 @@
 			
 			function Delete() //Function for deleting selected rows from a table.
 			{
-				if (selected == 0) //if no rows are selected, leave function.
+				admin = (userData.split(","))[2];
+				if (selected == 0 || admin == 0) //if no rows are selected, or if not admin, leave function.
 				{
 					return;
 				}
