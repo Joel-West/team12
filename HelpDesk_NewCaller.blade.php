@@ -101,7 +101,8 @@
 			for (i = 0; i < json.length; i++){
 			  html+="<option value = '" + json[i] + "'>" + json[i] + "</option>";
 			}
-		    document.getElementById("newProblemCollapse").innerHTML = html;
+			html+="</select>";
+		    document.getElementById("chooseNewProblemCombo").innerHTML = html;
 		  }
 		},'json');
 	  }
@@ -173,9 +174,14 @@
 		  </select>
 		</div>
 		<div class="col-4"></div>
+		
 		<div class="col-3"></div>
-		<div class="collapse col-6" id="newProblemCollapse"></div>
+		<div class="collapse col-6" id="newProblemCollapse">
+		  Select Problem:
+		  <div id="chooseProblemNewCombo"></div>
+		</div>
 		<div class="col-3"></div>
+		
 		<div class="collapse col-12" id="existingProblemCollapse">
 		BOO
 		</div>
