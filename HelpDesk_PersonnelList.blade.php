@@ -24,8 +24,29 @@
 				admin = (userData.split(","))[2]; //Retrieves admin/analyst status from userData that was earlier posted from previous form.
 				if (admin == 0)
 				{
-					$("#inputDiv :input").prop("disabled", true);
+					$("#inputDiv :input").prop("disabled", true); //If not admin, disable all input fields in the input div.
 				}	
+			}
+			
+			function Search() //Function for searching table based on text box input.
+			{
+				search = true; //Defines whether search will go ahead.
+				if (delList.length > 0 || updList.length > 0 || newRowCount > 0)
+				{
+					if (!confirm("You have unsaved changes to the database. Searching will cause these changes to be cleared. Continue?")) //Warn user about losing data on searching.
+					{
+						return;
+					}
+					else
+					{
+						updList = []; //Clear lists of pending changes.
+						delList = [];
+						newRowCount = 0;
+					}
+				}
+				str = doc.getElementById(txtSearch).value.toUpperCase();
+				sql = "SELECT * FROM tblPersonnel WHERE upper(userID) LIKE '%"+str+"%' OR upper(name) LIKE '%"+str+"%' OR upper(jobTitle) LIKE '%"+str+"%' OR upper(department) LIKE '%"+str+"%' OR upper(telephoneNumber) LIKE '%"+str+"%' OR upper(specialist) LIKE '%"+str+"%';"; //Query that returns all database records with a cell containing search string.
+				RunQuery(sql); //Runs function get gets data from database and display it in tableDiv.
 			}
 			
 			function RunQuery(sql) //Function for running a query to the personnel table and getting building a table.
@@ -226,19 +247,6 @@
 				}
 			}
 			
-			function Search() //Function for searching table based on text box input.
-			{
-				search = true; //Defines whether search will go ahead.
-				if (delList.length > 0 || updList.length > 0 || newRowCount > 0)
-				{
-					
-					if (!confirm("You have unsaved changes to the database. Searching will cause these changes to be cleared. Continue?")) //Warn user about losing data on searching.
-					{
-						alert("No searchy for you!");
-					}
-				}
-			}
-			
 			function SaveChanges(page) //Function that saves table data back to database.
 			{
 				admin = (userData.split(","))[2];
@@ -255,11 +263,11 @@
 				}
 				for (i = 0; i < updList.length; i++) //Iterate through delete list (deletion performed first as it reduces database size, making other operations quicker).
 				{
-					console.log("i = " +i);
+					//console.log("i = " +i);
 					id = updList[i];
 					rowNum = GetRowWithID(id); //Gets the row number in the local table that corresponds to the ID in the updList.
-					console.log("rowNum = " + rowNum);
-					console.log("i = " +i);
+					//console.log("rowNum = " + rowNum);
+					//console.log("i = " +i);
 					if (rowNum != -1) //If row exists.
 					{
 						row = document.getElementById("tbl").rows[rowNum]; //Get row of local table that is being saved to database.
@@ -300,6 +308,7 @@
 					},'json');
 					updList = []; //Clear lists of pending changes.
 					delList = [];
+					newRowCount = 0;
 					alert("Changes saved.");
 				}
 			}
@@ -337,7 +346,7 @@
 					<div id="rightDiv" align="center" class="col-3">
 						<div id="searchDiv">
 							<p>
-								Search:<input type="text"></input> <!-- Box for searching the table for specific strings. -->
+								Search:<input id="txtSearch" type="text"></input> <!-- Box for searching the table for specific strings. -->
 								<input type="button" class="btn" id="btnSearch" value="Submit" onclick="Search()"></input> <!-- Submits search on press -->
 							</p>
 						</div>
