@@ -26,11 +26,6 @@
 					document.getElementById("btnNewCall").disabled = true;
 				}
 			}
-			
-			function SetUserDataToPost()
-			{
-				document.getElementById("user").value = "<?php echo $_POST['User']; ?>";
-			}
 		</script>
 		<link rel="stylesheet" href="{{ asset('css/Styles.css') }}" type="text/css"> <!-- Import external CSS stylesheet that contains presentation info that applies to all the pages. -->
 		<!-- CSS that defines appearance and placement of main buttons.-->

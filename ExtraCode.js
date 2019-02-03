@@ -61,6 +61,11 @@ function GoToNewPage(page) //Function that submits the main form of the current 
 	document.getElementById("mainform").submit(); //Submits form.
 }
 
+function SetUserDataToPost()
+{
+	document.getElementById("user").value = "<?php echo $_POST['User']; ?>";
+}
+
 function GetRows() //Function for returning the number of rows in a data table.
 {
 	var rows = document.getElementById('tbl').getElementsByTagName("tr").length;
