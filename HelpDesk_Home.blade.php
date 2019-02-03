@@ -29,6 +29,7 @@
 			
 			function SetUserDataToPost()
 			{
+				alert("");
 				document.getElementById("user").value("<?php echo $_POST['User']; ?>");
 			}
 		</script>
