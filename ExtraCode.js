@@ -109,6 +109,11 @@ function GetSelectedRow() //Returns selected row (if only one is selected).
 
 function AddPressed() //Function to add new row to the local data table.
 {
+	admin = (userData.split(","))[2];
+	if (admin == 0) //If not admin, action is forbidden.
+	{
+		return;
+	}
 	if (selected == 1) //If only 1 row is selected, thus if updating row.
 	{
 		UpdateRow();
@@ -121,6 +126,11 @@ function AddPressed() //Function to add new row to the local data table.
 
 $(document).on('click','tr',function(event) //Function for selecting/deselecting rows.
 {
+	admin = (userData.split(","))[2];
+	if (admin == 0) //If not admin, action is forbidden.
+	{
+		return;
+	}
 	console.log($(this).attr('id')); //Logs ID (for debugging).
 	if ($(this).attr('id') != 't0') //If not the header.
 	{
@@ -138,33 +148,6 @@ $(document).on('click','tr',function(event) //Function for selecting/deselecting
 	}
 	CheckIfUpdateOrAdd();
 });
-
-function CheckIfUpdateOrAdd() //The 'add' button into an 'update' button and populate the text boxes, if exactly one row is selected.
-{
-	if (selected == 1)
-	{
-		document.getElementById("btnAdd").value = "Update Item";
-		rowNum = GetSelectedRow(); //Gets the row that is selected.
-		document.getElementById("txtID").value = document.getElementById("tbl").rows[rowNum].cells[0].innerHTML;
-		document.getElementById("txtID").disabled = true;
-		document.getElementById("txtName").value = document.getElementById("tbl").rows[rowNum].cells[1].innerHTML;
-		document.getElementById("txtJobTitle").value = document.getElementById("tbl").rows[rowNum].cells[2].innerHTML;
-		document.getElementById("txtDepartment").value = document.getElementById("tbl").rows[rowNum].cells[3].innerHTML;
-		document.getElementById("txtTelephoneNumber").value = document.getElementById("tbl").rows[rowNum].cells[4].innerHTML;
-		document.getElementById("CheckIfUpdateOrAdd").checked = GetSpecialistAsBool(document.getElementById("tbl").rows[rowNum].cells[4].innerHTML);
-	}
-	else
-	{
-		document.getElementById("btnAdd").value = "Add New Item";
-		document.getElementById("txtID").value = "";
-		document.getElementById("txtID").disabled = false;
-		document.getElementById("txtName").value = "";
-		document.getElementById("txtJobTitle").value = "";
-		document.getElementById("txtDepartment").value = "";
-		document.getElementById("txtTelephoneNumber").value = "";
-		document.getElementById("CheckIfUpdateOrAdd").checked = false;
-	}
-}
 
 function GetRowWithID(id) //Returns row of a column with a given ID (first column, which is presumed to be the primary key).
 {
