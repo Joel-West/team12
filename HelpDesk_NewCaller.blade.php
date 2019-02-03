@@ -36,7 +36,6 @@
           else{
 		    html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;Analytics&quot;);'>Analytics</a></ul>"
 		  }
-		  html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot; &quot;);'>Logout</a>"
 		document.getElementById("navbarNavDropdown").innerHTML = html;
 	  }
 	  
@@ -103,6 +102,7 @@
       </button>
       <div class="navbar-collapse collapse" id="navbarNavDropdown">
 	  </div>
+	  <a class='nav-item nav-link' href='#' onClick='GoToNewPage();'>Logout</a>
 	  <a class="navbar-brand ml-md-auto" href="#">
 		<img src="https://www.goodfreephotos.com/albums/vector-images/screwdriver-and-wrench-vector-clipart.png" width="30" height="30" class="d-inline-block align-top" alt="">
 		  Make-It-All
