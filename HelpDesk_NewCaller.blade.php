@@ -173,9 +173,9 @@
 		  </select>
 		</div>
 		<div class="col-4"></div>
-		<div class="collapse col-12" id="newProblemCollapse">
-		  
-		</div>
+		<div class="col-3"></div>
+		<div class="collapse col-6" id="newProblemCollapse"></div>
+		<div class="col-3"></div>
 		<div class="collapse col-12" id="existingProblemCollapse">
 		BOO
 		</div>
