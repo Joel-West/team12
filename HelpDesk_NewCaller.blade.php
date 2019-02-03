@@ -88,14 +88,14 @@
       </button>
       <div class="navbar-collapse collapse" id="navbarNavDropdown">
 	    <ul class="navbar-nav mr-auto">
-		  <a class="nav-item nav-link" href="#" onClick="GoToNewPage(document.getElementById('Previous').value)">&#x2190 </a>
+		  <a class="nav-item nav-link" href="#" onClick="GoToNewPage(<?php echo $_GET['previous']; ?>)">&#x2190 </a>
 		  <a class="nav-item nav-link" href="#" onClick="GoToNewPage('Home');">Home</a>
 		  <a class="nav-item nav-link active" href="#">New Call <span class="sr-only">(current)</span></a>
-		  <a class="nav-item nav-link" href="#" onClick="GoToNewPage('CallHistory?previous=NewCaller');">Call History</a>
-		  <a class="nav-item nav-link" href="#" onClick="GoToNewPage('ProblemList?previous=NewCaller');">Problems List</a>
-		  <a class="nav-item nav-link" href="#" onClick="GoToNewPage('PersonnelList?previous=NewCaller');">Personnel</a>
-		  <a class="nav-item nav-link" href="#" onClick="GoToNewPage('EquipmentList?previous=NewCaller');">Equipment</a>
-		  <a class="nav-item nav-link" href="#" onClick="GoToNewPage('Analytics?previous=NewCaller');">Analytics</a>
+		  <a class="nav-item nav-link" href="#" onClick="GoToNewPage('CallHistory');">Call History</a>
+		  <a class="nav-item nav-link" href="#" onClick="GoToNewPage('ProblemList');">Problems List</a>
+		  <a class="nav-item nav-link" href="#" onClick="GoToNewPage('PersonnelList');">Personnel</a>
+		  <a class="nav-item nav-link" href="#" onClick="GoToNewPage('EquipmentList');">Equipment</a>
+		  <a class="nav-item nav-link" href="#" onClick="GoToNewPage('Analytics');">Analytics</a>
 	    </ul>
 	  </div>
 	  <a class="navbar-brand ml-md-auto" href="#">
@@ -107,7 +107,7 @@
 	  <form id="mainform" name="mainform" method="post" action="">
 	    @csrf
 		<input type='text' hidden id="user" name="User"  /> <!-- Hidden tag used to store posted user data so that it can later be posted back to the home page. -->
-		<input type='hidden' name='Previous' id='Previous' value="<?php echo $_GET['previous']; ?>?previous=NewCaller" />
+		<input type='hidden' name='Previous' id='Previous' value="<?php echo $_GET['previous']; ?>" />
         <div class="titleDiv col-12 d-flex"> <!-- Div containing elements at the top of the page. -->
 		  <label id="dtLabel" class="ml-auto" >
 	    </div>
