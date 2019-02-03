@@ -13,7 +13,7 @@
 			function Load() //Function that runs when file loads.
 			{
 				userData = "<?php echo $_POST['User']; ?>"; //Gets data from previous form.
-				//SetPrivileges(userData) //Enter function that defines what functions are available to user based on status.
+				SetPrivileges(userData) //Enter function that defines what functions are available to user based on status.
 				sql = "SELECT * FROM tblPersonnel;"; //Simple query to get all data from table.
 				RunQuery(sql); //Runs function get gets data from database and display it in tableDiv.
 				WriteTime(); //Function that writes the current time at the top of the page.
@@ -22,10 +22,11 @@
 			function SetPrivileges(userData) //Function that checks if user is an admin or analyst and adjusts available buttons accordingly.
 			{
 				admin = (userData.split(","))[2]; //Retrieves admin/analyst status from userData that was earlier posted from previous form.
-				if (admin == 0)
+				/*if (admin == 0)
 				{
 					$('input').not("[id=btnSearch], [id=btnBack]").attr('disabled',true)
 				}
+				*/
 			}
 			
 			function RunQuery(sql) //Function for running a query to the personnel table and getting building a table.
@@ -88,7 +89,7 @@
 			
 			$(document).on('DOMSubtreeModified','td',function() //Function runs when table cell is clicked, helps against SQL injection by validating when cell contents is changed.
 			{
-				console.log($(this).attr('id')); //Logs ID (for debugging).
+				//console.log($(this).attr('id')); //Logs ID (for debugging).
 			});
 			
 			function CheckIfUpdateOrAdd() //The 'add' button into an 'update' button and populate the text boxes, if exactly one row is selected.
@@ -103,7 +104,7 @@
 					document.getElementById("txtJobTitle").value = document.getElementById("tbl").rows[rowNum].cells[2].innerHTML;
 					document.getElementById("txtDepartment").value = document.getElementById("tbl").rows[rowNum].cells[3].innerHTML;
 					document.getElementById("txtTelephoneNumber").value = document.getElementById("tbl").rows[rowNum].cells[4].innerHTML;
-					document.getElementById("chkSpecialist").checked = GetSpecialistAsBool(document.getElementById("tbl").rows[rowNum].cells[4].innerHTML);
+					document.getElementById("chkSpecialist").checked = GetSpecialistAsBool(document.getElementById("tbl").rows[rowNum].cells[5].innerHTML);
 				}
 				else
 				{
@@ -343,7 +344,7 @@
 						Department:<br/><input id="txtDepartment" type="text"></input><br/>
 						Telephone Number:<br/><input id="txtTelephoneNumber" type="text"></input><br/>
 						Specialist? <input id="chkSpecialist" type="checkbox"></input><br/>
-						<input type="button" class="btn" id="btnAdd" value="Add New Item" style="font-size:16px;" onclick="AddPressed()"></input>	
+						<br/><input type="button" class="btn" id="btnAdd" value="Add New Item" style="font-size:16px;" onclick="AddPressed()"></input>	
 						<br/>
 						<br/>
 						<p align="center">
