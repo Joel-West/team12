@@ -22,11 +22,10 @@
 			function SetPrivileges(userData) //Function that checks if user is an admin or analyst and adjusts available buttons accordingly.
 			{
 				admin = (userData.split(","))[2]; //Retrieves admin/analyst status from userData that was earlier posted from previous form.
-				/*if (admin == 0)
+				if (admin == 0)
 				{
 					$('input').not("[id=btnSearch], [id=btnBack]").attr('disabled',true)
-				}
-				*/
+				}	
 			}
 			
 			function RunQuery(sql) //Function for running a query to the personnel table and getting building a table.
@@ -261,7 +260,6 @@
 					console.log("id = " + id);
 					rowNum = GetRowWithID(id); //Gets the row number in the local table that corresponds to the ID in the updList.
 					console.log("rowNum = " + rowNum);
-					console.log("newi = " + i);
 					if (rowNum != -1) //If row exists.
 					{
 						row = document.getElementById("tbl").rows[rowNum]; //Get row of local table that is being saved to database.
