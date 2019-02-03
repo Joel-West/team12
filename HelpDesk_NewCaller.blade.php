@@ -73,7 +73,10 @@
   
   <body onload="Load()">
     <header class="navbar flex-column flex-md-row bd-navbar navbar-dark navbar-expand-lg bg-dark">
-      <div class="navbar-nav-scroll">
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="navbar-collapse collapse" id="navbarNavDropdown">
 	    <ul class="navbar-nav bd-navbar-nav flex-row">
 		  <a class="nav-item nav-link" href="#" onClick="GoToNewPage(document.getElementById('Previous').value)">&#x2190 </a>
 		  <a class="nav-item nav-link" href="#" onClick="GoToNewPage('Home?previous=NewCaller');">Home</a>
