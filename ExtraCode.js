@@ -151,11 +151,11 @@ $(document).on('click','tr',function(event) //Function for selecting/deselecting
 
 function GetRowWithID(id) //Returns row of a column with a given ID (first column, which is presumed to be the primary key).
 {
-	for (i = 1; i<GetRows(); i++)
+	for (x = 1; x<GetRows(); x++)
 	{
 		if (document.getElementById("tbl").rows[i].cells[0].innerHTML == id)
 		{
-			return i;
+			return x;
 		}
 	}
 	return -1;
