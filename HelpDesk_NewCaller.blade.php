@@ -36,6 +36,7 @@
           else{
 		    html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;Analytics&quot;);'>Analytics</a></ul>"
 		  }
+		  html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot; &quot;);'>Logout</a>"
 		document.getElementById("navbarNavDropdown").innerHTML = html;
 	  }
 	  
