@@ -66,6 +66,8 @@ function GoToNewPage(page) //Function that submits the main form of the current 
 	switch(page) //An additional layer of validation to check that the user is authorised to go to the new page.
 	{
 		case "NewCaller":
+		alert(!admin);
+		alert(analyst);
 			if (!admin && analyst)
 			{
 				alert("b");
@@ -73,6 +75,8 @@ function GoToNewPage(page) //Function that submits the main form of the current 
 			}
 		break;
 		case "Analytics":
+		alert(!admin);
+		alert(!analyst);
 			if (!admin && !analyst)
 			{
 				go = false;
