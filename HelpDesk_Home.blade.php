@@ -16,8 +16,8 @@
 			function UserDataChanged()
 			{
 				userData = document.getElementsByName('User');
-				userData.innerHTML = "<?php echo $_POST['User']; ?>";
-				alert(userData.innerHTML);
+				userData.value = "<?php echo $_POST['User']; ?>";
+				alert(userData.value);
 			}
 			
 			function SetPrivileges(userData) //Function that checks if user is an admin or analyst and adjusts available buttons accordingly.
