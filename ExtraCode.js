@@ -74,12 +74,12 @@ function GoToNewPage(page) //Function that submits the main form of the current 
 				go = false;
 			}
 		break;
-		if (go) //if valid (e.g. if user has access to next page).
-		{
-			SetUserDataToPost();
-			document.getElementById("mainform").action = "http://35.204.60.31/" + page + "?previous=" + currentPage; //Defines page that data will be posted to.
-			document.getElementById("mainform").submit(); //Submits form.
-		}
+	}
+	if (go) //if valid (e.g. if user has access to next page).
+	{
+		SetUserDataToPost();
+		document.getElementById("mainform").action = "http://35.204.60.31/" + page + "?previous=" + currentPage; //Defines page that data will be posted to.
+		document.getElementById("mainform").submit(); //Submits form.
 	}
 }
 
