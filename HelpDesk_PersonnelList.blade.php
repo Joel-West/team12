@@ -24,7 +24,7 @@
 				admin = (userData.split(","))[2]; //Retrieves admin/analyst status from userData that was earlier posted from previous form.
 				if (admin == 0)
 				{
-					$(‘#inputDiv :input’).attr(‘disabled’, true);
+					$('input').attr('disabled',true)
 				}
 			}
 			
