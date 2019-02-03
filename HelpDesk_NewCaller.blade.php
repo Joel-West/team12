@@ -11,13 +11,17 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="{{ URL::asset('js/ExtraCode.js') }}"></script>
 	<script type="text/javascript">
+	  var userData; //Variable containing data about user
 	  function Load(){
+		userData = "<?php echo $_POST['User']; ?>"; //Gets data from previous form.
 		WriteTime();
 		NavBar();
 	  }
 	  
 	  function NavBar(){
-		document.getElementById("navbarNavDropdown").innerHTML = 
+		  var html = "<ul class='navbar-nav mr-auto'>"
+		  html+= 
+		document.getElementById("navbarNavDropdown").innerHTML = html;
 	  }
 	  
 	  function autofillId(){
@@ -101,7 +105,7 @@
 	<div class="container-fluid">
 	  <form id="mainform" name="mainform" method="post" action="">
 	    @csrf
-		<input type='hidden' name="User" value="<?php echo $_POST['User']; ?>" />
+		<input type='text' hidden id="user" name="User"  /> <!-- Hidden tag used to store posted user data so that it can later be posted back to the home page. -->
 		<input type='hidden' name='Previous' id='Previous' value="<?php echo $_GET['previous']; ?>?previous=NewCaller" />
         <div class="titleDiv col-12 d-flex"> <!-- Div containing elements at the top of the page. -->
 		  <label id="dtLabel" class="ml-auto" >
