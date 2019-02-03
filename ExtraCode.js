@@ -218,7 +218,7 @@ function SortTable(column) //Function sorts table by the selected column.
 document.addEventListener("DOMContentLoaded", function(event)
 {
 	console.log("DOM fully loaded and parsed");
-	document.getElementsByName('User').addEventListener('DOMSubtreeModified', UserDataChanged);
+	//document.getElementsByName('User').addEventListener('DOMSubtreeModified', UserDataChanged);
 });  
   
 function UserDataChanged(e)
@@ -227,3 +227,8 @@ function UserDataChanged(e)
 	userData = document.getElementsByName('User');
 	alert(userData.innerHTML);
 }
+
+$("input").change(function()
+{
+	alert("The text has been changed.");
+});
