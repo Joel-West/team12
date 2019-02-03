@@ -14,8 +14,8 @@
 	  var userData; //Variable containing data about user
 	  var currentPage = "NewCaller";
 	  function Load(){
-		userData = "<?php echo $_POST['User']; ?>"; //Gets data from previous form.
 		WriteTime();
+		userData = "<?php echo $_POST['User']; ?>"; //Gets data from previous form.
 		//NavBar();
 	  }
 	  
