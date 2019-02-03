@@ -89,7 +89,7 @@
       <div class="navbar-collapse collapse" id="navbarNavDropdown">
 	    <ul class="navbar-nav mr-auto">
 		  <a class="nav-item nav-link" href="#" onClick="GoToNewPage(document.getElementById('Previous').value)">&#x2190 </a>
-		  <a class="nav-item nav-link" href="#" onClick="GoToNewPage('Home?previous=NewCaller');">Home</a>
+		  <a class="nav-item nav-link" href="#" onClick="GoToNewPage('Home');">Home</a>
 		  <a class="nav-item nav-link active" href="#">New Call <span class="sr-only">(current)</span></a>
 		  <a class="nav-item nav-link" href="#" onClick="GoToNewPage('CallHistory?previous=NewCaller');">Call History</a>
 		  <a class="nav-item nav-link" href="#" onClick="GoToNewPage('ProblemList?previous=NewCaller');">Problems List</a>
