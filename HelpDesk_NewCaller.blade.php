@@ -21,7 +21,14 @@
 	  
 	  function NavBar(){
 		  var html = "<ul class='navbar-nav mr-auto'>"
-		  html+= 
+		  html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage(document.getElementById('Previous').value)'>&#x2190 </a>"
+		  html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage('Home');'>Home</a>"
+		  html+= "<a class='nav-item nav-link active' href='#'>New Call <span class='sr-only'>(current)</span></a>"
+		  html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage('CallHistory');'>Call History</a>"
+		  html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage('ProblemList');'>Problems List</a>"
+		  html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage('PersonnelList');'>Personnel</a>"
+		  html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage('EquipmentList');'>Equipment</a>"
+		  html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage('Analytics');'>Analytics</a></ul>"
 		document.getElementById("navbarNavDropdown").innerHTML = html;
 	  }
 	  
@@ -87,16 +94,6 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="navbar-collapse collapse" id="navbarNavDropdown">
-	    <ul class="navbar-nav mr-auto">
-		  <a class="nav-item nav-link" href="#" onClick="GoToNewPage(document.getElementById('Previous').value)">&#x2190 </a>
-		  <a class="nav-item nav-link" href="#" onClick="GoToNewPage('Home');">Home</a>
-		  <a class="nav-item nav-link active" href="#">New Call <span class="sr-only">(current)</span></a>
-		  <a class="nav-item nav-link" href="#" onClick="GoToNewPage('CallHistory');">Call History</a>
-		  <a class="nav-item nav-link" href="#" onClick="GoToNewPage('ProblemList');">Problems List</a>
-		  <a class="nav-item nav-link" href="#" onClick="GoToNewPage('PersonnelList');">Personnel</a>
-		  <a class="nav-item nav-link" href="#" onClick="GoToNewPage('EquipmentList');">Equipment</a>
-		  <a class="nav-item nav-link" href="#" onClick="GoToNewPage('Analytics');">Analytics</a>
-	    </ul>
 	  </div>
 	  <a class="navbar-brand ml-md-auto" href="#">
 		<img src="https://www.goodfreephotos.com/albums/vector-images/screwdriver-and-wrench-vector-clipart.png" width="30" height="30" class="d-inline-block align-top" alt="">
