@@ -65,7 +65,10 @@ function GoToNewPage(page) //Function that submits the main form of the current 
 		case "NewCaller":
 			if (admin == 0 && analyst)
 			{
-				alert("b");
+					alert(admin);
+					alert(analyst);
+					alert(admin == false);
+					alert(analyst == false);
 				go = false;
 			}
 		break;
