@@ -16,7 +16,7 @@
 	  function Load(){
 		WriteTime();
 		userData = "<?php echo $_POST['User']; ?>"; //Gets data from previous form.
-		//NavBar();
+		NavBar();
 	  }
 	  
 	  function NavBar(){
