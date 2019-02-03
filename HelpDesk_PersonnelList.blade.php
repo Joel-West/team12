@@ -256,13 +256,16 @@
 				console.log("length = " +updList.length);
 				for (i = 0; i < updList.length; i++) //Iterate through delete list (deletion performed first as it reduces database size, making other operations quicker).
 				{
+					console.log("i = " +i);
 					id = updList[i];
-					console.log("id = " + id);
 					rowNum = GetRowWithID(id); //Gets the row number in the local table that corresponds to the ID in the updList.
 					console.log("rowNum = " + rowNum);
+					console.log("i = " +i);
 					if (rowNum != -1) //If row exists.
 					{
+						console.log("i = " +i);
 						row = document.getElementById("tbl").rows[rowNum]; //Get row of local table that is being saved to database.
+						console.log("i = " +i);
 						sql+="UPDATE tblPersonnel SET ";
 						sql+="name = '"+ row.cells[1].innerHTML + "', ";
 						sql+="jobTitle = '"+ row.cells[2].innerHTML + "', ";
@@ -271,7 +274,7 @@
 						sql+="specialist = '"+ row.cells[5].innerHTML + "' ";
 						sql+="WHERE userID = " + id + "; ";
 					}
-					console.log("newlength = " +updList.length);
+					console.log("i = " +i);
 				}
 				for (i = 0; i < GetRows(); i++) //Iterate through all rows to find new rows.
 				{
