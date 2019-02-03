@@ -63,9 +63,10 @@ function GoToNewPage(page) //Function that submits the main form of the current 
 	switch(page) //An additional layer of validation to check that the user is authorised to go to the new page.
 	{
 		case "NewCaller":
+		alert("a");
 			if (!admin && analyst)
 			{
-				alert("in");
+				alert("b");
 				go = false;
 			}
 		break;
