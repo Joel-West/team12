@@ -60,7 +60,15 @@ function GoToNewPage(page) //Function that submits the main form of the current 
 	analyst = (userData.split(","))[3];
 	switch(page) //An additional layer of validation to check that the user is authorised to go to the new page.
 	{
-
+		case "NewCaller":
+			alert(!admin);
+			alert(analyst);
+			alert(!admin && analyst);
+			if (!admin && analyst)
+			{
+				return;
+			}
+		break;
 		case "Analytics":
 			if (!admin && !analyst)
 			{
