@@ -14,8 +14,7 @@
 			{
 				userData = "<?php echo $_POST['User']; ?>"; //Gets data from previous form.
 				SetPrivileges(userData) //Enter function that defines what functions are available to user based on status.
-				sql = "SELECT * FROM tblPersonnel;"; //Simple query to get all data from table.
-				RunQuery(sql); //Runs function get gets data from database and display it in tableDiv.
+				ResetTable();
 				WriteTime(); //Function that writes the current time at the top of the page.
 			}
 			
@@ -28,10 +27,16 @@
 				}	
 			}
 			
+			function ResetTable()
+			{
+				sql = "SELECT * FROM tblPersonnel;"; //Simple query to get all data from table.
+				RunQuery(sql); //Runs function get gets data from database and display it in tableDiv.
+			}
+			
 			function Search() //Function for searching table based on text box input.
 			{
 				search = true; //Defines whether search will go ahead.
-				if (delList.length > 0 || updList.length > 0 || newRowCount > 0)
+				if (delList.length > 0 || updList.length > 0 || newRowCount > 0) //If there are pending changes.
 				{
 					if (!confirm("You have unsaved changes to the database. Searching will cause these changes to be cleared. Continue?")) //Warn user about losing data on searching.
 					{
@@ -44,7 +49,7 @@
 						newRowCount = 0;
 					}
 				}
-				str = document.getElementById("txtSearch").value.toUpperCase();
+				str = document.getElementById("txtSearch").value.toUpperCase(); //Gets uppercase value of searched text.
 				sql = "SELECT * FROM tblPersonnel WHERE upper(userID) LIKE '%"+str+"%' OR upper(name) LIKE '%"+str+"%' OR upper(jobTitle) LIKE '%"+str+"%' OR upper(department) LIKE '%"+str+"%' OR upper(telephoneNumber) LIKE '%"+str+"%' OR upper(specialist) LIKE '%"+str+"%';"; //Query that returns all database records with a cell containing search string.
 				RunQuery(sql); //Runs function get gets data from database and display it in tableDiv.
 			}
@@ -346,7 +351,7 @@
 					<div id="rightDiv" align="center" class="col-3">
 						<div id="searchDiv">
 							<p>
-								Search:<input id="txtSearch" type="text"></input> <!-- Box for searching the table for specific strings. -->
+								Search:<input id="txtSearch" type="text" onchange="ResetTable()"></input> <!-- Box for searching the table for specific strings. -->
 								<input type="button" class="btn" id="btnSearch" value="Submit" onclick="Search()"></input> <!-- Submits search on press -->
 							</p>
 						</div>
