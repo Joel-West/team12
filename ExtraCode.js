@@ -67,7 +67,7 @@ function GoToNewPage(page) //Function that submits the main form of the current 
 				return;
 			}
 		break;
-		case default: break;
+		default: break;
 	}
 	SetUserDataToPost();
 	document.getElementById("mainform").action = "http://35.204.60.31/" + page + "?previous=" + currentPage; //Defines page that data will be posted to.
