@@ -24,7 +24,10 @@
 				admin = (userData.split(","))[2]; //Retrieves admin/analyst status from userData that was earlier posted from previous form.
 				if (admin == 0)
 				{
-					$('input').not("[id=btnSearch]").attr('disabled',true)
+					document.getElementById("btnDelete").disabled = true;
+					document.getElementById("btnAdd").disabled = true;
+					document.getElementById("btnSave").disabled = true;
+					$("#inputDiv :input[type=text]").prop("disabled", true);
 				}	
 			}
 			
@@ -340,7 +343,7 @@
 							Search:<input type="text"></input> <!-- Box for searching the table for specific strings. -->
 							<input type="button" class="btn" id="btnSearch" value="Submit" onclick="Search()"></input> <!-- Submits search on press -->
 						</p>
-						<input type="button" class="btn" value="Delete Selected Items" id="del" style="font-size:16px;" onclick="Delete()"/><br/><br/> <!-- Delete button that calls function within ExtraCode.js when pressed. -->
+						<input type="button" class="btn" id="btnDelete" value="Delete Selected Items" id="del" style="font-size:16px;" onclick="Delete()"/><br/><br/> <!-- Delete button that calls function within ExtraCode.js when pressed. -->
 						ID:<br/><input id="txtID" type="text"></input><br/> <!-- Input fields for adding a new row. -->
 						Name:<br/><input id="txtName" type="text"></input><br/>
 						Job Title:<br/><input id="txtJobTitle" type="text"></input><br/>
