@@ -215,15 +215,14 @@ function SortTable(column) //Function sorts table by the selected column.
 	}
 }
 
-function SetUserData()
+function CreateUserDataChangedEvent()
 {
-	userData = document.getElementsByName('User');
-	userData.addEventListener('DOMSubtreeModified', UserDataChanged);
-	return "<?php echo $_POST['User']; ?>";
+	document.getElementsByName('User').addEventListener('DOMSubtreeModified', UserDataChanged);
 }
 
 function UserDataChanged(e)
 {
+	alert("");
 	userData = document.getElementsByName('User');
 	alert(userData.innerHTML);
 }
