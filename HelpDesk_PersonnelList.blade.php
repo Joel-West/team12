@@ -272,6 +272,8 @@
 						sql+="specialist = '"+ row.cells[5].innerHTML + "' ";
 						sql+="WHERE userID = " + id + "; ";
 					}
+					console.log("newlength = " +updList.length);
+					console.log("newi = " + i);
 				}
 				for (i = 0; i < GetRows(); i++) //Iterate through all rows to find new rows.
 				{
