@@ -5,7 +5,14 @@
 		<title>HelpDesk_ProblemList</title>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> <!-- Get JQuery library from google. -->
 		<script type="text/javascript" src="{{ URL::asset('js/ExtraCode.js') }}"></script> <!-- Import JS file containing functions that are used in multiple other files -->
-		<script type="text/javascript">
+		<script type="text/javascript">	
+			var userData; //Variable containing data about user.
+			function Load() //Function that runs when file loads.
+			{
+				userData = "<?php echo $_POST['User']; ?>"; //Gets data from previous form.
+				WriteTime(); //Function that writes the current time at the top of the page.
+			}
+			
 			function SaveChanges(page) //Function for saving data back to database.
 			{
 				alert("Changes saved.");
@@ -16,9 +23,9 @@
 		</script>
 		<link rel="stylesheet" href="{{ asset('css/Styles.css') }}" type="text/css"> <!-- Import external CSS stylesheet that contains presentation info that applies to all the pages. -->
 	</head>
-	<body onload="WriteTime()">
+	<body onload="Load">
 	<form id="mainform" name="mainform" method="post" action=""> <!-- This form will post data to an initially unspecified page when submitted. -->
-		<input type='hidden' name="User" value="<?php echo $_POST['User']; ?>" /> <!-- Hidden tag used to store posted user data so that it can later be posted back to the home page. -->
+		<input type='text' hidden id="user" name="User"/> <!-- Hidden tag used to store posted user data so that it can later be posted back to the home page. -->
 		@csrf <!--Token to validates requests to server. -->
 		<div class="titleDiv"> <!-- Div containing elements at the top of the page. -->
 			<input type="button" style="font-size:40px; position:absolute; left:0;" value="&#x2190" style="display:inline-block;" onClick="GoToNewPage('Home');" /> <!-- Back button. -->
