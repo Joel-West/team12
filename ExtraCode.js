@@ -151,6 +151,7 @@ function CheckIfUpdateOrAdd() //The 'add' button into an 'update' button and pop
 		document.getElementById("txtJobTitle").value = document.getElementById("tbl").rows[rowNum].cells[2].innerHTML;
 		document.getElementById("txtDepartment").value = document.getElementById("tbl").rows[rowNum].cells[3].innerHTML;
 		document.getElementById("txtTelephoneNumber").value = document.getElementById("tbl").rows[rowNum].cells[4].innerHTML;
+		document.getElementById("CheckIfUpdateOrAdd").checked = GetSpecialistAsBool(document.getElementById("tbl").rows[rowNum].cells[4].innerHTML);
 	}
 	else
 	{
@@ -161,6 +162,7 @@ function CheckIfUpdateOrAdd() //The 'add' button into an 'update' button and pop
 		document.getElementById("txtJobTitle").value = "";
 		document.getElementById("txtDepartment").value = "";
 		document.getElementById("txtTelephoneNumber").value = "";
+		document.getElementById("CheckIfUpdateOrAdd").checked = false;
 	}
 }
 
