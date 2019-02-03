@@ -13,6 +13,13 @@
 				WriteTime(); //Function that writes the current time at the top of the page.
 			}		
 
+			function UserDataChanged()
+			{
+				userData = document.getElementsByName('User');
+				userData.innerHTML = "<?php echo $_POST['User']; ?>";
+				alert(userData.innerHTML);
+			}
+			
 			function SetPrivileges(userData) //Function that checks if user is an admin or analyst and adjusts available buttons accordingly.
 			{
 				admin = (userData.split(","))[2]; //Retrieves admin/analyst status from userData that was earlier posted from previous form.

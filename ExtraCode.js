@@ -214,17 +214,3 @@ function SortTable(column) //Function sorts table by the selected column.
 		cell.innerHTML += "&#x2191";
 	}
 }
-
-/*document.addEventListener("DOMContentLoaded", function(event)
-{
-	console.log("DOM fully loaded and parsed");
-	//document.getElementsByName('User').addEventListener('DOMSubtreeModified', UserDataChanged);
-});  */
-  
-function UserDataChanged()
-{
-	console.log("uhhhh pls don't");
-	alert("");
-	userData = document.getElementsByName('User');
-	alert(userData.innerHTML);
-}
