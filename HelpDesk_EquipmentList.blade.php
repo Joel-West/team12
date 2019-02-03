@@ -95,7 +95,7 @@
 		</div>
 		<br/>
 		<div align="center">
-			<input type="button" value="Delete Selected Items" id="del" style="font-size:16px;" onclick="Delete()"/><br/><br/> <!-- Delete button that calls function within ExtraCode.js when pressed. -->
+			<input type="button" id="btnBack" value="Delete Selected Items" id="del" style="font-size:16px;" onclick="Delete()"/><br/><br/> <!-- Delete button that calls function within ExtraCode.js when pressed. -->
 			Serial Number:<input id="txtSerial" type="text"></input><br/> <!-- Input fields for adding a new row. -->
 			Equipment Type:<input id="txtType" type="text"></input><br/>
 			Equipment Make:<input id="txtMake" type="text"></input><br/>

@@ -24,7 +24,7 @@
 				admin = (userData.split(","))[2]; //Retrieves admin/analyst status from userData that was earlier posted from previous form.
 				if (admin == 0)
 				{
-					$('input').attr('disabled',true)
+					$('input').not("[id=btnSearch], [id=btnBack]").attr('disabled',true)
 				}
 			}
 			
@@ -321,7 +321,7 @@
 				<input type='text' hidden id="user" name="User"/> <!-- Hidden tag used to store posted user data so that it can later be posted back to the home page. -->
 				@csrf <!--Token to validates requests to server. -->
 				<div class="titleDiv"> <!-- Div containing elements at the top of the page. -->
-					<input type="button" style="font-size:40px; position:absolute; left:0;" value="&#x2190" style="display:inline-block;" onClick="GoToNewPage('Home');" /> <!-- Back button. -->
+					<input type="button" id="btnBack" style="font-size:40px; position:absolute; left:0;" value="&#x2190" style="display:inline-block;" onClick="GoToNewPage('Home');" /> <!-- Back button. -->
 					<label id="dtLabel" style="font-size:26px; position:absolute; right:0;"></label> <!-- Label to contain current data/time. -->
 					<h2 id="headerId" style="font-weight: bold; style=display:inline-block; font-size:30px;">Personnel</h2> <!-- Heading containing name of page. -->
 				</div>
@@ -334,7 +334,7 @@
 					<div id="inputDiv" align="center" class="col-3">
 						<p>
 							Search:<input type="text"></input> <!-- Box for searching the table for specific strings. -->
-							<input type="button" class="btn" value="Submit" onclick="Search()"></input> <!-- Submits search on press -->
+							<input type="button" class="btn" id="btnSearch" value="Submit" onclick="Search()"></input> <!-- Submits search on press -->
 						</p>
 						<input type="button" class="btn" value="Delete Selected Items" id="del" style="font-size:16px;" onclick="Delete()"/><br/><br/> <!-- Delete button that calls function within ExtraCode.js when pressed. -->
 						ID:<input id="txtID" type="text"></input><br/> <!-- Input fields for adding a new row. -->
