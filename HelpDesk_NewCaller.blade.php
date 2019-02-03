@@ -109,8 +109,8 @@
 		  <h6>Time and data will be recorded on submit</h6>
 		  <br>
 		</div>
-		<div class="col-2"></div>
-		<div class="col-8 ">
+		<div class="col-3"></div>
+		<div class="col-6 ">
 		  <form>
 		    <div class="form-row">
 			  <div class="col">
@@ -124,7 +124,7 @@
 			</div>
 		  </form>
 		</div>
-		<div class="col-2"></div>
+		<div class="col-3"></div>
 		<div class="col-4"></div>
 		<div class="col-4">
 		  Notes on call:<br>
