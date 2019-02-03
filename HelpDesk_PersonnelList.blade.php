@@ -13,7 +13,7 @@
 			function Load() //Function that runs when file loads.
 			{
 				userData = "<?php echo $_POST['User']; ?>"; //Gets data from previous form.
-				SetPrivileges(userData) //Enter function that defines what functions are available to user based on status.
+				//SetPrivileges(userData) //Enter function that defines what functions are available to user based on status.
 				sql = "SELECT * FROM tblPersonnel;"; //Simple query to get all data from table.
 				RunQuery(sql); //Runs function get gets data from database and display it in tableDiv.
 				WriteTime(); //Function that writes the current time at the top of the page.
