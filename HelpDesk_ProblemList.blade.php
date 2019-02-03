@@ -7,6 +7,7 @@
 		<script type="text/javascript" src="{{ URL::asset('js/ExtraCode.js') }}"></script> <!-- Import JS file containing functions that are used in multiple other files -->
 		<script type="text/javascript">	
 			var userData; //Variable containing data about user.
+			var currentPage = "ProblemList"; //Variable storing the name of the current page, so it can be passed in the URL to the next page as a 'previous page' variable.
 			function Load() //Function that runs when file loads.
 			{
 				userData = "<?php echo $_POST['User']; ?>"; //Gets data from previous form.
