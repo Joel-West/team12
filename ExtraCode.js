@@ -62,12 +62,12 @@ function GoToNewPage(page) //Function that submits the main form of the current 
 	alert(userData);
 	alert(admin);
 	alert(analyst);
+	alert(!admin);
+	alert(!analyst);
 	go = true; //Variable stores if form should be sent or not.
 	switch(page) //An additional layer of validation to check that the user is authorised to go to the new page.
 	{
 		case "NewCaller":
-		alert(!admin);
-		alert(analyst);
 			if (!admin && analyst)
 			{
 				alert("b");
@@ -75,8 +75,6 @@ function GoToNewPage(page) //Function that submits the main form of the current 
 			}
 		break;
 		case "Analytics":
-		alert(!admin);
-		alert(!analyst);
 			if (!admin && !analyst)
 			{
 				go = false;
