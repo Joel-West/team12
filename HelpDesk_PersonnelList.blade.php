@@ -93,7 +93,7 @@
 					document.getElementById("txtJobTitle").value = document.getElementById("tbl").rows[rowNum].cells[2].innerHTML;
 					document.getElementById("txtDepartment").value = document.getElementById("tbl").rows[rowNum].cells[3].innerHTML;
 					document.getElementById("txtTelephoneNumber").value = document.getElementById("tbl").rows[rowNum].cells[4].innerHTML;
-					document.getElementById("CheckIfUpdateOrAdd").checked = GetSpecialistAsBool(document.getElementById("tbl").rows[rowNum].cells[4].innerHTML);
+					document.getElementById("chkSpecialist").checked = GetSpecialistAsBool(document.getElementById("tbl").rows[rowNum].cells[4].innerHTML);
 				}
 				else
 				{
@@ -104,7 +104,7 @@
 					document.getElementById("txtJobTitle").value = "";
 					document.getElementById("txtDepartment").value = "";
 					document.getElementById("txtTelephoneNumber").value = "";
-					document.getElementById("CheckIfUpdateOrAdd").checked = false;
+					document.getElementById("chkSpecialist").checked = false;
 				}
 			}		
 			
@@ -165,6 +165,7 @@
 				row.cells[3].innerHTML = document.getElementById("txtDepartment").value;
 				row.cells[4].innerHTML = document.getElementById("txtTelephoneNumber").value;
 				row.cells[5].innerHTML =  GetSpecialistAsString(document.getElementById("chkSpecialist").checked);
+				row.style.background-color = '#9FFF30';
 				if (!ListContains(updList, row.cells[0].innerHTML) && !row.cells[0].innerHTML.includes("(new)")) //If selected row is not already marked to be updated when changes are saved to the database later and is not a new row.
 				{
 					updList.push(row.cells[0].innerHTML); //Add the ID of the row to the list of rows to by updated when changes are commited to the actual database.
@@ -248,6 +249,7 @@
 						sql+="jobTitle = '"+ row.cells[2].innerHTML + "', ";
 						sql+="department = '"+ row.cells[3].innerHTML + "', ";
 						sql+="telephoneNumber = "+ row.cells[4].innerHTML + " ";
+						sql+="specialist = "+ row.cells[5].innerHTML + " ";
 						sql+="WHERE userID = " + id + "; ";
 					}
 				}
@@ -262,7 +264,8 @@
 						sql+="'" + row.cells[1].innerHTML + "', ";
 						sql+="'" + row.cells[2].innerHTML + "', "
 						sql+="'" + row.cells[3].innerHTML +"', "
-						sql+=row.cells[4].innerHTML + "); ";
+						sql+=row.cells[4].innerHTML + ", "
+						sql+="'" + row.cells[5].innerHTML + "'); ";
 					}
 				}
 				alert(sql);
