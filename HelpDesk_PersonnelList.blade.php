@@ -13,9 +13,20 @@
 			function Load() //Function that runs when file loads.
 			{
 				userData = "<?php echo $_POST['User']; ?>"; //Gets data from previous form.
+				SetPrivileges(userData) //Enter function that defines what functions are available to user based on status.
 				sql = "SELECT * FROM tblPersonnel;"; //Simple query to get all data from table.
 				RunQuery(sql); //Runs function get gets data from database and display it in tableDiv.
 				WriteTime(); //Function that writes the current time at the top of the page.
+			}
+			
+			function SetPrivileges(userData) //Function that checks if user is an admin or analyst and adjusts available buttons accordingly.
+			{
+				admin = (userData.split(","))[2]; //Retrieves admin/analyst status from userData that was earlier posted from previous form.
+				if (admin == 0)
+				{
+					document.getElementById("btnSave").disabled = true;
+					document.getElementById("btnAdd").disabled = true;
+				}
 			}
 			
 			function RunQuery(sql) //Function for running a query to the personnel table and getting building a table.
@@ -110,7 +121,6 @@
 			
 			function AddRow() //Adds a new row to the table, from data in the text boxes.
 			{
-				   
 				if (document.getElementById("txtID").value == false|| isNaN(document.getElementById("txtID").value) || GetRowWithID(document.getElementById("txtID").value) != -1 || GetRowWithID(document.getElementById("txtID").value + "(new)") != -1)
 				{
 					alert("Invalid ID"); //Returns error if data input from text box is invalid.
@@ -231,6 +241,11 @@
 			
 			function SaveChanges(page) //Function that saves table data back to database.
 			{
+				admin = (userData.split(","))[2];
+				if (admin == 0) //If not admin, action is forbidden.
+				{
+					return;
+				}
 				sql = "";
 				for (i = 0; i < delList.length; i++) //Iterate through delete list (deletion performed first as it reduces database size, making other operations quicker).
 				{
@@ -332,7 +347,7 @@
 						<br/>
 						<br/>
 						<p align="center">
-						<input type="button" class="btn" value="Save Changes" style="font-size:26px; padding: 6px 12px;" onClick="SaveChanges('Home');" /> <!-- Button for submitting changes to table. -->
+						<input type="button" id="btnSave" class="btn" value="Save Changes" style="font-size:26px; padding: 6px 12px;" onClick="SaveChanges('Home');" /> <!-- Button for submitting changes to table. -->
 						</p>
 					</div>
 				</div>
