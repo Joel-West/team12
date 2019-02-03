@@ -21,14 +21,14 @@
 	  
 	  function NavBar(){
 		  var html = "<ul class='navbar-nav mr-auto'>"
-		  html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage(document.getElementById(\'Previous\').value)'>&#x2190 </a>"
-		  html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage('Home');'>Home</a>"
+		  html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage(document.getElementById(&quot;Previous&quot;).value)'>&#x2190 </a>"
+		  html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;Home&quot;);'>Home</a>"
 		  html+= "<a class='nav-item nav-link active' href='#'>New Call <span class='sr-only'>(current)</span></a>"
-		  html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage('CallHistory');'>Call History</a>"
-		  html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage('ProblemList');'>Problems List</a>"
-		  html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage('PersonnelList');'>Personnel</a>"
-		  html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage('EquipmentList');'>Equipment</a>"
-		  html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage('Analytics');'>Analytics</a></ul>"
+		  html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;CallHistory&quot;);'>Call History</a>"
+		  html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;ProblemList&quot;);'>Problems List</a>"
+		  html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;PersonnelList&quot;);'>Personnel</a>"
+		  html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;EquipmentList&quot;);'>Equipment</a>"
+		  html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;Analytics&quot;);'>Analytics</a></ul>"
 		document.getElementById("navbarNavDropdown").innerHTML = html;
 	  }
 	  
