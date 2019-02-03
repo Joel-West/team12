@@ -14,7 +14,7 @@
 	  function Load(){
 		WriteTime();
 	  }
-	
+	  
 	  function autofillId(){
 	    var Username=document.getElementById("CallerName").value;
 	    if (Username.includes("'")){
@@ -105,7 +105,7 @@
 	  <div class="row" align="center">
 		<div class="col-12">
 		  <h1>Call Details</h1>
-		  <h5>The operator logging in is Alice #999999</h5>
+		  <h5>The operator logging in is <?php echo (explode(",", $_POST['User']))[0]; ?> #999999</h5>
 		  <h6>Time and data will be recorded on submit</h6>
 		  <br>
 		</div>
