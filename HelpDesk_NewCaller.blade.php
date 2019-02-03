@@ -77,7 +77,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="navbar-collapse collapse" id="navbarNavDropdown">
-	    <ul class="navbar-nav bd-navbar-nav flex-row">
+	    <ul class="navbar-nav-scroll bd-navbar-nav flex-row">
 		  <a class="nav-item nav-link" href="#" onClick="GoToNewPage(document.getElementById('Previous').value)">&#x2190 </a>
 		  <a class="nav-item nav-link" href="#" onClick="GoToNewPage('Home?previous=NewCaller');">Home</a>
 		  <a class="nav-item nav-link active" href="#">New Call <span class="sr-only">(current)</span></a>
