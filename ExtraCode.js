@@ -223,6 +223,7 @@ function SortTable(column) //Function sorts table by the selected column.
   
 function UserDataChanged()
 {
+	console.log("uhhhh pls don't");
 	alert("");
 	userData = document.getElementsByName('User');
 	alert(userData.innerHTML);
