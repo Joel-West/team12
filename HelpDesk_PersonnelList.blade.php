@@ -253,7 +253,6 @@
 					sql+="DELETE FROM tblUser WHERE userID = " + delList[i] + "; ";
 					sql+="DELETE FROM tblSpecialisation WHERE userID = " + delList[i] + "; ";
 				}
-				console.log("length = " +updList.length);
 				for (i = 0; i < updList.length; i++) //Iterate through delete list (deletion performed first as it reduces database size, making other operations quicker).
 				{
 					console.log("i = " +i);
@@ -263,9 +262,7 @@
 					console.log("i = " +i);
 					if (rowNum != -1) //If row exists.
 					{
-						console.log("i = " +i);
 						row = document.getElementById("tbl").rows[rowNum]; //Get row of local table that is being saved to database.
-						console.log("i = " +i);
 						sql+="UPDATE tblPersonnel SET ";
 						sql+="name = '"+ row.cells[1].innerHTML + "', ";
 						sql+="jobTitle = '"+ row.cells[2].innerHTML + "', ";
@@ -274,7 +271,6 @@
 						sql+="specialist = '"+ row.cells[5].innerHTML + "' ";
 						sql+="WHERE userID = " + id + "; ";
 					}
-					console.log("i = " +i);
 				}
 				for (i = 0; i < GetRows(); i++) //Iterate through all rows to find new rows.
 				{
@@ -316,7 +312,7 @@
 		.table-wrapper-scroll-y <!-- class for table, allowing it to scroll. -->
 		{
 			display: block;
-			max-height: 850px;
+			max-height: 700px;
 			overflow-y: auto;
 			-ms-overflow-style: -ms-autohiding-scrollbar;
 		}
