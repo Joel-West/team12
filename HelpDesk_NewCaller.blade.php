@@ -23,18 +23,18 @@
 		  var html = "<ul class='navbar-nav mr-auto'>"
 		  var admin = (userData.split(","))[2]; 
 		  var analyst = (userData.split(","))[3];
-		  html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage(document.getElementById(&quot;Previous&quot;).value)'>&#x2190 </a>"
-		  html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;Home&quot;);'>Home</a>"
-		  html+= "<a class='nav-item nav-link active' href='#'>New Call <span class='sr-only'>(current)</span></a>"
-		  html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;CallHistory&quot;);'>Call History</a>"
-		  html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;ProblemList&quot;);'>Problems List</a>"
-		  html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;PersonnelList&quot;);'>Personnel</a>"
-		  html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;EquipmentList&quot;);'>Equipment</a>"
+		  html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage(document.getElementById(&quot;Previous&quot;).value)'>&#x2190 </a>";
+		  html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;Home&quot;);'>Home</a>";
+		  html+= "<a class='nav-item nav-link active' href='#'>New Call <span class='sr-only'>(current)</span></a>";
+		  html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;CallHistory&quot;);'>Call History</a>";
+		  html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;ProblemList&quot;);'>Problems List</a>";
+		  html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;PersonnelList&quot;);'>Personnel</a>";
+		  html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;EquipmentList&quot;);'>Equipment</a>";
 		  if (admin == 0 && analyst == 0){
-			html+= "<a class='nav-item nav-link disabled' href='#'>Analytics</a></ul>"
+			html+= "<a class='nav-item nav-link disabled' href='#'>Analytics</a></ul>";
 		  }
           else{
-		    html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;Analytics&quot;);'>Analytics</a></ul>"
+		    html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;Analytics&quot;);'>Analytics</a></ul>";
 		  }
 		document.getElementById("navbarNavDropdown").innerHTML = html;
 	  }
@@ -94,9 +94,9 @@
 	    var sql = "SELECT problem FROM tblProblem";
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
 		  if (json && json[0]){
-			html+= "<select id='chooseProblem' class='custom-select' >"
+			html+= "<select id='chooseProblem' class='custom-select' >";
 			for (i = 0; i < json.length; i++){
-			  html+="<option selected value = '" + json[i] "'>" + json[i] + "</option>"
+			  html+="<option selected value = '" + json[i] "'>" + json[i] + "</option>";
 			}
 		    document.getElementById("newProblemCollapse").innerHTML = html;
 		  }
