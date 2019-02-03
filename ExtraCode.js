@@ -158,7 +158,6 @@ function SortTable(column) //Function sorts table by the selected column.
 	i = 0;
 	while (swapping) //Loops until no swapping is performed.
 	{
-		console.log(GetRows()-1);
 		swapping = false;
 		for (i = 1; i < GetRows()-1; i++) //Iterate through all rows apart from top row.
 		{
@@ -214,4 +213,12 @@ function SortTable(column) //Function sorts table by the selected column.
 	{
 		cell.innerHTML += "&#x2191";
 	}
+}
+
+userData = document.getElementsByName('User');
+userData.addEventListener('DOMSubtreeModified', UserDataChanged);
+
+function UserDataChanged(e)
+{
+	console.log(userData.innerHTML);
 }

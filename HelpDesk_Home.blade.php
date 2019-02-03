@@ -15,11 +15,15 @@
 
 			function SetPrivileges(userData) //Function that checks if user is an admin or analyst and adjusts available buttons accordingly.
 			{
-				admin = (userData.split(","))[1]; //Retrieves admin/analyst status from userData that was earlier posted from previous form.
-				analyst = (userData.split(","))[2];
+				admin = (userData.split(","))[2]; //Retrieves admin/analyst status from userData that was earlier posted from previous form.
+				analyst = (userData.split(","))[3];
 				if (admin == 0 && analyst == 0)
 				{
 					document.getElementById("btnAnalytics").disabled = true;
+				}
+				if (admin == 0 && analyst == 1)
+				{
+					document.getElementById("btnNewCall").disabled = true;
 				}
 			}
 		</script>
@@ -52,7 +56,7 @@
 			<h2 id="header" style="style=display:inline-block; font-size:36px;">Welcome, <?php echo (explode(",", $_POST['User']))[0]; ?>!</h2> <!-- Heading containing a welcome message to the user. -->
 		</div>	
 		<div class="grid-class"> <!-- Div containing main buttons that link to other pages. -->
-			<input class="mainButton" type="button" value="New Call" onClick="GoToNewPage('NewCaller?previous=Home')" />
+			<input class="mainButton" type="button" value="New Call" onClick="GoToNewPage('NewCaller')" />
 			<input class="mainButton" type="button" value="View Call History" onClick="GoToNewPage('CallHistory');" />
 			<input class="mainButton" type="button" value="View Problems List" onClick="GoToNewPage('ProblemList');" />
 			<input class="mainButton" type="button" value="View Personnel" onClick="GoToNewPage('PersonnelList');" />

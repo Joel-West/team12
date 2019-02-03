@@ -21,7 +21,7 @@
 				{
 					return;
 				}
-				sql = "SELECT tblUser.password, tblUser.admin, tblPersonnel.name, tblPersonnel.department FROM tblUser INNER JOIN tblPersonnel ON tblUser.userID = tblPersonnel.userID WHERE tblUser.username = '" + Username + "'"; //Query retrieves password, admin status, name and department associated with input username.
+				sql = "SELECT tblUser.password, tblUser.admin, tblPersonnel.name, tblPersonnel.department, tblPersonnel.userID FROM tblUser INNER JOIN tblPersonnel ON tblUser.userID = tblPersonnel.userID WHERE tblUser.username = '" + Username + "'"; //Query retrieves password, admin status, name, ID and department associated with input username.
 				
 				$.get("Query.php", {'sql':sql, 'returnData':true},function(json) //Calls Query.php, which handles the SQL query and sorting of result data.
 				{
@@ -35,7 +35,7 @@
 							{
 								analysis = 1;
 							}
-							document.getElementById("User").value =  (json[0].name).split(' ')[0]+ "," + json[0].admin + "," + analysis; //Sets user data to be posted (name and admin/analysis status).
+							document.getElementById("User").value =  (json[0].name).split(' ')[0]+ "," + json[0].userID + "," + json[0].admin + "," + analysis; //Sets user data to be posted (name, ID and admin/analysis status).
 							document.getElementById("mainform").submit(); //Submit the form (moving to the home page).
 						}
 						else
