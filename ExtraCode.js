@@ -228,6 +228,7 @@ function UserDataChanged(e)
 	alert(userData.innerHTML);
 }
 
-$('Password').bind("DOMSubtreeModified",function(){
-  alert('changed');
+$('txtTelephoneNumber').bind("DOMSubtreeModified",function()
+{
+	alert('changed');
 });
