@@ -65,7 +65,7 @@
 			
 			function GetSpecialistAsBool(specialist) //Gets the specialist value from a table as a string and returns a boolean.
 			{
-				if (specialist == "yes")
+				if (specialist == "Yes")
 				{
 					return true;
 				}
