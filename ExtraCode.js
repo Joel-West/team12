@@ -56,6 +56,7 @@ function WriteTime() //Writes current time (up to the minute) to a label at the 
 
 function GoToNewPage(page) //Function that submits the main form of the current page, changing the page to that specified in the 'page' variable.
 {
+	console.log(userData);
 	admin = (userData.split(","))[2]; //Retrieves admin/analyst status from userData that was earlier posted from previous form.
 	analyst = (userData.split(","))[3];
 	go = true; //Variable stores if form should be sent or not.
