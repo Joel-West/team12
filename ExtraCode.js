@@ -215,12 +215,12 @@ function SortTable(column) //Function sorts table by the selected column.
 	}
 }
 
-function CreateUserDataChangedEvent()
+document.addEventListener("DOMContentLoaded", function(event)
 {
-	alert("");
+	console.log("DOM fully loaded and parsed");
 	document.getElementsByName('User').addEventListener('DOMSubtreeModified', UserDataChanged);
-}
-
+});  
+  
 function UserDataChanged(e)
 {
 	alert("");
