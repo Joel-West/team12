@@ -217,6 +217,7 @@ function SortTable(column) //Function sorts table by the selected column.
 
 function CreateUserDataChangedEvent()
 {
+	alert("");
 	document.getElementsByName('User').addEventListener('DOMSubtreeModified', UserDataChanged);
 }
 
