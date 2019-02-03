@@ -59,6 +59,7 @@ function GoToNewPage(page) //Function that submits the main form of the current 
 	console.log(userData);
 	admin = (userData.split(","))[2]; //Retrieves admin/analyst status from userData that was earlier posted from previous form.
 	analyst = (userData.split(","))[3];
+	alert(userData);
 	alert(admin);
 	alert(analyst);
 	go = true; //Variable stores if form should be sent or not.
