@@ -62,8 +62,8 @@ function GoToNewPage(page) //Function that submits the main form of the current 
 	alert(userData);
 	alert(admin);
 	alert(analyst);
-	alert(!admin);
-	alert(!analyst);
+	alert(admin == 0);
+	alert(analyst == 0);
 	go = true; //Variable stores if form should be sent or not.
 	switch(page) //An additional layer of validation to check that the user is authorised to go to the new page.
 	{
