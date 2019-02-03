@@ -61,10 +61,13 @@ function GoToNewPage(page) //Function that submits the main form of the current 
 	switch(page) //An additional layer of validation to check that the user is authorised to go to the new page.
 	{
 		case "Analytics":
+		alert("");
 			if (!admin && !analyist)
 			{
 				return;
-			}			
+			}
+		break;
+		case default: break;
 	}
 	SetUserDataToPost();
 	document.getElementById("mainform").action = "http://35.204.60.31/" + page + "?previous=" + currentPage; //Defines page that data will be posted to.
