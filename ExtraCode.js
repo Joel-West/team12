@@ -149,7 +149,7 @@ $(document).on('click','tr',function(event) //Function for selecting/deselecting
 	CheckIfUpdateOrAdd();
 });
 
-function GetRowWithID(id) //Returns row of a column with a given ID (first column, which is presumed to be the primary key).
+function GetRowWithID(id) //Returns row of a column with a given ID (first column, which is presumed to be the unique primary key).
 {
 	rows = GetRows();
 	for (j = 1; j<rows; j++)

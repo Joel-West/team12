@@ -204,6 +204,7 @@
 				row.cells[4].innerHTML = document.getElementById("txtTelephoneNumber").value;
 				row.cells[5].innerHTML = GetSpecialistAsString(document.getElementById("chkSpecialist").checked);
 				row.style.backgroundColor = '#9FFF30';
+				CheckIfUpdateOrAdd();
 				selected = 0;
 				if (!ListContains(updList, row.cells[0].innerHTML) && !row.cells[0].innerHTML.includes("(new)")) //If selected row is not already marked to be updated when changes are saved to the database later and is not a new row.
 				{
@@ -309,7 +310,6 @@
 					}
 				}
 				alert(sql);
-				sql = "";
 				if (sql != "") //If there is any SQL to run.
 				{
 					$.get("Query.php", {'sql':sql, 'returnData':false},function(json) //Calls query.php, which handles the SQL query and sorting of result data.
