@@ -80,6 +80,7 @@
 		  $('#existingProblemCollapse').collapse('hide');
 		}
 		else if(document.getElementById("Problems").value == "New Problem"){
+		  newProblemCreation();
 		  $('#newProblemCollapse').collapse('show');
 		  $('#existingProblemCollapse').collapse('hide');
 		}
@@ -95,9 +96,10 @@
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
 		  if (json && json[0]){
 			html+= "<select id='chooseProblem' class='custom-select' >";
-			html+= "<option selected value = 'Choose'></option>";
+			html+= "<option selected value = 'Choose'>Please Choose</option>";
+			html+= "<option value = 'NewProblem'>New Problem</option>";
 			for (i = 0; i < json.length; i++){
-			  html+="<option selected value = '" + json[i] + "'>" + json[i] + "</option>";
+			  html+="<option value = '" + json[i] + "'>" + json[i] + "</option>";
 			}
 		    document.getElementById("newProblemCollapse").innerHTML = html;
 		  }
