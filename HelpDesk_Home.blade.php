@@ -21,7 +21,7 @@
 				{
 					document.getElementById("btnAnalytics").disabled = true;
 				}
-				if (admin == 0 && analyst == 1)
+				else if (admin == 0 && analyst == 1)
 				{
 					document.getElementById("btnNewCall").disabled = true;
 				}
