@@ -261,6 +261,7 @@
 					console.log("id = " + id);
 					rowNum = GetRowWithID(id); //Gets the row number in the local table that corresponds to the ID in the updList.
 					console.log("rowNum = " + rowNum);
+					console.log("newi = " + i);
 					if (rowNum != -1) //If row exists.
 					{
 						row = document.getElementById("tbl").rows[rowNum]; //Get row of local table that is being saved to database.
@@ -273,7 +274,6 @@
 						sql+="WHERE userID = " + id + "; ";
 					}
 					console.log("newlength = " +updList.length);
-					console.log("newi = " + i);
 				}
 				for (i = 0; i < GetRows(); i++) //Iterate through all rows to find new rows.
 				{
