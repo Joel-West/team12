@@ -337,12 +337,12 @@
 							<input type="button" class="btn" id="btnSearch" value="Submit" onclick="Search()"></input> <!-- Submits search on press -->
 						</p>
 						<input type="button" class="btn" value="Delete Selected Items" id="del" style="font-size:16px;" onclick="Delete()"/><br/><br/> <!-- Delete button that calls function within ExtraCode.js when pressed. -->
-						ID:<input id="txtID" type="text"></input><br/> <!-- Input fields for adding a new row. -->
-						Name:<input id="txtName" type="text"></input><br/>
-						Job Title:<input id="txtJobTitle" type="text"></input><br/>
-						Department:<input id="txtDepartment" type="text"></input><br/>
-						Telephone Number:<input id="txtTelephoneNumber" type="text"></input><br/>
-						Specialist:<input id="chkSpecialist" type="checkbox"></input><br/>
+						ID:<br/><input id="txtID" type="text"></input><br/> <!-- Input fields for adding a new row. -->
+						Name:<br/><input id="txtName" type="text"></input><br/>
+						Job Title:<br/><input id="txtJobTitle" type="text"></input><br/>
+						Department:<br/><input id="txtDepartment" type="text"></input><br/>
+						Telephone Number:<br/><input id="txtTelephoneNumber" type="text"></input><br/>
+						Specialist:<br/><input id="chkSpecialist" type="checkbox"></input><br/>
 						<input type="button" class="btn" id="btnAdd" value="Add New Item" style="font-size:16px;" onclick="AddPressed()"></input>	
 						<br/>
 						<br/>
