@@ -228,7 +228,6 @@ function UserDataChanged(e)
 	alert(userData.innerHTML);
 }
 
-$("Password").change(function()
-{
-	alert("The text has been changed.");
+$('Password').bind("DOMSubtreeModified",function(){
+  alert('changed');
 });
