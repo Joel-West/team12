@@ -8,8 +8,6 @@
 		<script type="text/javascript">
 			function Load()
 			{
-				userData = document.getElementsByName('User');
-				userData.addEventListener('DOMSubtreeModified', UserDataChanged);
 				SetPrivileges("<?php echo $_POST['User']; ?>") //Enter function that defines what functions are available to user based on status.
 				//Fun();
 				WriteTime(); //Function that writes the current time at the top of the page.
