@@ -308,11 +308,11 @@
 				</div>
 				<br/>
 				<div class="row" align="center">
-					<div id="tableDiv" class="col-8 table-wrapper-scroll-y"> <!-- Div containing data table. -->
+					<div id="tableDiv" class="col-9 table-wrapper-scroll-y"> <!-- Div containing data table. -->
 						Loading data...
 					</div>
 					<br/>
-					<div id="inputDiv" align="center" class="col-4">
+					<div id="inputDiv" align="center" class="col-3">
 						<p>
 							Search:<input type="text"></input> <!-- Box for searching the table for specific strings. -->
 							<input type="button" class="btn" value="Submit" onclick="Search()"></input> <!-- Submits search on press -->
