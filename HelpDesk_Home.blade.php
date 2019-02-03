@@ -7,6 +7,7 @@
 		<script type="text/javascript" src="{{ URL::asset('js/ExtraCode.js') }}"></script> <!-- Import JS file containing functions that are used in multiple other files -->
 		<script type="text/javascript">
 			var userData; //Variable containing data about user.
+			var currentPage = "Home";
 			function Load()
 			{
 				userData = "<?php echo $_POST['User']; ?>"; //Gets data from previous form.
