@@ -99,8 +99,8 @@
 			  html+="<option selected value = '" + json[i] "'>" + json[i] + "</option>"
 			}
 		    document.getElementById("newProblemCollapse").innerHTML = html;
+		  }
 		}
-		
 	  }
 	  
 	  function Test(){
