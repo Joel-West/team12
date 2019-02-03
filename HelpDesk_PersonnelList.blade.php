@@ -24,10 +24,7 @@
 				admin = (userData.split(","))[2]; //Retrieves admin/analyst status from userData that was earlier posted from previous form.
 				if (admin == 0)
 				{
-					document.getElementById("btnDelete").disabled = true;
-					document.getElementById("btnAdd").disabled = true;
-					document.getElementById("btnSave").disabled = true;
-					$("#inputDiv :input[type=text]").prop("disabled", true);
+					$("#inputDiv :input").prop("disabled", true);
 				}	
 			}
 			
@@ -338,24 +335,28 @@
 						Loading data...
 					</div>
 					<br/>
-					<div id="inputDiv" align="center" class="col-3">
-						<p>
-							Search:<input type="text"></input> <!-- Box for searching the table for specific strings. -->
-							<input type="button" class="btn" id="btnSearch" value="Submit" onclick="Search()"></input> <!-- Submits search on press -->
-						</p>
-						<input type="button" class="btn" id="btnDelete" value="Delete Selected Items" id="del" style="font-size:16px;" onclick="Delete()"/><br/><br/> <!-- Delete button that calls function within ExtraCode.js when pressed. -->
-						ID:<br/><input id="txtID" type="text"></input><br/> <!-- Input fields for adding a new row. -->
-						Name:<br/><input id="txtName" type="text"></input><br/>
-						Job Title:<br/><input id="txtJobTitle" type="text"></input><br/>
-						Department:<br/><input id="txtDepartment" type="text"></input><br/>
-						Telephone Number:<br/><input id="txtTelephoneNumber" type="text"></input><br/>
-						Specialist? <input id="chkSpecialist" type="checkbox"></input><br/>
-						<br/><input type="button" class="btn" id="btnAdd" value="Add New Item" style="font-size:16px;" onclick="AddPressed()"></input>	
-						<br/>
-						<br/>
-						<p align="center">
-						<input type="button" id="btnSave" class="btn" value="Save Changes" style="font-size:26px; padding: 6px 12px;" onClick="SaveChanges('Home');" /> <!-- Button for submitting changes to table. -->
-						</p>
+					<div id="rightDiv" align="center" class="col-3">
+						<div id="searchDiv">
+							<p>
+								Search:<input type="text"></input> <!-- Box for searching the table for specific strings. -->
+								<input type="button" class="btn" id="btnSearch" value="Submit" onclick="Search()"></input> <!-- Submits search on press -->
+							</p>
+						</div>
+						<div id="inputDiv">
+							<input type="button" class="btn" id="btnDelete" value="Delete Selected Items" id="del" style="font-size:16px;" onclick="Delete()"/><br/><br/> <!-- Delete button that calls function within ExtraCode.js when pressed. -->
+							ID:<br/><input id="txtID" type="text"></input><br/> <!-- Input fields for adding a new row. -->
+							Name:<br/><input id="txtName" type="text"></input><br/>
+							Job Title:<br/><input id="txtJobTitle" type="text"></input><br/>
+							Department:<br/><input id="txtDepartment" type="text"></input><br/>
+							Telephone Number:<br/><input id="txtTelephoneNumber" type="text"></input><br/>
+							Specialist? <input id="chkSpecialist" type="checkbox"></input><br/>
+							<br/><input type="button" class="btn" id="btnAdd" value="Add New Item" style="font-size:16px;" onclick="AddPressed()"></input>	
+							<br/>
+							<br/>
+							<p align="center">
+							<input type="button" id="btnSave" class="btn" value="Save Changes" style="font-size:26px; padding: 6px 12px;" onClick="SaveChanges('Home');" /> <!-- Button for submitting changes to table. -->
+							</p>
+						</div>
 					</div>
 				</div>
 		</form>
