@@ -59,23 +59,18 @@ function GoToNewPage(page) //Function that submits the main form of the current 
 	console.log(userData);
 	admin = (userData.split(","))[2]; //Retrieves admin/analyst status from userData that was earlier posted from previous form.
 	analyst = (userData.split(","))[3];
-	alert(userData);
-	alert(admin);
-	alert(analyst);
-	alert(admin == 0);
-	alert(analyst == 0);
 	go = true; //Variable stores if form should be sent or not.
 	switch(page) //An additional layer of validation to check that the user is authorised to go to the new page.
 	{
 		case "NewCaller":
-			if (!admin && analyst)
+			if (admin == 0 && analyst)
 			{
 				alert("b");
 				go = false;
 			}
 		break;
 		case "Analytics":
-			if (!admin && !analyst)
+			if (admin == 0 && analyst == 0)
 			{
 				go = false;
 			}
