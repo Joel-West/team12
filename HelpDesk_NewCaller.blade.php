@@ -100,7 +100,7 @@
 			}
 		    document.getElementById("newProblemCollapse").innerHTML = html;
 		  }
-		}
+		}.json);
 	  }
 	  
 	  function Test(){
