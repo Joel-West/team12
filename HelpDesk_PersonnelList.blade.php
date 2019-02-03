@@ -342,7 +342,7 @@
 						Job Title:<br/><input id="txtJobTitle" type="text"></input><br/>
 						Department:<br/><input id="txtDepartment" type="text"></input><br/>
 						Telephone Number:<br/><input id="txtTelephoneNumber" type="text"></input><br/>
-						Specialist:<input id="chkSpecialist" type="checkbox"></input><br/>
+						Specialist? <input id="chkSpecialist" type="checkbox"></input><br/>
 						<input type="button" class="btn" id="btnAdd" value="Add New Item" style="font-size:16px;" onclick="AddPressed()"></input>	
 						<br/>
 						<br/>

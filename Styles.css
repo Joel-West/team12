@@ -23,6 +23,11 @@ table
 	margin-right:auto;
 }
 
+input[type=checkbox]
+{
+  transform: scale(1.5);
+}
+
 .titleDiv
 {
 	display: flex;
