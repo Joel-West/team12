@@ -57,7 +57,7 @@ function WriteTime() //Writes current time (up to the minute) to a label at the 
 function GoToNewPage(page) //Function that submits the main form of the current page, changing the page to that specified in the 'page' variable.
 {
 	SetUserDataToPost();
-	document.getElementById("mainform").action = "http://35.204.60.31/" + page; //Defines page that data will be posted to.
+	document.getElementById("mainform").action = "http://35.204.60.31/" + page + "?previous=" + currentPage; //Defines page that data will be posted to.
 	document.getElementById("mainform").submit(); //Submits form.
 }
 
