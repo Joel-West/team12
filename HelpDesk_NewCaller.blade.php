@@ -12,6 +12,7 @@
 	<script type="text/javascript" src="{{ URL::asset('js/ExtraCode.js') }}"></script>
 	<script type="text/javascript">
 	  var userData; //Variable containing data about user
+	  var currentPage = "NewCaller";
 	  function Load(){
 		userData = "<?php echo $_POST['User']; ?>"; //Gets data from previous form.
 		WriteTime();
