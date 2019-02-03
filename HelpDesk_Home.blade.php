@@ -6,9 +6,11 @@
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> <!-- Get JQuery library from google. -->
 		<script type="text/javascript" src="{{ URL::asset('js/ExtraCode.js') }}"></script> <!-- Import JS file containing functions that are used in multiple other files -->
 		<script type="text/javascript">
+			var userData;
 			function Load()
 			{
-				SetPrivileges("<?php echo $_POST['User']; ?>") //Enter function that defines what functions are available to user based on status.
+				userData = "<?php echo $_POST['User']; ?>";
+				SetPrivileges(userData) //Enter function that defines what functions are available to user based on status.
 				//Fun();
 				WriteTime(); //Function that writes the current time at the top of the page.
 			}

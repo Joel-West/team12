@@ -63,7 +63,7 @@ function GoToNewPage(page) //Function that submits the main form of the current 
 
 function SetUserDataToPost()
 {
-	document.getElementById("user").value = "<?php echo $_POST['User']; ?>";
+	document.getElementById("user").value = userData;
 }
 
 function GetRows() //Function for returning the number of rows in a data table.

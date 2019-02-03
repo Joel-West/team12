@@ -8,9 +8,10 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>	<!-- Importing Bootstrap files. -->
 		<script type="text/javascript" src="{{ URL::asset('js/ExtraCode.js') }}"></script> <!-- Import JS file containing functions that are used in multiple other files -->
 		<script type="text/javascript">	
-
+			var userData;
 			function Load() //Function that runs when file loads.
 			{
+				userData = "<?php echo $_POST['User']; ?>";
 				sql = "SELECT * FROM tblPersonnel;"; //Simple query to get all data from table.
 				RunQuery(sql); //Runs function get gets data from database and display it in tableDiv.
 				WriteTime(); //Function that writes the current time at the top of the page.
