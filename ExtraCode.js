@@ -61,17 +61,19 @@ function GoToNewPage(page) //Function that submits the main form of the current 
 	switch(page) //An additional layer of validation to check that the user is authorised to go to the new page.
 	{
 		case "Analytics":
-		alert("");
+			alert(admin);
+			alert(analyist);
 			if (!admin && !analyist)
 			{
 				return;
 			}
 		break;
-		default: break;
+		default:
+			SetUserDataToPost();
+			document.getElementById("mainform").action = "http://35.204.60.31/" + page + "?previous=" + currentPage; //Defines page that data will be posted to.
+			document.getElementById("mainform").submit(); //Submits form.
+		break;
 	}
-	SetUserDataToPost();
-	document.getElementById("mainform").action = "http://35.204.60.31/" + page + "?previous=" + currentPage; //Defines page that data will be posted to.
-	document.getElementById("mainform").submit(); //Submits form.
 }
 
 function SetUserDataToPost()
