@@ -1,0 +1,27 @@
+Log in: ssh -i Team12 oldkingmole13@35.204.60.31
+Go to directory of code: cd /var/www/html/team-projects/resources/views/team12
+Pull from GitHub to Cloud: sudo git pull
+Go back: cd ..
+List directory: ls
+Remove file: sudo rm (file name)
+
+
+To change routes: cd /var/www/html/team-projects/routes
+open routing: sudo nano web.php
+save: ctrl-x
+
+Move js file: sudo mv ExtraCode.js /var/www/html/team-projects/public/js
+Move css file: sudo mv Styles.css /var/www/html/team-projects/public/css
+Move php file: sudo mv Query.php /var/www/html/team-projects/public
+
+Connect to database: mysql --host=35.204.50.1 --user=root
+use team12database
+show tables;
+describe tableX
+
+Type this in browser to view pages on cloud: 35.204.60.31
+
+
+Must name files: '#.blade.php'
+
+Go to ini: cd /etc/php/7.2/cli
