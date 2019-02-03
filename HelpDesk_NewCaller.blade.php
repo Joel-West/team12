@@ -91,11 +91,10 @@
 	  }
 	  
 	  function newProblemCreation(){
-		var html;
+		var html = "<select id='chooseProblem' class='custom-select' >";
 	    var sql = "SELECT problem FROM tblProblem";
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
 		  if (json && json[0]){
-			html+= "<select id='chooseProblem' class='custom-select' >";
 			html+= "<option selected value = 'Choose'>Please Choose</option>";
 			html+= "<option value = 'NewProblem'>New Problem</option>";
 			for (i = 0; i < json.length; i++){
