@@ -326,7 +326,7 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"> <!-- Bootstrap CSS stylesheet. -->
 		<link rel="stylesheet" href="{{ asset('css/Styles.css') }}" type="text/css"> <!-- Import external CSS stylesheet that contains presentation info that applies to all the pages. -->
 		<style>
-		.table-wrapper-scroll-y <!-- class for table, allowing it to scroll. -->
+		.table-wrapper-scroll-y
 		{
 			display: block;
 			max-height: 700px;
