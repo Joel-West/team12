@@ -264,8 +264,8 @@
 						sql+="name = '"+ row.cells[1].innerHTML + "', ";
 						sql+="jobTitle = '"+ row.cells[2].innerHTML + "', ";
 						sql+="department = '"+ row.cells[3].innerHTML + "', ";
-						sql+="telephoneNumber = "+ row.cells[4].innerHTML + " ";
-						sql+="specialist = "+ row.cells[5].innerHTML + " ";
+						sql+="telephoneNumber = "+ row.cells[4].innerHTML + ", ";
+						sql+="specialist = '"+ row.cells[5].innerHTML + "' ";
 						sql+="WHERE userID = " + id + "; ";
 					}
 				}
@@ -342,7 +342,7 @@
 						Job Title:<br/><input id="txtJobTitle" type="text"></input><br/>
 						Department:<br/><input id="txtDepartment" type="text"></input><br/>
 						Telephone Number:<br/><input id="txtTelephoneNumber" type="text"></input><br/>
-						Specialist:<br/><input id="chkSpecialist" type="checkbox"></input><br/>
+						Specialist:<input id="chkSpecialist" type="checkbox"></input><br/>
 						<input type="button" class="btn" id="btnAdd" value="Add New Item" style="font-size:16px;" onclick="AddPressed()"></input>	
 						<br/>
 						<br/>
