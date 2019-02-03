@@ -286,6 +286,11 @@
 						sql+="telephoneNumber = "+ row.cells[4].innerHTML + ", ";
 						sql+="specialist = '"+ row.cells[5].innerHTML + "' ";
 						sql+="WHERE userID = " + id + "; ";
+						if (row.cells[5].innerHTML == "No")
+						{
+							alert("delete specialisation");
+							//sql+="DELETE FROM tblSpecialisation WHERE userID = " + id + "; ";
+						}
 					}
 				}
 				for (i = 0; i < GetRows(); i++) //Iterate through all rows to find new rows.
