@@ -96,7 +96,7 @@
 		  if (json && json[0]){
 			html+= "<select id='chooseProblem' class='custom-select' >";
 			for (i = 0; i < json.length; i++){
-			  html+="<option selected value = '" + json[i] "'>" + json[i] + "</option>";
+			  html+="<option selected value = '" + json[i] + "'>" + json[i] + "</option>";
 			}
 		    document.getElementById("newProblemCollapse").innerHTML = html;
 		  }
