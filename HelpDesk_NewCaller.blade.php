@@ -88,7 +88,7 @@
       </button>
       <div class="navbar-collapse collapse" id="navbarNavDropdown">
 	    <ul class="navbar-nav mr-auto">
-		  <a class="nav-item nav-link" href="#" onClick="GoToNewPage(<?php echo $_GET['previous']; ?>)">&#x2190 </a>
+		  <a class="nav-item nav-link" href="#" onClick="GoToNewPage('<?php echo $_GET['previous']; ?>')">&#x2190 </a>
 		  <a class="nav-item nav-link" href="#" onClick="GoToNewPage('Home');">Home</a>
 		  <a class="nav-item nav-link active" href="#">New Call <span class="sr-only">(current)</span></a>
 		  <a class="nav-item nav-link" href="#" onClick="GoToNewPage('CallHistory');">Call History</a>
