@@ -191,7 +191,7 @@
 				cell2 = row.insertCell(2);
 				cell2.innerHTML = document.getElementById("txtPassword").value;
 				cell3 = row.insertCell(3);
-				cell3.innerHTML = GetSpecialistAsString(document.getElementById("chkAdmin").checked);
+				cell3.innerHTML = GetAdminAsString(document.getElementById("chkAdmin").checked);
 				document.getElementById("tbl").rows[rows].id = "t" + document.getElementById("tbl").rows[rows-1].id; //Sets ID of new row.
 				document.getElementById("tbl").rows[rows].style.backgroundColor = '#9FFF30'; //Sets background colour of new row.
 				newRowCount+=1;
