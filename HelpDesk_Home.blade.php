@@ -72,8 +72,8 @@
 					<input class="mainButton" type="button" value="View Call History" onClick="GoToNewPage('CallHistory');" />
 					<input class="mainButton" type="button" value="View Problems List" onClick="GoToNewPage('ProblemList');" />
 					<input class="mainButton" type="button" value="View Personnel" onClick="GoToNewPage('PersonnelList');" />
-					<input class="mainButton" type="button" id="btnUsers" value="Users" onClick="GoToNewPage('UserList');" />
-					<input class="mainButton" type="button" id="btnSpecialisations" value="Specialisation" onClick="GoToNewPage('SpecialisationList');" />
+					<input class="mainButton" type="button" id="btnUsers" value="View Users" onClick="GoToNewPage('UserList');" />
+					<input class="mainButton" type="button" id="btnSpecialisations" value="View Specialisations" onClick="GoToNewPage('SpecialisationList');" />
 					<input class="mainButton" type="button" value="View Equipment" onClick="GoToNewPage('EquipmentList');" />
 					<input class="mainButton" type="button" id="btnAnalytics" value="Analytics" onClick="GoToNewPage('Analytics')" />			
 				<br>
