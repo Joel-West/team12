@@ -77,7 +77,7 @@
 	  function problemCreation(){
 		var html = "<button class='btn btn-primary dropdown-toggle' type='button' id='dropdownButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>";
 	    html += "Choose Problem<span class='caret'></span></button>";
-		html += "<ul class='dropdown-menu' aria-labelledby='dropdownMenu1'>";
+		html += "<ul class='dropdown-menu' id='dropdown-menu' aria-labelledby='dropdownMenu1'>";
 	    html += "<li><a class='dropdown-item'>New Problem</a></li><li><div class='dropdown-divider'></div></li>";
 		html += "<li><h6 class='dropdown-header'>Existing Problems</h6></li>";
 		var sql = "SELECT problem FROM tblProblem WHERE resolved = 'no'";
@@ -92,7 +92,7 @@
 		},'json');
 	  }
 	  
-      $(document).on('click', 'li a', function(){
+      $(document).on('click', '#dropdown-menu li a', function(){
         $(".btn:first-child").text($(this).text());
         $(".btn:first-child").val($(this).text());
 	    problem();
