@@ -154,7 +154,8 @@
 			function ValidateInput() //Function returns true if the data input boxes are all valid.
 			{
 				id = "txtID";
-				if (document.getElementById(id).value == false|| isNaN(document.getElementById(id).value) || GetRowWithID(document.getElementById(id).value) != -1 || GetRowWithID(document.getElementById(id).value + "(new)") != -1 || document.getElementById(id).value.includes("'"))
+				if (document.getElementById(id).value == false || isNaN(document.getElementById(id).value) || document.getElementById(id).value.includes("'") ||
+				((GetRowWithID(document.getElementById(id).value) != -1 || GetRowWithID(document.getElementById(id).value + "(new)") != -1) && document.getElementById(id).disabled == false))
 				{
 					alert("Invalid ID"); //Returns error if data input from text box is invalid.
 					return false;
