@@ -158,8 +158,14 @@
 	  }
 	  
 	  $(document).on('click', '#dropdown-menu2 a', function(){
-        $(".btn:first-child").text($(this).text());
-        $(".btn:first-child").val($(this).text());
+		if ($(this).text() == "New Problem"){
+		  $(".btn:first-child").text(getElementById("newProblemInput").value);
+		  $(".btn:first-child").val(getElementById("newProblemInput").value);
+		}
+		else{
+          $(".btn:first-child").text($(this).text());
+          $(".btn:first-child").val($(this).text());
+		}
       });
 	  
 	</script>
