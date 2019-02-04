@@ -48,9 +48,9 @@
 		  }
           else{
 		    html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;Analytics&quot;);'>Analytics</a></ul>";
-		
+		  }
 		document.getElementById("navbarNavDropdown").innerHTML = html;
-	  }
+	    }
 	  
 	  function autofillId(){
 	    var Username=document.getElementById("CallerName").value;
