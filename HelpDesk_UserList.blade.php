@@ -20,7 +20,7 @@
 			
 			function SetPrivileges(userData) //Function that checks if user is an admin or analyst and adjusts available buttons accordingly.
 			{
-				admin = (userData.split(","))[2]; //Retrieves admin/analyst status from userData that was earlier posted from previous form.
+				admin = (userData.split(","))[2]; //Retrieves admin status from userData that was earlier posted from previous form.
 				if (admin == 0)
 				{
 					$("#inputDiv :input").prop("disabled", true); //If not admin, disable all input fields in the input div.
@@ -31,7 +31,7 @@
 			{
 				if (document.getElementById("txtSearch").value == "") //If not searching anything.
 				{
-					sql = "SELECT * FROM tblPersonnel;"; //Simple query to get all data from table.
+					sql = "SELECT * FROM tblUser;"; //Simple query to get all data from table.
 					RunQuery(sql); //Runs function get gets data from database and display it in tableDiv.
 				}
 			}
@@ -55,20 +55,20 @@
 				str = document.getElementById("txtSearch").value.toUpperCase(); //Gets uppercase array of searched text.
 				if (str.includes("'")) //If contains ' (if it is SQL injection-prone)
 				{
-					sql = "SELECT * FROM tblPersonnel WHERE 1 = 0;"; //Get no results.
+					sql = "SELECT * FROM tblUser WHERE 1 = 0;"; //Get no results.
 				}
 				else
 				{
 					
 					str = str.replace(", ", ",").split(","); //Split search text by commas.
-					sql = "SELECT * FROM tblPersonnel WHERE ";
+					sql = "SELECT * FROM tblUser WHERE ";
 					for (i = 0; i < str.length; i++) //Iterates through list of search terms, adding to the SQL query.
 					{
 						if (i != 0)
 						{
 							sql+=" OR ";
 						}
-						sql += "upper(userID) LIKE '%"+str[i]+"%' OR upper(name) LIKE '%"+str[i]+"%' OR upper(jobTitle) LIKE '%"+str[i]+"%' OR upper(department) LIKE '%"+str[i]+"%' OR upper(telephoneNumber) LIKE '%"+str[i]+"%' OR upper(specialist) LIKE '%"+str[i]+"%'"; //Query that returns all database records with a cell containing search string.
+						sql += "upper(userID) LIKE '%"+str[i]+"%' OR upper(username) LIKE '%"+str[i]+"%' OR upper(password) LIKE '%"+str[i]+"%' OR upper(admin) LIKE '%"+str[i]+"%'"; //Query that returns all database records with a cell containing search string.
 					}
 				}
 				RunQuery(sql); //Runs function get gets data from database and display it in tableDiv.
@@ -82,20 +82,16 @@
 					{				
 						var htm = "<table class='table' id='tbl' border='1'>";
 						htm+="<tr id='t0'><th onclick='SortTable(0)' scope='col'>userID</th>";
-						htm+="<th onclick='SortTable(1)' scope='col'>Name</th>";
-						htm+="<th onclick='SortTable(2)'scope='col'>Job Title</th>";
-						htm+="<th onclick='SortTable(3)'scope='col'>Department</th>";
-						htm+="<th onclick='SortTable(4)'scope='col'>Telephone Number</th>";
-						htm+="<th onclick='SortTable(5)'scope='col'>Specialist</th></tr>"; //Appending column headers.
+						htm+="<th onclick='SortTable(1)' scope='col'>Username</th>";
+						htm+="<th onclick='SortTable(2)'scope='col'>Password</th>";
+						htm+="<th onclick='SortTable(3)'scope='col'>Admin</th></tr>"; //Appending column headers.
 						for (i = 0; i<json.length; i++) //Iterates through the json array of results.
 						{
 							htm += "<tr id='t" + (i+1) + "' style='background-color:rgb(159, 255, 48);'>"; //Sets colour and ID of row.
 							htm +="<td id='id'>"+json[i].userID+"</td>";
-							htm +="<td id='name'>"+json[i].name+"</td>";
-							htm +="<td id='jobTitle'>"+json[i].jobTitle+"</td>";		
-							htm +="<td id='department'>"+json[i].department+"</td>";
-							htm +="<td id='telephoneNumber'>"+json[i].telephoneNumber+"</td>";
-							htm +="<td id='specialist'>"+json[i].specialist+"</td>";
+							htm +="<td id='username'>"+json[i].name+"</td>";
+							htm +="<td id='password'>"+json[i].password+"</td>";		
+							htm +="<td id='admin'>"+json[i].admin+"</td>";
 							htm += "</tr>";							
 						}
 					}
@@ -108,9 +104,9 @@
 				},'json');
 			}
 			
-			function GetSpecialistAsBool(specialist) //Gets the specialist value from a table as a string and returns a boolean.
+			function GetAdminAsBool(Admin) //Gets the admin value from a table as a string and returns a boolean.
 			{
-				if (specialist == "Yes")
+				if (Admin == "Yes")
 				{
 					return true;
 				}
@@ -120,9 +116,9 @@
 				}
 			}
 			
-			function GetSpecialistAsString(specialist) //Gets the specialist value from the checkbox as a boolean and returns a string.
+			function GetAdminAsString(Admin) //Gets the admin value from the checkbox as a boolean and returns a string.
 			{
-				if (specialist == true)
+				if (Admin == true)
 				{
 					return "Yes";
 				}
@@ -132,11 +128,6 @@
 				}
 			}		
 			
-			$(document).on('DOMSubtreeModified','td',function() //Function runs when table cell is clicked, helps against SQL injection by validating when cell contents is changed.
-			{
-				//console.log($(this).attr('id')); //Logs ID (for debugging).
-			});
-			
 			function CheckIfUpdateOrAdd() //The 'add' button into an 'update' button and populate the text boxes, if exactly one row is selected.
 			{
 				if (selected == 1)
@@ -145,22 +136,18 @@
 					rowNum = GetSelectedRow(); //Gets the row that is selected.
 					document.getElementById("txtID").value = document.getElementById("tbl").rows[rowNum].cells[0].innerHTML;
 					document.getElementById("txtID").disabled = true;
-					document.getElementById("txtName").value = document.getElementById("tbl").rows[rowNum].cells[1].innerHTML;
-					document.getElementById("txtJobTitle").value = document.getElementById("tbl").rows[rowNum].cells[2].innerHTML;
-					document.getElementById("txtDepartment").value = document.getElementById("tbl").rows[rowNum].cells[3].innerHTML;
-					document.getElementById("txtTelephoneNumber").value = document.getElementById("tbl").rows[rowNum].cells[4].innerHTML;
-					document.getElementById("chkSpecialist").checked = GetSpecialistAsBool(document.getElementById("tbl").rows[rowNum].cells[5].innerHTML);
+					document.getElementById("txtPassword").value = document.getElementById("tbl").rows[rowNum].cells[1].innerHTML;
+					document.getElementById("txtUsername").value = document.getElementById("tbl").rows[rowNum].cells[2].innerHTML;
+					document.getElementById("chkAdmin").checked = GetAdminAsBool(document.getElementById("tbl").rows[rowNum].cells[3].innerHTML);
 				}
 				else
 				{
 					document.getElementById("btnAdd").value = "Add New Item";
 					document.getElementById("txtID").value = "";
 					document.getElementById("txtID").disabled = false;
-					document.getElementById("txtName").value = "";
-					document.getElementById("txtJobTitle").value = "";
-					document.getElementById("txtDepartment").value = "";
-					document.getElementById("txtTelephoneNumber").value = "";
-					document.getElementById("chkSpecialist").checked = false;
+					document.getElementById("txtUsername").value = "";
+					document.getElementById("txtPassword").value = "";
+					document.getElementById("chkAdmin").checked = false;
 				}
 			}		
 			
@@ -172,28 +159,16 @@
 					alert("Invalid ID"); //Returns error if data input from text box is invalid.
 					return false;
 				}
-				id = "txtName";
+				id = "txtUsername";
 				if (document.getElementById(id).value == false || document.getElementById(id).value.includes("'"))
 				{
 					alert("Invalid name"); //Returns error if data input from text box is invalid.
 					return false;
 				}
-				id = "txtJobTitle";
+				id = "txtPassword";
 				if (document.getElementById(id).value == false || document.getElementById(id).value.includes("'"))
 				{
 					alert("Invalid job title"); //Returns error if data input from text box is invalid.
-					return false;
-				}
-				id = "txtDepartment";
-				if (document.getElementById(id).value == false || document.getElementById(id).value.includes("'"))
-				{
-					alert("Invalid department"); //Returns error if data input from text box is invalid.
-					return false;
-				}
-				id = "txtTelephoneNumber";
-				if (document.getElementById(id).value == false || isNaN(document.getElementById(id).value) || document.getElementById(id).value.includes("'"))
-				{
-					alert("Invalid telephone number"); //Returns error if data input from text box is invalid.
 					return false;
 				}
 				return true;
@@ -211,19 +186,15 @@
 				cell0 = row.insertCell(0); //Inserts and modifies each cell of the new row in turn.
 				cell0.innerHTML = document.getElementById("txtID").value + "(new)"; //Until it has been added to the database, the first field is given a '(new)' tag.
 				cell1 = row.insertCell(1);
-				cell1.innerHTML = document.getElementById("txtName").value;
+				cell1.innerHTML = document.getElementById("txtUser").value;
 				cell2 = row.insertCell(2);
-				cell2.innerHTML = document.getElementById("txtJobTitle").value;
-				cell3 = row.insertCell(3);
-				cell3.innerHTML = document.getElementById("txtDepartment").value;
-				cell4 = row.insertCell(4);
-				cell4.innerHTML = document.getElementById("txtTelephoneNumber").value;
+				cell2.innerHTML = document.getElementById("txtPassword").value;
 				cell5 = row.insertCell(5);
-				cell5.innerHTML = GetSpecialistAsString(document.getElementById("chkSpecialist").checked);
+				cell5.innerHTML = GetSpecialistAsString(document.getElementById("chkAdmin").checked);
 				document.getElementById("tbl").rows[rows].id = "t" + document.getElementById("tbl").rows[rows-1].id; //Sets ID of new row.
 				document.getElementById("tbl").rows[rows].style.backgroundColor = '#9FFF30'; //Sets background colour of new row.
 				newRowCount+=1;
-				alert("New personnel added."); //Success message.
+				alert("New user info added."); //Success message.
 			}
 			
 			function UpdateRow() //Function that updates the selected row.
@@ -233,11 +204,9 @@
 					return;
 				}
 				row = document.getElementById("tbl").rows[GetSelectedRow()]; //Gets the details of the row that is selected.
-				row.cells[1].innerHTML = document.getElementById("txtName").value;
-				row.cells[2].innerHTML = document.getElementById("txtJobTitle").value;
-				row.cells[3].innerHTML = document.getElementById("txtDepartment").value;
-				row.cells[4].innerHTML = document.getElementById("txtTelephoneNumber").value;
-				row.cells[5].innerHTML = GetSpecialistAsString(document.getElementById("chkSpecialist").checked);
+				row.cells[1].innerHTML = document.getElementById("txtUsername").value;
+				row.cells[2].innerHTML = document.getElementById("txtPassword").value;
+				row.cells[3].innerHTML = GetAdminAsString(document.getElementById("chkAdmin").checked);
 				row.style.backgroundColor = '#9FFF30';
 				selected = 0;
 				CheckIfUpdateOrAdd();
@@ -246,7 +215,7 @@
 					updList.push(row.cells[0].innerHTML); //Add the ID of the row to the list of rows to by updated when changes are commited to the actual database.
 					console.log(updList);
 				}
-				alert("Personnel updated successfully.");
+				alert("User info updated successfully.");
 			}
 			
 			function Delete() //Function for deleting selected rows from a table.
@@ -256,7 +225,7 @@
 				{
 					return;
 				}
-				if (confirm("If any of these rows are found in the table of users, they will also be deleted. Delete selected rows?")) //Get user confirmation.
+				if (confirm("Deleting a user will prevent them from being able to log in again. Delete selected rows?")) //Get user confirmation.
 				{
 					rows = GetRows();
 					for (i = rows-1; i > 0; i--) //Iterate through the rows of the table.
@@ -301,32 +270,20 @@
 				sql = "";
 				for (i = 0; i < delList.length; i++) //Iterate through delete list (deletion performed first as it reduces database size, making other operations quicker).
 				{
-					sql+="DELETE FROM tblPersonnel WHERE userID = " + delList[i] + "; ";
 					sql+="DELETE FROM tblUser WHERE userID = " + delList[i] + "; ";
-					sql+="DELETE FROM tblSpecialisation WHERE userID = " + delList[i] + "; ";
 				}
 				for (i = 0; i < updList.length; i++) //Iterate through delete list (deletion performed first as it reduces database size, making other operations quicker).
 				{
-					//console.log("i = " +i);
 					id = updList[i];
 					rowNum = GetRowWithID(id); //Gets the row number in the local table that corresponds to the ID in the updList.
-					//console.log("rowNum = " + rowNum);
-					//console.log("i = " +i);
 					if (rowNum != -1) //If row exists.
 					{
 						row = document.getElementById("tbl").rows[rowNum]; //Get row of local table that is being saved to database.
-						sql+="UPDATE tblPersonnel SET ";
-						sql+="name = '"+ row.cells[1].innerHTML + "', ";
-						sql+="jobTitle = '"+ row.cells[2].innerHTML + "', ";
-						sql+="department = '"+ row.cells[3].innerHTML + "', ";
-						sql+="telephoneNumber = "+ row.cells[4].innerHTML + ", ";
-						sql+="specialist = '"+ row.cells[5].innerHTML + "' ";
+						sql+="UPDATE tblUser SET ";
+						sql+="username = '"+ row.cells[1].innerHTML + "', ";
+						sql+="password = '"+ row.cells[2].innerHTML + "', ";
+						sql+="admin = '"+ row.cells[3].innerHTML + "' ";
 						sql+="WHERE userID = " + id + "; ";
-						if (row.cells[5].innerHTML == "No")
-						{
-							alert("delete specialisation");
-							sql+="DELETE FROM tblSpecialisation WHERE userID = " + id + "; ";
-						}
 					}
 				}
 				for (i = 0; i < GetRows(); i++) //Iterate through all rows to find new rows.
@@ -335,16 +292,15 @@
 					if (row.cells[0].innerHTML.includes("(new)")) //If record is new.
 					{
 						row.cells[0].innerHTML = row.cells[0].innerHTML.replace("(new)", '') //Remove the 'new' tag from the record.
-						sql+="INSERT INTO tblPersonnel VALUES (";
+						sql+="INSERT INTO tblUser VALUES (";
 						sql+=row.cells[0].innerHTML + ", ";
 						sql+="'" + row.cells[1].innerHTML + "', ";
 						sql+="'" + row.cells[2].innerHTML + "', "
-						sql+="'" + row.cells[3].innerHTML +"', "
-						sql+=row.cells[4].innerHTML + ", "
-						sql+="'" + row.cells[5].innerHTML + "'); ";
+						sql+="'" + row.cells[3].innerHTML + "'); ";
 					}
 				}
 				alert(sql);
+				sql = "";
 				if (sql != "") //If there is any SQL to run.
 				{
 					$.get("Query.php", {'sql':sql, 'returnData':false},function(json) //Calls query.php, which handles the SQL query and sorting of result data.
@@ -402,11 +358,9 @@
 						<div id="inputDiv">
 							<input type="button" class="btn" id="btnDelete" value="Delete Selected Items" id="del" style="font-size:16px;" onclick="Delete()"/><br/><br/> <!-- Delete button that calls function within ExtraCode.js when pressed. -->
 							ID:<br/><input id="txtID" type="text"></input><br/> <!-- Input fields for adding a new row. -->
-							Name:<br/><input id="txtName" type="text"></input><br/>
-							Job Title:<br/><input id="txtJobTitle" type="text"></input><br/>
-							Department:<br/><input id="txtDepartment" type="text"></input><br/>
-							Telephone Number:<br/><input id="txtTelephoneNumber" type="text"></input><br/>
-							Specialist? <input id="chkSpecialist" type="checkbox"></input><br/>
+							Username:<br/><input id="txtUsername" type="text"></input><br/>
+							Password:<br/><input id="txtPassword" type="text"></input><br/>							
+							Admin? <input id="chkAdmin" type="checkbox"></input><br/>
 							<br/><input type="button" class="btn" id="btnAdd" value="Add New Item" style="font-size:16px;" onclick="AddPressed()"></input>	
 							<br/>
 							<br/>
