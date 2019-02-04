@@ -137,7 +137,7 @@
 					document.getElementById("txtID").value = document.getElementById("tbl").rows[rowNum].cells[0].innerHTML;
 					document.getElementById("txtID").disabled = true;
 					document.getElementById("txtUsername").value = document.getElementById("tbl").rows[rowNum].cells[1].innerHTML;
-					//document.getElementById("txtPassword").value = document.getElementById("tbl").rows[rowNum].cells[2].innerHTML;
+					document.getElementById("txtPassword").value = document.getElementById("tbl").rows[rowNum].cells[2].innerHTML;
 					document.getElementById("chkAdmin").checked = GetAdminAsBool(document.getElementById("tbl").rows[rowNum].cells[3].innerHTML);
 				}
 				else
@@ -163,13 +163,13 @@
 				id = "txtUsername";
 				if (document.getElementById(id).value == false || document.getElementById(id).value.includes("'"))
 				{
-					alert("Invalid name."); //Returns error if data input from text box is invalid.
+					alert("Invalid username."); //Returns error if data input from text box is invalid.
 					return false;
 				}
 				id = "txtPassword";
 				if (document.getElementById(id).value == false || document.getElementById(id).value.includes("'"))
 				{
-					alert("Invalid job title."); //Returns error if data input from text box is invalid.
+					alert("Invalid password."); //Returns error if data input from text box is invalid.
 					return false;
 				}
 				return true;
@@ -365,7 +365,7 @@
 							<input type="button" class="btn" id="btnDelete" value="Delete Selected Items" id="del" style="font-size:16px;" onclick="Delete()"/><br/><br/> <!-- Delete button that calls function within ExtraCode.js when pressed. -->
 							ID:<br/><input id="txtID" type="text"></input><br/> <!-- Input fields for adding a new row. -->
 							Username:<br/><input id="txtUsername" type="text"></input><br/>
-							Password:<br/><input id="txtPassword" type="text"></input><br/>							
+							Password:<br/><input id="txtPassword" type="password"></input><br/>							
 							Admin? <input id="chkAdmin" type="checkbox"></input><br/>
 							<br/><input type="button" class="btn" id="btnAdd" value="Add New Item" style="font-size:16px;" onclick="AddPressed()"></input>	
 							<br/>
