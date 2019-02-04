@@ -91,7 +91,7 @@
 							htm +="<td id='id'>"+json[i].userID+"</td>";
 							htm +="<td id='username'>"+json[i].username+"</td>";
 							htm +="<td id='password'>"+json[i].password+"</td>";		
-							htm +="<td id='admin'>"+json[i].admin+"</td>";
+							htm +="<td id='admin'>"+GetAdminAsString(json[i].admin)+"</td>";
 							htm += "</tr>";							
 						}
 					}
