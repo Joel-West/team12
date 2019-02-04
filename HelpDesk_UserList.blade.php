@@ -301,7 +301,6 @@
 					}
 				}
 				alert(sql);
-				sql = "";
 				if (sql != "") //If there is any SQL to run.
 				{
 					$.get("Query.php", {'sql':sql, 'returnData':false},function(json) //Calls query.php, which handles the SQL query and sorting of result data.
