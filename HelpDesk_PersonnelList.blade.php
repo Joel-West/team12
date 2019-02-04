@@ -247,7 +247,7 @@
 					updList.push(row.cells[0].innerHTML); //Add the ID of the row to the list of rows to by updated when changes are commited to the actual database.
 					console.log(updList);
 				}
-				alert("Personnel updated successfully.");
+				//alert("Personnel updated successfully.");
 			}
 			
 			function Delete() //Function for deleting selected rows from a table.
@@ -303,8 +303,11 @@
 				for (i = 0; i < delList.length; i++) //Iterate through delete list (deletion performed first as it reduces database size, making other operations quicker).
 				{
 					sql+="DELETE FROM tblPersonnel WHERE userID = " + delList[i] + "; ";
-					//sql+="DELETE FROM tblUser WHERE userID = " + delList[i] + "; ";
-					//sql+="DELETE FROM tblSpecialisation WHERE userID = " + delList[i] + "; ";
+					console.log(i);
+					sql+="DELETE FROM tblUser WHERE userID = " + delList[i] + "; ";
+					console.log(i);
+					sql+="DELETE FROM tblSpecialisation WHERE userID = " + delList[i] + "; ";
+					console.log(i);
 				}
 				for (i = 0; i < updList.length; i++) //Iterate through delete list (deletion performed first as it reduces database size, making other operations quicker).
 				{
