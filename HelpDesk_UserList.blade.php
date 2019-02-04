@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta content="text/html" charset="UTF-8" />
-		<title>HelpDesk_PersonnelList</title>
+		<title>HelpDesk_UserList</title>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> <!-- Get JQuery library from google. -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>	<!-- Importing Bootstrap files. -->
@@ -89,7 +89,7 @@
 						{
 							htm += "<tr id='t" + (i+1) + "' style='background-color:rgb(159, 255, 48);'>"; //Sets colour and ID of row.
 							htm +="<td id='id'>"+json[i].userID+"</td>";
-							htm +="<td id='username'>"+json[i].name+"</td>";
+							htm +="<td id='username'>"+json[i].username+"</td>";
 							htm +="<td id='password'>"+json[i].password+"</td>";		
 							htm +="<td id='admin'>"+json[i].admin+"</td>";
 							htm += "</tr>";							
@@ -340,7 +340,7 @@
 				<div class="titleDiv"> <!-- Div containing elements at the top of the page. -->
 					<input type="button" id="btnBack" style="font-size:40px; position:absolute; left:0;" value="&#x2190" style="display:inline-block;" onClick="GoToNewPage('Home');" /> <!-- Back button. -->
 					<label id="dtLabel" style="font-size:26px; position:absolute; right:0;"></label> <!-- Label to contain current data/time. -->
-					<h2 id="headerId" style="font-weight: bold; style=display:inline-block; font-size:30px;">Personnel</h2> <!-- Heading containing name of page. -->
+					<h2 id="headerId" style="font-weight: bold; style=display:inline-block; font-size:30px;">Users</h2> <!-- Heading containing name of page. -->
 				</div>
 				<br/>
 				<div class="row" align="center">

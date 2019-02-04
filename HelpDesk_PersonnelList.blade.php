@@ -20,7 +20,7 @@
 			
 			function SetPrivileges(userData) //Function that checks if user is an admin or analyst and adjusts available buttons accordingly.
 			{
-				admin = (userData.split(","))[2]; //Retrieves admin/analyst status from userData that was earlier posted from previous form.
+				admin = (userData.split(","))[2]; //Retrieves admin status from userData that was earlier posted from previous form.
 				if (admin == 0)
 				{
 					$("#inputDiv :input").prop("disabled", true); //If not admin, disable all input fields in the input div.
