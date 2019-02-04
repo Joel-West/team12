@@ -53,7 +53,7 @@
 					}
 				}
 				str = document.getElementById("txtSearch").value.toUpperCase(); //Gets uppercase array of searched text.
-				if str.includes("'") //If contains ' (if it is SQL injection-prone)
+				if (str.includes("'")) //If contains ' (if it is SQL injection-prone)
 				{
 					sql = "SELECT * FROM tblPersonnel WHERE 1 = 0;"; //Get no results.
 				}
