@@ -84,7 +84,6 @@
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
 		  if (json && json[0]){
 			for (i = 0; i < json.length; i++){
-			  console.log(json[i].problem);
 			  html+="<li><a class='dropdown-item' href='#'>" + json[i].problem + "</a></li>";
 			}
 			html+="</ul>";
@@ -94,6 +93,7 @@
 	  }
 	  
 	  $(function(){
+		console.log("Hello");
         $(".dropdown-menu").on('click', 'li a', function(){
           $(".btn:first-child").text($(this).text());
 		  $(".btn:first-child").val($(this).text());
