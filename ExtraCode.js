@@ -74,7 +74,7 @@ function GoToNewPage(page) //Function that submits the main form of the current 
 				go = false;
 			}
 		break;
-		case "UserList": case 'SpecialisationList'
+		case "UserList": case 'SpecialisationList':
 			if (admin == false)
 			{
 				go = false;
