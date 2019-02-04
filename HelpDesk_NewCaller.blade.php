@@ -141,6 +141,11 @@
 		},'json');
 	  }
 	  
+	  $(document).on('click', '#dropdown-menu2 a', function(){
+        $(".btn:first-child").text($(this).text());
+        $(".btn:first-child").val($(this).text());
+      });
+	  
 	</script>
   </head>
   
