@@ -303,8 +303,8 @@
 				for (i = 0; i < delList.length; i++) //Iterate through delete list (deletion performed first as it reduces database size, making other operations quicker).
 				{
 					sql+="DELETE FROM tblPersonnel WHERE userID = " + delList[i] + "; ";
-					sql+="DELETE FROM tblUser WHERE userID = " + delList[i] + "; ";
-					//sql+="DELETE FROM tblSpecialisation WHERE userID = " + delList[i] + "; ";
+					//sql+="DELETE FROM tblUser WHERE userID = " + delList[i] + "; ";
+					sql+="DELETE FROM tblSpecialisation WHERE userID = " + delList[i] + "; ";
 				}
 				for (i = 0; i < updList.length; i++) //Iterate through delete list (deletion performed first as it reduces database size, making other operations quicker).
 				{
