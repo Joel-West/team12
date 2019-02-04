@@ -59,6 +59,7 @@
 				}
 				else
 				{
+					
 					str = str.replace(", ", ",").split(","); //Split search text by commas.
 					sql = "SELECT * FROM tblPersonnel WHERE ";
 					for (i = 0; i < str.length; i++) //Iterates through list of search terms, adding to the SQL query.
@@ -163,31 +164,40 @@
 				}
 			}		
 			
-			function AddRow() //Adds a new row to the table, from data in the text boxes.
+			function ValidateInput() //Function returns true if the data input boxes are all valid.
 			{
-				if (document.getElementById("txtID").value == false|| isNaN(document.getElementById("txtID").value) || GetRowWithID(document.getElementById("txtID").value) != -1 || GetRowWithID(document.getElementById("txtID").value + "(new)") != -1)
+				if (document.getElementById("txtID").value == false|| isNaN(document.getElementById("txtID").value) || GetRowWithID(document.getElementById("txtID").value) != -1 || GetRowWithID(document.getElementById("txtID").value + "(new)") != -1 || document.getElementById("txtID").value.includes("'"))
 				{
 					alert("Invalid ID"); //Returns error if data input from text box is invalid.
-					return;
+					return false;
 				}
-				else if (document.getElementById("txtName").value == false)
+				else if (document.getElementById("txtName").value == false || document.getElementById("txtID").value.includes("'"))
 				{
 					alert("Invalid name"); //Returns error if data input from text box is invalid.
-					return;
+					return false;
 				}
-				else if (document.getElementById("txtJobTitle").value == false)
+				else if (document.getElementById("txtJobTitle").value == false || document.getElementById("txtID").value.includes("'"))
 				{
 					alert("Invalid job title"); //Returns error if data input from text box is invalid.
-					return;
+					return false;
 				}
-				else if (document.getElementById("txtDepartment").value == false)
+				else if (document.getElementById("txtDepartment").value == false || document.getElementById("txtID").value.includes("'"))
 				{
 					alert("Invalid department"); //Returns error if data input from text box is invalid.
-					return;
+					return false;
 				}
-				else if (document.getElementById("txtTelephoneNumber").value == false || isNaN(document.getElementById("txtTelephoneNumber").value))
+				else if (document.getElementById("txtTelephoneNumber").value == false || isNaN(document.getElementById("txtTelephoneNumber").value) || document.getElementById("txtID").value.includes("'"))
 				{
 					alert("Invalid telephone number"); //Returns error if data input from text box is invalid.
+					return false;
+				}
+				return true;
+			}
+			
+			function AddRow() //Adds a new row to the table, from data in the text boxes.
+			{
+				if (!ValidateInput())
+				{
 					return;
 				}
 				rows = GetRows(); //Gets number of rows.
@@ -213,6 +223,10 @@
 			
 			function UpdateRow() //Function that updates the selected row.
 			{
+				if (!ValidateInput())
+				{
+					return;
+				}
 				row = document.getElementById("tbl").rows[GetSelectedRow()]; //Gets the details of the row that is selected.
 				row.cells[1].innerHTML = document.getElementById("txtName").value;
 				row.cells[2].innerHTML = document.getElementById("txtJobTitle").value;
@@ -351,7 +365,7 @@
 		.table-wrapper-scroll-y
 		{
 			display: block;
-			max-height: 700px;
+			max-height: 800px;
 			overflow-y: auto;
 			-ms-overflow-style: -ms-autohiding-scrollbar;
 		}
