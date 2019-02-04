@@ -90,6 +90,13 @@
 		}
 	  }
 	  
+	  $(function(){
+        $(".dropdown-menu").on('click', 'li a', function(){
+          $(".btn:first-child").text($(this).text());
+		  $(".btn:first-child").val($(this).text());
+        });
+      });
+	  
 	  function newProblemCreation(){
 		var html = "<select id='chooseProblem' class='custom-select' >";
 	    var sql = "SELECT problem FROM tblProblem";
@@ -106,9 +113,6 @@
 		},'json');
 	  }
 	  
-	  function Test(){
-		  console.log("Clicked");
-	  }
 	</script>
   </head>
   
@@ -163,20 +167,27 @@
 		  <textarea class="form-control" rows="5" id="notes" ></textarea>
 		  <br>
 		  <br>
-		  Select New Problem:
-		  <select onchange="problem()" id="Problems" class="custom-select" >
-			<option selected value = "">Choose Problem</option>
-			<option value="New Problem">New Problem</option>
-			<option value="Broken Capslock">Broken Capslock</option>
-			<option value="Overheated Computer">Overheated Computer</option>
-			<option value="MS Paint won't close">MS Paint won't close</option>
-		  </select>
+		  Select New/Existing Problem:
+		  <div class="dropdownNewOrExisting">
+	        <button class="btn btn-primary dropdown-toggle" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+	          Choose Problem
+		      <span class="caret"></span>
+	        </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+	          <li><a class="dropdown-item">New Problem</a></li>
+		      <li><div class="dropdown-divider"></div></li>
+              <li><h6 class="dropdown-header">Existing Problems</h6></li>
+              <li><a class="dropdown-item" href="#">Broken Capslocks</a></li>
+              <li><a class="dropdown-item" href="#">Overheated Computer</a></li>
+		      <li><a class="dropdown-item" href="#">MS Paint won't close</a></li>
+            </ul>
+	      </div>
 		</div>
 		<div class="col-4"></div>
 		
 		<div class="col-3"></div>
 		<div class="collapse col-6" id="newProblemCollapse">
-		  Select Problem:
+		  Select New Problem:
 		  <div id="chooseNewProblemCombo"></div>
 		</div>
 		<div class="col-3"></div>
