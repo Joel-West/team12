@@ -52,8 +52,12 @@
 						newRowCount = 0;
 					}
 				}
-				str = document.getElementById("txtSearch").value.toUpperCase(); //Gets uppercase value of searched text.
-				sql = "SELECT * FROM tblPersonnel WHERE upper(userID) LIKE '%"+str+"%' OR upper(name) LIKE '%"+str+"%' OR upper(jobTitle) LIKE '%"+str+"%' OR upper(department) LIKE '%"+str+"%' OR upper(telephoneNumber) LIKE '%"+str+"%' OR upper(specialist) LIKE '%"+str+"%';"; //Query that returns all database records with a cell containing search string.
+				str = document.getElementById("txtSearch").value.toUpperCase().replace(", ", ",").split(","); //Gets uppercase array of searched text, split by commas.
+				sql = "SELECT * FROM tblPersonnel WHERE ";
+				for (i = 0; i < str.length; i++) //Iterates through list of search terms, adding to the SQL query.
+				{
+					sql"upper(userID) LIKE '%"+str[i]+"%' OR upper(name) LIKE '%"+str[i]+"%' OR upper(jobTitle) LIKE '%"+str[i]+"%' OR upper(department) LIKE '%"+str[i]+"%' OR upper(telephoneNumber) LIKE '%"+str[i]+"%' OR upper(specialist) LIKE '%"+str[i]+"%';"; //Query that returns all database records with a cell containing search string.
+				}
 				RunQuery(sql); //Runs function get gets data from database and display it in tableDiv.
 			}
 			
