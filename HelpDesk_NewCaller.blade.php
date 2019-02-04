@@ -222,6 +222,7 @@
 		</div>
 		<div class="col-4"></div>
 		
+		<br>
 		<div class="col-3"></div>
 		<div class="collapse col-6" id="newProblemCollapse">
 		  Select New Problem:
