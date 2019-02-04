@@ -111,7 +111,6 @@
       });
 	  
 	  function problem(){
-		console.log("Problem");
 		if(document.getElementById("dropdownButton").value == "New Problem"){
 		  newProblemCreation();
 		  $('#newProblemCollapse').collapse('show');
@@ -127,7 +126,9 @@
 		var html = "<button class='btn btn-primary dropdown-toggle' type='button' id='dropdownButton2' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>";
 	    html += "Choose Problem<span class='caret'></span></button>";
 		html += "<div class='dropdown-menu' id='dropdown-menu2' aria-labelledby='dropdownMenu2'>";
-	    html += "<a class='dropdown-item'>New Problem</a></li><li><div class='dropdown-divider'></div>";
+		html += "<form class ='px-4 py-3'><div class='form-group'><label for='dropdownSearch'>Search</label>"
+		html += "<input type='text' class='form-control' id='dropdownSearch' placeholder='Search' onkeyup='filter()'></div></form>"
+	    html += "<div class='dropdown-divider'></div><a class='dropdown-item'>New Problem</a></li><li><div class='dropdown-divider'></div>";
 		html += "<h6 class='dropdown-header'>Previously Problems</h6>";
 		var sql = "SELECT problem FROM tblProblem";
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
@@ -139,6 +140,20 @@
 		    document.getElementById("chooseNewProblemCombo").innerHTML = html;
 		  }
 		},'json');
+	  }
+	  
+	  function filter(){
+	    var input = document.getElementById("dropdownSearch");
+		var x = document.getElementById("dropdown-menu2").getElementsByTagName("a");
+		for (i = 0; i < x.length; i++){
+		  txtValue = x[i].textContent || x[i].innerText;
+		  if (txtValue.toUpperCase().indexOf(input.value.toUpperCase()) > -1) {
+		    x[i].style.display = "";
+		  }
+		  else{
+		    x[i].style.display = "none";
+		  }
+		}
 	  }
 	  
 	  $(document).on('click', '#dropdown-menu2 a', function(){
