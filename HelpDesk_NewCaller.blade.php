@@ -136,7 +136,7 @@
 			  html+="<a class='dropdown-item' href='#'>" + json[i].problem + "</a>";
 			}
 			html+="</div>";
-		    document.getElementById("dropdownNewOrExisiting").innerHTML = html;
+		    document.getElementById("chooseNewProblemCombo").innerHTML = html;
 		  }
 		},'json');
 	  }
