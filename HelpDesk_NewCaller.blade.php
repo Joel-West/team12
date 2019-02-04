@@ -75,7 +75,7 @@
 	  
 	  function problem(){
 		console.log("Problem");
-		if(document.getElementById("Problems").value == "New Problem"){
+		if(document.getElementById("dropdownButton").value == "New Problem"){
 		  newProblemCreation();
 		  $('#newProblemCollapse').collapse('show');
 		  $('#existingProblemCollapse').collapse('hide');
@@ -90,8 +90,8 @@
         $(".dropdown-menu").on('click', 'li a', function(){
           $(".btn:first-child").text($(this).text());
 		  $(".btn:first-child").val($(this).text());
-		  console.log($(this).text());
-		  problem($(this).text());
+		  console.log(document.getElementById("dropdownButton").value));
+		  problem();
         });
       });
 	  
