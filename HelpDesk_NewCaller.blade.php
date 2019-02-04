@@ -128,8 +128,8 @@
 		html += "<div class='dropdown-menu' id='dropdown-menu2' aria-labelledby='dropdownMenu2'>";
 		html += "<form class ='px-4 py-3'><div class='form-group'><label for='dropdownSearch'>Search</label>"
 		html += "<input type='text' class='form-control' id='dropdownSearch' placeholder='Search' onkeyup='filter()'></div></form>"
-	    html += "<div class='dropdown-divider'></div><a class='dropdown-item'>New Problem<form class='px-4 py-3'>";
-		html += "<input type='text' class='form-group' id='newProblemInput' placeholder='Enter New Problem'></form></a><div class='dropdown-divider'></div>";
+	    html += "<div class='dropdown-divider'></div><a class='dropdown-item'>New Problem<form class='px-4 py-3'><div class='form-group'>";
+		html += "<input type='text' class='form-group' id='newProblemInput' placeholder='Enter New Problem'></div></form></a><div class='dropdown-divider'></div>";
 		html += "<h6 class='dropdown-header'>Previously Problems</h6>";
 		var sql = "SELECT problem FROM tblProblem";
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
