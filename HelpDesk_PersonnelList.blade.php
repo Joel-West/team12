@@ -56,7 +56,7 @@
 				sql = "SELECT * FROM tblPersonnel WHERE ";
 				for (i = 0; i < str.length; i++) //Iterates through list of search terms, adding to the SQL query.
 				{
-					sql"upper(userID) LIKE '%"+str[i]+"%' OR upper(name) LIKE '%"+str[i]+"%' OR upper(jobTitle) LIKE '%"+str[i]+"%' OR upper(department) LIKE '%"+str[i]+"%' OR upper(telephoneNumber) LIKE '%"+str[i]+"%' OR upper(specialist) LIKE '%"+str[i]+"%';"; //Query that returns all database records with a cell containing search string.
+					sql += "upper(userID) LIKE '%"+str[i]+"%' OR upper(name) LIKE '%"+str[i]+"%' OR upper(jobTitle) LIKE '%"+str[i]+"%' OR upper(department) LIKE '%"+str[i]+"%' OR upper(telephoneNumber) LIKE '%"+str[i]+"%' OR upper(specialist) LIKE '%"+str[i]+"%';"; //Query that returns all database records with a cell containing search string.
 				}
 				RunQuery(sql); //Runs function get gets data from database and display it in tableDiv.
 			}
