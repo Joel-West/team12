@@ -59,7 +59,7 @@
 				}
 				else
 				{
-					str.replace(", ", ",").split(","); //Split search text by commas.
+					str = str.replace(", ", ",").split(","); //Split search text by commas.
 					sql = "SELECT * FROM tblPersonnel WHERE ";
 					for (i = 0; i < str.length; i++) //Iterates through list of search terms, adding to the SQL query.
 					{
