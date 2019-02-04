@@ -74,6 +74,12 @@ function GoToNewPage(page) //Function that submits the main form of the current 
 				go = false;
 			}
 		break;
+		case "UserList": case 'SpecialisationList'
+			if (admin == false)
+			{
+				go = false;
+			}
+		break;
 	}
 	if (go) //if valid (e.g. if user has access to next page).
 	{
