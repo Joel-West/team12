@@ -92,7 +92,7 @@
 		},'json');
 	  }
 	  
-      $("#dropdownNewOrExisiting").on('click', 'ul li a', function(){
+      $(document).on('click', 'li a', function(){
         $(".btn:first-child").text($(this).text());
         $(".btn:first-child").val($(this).text());
 	    problem();
@@ -183,6 +183,7 @@
 		  <br>
 		  Select New/Existing Problem:
 		  <div class="dropdownNewOrExisting" id="dropdownNewOrExisiting">
+		    
 	      </div>
 		</div>
 		<div class="col-4"></div>
