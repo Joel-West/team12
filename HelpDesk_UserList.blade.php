@@ -108,17 +108,17 @@
 			{
 				if (Admin == "Yes")
 				{
-					return true;
+					return 1;
 				}
 				else
 				{
-					return false;
+					return 0;
 				}
 			}
 			
 			function GetAdminAsString(Admin) //Gets the admin value from the checkbox as a boolean and returns a string.
 			{
-				if (Admin == true)
+				if (Admin == 1)
 				{
 					return "Yes";
 				}
