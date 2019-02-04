@@ -75,11 +75,7 @@
 	  
 	  function problem(){
 		console.log("Problem");
-		if (document.getElementById("Problems").value == ""){
-		  $('#newProblemCollapse').collapse('hide');
-		  $('#existingProblemCollapse').collapse('hide');
-		}
-		else if(document.getElementById("Problems").value == "New Problem"){
+		if(document.getElementById("Problems").value == "New Problem"){
 		  newProblemCreation();
 		  $('#newProblemCollapse').collapse('show');
 		  $('#existingProblemCollapse').collapse('hide');
@@ -94,6 +90,7 @@
         $(".dropdown-menu").on('click', 'li a', function(){
           $(".btn:first-child").text($(this).text());
 		  $(".btn:first-child").val($(this).text());
+		  problem($(".btn:first-child").val);
         });
       });
 	  
