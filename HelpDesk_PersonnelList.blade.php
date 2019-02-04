@@ -166,27 +166,32 @@
 			
 			function ValidateInput() //Function returns true if the data input boxes are all valid.
 			{
-				if (document.getElementById("txtID").value == false|| isNaN(document.getElementById("txtID").value) || GetRowWithID(document.getElementById("txtID").value) != -1 || GetRowWithID(document.getElementById("txtID").value + "(new)") != -1 || document.getElementById("txtID").value.includes("'"))
+				id = "txtID";
+				if (document.getElementById(id).value == false|| isNaN(document.getElementById(id).value) || GetRowWithID(document.getElementById(id).value) != -1 || GetRowWithID(document.getElementById(id).value + "(new)") != -1 || document.getElementById(id).value.includes("'"))
 				{
 					alert("Invalid ID"); //Returns error if data input from text box is invalid.
 					return false;
 				}
-				else if (document.getElementById("txtName").value == false || document.getElementById("txtID").value.includes("'"))
+				id = "txtName";
+				if (document.getElementById(id).value == false || document.getElementById(id).value.includes("'"))
 				{
 					alert("Invalid name"); //Returns error if data input from text box is invalid.
 					return false;
 				}
-				else if (document.getElementById("txtJobTitle").value == false || document.getElementById("txtID").value.includes("'"))
+				id = "txtJobTitle";
+				if (document.getElementById(id).value == false || document.getElementById(id).value.includes("'"))
 				{
 					alert("Invalid job title"); //Returns error if data input from text box is invalid.
 					return false;
 				}
-				else if (document.getElementById("txtDepartment").value == false || document.getElementById("txtID").value.includes("'"))
+				id = "txtDepartment";
+				if (document.getElementById(id).value == false || document.getElementById(id).value.includes("'"))
 				{
 					alert("Invalid department"); //Returns error if data input from text box is invalid.
 					return false;
 				}
-				else if (document.getElementById("txtTelephoneNumber").value == false || isNaN(document.getElementById("txtTelephoneNumber").value) || document.getElementById("txtID").value.includes("'"))
+				id = "txtTelephoneNumber";
+				if (document.getElementById(id).value == false || isNaN(document.getElementById(id).value) || document.getElementById(id).value.includes("'"))
 				{
 					alert("Invalid telephone number"); //Returns error if data input from text box is invalid.
 					return false;
