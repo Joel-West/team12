@@ -186,11 +186,11 @@
 				cell0 = row.insertCell(0); //Inserts and modifies each cell of the new row in turn.
 				cell0.innerHTML = document.getElementById("txtID").value + "(new)"; //Until it has been added to the database, the first field is given a '(new)' tag.
 				cell1 = row.insertCell(1);
-				cell1.innerHTML = document.getElementById("txtUser").value;
+				cell1.innerHTML = document.getElementById("txtUsername").value;
 				cell2 = row.insertCell(2);
 				cell2.innerHTML = document.getElementById("txtPassword").value;
-				cell5 = row.insertCell(5);
-				cell5.innerHTML = GetSpecialistAsString(document.getElementById("chkAdmin").checked);
+				cell3 = row.insertCell(3);
+				cell3.innerHTML = GetSpecialistAsString(document.getElementById("chkAdmin").checked);
 				document.getElementById("tbl").rows[rows].id = "t" + document.getElementById("tbl").rows[rows-1].id; //Sets ID of new row.
 				document.getElementById("tbl").rows[rows].style.backgroundColor = '#9FFF30'; //Sets background colour of new row.
 				newRowCount+=1;
