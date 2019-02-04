@@ -128,7 +128,7 @@
 		html += "<div class='dropdown-menu' id='dropdown-menu2' aria-labelledby='dropdownMenu2'>";
 		html += "<form class ='px-4 py-3'><div class='form-group'><label for='dropdownSearch'>Search</label>"
 		html += "<input type='text' class='form-control' id='dropdownSearch' placeholder='Search' onkeyup='filter()'></div></form>"
-	    html += "<div class='dropdown-divider'></div><a class='dropdown-item'>New Problem</a></li><li><div class='dropdown-divider'></div>";
+	    html += "<div class='dropdown-divider'></div><a class='dropdown-item'>New Problem</a><div class='dropdown-divider'></div>";
 		html += "<h6 class='dropdown-header'>Previously Problems</h6>";
 		var sql = "SELECT problem FROM tblProblem";
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
@@ -216,17 +216,20 @@
 		  <br>
 		  <br>
 		  Select New/Existing Problem:
-		  <div class="dropdownNewOrExisting" id="dropdownNewOrExisiting">
-		    
-	      </div>
+		  <div class="dropdownNewOrExisting" id="dropdownNewOrExisiting"> </div>
 		</div>
 		<div class="col-4"></div>
 		
-		<br>
 		<div class="col-3"></div>
 		<div class="collapse col-6" id="newProblemCollapse">
 		  Select New Problem:
 		  <div id="chooseNewProblemCombo"></div>
+		</div>
+		<div class="col-3"></div>
+		
+		<div class="col-3"></div>
+		<div class="collapse col-6" id="newNewProblemCollapse">
+		
 		</div>
 		<div class="col-3"></div>
 		
