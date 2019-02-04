@@ -14,6 +14,7 @@
 	  var userData; //Variable containing data about user
 	  var currentPage = "NewCaller";
 	  function Load(){
+		problemCreation();
 		WriteTime();
 		userData = "<?php echo $_POST['User']; ?>"; //Gets data from previous form.
 		NavBar();
@@ -73,6 +74,32 @@
 	    }
       }
 	  
+	  function problemCreation(){
+		var html = "<button class='btn btn-primary dropdown-toggle' type='button' id='dropdownButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>";
+	    var html += "Choose Problem<span class='caret'></span></button>";
+		var html += "<ul class='dropdown-menu' aria-labelledby='dropdownMenu1'>";
+		var html += "<li><a class='dropdown-item'>New Problem</a></li><li><div class='dropdown-divider'></div></li>";
+		var html += "<li><h6 class='dropdown-header'>Existing Problems</h6></li>";
+		var sql = "SELECT problem FROM tblProblem WHERE resolved = 'no'";
+		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
+		  if (json && json[0]){
+			for (i = 0; i < json.length; i++){
+			  html+="<li><a class='dropdown-item' href='#'>" + json[i].problem "</a></li>";
+			}
+			html+="</ul>";
+		    document.getElementById("dropdownNewOrExisiting").innerHTML = html;
+		  }
+		},'json');
+	  }
+	  
+	  $(function(){
+        $(".dropdown-menu").on('click', 'li a', function(){
+          $(".btn:first-child").text($(this).text());
+		  $(".btn:first-child").val($(this).text());
+		  problem();
+        });
+      });
+	  
 	  function problem(){
 		console.log("Problem");
 		if(document.getElementById("dropdownButton").value == "New Problem"){
@@ -85,15 +112,6 @@
 		  $('#existingProblemCollapse').collapse('show');
 		}
 	  }
-	  
-	  $(function(){
-        $(".dropdown-menu").on('click', 'li a', function(){
-          $(".btn:first-child").text($(this).text());
-		  $(".btn:first-child").val($(this).text());
-		  console.log(document.getElementById("dropdownButton").value);
-		  problem();
-        });
-      });
 	  
 	  function newProblemCreation(){
 		var html = "<select id='chooseProblem' class='custom-select' >";
@@ -166,19 +184,7 @@
 		  <br>
 		  <br>
 		  Select New/Existing Problem:
-		  <div class="dropdownNewOrExisting">
-	        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-	          Choose Problem
-		      <span class="caret"></span>
-	        </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-	          <li><a class="dropdown-item">New Problem</a></li>
-		      <li><div class="dropdown-divider"></div></li>
-              <li><h6 class="dropdown-header">Existing Problems</h6></li>
-              <li><a class="dropdown-item" href="#">Broken Capslocks</a></li>
-              <li><a class="dropdown-item" href="#">Overheated Computer</a></li>
-		      <li><a class="dropdown-item" href="#">MS Paint won't close</a></li>
-            </ul>
+		  <div class="dropdownNewOrExisting" id="dropdownNewOrExisiting">
 	      </div>
 		</div>
 		<div class="col-4"></div>
