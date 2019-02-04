@@ -162,10 +162,12 @@
 		if ($(this).text() == "New Problem"){
 		  $("#dropdownButton2:first-child").text(document.getElementById("newProblemInput").value);
 		  $("#dropdownButton2:first-child").val(document.getElementById("newProblemInput").value);
+		  $('#newNewProblemCollapse').collapse('show');
 		}
 		else{
           $("#dropdownButton2:first-child").text($(this).text());
           $("#dropdownButton2:first-child").val($(this).text());
+		  $('#newNewProblemCollapse').collapse('hide');
 		}
       });
 	  
@@ -237,7 +239,24 @@
 		
 		<div class="col-3"></div>
 		<div class="collapse col-6" id="newNewProblemCollapse">
-		
+		  <div class="form-check">
+		    <input class="form-check-input" type="radio" name="Radios" id="Radios1" value="Hardware" checked>
+			<label class="form-check-label" for="Radios1">
+			  Hardware
+			</label>
+		  </div>
+		  <div class="form-check">
+		    <input class="form-check-input" type="radio" name="Radios" id="Radios1" value="Software" checked>
+			<label class="form-check-label" for="Radios1">
+			  Software
+			</label>
+		  </div>
+		  <div class="form-check">
+		    <input class="form-check-input" type="radio" name="Radios" id="Radios1" value="Network" checked>
+			<label class="form-check-label" for="Radios1">
+			  Network
+			</label>
+		  </div>
 		</div>
 		<div class="col-3"></div>
 		
