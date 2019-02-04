@@ -170,31 +170,31 @@
 				if (document.getElementById(id).value == false || isNaN(document.getElementById(id).value) || document.getElementById(id).value.includes("'") ||
 				((GetRowWithID(document.getElementById(id).value) != -1 || GetRowWithID(document.getElementById(id).value + "(new)") != -1) && document.getElementById(id).disabled == false))
 				{
-					alert("Invalid ID"); //Returns error if data input from text box is invalid.
+					alert("Invalid ID."); //Returns error if data input from text box is invalid.
 					return false;
 				}
 				id = "txtName";
 				if (document.getElementById(id).value == false || document.getElementById(id).value.includes("'"))
 				{
-					alert("Invalid name"); //Returns error if data input from text box is invalid.
+					alert("Invalid name."); //Returns error if data input from text box is invalid.
 					return false;
 				}
 				id = "txtJobTitle";
 				if (document.getElementById(id).value == false || document.getElementById(id).value.includes("'"))
 				{
-					alert("Invalid job title"); //Returns error if data input from text box is invalid.
+					alert("Invalid job title."); //Returns error if data input from text box is invalid.
 					return false;
 				}
 				id = "txtDepartment";
 				if (document.getElementById(id).value == false || document.getElementById(id).value.includes("'"))
 				{
-					alert("Invalid department"); //Returns error if data input from text box is invalid.
+					alert("Invalid department."); //Returns error if data input from text box is invalid.
 					return false;
 				}
 				id = "txtTelephoneNumber";
 				if (document.getElementById(id).value == false || isNaN(document.getElementById(id).value) || document.getElementById(id).value.includes("'"))
 				{
-					alert("Invalid telephone number"); //Returns error if data input from text box is invalid.
+					alert("Invalid telephone number."); //Returns error if data input from text box is invalid.
 					return false;
 				}
 				return true;

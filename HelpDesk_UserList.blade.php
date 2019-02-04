@@ -157,19 +157,19 @@
 				if (document.getElementById(id).value == false || isNaN(document.getElementById(id).value) || document.getElementById(id).value.includes("'") ||
 				((GetRowWithID(document.getElementById(id).value) != -1 || GetRowWithID(document.getElementById(id).value + "(new)") != -1) && document.getElementById(id).disabled == false))
 				{
-					alert("Invalid ID"); //Returns error if data input from text box is invalid.
+					alert("Invalid ID."); //Returns error if data input from text box is invalid.
 					return false;
 				}
 				id = "txtUsername";
 				if (document.getElementById(id).value == false || document.getElementById(id).value.includes("'"))
 				{
-					alert("Invalid name"); //Returns error if data input from text box is invalid.
+					alert("Invalid name."); //Returns error if data input from text box is invalid.
 					return false;
 				}
 				id = "txtPassword";
 				if (document.getElementById(id).value == false || document.getElementById(id).value.includes("'"))
 				{
-					alert("Invalid job title"); //Returns error if data input from text box is invalid.
+					alert("Invalid job title."); //Returns error if data input from text box is invalid.
 					return false;
 				}
 				return true;
@@ -202,6 +202,11 @@
 			{
 				if (!ValidateInput())
 				{
+					return;
+				}
+				if (document.getElementById("txtID").value == (userData.split(","))[1] && document.getElementById("chkAdmin").checked == 0)//Prevents user from changing their admin status.
+				{
+					alert("You cannot change your own admin status.");
 					return;
 				}
 				row = document.getElementById("tbl").rows[GetSelectedRow()]; //Gets the details of the row that is selected.
