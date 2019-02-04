@@ -90,7 +90,7 @@
         $(".dropdown-menu").on('click', 'li a', function(){
           $(".btn:first-child").text($(this).text());
 		  $(".btn:first-child").val($(this).text());
-		  console.log(document.getElementById("dropdownButton").value));
+		  console.log(document.getElementById("dropdownButton").value);
 		  problem();
         });
       });
