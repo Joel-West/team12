@@ -90,7 +90,8 @@
         $(".dropdown-menu").on('click', 'li a', function(){
           $(".btn:first-child").text($(this).text());
 		  $(".btn:first-child").val($(this).text());
-		  problem($(".btn:first-child").val);
+		  var param = getElementById(dropdownButton).innerHTML();
+		  problem(param);
         });
       });
 	  
@@ -166,7 +167,7 @@
 		  <br>
 		  Select New/Existing Problem:
 		  <div class="dropdownNewOrExisting">
-	        <button class="btn btn-primary dropdown-toggle" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+	        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
 	          Choose Problem
 		      <span class="caret"></span>
 	        </button>
