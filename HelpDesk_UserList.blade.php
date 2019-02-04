@@ -90,7 +90,7 @@
 							htm += "<tr id='t" + (i+1) + "' style='background-color:rgb(159, 255, 48);'>"; //Sets colour and ID of row.
 							htm +="<td id='id'>"+json[i].userID+"</td>";
 							htm +="<td id='username'>"+json[i].username+"</td>";
-							htm +="<td id='password'>"+json[i].password+"</td>";		
+							htm +="<td class='hidetext' id='password'>"+json[i].password+"</td>";		
 							htm +="<td id='admin'>"+GetAdminAsString(json[i].admin)+"</td>";
 							htm += "</tr>";							
 						}
@@ -335,6 +335,7 @@
 			overflow-y: auto;
 			-ms-overflow-style: -ms-autohiding-scrollbar;
 		}
+		.hidetext { -webkit-text-security: disc;}
 		</style>
 	</head>
 	<body onload="Load()" style="height:100%;">
