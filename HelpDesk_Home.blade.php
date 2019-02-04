@@ -41,6 +41,14 @@
 				width: 80%;
 				margin: auto;
 			}
+			.subButton
+			{
+				font-size:32px;
+				font-weight:bold;
+				padding: 12px 25px;
+				width: 40%;
+				margin: auto;
+			}
 			.grid-class
 			{
 				position: relative;
@@ -63,6 +71,8 @@
 			<input class="mainButton" type="button" value="View Call History" onClick="GoToNewPage('CallHistory');" />
 			<input class="mainButton" type="button" value="View Problems List" onClick="GoToNewPage('ProblemList');" />
 			<input class="mainButton" type="button" value="View Personnel" onClick="GoToNewPage('PersonnelList');" />
+			<input class="subButton" type="button" value="Users" onClick="GoToNewPage('UserList');" />
+			<input class="subButton" type="button" value="Specialisations" onClick="GoToNewPage('SpecialisationList');" />
 			<input class="mainButton" type="button" value="View Equipment" onClick="GoToNewPage('EquipmentList');" />
 			<input class="mainButton" type="button" id="btnAnalytics" value="Analytics" onClick="GoToNewPage('Analytics')" />
 		</div>
