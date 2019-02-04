@@ -126,10 +126,10 @@
 	  function newProblemCreation(){
 		var html = "<button class='btn btn-primary dropdown-toggle' type='button' id='newDropdownButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>";
 	    html += "Choose Problem<span class='caret'></span></button>";
-		html += "<div class='dropdown-menu' id='dropdown-menu' aria-labelledby='dropdownMenu2'>";
+		html += "<div class='dropdown-menu2' id='dropdown-menu' aria-labelledby='dropdownMenu2'>";
 	    html += "<a class='dropdown-item'>New Problem</a></li><li><div class='dropdown-divider'></div>";
 		html += "<h6 class='dropdown-header'>Previously Problems</h6>";
-		var sql = "SELECT problem FROM tblProblem WHERE resolved = 'no'";
+		var sql = "SELECT problem FROM tblProblem";
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
 		  if (json && json[0]){
 			for (i = 0; i < json.length; i++){
