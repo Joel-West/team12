@@ -105,8 +105,8 @@
 	  }
 	  
       $(document).on('click', '#dropdown-menu a', function(){
-        $(".btn:first-child").text($(this).text());
-        $(".btn:first-child").val($(this).text());
+        $("#dropdownButton:first-child").text($(this).text());
+        $("#dropdownButton:first-child").val($(this).text());
 	    problem();
       });
 	  
@@ -158,10 +158,15 @@
 	  }
 	  
 	  $(document).on('click', '#dropdown-menu2 a', function(){
-		
-          $(".btn:first-child").text($(this).text());
-          $(".btn:first-child").val($(this).text());
-		
+		console.log($(this).text());
+		if ($(this).text() == "New Problem"){
+		  $("#dropdownButton2:first-child").text(document.getElementById("newProblemInput").value);
+		  $("#dropdownButton2:first-child").val(document.getElementById("newProblemInput").value);
+		}
+		else{
+          $("#dropdownButton2:first-child").text($(this).text());
+          $("#dropdownButton2:first-child").val($(this).text());
+		}
       });
 	  
 	</script>
