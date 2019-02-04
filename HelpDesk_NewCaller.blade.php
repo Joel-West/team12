@@ -76,10 +76,10 @@
 	  
 	  function problemCreation(){
 		var html = "<button class='btn btn-primary dropdown-toggle' type='button' id='dropdownButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>";
-	    var html += "Choose Problem<span class='caret'></span></button>";
-		var html += "<ul class='dropdown-menu' aria-labelledby='dropdownMenu1'>";
-		var html += "<li><a class='dropdown-item'>New Problem</a></li><li><div class='dropdown-divider'></div></li>";
-		var html += "<li><h6 class='dropdown-header'>Existing Problems</h6></li>";
+	    html += "Choose Problem<span class='caret'></span></button>";
+		html += "<ul class='dropdown-menu' aria-labelledby='dropdownMenu1'>";
+	    html += "<li><a class='dropdown-item'>New Problem</a></li><li><div class='dropdown-divider'></div></li>";
+		html += "<li><h6 class='dropdown-header'>Existing Problems</h6></li>";
 		var sql = "SELECT problem FROM tblProblem WHERE resolved = 'no'";
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
 		  if (json && json[0]){
