@@ -71,11 +71,11 @@
 			<input class="mainButton" type="button" value="View Call History" onClick="GoToNewPage('CallHistory');" />
 			<input class="mainButton" type="button" value="View Problems List" onClick="GoToNewPage('ProblemList');" />
 			<input class="mainButton" type="button" value="View Personnel" onClick="GoToNewPage('PersonnelList');" />
-			<input class="subButton" type="button" value="Users" onClick="GoToNewPage('UserList');" />
-			<input class="subButton" type="button" value="Specialisations" onClick="GoToNewPage('SpecialisationList');" />
 			<input class="mainButton" type="button" value="View Equipment" onClick="GoToNewPage('EquipmentList');" />
 			<input class="mainButton" type="button" id="btnAnalytics" value="Analytics" onClick="GoToNewPage('Analytics')" />
 		</div>
+		<input class="subButton" type="button" value="Users" onClick="GoToNewPage('UserList');" />
+		<input class="subButton" type="button" value="Specialisations" onClick="GoToNewPage('SpecialisationList');" />
 		<br>
 		<!--Fun mode (don't click if you have epilepsy...): <input id="checkFun" type="checkbox" onclick="Fun()"/>-->
 	</form>
