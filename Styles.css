@@ -2,7 +2,7 @@
 
 body
 {
-	/*font-family: "Apple Chancery", Times, serif;*/
+	font-family: "Apple Chancery", Times, serif;
 	background-color: #FFFFFF;
 }
 
@@ -14,7 +14,7 @@ body
 body,td,th,input,label
 {
 	color: #000;
-	/*font-family: "Apple Chancery", Times, serif;*/
+	font-family: "Apple Chancery", Times, serif;
 }
 
 table
