@@ -160,8 +160,8 @@
 	  $(document).on('click', '#dropdown-menu2 a', function(){
 		console.log($(this).text());
 		if ($(this).text() == "New Problem"){
-		  $(".btn:first-child").text(getElementById("newProblemInput").value);
-		  $(".btn:first-child").val(getElementById("newProblemInput").value);
+		  $(".btn:first-child").text(document.getElementById("newProblemInput").value);
+		  $(".btn:first-child").val(document.getElementById("newProblemInput").value);
 		}
 		else{
           $(".btn:first-child").text($(this).text());
