@@ -22,6 +22,11 @@
 			{
 				admin = (userData.split(","))[2]; //Retrieves admin/analyst status from userData that was earlier posted from previous form.
 				analyst = (userData.split(","))[3];
+				if (admin == 0)
+				{
+					document.getElementById("btnUsers").disabled = true;
+					document.getElementById("btnSpecialisations").disabled = true;
+				}
 				if (admin == 0 && analyst == 0)
 				{
 					document.getElementById("btnAnalytics").disabled = true;
@@ -69,8 +74,8 @@
 					<input class="mainButton" type="button" value="View Personnel" onClick="GoToNewPage('PersonnelList');" />
 					<input class="mainButton" type="button" value="View Equipment" onClick="GoToNewPage('EquipmentList');" />
 					<input class="mainButton" type="button" id="btnAnalytics" value="Analytics" onClick="GoToNewPage('Analytics')" />			
-					<input class="mainButton" type="button" value="Users" onClick="GoToNewPage('UserList');" />
-					<input class="mainButton" type="button" value="Specialisations" onClick="GoToNewPage('SpecialisationList');" />
+					<input class="mainButton" type="button" id="btnUsers" value="Users" onClick="GoToNewPage('UserList');" />
+					<input class="mainButton" type="button" id="btnSpecialisations" value="Specialisation" onClick="GoToNewPage('SpecialisationList');" />
 				<br>
 				<!--Fun mode (don't click if you have epilepsy...): <input id="checkFun" type="checkbox" onclick="Fun()"/>-->
 			</form>
