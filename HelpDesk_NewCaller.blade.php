@@ -240,19 +240,19 @@
 		<div class="col-3"></div>
 		<div class="collapse col-6" id="newNewProblemCollapse">
 		  <div class="form-check">
-		    <input class="form-check-input" type="radio" name="Radios" id="Radios1" value="Hardware" checked>
+		    <input class="form-check-input" type="radio" name="Radios" id="Radios1" value="Hardware">
 			<label class="form-check-label" for="Radios1">
 			  Hardware
 			</label>
 		  </div>
 		  <div class="form-check">
-		    <input class="form-check-input" type="radio" name="Radios" id="Radios1" value="Software" checked>
+		    <input class="form-check-input" type="radio" name="Radios" id="Radios1" value="Software">
 			<label class="form-check-label" for="Radios1">
 			  Software
 			</label>
 		  </div>
 		  <div class="form-check">
-		    <input class="form-check-input" type="radio" name="Radios" id="Radios1" value="Network" checked>
+		    <input class="form-check-input" type="radio" name="Radios" id="Radios1" value="Network">
 			<label class="form-check-label" for="Radios1">
 			  Network
 			</label>
