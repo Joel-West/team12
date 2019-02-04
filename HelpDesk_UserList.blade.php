@@ -282,7 +282,7 @@
 						sql+="UPDATE tblUser SET ";
 						sql+="username = '"+ row.cells[1].innerHTML + "', ";
 						sql+="password = '"+ row.cells[2].innerHTML + "', ";
-						sql+="admin = '"+ row.cells[3].innerHTML + "' ";
+						sql+="admin = '"+ GetAdminAsBool(row.cells[3].innerHTML) + "' ";
 						sql+="WHERE userID = " + id + "; ";
 					}
 				}
@@ -296,7 +296,7 @@
 						sql+=row.cells[0].innerHTML + ", ";
 						sql+="'" + row.cells[1].innerHTML + "', ";
 						sql+="'" + row.cells[2].innerHTML + "', "
-						sql+="'" + row.cells[3].innerHTML + "'); ";
+						sql+="" + GetAdminAsBool(row.cells[3].innerHTML) + "); ";
 					}
 				}
 				alert(sql);
