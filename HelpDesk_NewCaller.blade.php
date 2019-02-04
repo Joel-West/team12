@@ -95,6 +95,7 @@
 	  $(function(){
 		console.log("Hello");
         $(".dropdown-menu").on('click', 'li a', function(){
+		  console.log("Clicked my man");
           $(".btn:first-child").text($(this).text());
 		  $(".btn:first-child").val($(this).text());
 		  problem();
