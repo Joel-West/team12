@@ -136,8 +136,8 @@
 					rowNum = GetSelectedRow(); //Gets the row that is selected.
 					document.getElementById("txtID").value = document.getElementById("tbl").rows[rowNum].cells[0].innerHTML;
 					document.getElementById("txtID").disabled = true;
-					document.getElementById("txtPassword").value = document.getElementById("tbl").rows[rowNum].cells[1].innerHTML;
-					document.getElementById("txtUsername").value = document.getElementById("tbl").rows[rowNum].cells[2].innerHTML;
+					document.getElementById("txtUsername").value = document.getElementById("tbl").rows[rowNum].cells[1].innerHTML;
+					document.getElementById("txtPassword").value = document.getElementById("tbl").rows[rowNum].cells[2].innerHTML;
 					document.getElementById("chkAdmin").checked = GetAdminAsBool(document.getElementById("tbl").rows[rowNum].cells[3].innerHTML);
 				}
 				else
