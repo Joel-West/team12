@@ -55,6 +55,12 @@
 				display: grid;
 				grid-template-columns: auto;
 			}
+			.sub-grid-class
+			{
+				position: relative;
+				display: grid;
+				grid-template-columns: auto;
+			}
 		</style>
 	</head>
 	<body onload="Load()">
@@ -74,8 +80,10 @@
 			<input class="mainButton" type="button" value="View Equipment" onClick="GoToNewPage('EquipmentList');" />
 			<input class="mainButton" type="button" id="btnAnalytics" value="Analytics" onClick="GoToNewPage('Analytics')" />
 		</div>
-		<input class="subButton" type="button" value="Users" onClick="GoToNewPage('UserList');" />
-		<input class="subButton" type="button" value="Specialisations" onClick="GoToNewPage('SpecialisationList');" />
+		<div class="sub-grid-class"> <!-- Div containing minor buttons that link to other pages. -->
+			<input class="subButton" type="button" value="Users" onClick="GoToNewPage('UserList');" />
+			<input class="subButton" type="button" value="Specialisations" onClick="GoToNewPage('SpecialisationList');" />
+		</div>
 		<br>
 		<!--Fun mode (don't click if you have epilepsy...): <input id="checkFun" type="checkbox" onclick="Fun()"/>-->
 	</form>
