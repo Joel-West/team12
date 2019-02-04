@@ -24,19 +24,31 @@
 		  var html = "<ul class='navbar-nav mr-auto'>"
 		  var admin = (userData.split(","))[2]; 
 		  var analyst = (userData.split(","))[3];
+		  
 		  html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage(document.getElementById(&quot;Previous&quot;).value)'>&#x2190 </a>";
 		  html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;Home&quot;);'>Home</a>";
 		  html+= "<a class='nav-item nav-link active' href='#'>New Call <span class='sr-only'>(current)</span></a>";
-		  html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;CallHistory&quot;);'>Call History</a>";
-		  html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;ProblemList&quot;);'>Problems List</a>";
-		  html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;PersonnelList&quot;);'>Personnel</a>";
-		  html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;EquipmentList&quot;);'>Equipment</a>";
+		  html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;CallHistory&quot;);'>View Call History</a>";
+		  html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;ProblemList&quot;);'>View Problems List</a>";
+		  html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;PersonnelList&quot;);'>View Personnel</a>";
+		 
+		 if (admin==1){
+			html+="<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;UserList&quot;);'>View Users</a>";
+			html+="<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;SpecialisationList&quot;);'>View Specialisations</a>";
+		  }
+		  else{
+			html+= "<a class='nav-item nav-link disabled' href='#'>View Users</a>";
+			html+= "<a class='nav-item nav-link disabled' href='#'>View Specialisations</a>"
+		  }
+		  
+		  html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;EquipmentList&quot;);'>View Equipment</a>";
+		  
 		  if (admin == 0 && analyst == 0){
 			html+= "<a class='nav-item nav-link disabled' href='#'>Analytics</a></ul>";
 		  }
           else{
 		    html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;Analytics&quot;);'>Analytics</a></ul>";
-		  }
+		
 		document.getElementById("navbarNavDropdown").innerHTML = html;
 	  }
 	  
