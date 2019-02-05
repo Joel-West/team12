@@ -185,6 +185,7 @@
 	  }
 	  
 	  function findAllChildren(parent){
+		console.log("Loop");
 		var result = [];
 		var sql = "SELECT typeName FROM tblProblemType WHERE generalisation = '" + parent + "';";
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
@@ -195,7 +196,6 @@
 			}
 		  }
 		},'json');
-		console.log(result);
 		return(result); 
 	  }
 	  
