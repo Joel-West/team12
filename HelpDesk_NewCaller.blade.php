@@ -258,13 +258,13 @@
 			</label>
 		  </div>
 		  <div class="form-check">
-		    <input class="form-check-input" type="radio" name="Radios" id="Radios1" value="Software" "radios(2);">
+		    <input class="form-check-input" type="radio" name="Radios" id="Radios1" value="Software" onClick = "radios(2);">
 			<label class="form-check-label" for="Radios1">
 			  Software
 			</label>
 		  </div>
 		  <div class="form-check">
-		    <input class="form-check-input" type="radio" name="Radios" id="Radios1" value="Network" "radios(3);">
+		    <input class="form-check-input" type="radio" name="Radios" id="Radios1" value="Network" onClick = "radios(3);">
 			<label class="form-check-label" for="Radios1">
 			  Network
 			</label>
