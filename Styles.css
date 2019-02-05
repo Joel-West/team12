@@ -55,46 +55,8 @@ input[type=button]:disabled
 	opacity: 0.3;
 }
 
-.greenButton
+.greenBack
 {
 	background-color:#9FFF30;
 	border-color:#9FFF30;
-}
-
-.dropbtn {
-  background-color: #9FFF30;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-}
-
-.dropbtn:hover, .dropbtn:focus {
-  background-color: #3e8e41;
-}
-
-.dropdown
-{
-  position: relative;
-  display: inline-block;
-}
-
-.dropdown-content
-{
-  display: none;
-  position: absolute;
-  background-color: #f6f6f6;
-  min-width: 230px;
-  overflow: auto;
-  border: 1px solid #ddd;
-  z-index: 1;
-}
-
-.dropdown-content a
-{
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
 }
