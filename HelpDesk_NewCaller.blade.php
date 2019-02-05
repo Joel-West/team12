@@ -195,6 +195,7 @@
 			}
 		  }
 		},'json');
+		console.log(result);
 		return(result); 
 	  }
 	  
