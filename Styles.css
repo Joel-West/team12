@@ -55,4 +55,8 @@ input[type=button]:disabled
 	opacity: 0.3;
 }
 
-.green {color:#9FFF30}
+.greenButton
+{
+	background-color:#9FFF30
+	border-color:#9FFF30
+}
