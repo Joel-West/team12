@@ -172,7 +172,7 @@
       });
 	  
 	  children = [];
-	  function radios(num){
+	  function radios(num, callback){
 		if (num==1){
 		  result = [];
 		  result = findAllChildren("Hardware problem");
@@ -285,19 +285,19 @@
 		<div class="col-3"></div>
 		<div class="collapse col-6" id="newNewProblemCollapse">
 		  <div class="form-check">
-		    <input class="form-check-input" type="radio" name="Radios" id="Radios1" value="Hardware" onClick = "radios(1);">
+		    <input class="form-check-input" type="radio" name="Radios" id="Radios1" value="Hardware" onClick = "radios(1, problemTypeCreation);">
 			<label class="form-check-label" for="Radios1">
 			  Hardware
 			</label>
 		  </div>
 		  <div class="form-check">
-		    <input class="form-check-input" type="radio" name="Radios" id="Radios1" value="Software" onClick = "radios(2);">
+		    <input class="form-check-input" type="radio" name="Radios" id="Radios1" value="Software" onClick = "radios(2, problemTypeCreation);">
 			<label class="form-check-label" for="Radios1">
 			  Software
 			</label>
 		  </div>
 		  <div class="form-check">
-		    <input class="form-check-input" type="radio" name="Radios" id="Radios1" value="Network" onClick = "radios(3);">
+		    <input class="form-check-input" type="radio" name="Radios" id="Radios1" value="Network" onClick = "radios(3, problemTypeCreation);">
 			<label class="form-check-label" for="Radios1">
 			  Network
 			</label>
