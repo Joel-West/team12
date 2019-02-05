@@ -174,7 +174,7 @@
 	  function radios(num){
 		if (num==1){
 		  $('#resultCollapse').collapse('show');
-		  console.log(findAllChildren("Hardware"));
+		  console.log(findAllChildren("Hardware problem"));
 		}
 		else if (num==2){
 		  $('#resultCollapse').collapse('show');
