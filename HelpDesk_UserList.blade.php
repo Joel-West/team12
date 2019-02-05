@@ -141,7 +141,7 @@
 			
 			function PopulateSelect() //Populates selection box with IDs/names based on searched text.
 			{
-				if (document.getElementById(txtID).value == "")
+				if (document.getElementById("txtID").value == "")
 				{
 					selID.innerHTML = "";
 					selID.visibility = "hidden";
