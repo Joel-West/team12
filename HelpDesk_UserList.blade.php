@@ -139,9 +139,8 @@
 				return false;
 			}
 			
-			$('#txtID').on('keyup', function() //Populates selection box with IDs/names based on searched text.
+			function PopulateSelect() //Populates selection box with IDs/names based on searched text.
 			{
-				alert("");
 				if (document.getElementById(txtID).value == "")
 				{
 					selID.innerHTML = "";
@@ -160,7 +159,7 @@
 					}
 				}
 				document.getElementById("selID").innerHTML=htm;
-			});
+			}
 			
 			function GetAdminAsBool(Admin) //Gets the admin value from a table as a string and returns a boolean.
 			{
@@ -422,7 +421,7 @@
 						</div>
 						<div id="inputDiv">
 							<input type="button" class="btn" id="btnDelete" value="Delete Selected Items" id="del" style="font-size:16px;" onclick="Delete()"/><br/><br/> <!-- Delete button that calls function within ExtraCode.js when pressed. -->
-							ID:<br/><input id="txtID" type="text"></input><br/> <!-- Input fields for adding a new row.-->						
+							ID:<br/><input id="txtID" type="text" onkeyup="PopulateSelect()"></input><br/> <!-- Input fields for adding a new row.-->						
 							<select id="selID"></select><br/>
 							Username:<br/><input id="txtUsername" type="text"></input><br/>
 							Password:<br/><input class="hidetext" id="txtPassword" type="text"></input><br/>							
