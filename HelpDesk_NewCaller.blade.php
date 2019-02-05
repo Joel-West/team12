@@ -171,6 +171,22 @@
 		}
       });
 	  
+	  document.getElementById("Radios1").onclick = Radios(1);
+	  document.getElementById("Radios2").onclick = Radios(2);
+	  document.getElementById("Radios3").onclick = Radios(3);
+	  
+	  function Radios(num){
+		if(num==1){
+		  console.log("1");
+		}
+		else if(num==2){
+		  console.log("2");
+		}
+		else{
+		  console.log("3");
+		}
+	  }
+	  
 	</script>
   </head>
   
