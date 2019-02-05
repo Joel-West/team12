@@ -116,11 +116,11 @@
 						for (i = 0; i<json.length; i++) //Iterates through the json array of results.
 						{
 							validIDs[i] = json[i];
+							console.log(validIDs[i]);
 						}
 					}
 				},'json');
 				console.log(validIDs);
-				console.log(validIDs[0].userID);
 			}
 			
 			function GetAdminAsBool(Admin) //Gets the admin value from a table as a string and returns a boolean.
