@@ -148,8 +148,9 @@
 				}
 				else
 				{
-					selID.visibility = "hidden";
+					selID.visibility = "visible";
 				}
+				console.log("show");
 				htm = "";
 				for (i = 0; i < validIDs.length; i++) //Iterates through all ids that exist in the personnel table.
 				{
