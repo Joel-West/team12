@@ -171,19 +171,15 @@
 		}
       });
 	  
-	  document.getElementById("Radios1").onclick = Radios(1);
-	  document.getElementById("Radios2").onclick = Radios(2);
-	  document.getElementById("Radios3").onclick = Radios(3);
-	  
-	  function Radios(num){
-		if(num==1){
-		  console.log("1");
+	  function radios(num){
+		if (num==1){
+		  console.log(1);
 		}
-		else if(num==2){
-		  console.log("2");
+		else if (num==2){
+		  console.log(2);
 		}
 		else{
-		  console.log("3");
+		  console.log(3);
 		}
 	  }
 	  
@@ -256,19 +252,19 @@
 		<div class="col-3"></div>
 		<div class="collapse col-6" id="newNewProblemCollapse">
 		  <div class="form-check">
-		    <input class="form-check-input" type="radio" name="Radios" id="Radios1" value="Hardware">
+		    <input class="form-check-input" type="radio" name="Radios" id="Radios1" value="Hardware" onClick = "radios(1);">
 			<label class="form-check-label" for="Radios1">
 			  Hardware
 			</label>
 		  </div>
 		  <div class="form-check">
-		    <input class="form-check-input" type="radio" name="Radios" id="Radios1" value="Software">
+		    <input class="form-check-input" type="radio" name="Radios" id="Radios1" value="Software" "radios(2);">
 			<label class="form-check-label" for="Radios1">
 			  Software
 			</label>
 		  </div>
 		  <div class="form-check">
-		    <input class="form-check-input" type="radio" name="Radios" id="Radios1" value="Network">
+		    <input class="form-check-input" type="radio" name="Radios" id="Radios1" value="Network" "radios(3);">
 			<label class="form-check-label" for="Radios1">
 			  Network
 			</label>
