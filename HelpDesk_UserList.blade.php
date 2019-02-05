@@ -115,8 +115,7 @@
 					{
 						for (i = 0; i<json.length; i++) //Iterates through the json array of results.
 						{
-							validIDs[i] = json[i];
-							console.log(validIDs[i].name);
+							validIDs[i] = json[i].userID + " - " + json[i].name;
 						}
 					}
 				},'json');
