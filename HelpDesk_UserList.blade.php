@@ -143,7 +143,7 @@
 			{
 				IDBox = document.getElementById("txtID");
 				selBox = document.getElementById("selID");
-				if (IDBox.value == "")
+				if (IDBox.value == "") //If there is nothing in the ID text box, make the selection box invisible.
 				{
 					selID.innerHTML = "";
 					selID.visibility = "hidden";
@@ -153,22 +153,26 @@
 					selID.visibility = "visible";
 				}
 				htm = "";
+				size = 0; //Stores size of selection box.
 				for (i = 0; i < validIDs.length; i++) //Iterates through all ids that exist in the personnel table.
 				{
 					if ((GetRowWithID(GetIDFromSelBoxItem(validIDs[i])) == -1) && ((GetRowWithID(GetIDFromSelBoxItem(validIDs[i])).value + "(new)") != -1) && validIDs[i].includes(IDBox.value))
 					{
+						size+=1;
 						htm+="<option onclick='IDOptionClicked(this)'>"+validIDs[i]+"</option>"; //If ID can be selected by the user as an ID for a new user.
 					}
 				}
-				selBox.innerHTML=htm;
-				if (document.getElementById("selID").size == 1)
+				selBox.innerHTML=htm; //Appends values to selection vox.
+				if (size == 1) //If only 1 valid item, automatically populate text box with ID.
 				{
+					console.log("size = 1");
 					IDBox.value = GetIDFromSelBoxItem(selBox[0]);
 				}
 			}
 			
 			function IDOptionClicked(el) //Sets ID text box value to selected option in selection box.
 			{
+				console.log("Clicked");
 				document.getElementById("txtID").value = GetIDFromSelBoxItem(el.value);
 			}
 			
