@@ -372,7 +372,14 @@
 							<!--ID:<br/><input id="txtID" type="text"></input><br/>--> <!-- Input fields for adding a new row. -->
 							<button class='btn dropdown-toggle greenButton' type='button' id='txt' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>
 								User<span class='caret'></span>
-							</button><br/>
+							</button>
+							
+							<div class='dropdown-menu' id='dropdown-menu' aria-labelledby='dropdownMenu>
+							<form class ='px-4 py-3'><div class='form-group'><label for='dropdownSearch'>Search</label>
+							<input type='text' class='form-control' id='dropdownSearch' placeholder='Search' onkeyup='filter()'></div></form>
+							<div class='dropdown-divider'></div><form class='px-4 py-3'>
+							<input type='text' class='form-control' id='IDInput' placeholder='Enter New Problem'></form><div class='dropdown-divider'></div></div>
+							
 							Username:<br/><input id="txtUsername" type="text"></input><br/>
 							Password:<br/><input class="hidetext" id="txtPassword" type="text"></input><br/>							
 							Admin? <input id="chkAdmin" type="checkbox"></input><br/>
