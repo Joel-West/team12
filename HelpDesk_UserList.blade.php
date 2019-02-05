@@ -379,7 +379,7 @@
 						</div>
 						<div id="inputDiv">
 							<input type="button" class="btn" id="btnDelete" value="Delete Selected Items" id="del" style="font-size:16px;" onclick="Delete()"/><br/><br/> <!-- Delete button that calls function within ExtraCode.js when pressed. -->
-							<!--ID:<br/><input id="txtID" type="text"></input><br/>--> <!-- Input fields for adding a new row. -->
+							<!--ID:<br/><input id="txtID" type="text"></input><br/> <!-- Input fields for adding a new row.
 							
 							<div class="dropdown">
 								<button id="btnID" class="dropbtn" onclick="UserClicked()">ID</button>
@@ -398,37 +398,8 @@
 										<a href="#contact">Contact</a>
 										<a href="#custom">Custom</a>
 										<a href="#support">Support</a>
-										<a href="#tools">Tools</a>
-										<a href="#about">About</a>
-										<a href="#base">Base</a>
-										<a href="#blog">Blog</a>
-										<a href="#contact">Contact</a>
-										<a href="#custom">Custom</a>
-										<a href="#support">Support</a>
-										<a href="#tools">Tools</a>
-										<a href="#about">About</a>
-										<a href="#base">Base</a>
-										<a href="#blog">Blog</a>
-										<a href="#contact">Contact</a>
-										<a href="#custom">Custom</a>
-										<a href="#support">Support</a>
-										<a href="#tools">Tools</a>
-										<a href="#about">About</a>
-										<a href="#base">Base</a>
-										<a href="#blog">Blog</a>
-										<a href="#contact">Contact</a>
-										<a href="#custom">Custom</a>
-										<a href="#support">Support</a>
-										<a href="#tools">Tools</a>
-										<a href="#about">About</a>
-										<a href="#base">Base</a>
-										<a href="#blog">Blog</a>
-										<a href="#contact">Contact</a>
-										<a href="#custom">Custom</a>
-										<a href="#support">Support</a>
-										<a href="#tools">Tools</a>
 									</div>
-								</div>
+								</div>-->
 							
 							Username:<br/><input id="txtUsername" type="text"></input><br/>
 							Password:<br/><input class="hidetext" id="txtPassword" type="text"></input><br/>							
