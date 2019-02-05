@@ -202,6 +202,7 @@
 	    html += "<div class='dropdown-divider'></div><h6 class='dropdown-header'>Problem Types</h6>";
 		console.log(result);
 		console.log(result.length);
+		console.log(typeof result);
 		for (i = 0; i < result.length; i++){
 	      html+="<a class='dropdown-item' href='#'>" + result[i] + "</a>";
 		}
