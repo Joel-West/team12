@@ -372,7 +372,7 @@
 							<!--ID:<br/><input id="txtID" type="text"></input><br/>--> <!-- Input fields for adding a new row. -->
 							<button class='btn btn-primary dropdown-toggle green' type='button' id='txt' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>
 								User<span class='caret'></span>
-							</button>
+							</button><br/>
 							Username:<br/><input id="txtUsername" type="text"></input><br/>
 							Password:<br/><input class="hidetext" id="txtPassword" type="text"></input><br/>							
 							Admin? <input id="chkAdmin" type="checkbox"></input><br/>
