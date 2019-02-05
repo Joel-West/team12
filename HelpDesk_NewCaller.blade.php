@@ -190,8 +190,8 @@
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
 		  if (json && json[0]){
 			for (i = 0; i < json.length; i++){
-			  result.push(json[i].generalisation);
-			  findAllChildren(json[i].generalisation);
+			  result.push(json[i].typeName);
+			  findAllChildren(json[i].typeName);
 			}
 		  }
 		},'json');
