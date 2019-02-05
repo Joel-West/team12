@@ -159,7 +159,7 @@
 					if ((GetRowWithID(GetIDFromSelBoxItem(validIDs[i])) == -1) && ((GetRowWithID(GetIDFromSelBoxItem(validIDs[i])).value + "(new)") != -1) && validIDs[i].includes(IDBox.value))
 					{
 						size+=1;
-						htm+="<option'>"+validIDs[i]+"</option>"; //If ID can be selected by the user as an ID for a new user.
+						htm+="<option>"+validIDs[i]+"</option>"; //If ID can be selected by the user as an ID for a new user.
 					}
 				}
 				selBox.innerHTML=htm; //Appends values to selection vox.
