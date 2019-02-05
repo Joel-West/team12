@@ -176,21 +176,18 @@
 		if (num==1){
 		  result = [];
 		  result = findAllChildren("Hardware problem");
-		  problemTypeCreation();
-		  $('#resultCollapse').collapse('show');
 		}
 		else if (num==2){
 		  result = [];
 		  result = findAllChildren("Software problem");
-		  problemTypeCreation();
-		  $('#resultCollapse').collapse('show');
 		}
 		else{
 		  result = [];
-		  result = findAllChildren("Network problem");
-		  problemTypeCreation();
-		  $('#resultCollapse').collapse('show');
+		  result = findAllChildren("Network problem");  
 		}
+		while (result.length == 0){
+		}
+		problemTypeCreation();
 	  }
 	  
 	  function problemTypeCreation(){
@@ -205,6 +202,7 @@
 		}
 		  html+="</div>";
 		  document.getElementById("problemTypeComboBox").innerHTML = html;
+		  $('#resultCollapse').collapse('show');
 	  }
 	  
 	  var result = [];
