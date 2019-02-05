@@ -178,9 +178,11 @@
 		}
 		else if (num==2){
 		  $('#resultCollapse').collapse('show');
+		  console.log(findAllChildren("Software problem"));
 		}
 		else{
 		  $('#resultCollapse').collapse('show');
+		  console.log(findAllChildren("Network problem"));
 		}
 	  }
 	  
@@ -191,7 +193,6 @@
 		  if (json && json[0]){
 			for (i = 0; i < json.length; i++){
 			  result.push(json[i].typeName);
-			  console.log(json[i].typeName);
 			  findAllChildren(json[i].typeName);
 			}
 		  }
