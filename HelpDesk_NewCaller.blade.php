@@ -185,9 +185,6 @@
 		  result = [];
 		  result = findAllChildren("Network problem");  
 		}
-		while (result.length == 0){
-		}
-		problemTypeCreation();
 	  }
 	  
 	  function problemTypeCreation(){
