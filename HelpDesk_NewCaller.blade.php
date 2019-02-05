@@ -200,8 +200,8 @@
 		html += "<form class ='px-4 py-3'><div class='form-group'><label for='dropdownSearch'>Search</label>"
 		html += "<input type='text' class='form-control' id='dropdownSearch' placeholder='Search' onkeyup='filter()'></div></form>"
 	    html += "<div class='dropdown-divider'></div><h6 class='dropdown-header'>Problem Types</h6>";
-	    console.log(result);
 		for (i = 0; i < result.length; i++){
+		  console.log(result[i]);
 	      html+="<a class='dropdown-item' href='#'>" + result[i] + "</a>";
 		}
 		  html+="</div>";
