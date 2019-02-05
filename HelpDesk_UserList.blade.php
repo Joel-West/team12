@@ -10,7 +10,7 @@
 		<script type="text/javascript">	
 			var userData; //Variable containing data about user.
 			var currentPage = "PersonnelList"; //Variable storing the name of the current page, so it can be passed in the URL to the next page as a 'previous page' variable.
-			var validIDs;
+			var validIDs = [];
 			function Load() //Function that runs when file loads.
 			{
 				userData = "<?php echo $_POST['User']; ?>"; //Gets data from previous form.
@@ -108,7 +108,19 @@
 			
 			function GetValidIDsArray() //Function to get array of all IDs which the user could assign a new user to.
 			{
-				
+				sql = "SELECT userID, name FROM tblPersonnel";
+				$.get("Query.php", {'sql':sql, 'returnData':true},function(json) //Calls query.php, which handles the SQL query and sorting of result data.
+				{
+					if(json && json[0]) //If result of php file was a json array.	
+					{
+						for (i = 0; i<json.length; i++) //Iterates through the json array of results.
+						{
+							validIDs[i] = json[i];
+						}
+					}
+				},'json');
+				console.log(validIDs);
+				console.log(validIDs[0]);
 			}
 			
 			function GetAdminAsBool(Admin) //Gets the admin value from a table as a string and returns a boolean.
@@ -158,12 +170,11 @@
 				}
 			}		
 			
-//(GetRowWithID(document.getElementById(id).value) != -1 || GetRowWithID(document.getElementById(id).value + "(new)") != -1) && document.getElementById(id).disabled == false)
-			
 			function ValidateInput() //Function returns true if the data input boxes are all valid.
 			{
 				id = "txtID";
-				if (document.getElementById(id).value == false || isNaN(document.getElementById(id).value) || document.getElementById(id).value.includes("'"))
+				if (document.getElementById(id).value == false || isNaN(document.getElementById(id).value) || document.getElementById(id).value.includes("'") ||
+				((GetRowWithID(document.getElementById(id).value) != -1 || GetRowWithID(document.getElementById(id).value + "(new)") != -1) && document.getElementById(id).disabled == false))
 				{
 					alert("Invalid ID."); //Returns error if data input from text box is invalid.
 					return false;
