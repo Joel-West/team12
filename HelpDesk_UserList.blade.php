@@ -104,7 +104,7 @@
 				},'json');
 			}
 			
-			GetValidIDsArray() //Function to get array of all IDs which the user could assign a new user to.
+			function GetValidIDsArray() //Function to get array of all IDs which the user could assign a new user to.
 			{
 				
 			}
@@ -370,7 +370,7 @@
 						<div id="inputDiv">
 							<input type="button" class="btn" id="btnDelete" value="Delete Selected Items" id="del" style="font-size:16px;" onclick="Delete()"/><br/><br/> <!-- Delete button that calls function within ExtraCode.js when pressed. -->
 							<!--ID:<br/><input id="txtID" type="text"></input><br/>--> <!-- Input fields for adding a new row. -->
-							<button class='btn btn-primary dropdown-toggle green' type='button' id='txt' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>
+							<button class='btn dropdown-toggle greenButton' type='button' id='txt' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>
 								User<span class='caret'></span>
 							</button><br/>
 							Username:<br/><input id="txtUsername" type="text"></input><br/>
