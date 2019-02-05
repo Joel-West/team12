@@ -10,12 +10,14 @@
 		<script type="text/javascript">	
 			var userData; //Variable containing data about user.
 			var currentPage = "PersonnelList"; //Variable storing the name of the current page, so it can be passed in the URL to the next page as a 'previous page' variable.
+			var validIDs;
 			function Load() //Function that runs when file loads.
 			{
 				userData = "<?php echo $_POST['User']; ?>"; //Gets data from previous form.
 				SetPrivileges(userData) //Enter function that defines what functions are available to user based on status.
 				ResetTable();
 				WriteTime(); //Function that writes the current time at the top of the page.
+				GetValidIDsArray();
 			}
 			
 			function SetPrivileges(userData) //Function that checks if user is an admin or analyst and adjusts available buttons accordingly.
@@ -109,16 +111,6 @@
 				
 			}
 			
-			function UserClicked() //Runs when user clicks on button to select ID.
-			{
-				document.getElementById("drpID").classList.toggle("show");
-			}
-			
-			function FilterIDs() //Filters ID based on searched txt.
-			{
-				
-			}	
-			
 			function GetAdminAsBool(Admin) //Gets the admin value from a table as a string and returns a boolean.
 			{
 				if (Admin == "Yes")
@@ -165,12 +157,13 @@
 					document.getElementById("chkAdmin").checked = false;
 				}
 			}		
+			//(GetRowWithID(document.getElementById(id).value) != -1 || GetRowWithID(document.getElementById(id).value + "(new)") != -1) && document.getElementById(id).disabled == false)
 			
 			function ValidateInput() //Function returns true if the data input boxes are all valid.
 			{
 				id = "btnID";
 				if (document.getElementById(id).value == false || isNaN(document.getElementById(id).value) || document.getElementById(id).value.includes("'") ||
-				((GetRowWithID(document.getElementById(id).value) != -1 || GetRowWithID(document.getElementById(id).value + "(new)") != -1) && document.getElementById(id).disabled == false))
+				()
 				{
 					alert("Invalid ID."); //Returns error if data input from text box is invalid.
 					return false;
@@ -379,28 +372,7 @@
 						</div>
 						<div id="inputDiv">
 							<input type="button" class="btn" id="btnDelete" value="Delete Selected Items" id="del" style="font-size:16px;" onclick="Delete()"/><br/><br/> <!-- Delete button that calls function within ExtraCode.js when pressed. -->
-							<!--ID:<br/><input id="txtID" type="text"></input><br/> <!-- Input fields for adding a new row.
-							
-							<div class="dropdown">
-								<button id="btnID" class="dropbtn" onclick="UserClicked()">ID</button>
-								<div id="drpID" class="dropdown-content">
-									<input type="text" id="txtSearchIDs" placeholder="Search..." onkeyup="FilterIDs()"
-									    <a href="#about">About</a>
-										<a href="#base">Base</a>
-										<a href="#blog">Blog</a>
-										<a href="#contact">Contact</a>
-										<a href="#custom">Custom</a>
-										<a href="#support">Support</a>
-										<a href="#tools">Tools</a>
-										<a href="#about">About</a>
-										<a href="#base">Base</a>
-										<a href="#blog">Blog</a>
-										<a href="#contact">Contact</a>
-										<a href="#custom">Custom</a>
-										<a href="#support">Support</a>
-									</div>
-								</div>-->
-							
+							<ID:<br/><input id="txtID" type="text"></input><br/> <!-- Input fields for adding a new row.-->						
 							Username:<br/><input id="txtUsername" type="text"></input><br/>
 							Password:<br/><input class="hidetext" id="txtPassword" type="text"></input><br/>							
 							Admin? <input id="chkAdmin" type="checkbox"></input><br/>
