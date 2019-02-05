@@ -104,6 +104,11 @@
 				},'json');
 			}
 			
+			GetValidIDsArray() //Function to get array of all IDs which the user could assign a new user to.
+			{
+				
+			}
+			
 			function GetAdminAsBool(Admin) //Gets the admin value from a table as a string and returns a boolean.
 			{
 				if (Admin == "Yes")
@@ -342,6 +347,10 @@
 		<div class="container-fluid"> <!-- Container holds elements together using Bootstrap. -->
 			<form id="mainform" name="mainform" method="post" action=""> <!-- This form will post data to an initially unspecified page when submitted. -->
 				<input type='text' hidden id="user" name="User"/> <!-- Hidden tag used to store posted user data so that it can later be posted back to the home page. -->
+				<button class='btn btn-primary dropdown-toggle' type='button' id='txtID' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>
+					User<span class='caret'></span>
+				</button>
+				
 				@csrf <!--Token to validates requests to server. -->
 				<div class="titleDiv"> <!-- Div containing elements at the top of the page. -->
 					<input type="button" id="btnBack" style="font-size:40px; position:absolute; left:0;" value="&#x2190" style="display:inline-block;" onClick="GoToNewPage('Home');" /> <!-- Back button. -->
