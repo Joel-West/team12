@@ -177,16 +177,19 @@
 		  $('#resultCollapse').collapse('show');
 		  result = [];
 		  result = findAllChildren("Hardware problem");
+		  problemTypeCreation();
 		}
 		else if (num==2){
 		  $('#resultCollapse').collapse('show');
 		  result = [];
 		  result = findAllChildren("Software problem");
+		  problemTypeCreation();
 		}
 		else{
 		  $('#resultCollapse').collapse('show');
 		  result = [];
 		  result = findAllChildren("Network problem");
+		  problemTypeCreation();
 		}
 	  }
 	  
