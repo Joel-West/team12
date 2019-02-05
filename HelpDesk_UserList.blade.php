@@ -150,7 +150,6 @@
 				{
 					selID.visibility = "visible";
 				}
-				console.log("show");
 				htm = "";
 				for (i = 0; i < validIDs.length; i++) //Iterates through all ids that exist in the personnel table.
 				{
@@ -159,6 +158,7 @@
 						htm+="<option>"+validIDs[i]+"</option>"; //If ID can be selected by the user as an ID for a new user.
 					}
 				}
+				console.log(htm);
 				document.getElementById("selID").innerHTML=htm;
 			}
 			
