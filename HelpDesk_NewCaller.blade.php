@@ -171,22 +171,37 @@
 		}
       });
 	  
+	  children = [];
 	  function radios(num){
 		if (num==1){
 		  $('#resultCollapse').collapse('show');
 		  result = [];
-		  console.log(findAllChildren("Hardware problem"));
+		  result = findAllChildren("Hardware problem");
 		}
 		else if (num==2){
 		  $('#resultCollapse').collapse('show');
 		  result = [];
-		  console.log(findAllChildren("Software problem"));
+		  result = findAllChildren("Software problem");
 		}
 		else{
 		  $('#resultCollapse').collapse('show');
 		  result = [];
-		  console.log(findAllChildren("Network problem"));
+		  result = findAllChildren("Network problem");
 		}
+	  }
+	  
+	  function problemTypeCreation(){
+		var html = "<button class='btn btn-primary dropdown-toggle' type='button' id='dropdownButton3' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>";
+	    html += "Choose Problem Type<span class='caret'></span></button>";
+		html += "<div class='dropdown-menu' id='dropdown-menu3' aria-labelledby='dropdownMenu3'>";
+		html += "<form class ='px-4 py-3'><div class='form-group'><label for='dropdownSearch'>Search</label>"
+		html += "<input type='text' class='form-control' id='dropdownSearch' placeholder='Search' onkeyup='filter()'></div></form>"
+	    html += "<div class='dropdown-divider'></div><h6 class='dropdown-header'>Problem Types</h6>";
+	    for (i = 0; i < result.length; i++){
+	      html+="<a class='dropdown-item' href='#'>" + result[i].problem + "</a>";
+		}
+		  html+="</div>";
+		  document.getElementById("problemTypeComboBox").innerHTML = html;
 	  }
 	  
 	  var result = [];
