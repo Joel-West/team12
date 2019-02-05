@@ -260,6 +260,25 @@
 		</div>
 		<div class="col-3"></div>
 		
+		<div class="col-3"></div>
+		<div class="collapse col-6" id="resultDropdown">
+		  <div id="changeableThings">
+		  </div>
+		  Problem Type:
+		  <div id="problemTypeComboBox">
+		  </div>
+		  Specialist:
+		  <div id="specialistComboBox">
+		  </div>
+		  Resolved:
+		  <div id="resolvedRadioButtons">
+		  </div>
+		  Solution:
+		  <div id="solutionBox">
+		  </div>
+		</div>
+		<div class="col-3"></div>
+		
 		<div class="collapse col-12" id="existingProblemCollapse">
 		BOO
 		</div>
