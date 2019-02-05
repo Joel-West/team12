@@ -141,8 +141,8 @@
 				{
 					document.getElementById("btnAdd").value = "Update Item";
 					rowNum = GetSelectedRow(); //Gets the row that is selected.
-					document.getElementById("btnID").value = document.getElementById("tbl").rows[rowNum].cells[0].innerHTML;
-					document.getElementById("btnID").disabled = true;
+					document.getElementById("txtID").value = document.getElementById("tbl").rows[rowNum].cells[0].innerHTML;
+					document.getElementById("txtID").disabled = true;
 					document.getElementById("txtUsername").value = document.getElementById("tbl").rows[rowNum].cells[1].innerHTML;
 					document.getElementById("txtPassword").value = document.getElementById("tbl").rows[rowNum].cells[2].innerHTML;
 					document.getElementById("chkAdmin").checked = GetAdminAsBool(document.getElementById("tbl").rows[rowNum].cells[3].innerHTML);
@@ -150,8 +150,8 @@
 				else
 				{
 					document.getElementById("btnAdd").value = "Add New Item";
-					document.getElementById("btnID").value = "";
-					document.getElementById("btnID").disabled = false;
+					document.getElementById("txtID").value = "";
+					document.getElementById("txtID").disabled = false;
 					document.getElementById("txtUsername").value = "";
 					document.getElementById("txtPassword").value = "";
 					document.getElementById("chkAdmin").checked = false;
@@ -162,7 +162,7 @@
 			
 			function ValidateInput() //Function returns true if the data input boxes are all valid.
 			{
-				id = "btnID";
+				id = "txtID";
 				if (document.getElementById(id).value == false || isNaN(document.getElementById(id).value) || document.getElementById(id).value.includes("'"))
 				{
 					alert("Invalid ID."); //Returns error if data input from text box is invalid.
@@ -193,7 +193,7 @@
 				table = document.getElementById("tbl");
 				row = table.insertRow(rows); //Adds new empty row.
 				cell0 = row.insertCell(0); //Inserts and modifies each cell of the new row in turn.
-				cell0.innerHTML = document.getElementById("btnID").value + "(new)"; //Until it has been added to the database, the first field is given a '(new)' tag.
+				cell0.innerHTML = document.getElementById("txtID").value + "(new)"; //Until it has been added to the database, the first field is given a '(new)' tag.
 				cell1 = row.insertCell(1);
 				cell1.innerHTML = document.getElementById("txtUsername").value;
 				cell2 = row.insertCell(2);
@@ -212,7 +212,7 @@
 				{
 					return;
 				}
-				if (document.getElementById("btnID").value == (userData.split(","))[1] && document.getElementById("chkAdmin").checked == 0)//Prevents user from changing their admin status.
+				if (document.getElementById("txtID").value == (userData.split(","))[1] && document.getElementById("chkAdmin").checked == 0)//Prevents user from changing their admin status.
 				{
 					alert("You cannot change your own admin status.");
 					return;
