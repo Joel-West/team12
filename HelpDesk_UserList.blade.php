@@ -159,7 +159,7 @@
 					}
 				}
 				document.getElementById("selID").innerHTML=htm;
-			}
+			});
 			
 			function GetAdminAsBool(Admin) //Gets the admin value from a table as a string and returns a boolean.
 			{
