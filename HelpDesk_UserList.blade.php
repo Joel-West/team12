@@ -147,6 +147,7 @@
 				{
 					selID.innerHTML = "";
 					selID.visibility = "hidden";
+					console.log("hide muh");
 					return;
 				}
 				else
@@ -157,7 +158,7 @@
 				size = 0; //Stores size of selection box.
 				for (i = 0; i < validIDs.length; i++) //Iterates through all ids that exist in the personnel table.
 				{
-					if ((GetRowWithID(GetIDFromSelBoxItem(validIDs[i])) == -1) && ((GetRowWithID(GetIDFromSelBoxItem(validIDs[i])).value + "(new)") != -1) && validIDs[i].includes(IDBox.value))
+					if ((GetRowWithID(GetIDFromSelBoxItem(validIDs[i])) == -1) && ((GetRowWithID(GetIDFromSelBoxItem(validIDs[i])).value + "(new)") != -1) && validIDs[i].toUpperCase().includes(IDBox.value.toUpperCase()))
 					{
 						size+=1;
 						htm+="<option>"+validIDs[i]+"</option>"; //If ID can be selected by the user as an ID for a new user.
