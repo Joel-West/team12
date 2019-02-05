@@ -120,7 +120,7 @@
 					}
 				},'json');
 				console.log(validIDs);
-				console.log(validIDs[0]);
+				console.log(validIDs[0].userID);
 			}
 			
 			function GetAdminAsBool(Admin) //Gets the admin value from a table as a string and returns a boolean.
