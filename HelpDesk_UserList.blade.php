@@ -165,9 +165,8 @@
 					}
 				}
 				selBox.innerHTML=htm; //Appends values to selection vox.
-				var key = event.keyCode || event.charCode;
-				console.log(key);
-				if (size == 1) //If only 1 valid item, automatically populate text box with ID.
+				key = event.keyCode || event.charCode;
+				if (size == 1 && key != 8 && key != 46) //If only 1 valid item, and not deleting text, automatically populate text box with ID.
 				{
 					IDBox.value = GetIDFromSelBoxItem(selBox[0].value);
 				}
