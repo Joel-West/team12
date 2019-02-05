@@ -184,15 +184,15 @@
 		}
 	  }
 	  
+	  var result = [];
 	  function findAllChildren(parent){
-		console.log("Loop");
 		console.log(parent);
-		var result = [];
 		var sql = "SELECT typeName FROM tblProblemType WHERE generalisation = '" + parent + "';";
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
 		  if (json && json[0]){
 			for (i = 0; i < json.length; i++){
 			  result.push(json[i]);
+			  console.log(json[i]);
 			  findAllChildren(json[i]);
 			}
 		  }
