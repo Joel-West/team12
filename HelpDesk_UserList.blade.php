@@ -147,6 +147,7 @@
 				{
 					selID.innerHTML = "";
 					selID.visibility = "hidden";
+					return;
 				}
 				else
 				{
