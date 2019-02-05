@@ -111,7 +111,7 @@
 			
 			function UserClicked() //Runs when user clicks on button to select ID.
 			{
-				
+				document.getElementById("drpID").classList.toggle("show");
 			}
 			
 			function FilterIDs() //Filters ID based on searched txt.
@@ -381,9 +381,9 @@
 							<input type="button" class="btn" id="btnDelete" value="Delete Selected Items" id="del" style="font-size:16px;" onclick="Delete()"/><br/><br/> <!-- Delete button that calls function within ExtraCode.js when pressed. -->
 							<!--ID:<br/><input id="txtID" type="text"></input><br/>--> <!-- Input fields for adding a new row. -->
 							
-							<div>
-								<button id="btnID" onclick="UserClicked()">ID</button>
-								<div id="drpID">
+							<div class="dropdown">
+								<button id="btnID" class="dropbtn" onclick="UserClicked()">ID</button>
+								<div id="drpID" class="dropdown-content">
 									<input type="text" id="txtSearchIDs" placeholder="Search..." onkeyup="FilterIDs()"
 									    <a href="#about">About</a>
 										<a href="#base">Base</a>
