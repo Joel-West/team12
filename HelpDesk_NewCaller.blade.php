@@ -201,6 +201,7 @@
 		html += "<input type='text' class='form-control' id='dropdownSearch' placeholder='Search' onkeyup='filter()'></div></form>"
 	    html += "<div class='dropdown-divider'></div><h6 class='dropdown-header'>Problem Types</h6>";
 		console.log(result);
+		console.log(result[0]);
 		for (i = 0; i < result.length; i++){
 	      html+="<a class='dropdown-item' href='#'>" + result[i] + "</a>";
 		}
