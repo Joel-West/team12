@@ -57,6 +57,6 @@ input[type=button]:disabled
 
 .greenButton
 {
-	background-color:#9FFF30
-	border-color:#9FFF30
+	background-color:#9FFF30;
+	border-color:#9FFF30;
 }
