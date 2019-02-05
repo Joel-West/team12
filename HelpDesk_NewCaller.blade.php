@@ -174,14 +174,17 @@
 	  function radios(num){
 		if (num==1){
 		  $('#resultCollapse').collapse('show');
+		  result = [];
 		  console.log(findAllChildren("Hardware problem"));
 		}
 		else if (num==2){
 		  $('#resultCollapse').collapse('show');
+		  result = [];
 		  console.log(findAllChildren("Software problem"));
 		}
 		else{
 		  $('#resultCollapse').collapse('show');
+		  result = [];
 		  console.log(findAllChildren("Network problem"));
 		}
 	  }
