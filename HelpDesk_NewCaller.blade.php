@@ -174,6 +174,7 @@
 	  function radios(num){
 		if (num==1){
 		  $('#resultCollapse').collapse('show');
+		  console.log(findAllChildren("Hardware"));
 		}
 		else if (num==2){
 		  $('#resultCollapse').collapse('show');
@@ -181,6 +182,20 @@
 		else{
 		  $('#resultCollapse').collapse('show');
 		}
+	  }
+	  
+	  function findAllChildren(parent){
+		var result = [];
+		var sql = "SELECT typeName FROM tblProblemType WHERE generalisation = '" + parent + "';";
+		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
+		  if (json && json[0]){
+			for (i = 0; i < json.length; i++){
+			  result.push(json[i]);
+			  findAllChildren(json[i]);
+			}
+		  }
+		},'json');
+		return(result); 
 	  }
 	  
 	</script>
