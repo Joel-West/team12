@@ -124,7 +124,7 @@
 			
 			function GetIDFromSelBoxItem(item) //Takes an item from a selection box (ID + name) and returns just the ID.
 			{
-				return (itema.split(" "))[0]
+				return (item.split(" "))[0]
 			}
 			
 			function IsValidID(item) //Returns true if ID is in the list of valid IDs.
