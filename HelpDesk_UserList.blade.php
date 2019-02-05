@@ -166,7 +166,7 @@
 				if (size == 1) //If only 1 valid item, automatically populate text box with ID.
 				{
 					console.log("size = 1");
-					IDBox.value = GetIDFromSelBoxItem(selBox[0]);
+					IDBox.value = GetIDFromSelBoxItem(selBox[0].value);
 				}
 			}
 			
