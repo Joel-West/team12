@@ -347,9 +347,6 @@
 		<div class="container-fluid"> <!-- Container holds elements together using Bootstrap. -->
 			<form id="mainform" name="mainform" method="post" action=""> <!-- This form will post data to an initially unspecified page when submitted. -->
 				<input type='text' hidden id="user" name="User"/> <!-- Hidden tag used to store posted user data so that it can later be posted back to the home page. -->
-				<button class='btn btn-primary dropdown-toggle' type='button' id='txtID' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>
-					User<span class='caret'></span>
-				</button>
 				
 				@csrf <!--Token to validates requests to server. -->
 				<div class="titleDiv"> <!-- Div containing elements at the top of the page. -->
@@ -372,7 +369,10 @@
 						</div>
 						<div id="inputDiv">
 							<input type="button" class="btn" id="btnDelete" value="Delete Selected Items" id="del" style="font-size:16px;" onclick="Delete()"/><br/><br/> <!-- Delete button that calls function within ExtraCode.js when pressed. -->
-							ID:<br/><input id="txtID" type="text"></input><br/> <!-- Input fields for adding a new row. -->
+							<!--ID:<br/><input id="txtID" type="text"></input><br/>--> <!-- Input fields for adding a new row. -->
+							<button class='btn btn-primary dropdown-toggle green' type='button' id='txt' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>
+								User<span class='caret'></span>
+							</button>
 							Username:<br/><input id="txtUsername" type="text"></input><br/>
 							Password:<br/><input class="hidetext" id="txtPassword" type="text"></input><br/>							
 							Admin? <input id="chkAdmin" type="checkbox"></input><br/>
