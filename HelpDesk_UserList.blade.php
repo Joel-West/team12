@@ -159,21 +159,20 @@
 					if ((GetRowWithID(GetIDFromSelBoxItem(validIDs[i])) == -1) && ((GetRowWithID(GetIDFromSelBoxItem(validIDs[i])).value + "(new)") != -1) && validIDs[i].includes(IDBox.value))
 					{
 						size+=1;
-						htm+="<option onclick='IDOptionClicked(this);'>"+validIDs[i]+"</option>"; //If ID can be selected by the user as an ID for a new user.
+						htm+="<option'>"+validIDs[i]+"</option>"; //If ID can be selected by the user as an ID for a new user.
 					}
 				}
 				selBox.innerHTML=htm; //Appends values to selection vox.
 				if (size == 1) //If only 1 valid item, automatically populate text box with ID.
 				{
-					console.log("size = 1");
-					IDBox.value = GetIDFromSelBoxItem(selBox[0].value);
+					//IDBox.value = GetIDFromSelBoxItem(selBox[0].value);
 				}
 			}
 			
-			function IDOptionClicked(el) //Sets ID text box value to selected option in selection box.
+			function IDOptionClicked() //Sets ID text box value to selected option in selection box.
 			{
 				console.log("Clicked");
-				document.getElementById("txtID").value = GetIDFromSelBoxItem(el.value);
+				document.getElementById("txtID").value = GetIDFromSelBoxItem(document.getElementById("selID").value);
 			}
 			
 			function GetAdminAsBool(Admin) //Gets the admin value from a table as a string and returns a boolean.
@@ -437,7 +436,7 @@
 						<div id="inputDiv">
 							<input type="button" class="btn" id="btnDelete" value="Delete Selected Items" id="del" style="font-size:16px;" onclick="Delete()"/><br/><br/> <!-- Delete button that calls function within ExtraCode.js when pressed. -->
 							ID:<br/><input id="txtID" type="text" onkeyup="PopulateIDSelect()"></input><br/> <!-- Input fields for adding a new row.-->						
-							<select id="selID" onchange="console.log('change')" class="greenBack"></select><br/><br/>
+							<select id="selID" onchange="IDOptionClicked()" class="greenBack"></select><br/><br/>
 							Username:<br/><input id="txtUsername" type="text"></input><br/>
 							Password:<br/><input class="hidetext" id="txtPassword" type="text"></input><br/>							
 							Admin? <input id="chkAdmin" type="checkbox"></input><br/>
