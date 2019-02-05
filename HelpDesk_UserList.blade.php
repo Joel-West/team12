@@ -122,6 +122,45 @@
 				console.log(validIDs);
 			}
 			
+			function GetIDFromSelBoxItem(item) //Takes an item from a selection box (ID + name) and returns just the ID.
+			{
+				return (itema.split(" "))[0]
+			}
+			
+			function IsValidID(item) //Returns true if ID is in the list of valid IDs.
+			{
+				for (i = 0; i < validIDs.length; i++) //Iterates through all ids that exist in the personnel table.
+				{
+					if (validIDs[i].includes(item))
+					{
+						return true;
+					}
+				}
+				return false;
+			}
+			
+			$('#txtID').on('keyup', function() //Populates selection box with IDs/names based on searched text.
+			{
+				if (document.getElementById(txtID).value == "")
+				{
+					selID.innerHTML = "";
+					selID.visibility = "hidden";
+				}
+				else
+				{
+					selID.visibility = "hidden";
+				}
+				htm = "";
+				for (i = 0; i < validIDs.length; i++) //Iterates through all ids that exist in the personnel table.
+				{
+					if (!(GetRowWithID(GetIDFromSelBoxItem(validIDs[i])) != -1 || (GetRowWithID(GetIDFromSelBoxItem(validIDs[i])).value + "(new)") != -1))
+					{
+						htm+="<option>"+validIDs[i]+"</option>"; //If ID can be selected by the user as an ID for a new user.
+					}
+				}
+				document.getElementById("selID").innerHTML=htm;
+			}
+			
 			function GetAdminAsBool(Admin) //Gets the admin value from a table as a string and returns a boolean.
 			{
 				if (Admin == "Yes")
@@ -172,7 +211,7 @@
 			function ValidateInput() //Function returns true if the data input boxes are all valid.
 			{
 				id = "txtID";
-				if (document.getElementById(id).value == false || isNaN(document.getElementById(id).value) || document.getElementById(id).value.includes("'") ||
+				if (document.getElementById(id).value == false || isNaN(document.getElementById(id).value) || document.getElementById(id).value.includes("'") || IsValidID(document.getElementById(id)) ||
 				((GetRowWithID(document.getElementById(id).value) != -1 || GetRowWithID(document.getElementById(id).value + "(new)") != -1) && document.getElementById(id).disabled == false))
 				{
 					alert("Invalid ID."); //Returns error if data input from text box is invalid.
@@ -383,6 +422,8 @@
 						<div id="inputDiv">
 							<input type="button" class="btn" id="btnDelete" value="Delete Selected Items" id="del" style="font-size:16px;" onclick="Delete()"/><br/><br/> <!-- Delete button that calls function within ExtraCode.js when pressed. -->
 							ID:<br/><input id="txtID" type="text"></input><br/> <!-- Input fields for adding a new row.-->						
+							<select id="selID">
+							</select>
 							Username:<br/><input id="txtUsername" type="text"></input><br/>
 							Password:<br/><input class="hidetext" id="txtPassword" type="text"></input><br/>							
 							Admin? <input id="chkAdmin" type="checkbox"></input><br/>
