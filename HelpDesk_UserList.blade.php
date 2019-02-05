@@ -139,9 +139,11 @@
 				return false;
 			}
 			
-			function PopulateSelect() //Populates selection box with IDs/names based on searched text.
+			function PopulateIDSelect() //Populates selection box with IDs/names based on searched text.
 			{
-				if (document.getElementById("txtID").value == "")
+				IDBox = document.getElementById("txtID");
+				selBox = document.getElementById("selID");
+				if (IDBox.value == "")
 				{
 					selID.innerHTML = "";
 					selID.visibility = "hidden";
@@ -153,14 +155,21 @@
 				htm = "";
 				for (i = 0; i < validIDs.length; i++) //Iterates through all ids that exist in the personnel table.
 				{
-					if ((GetRowWithID(GetIDFromSelBoxItem(validIDs[i])) == -1) && ((GetRowWithID(GetIDFromSelBoxItem(validIDs[i])).value + "(new)") != -1) && validIDs[i].includes(document.getElementById("txtID").value))
+					if ((GetRowWithID(GetIDFromSelBoxItem(validIDs[i])) == -1) && ((GetRowWithID(GetIDFromSelBoxItem(validIDs[i])).value + "(new)") != -1) && validIDs[i].includes(IDBox.value))
 					{
-						console.log("add muh");
-						htm+="<option>"+validIDs[i]+"</option>"; //If ID can be selected by the user as an ID for a new user.
+						htm+="<option onclick='IDOptionClicked(this)'>"+validIDs[i]+"</option>"; //If ID can be selected by the user as an ID for a new user.
 					}
 				}
-				console.log(htm);
-				document.getElementById("selID").innerHTML=htm;
+				selBox.innerHTML=htm;
+				if (document.getElementById("selID").size == 1)
+				{
+					IDBox.value = GetIDFromSelBoxItem(selBox[0]);
+				}
+			}
+			
+			function IDOptionClicked(el) //Sets ID text box value to selected option in selection box.
+			{
+				document.getElementById("txtID").value = GetIDFromSelBoxItem(el.value);
 			}
 			
 			function GetAdminAsBool(Admin) //Gets the admin value from a table as a string and returns a boolean.
@@ -423,8 +432,8 @@
 						</div>
 						<div id="inputDiv">
 							<input type="button" class="btn" id="btnDelete" value="Delete Selected Items" id="del" style="font-size:16px;" onclick="Delete()"/><br/><br/> <!-- Delete button that calls function within ExtraCode.js when pressed. -->
-							ID:<br/><input id="txtID" type="text" onkeyup="PopulateSelect()"></input><br/> <!-- Input fields for adding a new row.-->						
-							<select id="selID"></select><br/>
+							ID:<br/><input id="txtID" type="text" onkeyup="PopulateIDSelect()"></input><br/> <!-- Input fields for adding a new row.-->						
+							<select id="selID" class="greenBack"></select><br/><br/>
 							Username:<br/><input id="txtUsername" type="text"></input><br/>
 							Password:<br/><input class="hidetext" id="txtPassword" type="text"></input><br/>							
 							Admin? <input id="chkAdmin" type="checkbox"></input><br/>
