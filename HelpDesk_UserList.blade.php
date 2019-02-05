@@ -109,6 +109,16 @@
 				
 			}
 			
+			function UserClicked() //Runs when user clicks on button to select ID.
+			{
+				
+			}
+			
+			function FilterIDs() //Filters ID based on searched txt.
+			{
+				
+			}	
+			
 			function GetAdminAsBool(Admin) //Gets the admin value from a table as a string and returns a boolean.
 			{
 				if (Admin == "Yes")
@@ -139,8 +149,8 @@
 				{
 					document.getElementById("btnAdd").value = "Update Item";
 					rowNum = GetSelectedRow(); //Gets the row that is selected.
-					document.getElementById("txtID").value = document.getElementById("tbl").rows[rowNum].cells[0].innerHTML;
-					document.getElementById("txtID").disabled = true;
+					document.getElementById("btnID").value = document.getElementById("tbl").rows[rowNum].cells[0].innerHTML;
+					document.getElementById("btnID").disabled = true;
 					document.getElementById("txtUsername").value = document.getElementById("tbl").rows[rowNum].cells[1].innerHTML;
 					document.getElementById("txtPassword").value = document.getElementById("tbl").rows[rowNum].cells[2].innerHTML;
 					document.getElementById("chkAdmin").checked = GetAdminAsBool(document.getElementById("tbl").rows[rowNum].cells[3].innerHTML);
@@ -148,8 +158,8 @@
 				else
 				{
 					document.getElementById("btnAdd").value = "Add New Item";
-					document.getElementById("txtID").value = "";
-					document.getElementById("txtID").disabled = false;
+					document.getElementById("btnID").value = "";
+					document.getElementById("btnID").disabled = false;
 					document.getElementById("txtUsername").value = "";
 					document.getElementById("txtPassword").value = "";
 					document.getElementById("chkAdmin").checked = false;
@@ -158,7 +168,7 @@
 			
 			function ValidateInput() //Function returns true if the data input boxes are all valid.
 			{
-				id = "txtID";
+				id = "btnID";
 				if (document.getElementById(id).value == false || isNaN(document.getElementById(id).value) || document.getElementById(id).value.includes("'") ||
 				((GetRowWithID(document.getElementById(id).value) != -1 || GetRowWithID(document.getElementById(id).value + "(new)") != -1) && document.getElementById(id).disabled == false))
 				{
@@ -190,7 +200,7 @@
 				table = document.getElementById("tbl");
 				row = table.insertRow(rows); //Adds new empty row.
 				cell0 = row.insertCell(0); //Inserts and modifies each cell of the new row in turn.
-				cell0.innerHTML = document.getElementById("txtID").value + "(new)"; //Until it has been added to the database, the first field is given a '(new)' tag.
+				cell0.innerHTML = document.getElementById("btnID").value + "(new)"; //Until it has been added to the database, the first field is given a '(new)' tag.
 				cell1 = row.insertCell(1);
 				cell1.innerHTML = document.getElementById("txtUsername").value;
 				cell2 = row.insertCell(2);
@@ -209,7 +219,7 @@
 				{
 					return;
 				}
-				if (document.getElementById("txtID").value == (userData.split(","))[1] && document.getElementById("chkAdmin").checked == 0)//Prevents user from changing their admin status.
+				if (document.getElementById("btnID").value == (userData.split(","))[1] && document.getElementById("chkAdmin").checked == 0)//Prevents user from changing their admin status.
 				{
 					alert("You cannot change your own admin status.");
 					return;
@@ -370,14 +380,55 @@
 						<div id="inputDiv">
 							<input type="button" class="btn" id="btnDelete" value="Delete Selected Items" id="del" style="font-size:16px;" onclick="Delete()"/><br/><br/> <!-- Delete button that calls function within ExtraCode.js when pressed. -->
 							<!--ID:<br/><input id="txtID" type="text"></input><br/>--> <!-- Input fields for adding a new row. -->
-							<button class='btn dropdown-toggle greenButton' type='button' id='txt' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>
-								User<span class='caret'></span>
-							</button>
 							
-							<div class='dropdown-menu' id='dropdown-menu' aria-labelledby='dropdownMenu>
-							<form class ='px-4 py-3'><div class='form-group'><label for='dropdownSearch'>Search</label>
-							<input type='text' class='form-control' id='dropdownSearch' placeholder='Search' onkeyup='filter()'></div></form>
-							<div class='dropdown-divider'></div><div class='dropdown-divider'></div></div><br/>
+							<div>
+								<button id="btnID" onclick="UserClicked()">ID</button>
+								<div id="drpID">
+									<input type="text" id="txtSearchIDs" placeholder="Search..." onkeyup="FilterIDs()"
+									    <a href="#about">About</a>
+										<a href="#base">Base</a>
+										<a href="#blog">Blog</a>
+										<a href="#contact">Contact</a>
+										<a href="#custom">Custom</a>
+										<a href="#support">Support</a>
+										<a href="#tools">Tools</a>
+										<a href="#about">About</a>
+										<a href="#base">Base</a>
+										<a href="#blog">Blog</a>
+										<a href="#contact">Contact</a>
+										<a href="#custom">Custom</a>
+										<a href="#support">Support</a>
+										<a href="#tools">Tools</a>
+										<a href="#about">About</a>
+										<a href="#base">Base</a>
+										<a href="#blog">Blog</a>
+										<a href="#contact">Contact</a>
+										<a href="#custom">Custom</a>
+										<a href="#support">Support</a>
+										<a href="#tools">Tools</a>
+										<a href="#about">About</a>
+										<a href="#base">Base</a>
+										<a href="#blog">Blog</a>
+										<a href="#contact">Contact</a>
+										<a href="#custom">Custom</a>
+										<a href="#support">Support</a>
+										<a href="#tools">Tools</a>
+										<a href="#about">About</a>
+										<a href="#base">Base</a>
+										<a href="#blog">Blog</a>
+										<a href="#contact">Contact</a>
+										<a href="#custom">Custom</a>
+										<a href="#support">Support</a>
+										<a href="#tools">Tools</a>
+										<a href="#about">About</a>
+										<a href="#base">Base</a>
+										<a href="#blog">Blog</a>
+										<a href="#contact">Contact</a>
+										<a href="#custom">Custom</a>
+										<a href="#support">Support</a>
+										<a href="#tools">Tools</a>
+									</div>
+								</div>
 							
 							Username:<br/><input id="txtUsername" type="text"></input><br/>
 							Password:<br/><input class="hidetext" id="txtPassword" type="text"></input><br/>							
