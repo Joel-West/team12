@@ -165,9 +165,11 @@
 					}
 				}
 				selBox.innerHTML=htm; //Appends values to selection vox.
+				var key = event.keyCode || event.charCode;
+				console.log(key);
 				if (size == 1) //If only 1 valid item, automatically populate text box with ID.
 				{
-					//IDBox.value = GetIDFromSelBoxItem(selBox[0].value);
+					IDBox.value = GetIDFromSelBoxItem(selBox[0].value);
 				}
 			}
 			
