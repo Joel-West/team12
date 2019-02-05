@@ -173,13 +173,13 @@
 	  
 	  function radios(num){
 		if (num==1){
-		  console.log(1);
+		  $('#resultCollapse').collapse('show');
 		}
 		else if (num==2){
-		  console.log(2);
+		  $('#resultCollapse').collapse('show');
 		}
 		else{
-		  console.log(3);
+		  $('#resultCollapse').collapse('show');
 		}
 	  }
 	  
@@ -273,7 +273,7 @@
 		<div class="col-3"></div>
 		
 		<div class="col-3"></div>
-		<div class="collapse col-6" id="resultDropdown">
+		<div class="collapse col-6" id="resultCollapse">
 		  <div id="changeableThings">
 		  </div>
 		  Problem Type:
