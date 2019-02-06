@@ -469,7 +469,7 @@
 					<div id="tableDiv" class="col-7 table-wrapper-scroll-y"> <!-- Div containing data table. -->
 						Loading data...
 					</div>
-					<br/>
+					<br/><br/>
 					<div id="rightDiv" align="center" class="col-5">
 						<div id="searchDiv">
 							<p>
