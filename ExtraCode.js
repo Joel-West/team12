@@ -235,3 +235,17 @@ function SortTable(column) //Function sorts table by the selected column.
 		cell.innerHTML += "&#x2191";
 	}
 }
+
+function findAllChildren(parent) //Give it a generalisation and it will find all problem types which stem from this generalisation.
+{
+  var sql = "SELECT typeName FROM tblProblemType WHERE generalisation = '" + parent + "';"; //Finds all problem type with the given generalisation.
+  $.get("Query.php", {'sql':sql, 'returnData':true},function(json){
+    if (json && json[0]){
+      for (i = 0; i < json.length; i++){
+        result.push(json[i].typeName);
+	findAllChildren(json[i].typeName); //Re-runs the function but with the newly discovered problem type as a generalisation.
+      }
+    }
+  },'json');
+  return(result); 
+}
