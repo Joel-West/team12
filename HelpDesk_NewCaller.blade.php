@@ -212,7 +212,7 @@
 		populateSpecialist($(this).text());
       });
 	  
-	  populateSpecialist(problemType){
+	  function populateSpecialist(problemType){
 		console.log("AHHH");
 	  }
 	  
