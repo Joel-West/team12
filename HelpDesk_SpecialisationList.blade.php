@@ -310,13 +310,16 @@
 				{
 					alert("Invalid problem type."); //Returns error if data input from text box is invalid.
 					return false;
-				}
-				specialistLoc = GetRowWithID(document.getElementById("txtSpecialist").value);
-				problemTypeLoc = GetRowWithID(document.getElementById("txtProblemType").value);
-				if ((specialistLoc != -1 || problemTypeLoc != -1) && (specialistLoc == problemTypeLoc))
+				}				
+				
+				for (i = 0; i < document.getElementById("tbl").rows.length); i++)
 				{
-					alert("This record already exists."); //If the specialist and problem types that have been input are both already in the local table at the same location, return error.
-					return false;
+					row = document.getElementById("tbl").rows[i];
+					if (row.cells[1].innerHTML == txtSpecialist.value && row.cells[2].innerHTML == txtProblemType.value)
+					{
+						alert("This record already exists."); //If the specialist and problem types that have been input are both already in the local table at the same location, return error.
+						return false;
+					}
 				}
 				return true;
 			}
@@ -491,7 +494,7 @@
 							</p>
 						</div>
 						<div id="inputDiv">
-							<input type="button" class="btn" id="btnDelete" value="Delete Selected Items" id="del" style="font-size:16px;" onclick="Delete()"/><br/><br/> <!-- Delete button that calls function within ExtraCode.js when pressed. -->
+							<input type="button" class="btn" id="btnDelete" value="Delete Selected Items" id="del" style="font-size:16px;" onclick="Delete()"/><br/><br/> <!-- Delete button that calls function when pressed. -->
 							Specialist:<br/><input id="txtSpecialist" type="text" onkeyup="PopulateSpecialistSelect()"></input><br/> <!-- Input fields for adding a new row.-->						
 							<select id="selSpecialist" onchange="SpecialistOptionClicked()" class="greenBack"></select>
 							<br/>

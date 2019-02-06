@@ -321,7 +321,6 @@
 						sql+="WHERE userID = " + id + "; ";
 						if (row.cells[5].innerHTML == "No")
 						{
-							alert("delete specialisation");
 							sql+="DELETE FROM tblSpecialisation WHERE userID = " + id + "; ";
 						}
 					}
@@ -395,7 +394,7 @@
 							</p>
 						</div>
 						<div id="inputDiv">
-							<input type="button" class="btn" id="btnDelete" value="Delete Selected Items" id="del" style="font-size:16px;" onclick="Delete()"/><br/><br/> <!-- Delete button that calls function within ExtraCode.js when pressed. -->
+							<input type="button" class="btn" id="btnDelete" value="Delete Selected Items" id="del" style="font-size:16px;" onclick="Delete()"/><br/><br/> <!-- Delete button that calls function when pressed. -->
 							ID:<br/><input id="txtID" type="text"></input><br/> <!-- Input fields for adding a new row. -->
 							Name:<br/><input id="txtName" type="text"></input><br/>
 							Job Title:<br/><input id="txtJobTitle" type="text"></input><br/>
