@@ -292,7 +292,7 @@
 					return false;
 				}
 				id = "txtProblemType";
-				if (document.getElementById(id).value == false || document.getElementById(id).value.includes("'") !IsValidProblemType(document.getElementById(id).value))
+				if (document.getElementById(id).value == false || document.getElementById(id).value.includes("'") || !IsValidProblemType(document.getElementById(id).value))
 				{
 					alert("Invalid problem type."); //Returns error if data input from text box is invalid.
 					return false;
