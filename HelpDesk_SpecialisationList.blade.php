@@ -424,7 +424,7 @@
 					{
 						sql+="INSERT INTO tblUser VALUES (NULL, ";
 						sql+="'" + row.cells[1].innerHTML + "', ";
-						sql+="'" + row.cells[2].innerHTML + "); ";
+						sql+="'" + row.cells[2].innerHTML + "'); ";
 					}
 				}
 				alert(sql);
