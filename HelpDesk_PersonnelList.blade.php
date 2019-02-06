@@ -10,6 +10,8 @@
 		<script type="text/javascript">	
 			var userData; //Variable containing data about user.
 			var currentPage = "PersonnelList"; //Variable storing the name of the current page, so it can be passed in the URL to the next page as a 'previous page' variable.
+			var selected = 0; //Global variable corresponding to number of highlighted table rows.
+			
 			function Load() //Function that runs when file loads.
 			{
 				userData = "<?php echo $_POST['User']; ?>"; //Gets data from previous form.
@@ -356,8 +358,6 @@
 					alert("Changes saved.");
 				}
 			}
-			
-			var selected = 0; //Global variable corresponding to number of highlighted table rows.
 		</script>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"> <!-- Bootstrap CSS stylesheet. -->
 		<link rel="stylesheet" href="{{ asset('css/Styles.css') }}" type="text/css"> <!-- Import external CSS stylesheet that contains presentation info that applies to all the pages. -->

@@ -10,8 +10,10 @@
 		<script type="text/javascript">	
 			var userData; //Variable containing data about user.
 			var currentPage = "SpecialisationList"; //Variable storing the name of the current page, so it can be passed in the URL to the next page as a 'previous page' variable.
+			var selected = 0; //Global variable corresponding to number of highlighted table rows.
 			var specialists = [];
 			var problemTypes = [];
+			
 			function Load() //Function that runs when file loads.
 			{
 				userData = "<?php echo $_POST['User']; ?>"; //Gets data from previous form.
@@ -268,16 +270,20 @@
 				{
 					document.getElementById("btnAdd").value = "Update Item";
 					rowNum = GetSelectedRow(); //Gets the row that is selected.
-					document.getElementById("selProblemType").style.display = "none";
 					document.getElementById("selSpecialist").style.display = "none";
+					document.getElementById("lblSpecialistNum").style.display = "none";
+					document.getElementById("selProblemType").style.display = "none";
+					document.getElementById("lblProblemTypeNum").style.display = "none";
 					document.getElementById("txtSpecialist").value = document.getElementById("tbl").rows[rowNum].cells[1].innerHTML;
 					document.getElementById("txtProblemType").value = document.getElementById("tbl").rows[rowNum].cells[2].innerHTML;
 				}
 				else
 				{
 					document.getElementById("btnAdd").value = "Add New Item";
-					document.getElementById("selProblemType").style.display = "inline";
 					document.getElementById("selSpecialist").style.display = "inline";
+					document.getElementById("lblSpecialistNum").style.display = "inline";
+					document.getElementById("selProblemType").style.display = "inline";
+					document.getElementById("lblProblemTypeNum").style.display = "inline";
 					document.getElementById("txtSpecialist").value = "";
 					document.getElementById("txtProblemType").value = "";
 				}
@@ -438,8 +444,6 @@
 					alert("Changes saved.");
 				}
 			}
-			
-			var selected = 0; //Global variable corresponding to number of highlighted table rows.
 		</script>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"> <!-- Bootstrap CSS stylesheet. -->
 		<link rel="stylesheet" href="{{ asset('css/Styles.css') }}" type="text/css"> <!-- Import external CSS stylesheet that contains presentation info that applies to all the pages. -->
