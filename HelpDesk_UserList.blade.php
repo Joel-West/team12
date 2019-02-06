@@ -406,7 +406,7 @@
 	</head>
 	<body onload="Load()" style="height:100%;">
 		<div class="container-fluid"> <!-- Container holds elements together using Bootstrap. -->
-			<form id="mainform" name="mainform" method="post" action=""> <!-- This form will post data to an initially unspecified page when submitted. -->
+			<form autocomplete="off" id="mainform" name="mainform" method="post" action=""> <!-- This form will post data to an initially unspecified page when submitted. -->
 				<input type='text' hidden id="user" name="User"/> <!-- Hidden tag used to store posted user data so that it can later be posted back to the home page. -->
 				
 				@csrf <!--Token to validates requests to server. -->
