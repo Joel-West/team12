@@ -114,7 +114,7 @@
 					{
 						for (i = 0; i<json.length; i++) //Iterates through the json array of results.
 						{
-							validIDs[i] = json[i].userID + " - " + json[i].name;
+							specialists[i] = json[i].userID + " - " + json[i].name;
 						}
 						PopulateSpecialistSelectSelect();
 					}
@@ -126,7 +126,7 @@
 					{
 						for (i = 0; i<json.length; i++) //Iterates through the json array of results.
 						{
-							validIDs[i] = json[i].typeName
+							problemTypes[i] = json[i].typeName
 						}
 						PopulateProblemTypeSelect();
 					}
