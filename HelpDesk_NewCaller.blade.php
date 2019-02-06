@@ -171,19 +171,21 @@
 		}
       });
 	  
-	  children = [];
 	  function radios(num, callback){
 		if (num==1){
 		  result = [];
 		  result = findAllChildren("Hardware problem");
+		  callback();
 		}
 		else if (num==2){
 		  result = [];
 		  result = findAllChildren("Software problem");
+		  callback();
 		}
 		else{
 		  result = [];
-		  result = findAllChildren("Network problem");  
+		  result = findAllChildren("Network problem");
+          callback();		  
 		}
 	  }
 	  
