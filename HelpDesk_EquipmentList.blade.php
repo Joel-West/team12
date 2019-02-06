@@ -160,7 +160,7 @@
 				htm += "</tr>";	
 				document.getElementById("tbl").innerHTML += htm; //Appends HTML to tableDiv.				
 				newRowCount+=1;
-				alert("New personnel added."); //Success message.
+				alert("New equipment added."); //Success message.
 				document.getElementById("btnAdd").value = "Add New Item";
 				document.getElementById("txtSerial").value = "";
 				document.getElementById("txtType").value = "";
