@@ -163,6 +163,24 @@
 				{
 					selBox.selectedIndex = matchIndex;
 				}
+				if (size == 0) //If there are no results, hide selection box.
+				{
+					selBox.style.display = "none";
+					lblIDNum.style.display = "none";
+				}
+				else
+				{
+					selBox.style.display = "inline";
+					lblIDNum.style.display = "inline";
+				}
+				if (IDBox.value.length > 0) //If the text box contains results, give the label the number of results.
+				{
+					lblIDNum.value = "(" + size + "results");
+				}
+				else
+				{
+					lblIDNum.value = "";
+				}
 			}
 			
 			function IDOptionClicked() //Sets ID text box value to selected option in selection box.
@@ -430,14 +448,15 @@
 						</div>
 						<div id="inputDiv">
 							<input type="button" class="btn" id="btnDelete" value="Delete Selected Items" id="del" style="font-size:16px;" onclick="Delete()"/><br/><br/> <!-- Delete button that calls function within ExtraCode.js when pressed. -->
-							ID:<br/><input id="txtID" type="text" onkeyup="PopulateIDSelect()"></input><br/> <!-- Input fields for adding a new row.-->						
-							<select id="selID" onchange="IDOptionClicked()" class="greenBack"></select><br/><br/>
+							Personnel ID:<br/><input id="txtID" type="text" onkeyup="PopulateIDSelect()"></input><br/> <!-- Input fields for adding a new row.-->						
+							<select id="selID" onchange="IDOptionClicked()" class="greenBack"></select>
+							<label id="lblIDNum"/>
+							<br/><br/>
 							Username:<br/><input id="txtUsername" type="text"></input><br/>
 							Password:<br/><input class="hidetext" id="txtPassword" type="text"></input><br/>							
 							Admin? <input id="chkAdmin" type="checkbox"></input><br/>
 							<br/><input type="button" class="btn" id="btnAdd" value="Add New Item" style="font-size:16px;" onclick="AddPressed()"></input>	
-							<br/>
-							<br/>
+							<br/><br/>
 							<p align="center">
 							<input type="button" id="btnSave" class="btn" value="Save Changes" style="font-size:26px; padding: 6px 12px;" onClick="SaveChanges('Home');" /> <!-- Button for submitting changes to table. -->
 							</p>
