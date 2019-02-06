@@ -312,13 +312,16 @@
 					return false;
 				}				
 				
-				for (i = 0; i < document.getElementById("tbl").rows.length; i++)
+				if (selected != 1) //If adding, rather than updating.
 				{
-					row = document.getElementById("tbl").rows[i];
-					if (row.cells[1].innerHTML == txtSpecialist.value && row.cells[2].innerHTML == txtProblemType.value)
+					for (i = 0; i < document.getElementById("tbl").rows.length; i++)
 					{
-						alert("This record already exists."); //If the specialist and problem types that have been input are both already in the local table at the same location, return error.
-						return false;
+						row = document.getElementById("tbl").rows[i];
+						if (row.cells[1].innerHTML == txtSpecialist.value && row.cells[2].innerHTML == txtProblemType.value)
+						{
+							alert("This record already exists."); //If the specialist and problem types that have been input are both already in the local table at the same location, return error.
+							return false;
+						}
 					}
 				}
 				return true;
