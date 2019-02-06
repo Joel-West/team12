@@ -237,6 +237,7 @@
 			
 			function AddRow() //Adds a new row to the table, from data in the text boxes.
 			{
+				console.log("");
 				if (!ValidateInput())
 				{
 					return;
