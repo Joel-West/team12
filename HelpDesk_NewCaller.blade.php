@@ -219,7 +219,7 @@
 	</script>
 	<style>
 	  .dropdown-menu{
-		  height:500px;
+		  max-height:350px;
 		  overflow-y:auto;
 	  }
 	</style>
