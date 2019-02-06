@@ -259,13 +259,12 @@
 					{
 						row.cells[0].innerHTML = row.cells[0].innerHTML.replace("(new)", '') //Remove the 'new' tag from the record.
 						sql+="INSERT INTO tblEquipment VALUES (";
-						sql+=row.cells[0].innerHTML + ", ";
+						sql+="'" + row.cells[0].innerHTML + "', ";
 						sql+="'" + row.cells[1].innerHTML + "', ";
 						sql+="'" + row.cells[2].innerHTML + "'); ";
 					}
 				}
 				alert(sql);
-				sql = "";
 				if (sql != "") //If there is any SQL to run.
 				{
 					$.get("Query.php", {'sql':sql, 'returnData':false},function(json) //Calls query.php, which handles the SQL query and sorting of result data.
