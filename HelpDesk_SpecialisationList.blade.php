@@ -483,11 +483,12 @@
 							<select id="selSpecialist" onchange="SpecialistOptionClicked()" class="greenBack"></select>
 							<br/>
 							<label id="lblSpecialistNum"></label>
+							<br/><br/>
 							Problem Type:<br/><input id="txtProblemType" type="text" onkeyup="PopulateProblemTypeSelect()"></input><br/>					
 							<select id="selProblemType" onchange="ProblemTypeOptionClicked()" class="greenBack"></select>
 							<br/>
 							<label id="lblProblemTypeNum"></label>
-							<br/><br/>
+							<br/>
 							<br/><input type="button" class="btn" id="btnAdd" value="Add New Item" style="font-size:16px;" onclick="AddPressed()"></input>	
 							<br/><br/>
 							<p align="center">
