@@ -405,8 +405,8 @@
 					{
 						row = document.getElementById("tbl").rows[rowNum]; //Get row of local table that is being saved to database.
 						sql+="UPDATE tblSpecialisation SET ";
-						sql+="userID = '"+ row.cells[1].innerHTML + "', ";
-						sql+="typeName = '"+ row.cells[2].innerHTML + "', ";
+						sql+="userID = "+ row.cells[1].innerHTML + ", ";
+						sql+="typeName = '"+ row.cells[2].innerHTML + "' ";
 						sql+="WHERE specialisationID = " + id + "; ";
 					}
 				}
