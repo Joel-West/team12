@@ -270,21 +270,17 @@
 				{
 					document.getElementById("btnAdd").value = "Update Item";
 					rowNum = GetSelectedRow(); //Gets the row that is selected.
-					document.getElementById("selSpecialist").style.display = "none";
-					document.getElementById("lblSpecialistNum").style.display = "none";
 					document.getElementById("txtSpecialist").value = document.getElementById("tbl").rows[rowNum].cells[1].innerHTML;
 					document.getElementById("txtProblemType").value = document.getElementById("tbl").rows[rowNum].cells[2].innerHTML;
 				}
 				else
 				{
 					document.getElementById("btnAdd").value = "Add New Item";
-					document.getElementById("selSpecialist").style.display = "inline";
-					document.getElementById("lblSpecialistNum").style.display = "inline";
-					PopulateSpecialistSelect();
-					PopulateProblemTypeSelect();
 					document.getElementById("txtSpecialist").value = "";
 					document.getElementById("txtProblemType").value = "";
 				}
+				PopulateSpecialistSelect();
+				PopulateProblemTypeSelect();
 			}		
 			
 			function ValidateInput() //Function returns true if the data input boxes are all valid.
