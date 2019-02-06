@@ -83,13 +83,13 @@
 					if(json && json[0]) //If result of php file was a json array.	
 					{				
 						var htm = "<table class='table' id='tbl' border='1'>";
-						htm+="<tr id='t0'><th onclick='SortTable(0)' scope='col'>userID</th>";
+						htm+="<tr><th onclick='SortTable(0)' scope='col'>userID</th>";
 						htm+="<th onclick='SortTable(1)' scope='col'>Username</th>";
 						htm+="<th onclick='SortTable(2)'scope='col'>Password</th>";
 						htm+="<th onclick='SortTable(3)'scope='col'>Admin</th></tr>"; //Appending column headers.
 						for (i = 0; i<json.length; i++) //Iterates through the json array of results.
 						{
-							htm += "<tr id='t" + (i+1) + "' style='background-color:rgb(159, 255, 48);'>"; //Sets colour and ID of row.
+							htm += "<tr style='background-color:rgb(159, 255, 48);'>"; //Sets colour and ID of row.
 							htm +="<td>"+json[i].userID+"</td>";
 							htm +="<td>"+json[i].username+"</td>";
 							htm +="<td class='hidetext'>"+json[i].password+"</td>";		
@@ -145,15 +145,24 @@
 				selBox = document.getElementById("selID");
 				htm = "<option></option>";
 				size = 0; //Stores size of selection box.
+				matchIndex = -1; //Will be assigned to a natural number if any of the IDs from the validIDs list match exactly with the text box input.
 				for (i = 0; i < validIDs.length; i++) //Iterates through all ids that exist in the personnel table.
 				{
 					if ((GetRowWithID(GetIDFromSelBoxItem(validIDs[i])) == -1) && ((GetRowWithID(GetIDFromSelBoxItem(validIDs[i])).value + "(new)") != -1) && (validIDs[i].toUpperCase().includes(IDBox.value.toUpperCase()) || IDBox.value == ""))
 					{
 						size+=1;
+						if (GetIDFromSelBoxItem(validIDs[i]) == IDBox.value)
+						{
+							matchIndex = size; //If the user has input an exact match, assign the variable defining what the default value for the box will be.
+						}
 						htm+="<option>"+validIDs[i]+"</option>"; //If ID can be selected by the user as an ID for a new user.
 					}
 				}
 				selBox.innerHTML=htm; //Appends values to selection vox.
+				if (matchIndex != -1)
+				{
+					selBox..selectedIndex = matchIndex;
+				}
 			}
 			
 			function IDOptionClicked() //Sets ID text box value to selected option in selection box.
@@ -236,26 +245,17 @@
 			
 			function AddRow() //Adds a new row to the table, from data in the text boxes.
 			{
-				console.log("");
 				if (!ValidateInput())
 				{
 					return;
 				}
-				rows = GetRows(); //Gets number of rows.
-				table = document.getElementById("tbl");
-				row = table.insertRow(rows); //Adds new empty row.
-				cell0 = row.insertCell(0); //Inserts and modifies each cell of the new row in turn.
-				cell0.innerHTML = document.getElementById("txtID").value + "(new)"; //Until it has been added to the database, the first field is given a '(new)' tag.
-				cell1 = row.insertCell(1);
-				cell1.innerHTML = document.getElementById("txtUsername").value;
-				cell2 = row.insertCell(2);
-				cell2.id = "passwordCell";
-				cell2.innerHTML = document.getElementById("txtPassword").value;
-				cell3 = row.insertCell(3);
-				cell3.innerHTML = GetAdminAsString(document.getElementById("chkAdmin").checked);
-				table.rows[rows].id = "t" + document.getElementById("tbl").rows[rows-1].id; //Sets ID of new row.
-				table.rows[rows].style.backgroundColor = '#9FFF30'; //Sets background colour of new row.
-				document.getElementById("passwordCell").class='hidetext';
+				htm = "<tr style='background-color:rgb(159, 255, 48);'>"; //Sets colour and ID of row.
+				htm +="<td>"+document.getElementById("txtID").value + "(new)</td>"; //Until it has been added to the database, the first field is given a '(new)' tag.
+				htm +="<td>"+document.getElementById("txtUsername").value+"</td>";
+				htm +="<td class='hidetext'>"+document.getElementById("txtPassword")+"</td>";		
+				htm +="<td>"+GetAdminAsString(document.getElementById("chkAdmin").checked)+"</td>";
+				htm += "</tr>";	
+				document.getElementById("tbl").innerHTML += htm; //Appends HTML to tableDiv.				
 				newRowCount+=1;
 				alert("New user info added."); //Success message.
 				document.getElementById("txtID").value = "";
