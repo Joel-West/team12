@@ -70,7 +70,7 @@
 						{
 							sql+=" OR ";
 						}
-						sql += "upper(userID) LIKE '%"+str[i]+"%' OR upper(username) LIKE '%"+str[i]+"%' OR upper(password) LIKE '%"+str[i]+"%' OR upper(admin) LIKE '%"+str[i]+"%'"; //Query that returns all database records with a cell containing search string.
+						sql += "upper(userID) LIKE '%"+str[i]+"%' OR upper(username) LIKE '%"+str[i]+"%' OR upper(password) LIKE '%"+str[i]+"%' OR upper(admin) LIKE '%"+GetAdminAsBool(str[i])+"%'"; //Query that returns all database records with a cell containing search string.
 					}
 				}
 				RunQuery(sql); //Runs function get gets data from database and display it in tableDiv.
