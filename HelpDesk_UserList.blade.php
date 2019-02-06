@@ -448,7 +448,7 @@
 				</div>
 				<br/><br/>
 				<div class="row" align="center">
-					<div id="tableDiv" class="col-8 table-wrapper-scroll-y"> <!-- Div containing data table. -->
+					<div id="tableDiv" class="col-7 offset-md-1 table-wrapper-scroll-y"> <!-- Div containing data table. -->
 						Loading data...
 					</div>
 					<br/>
