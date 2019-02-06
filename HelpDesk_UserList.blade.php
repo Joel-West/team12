@@ -194,7 +194,7 @@
 					rowNum = GetSelectedRow(); //Gets the row that is selected.
 					document.getElementById("txtID").value = document.getElementById("tbl").rows[rowNum].cells[0].innerHTML;
 					document.getElementById("txtID").disabled = true;
-					document.getElementById("selID").style.display="none";
+					document.getElementById("selID").style.display = "none";
 					document.getElementById("txtUsername").value = document.getElementById("tbl").rows[rowNum].cells[1].innerHTML;
 					document.getElementById("txtPassword").value = document.getElementById("tbl").rows[rowNum].cells[2].innerHTML;
 					document.getElementById("chkAdmin").checked = GetAdminAsBool(document.getElementById("tbl").rows[rowNum].cells[3].innerHTML);
@@ -204,7 +204,7 @@
 					document.getElementById("btnAdd").value = "Add New Item";
 					document.getElementById("txtID").value = "";
 					document.getElementById("txtID").disabled = false;
-					document.getElementById("selID").style.visibility = visible;
+					document.getElementById("selID").style.display = "inline";
 					document.getElementById("txtUsername").value = "";
 					document.getElementById("txtPassword").value = "";
 					document.getElementById("chkAdmin").checked = false;
