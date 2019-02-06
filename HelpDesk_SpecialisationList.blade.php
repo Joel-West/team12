@@ -219,7 +219,7 @@
 					if (problemTypes[i].toUpperCase().includes(problemTypeBox.value.toUpperCase()) || problemTypeBox.value == "")
 					{
 						size+=1;
-						if (problemType[i] == problemTypeBox.value)
+						if (problemTypes[i] == problemTypeBox.value)
 						{
 							matchIndex = size; //If the user has input an exact match, assign the variable defining what the default value for the box will be.
 						}
