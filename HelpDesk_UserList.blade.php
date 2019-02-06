@@ -131,6 +131,9 @@
 			{
 				for (i = 0; i < validIDs.length; i++) //Iterates through all ids that exist in the personnel table.
 				{
+					console.log(item);
+					console.log(validIDs[i]);
+					console.log(validIDs[i].includes(item));
 					if (validIDs[i].includes(item))
 					{
 						console.log("valid");
