@@ -161,7 +161,7 @@
 				selBox.innerHTML=htm; //Appends values to selection vox.
 				if (matchIndex != -1)
 				{
-					selBox..selectedIndex = matchIndex;
+					selBox.selectedIndex = matchIndex;
 				}
 			}
 			
