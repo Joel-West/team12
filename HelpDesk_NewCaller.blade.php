@@ -184,7 +184,7 @@
 		  result = [];
 		  result = findAllChildren("Network problem");		  
 		}
-		window.setTimeout(problemTypeCreation(),1000);
+		window.setTimeout(problemTypeCreation(),10000);
 	  }
 	  
 	  function problemTypeCreation(){
