@@ -280,6 +280,10 @@
 					newRowCount = 0;
 					alert("Changes saved.");
 				}
+				else
+				{
+					alert("There are no changes to save...");
+				}
 			}
 		</script>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"> <!-- Bootstrap CSS stylesheet. -->
