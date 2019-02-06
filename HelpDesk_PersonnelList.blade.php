@@ -213,7 +213,8 @@
 				htm +="<td>"+document.getElementById("txtDepartment").value+"</td>";
 				htm +="<td>"+document.getElementById("txtTelephoneNumber").value+"</td>";
 				htm +="<td>"+GetSpecialistAsString(document.getElementById("chkSpecialist").checked)+"</td>";
-				htm += "</tr>";		
+				htm += "</tr>";	
+				document.getElementById("tableDiv").innerHTML += htm; //Appends HTML to tableDiv.				
 				newRowCount+=1;
 				alert("New personnel added."); //Success message.
 				document.getElementById("btnAdd").value = "Add New Item";
