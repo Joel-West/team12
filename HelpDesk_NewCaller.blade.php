@@ -217,6 +217,7 @@
 		problemTypeList = [];
 		populateProblemTypeList(problemType);
 		console.log(problemTypeList);
+		console.log("HI");
 	  }
 	  
 	  function populateProblemTypeList(problemType){
