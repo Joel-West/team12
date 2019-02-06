@@ -131,7 +131,7 @@
 			{
 				for (i = 0; i < validIDs.length; i++) //Iterates through all ids that exist in the personnel table.
 				{
-					if (validIDs[i].includes(item))
+					if (GetIDFromSelBoxItem(validIDs[i]) == item)
 					{
 						return true;
 					}
@@ -256,6 +256,7 @@
 				table.rows[rows].id = "t" + document.getElementById("tbl").rows[rows-1].id; //Sets ID of new row.
 				table.rows[rows].style.backgroundColor = '#9FFF30'; //Sets background colour of new row.
 				table.rows[rows].cells[2].class='hidetext';
+				console.log(table.rows[rows].cells[2]).value;
 				newRowCount+=1;
 				alert("New user info added."); //Success message.
 			}
