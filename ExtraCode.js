@@ -2,9 +2,6 @@ fun = false;
 delList = []; //List of rows to be deleted when changes are saved to actual database.
 updList = []; //List of rows to be updated when changes are saved to actual database.
 newRowCount = 0; //Varaible storing number of new rows.
-var result = [];
-//Global Variable, used in findAllChildren to hold results, empty it before function is called 
-//probably could modify the function to do this but i'm lazy
 
 window.setInterval(function() //Function used for fun mode.
 {
@@ -129,6 +126,7 @@ function AddPressed() //Function to add new row to the local data table.
 	}
 	else //Else, if adding row
 	{
+		console.log("entering");
 		AddRow()
 	}
 }
@@ -236,17 +234,4 @@ function SortTable(column) //Function sorts table by the selected column.
 	{
 		cell.innerHTML += "&#x2191";
 	}
-}
-
-function findAllChildren(parent){ //Give it a generalisation and it will find all problem types which stem from this generalisation
-  var sql = "SELECT typeName FROM tblProblemType WHERE generalisation = '" + parent + "';";//Finds all problem type with the given generalisation
-  $.get("Query.php", {'sql':sql, 'returnData':true},function(json){
-    if (json && json[0]){
-      for (i = 0; i < json.length; i++){
-        result.push(json[i].typeName);
-	findAllChildren(json[i].typeName);//Reruns the function but with the newly discovered problem type as a generalisation
-      }
-    }
-  },'json');
-  return(result); 
 }
