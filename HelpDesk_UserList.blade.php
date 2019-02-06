@@ -131,16 +131,11 @@
 			{
 				for (i = 0; i < validIDs.length; i++) //Iterates through all ids that exist in the personnel table.
 				{
-					console.log(item);
-					console.log(validIDs[i]);
-					console.log(validIDs[i].includes(item));
 					if (validIDs[i].includes(item))
 					{
-						console.log("valid");
 						return true;
 					}
 				}
-				console.log("invalid");
 				return false;
 			}
 			
@@ -260,7 +255,7 @@
 				cell3.innerHTML = GetAdminAsString(document.getElementById("chkAdmin").checked);
 				table.rows[rows].id = "t" + document.getElementById("tbl").rows[rows-1].id; //Sets ID of new row.
 				table.rows[rows].style.backgroundColor = '#9FFF30'; //Sets background colour of new row.
-				table.rows[rows].class='hidetext';
+				table.rows[rows].cells[2].class='hidetext';
 				newRowCount+=1;
 				alert("New user info added."); //Success message.
 			}
