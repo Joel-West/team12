@@ -116,7 +116,7 @@
 						{
 							specialists[i] = json[i].userID + " - " + json[i].name;
 						}
-						PopulateSpecialistSelectSelect();
+						PopulateSpecialistSelect();
 					}
 				},'json');
 				sql = "SELECT typeName FROM tblProblemType";
@@ -174,7 +174,7 @@
 					if (specialists[i].toUpperCase().includes(specialistBox.value.toUpperCase()) || specialistBox.value == "")
 					{
 						size+=1;
-						if (GetIDFromSelBoxItem(specialists) == specialistBox.value)
+						if (GetIDFromSelBoxItem(specialists[i]) == specialistBox.value)
 						{
 							matchIndex = size; //If the user has input an exact match, assign the variable defining what the default value for the box will be.
 						}
@@ -219,7 +219,7 @@
 					if (problemTypes[i].toUpperCase().includes(problemTypeBox.value.toUpperCase()) || problemTypeBox.value == "")
 					{
 						size+=1;
-						if (problemType == problemTypeBox.value)
+						if (problemType[i] == problemTypeBox.value)
 						{
 							matchIndex = size; //If the user has input an exact match, assign the variable defining what the default value for the box will be.
 						}
