@@ -131,9 +131,6 @@
 			{
 				for (i = 0; i < validIDs.length; i++) //Iterates through all ids that exist in the personnel table.
 				{
-					console.log(item);
-					console.log(validIDs[i]);
-					console.log(validIDs[i].includes(item));
 					if (validIDs[i].includes(item))
 					{
 						console.log("valid");
@@ -221,7 +218,7 @@
 			{
 				id = "txtID";
 				if (document.getElementById(id).value == false || isNaN(document.getElementById(id).value) || document.getElementById(id).value.includes("'") ||
-				((GetRowWithID(document.getElementById(id).value) != -1 || GetRowWithID(document.getElementById(id).value + "(new)") != -1 || !IsValidID(document.getElementById(id))) && document.getElementById(id).disabled == false))
+				((GetRowWithID(document.getElementById(id).value) != -1 || GetRowWithID(document.getElementById(id).value + "(new)") != -1 || !IsValidID(document.getElementById(id.value))) && document.getElementById(id).disabled == false))
 				{
 					alert("Invalid ID."); //Returns error if data input from text box is invalid.
 					return false;
