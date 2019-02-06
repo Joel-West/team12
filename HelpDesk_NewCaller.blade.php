@@ -171,22 +171,20 @@
 		}
       });
 	  
-	  function radios(num, callback){
+	  function radios(num){
 		if (num==1){
 		  result = [];
 		  result = findAllChildren("Hardware problem");
-		  callback();
 		}
 		else if (num==2){
 		  result = [];
 		  result = findAllChildren("Software problem");
-		  callback();
 		}
 		else{
 		  result = [];
-		  result = findAllChildren("Network problem");
-          callback();		  
+		  result = findAllChildren("Network problem");		  
 		}
+		window.setTimeout(problemTypeCreation(),1000);
 	  }
 	  
 	  function problemTypeCreation(){
@@ -287,19 +285,19 @@
 		<div class="col-3"></div>
 		<div class="collapse col-6" id="newNewProblemCollapse">
 		  <div class="form-check">
-		    <input class="form-check-input" type="radio" name="Radios" id="Radios1" value="Hardware" onClick = "radios(1, problemTypeCreation);">
+		    <input class="form-check-input" type="radio" name="Radios" id="Radios1" value="Hardware" onClick = "radios(1);">
 			<label class="form-check-label" for="Radios1">
 			  Hardware
 			</label>
 		  </div>
 		  <div class="form-check">
-		    <input class="form-check-input" type="radio" name="Radios" id="Radios1" value="Software" onClick = "radios(2, problemTypeCreation);">
+		    <input class="form-check-input" type="radio" name="Radios" id="Radios1" value="Software" onClick = "radios(2);">
 			<label class="form-check-label" for="Radios1">
 			  Software
 			</label>
 		  </div>
 		  <div class="form-check">
-		    <input class="form-check-input" type="radio" name="Radios" id="Radios1" value="Network" onClick = "radios(3, problemTypeCreation);">
+		    <input class="form-check-input" type="radio" name="Radios" id="Radios1" value="Network" onClick = "radios(3,);">
 			<label class="form-check-label" for="Radios1">
 			  Network
 			</label>
