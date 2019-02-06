@@ -203,6 +203,8 @@
 					rowNum = GetSelectedRow(); //Gets the row that is selected.
 					document.getElementById("txtID").value = document.getElementById("tbl").rows[rowNum].cells[0].innerHTML;
 					document.getElementById("txtID").disabled = true;
+					document.getElementById("selId").disabled = true;
+					document.getElementById("selId").visibility = hidden;
 					document.getElementById("txtUsername").value = document.getElementById("tbl").rows[rowNum].cells[1].innerHTML;
 					document.getElementById("txtPassword").value = document.getElementById("tbl").rows[rowNum].cells[2].innerHTML;
 					document.getElementById("chkAdmin").checked = GetAdminAsBool(document.getElementById("tbl").rows[rowNum].cells[3].innerHTML);
@@ -212,8 +214,10 @@
 					document.getElementById("btnAdd").value = "Add New Item";
 					document.getElementById("txtID").value = "";
 					document.getElementById("txtID").disabled = false;
+					document.getElementById("selId").disabled = false;
 					document.getElementById("txtUsername").value = "";
 					document.getElementById("txtPassword").value = "";
+					document.getElementById("selId").visibility = visible;
 					document.getElementById("chkAdmin").checked = false;
 				}
 			}		
@@ -256,6 +260,7 @@
 				cell1 = row.insertCell(1);
 				cell1.innerHTML = document.getElementById("txtUsername").value;
 				cell2 = row.insertCell(2);
+				cell2.class='hidetext';
 				cell2.innerHTML = document.getElementById("txtPassword").value;
 				cell3 = row.insertCell(3);
 				cell3.innerHTML = GetAdminAsString(document.getElementById("chkAdmin").checked);
