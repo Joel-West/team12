@@ -81,7 +81,7 @@
 					if(json && json[0]) //If result of php file was a json array.	
 					{				
 						var htm = "<table class='table' id='tbl' border='1'>";
-						htm+="<tr id='t0'><th onclick='SortTable(0)' scope='col'>userID</th>";
+						htm+="<tr><th onclick='SortTable(0)' scope='col'>userID</th>";
 						htm+="<th onclick='SortTable(1)' scope='col'>Name</th>";
 						htm+="<th onclick='SortTable(2)'scope='col'>Job Title</th>";
 						htm+="<th onclick='SortTable(3)'scope='col'>Department</th>";
@@ -89,7 +89,7 @@
 						htm+="<th onclick='SortTable(5)'scope='col'>Specialist</th></tr>"; //Appending column headers.
 						for (i = 0; i<json.length; i++) //Iterates through the json array of results.
 						{
-							htm += "<tr id='t" + (i+1) + "' style='background-color:rgb(159, 255, 48);'>"; //Sets colour and ID of row.
+							htm += "<tr style='background-color:rgb(159, 255, 48);'>"; //Sets colour and ID of row.
 							htm +="<td>"+json[i].userID+"</td>";
 							htm +="<td>"+json[i].name+"</td>";
 							htm +="<td>"+json[i].jobTitle+"</td>";		
@@ -202,28 +202,18 @@
 			
 			function AddRow() //Adds a new row to the table, from data in the text boxes.
 			{
-				console.log("");
-				if (!ValidateInput())
+				!ValidateInput())
 				{
 					return;
 				}
-				rows = GetRows(); //Gets number of rows.
-				table = document.getElementById("tbl");
-				row = table.insertRow(rows); //Adds new empty row.
-				cell0 = row.insertCell(0); //Inserts and modifies each cell of the new row in turn.
-				cell0.innerHTML = document.getElementById("txtID").value + "(new)"; //Until it has been added to the database, the first field is given a '(new)' tag.
-				cell1 = row.insertCell(1);
-				cell1.innerHTML = document.getElementById("txtName").value;
-				cell2 = row.insertCell(2);
-				cell2.innerHTML = document.getElementById("txtJobTitle").value;
-				cell3 = row.insertCell(3);
-				cell3.innerHTML = document.getElementById("txtDepartment").value;
-				cell4 = row.insertCell(4);
-				cell4.innerHTML = document.getElementById("txtTelephoneNumber").value;
-				cell5 = row.insertCell(5);
-				cell5.innerHTML = GetSpecialistAsString(document.getElementById("chkSpecialist").checked);
-				table.rows[rows].id = "t" + document.getElementById("tbl").rows[rows-1].id; //Sets ID of new row.
-				table.rows[rows].style.backgroundColor = '#9FFF30'; //Sets background colour of new row.
+				htm = "<tr style='background-color:rgb(159, 255, 48);'>"; //Sets colour and ID of row.
+				htm +="<td>"+document.getElementById("txtID").value + "(new)</td>"; //Until it has been added to the database, the first field is given a '(new)' tag.
+				htm +="<td>"+document.getElementById("txtName").value+"</td>";
+				htm +="<td>"+document.getElementById("txtJobTitle").value+"</td>";		
+				htm +="<td>"+document.getElementById("txtDepartment").value+"</td>";
+				htm +="<td>"+document.getElementById("txtTelephoneNumber").value+"</td>";
+				htm +="<td>"+GetSpecialistAsString(document.getElementById("chkSpecialist").checked)+"</td>";
+				htm += "</tr>";		
 				newRowCount+=1;
 				alert("New personnel added."); //Success message.
 				document.getElementById("btnAdd").value = "Add New Item";
@@ -277,7 +267,6 @@
 						}
 						if (deleteRow == true) //If should be deleted after validation.
 						{
-							console.log("deleting t" + i);
 							if (document.getElementById("tbl").rows[i].cells[0].innerHTML.includes("(new)")) //If row is a new row, decrement number of new rows.
 							{
 								newRowCount -=1;
