@@ -177,17 +177,16 @@
 		html += "<form class ='px-4 py-3'><div class='form-group'><label for='dropdownSearch'>Search</label>"
 		html += "<input type='text' class='form-control' id='dropdownSearch3' placeholder='Search' onkeyup='filter(3)'></div></form>"
 	    html += "<div class='dropdown-divider'></div><h6 class='dropdown-header'>Problem Types</h6>";
+		document.getElementById("problemTypeComboBox").innerHTML = html;
 		if (num==1){
-		  html = findAllChildren("Hardware problem", html);
+		  findAllChildren("Hardware problem", html);
 		}
 		else if (num==2){
-		  html = findAllChildren("Software problem", html);
+		  findAllChildren("Software problem", html);
 		}
 		else{
-		  html = findAllChildren("Network problem", html);		  
+		  findAllChildren("Network problem", html);		  
 		}
-		html+="</div>";
-		document.getElementById("problemTypeComboBox").innerHTML = html;
 		$('#resultCollapse').collapse('show');
 	  }
 	  
@@ -196,7 +195,8 @@
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
 		  if (json && json[0]){
 			for (i = 0; i < json.length; i++){
-			  html+="<a class='dropdown-item' href='#'>" + json[i].typeName + "</a>";
+			  html="<a class='dropdown-item' href='#'>" + json[i].typeName + "</a>";
+			  document.getElementById("problemTypeComboBox").innerHTML += html;
 			  findAllChildren(json[i].typeName,html);
 			}
 		  }
