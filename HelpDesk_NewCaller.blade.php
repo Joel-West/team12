@@ -221,7 +221,7 @@
 	  
 	  function populateProblemTypeList(problemType){
 		var sql = "SELECT generalisation FROM tblProblemType WHERE typeName = '" + problemType + "';";
-		problemTypeList.append(problemType);
+		problemTypeList.push(problemType);
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
 		  if (json && json[0]){
 			if (json[0].generalisation == NULL){
