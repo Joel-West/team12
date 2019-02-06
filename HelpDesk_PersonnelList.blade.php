@@ -214,7 +214,7 @@
 				htm +="<td>"+document.getElementById("txtTelephoneNumber").value+"</td>";
 				htm +="<td>"+GetSpecialistAsString(document.getElementById("chkSpecialist").checked)+"</td>";
 				htm += "</tr>";	
-				document.getElementById("tableDiv").innerHTML += htm; //Appends HTML to tableDiv.				
+				document.getElementById("tbl").innerHTML += htm; //Appends HTML to tableDiv.				
 				newRowCount+=1;
 				alert("New personnel added."); //Success message.
 				document.getElementById("btnAdd").value = "Add New Item";
