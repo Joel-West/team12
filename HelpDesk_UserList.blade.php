@@ -252,7 +252,7 @@
 				htm = "<tr style='background-color:rgb(159, 255, 48);'>"; //Sets colour and ID of row.
 				htm +="<td>"+document.getElementById("txtID").value + "(new)</td>"; //Until it has been added to the database, the first field is given a '(new)' tag.
 				htm +="<td>"+document.getElementById("txtUsername").value+"</td>";
-				htm +="<td class='hidetext'>"+document.getElementById("txtPassword")+"</td>";		
+				htm +="<td class='hidetext'>"+document.getElementById("txtPassword").value+"</td>";		
 				htm +="<td>"+GetAdminAsString(document.getElementById("chkAdmin").checked)+"</td>";
 				htm += "</tr>";	
 				document.getElementById("tbl").innerHTML += htm; //Appends HTML to tableDiv.				
