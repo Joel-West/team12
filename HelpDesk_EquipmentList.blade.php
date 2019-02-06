@@ -243,7 +243,6 @@
 				{
 					serialNumber = updList[i];
 					rowNum = GetRowWithID(id); //Gets the row number in the local table that corresponds to the serialNumber in the updList.
-					console.log(rowNum);
 					if (rowNum != -1) //If row exists.
 					{
 						row = document.getElementById("tbl").rows[rowNum]; //Get row of local table that is being saved to database.
