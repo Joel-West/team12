@@ -72,7 +72,14 @@
 						}
 						console.log(GetAdminAsBool(str[i]));
 						console.log(str[i]);
-						sql += "upper(userID) LIKE '%"+str[i]+"%' OR upper(username) LIKE '%"+str[i]+"%' OR upper(password) LIKE '%"+str[i]+"%' OR upper(admin) LIKE '%"+GetAdminAsBool(str[i])+"%'"; //Query that returns all database records with a cell containing search string.
+						if (str[i].toUpperCase == "YES") //As database contains booleans as strings for the 'admin' field, unlike the local table, this is an approximate algorithm for searching 'yes' and 'no'.
+						{
+							sql += "upper(userID) LIKE '%"+str[i]+"%' OR upper(username) LIKE '%"+str[i]+"%' OR upper(password) LIKE '%"+str[i]+"%' OR upper(admin) LIKE '1'"; //Query that returns all database records with a cell containing search string.
+						}
+						else if (str[i].toUpperCase == "NO")
+						{
+							sql += "upper(userID) LIKE '%"+str[i]+"%' OR upper(username) LIKE '%"+str[i]+"%' OR upper(password) LIKE '%"+str[i]+"%' OR upper(admin) LIKE '0'"; //Query that returns all database records with a cell containing search string.
+						}
 					}
 				}
 				RunQuery(sql); //Runs function get gets data from database and display it in tableDiv.
