@@ -178,7 +178,7 @@
 						{
 							matchIndex = size; //If the user has input an exact match, assign the variable defining what the default value for the box will be.
 						}
-						htm+="<option>"+validIDs[i]+"</option>"; //ID can be selected as an ID for a new user.
+						htm+="<option>"+specialists[i]+"</option>"; //ID can be selected as an ID for a new user.
 					}
 				}
 				selBox.innerHTML=htm; //Appends values to selection vox.
@@ -223,7 +223,7 @@
 						{
 							matchIndex = size; //If the user has input an exact match, assign the variable defining what the default value for the box will be.
 						}
-						htm+="<option>"+validIDs[i]+"</option>"; //ID can be selected as an ID for a new user.
+						htm+="<option>"+problemTypes[i]+"</option>"; //ID can be selected as an ID for a new user.
 					}
 				}
 				selBox.innerHTML=htm; //Appends values to selection vox.
