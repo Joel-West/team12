@@ -198,7 +198,7 @@
 		  if (json && json[0]){
 			for (i = 0; i < json.length; i++){
 			  html="<a class='dropdown-item' href='#'>" + json[i].typeName + "</a>";
-			  document.getElementById("problemTypeComboBox").innerHTML += html;
+			  document.getElementById("dropdown-menu3").innerHTML += html;
 			  findAllChildren(json[i].typeName,html);
 			}
 		  }
