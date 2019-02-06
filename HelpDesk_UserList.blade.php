@@ -90,10 +90,10 @@
 						for (i = 0; i<json.length; i++) //Iterates through the json array of results.
 						{
 							htm += "<tr id='t" + (i+1) + "' style='background-color:rgb(159, 255, 48);'>"; //Sets colour and ID of row.
-							htm +="<td id='id'>"+json[i].userID+"</td>";
-							htm +="<td id='username'>"+json[i].username+"</td>";
-							htm +="<td class='hidetext' id='password'>"+json[i].password+"</td>";		
-							htm +="<td id='admin'>"+GetAdminAsString(json[i].admin)+"</td>";
+							htm +="<td>"+json[i].userID+"</td>";
+							htm +="<td>"+json[i].username+"</td>";
+							htm +="<td class='hidetext'>"+json[i].password+"</td>";		
+							htm +="<td>"+GetAdminAsString(json[i].admin)+"</td>";
 							htm += "</tr>";							
 						}
 					}
@@ -194,7 +194,7 @@
 					rowNum = GetSelectedRow(); //Gets the row that is selected.
 					document.getElementById("txtID").value = document.getElementById("tbl").rows[rowNum].cells[0].innerHTML;
 					document.getElementById("txtID").disabled = true;
-					document.getElementById("selID").style.visibility = hidden;
+					document.getElementById("selID").style.display="none";
 					document.getElementById("txtUsername").value = document.getElementById("tbl").rows[rowNum].cells[1].innerHTML;
 					document.getElementById("txtPassword").value = document.getElementById("tbl").rows[rowNum].cells[2].innerHTML;
 					document.getElementById("chkAdmin").checked = GetAdminAsBool(document.getElementById("tbl").rows[rowNum].cells[3].innerHTML);
