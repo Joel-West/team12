@@ -133,15 +133,16 @@
 				{
 					if (validIDs[i].includes(item))
 					{
+						console.log("valid");
 						return true;
 					}
 				}
+				console.log("invalid");
 				return false;
 			}
 			
 			function PopulateIDSelect() //Populates selection box with IDs/names based on searched text.
 			{
-				console.log("ff");
 				IDBox = document.getElementById("txtID");
 				selBox = document.getElementById("selID");
 				htm = "<option></option>";
