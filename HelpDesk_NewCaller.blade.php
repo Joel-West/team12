@@ -206,6 +206,16 @@
 		return(html); 
 	  }
 	  
+	  $(document).on('click', '#dropdown-menu3 a', function(){
+        $("#dropdownButton3:first-child").text($(this).text());
+        $("#dropdownButton3:first-child").val($(this).text());
+		populateSpecialist($(this).text());
+      });
+	  
+	  populateSpecialist(problemType){
+		console.log("AHHH");
+	  }
+	  
 	</script>
 	<style>
 	  .dropdown-menu{
@@ -313,9 +323,6 @@
 		  </div>
 		  Resolved:
 		  <div id="resolvedRadioButtons">
-		  </div>
-		  Solution:
-		  <div id="solutionBox">
 		  </div>
 		</div>
 		<div class="col-3"></div>
