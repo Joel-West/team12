@@ -154,22 +154,17 @@
 				{
 					selID.visibility = "visible";
 				}
-				htm = "";
+				htm = "<option></option>";
 				size = 0; //Stores size of selection box.
 				for (i = 0; i < validIDs.length; i++) //Iterates through all ids that exist in the personnel table.
 				{
-					if ((GetRowWithID(GetIDFromSelBoxItem(validIDs[i])) == -1) && ((GetRowWithID(GetIDFromSelBoxItem(validIDs[i])).value + "(new)") != -1) && validIDs[i].toUpperCase().includes(IDBox.value.toUpperCase()))
+					if ((GetRowWithID(GetIDFromSelBoxItem(validIDs[i])) == -1) && ((GetRowWithID(GetIDFromSelBoxItem(validIDs[i])).value + "(new)") != -1) && (validIDs[i].toUpperCase().includes(IDBox.value.toUpperCase()) || IDBox.value == ""))
 					{
 						size+=1;
 						htm+="<option>"+validIDs[i]+"</option>"; //If ID can be selected by the user as an ID for a new user.
 					}
 				}
 				selBox.innerHTML=htm; //Appends values to selection vox.
-				key = event.keyCode || event.charCode;
-				if (size == 1 && key != 8 && key != 46) //If only 1 valid item, and not deleting text, automatically populate text box with ID.
-				{
-					IDBox.value = GetIDFromSelBoxItem(selBox[0].value);
-				}
 			}
 			
 			function IDOptionClicked() //Sets ID text box value to selected option in selection box.
