@@ -450,7 +450,7 @@
 							<input type="button" class="btn" id="btnDelete" value="Delete Selected Items" id="del" style="font-size:16px;" onclick="Delete()"/><br/><br/> <!-- Delete button that calls function within ExtraCode.js when pressed. -->
 							Personnel ID:<br/><input id="txtID" type="text" onkeyup="PopulateIDSelect()"></input><br/> <!-- Input fields for adding a new row.-->						
 							<select id="selID" onchange="IDOptionClicked()" class="greenBack"></select>
-							<label id="lblIDNum"/>
+							<label id="lblIDNum"></label>
 							<br/><br/>
 							Username:<br/><input id="txtUsername" type="text"></input><br/>
 							Password:<br/><input class="hidetext" id="txtPassword" type="text"></input><br/>							
