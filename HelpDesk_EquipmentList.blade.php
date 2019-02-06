@@ -249,7 +249,7 @@
 						sql+="UPDATE tblEquipment SET ";
 						sql+="equipmentType = '"+ row.cells[1].innerHTML + "', ";
 						sql+="equipmentMake = '"+ row.cells[2].innerHTML + "', ";
-						sql+="WHERE serialNumber = " + serialNumber + "; ";
+						sql+="WHERE serialNumber = '" + serialNumber + "'; ";
 					}
 				}
 				for (i = 0; i < GetRows(); i++) //Iterate through all rows to find new rows.
