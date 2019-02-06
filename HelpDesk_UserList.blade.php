@@ -175,7 +175,7 @@
 				}
 				if (IDBox.value.length > 0) //If the text box contains results, give the label the number of results.
 				{
-					lblIDNum.value = "(" + size + "results");
+					lblIDNum.value = "(" + size + "results)";
 				}
 				else
 				{
