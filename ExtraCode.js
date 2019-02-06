@@ -138,7 +138,6 @@ $(document).on('click','tr',function(event) //Function for selecting/deselecting
 	{
 		return;
 	}
-	console.log($(this).attr('id')); //Logs ID (for debugging).
 	if ($(this).attr('id') != 't0') //If not the header.
 	{
 		if ($(this).css('background-color') == 'rgb(159, 255, 48)') //If deselected (if green).
