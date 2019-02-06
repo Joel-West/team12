@@ -248,7 +248,7 @@
 						row = document.getElementById("tbl").rows[rowNum]; //Get row of local table that is being saved to database.
 						sql+="UPDATE tblEquipment SET ";
 						sql+="equipmentType = '"+ row.cells[1].innerHTML + "', ";
-						sql+="equipmentMake = '"+ row.cells[2].innerHTML + "', ";
+						sql+="equipmentMake = '"+ row.cells[2].innerHTML + "' ";
 						sql+="WHERE serialNumber = '" + serialNumber + "'; ";
 					}
 				}
