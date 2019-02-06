@@ -232,6 +232,7 @@
 			  return;
 			}
 		  }
+	    },'json');
 	  }
 	</script>
 	<style>
