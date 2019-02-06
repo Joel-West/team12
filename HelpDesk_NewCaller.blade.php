@@ -184,7 +184,7 @@
 		  result = [];
 		  result = findAllChildren("Network problem");		  
 		}
-		setTimeout(problemTypeCreation(),1000);
+		document.setTimeout(problemTypeCreation(),1000);
 	  }
 	  
 	  function problemTypeCreation(){
@@ -297,7 +297,7 @@
 			</label>
 		  </div>
 		  <div class="form-check">
-		    <input class="form-check-input" type="radio" name="Radios" id="Radios1" value="Network" onClick = "radios(3,);">
+		    <input class="form-check-input" type="radio" name="Radios" id="Radios1" value="Network" onClick = "radios(3);">
 			<label class="form-check-label" for="Radios1">
 			  Network
 			</label>
