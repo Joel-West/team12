@@ -154,6 +154,7 @@
 						htm+="<option>"+validIDs[i]+"</option>"; //If ID can be selected by the user as an ID for a new user.
 					}
 				}
+				console.log(size);
 				selBox.innerHTML=htm; //Appends values to selection vox.
 			}
 			
