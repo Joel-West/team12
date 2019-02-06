@@ -237,7 +237,7 @@
 				sql = "";
 				for (i = 0; i < delList.length; i++) //Iterate through delete list (deletion performed first as it reduces database size, making other operations quicker).
 				{
-					sql+="DELETE FROM tblEquipment WHERE userID = " + delList[i] + "; ";
+					sql+="DELETE FROM tblEquipment WHERE serialNumber = '" + delList[i] + "'; ";
 				}
 				for (i = 0; i < updList.length; i++) //Iterate through delete list (deletion performed first as it reduces database size, making other operations quicker).
 				{
