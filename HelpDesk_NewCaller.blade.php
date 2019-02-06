@@ -212,10 +212,27 @@
 		populateSpecialist($(this).text());
       });
 	  
+	  var problemTypeList = [];
 	  function populateSpecialist(problemType){
-		console.log("AHHH");
+		problemTypeList = [];
+		populateProblemTypeList(problemType);
+		console.log(problemTypeList);
 	  }
 	  
+	  function populateProblemTypeList(problemType){
+		var sql = "SELECT generalisation FROM tblProblemType WHERE typeName = '" + problemType + "';";
+		problemTypeList.append(problemType);
+		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
+		  if (json && json[0]){
+			if (json[0].generalisation == NULL){
+			  return;
+			}
+			else{
+			  populateProblemTypeList(json[0].generalisation);
+			  return;
+			}
+		  }
+	  }
 	</script>
 	<style>
 	  .dropdown-menu{
@@ -320,6 +337,11 @@
 		  </div>
 		  Specialist:
 		  <div id="specialistComboBox">
+		    <button class='btn greenBack dropdown-toggle' type='button' id='dropdownButton4' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>
+			  Choose Specialist<span class='caret'></span>
+			</button>
+			<div class='dropdown-menu' id='dropdown-menu4' aria-labelledby='dropdownMenu4'>
+			<h6 class='dropdown-header'>Specialists to exact problem type</h6>
 		  </div>
 		  Resolved:
 		  <div id="resolvedRadioButtons">
