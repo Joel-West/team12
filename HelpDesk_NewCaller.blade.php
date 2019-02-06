@@ -171,48 +171,37 @@
       });
 	  
 	  function radios(num){
-		if (num==1){
-		  result = [];
-		  result = findAllChildren("Hardware problem");
-		}
-		else if (num==2){
-		  result = [];
-		  result = findAllChildren("Software problem");
-		}
-		else{
-		  result = [];
-		  result = findAllChildren("Network problem");		  
-		}
-		setTimeout(problemTypeCreation,1000);
-	  }
-	  
-	  function problemTypeCreation(){
 		var html = "<button class='btn btn-primary dropdown-toggle' type='button' id='dropdownButton3' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>";
 	    html += "Choose Problem Type<span class='caret'></span></button>";
 		html += "<div class='dropdown-menu' id='dropdown-menu3' aria-labelledby='dropdownMenu3'>";
 		html += "<form class ='px-4 py-3'><div class='form-group'><label for='dropdownSearch'>Search</label>"
 		html += "<input type='text' class='form-control' id='dropdownSearch3' placeholder='Search' onkeyup='filter(3)'></div></form>"
 	    html += "<div class='dropdown-divider'></div><h6 class='dropdown-header'>Problem Types</h6>";
-		for (i = 0; i < result.length; i++){
-	      html+="<a class='dropdown-item' href='#'>" + result[i] + "</a>";
+		if (num==1){
+		  html = findAllChildren("Hardware problem", html);
 		}
-		  html+="</div>";
-		  document.getElementById("problemTypeComboBox").innerHTML = html;
-		  $('#resultCollapse').collapse('show');
+		else if (num==2){
+		  html = findAllChildren("Software problem", html);
+		}
+		else{
+		  html = findAllChildren("Network problem", html);		  
+		}
+		html+="</div>";
+		document.getElementById("problemTypeComboBox").innerHTML = html;
+		$('#resultCollapse').collapse('show');
 	  }
 	  
-	  var result = [];
-	  function findAllChildren(parent){
+	  function findAllChildren(parent,html){
 		var sql = "SELECT typeName FROM tblProblemType WHERE generalisation = '" + parent + "';";
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
 		  if (json && json[0]){
 			for (i = 0; i < json.length; i++){
-			  result.push(json[i].typeName);
-			  findAllChildren(json[i].typeName);
+			  html+="<a class='dropdown-item' href='#'>" + json[i].typeName + "</a>";
+			  findAllChildren(json[i].typeName,html);
 			}
 		  }
 		},'json');
-		return(result); 
+		return(html); 
 	  }
 	  
 	</script>
