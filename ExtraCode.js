@@ -158,13 +158,8 @@ $(document).on('click','tr',function(event) //Function for selecting/deselecting
 function GetRowWithID(id) //Returns row of a column with a given ID (first column, which is presumed to be the unique primary key).
 {
 	rows = GetRows();
-	console.log("rows = " + rows);
 	for (j = 1; j<rows; j++)
 	{
-		console.log("j = " + j);
-		console.log("cellInnerHTML = " + document.getElementById("tbl").rows[j].cells[0].innerHTML);
-		console.log("id = " + id);
-		console.log("bool = " + document.getElementById("tbl").rows[j].cells[0].innerHTML == id);
 		if (document.getElementById("tbl").rows[j].cells[0].innerHTML == id)
 		{
 			return j;

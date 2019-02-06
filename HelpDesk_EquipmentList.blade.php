@@ -242,7 +242,7 @@
 				for (i = 0; i < updList.length; i++) //Iterate through delete list (deletion performed first as it reduces database size, making other operations quicker).
 				{
 					serialNumber = updList[i];
-					rowNum = GetRowWithID(id); //Gets the row number in the local table that corresponds to the serialNumber in the updList.
+					rowNum = GetRowWithID(serialNumber); //Gets the row number in the local table that corresponds to the serialNumber in the updList.
 					if (rowNum != -1) //If row exists.
 					{
 						row = document.getElementById("tbl").rows[rowNum]; //Get row of local table that is being saved to database.
