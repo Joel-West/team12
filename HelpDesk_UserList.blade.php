@@ -247,6 +247,7 @@
 					document.getElementById("txtID").disabled = false;
 					document.getElementById("selID").style.display = "inline";
 					document.getElementById("lblIDNum").style.display = "inline";
+					PopulateIDSelect();
 					document.getElementById("txtUsername").value = "";
 					document.getElementById("txtPassword").value = "";
 					document.getElementById("chkAdmin").checked = false;

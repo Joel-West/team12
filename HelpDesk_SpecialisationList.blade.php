@@ -284,6 +284,8 @@
 					document.getElementById("lblSpecialistNum").style.display = "inline";
 					document.getElementById("selProblemType").style.display = "inline";
 					document.getElementById("lblProblemTypeNum").style.display = "inline";
+					PopulateSpecialistSelect();
+					PopulateProblemTypeSelect();
 					document.getElementById("txtSpecialist").value = "";
 					document.getElementById("txtProblemType").value = "";
 				}
