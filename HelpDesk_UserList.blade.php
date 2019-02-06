@@ -70,6 +70,7 @@
 						{
 							sql+=" OR ";
 						}
+						console.log(GetAdminAsBool(str[i]));
 						sql += "upper(userID) LIKE '%"+str[i]+"%' OR upper(username) LIKE '%"+str[i]+"%' OR upper(password) LIKE '%"+str[i]+"%' OR upper(admin) LIKE '%"+GetAdminAsBool(str[i])+"%'"; //Query that returns all database records with a cell containing search string.
 					}
 				}
