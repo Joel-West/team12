@@ -429,7 +429,7 @@
 					row = document.getElementById("tbl").rows[i];
 					if (row.cells[0].innerHTML.includes("-")) //If record is new.
 					{
-						sql+="INSERT INTO tblUser VALUES (NULL, ";
+						sql+="INSERT INTO tblSpecialisation VALUES (NULL, ";
 						sql+="'" + row.cells[1].innerHTML + "', ";
 						sql+="'" + row.cells[2].innerHTML + "'); ";
 					}
