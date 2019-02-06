@@ -225,6 +225,13 @@
 				table.rows[rows].style.backgroundColor = '#9FFF30'; //Sets background colour of new row.
 				newRowCount+=1;
 				alert("New personnel added."); //Success message.
+				document.getElementById("btnAdd").value = "Add New Item";
+				document.getElementById("txtID").value = "";
+				document.getElementById("txtName").value = "";
+				document.getElementById("txtJobTitle").value = "";
+				document.getElementById("txtDepartment").value = "";
+				document.getElementById("txtTelephoneNumber").value = "";
+				document.getElementById("chkSpecialist").checked = false;
 			}
 			
 			function UpdateRow() //Function that updates the selected row.

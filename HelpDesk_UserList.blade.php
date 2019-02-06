@@ -159,7 +159,6 @@
 			
 			function IDOptionClicked() //Sets ID text box value to selected option in selection box.
 			{
-				console.log("Clicked");
 				document.getElementById("txtID").value = GetIDFromSelBoxItem(document.getElementById("selID").value);
 			}
 			
@@ -259,6 +258,10 @@
 				console.log(table.rows[rows].cells[2]).value;
 				newRowCount+=1;
 				alert("New user info added."); //Success message.
+				document.getElementById("txtID").value = "";
+				document.getElementById("txtUsername").value = "";
+				document.getElementById("txtPassword").value = "";
+				document.getElementById("chkAdmin").checked = false;
 			}
 			
 			function UpdateRow() //Function that updates the selected row.
