@@ -96,7 +96,7 @@
 					if(json && json[0]) //If result of php file was a json array.	
 					{				
 						var htm = "<table class='table' id='tbl' border='1'>";
-						htm+="<tr><th onclick='SortTable(0)' scope='col'>userID</th>";
+						htm+="<tr id='t0'><th onclick='SortTable(0)' scope='col'>userID</th>";
 						htm+="<th onclick='SortTable(1)' scope='col'>Username</th>";
 						htm+="<th onclick='SortTable(2)'scope='col'>Password</th>";
 						htm+="<th onclick='SortTable(3)'scope='col'>Admin</th></tr>"; //Appending column headers.
