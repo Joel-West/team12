@@ -217,6 +217,12 @@
 	  }
 	  
 	</script>
+	<style>
+	  .dropdown-menu{
+		  height:200px;
+		  overflow-y:auto;
+	  }
+	</style>
   </head>
   
   <body onload="Load()">
