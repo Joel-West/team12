@@ -246,7 +246,6 @@
 					updList.push(row.cells[0].innerHTML); //Add the ID of the row to the list of rows to by updated when changes are commited to the actual database.
 					console.log(updList);
 				}
-				//alert("Personnel updated successfully.");
 			}
 			
 			function Delete() //Function for deleting selected rows from a table.
@@ -290,7 +289,7 @@
 				}
 			}
 			
-			function SaveChanges(page) //Function that saves table data back to database.
+			function SaveChanges() //Function that saves table data back to database.
 			{
 				admin = (userData.split(","))[2];
 				if (admin == 0) //If not admin, action is forbidden.
@@ -306,11 +305,8 @@
 				}
 				for (i = 0; i < updList.length; i++) //Iterate through delete list (deletion performed first as it reduces database size, making other operations quicker).
 				{
-					//console.log("i = " +i);
 					id = updList[i];
 					rowNum = GetRowWithID(id); //Gets the row number in the local table that corresponds to the ID in the updList.
-					//console.log("rowNum = " + rowNum);
-					//console.log("i = " +i);
 					if (rowNum != -1) //If row exists.
 					{
 						row = document.getElementById("tbl").rows[rowNum]; //Get row of local table that is being saved to database.
@@ -395,7 +391,7 @@
 						<div id="searchDiv">
 							<p>
 								Search:<input id="txtSearch" type="text" oninput="ResetTable()"></input> <!-- Box for searching the table for specific strings. -->
-								<input type="button" class="btn" id="btnSearch" value="Submit" onclick="Search()"></input> <!-- Submits search on press -->
+								<input type="button" class="btn" id="btnSearch" value="Submit" onclick="Search()"></input> <!-- Submits search on press. -->
 							</p>
 						</div>
 						<div id="inputDiv">
@@ -410,7 +406,7 @@
 							<br/>
 							<br/>
 							<p align="center">
-							<input type="button" id="btnSave" class="btn" value="Save Changes" style="font-size:26px; padding: 6px 12px;" onClick="SaveChanges('Home');" /> <!-- Button for submitting changes to table. -->
+							<input type="button" id="btnSave" class="btn" value="Save Changes" style="font-size:26px; padding: 6px 12px;" onClick="SaveChanges();" /> <!-- Button for submitting changes to table. -->
 							</p>
 						</div>
 					</div>

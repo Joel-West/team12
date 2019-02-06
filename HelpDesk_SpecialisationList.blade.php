@@ -466,11 +466,11 @@
 				</div>
 				<br/>
 				<div class="row" align="center">
-					<div id="tableDiv" class="col-9 table-wrapper-scroll-y"> <!-- Div containing data table. -->
+					<div id="tableDiv" class="col-7 table-wrapper-scroll-y"> <!-- Div containing data table. -->
 						Loading data...
 					</div>
 					<br/>
-					<div id="rightDiv" align="center" class="col-3">
+					<div id="rightDiv" align="center" class="col-5">
 						<div id="searchDiv">
 							<p>
 								Search:<input id="txtSearch" type="text" oninput="ResetTable()"></input> <!-- Box for searching the table for specific strings. -->

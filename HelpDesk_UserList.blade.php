@@ -9,7 +9,7 @@
 		<script type="text/javascript" src="{{ URL::asset('js/ExtraCode.js') }}"></script> <!-- Import JS file containing functions that are used in multiple other files -->
 		<script type="text/javascript">	
 			var userData; //Variable containing data about user.
-			var currentPage = "PersonnelList"; //Variable storing the name of the current page, so it can be passed in the URL to the next page as a 'previous page' variable.
+			var currentPage = "UserList"; //Variable storing the name of the current page, so it can be passed in the URL to the next page as a 'previous page' variable.
 			var validIDs = [];
 			function Load() //Function that runs when file loads.
 			{
@@ -70,16 +70,13 @@
 						{
 							sql+=" OR ";
 						}
-						console.log(str[i]);
 						if (str[i] == "YES" || str[i] == "YE" || str[i] == "Y") //As database contains booleans as strings for the 'admin' field, unlike the local table, this is an approximate algorithm for searching 'yes' and 'no'.
 						{
 							sql += "upper(userID) LIKE '%"+str[i]+"%' OR upper(username) LIKE '%"+str[i]+"%' OR upper(password) LIKE '%"+str[i]+"%' OR upper(admin) LIKE '1'"; //Query that returns all database records with a cell containing search string.
-							console.log("yeeee")
 						}
 						else if (str[i] == "NO"  || str[i] == "N")
 						{
 							sql += "upper(userID) LIKE '%"+str[i]+"%' OR upper(username) LIKE '%"+str[i]+"%' OR upper(password) LIKE '%"+str[i]+"%' OR upper(admin) LIKE '0'"; //Query that returns all database records with a cell containing search string.
-							console.log("noooo")
 						}
 						else
 						{
@@ -160,7 +157,7 @@
 				htm = "<option></option>";
 				size = 0; //Stores size of selection box.
 				matchIndex = -1; //Will be assigned to a natural number if any of the IDs from the validIDs list match exactly with the text box input.
-				for (i = 0; i < validIDs.length; i++) //Iterates through all ids that exist in the personnel table.
+				for (i = 0; i < validIDs.length; i++) //Iterates through all IDs that exist in the personnel table.
 				{
 					if ((GetRowWithID(GetIDFromSelBoxItem(validIDs[i])) == -1) && ((GetRowWithID(GetIDFromSelBoxItem(validIDs[i])).value + "(new)") != -1) && (validIDs[i].toUpperCase().includes(IDBox.value.toUpperCase()) || IDBox.value == ""))
 					{
@@ -169,7 +166,7 @@
 						{
 							matchIndex = size; //If the user has input an exact match, assign the variable defining what the default value for the box will be.
 						}
-						htm+="<option>"+validIDs[i]+"</option>"; //If ID can be selected by the user as an ID for a new user.
+						htm+="<option>"+validIDs[i]+"</option>"; //ID can be selected as an ID for a new user.
 					}
 				}
 				selBox.innerHTML=htm; //Appends values to selection vox.
@@ -320,7 +317,6 @@
 					updList.push(row.cells[0].innerHTML); //Add the ID of the row to the list of rows to by updated when changes are commited to the actual database.
 					console.log(updList);
 				}
-				alert("User info updated successfully.");
 			}
 			
 			function Delete() //Function for deleting selected rows from a table.
@@ -342,7 +338,6 @@
 						}
 						if (deleteRow == true) //If should be deleted after validation.
 						{
-							console.log("deleting t" + i);
 							if (document.getElementById("tbl").rows[i].cells[0].innerHTML.includes("(new)")) //If row is a new row, decrement number of new rows.
 							{
 								newRowCount -=1;
@@ -365,7 +360,7 @@
 				}
 			}
 			
-			function SaveChanges(page) //Function that saves table data back to database.
+			function SaveChanges() //Function that saves table data back to database.
 			{
 				admin = (userData.split(","))[2];
 				if (admin == 0) //If not admin, action is forbidden.
@@ -450,15 +445,15 @@
 				</div>
 				<br/>
 				<div class="row" align="center">
-					<div id="tableDiv" class="col-9 table-wrapper-scroll-y"> <!-- Div containing data table. -->
+					<div id="tableDiv" class="col-8 table-wrapper-scroll-y"> <!-- Div containing data table. -->
 						Loading data...
 					</div>
 					<br/>
-					<div id="rightDiv" align="center" class="col-3">
+					<div id="rightDiv" align="center" class="col-4">
 						<div id="searchDiv">
 							<p>
 								Search:<input id="txtSearch" type="text" oninput="ResetTable()"></input> <!-- Box for searching the table for specific strings. -->
-								<input type="button" class="btn" id="btnSearch" value="Submit" onclick="Search()"></input> <!-- Submits search on press -->
+								<input type="button" class="btn" id="btnSearch" value="Submit" onclick="Search()"></input> <!-- Submits search on press. -->
 							</p>
 						</div>
 						<div id="inputDiv">
@@ -474,7 +469,7 @@
 							<br/><input type="button" class="btn" id="btnAdd" value="Add New Item" style="font-size:16px;" onclick="AddPressed()"></input>	
 							<br/><br/>
 							<p align="center">
-							<input type="button" id="btnSave" class="btn" value="Save Changes" style="font-size:26px; padding: 6px 12px;" onClick="SaveChanges('Home');" /> <!-- Button for submitting changes to table. -->
+							<input type="button" id="btnSave" class="btn" value="Save Changes" style="font-size:26px; padding: 6px 12px;" onClick="SaveChanges();" /> <!-- Button for submitting changes to table. -->
 							</p>
 						</div>
 					</div>
