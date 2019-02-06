@@ -145,6 +145,7 @@
 				selBox = document.getElementById("selID");
 				htm = "<option></option>";
 				size = 0; //Stores size of selection box.
+				console.log(validIDs.length);
 				for (i = 0; i < validIDs.length; i++) //Iterates through all ids that exist in the personnel table.
 				{
 					if ((GetRowWithID(GetIDFromSelBoxItem(validIDs[i])) == -1) && ((GetRowWithID(GetIDFromSelBoxItem(validIDs[i])).value + "(new)") != -1) && (validIDs[i].toUpperCase().includes(IDBox.value.toUpperCase()) || IDBox.value == ""))
@@ -250,13 +251,13 @@
 				cell1 = row.insertCell(1);
 				cell1.innerHTML = document.getElementById("txtUsername").value;
 				cell2 = row.insertCell(2);
+				cell2.id = "passwordCell";
 				cell2.innerHTML = document.getElementById("txtPassword").value;
 				cell3 = row.insertCell(3);
 				cell3.innerHTML = GetAdminAsString(document.getElementById("chkAdmin").checked);
 				table.rows[rows].id = "t" + document.getElementById("tbl").rows[rows-1].id; //Sets ID of new row.
 				table.rows[rows].style.backgroundColor = '#9FFF30'; //Sets background colour of new row.
-				table.rows[rows].cells[2].class='hidetext';
-				console.log(table.rows[rows].cells[2]).value;
+				document.getElementById("passwordCell").class='hidetext';
 				newRowCount+=1;
 				alert("New user info added."); //Success message.
 				document.getElementById("txtID").value = "";
