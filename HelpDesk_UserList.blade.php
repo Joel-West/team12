@@ -141,6 +141,7 @@
 			
 			function PopulateIDSelect() //Populates selection box with IDs/names based on searched text.
 			{
+				console.log("ff");
 				IDBox = document.getElementById("txtID");
 				selBox = document.getElementById("selID");
 				htm = "<option></option>";
@@ -214,8 +215,8 @@
 			function ValidateInput() //Function returns true if the data input boxes are all valid.
 			{
 				id = "txtID";
-				if (document.getElementById(id).value == false || isNaN(document.getElementById(id).value) || document.getElementById(id).value.includes("'") || IsValidID(document.getElementById(id)) ||
-				((GetRowWithID(document.getElementById(id).value) != -1 || GetRowWithID(document.getElementById(id).value + "(new)") != -1) && document.getElementById(id).disabled == false))
+				if (document.getElementById(id).value == false || isNaN(document.getElementById(id).value) || document.getElementById(id).value.includes("'") ||
+				((GetRowWithID(document.getElementById(id).value) != -1 || GetRowWithID(document.getElementById(id).value + "(new)") != -1 || !IsValidID(document.getElementById(id))) && document.getElementById(id).disabled == false))
 				{
 					alert("Invalid ID."); //Returns error if data input from text box is invalid.
 					return false;

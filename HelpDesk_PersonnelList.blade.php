@@ -90,12 +90,12 @@
 						for (i = 0; i<json.length; i++) //Iterates through the json array of results.
 						{
 							htm += "<tr id='t" + (i+1) + "' style='background-color:rgb(159, 255, 48);'>"; //Sets colour and ID of row.
-							htm +="<td id='id'>"+json[i].userID+"</td>";
-							htm +="<td id='name'>"+json[i].name+"</td>";
-							htm +="<td id='jobTitle'>"+json[i].jobTitle+"</td>";		
-							htm +="<td id='department'>"+json[i].department+"</td>";
-							htm +="<td id='telephoneNumber'>"+json[i].telephoneNumber+"</td>";
-							htm +="<td id='specialist'>"+json[i].specialist+"</td>";
+							htm +="<td>"+json[i].userID+"</td>";
+							htm +="<td>"+json[i].name+"</td>";
+							htm +="<td>"+json[i].jobTitle+"</td>";		
+							htm +="<td>"+json[i].department+"</td>";
+							htm +="<td>"+json[i].telephoneNumber+"</td>";
+							htm +="<td>"+json[i].specialist+"</td>";
 							htm += "</tr>";							
 						}
 					}
