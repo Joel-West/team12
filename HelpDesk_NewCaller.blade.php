@@ -87,7 +87,7 @@
       }
 	  
 	  function problemCreation(){
-		var html = "<button class='btn btn-primary dropdown-toggle' type='button' id='dropdownButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>";
+		var html = "<button class='btn greenBack dropdown-toggle' type='button' id='dropdownButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>";
 	    html += "Choose Problem<span class='caret'></span></button>";
 		html += "<div class='dropdown-menu' id='dropdown-menu' aria-labelledby='dropdownMenu1'>";
 	    html += "<a class='dropdown-item'>New Problem</a><div class='dropdown-divider'></div>";
@@ -123,7 +123,7 @@
 	  }
 	  
 	  function newProblemCreation(){
-		var html = "<button class='btn btn-primary dropdown-toggle' type='button' id='dropdownButton2' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>";
+		var html = "<button class='btn greenBack dropdown-toggle' type='button' id='dropdownButton2' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>";
 	    html += "Choose Problem<span class='caret'></span></button>";
 		html += "<div class='dropdown-menu' id='dropdown-menu2' aria-labelledby='dropdownMenu2'>";
 		html += "<form class ='px-4 py-3'><div class='form-group'><label for='dropdownSearch'>Search</label>"
@@ -171,7 +171,7 @@
       });
 	  
 	  function radios(num){
-		var html = "<button class='btn btn-primary dropdown-toggle' type='button' id='dropdownButton3' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>";
+		var html = "<button class='btn greenBack dropdown-toggle' type='button' id='dropdownButton3' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>";
 	    html += "Choose Problem Type<span class='caret'></span></button>";
 		html += "<div class='dropdown-menu' id='dropdown-menu3' aria-labelledby='dropdownMenu3'>";
 		html += "<form class ='px-4 py-3'><div class='form-group'><label for='dropdownSearch'>Search</label>"
