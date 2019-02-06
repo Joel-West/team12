@@ -119,7 +119,7 @@
 						}
 					}
 				},'json');
-				console.log(validIDs);
+				PopulateIDSelect();
 			}
 			
 			function GetIDFromSelBoxItem(item) //Takes an item from a selection box (ID + name) and returns just the ID.
@@ -143,14 +143,6 @@
 			{
 				IDBox = document.getElementById("txtID");
 				selBox = document.getElementById("selID");
-				if (IDBox.value == "") //If there is nothing in the ID text box, make the selection box invisible.
-				{
-					selID.style.visibility = "hidden";
-				}
-				else
-				{
-					selID.style.visibility = "visible";
-				}
 				htm = "<option></option>";
 				size = 0; //Stores size of selection box.
 				for (i = 0; i < validIDs.length; i++) //Iterates through all ids that exist in the personnel table.
@@ -202,7 +194,6 @@
 					rowNum = GetSelectedRow(); //Gets the row that is selected.
 					document.getElementById("txtID").value = document.getElementById("tbl").rows[rowNum].cells[0].innerHTML;
 					document.getElementById("txtID").disabled = true;
-					document.getElementById("selId").disabled = true;
 					document.getElementById("selId").style.visibility = hidden;
 					document.getElementById("txtUsername").value = document.getElementById("tbl").rows[rowNum].cells[1].innerHTML;
 					document.getElementById("txtPassword").value = document.getElementById("tbl").rows[rowNum].cells[2].innerHTML;
@@ -213,7 +204,6 @@
 					document.getElementById("btnAdd").value = "Add New Item";
 					document.getElementById("txtID").value = "";
 					document.getElementById("txtID").disabled = false;
-					document.getElementById("selId").disabled = false;
 					document.getElementById("selId").style.visibility = visible;
 					document.getElementById("txtUsername").value = "";
 					document.getElementById("txtPassword").value = "";
@@ -259,12 +249,12 @@
 				cell1 = row.insertCell(1);
 				cell1.innerHTML = document.getElementById("txtUsername").value;
 				cell2 = row.insertCell(2);
-				cell2.class='hidetext';
 				cell2.innerHTML = document.getElementById("txtPassword").value;
 				cell3 = row.insertCell(3);
 				cell3.innerHTML = GetAdminAsString(document.getElementById("chkAdmin").checked);
-				document.getElementById("tbl").rows[rows].id = "t" + document.getElementById("tbl").rows[rows-1].id; //Sets ID of new row.
-				document.getElementById("tbl").rows[rows].style.backgroundColor = '#9FFF30'; //Sets background colour of new row.
+				table.rows[rows].id = "t" + document.getElementById("tbl").rows[rows-1].id; //Sets ID of new row.
+				table.rows[rows].style.backgroundColor = '#9FFF30'; //Sets background colour of new row.
+				table.rows[rows].class='hidetext';
 				newRowCount+=1;
 				alert("New user info added."); //Success message.
 			}
@@ -435,7 +425,7 @@
 						</div>
 						<div id="inputDiv">
 							<input type="button" class="btn" id="btnDelete" value="Delete Selected Items" id="del" style="font-size:16px;" onclick="Delete()"/><br/><br/> <!-- Delete button that calls function within ExtraCode.js when pressed. -->
-							ID:<br/><input id="txtID" type="text" onkeyup="PopulateIDSelect()" onload="PopulateIDSelect()"></input><br/> <!-- Input fields for adding a new row.-->						
+							ID:<br/><input id="txtID" type="text" onkeyup="PopulateIDSelect()"></input><br/> <!-- Input fields for adding a new row.-->						
 							<select id="selID" onchange="IDOptionClicked()" class="greenBack"></select><br/><br/>
 							Username:<br/><input id="txtUsername" type="text"></input><br/>
 							Password:<br/><input class="hidetext" id="txtPassword" type="text"></input><br/>							

@@ -221,8 +221,8 @@
 				cell4.innerHTML = document.getElementById("txtTelephoneNumber").value;
 				cell5 = row.insertCell(5);
 				cell5.innerHTML = GetSpecialistAsString(document.getElementById("chkSpecialist").checked);
-				document.getElementById("tbl").rows[rows].id = "t" + document.getElementById("tbl").rows[rows-1].id; //Sets ID of new row.
-				document.getElementById("tbl").rows[rows].style.backgroundColor = '#9FFF30'; //Sets background colour of new row.
+				table.rows[rows].id = "t" + document.getElementById("tbl").rows[rows-1].id; //Sets ID of new row.
+				table.rows[rows].style.backgroundColor = '#9FFF30'; //Sets background colour of new row.
 				newRowCount+=1;
 				alert("New personnel added."); //Success message.
 			}
