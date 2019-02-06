@@ -312,7 +312,7 @@
 					return false;
 				}				
 				
-				for (i = 0; i < document.getElementById("tbl").rows.length); i++)
+				for (i = 0; i < document.getElementById("tbl").rows.length; i++)
 				{
 					row = document.getElementById("tbl").rows[i];
 					if (row.cells[1].innerHTML == txtSpecialist.value && row.cells[2].innerHTML == txtProblemType.value)
