@@ -127,7 +127,7 @@
 	    html += "Choose Problem<span class='caret'></span></button>";
 		html += "<div class='dropdown-menu' id='dropdown-menu2' aria-labelledby='dropdownMenu2'>";
 		html += "<form class ='px-4 py-3'><div class='form-group'><label for='dropdownSearch'>Search</label>"
-		html += "<input type='text' class='form-control' id='dropdownSearch' placeholder='Search' onkeyup='filter()'></div></form>"
+		html += "<input type='text' class='form-control' id='dropdownSearch' placeholder='Search' onkeyup='filter(2)'></div></form>"
 	    html += "<div class='dropdown-divider'></div><a class='dropdown-item'>New Problem</a><form class='px-4 py-3'>";
 		html += "<input type='text' class='form-control' id='newProblemInput' placeholder='Enter New Problem'></form><div class='dropdown-divider'></div>";
 		html += "<h6 class='dropdown-header'>Previously Problems</h6>";
@@ -143,9 +143,9 @@
 		},'json');
 	  }
 	  
-	  function filter(){
+	  function filter(num){
 	    var input = document.getElementById("dropdownSearch");
-		var x = document.getElementById("dropdown-menu2").getElementsByTagName("a");
+		var x = document.getElementById("dropdown-menu" + num).getElementsByTagName("a");
 		for (i = 0; i < x.length; i++){
 		  txtValue = x[i].textContent || x[i].innerText;
 		  if (txtValue.toUpperCase().indexOf(input.value.toUpperCase()) > -1) {
@@ -158,7 +158,6 @@
 	  }
 	  
 	  $(document).on('click', '#dropdown-menu2 a', function(){
-		console.log($(this).text());
 		if ($(this).text() == "New Problem"){
 		  $("#dropdownButton2:first-child").text(document.getElementById("newProblemInput").value);
 		  $("#dropdownButton2:first-child").val(document.getElementById("newProblemInput").value);
@@ -192,7 +191,7 @@
 	    html += "Choose Problem Type<span class='caret'></span></button>";
 		html += "<div class='dropdown-menu' id='dropdown-menu3' aria-labelledby='dropdownMenu3'>";
 		html += "<form class ='px-4 py-3'><div class='form-group'><label for='dropdownSearch'>Search</label>"
-		html += "<input type='text' class='form-control' id='dropdownSearch' placeholder='Search' onkeyup='filter()'></div></form>"
+		html += "<input type='text' class='form-control' id='dropdownSearch' placeholder='Search' onkeyup='filter(3)'></div></form>"
 	    html += "<div class='dropdown-divider'></div><h6 class='dropdown-header'>Problem Types</h6>";
 		for (i = 0; i < result.length; i++){
 	      html+="<a class='dropdown-item' href='#'>" + result[i] + "</a>";
