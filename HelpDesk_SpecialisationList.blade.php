@@ -337,6 +337,7 @@
 				alert("New specialisation info added."); //Success message.
 				document.getElementById("txtSpecialist").value = "";
 				document.getElementById("txtProblemType").value = "";
+				CheckIfUpdateOrAdd();
 			}
 			
 			function UpdateRow() //Function that updates the selected row.
