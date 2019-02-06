@@ -145,12 +145,11 @@
 				selBox = document.getElementById("selID");
 				if (IDBox.value == "") //If there is nothing in the ID text box, make the selection box invisible.
 				{
-					selID.innerHTML = "";
-					selID.visibility = "hidden";
+					selID.style.visibility = "hidden";
 				}
 				else
 				{
-					selID.visibility = "visible";
+					selID.style.visibility = "visible";
 				}
 				htm = "<option></option>";
 				size = 0; //Stores size of selection box.
@@ -204,7 +203,7 @@
 					document.getElementById("txtID").value = document.getElementById("tbl").rows[rowNum].cells[0].innerHTML;
 					document.getElementById("txtID").disabled = true;
 					document.getElementById("selId").disabled = true;
-					document.getElementById("selId").visibility = hidden;
+					document.getElementById("selId").style.visibility = hidden;
 					document.getElementById("txtUsername").value = document.getElementById("tbl").rows[rowNum].cells[1].innerHTML;
 					document.getElementById("txtPassword").value = document.getElementById("tbl").rows[rowNum].cells[2].innerHTML;
 					document.getElementById("chkAdmin").checked = GetAdminAsBool(document.getElementById("tbl").rows[rowNum].cells[3].innerHTML);
@@ -215,9 +214,9 @@
 					document.getElementById("txtID").value = "";
 					document.getElementById("txtID").disabled = false;
 					document.getElementById("selId").disabled = false;
+					document.getElementById("selId").style.visibility = visible;
 					document.getElementById("txtUsername").value = "";
 					document.getElementById("txtPassword").value = "";
-					document.getElementById("selId").visibility = visible;
 					document.getElementById("chkAdmin").checked = false;
 				}
 			}		
