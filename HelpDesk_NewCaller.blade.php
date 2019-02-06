@@ -187,6 +187,8 @@
 		else{
 		  findAllChildren("Network problem", html);		  
 		}
+		html="</div>";
+		document.getElementById("problemTypeComboBox").innerHTML += html;
 		$('#resultCollapse').collapse('show');
 	  }
 	  
