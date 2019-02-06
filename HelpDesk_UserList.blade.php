@@ -448,7 +448,7 @@
 				</div>
 				<br/><br/>
 				<div class="row" align="center">
-					<div class="col-1" /> <!--Empty div to create indent. -->
+					<div class="col-1"></div> <!--Empty div to create indent. -->
 					<div id="tableDiv" class="col-7 table-wrapper-scroll-y"> <!-- Div containing data table. -->
 						Loading data...
 					</div>
