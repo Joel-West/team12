@@ -201,7 +201,14 @@
 				}
 				if (specialistBox.value.length > 0) //If the text box contains results, give the label the number of results.
 				{
-					lbl.innerHTML = "(" + size + " results)";
+					if (size == 1)
+					{
+						lbl.innerHTML = "(" + size + " result)";
+					}
+					else
+					{
+						lbl.innerHTML = "(" + size + " results)";
+					}
 				}
 				else
 				{
