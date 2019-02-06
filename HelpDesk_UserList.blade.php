@@ -163,23 +163,24 @@
 				{
 					selBox.selectedIndex = matchIndex;
 				}
+				lbl = document.getElementById("lblIDNum");
 				if (size == 0) //If there are no results, hide selection box.
 				{
 					selBox.style.display = "none";
-					lblIDNum.style.display = "none";
+					lbl.style.display = "none";
 				}
 				else
 				{
 					selBox.style.display = "inline";
-					lblIDNum.style.display = "inline";
+					lbl.style.display = "inline";
 				}
 				if (IDBox.value.length > 0) //If the text box contains results, give the label the number of results.
 				{
-					lblIDNum.value = "(" + size + "results)";
+					lbl.value = "(" + size + "results)";
 				}
 				else
 				{
-					lblIDNum.value = "";
+					lbl.value = "";
 				}
 			}
 			
