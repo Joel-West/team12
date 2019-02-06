@@ -202,7 +202,7 @@
 			
 			function AddRow() //Adds a new row to the table, from data in the text boxes.
 			{
-				!ValidateInput())
+				if (!ValidateInput())
 				{
 					return;
 				}
