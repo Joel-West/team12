@@ -163,7 +163,7 @@ function GetRowWithID(id) //Returns row of a column with a given ID (first colum
 	{
 		console.log("j = " + j);
 		console.log("cellInnerHTML = " + document.getElementById("tbl").rows[j].cells[0].innerHTML);
-		console.log("id = " id);
+		console.log("id = " + id);
 		console.log("bool = " + document.getElementById("tbl").rows[j].cells[0].innerHTML == id);
 		if (document.getElementById("tbl").rows[j].cells[0].innerHTML == id)
 		{
