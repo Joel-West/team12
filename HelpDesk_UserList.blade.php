@@ -117,9 +117,9 @@
 						{
 							validIDs[i] = json[i].userID + " - " + json[i].name;
 						}
+						PopulateIDSelect();
 					}
 				},'json');
-				PopulateIDSelect();
 			}
 			
 			function GetIDFromSelBoxItem(item) //Takes an item from a selection box (ID + name) and returns just the ID.
@@ -145,7 +145,6 @@
 				selBox = document.getElementById("selID");
 				htm = "<option></option>";
 				size = 0; //Stores size of selection box.
-				console.log(validIDs.length);
 				for (i = 0; i < validIDs.length; i++) //Iterates through all ids that exist in the personnel table.
 				{
 					if ((GetRowWithID(GetIDFromSelBoxItem(validIDs[i])) == -1) && ((GetRowWithID(GetIDFromSelBoxItem(validIDs[i])).value + "(new)") != -1) && (validIDs[i].toUpperCase().includes(IDBox.value.toUpperCase()) || IDBox.value == ""))
@@ -154,7 +153,6 @@
 						htm+="<option>"+validIDs[i]+"</option>"; //If ID can be selected by the user as an ID for a new user.
 					}
 				}
-				console.log(size);
 				selBox.innerHTML=htm; //Appends values to selection vox.
 			}
 			
