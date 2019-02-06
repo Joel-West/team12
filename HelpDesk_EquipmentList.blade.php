@@ -88,8 +88,8 @@
 						{
 							htm += "<tr style='background-color:rgb(159, 255, 48);'>"; //Sets colour and ID of row.
 							htm +="<td>"+json[i].serialNumber+"</td>";
-							htm +="<td>"+json[i].equipmentMake+"</td>";
 							htm +="<td>"+json[i].equipmentType+"</td>";
+							htm +="<td>"+json[i].equipmentMake+"</td>";
 							htm += "</tr>";							
 						}
 					}
