@@ -453,7 +453,7 @@
 		.table-wrapper-scroll-y
 		{
 			display: block;
-			max-height: 800px;
+			max-height: 850px;
 			overflow-y: auto;
 			-ms-overflow-style: -ms-autohiding-scrollbar;
 		}
@@ -473,7 +473,7 @@
 				<br/><br/>
 				<div class="row" align="center">
 					<div class="col-1"></div> <!--Empty div to create indent. -->
-					<div id="tableDiv" class="col-7 table-wrapper-scroll-y"> <!-- Div containing data table. -->
+					<div id="tableDiv" class="col-6 table-wrapper-scroll-y"> <!-- Div containing data table. -->
 						Loading data...
 					</div>
 					<br/>
