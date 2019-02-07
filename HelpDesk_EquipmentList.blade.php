@@ -53,7 +53,7 @@
 					}
 				}
 				str = document.getElementById("txtSearch").value.toUpperCase(); //Gets uppercase array of searched text.
-				if (str.includes("'")) //If contains ' (if it is SQL injection-prone)
+				if (str.includes("'")) //If contains ' (if it is SQL injection-prone).
 				{
 					sql = "SELECT * FROM tblEquipment WHERE 1 = 0;"; //Get no results.
 				}
@@ -102,7 +102,7 @@
 				},'json');
 			}
 			
-			function CheckIfUpdateOrAdd() //The 'add' button into an 'update' button and populate the text boxes, if exactly one row is selected.
+			function CheckIfUpdateOrAdd() //Turns the 'add' button into an 'update' button and populates the input fields, if exactly one row is selected.
 			{
 				if (selected == 1)
 				{

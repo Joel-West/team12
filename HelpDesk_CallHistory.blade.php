@@ -34,7 +34,7 @@
 			{
 				if (document.getElementById("txtSearch").value == "") //If not searching anything.
 				{
-					sql = "SELECT tblCallHistory.*, tblProblem.problem, p1.name AS operatorName, p2.name AS callerName FROM tblCallHistory LEFT JOIN tblProblem ON tblCallHistory.problemNumber = tblProblem.problemNumber LEFT JOIN tblPersonnel p1 ON tblCallHistory.operatorID = p1.userID LEFT JOIN tblPersonnel p2 ON tblCallHistory.CallerID = p2.userID;"; //Simple query to get all data from table.
+					sql = "SELECT tblCallHistory.*, tblProblem.problem, p1.name AS operatorName, p2.name AS callerName FROM tblCallHistory LEFT JOIN tblProblem ON tblCallHistory.problemNumber = tblProblem.problemNumber LEFT JOIN tblPersonnel p1 ON tblCallHistory.operatorID = p1.userID LEFT JOIN tblPersonnel p2 ON tblCallHistory.CallerID = p2.userID;"; //Query to get all data from table, using left joins to get names in other tables from IDs.
 					RunQuery(sql); //Runs function get gets data from database and display it in tableDiv.
 				}
 			}
@@ -56,7 +56,7 @@
 					}
 				}
 				str = document.getElementById("txtSearch").value.toUpperCase(); //Gets uppercase array of searched text.
-				if (str.includes("'")) //If contains ' (if it is SQL injection-prone)
+				if (str.includes("'")) //If contains ' (if it is SQL injection-prone).
 				{
 					sql = "SELECT * FROM tblCallHistory WHERE 1 = 0;"; //Get no results.
 				}
@@ -133,7 +133,7 @@
 				},'json');
 			}
 			
-			function CheckIfUpdate() //The 'add' button into an 'update' button and populate the text boxes, if exactly one row is selected.
+			function CheckIfUpdate() //Prevents user input if more or less than one row is selected.
 			{
 				if (selected == 1)
 				{
