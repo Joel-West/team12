@@ -288,7 +288,7 @@
 						Loading data...
 					</div>
 					<br/>
-					<div id="rightDiv" align="center" class="col-4">
+					<div id="rightDiv" style="background-color:red;" align="center" class="col-4">
 						<div id="searchDiv">
 							<p>
 								Search:<input id="txtSearch" type="text" oninput="ResetTable()"></input> <!-- Box for searching the table for specific strings. -->
