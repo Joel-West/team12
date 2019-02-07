@@ -235,9 +235,9 @@
 				</div>
 				<br/><br/>
 				<div class="row" align="center">
-					<ul class="list-inline"> 
-						<li id="liHardware" onclick="ChangeTab('Hardware')">Hardware</li>
-					</ul>
+					<div id="tabDiv"> 
+						<button id="btnHardware" class="btn" onclick="ChangeTab('Hardware')">Hardware</button>
+					</div>
 					<div id="tableDiv" class="col-9 table-wrapper-scroll-y"> <!-- Div containing data table. -->
 						Loading data...
 					</div>
