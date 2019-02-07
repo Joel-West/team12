@@ -207,7 +207,7 @@
 				for (i = 0; i < updList.length; i++) //Iterate through delete list (deletion performed first as it reduces database size, making other operations quicker).
 				{
 					callNumber = updList[i];
-					rowNum = GetRowWithID(serialNumber); //Gets the row number in the local table that corresponds to the call number in the updList.
+					rowNum = GetRowWithID(callNumber); //Gets the row number in the local table that corresponds to the call number in the updList.
 					if (rowNum != -1) //If row exists.
 					{
 						row = document.getElementById("tbl").rows[rowNum]; //Get row of local table that is being saved to database.
