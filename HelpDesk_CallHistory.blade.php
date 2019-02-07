@@ -149,7 +149,7 @@
 				row.cells[5].innerHTML = document.getElementById("txtNotes").value;
 				row.style.backgroundColor = '#9FFF30';
 				selected = 0;
-				CheckIfUpdateOrAdd();
+				CheckIfUpdate();
 				if (!ListContains(updList, row.cells[0].innerHTML)) //If selected row is not already marked to be updated when changes are saved to the database later.
 				{
 					updList.push(row.cells[0].innerHTML); //Add the ID of the row to the list of rows to by updated when changes are commited to the actual database.
@@ -187,7 +187,7 @@
 					}
 					selected = 0;
 					console.log(delList);
-					CheckIfUpdateOrAdd();
+					CheckIfUpdate();
 				}
 			}
 			
