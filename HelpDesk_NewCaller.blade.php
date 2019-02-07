@@ -259,7 +259,7 @@
 			}
 		  },'json');
 		}
-		populateCount();
+		setTimeout(populateCount,500);
 	  }
 	  
 	  function populateCount(){		  
@@ -281,10 +281,11 @@
 		  sql = "SELECT name FROM tblPersonnel WHERE userID = " + specialistIDList[i] + ";";
 		  $.get("Query.php", {'sql':sql, 'returnData':true},function(json){
 		    if (json && json[0]){
-			  specialistList.push(json[0]);
+			  specialistList.push(json[0].name);
 			}
 		  },'json');
 		}
+		console.log(specialistList);
 		fillSpecialistComboBox();
 	  }
 	  
