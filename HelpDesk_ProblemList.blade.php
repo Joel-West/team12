@@ -206,7 +206,7 @@
 					default: break;
 				}
 				selected = 0;
-				function CheckIfUpdate() //Prevents user input if more or less than one row is selected.
+				CheckIfUpdate() //Prevents user input if more or less than one row is selected.
 			}
 			
 			function CheckIfUpdate() //Prevents user input if more or less than one row is selected.
