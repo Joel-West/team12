@@ -97,7 +97,7 @@
 							htm +="<td>"+json[i].operatorID+" - "+json[i].p2.name+"</td>";
 							htm +="<td>"+json[i].callerID+"</td>";
 							htm +="<td>"+json[i].timeDate+"</td>";
-							htm +="<td>"+json[i].problemNumber+" - "+json[i].problem"</td>";
+							htm +="<td>"+json[i].problemNumber+" - "+json[i].problem+"</td>";
 							htm +="<td>"+json[i].notes+"</td>";
 							htm += "</tr>";							
 						}
