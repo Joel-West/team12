@@ -259,7 +259,6 @@
 			}
 		  },'json');
 		}
-		console.log(specialistIDList);
 	  }
 	  
 	  function populateCount(){		  
@@ -271,6 +270,7 @@
 			}
 		  },'json');
 		}
+		console.log(count);
 		populateSpecialistList();
 	  }
 	  
