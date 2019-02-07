@@ -261,7 +261,7 @@
 		  },'json');
 		}
 		console.log(specialistIDList);
-		setTimeout(populateCount(), 500);
+		setTimeout(populateCount(), 1000);
 	  }
 	  
 	  function populateCount(){		  
