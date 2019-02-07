@@ -304,8 +304,8 @@
 					sql+="DELETE FROM tblUser WHERE userID = " + delList[i] + "; ";
 					sql+="DELETE FROM tblSpecialisation WHERE userID = " + delList[i] + "; ";
 					sql+="DELETE FROM tblPersonnel WHERE userID = " + delList[i] + "; ";
-					sql+="UPDATE tblNewCaller SET operatorID = NULL WHERE operatorID = " + delList[i] + "; ";
-					sql+="UPDATE tblNewCaller SET callerID = NULL WHERE callerID = " + delList[i] + "; ";
+					sql+="UPDATE tblCallHistory SET operatorID = NULL WHERE operatorID = " + delList[i] + "; ";
+					sql+="UPDATE tblCallHistory SET callerID = NULL WHERE callerID = " + delList[i] + "; ";
 				}
 				for (i = 0; i < updList.length; i++) //Iterate through delete list (deletion performed first as it reduces database size, making other operations quicker).
 				{
