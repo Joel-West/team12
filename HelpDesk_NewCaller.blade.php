@@ -259,6 +259,7 @@
 			}
 		  },'json');
 		}
+		populateCount();
 	  }
 	  
 	  function populateCount(){		  
