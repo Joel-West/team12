@@ -9,7 +9,7 @@
 			var userData; //Variable containing data about user.
 			var currentPage = "ProblemList"; //Variable storing the name of the current page, so it can be passed in the URL to the next page as a 'previous page' variable.
 			var selected = 0; //Global variable corresponding to number of highlighted table rows.
-			var extraCells = 1; //Refers to the numbers of extra cells in the table for the current problem category (software = 2, hardware = 1, network = 0).
+			var extraCells = -1; //Refers to the numbers of extra cells in the table for the current problem category (software = 2, hardware = 1, network = 0).
 			var hardwareHTML = "";
 			var softwareHTML = "";
 			var networkHTML = "";
@@ -266,7 +266,7 @@
 				<br/><br/>
 				<div id="tabDiv" class="row" align="center">
 					<div class="col-2"></div> <!--Empty div to create indent. -->
-					<input type="button" id="btnHardware" style="text-decoration: underline;" class="btn tabButton" value="Hardware" onclick="ChangeTab('Hardware')"></input>
+					<input type="button" id="btnHardware" class="btn tabButton" value="Hardware" onclick="ChangeTab('Hardware')"></input>
 					<input type="button" id="btnSoftware" class="btn tabButton" value="Software" onclick="ChangeTab('Software')"></input>
 					<input type="button" id="btnNetwork" class="btn tabButton" value="Network" onclick="ChangeTab('Network')"></input>
 				</div>
