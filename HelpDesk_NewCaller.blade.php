@@ -243,7 +243,7 @@
 		console.log(problemTypeList);
 		
 		if (problemTypeList.length > 1){
-			problemTypeList = problemTypeList.pop();
+			problemTypeList = problemTypeList.splice(problemTypeList.length - 1,1);
 		}
 		
 		console.log(problemTypeList);
