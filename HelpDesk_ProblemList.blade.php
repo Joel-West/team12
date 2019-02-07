@@ -142,7 +142,7 @@
 				}
 			}
 			
-			function ChangeTag(tab)
+			function ChangeTab(tab)
 			{
 				switch (tab)
 				{
