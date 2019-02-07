@@ -213,11 +213,24 @@
       });
 	  
 	  var problemTypeList = [];
+	  var specialistIDList = [];
+	  var count = [];
+	  var specialistList = [];
 	  function populateSpecialist(problemType){
 		problemTypeList = [];
 		populateProblemTypeList(problemType);
+		if (problemTypeList > 1){
+			problemTypeList.pop();
+		}
 		console.log(problemTypeList);
-		console.log("HI");
+		specialistList = [];
+		count = [];
+		specialistIDList = [];
+		populateLists();
+		console.log(specialistIDList);
+		console.log(specialistList);
+		console.log(count);
+		fillSpecialistComboBox();
 	  }
 	  
 	  function populateProblemTypeList(problemType){
@@ -235,6 +248,58 @@
 		  }
 	    },'json');
 	  }
+	  
+	  function populateLists(){
+		for (i = 0; i < problemTypeList.length; i++){
+		  sql = "SELECT userID FROM tblSpecialisation WHERE typeName = '" + problemTypeList[i] + "';";
+		  $.get("Query.php", {'sql':sql, 'returnData':true},function(json){
+		    if (json && json[0]){
+			  for (i = 0; i < json[0].userID; i++){
+				if (specialistIDList.indexOf(json[i].userID) == -1){
+				  specialistIDList.push(json[i])
+				}
+			  }
+			}
+		  },'json');
+		}
+		for (i = 0; i < specialistIDList.length; i++){
+		  sql = "SELECT COUNT(problem) FROM tblProblem WHERE specialistID = " + specialistIDList[i] + " AND resolved = 'No';";
+		  $.get("Query.php", {'sql':sql, 'returnData':true},function(json){
+		    if (json && json[0]){
+			  count.push(json[0]);
+			}
+		  },'json');
+		}
+		for (i = 0; i < specialistIDList.length; i++){
+		  sql = "SELECT name FROM tblPersonnel WHERE userID = " + specialistIDList[i] + ";";
+		  $.get("Query.php", {'sql':sql, 'returnData':true},function(json){
+		    if (json && json[0]){
+			  specialistList.push(json[0]);
+			}
+		  },'json');
+		}
+	  }
+	  
+	  function fillSpecialistComboBox(problemType){
+		var sql = "SELECT generalisation FROM tblProblemType WHERE typeName = '" + problemType + "';";
+		var html;
+		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
+		  if (json && json[0]){
+			html += "<h6 class='dropdown-header'>Specialists to exact problem type</h6>"
+			for (i = 0; i < json.length; i++){
+			  html += "<a class='dropdown-item' href='#'>" + specialistList[i] + " (" + count[i] + " current jobs)</a>"
+			}
+			specialistList.splice(i, 1);
+			html += "<div class='dropdown-divider'></div>"
+		  }
+		},'json');
+		html+= "<h6 class='dropdown-header'>Specialists to a generalisation of the problem type</h6>";
+		for (i = 0; i < specialistList.length; i++){
+		  html+= "<a class='dropdown-item' href='#'>" + specialistList[i] + " (" + count[i] + " current jobs)</a>"
+		}
+		document.getElementById("dropdown-menu4").innerHTML += html;
+	  }
+	    
 	</script>
 	<style>
 	  .dropdown-menu{
@@ -343,7 +408,6 @@
 			  Choose Specialist<span class='caret'></span>
 			</button>
 			<div class='dropdown-menu' id='dropdown-menu4' aria-labelledby='dropdownMenu4'>
-			<h6 class='dropdown-header'>Specialists to exact problem type</h6>
 		  </div>
 		  Resolved:
 		  <div id="resolvedRadioButtons">
