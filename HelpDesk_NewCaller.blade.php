@@ -225,14 +225,12 @@
 	  }
 	  
 	  function populateProblemTypeList(problemType){
-		console.log("ENTERED popProbType");
 		var sql = "SELECT generalisation FROM tblProblemType WHERE typeName = '" + problemType + "';";
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
 		  if (json && json[0]){
 			console.log(json[0].generalisation);
 			if (json[0].generalisation == null){
 			  problemTypeList.push(problemType);
-			  console.log("MOVING TO ID");
 			  populateIDList();
 			}
 			else{
@@ -246,7 +244,6 @@
 	  
 	  function populateIDList(){
 		
-		console.log(problemTypeList);
 		specialistList = [];
 		count = [];
 		specialistIDList = []; 
@@ -263,6 +260,7 @@
 			}
 		  },'json');
 		}
+		console.log(specialistIDList);
 		populateCount();
 	  }
 	  
