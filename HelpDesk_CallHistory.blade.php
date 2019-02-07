@@ -71,7 +71,7 @@
 						{
 							sql+=" OR ";
 						}
-						sql += "upper(callNumber) LIKE '%"+str[i]+"%' OR upper(operatorID) LIKE '%"+str[i]+"%' OR upper(callerID) LIKE '%"+str[i]+"%' OR upper(timeDate) LIKE '%"+str[i]+"%' OR upper(problemNumber) LIKE '%"+str[i]+"%' OR upper(notes) LIKE '%"+str[i]+"%' OR upper(problem) LIKE '%"+str[i]+"%' OR upper(operatorName) LIKE '%"+str[i]+"%' OR upper(callerName) LIKE '%"+str[i]+"%'"; //Query that returns all database records with a cell containing search string.
+						sql += "upper(tblCallHistory.callNumber) LIKE '%"+str[i]+"%' OR upper(tblCallHistory.operatorID) LIKE '%"+str[i]+"%' OR upper(tblCallHistory.callerID) LIKE '%"+str[i]+"%' OR upper(tblCallHistory.timeDate) LIKE '%"+str[i]+"%' OR upper(tblCallHistory.problemNumber) LIKE '%"+str[i]+"%' OR upper(tblCallHistory.notes) LIKE '%"+str[i]+"%' OR upper(tblProblem.problem) LIKE '%"+str[i]+"%' OR upper(operatorName) LIKE '%"+str[i]+"%' OR upper(callerName) LIKE '%"+str[i]+"%'"; //Query that returns all database records with a cell containing search string.
 					}
 					alert(sql);
 				}
