@@ -94,10 +94,31 @@
 						{
 							htm += "<tr style='background-color:rgb(159, 255, 48);'>"; //Sets colour and ID of row.
 							htm +="<td>"+json[i].callNumber+"</td>";
-							htm +="<td>"+json[i].operatorID+" - "+json[i].operatorName+"</td>";
-							htm +="<td>"+json[i].callerID+" - "+json[i].callerName+"</td>";
+							if (json[i].operatorID == "NULL") //If there is no operator ID (the personnel has been deleted since the call was recorded).
+							{
+								htm +="<td>Unidentified</td>";
+							}
+							else
+							{
+								htm +="<td>"+json[i].operatorID+" - "+json[i].operatorName+"</td>";
+							}
+							if (json[i].callerID == "NULL") //If there is no caller ID (the personnel has been deleted since the call was recorded).
+							{
+								htm +="<td>Unidentified</td>";
+							}
+							else
+							{
+								htm +="<td>"+json[i].callerID+" - "+json[i].callerName+"</td>";
+							}
 							htm +="<td>"+json[i].timeDate+"</td>";
-							htm +="<td>"+json[i].problemNumber+" - "+json[i].problem+"</td>";
+							if (json[i].callerID == "NULL") //If there is no problem number (the problem has been deleted since the call was recorded).
+							{
+								htm +="<td>Unidentified</td>";
+							}
+							else
+							{
+								htm +="<td>"+json[i].problemNumber+" - "+json[i].problem+"</td>";
+							}
 							htm +="<td>"+json[i].notes+"</td>";
 							htm += "</tr>";							
 						}
