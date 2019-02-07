@@ -12,7 +12,7 @@
 			var extraCells = 1; //Refers to the numbers of extra cells in the table for the current problem category (software = 2, hardware = 1, network = 0).
 			var hardwareHTML = "";
 			var softwareHTML = "";
-			var networksHTML = "";
+			var networkHTML = "";
 			
 			function Load() //Function that runs when file loads.
 			{
@@ -131,6 +131,12 @@
 					{
 						var htm = "Sorry, no results found..."; //If no results, display error.
 					}
+					switch (extraCells)
+					{
+						case 0: networkHTML = htm; break;
+						case 1: hardwareHTML = htm; break;
+						case 2: softwareHTML = htm; break;
+					}
 					document.getElementById("tableDiv").innerHTML = htm; //Appends HTML to tableDiv.
 					newRowCount = 0;
 				},'json');
@@ -164,6 +170,15 @@
 			{
 				switch (tab)
 				{
+					case 'Hardware':
+						extraCells = 1;
+						break;
+					case 'Software':
+						extraCells = 2;
+						break;
+					case 'Network':
+						extraCells = 0;
+						break;
 					default: break;
 				}
 			}
@@ -220,6 +235,9 @@
 				</div>
 				<br/><br/>
 				<div class="row" align="center">
+					<ul class="list-inline"> 
+						<li id="liHardware" onclick="ChangeTab('Hardware')>Hardware</li>
+					</ul>
 					<div id="tableDiv" class="col-9 table-wrapper-scroll-y"> <!-- Div containing data table. -->
 						Loading data...
 					</div>
