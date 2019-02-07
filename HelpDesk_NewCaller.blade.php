@@ -296,8 +296,8 @@
 			  console.log(example);
 			  html += example;
 			}
-			console.log(i);
 			specialistList.splice(i, 1);
+			console.log(specialistList);
 			html += "<div class='dropdown-divider'></div>"
 		  }
 		},'json');
