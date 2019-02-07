@@ -241,7 +241,7 @@
 	  function populateIDList(callback){
 		
 		console.log(problemTypeList);
-		if (problemTypeList > 1){
+		if (problemTypeList.length > 1){
 			problemTypeList.pop();
 		}
 		
