@@ -140,9 +140,9 @@
 				{
 					return "No";
 				}
-			}		
+			}
 			
-			function ChangeTag(tab);
+			function ChangeTag(tab)
 			{
 				switch (tab)
 				{
