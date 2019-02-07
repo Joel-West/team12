@@ -111,7 +111,7 @@
 								htm +="<td>"+json[i].callerID+" - "+json[i].callerName+"</td>";
 							}
 							htm +="<td>"+json[i].timeDate+"</td>";
-							if (json[i].callerID == null) //If there is no problem number (the problem has been deleted since the call was recorded).
+							if (json[i].problemNumber == null) //If there is no problem number (the problem has been deleted since the call was recorded).
 							{
 								htm +="<td>Unidentified</td>";
 							}
