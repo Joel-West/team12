@@ -152,7 +152,14 @@ $(document).on('click','tr',function(event) //Function for selecting/deselecting
 		}
 		console.log(selected);
 	}
-	CheckIfUpdateOrAdd();
+	if (currentPage == "CallHistory" || currentPage == "ProblemList")
+	{
+		CheckIfUpdate();
+	}
+	else
+	{
+		CheckIfUpdateOrAdd();
+	}
 });
 
 function GetRowWithID(id) //Returns row of a column with a given ID (first column, which is presumed to be the unique primary key).
