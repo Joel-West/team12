@@ -266,6 +266,7 @@
 		.table-wrapper-scroll-y
 		{
 			display: block;
+			max-height:50%;
 			overflow-y: auto;
 			-ms-overflow-style: -ms-autohiding-scrollbar;
 		}
@@ -296,7 +297,7 @@
 						</div>
 						<div id="inputDiv">
 							<input type="button" class="btn" id="btnDelete" value="Delete Selected Items" id="del" style="font-size:16px;" onclick="Delete()"/><br/><br/> <!-- Delete button that calls function when pressed. -->
-							Notes:<br/><textArea class="form-control" id="txtNotes" maxlength="2048"></textArea><br/> <!-- Input field for updating notes. -->
+							Notes:<br/><textArea class="form-control" rows="10" id="txtNotes" maxlength="2048"></textArea><br/> <!-- Input field for updating notes. -->
 							<br/><input type="button" class="btn" id="btnUpdate" value="Update Item" style="font-size:16px;" onclick="UpdateRow()"></input>	
 							<br/>
 							<br/>
