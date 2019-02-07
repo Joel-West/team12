@@ -294,6 +294,7 @@
 			for (i = 0; i < json.length; i++){
 			  html += "<a class='dropdown-item' href='#'>" + specialistList[i] + " (" + count[i] + " current jobs)</a>"
 			}
+			console.log(i);
 			specialistList.splice(i, 1);
 			html += "<div class='dropdown-divider'></div>"
 		  }
