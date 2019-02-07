@@ -175,42 +175,38 @@
 				}
 			}
 			
-			function ChangeTab(tab)
+			function ChangeTab(tab) //Changes the current tab of problems (hardware, software or network).
 			{
+				if ((extraCells == 0 && tab == "Network") || (extraCells == 1 && tab == "Hardware") || (extraCells == 2 && tab == "Software"))
+				{
+					return; //If already on selected page, ignore request.
+				}
 				document.getElementById("btnHardware").style="text-decoration: initial;"
 				document.getElementById("btnSoftware").style="text-decoration: initial;"
 				document.getElementById("btnNetwork").style="text-decoration: initial;"
 				switch (tab)
 				{
 					case 'Hardware':
-						if (extraCells != 1)
-						{
-							extraCells = 1;
-							document.getElementById("btnHardware").style="text-decoration: underline;"
-							sql = "SELECT * FROM tblProblem WHERE problemType = 'Hardware';"; //Simple query to get all hardware problem from table.
-							RunQuery(sql); //Runs function get gets data from database and display it in tableDiv.
-						}
+						extraCells = 1; //There is one extra cell appended to the table when on the hardware tab (serial number).
+						document.getElementById("btnHardware").style="text-decoration: underline;"; //Underlines selected tab.
+						sql = "SELECT * FROM tblProblem WHERE problemType = 'Hardware';"; //Simple query to get all hardware problem from table.
+						RunQuery(sql); //Runs function get gets data from database and display it in tableDiv.
 						break;
 					case 'Software':
-						if (extraCells != 2)
-						{
-							extraCells = 2;
-							document.getElementById("btnSoftware").style="text-decoration: underline;"
-							sql = "SELECT * FROM tblProblem WHERE problemType = 'Software';"; //Simple query to get all software problem from table.
-							RunQuery(sql); //Runs function get gets data from database and display it in tableDiv.
-						}
-						break;
+						extraCells = 2; //There are two extra cells appended to the table when on the software tab (operating system, software concerned).
+						document.getElementById("btnSoftware").style="text-decoration: underline;"; //Underlines selected tab.
+						sql = "SELECT * FROM tblProblem WHERE problemType = 'Software';"; //Simple query to get all software problem from table.
+						RunQuery(sql); //Runs function get gets data from database and display it in tableDiv.
 					case 'Network':
-						if (extraCells != 0)
-						{
-							extraCells = 0;
-							document.getElementById("btnNetwork").style="text-decoration: underline;"
-							sql = "SELECT * FROM tblProblem WHERE problemType = 'Network';"; //Simple query to get all network problem from table.
-							RunQuery(sql); //Runs function get gets data from database and display it in tableDiv.
-						}
+						extraCells = 0; //There are no extra cells appended to the table when on the network tab.
+						document.getElementById("btnNetwork").style="text-decoration: underline;"; //Underlines selected tab.
+						sql = "SELECT * FROM tblProblem WHERE problemType = 'Network';"; //Simple query to get all network problem from table.
+						RunQuery(sql); //Runs function get gets data from database and display it in tableDiv.
 						break;
 					default: break;
 				}
+				selected = 0;
+				function CheckIfUpdate() //Prevents user input if more or less than one row is selected.
 			}
 			
 			function CheckIfUpdate() //Prevents user input if more or less than one row is selected.
@@ -264,7 +260,7 @@
 					<h2 id="headerId" style="font-weight:bold; style=display:inline-block; font-size:30px;">Problem List</h2> <!-- Heading containing name of page. -->
 				</div>
 				<br/><br/>
-				<div id="tabDiv" class="row" align="center">
+				<div id="tabDiv" class="row" align="center"> <!-- Within this row are three buttons that change the tab of problems listed. -->
 					<div class="col-2"></div> <!--Empty div to create indent. -->
 					<input type="button" id="btnHardware" class="btn tabButton" value="Hardware" onclick="ChangeTab('Hardware')"></input>
 					<input type="button" id="btnSoftware" class="btn tabButton" value="Software" onclick="ChangeTab('Software')"></input>
