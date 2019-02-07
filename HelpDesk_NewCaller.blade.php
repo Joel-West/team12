@@ -230,7 +230,10 @@
 		  if (json && json[0]){
 			if (json[0].generalisation == null){
 			  problemTypeList.push(problemType);
-			  populateIDList();
+			  await populateIDList();
+			  populateCount();
+			  await populateSpecialistList();
+			  fillSpecialistComboBox();
 			}
 			else{
 			  problemTypeList.push(problemType);
@@ -258,7 +261,6 @@
 			}
 		  },'json');
 		}
-		setTimeout(populateCount,500);
 	  }
 	  
 	  function populateCount(){		  
@@ -270,7 +272,6 @@
 			}
 		  },'json');
 		}
-		setTimeout(populateSpecialistList,500);
 	  }
 	  
 	  function populateSpecialistList(){
@@ -282,7 +283,6 @@
 			}
 		  },'json');
 		}
-		fillSpecialistComboBox();
 	  }
 	  
 	  function fillSpecialistComboBox(){
