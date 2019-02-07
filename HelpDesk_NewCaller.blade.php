@@ -257,7 +257,7 @@
 			}
 		  },'json');
 		}
-		setTimeout(populateCount,100);
+		setTimeout(populateCount,50);
 	  }
 	  
 	  function populateCount(){		  
@@ -269,7 +269,7 @@
 			}
 		  },'json');
 		}
-		setTimeout(populateSpecialistList,100);
+		setTimeout(populateSpecialistList,50);
 	  }
 	  
 	  function populateSpecialistList(){
@@ -281,7 +281,7 @@
 			}
 		  },'json');
 		}
-		setTimeout(fillSpecialistComboBox,100);
+		setTimeout(fillSpecialistComboBox,50);
 	  }
 	  
 	  function fillSpecialistComboBox(){
