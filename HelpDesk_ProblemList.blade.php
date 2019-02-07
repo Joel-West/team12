@@ -39,7 +39,7 @@
 			{
 				if (document.getElementById("txtSearch").value == "") //If not searching anything.
 				{
-					sql = "SELECT * FROM tblProblem"; //Simple query to get all data from table.
+					sql = "SELECT * FROM tblProblem WHERE problemType = 'Hardware';"; //Simple query to get all hardware problem from table.
 					RunQuery(sql); //Runs function get gets data from database and display it in tableDiv.
 				}
 			}
@@ -68,14 +68,19 @@
 				else
 				{	
 					str = str.replace(", ", ",").split(","); //Split search text by commas.
-					sql = "SELECT * FROM tblProblem WHERE ";
+					switch (extraCells)
+					{
+						case 0: sql = "SELECT * FROM tblProblem WHERE problemType = 'Network' AND "; break;
+						case 1: sql = "SELECT * FROM tblProblem WHERE problemType = 'Hardware' AND "; break;
+						case 2: sql = "SELECT * FROM tblProblem WHERE problemType = 'Software' AND "; break;
+					}
 					for (i = 0; i < str.length; i++) //Iterates through list of search terms, adding to the SQL query.
 					{
 						if (i != 0)
 						{
 							sql+=" OR ";
 						}
-						sql += "upper(problemNumber) LIKE '%"+str[i]+"%' OR upper(problem) LIKE '%"+str[i]+"%' OR upper(problemType) LIKE '%"+str[i]+"%' OR upper(problemSubType) LIKE '%"+str[i]+"%' OR upper(serialNumber) LIKE '%"+str[i]+"%' OR upper(operatingSystem) LIKE '%"+str[i]+"%' OR upper(softwareConcerned) LIKE '%"+str[i]+"%' OR upper(specialistID) LIKE '%"+str[i]+"%' OR upper(resolved) LIKE '%"+str[i]+"%' OR upper(dateTimeResolved) LIKE '%"+str[i]+"%' OR upper(solution) LIKE '%"+str[i]+"%'"; //Query that returns all database records with a cell containing search string.
+						sql += "(upper(problemNumber) LIKE '%"+str[i]+"%' OR upper(problem) LIKE '%"+str[i]+"%' OR upper(problemType) LIKE '%"+str[i]+"%' OR upper(problemSubType) LIKE '%"+str[i]+"%' OR upper(serialNumber) LIKE '%"+str[i]+"%' OR upper(operatingSystem) LIKE '%"+str[i]+"%' OR upper(softwareConcerned) LIKE '%"+str[i]+"%' OR upper(specialistID) LIKE '%"+str[i]+"%' OR upper(resolved) LIKE '%"+str[i]+"%' OR upper(dateTimeResolved) LIKE '%"+str[i]+"%' OR upper(solution) LIKE '%"+str[i]+"%')"; //Query that returns all database records with a cell containing search string.
 					}
 					console.log(sql);
 				}
@@ -174,18 +179,24 @@
 						if (extraCells != 1)
 						{
 							extraCells = 1;
+							sql = "SELECT * FROM tblProblem WHERE problemType = 'Hardware';"; //Simple query to get all hardware problem from table.
+							RunQuery(sql); //Runs function get gets data from database and display it in tableDiv.
 						}
 						break;
 					case 'Software':
 						if (extraCells != 2)
 						{
 							extraCells = 2;
+							sql = "SELECT * FROM tblProblem WHERE problemType = 'Software';"; //Simple query to get all software problem from table.
+							RunQuery(sql); //Runs function get gets data from database and display it in tableDiv.
 						}
 						break;
 					case 'Network':
 						if (extraCells != 0)
 						{
 							extraCells = 0;
+							sql = "SELECT * FROM tblProblem WHERE problemType = 'Network';"; //Simple query to get all network problem from table.
+							RunQuery(sql); //Runs function get gets data from database and display it in tableDiv.
 						}
 						break;
 					default: break;
@@ -243,8 +254,11 @@
 					<h2 id="headerId" style="font-weight:bold; style=display:inline-block; font-size:30px;">Problem List</h2> <!-- Heading containing name of page. -->
 				</div>
 				<br/><br/>
-				<div id="tabDiv" class="row" align="center"> 
+				<div id="tabDiv" class="row" align="center">
+					<div class="col-2"></div> <!--Empty div to create indent. -->
 					<button id="btnHardware" class="btn" onclick="ChangeTab('Hardware')">Hardware</button>
+					<button id="btnSoftware" class="btn" onclick="ChangeTab('Software')">Software</button>
+					<button id="btnNetwork" class="btn" onclick="ChangeTab('Network')">Network</button>
 				</div>
 				<div class="row" align="center">
 					<div id="tableDiv" class="col-9 table-wrapper-scroll-y"> <!-- Div containing data table. -->
