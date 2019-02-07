@@ -33,7 +33,7 @@
 			{
 				if (document.getElementById("txtSearch").value == "") //If not searching anything.
 				{
-					sql = "SELECT tblCallHistory.*, tblProblem.problem, p1.name, p2.name FROM tblCallHistory INNER JOIN tblProblem ON tblCallHistory.problemNumber = tblProblem.problemNumber INNER JOIN tblPersonnel p1 ON tblCallHistory.operatorID = p1.userID INNER JOIN tblPersonnel p2 ON tblCallHistory.CallerID = p2.userID;"; //Simple query to get all data from table.
+					sql = "SELECT tblCallHistory.*, tblProblem.problem, p1.name AS operatorName, p2.name AS callerName FROM tblCallHistory INNER JOIN tblProblem ON tblCallHistory.problemNumber = tblProblem.problemNumber INNER JOIN tblPersonnel p1 ON tblCallHistory.operatorID = p1.userID INNER JOIN tblPersonnel p2 ON tblCallHistory.CallerID = p2.userID;"; //Simple query to get all data from table.
 					RunQuery(sql); //Runs function get gets data from database and display it in tableDiv.
 				}
 			}
@@ -93,9 +93,9 @@
 						{
 							console.log(json[i]);
 							htm += "<tr style='background-color:rgb(159, 255, 48);'>"; //Sets colour and ID of row.
-							htm +="<td>"+json[i].callNumber+" - "+json[i].p1.name+"</td>";
-							htm +="<td>"+json[i].operatorID+" - "+json[i].p2.name+"</td>";
-							htm +="<td>"+json[i].callerID+"</td>";
+							htm +="<td>"+json[i].callNumber+"</td>";
+							htm +="<td>"+json[i].operatorID+" - "+json[i].operatorName+"</td>";
+							htm +="<td>"+json[i].callerID+" - "+json[i].callerName+"</td>";
 							htm +="<td>"+json[i].timeDate+"</td>";
 							htm +="<td>"+json[i].problemNumber+" - "+json[i].problem+"</td>";
 							htm +="<td>"+json[i].notes+"</td>";
