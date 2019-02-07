@@ -291,6 +291,7 @@
 	  }
 	  
 	  function fillSpecialistComboBox(){
+		console.log("ENTERED COMBO");
 		var sql = "SELECT generalisation FROM tblProblemType WHERE typeName = '" + problemTypeVar + "';";
 		var html;
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
