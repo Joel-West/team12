@@ -73,7 +73,7 @@
 						}
 						sql += "upper(tblCallHistory.callNumber) LIKE '%"+str[i]+"%' OR upper(tblCallHistory.operatorID) LIKE '%"+str[i]+"%' OR upper(tblCallHistory.callerID) LIKE '%"+str[i]+"%' OR upper(tblCallHistory.timeDate) LIKE '%"+str[i]+"%' OR upper(tblCallHistory.problemNumber) LIKE '%"+str[i]+"%' OR upper(tblCallHistory.notes) LIKE '%"+str[i]+"%' OR upper(tblProblem.problem) LIKE '%"+str[i]+"%' OR upper(p1.name) LIKE '%"+str[i]+"%' OR upper(p2.name) LIKE '%"+str[i]+"%'"; //Query that returns all database records with a cell containing search string.
 					}
-					alert(sql);
+					console.log(sql);
 				}
 				RunQuery(sql); //Runs function get gets data from database and display it in tableDiv.
 			}
