@@ -297,7 +297,7 @@
 			  html += example;
 			}
 			console.log(specialistList);
-			specialistList.splice(i, 1);
+			specialistList.splice(0, i);
 			console.log(specialistList);
 			html += "<div class='dropdown-divider'></div>"
 		  }
