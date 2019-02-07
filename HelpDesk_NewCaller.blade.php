@@ -238,8 +238,9 @@
 	    },'json');
 	  }
 	  
-	  function populateLists(callback){
-		  
+	  function populateIDList(callback){
+		
+		console.log(problemTypeList);
 		if (problemTypeList > 1){
 			problemTypeList.pop();
 		}
@@ -261,6 +262,9 @@
 			}
 		  },'json');
 		}
+	  }
+	  
+	  
 		for (i = 0; i < specialistIDList.length; i++){
 		  sql = "SELECT COUNT(problem) FROM tblProblem WHERE specialistID = " + specialistIDList[i] + " AND resolved = 'No';";
 		  $.get("Query.php", {'sql':sql, 'returnData':true},function(json){
