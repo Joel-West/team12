@@ -94,6 +94,8 @@
 						{
 							htm += "<tr style='background-color:rgb(159, 255, 48);'>"; //Sets colour and ID of row.
 							htm +="<td>"+json[i].callNumber+"</td>";
+							console.log(json[i].operatorID)
+							console.log(json[i].operatorID == null)
 							if (json[i].operatorID == "null") //If there is no operator ID (the personnel has been deleted since the call was recorded).
 							{
 								htm +="<td>Unidentified</td>";
