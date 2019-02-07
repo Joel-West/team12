@@ -209,28 +209,17 @@
 	  $(document).on('click', '#dropdown-menu3 a', function(){
         $("#dropdownButton3:first-child").text($(this).text());
         $("#dropdownButton3:first-child").val($(this).text());
-		populateSpecialist($(this).text());
+		populateSpecialist($(this).text(), populateLists);
       });
 	  
 	  var problemTypeList = [];
 	  var specialistIDList = [];
 	  var count = [];
 	  var specialistList = [];
-	  function populateSpecialist(problemType){
+	  function populateSpecialist(problemType, callback){
 		problemTypeList = [];
 		populateProblemTypeList(problemType);
-		if (problemTypeList > 1){
-			problemTypeList.pop();
-		}
-		console.log(problemTypeList);
-		specialistList = [];
-		count = [];
-		specialistIDList = [];
-		populateLists();
-		console.log(specialistIDList);
-		console.log(specialistList);
-		console.log(count);
-		fillSpecialistComboBox();
+		callback(fillSpecialistComboBox);
 	  }
 	  
 	  function populateProblemTypeList(problemType){
@@ -249,7 +238,17 @@
 	    },'json');
 	  }
 	  
-	  function populateLists(){
+	  function populateLists(callback){
+		  
+		if (problemTypeList > 1){
+			problemTypeList.pop();
+		}
+		
+		console.log(problemTypeList);
+		specialistList = [];
+		count = [];
+		specialistIDList = []; 
+		
 		for (i = 0; i < problemTypeList.length; i++){
 		  sql = "SELECT userID FROM tblSpecialisation WHERE typeName = '" + problemTypeList[i] + "';";
 		  $.get("Query.php", {'sql':sql, 'returnData':true},function(json){
@@ -278,6 +277,12 @@
 			}
 		  },'json');
 		}
+		
+		console.log(specialistIDList);
+		console.log(specialistList);
+		console.log(count);
+		callback();
+		
 	  }
 	  
 	  function fillSpecialistComboBox(problemType){
@@ -354,6 +359,7 @@
 		  </form>
 		</div>
 		<div class="col-3"></div>
+		
 		<div class="col-4"></div>
 		<div class="col-4">
 		  Notes on call:<br>
