@@ -16,6 +16,7 @@
 				SetPrivileges(userData) //Enter function that defines what functions are available to user based on status.
 				ResetTable();
 				WriteTime(); //Function that writes the current time at the top of the page.
+				CheckIfUpdate()
 			}
 			
 			function SetPrivileges(userData) //Function that checks if user is an admin or analyst and adjusts available buttons accordingly.
@@ -63,7 +64,7 @@
 				{
 					
 					str = str.replace(", ", ",").split(","); //Split search text by commas.
-					sql = "SELECT tblCallHistory.*, tblProblem.problem, p1.name, p2.name FROM tblCallHistory INNER JOIN tblProblem ON tblCallHistory.problemNumber = tblProblem.problemNumber INNER JOIN tblPersonnel p1 ON tblCallHistory.operatorID = p1.userID INNER JOIN tblPersonnel p2 ON tblCallHistory.CallerID = p2.userID WHERE";
+					sql = "SELECT tblCallHistory.*, tblProblem.problem, p1.name AS operatorName, p2.name AS callerName FROM tblCallHistory INNER JOIN tblProblem ON tblCallHistory.problemNumber = tblProblem.problemNumber INNER JOIN tblPersonnel p1 ON tblCallHistory.operatorID = p1.userID INNER JOIN tblPersonnel p2 ON tblCallHistory.CallerID = p2.userID WHERE";
 					for (i = 0; i < str.length; i++) //Iterates through list of search terms, adding to the SQL query.
 					{
 						if (i != 0)
@@ -91,7 +92,6 @@
 						htm+="<th onclick='SortTable(5)'scope='col'>Notes</th></tr>"; //Appending column headers.
 						for (i = 0; i<json.length; i++) //Iterates through the json array of results.
 						{
-							console.log(json[i]);
 							htm += "<tr style='background-color:rgb(159, 255, 48);'>"; //Sets colour and ID of row.
 							htm +="<td>"+json[i].callNumber+"</td>";
 							htm +="<td>"+json[i].operatorID+" - "+json[i].operatorName+"</td>";
@@ -118,7 +118,7 @@
 					rowNum = GetSelectedRow(); //Gets the row that is selected.
 					document.getElementById("btnUpdate").disabled = false;
 					document.getElementById("txtNotes").disabled = false;
-					document.getElementById("txtNotes").value = document.getElementById("tbl").rows[rowNum].cells[6].innerHTML;
+					document.getElementById("txtNotes").value = document.getElementById("tbl").rows[rowNum].cells[5].innerHTML;
 				}
 				else
 				{
