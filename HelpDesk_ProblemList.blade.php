@@ -9,7 +9,10 @@
 			var userData; //Variable containing data about user.
 			var currentPage = "ProblemList"; //Variable storing the name of the current page, so it can be passed in the URL to the next page as a 'previous page' variable.
 			var selected = 0; //Global variable corresponding to number of highlighted table rows.
-			var extraCells = 2; //Refers to the numbers of extra cells in the table for the current problem category (software = 2, hardware = 1, network = 0).
+			var extraCells = 1; //Refers to the numbers of extra cells in the table for the current problem category (software = 2, hardware = 1, network = 0).
+			var hardwareHTML = "";
+			var softwareHTML = "";
+			var networksHTML = "";
 			
 			function Load() //Function that runs when file loads.
 			{
@@ -89,8 +92,15 @@
 						htm+="<tr id='t0'><th onclick='SortTable(0)' scope='col'>Num</th>";
 						htm+="<th onclick='SortTable(1)' scope='col'>Problem</th>";
 						htm+="<th onclick='SortTable(2)'scope='col'>Problem Type</th>";;
-						htm+="<th onclick='SortTable(3)'scope='col'>Operating System</th>";
-						htm+="<th onclick='SortTable(4)'scope='col'>Software Concerned</th>";
+						if (extraCells == 1)
+						{
+							htm+="<th onclick='SortTable(3)'scope='col'>Serial Number</th>";
+						}
+						else if (extraCells == 2)
+						{
+							htm+="<th onclick='SortTable(3)'scope='col'>Operating System</th>";
+							htm+="<th onclick='SortTable(4)'scope='col'>Software Concerned</th>";
+						}
 						htm+="<th onclick='SortTable(" + (3+extraCells) + ")'scope='col'>Specialist</th>";
 						htm+="<th onclick='SortTable(" + (4+extraCells) + ")'scope='col'>Resolved</th>";
 						htm+="<th onclick='SortTable(" + (5+extraCells) + ")'scope='col'>Date/Time Resolved</th>";
@@ -100,9 +110,16 @@
 							htm += "<tr style='background-color:rgb(159, 255, 48);'>"; //Sets colour and ID of row.
 							htm +="<td>"+json[i].problemNumber+"</td>";
 							htm +="<td>"+json[i].problem+"</td>";
-							htm +="<td>"+json[i].problemSubType+"</td>";		
-							htm +="<td>"+json[i].operatingSystem+"</td>";
-							htm +="<td>"+json[i].softwareConcerned+"</td>";
+							htm +="<td>"+json[i].problemSubType+"</td>";	
+							if (extraCells == 1)
+							{
+								htm +="<td>"+json[i].serialNumber+"</td>";
+							}
+							else if (extraCells == 2)
+							{
+								htm +="<td>"+json[i].operatingSystem+"</td>";
+								htm +="<td>"+json[i].softwareConcerned+"</td>";
+							}
 							htm +="<td>"+json[i].specialistID+"</td>";
 							htm +="<td>"+json[i].resolved+"</td>";
 							htm +="<td>"+json[i].dateTimeResolved+"</td>";
