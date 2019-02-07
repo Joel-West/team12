@@ -259,7 +259,7 @@
 			}
 		  },'json');
 		}
-		setTimeout(populateCount,500);
+		populateCount();
 	  }
 	  
 	  function populateCount(){		  
