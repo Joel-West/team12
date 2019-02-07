@@ -22,6 +22,7 @@
 				WriteTime(); //Function that writes the current time at the top of the page.
 				CheckIfUpdate()
 				ChangeTab("Hardware");
+				alert("");
 			}
 			
 			function SetPrivileges(userData) //Function that checks if user is an admin or analyst and adjusts available buttons accordingly.
