@@ -71,7 +71,7 @@
 						{
 							sql+=" OR ";
 						}
-						sql += "upper(callNumber) LIKE '%"+str[i]+"%' OR upper(operatorID) LIKE '%"+str[i]+"%' OR upper(callerID) LIKE '%"+str[i]+"%' OR upper(timeDate) LIKE '%"+str[i]+"%' OR upper(problemNumber) LIKE '%"+str[i]+"%' OR upper(notes) LIKE '%"+str[i]+"%' OR upper(problem) LIKE '%"+str[i]+"%' OR upper(p1.name) LIKE '%"+str[i]+"%' OR upper(p2.name) LIKE '%"+str[i]+"%'"; //Query that returns all database records with a cell containing search string.
+						sql += "upper(callNumber) LIKE '%"+str[i]+"%' OR upper(operatorID) LIKE '%"+str[i]+"%' OR upper(callerID) LIKE '%"+str[i]+"%' OR upper(timeDate) LIKE '%"+str[i]+"%' OR upper(problemNumber) LIKE '%"+str[i]+"%' OR upper(notes) LIKE '%"+str[i]+"%' OR upper(problem) LIKE '%"+str[i]+"%' OR upper(operatorName) LIKE '%"+str[i]+"%' OR upper(callerName) LIKE '%"+str[i]+"%'"; //Query that returns all database records with a cell containing search string.
 					}
 				}
 				RunQuery(sql); //Runs function get gets data from database and display it in tableDiv.
