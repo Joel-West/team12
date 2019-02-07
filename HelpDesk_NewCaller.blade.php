@@ -296,7 +296,7 @@
 			  console.log(example);
 			  html += example;
 			}
-			console.log(speciallistList);
+			console.log(specialistList);
 			specialistList.splice(i, 1);
 			console.log(specialistList);
 			html += "<div class='dropdown-divider'></div>"
