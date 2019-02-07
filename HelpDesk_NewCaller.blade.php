@@ -270,7 +270,7 @@
 			}
 		  },'json');
 		}
-		populateSpecialistList();
+		setTimeout(populateSpecialistList,500);
 	  }
 	  
 	  function populateSpecialistList(){
