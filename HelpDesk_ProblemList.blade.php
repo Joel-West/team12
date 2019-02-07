@@ -18,11 +18,9 @@
 			{
 				userData = "<?php echo $_POST['User']; ?>"; //Gets data from previous form.
 				SetPrivileges(userData) //Enter function that defines what functions are available to user based on status.
-				ResetTable();
 				WriteTime(); //Function that writes the current time at the top of the page.
-				CheckIfUpdate()
 				ChangeTab("Hardware");
-				alert("");
+				CheckIfUpdate()
 			}
 			
 			function SetPrivileges(userData) //Function that checks if user is an admin or analyst and adjusts available buttons accordingly.
@@ -40,7 +38,12 @@
 			{
 				if (document.getElementById("txtSearch").value == "") //If not searching anything.
 				{
-					sql = "SELECT * FROM tblProblem WHERE problemType = 'Hardware';"; //Simple query to get all hardware problem from table.
+					switch (extraCells)
+					{
+						case 0: sql = "SELECT * FROM tblProblem WHERE problemType = 'Network';"; break;
+						case 1: sql = "SELECT * FROM tblProblem WHERE problemType = 'Hardware';"; break;
+						case 2: sql = "SELECT * FROM tblProblem WHERE problemType = 'Software';"; break;
+					}
 					RunQuery(sql); //Runs function get gets data from database and display it in tableDiv.
 				}
 			}
@@ -263,9 +266,9 @@
 				<br/><br/>
 				<div id="tabDiv" class="row" align="center">
 					<div class="col-2"></div> <!--Empty div to create indent. -->
-					<input type="button" id="btnHardware" style="text-decoration: underline;" class="btn tabButton" onclick="ChangeTab('Hardware')">Hardware</input>
-					<input type="button" id="btnSoftware" class="btn tabButton" onclick="ChangeTab('Software')">Software</input>
-					<input type="button" id="btnNetwork" class="btn tabButton" onclick="ChangeTab('Network')">Network</input>
+					<input type="button" id="btnHardware" style="text-decoration: underline;" class="btn tabButton" value="Hardware" onclick="ChangeTab('Hardware')"></input>
+					<input type="button" id="btnSoftware" class="btn tabButton" value="Software" onclick="ChangeTab('Software')"></input>
+					<input type="button" id="btnNetwork" class="btn tabButton" value="Network" onclick="ChangeTab('Network')"></input>
 				</div>
 				<br/>
 				<div class="row" align="center">
