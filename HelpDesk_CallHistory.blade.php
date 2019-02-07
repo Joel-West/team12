@@ -64,7 +64,7 @@
 				{
 					
 					str = str.replace(", ", ",").split(","); //Split search text by commas.
-					sql = "SELECT tblCallHistory.*, tblProblem.problem, p1.name AS operatorName, p2.name AS callerName FROM tblCallHistory INNER JOIN tblProblem ON tblCallHistory.problemNumber = tblProblem.problemNumber INNER JOIN tblPersonnel p1 ON tblCallHistory.operatorID = p1.userID INNER JOIN tblPersonnel p2 ON tblCallHistory.CallerID = p2.userID WHERE";
+					sql = "SELECT tblCallHistory.*, tblProblem.problem, p1.name AS operatorName, p2.name AS callerName FROM tblCallHistory LEFT JOIN tblProblem ON tblCallHistory.problemNumber = tblProblem.problemNumber LEFT JOIN tblPersonnel p1 ON tblCallHistory.operatorID = p1.userID LEFT JOIN tblPersonnel p2 ON tblCallHistory.CallerID = p2.userID WHERE";
 					for (i = 0; i < str.length; i++) //Iterates through list of search terms, adding to the SQL query.
 					{
 						if (i != 0)
