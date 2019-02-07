@@ -294,10 +294,10 @@
 			  html += "<a class='dropdown-item' href='#'>" + specialistList[i] + " (" + count[i] + " current jobs)</a>"
 			}
 			console.log(specialistList);
-			html += "<div class='dropdown-divider'></div>"
 			specialistList.splice(0,i);
 			console.log(specialistList);
 			if (specialistList.length > 0){
+			  html += "<div class='dropdown-divider'></div>"
 			  html+= "<h6 class='dropdown-header'>Specialists to a generalisation of the problem type</h6>";
 			  for (j = i; j < specialistList.length; j++){
 				console.log(j);
