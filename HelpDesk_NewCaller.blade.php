@@ -209,7 +209,7 @@
 	  $(document).on('click', '#dropdown-menu3 a', function(){
         $("#dropdownButton3:first-child").text($(this).text());
         $("#dropdownButton3:first-child").val($(this).text());
-		populateSpecialist($(this).text(), populateLists);
+		populateSpecialist($(this).text(), populateIDList);
       });
 	  
 	  var problemTypeList = [];
