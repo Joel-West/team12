@@ -231,6 +231,7 @@
 		  if (json && json[0]){
 			if (json[0].generalisation == 'NULL'){
 			  problemTypeList.push(problemType);
+			  console.log("MOVING TO ID");
 			  populateIDList();
 			}
 			else{
