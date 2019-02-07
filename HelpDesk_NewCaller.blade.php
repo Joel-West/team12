@@ -242,7 +242,6 @@
 	  }
 	  
 	  function populateIDList(){
-		
 		specialistList = [];
 		count = [];
 		specialistIDList = []; 
@@ -282,7 +281,7 @@
 			}
 		  },'json');
 		}
-		fillSpecialistComboBox();
+		setTimeout(fillSpecialistComboBox,500);
 	  }
 	  
 	  function fillSpecialistComboBox(){
