@@ -248,6 +248,7 @@
 		specialistIDList = []; 
 		console.log(specialistIDList);
 		for (i = 0; i < problemTypeList.length; i++){
+		  console.log(problemTypeList[i]);
 		  sql = "SELECT userID FROM tblSpecialisation WHERE typeName = '" + problemTypeList[i] + "';";
 		  $.get("Query.php", {'sql':sql, 'returnData':true},function(json){
 		    if (json && json[0]){
@@ -261,7 +262,6 @@
 		  },'json');
 		}
 		console.log(specialistIDList);
-		setTimeout(populateCount, 1000);
 	  }
 	  
 	  function populateCount(){		  
