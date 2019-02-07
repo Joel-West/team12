@@ -248,14 +248,12 @@
 		specialistIDList = []; 
 		console.log(specialistIDList);
 		for (i = 0; i < problemTypeList.length; i++){
-		  console.log(problemTypeList[i]);
 		  sql = "SELECT userID FROM tblSpecialisation WHERE typeName = '" + problemTypeList[i] + "';";
 		  $.get("Query.php", {'sql':sql, 'returnData':true},function(json){
 		    if (json && json[0]){
 			  for (i = 0; i < json.length; i++){
-				console.log(json[i].userID);
 				if (specialistIDList.indexOf(json[i].userID) == -1){
-				  specialistIDList.push(json[i])
+				  specialistIDList.push(json[i].userID)
 				}
 			  }
 			}
