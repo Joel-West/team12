@@ -266,7 +266,7 @@
 		.table-wrapper-scroll-y
 		{
 			display: block;
-			max-height:90%;
+			max-height:900px;
 			overflow-y: auto;
 			-ms-overflow-style: -ms-autohiding-scrollbar;
 		}
@@ -288,7 +288,7 @@
 						Loading data...
 					</div>
 					<br/>
-					<div id="rightDiv" style="background-color:pink;" align="center" class="col-4">
+					<div id="rightDiv" align="center" class="col-4">
 						<div id="searchDiv">
 							<p>
 								Search:<input id="txtSearch" type="text" oninput="ResetTable()"></input> <!-- Box for searching the table for specific strings. -->
