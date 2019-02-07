@@ -246,7 +246,6 @@
 		specialistList = [];
 		count = [];
 		specialistIDList = []; 
-		console.log(specialistIDList);
 		for (i = 0; i < problemTypeList.length; i++){
 		  sql = "SELECT userID FROM tblSpecialisation WHERE typeName = '" + problemTypeList[i] + "';";
 		  $.get("Query.php", {'sql':sql, 'returnData':true},function(json){
@@ -291,7 +290,6 @@
 		var html;
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
 		  if (json && json[0]){
-			console.log(json[0].generalisation);
 			html += "<h6 class='dropdown-header'>Specialists to exact problem type</h6>"
 			for (i = 0; i < json.length; i++){
 			  html += "<a class='dropdown-item' href='#'>" + specialistList[i] + " (" + count[i] + " current jobs)</a>"
@@ -304,6 +302,7 @@
 		for (i = 0; i < specialistList.length; i++){
 		  html+= "<a class='dropdown-item' href='#'>" + specialistList[i] + " (" + count[i] + " current jobs)</a>"
 		}
+		console.log(json[0].generalisation);
 		document.getElementById("dropdown-menu4").innerHTML += html;
 	  }
 	    
