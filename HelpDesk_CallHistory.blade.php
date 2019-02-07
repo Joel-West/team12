@@ -266,8 +266,8 @@
 		.table-wrapper-scroll-y
 		{
 			display: block;
-			overflow-y: auto;
 			max-height:90vh;
+			overflow-y: auto;
 			-ms-overflow-style: -ms-autohiding-scrollbar;
 		}
 		</style>
