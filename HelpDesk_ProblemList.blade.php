@@ -256,9 +256,9 @@
 				<br/><br/>
 				<div id="tabDiv" class="row" align="center">
 					<div class="col-2"></div> <!--Empty div to create indent. -->
-					<button id="btnHardware" class="btn" onclick="ChangeTab('Hardware')">Hardware</button>
-					<button id="btnSoftware" class="btn" onclick="ChangeTab('Software')">Software</button>
-					<button id="btnNetwork" class="btn" onclick="ChangeTab('Network')">Network</button>
+					<button id="btnHardware" class="btn tabButton" onclick="ChangeTab('Hardware')">Hardware</button>
+					<button id="btnSoftware" class="btn tabButton" onclick="ChangeTab('Software')">Software</button>
+					<button id="btnNetwork" class="btn tabButton" onclick="ChangeTab('Network')">Network</button>
 				</div>
 				<div class="row" align="center">
 					<div id="tableDiv" class="col-9 table-wrapper-scroll-y"> <!-- Div containing data table. -->

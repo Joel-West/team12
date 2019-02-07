@@ -59,3 +59,9 @@ input[type=button]:disabled
 {
 	background-color:#9FFF30;
 }
+
+.tabButton
+{
+	border-color:#000000;
+	text-decoration: underline;
+}
