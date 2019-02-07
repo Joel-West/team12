@@ -267,7 +267,7 @@
 		{
 			display: block;
 			overflow-y: auto;
-			max-height:555vh;
+			max-height:80vh;
 			-ms-overflow-style: -ms-autohiding-scrollbar;
 		}
 		</style>
