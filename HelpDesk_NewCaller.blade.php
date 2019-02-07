@@ -224,13 +224,14 @@
 	  
 	  function populateProblemTypeList(problemType){
 		var sql = "SELECT generalisation FROM tblProblemType WHERE typeName = '" + problemType + "';";
-		problemTypeList.push(problemType);
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
 		  if (json && json[0]){
 			if (json[0].generalisation == 'NULL'){
-			  return;
+			  problemTypeList.push(problemType);
+			  populateIDList();
 			}
 			else{
+			  problemTypeList.push(problemType);
 			  populateProblemTypeList(json[0].generalisation);
 			  return;
 			}
@@ -239,13 +240,6 @@
 	  }
 	  
 	  function populateIDList(callback){
-		
-		console.log(problemTypeList);
-		
-	    if (problemTypeList.length > 1){
-			console.log("YO");
-			problemTypeList.splice(problemTypeList.length - 1,1);
-		}
 		
 		console.log(problemTypeList);
 		specialistList = [];
