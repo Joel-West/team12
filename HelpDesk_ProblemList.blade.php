@@ -171,13 +171,22 @@
 				switch (tab)
 				{
 					case 'Hardware':
-						extraCells = 1;
+						if (extraCells != 1)
+						{
+							extraCells = 1;
+						}
 						break;
 					case 'Software':
-						extraCells = 2;
+						if (extraCells != 2)
+						{
+							extraCells = 2;
+						}
 						break;
 					case 'Network':
-						extraCells = 0;
+						if (extraCells != 0)
+						{
+							extraCells = 0;
+						}
 						break;
 					default: break;
 				}
@@ -234,10 +243,10 @@
 					<h2 id="headerId" style="font-weight:bold; style=display:inline-block; font-size:30px;">Problem List</h2> <!-- Heading containing name of page. -->
 				</div>
 				<br/><br/>
+				<div id="tabDiv" class="row" align="center"> 
+					<button id="btnHardware" class="btn" onclick="ChangeTab('Hardware')">Hardware</button>
+				</div>
 				<div class="row" align="center">
-					<div id="tabDiv"> 
-						<button id="btnHardware" class="btn" onclick="ChangeTab('Hardware')">Hardware</button>
-					</div>
 					<div id="tableDiv" class="col-9 table-wrapper-scroll-y"> <!-- Div containing data table. -->
 						Loading data...
 					</div>
