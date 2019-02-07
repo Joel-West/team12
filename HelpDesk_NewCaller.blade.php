@@ -298,7 +298,8 @@
 			console.log(html);
 			if (specialistList.length > 0){
 			  html+= "<h6 class='dropdown-header'>Specialists to a generalisation of the problem type</h6>";
-		      for (j = i; j < specialistList.length; j++){
+			  for (j = i; j < specialistList.length; j++){
+				console.log(j);
 		        html+= "<a class='dropdown-item' href='#'>" + specialistList[i] + " (" + count[i] + " current jobs)</a>"
 		      }
 		    }
