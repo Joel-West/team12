@@ -34,7 +34,7 @@
 			{
 				if (document.getElementById("txtSearch").value == "") //If not searching anything.
 				{
-					sql = "SELECT tblCallHistory.*, tblProblem.problem, p1.name AS operatorName, p2.name AS callerName FROM tblCallHistory INNER JOIN tblProblem ON tblCallHistory.problemNumber = tblProblem.problemNumber INNER JOIN tblPersonnel p1 ON tblCallHistory.operatorID = p1.userID INNER JOIN tblPersonnel p2 ON tblCallHistory.CallerID = p2.userID;"; //Simple query to get all data from table.
+					sql = "SELECT tblCallHistory.*, tblProblem.problem, p1.name AS operatorName, p2.name AS callerName FROM tblCallHistory LEFT JOIN tblProblem ON tblCallHistory.problemNumber = tblProblem.problemNumber LEFT JOIN tblPersonnel p1 ON tblCallHistory.operatorID = p1.userID LEFT JOIN tblPersonnel p2 ON tblCallHistory.CallerID = p2.userID;"; //Simple query to get all data from table.
 					RunQuery(sql); //Runs function get gets data from database and display it in tableDiv.
 				}
 			}
