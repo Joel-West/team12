@@ -209,17 +209,19 @@
 	  $(document).on('click', '#dropdown-menu3 a', function(){
         $("#dropdownButton3:first-child").text($(this).text());
         $("#dropdownButton3:first-child").val($(this).text());
-		populateSpecialist($(this).text(), populateIDList);
+		populateSpecialist($(this).text());
       });
 	  
 	  var problemTypeList = [];
 	  var specialistIDList = [];
 	  var count = [];
 	  var specialistList = [];
-	  function populateSpecialist(problemType, callback){
+	  var problemTypeVar;
+	  function populateSpecialist(problemType){
 		problemTypeList = [];
+		problemTypeVar = "";
+		problemTypeVar = problemType;
 		populateProblemTypeList(problemType);
-		callback(fillSpecialistComboBox);
 	  }
 	  
 	  function populateProblemTypeList(problemType){
@@ -239,7 +241,7 @@
 	    },'json');
 	  }
 	  
-	  function populateIDList(callback){
+	  function populateIDList(){
 		
 		console.log(problemTypeList);
 		specialistList = [];
@@ -258,9 +260,11 @@
 			}
 		  },'json');
 		}
+		populateCount();
 	  }
 	  
-	  function AHH(){		for (i = 0; i < specialistIDList.length; i++){
+	  function populateCount(){		
+	    for (i = 0; i < specialistIDList.length; i++){
 		  sql = "SELECT COUNT(problem) FROM tblProblem WHERE specialistID = " + specialistIDList[i] + " AND resolved = 'No';";
 		  $.get("Query.php", {'sql':sql, 'returnData':true},function(json){
 		    if (json && json[0]){
@@ -268,6 +272,10 @@
 			}
 		  },'json');
 		}
+		populateSpecialistList();
+	  }
+	  
+	  function populateSpecialistList(){
 		for (i = 0; i < specialistIDList.length; i++){
 		  sql = "SELECT name FROM tblPersonnel WHERE userID = " + specialistIDList[i] + ";";
 		  $.get("Query.php", {'sql':sql, 'returnData':true},function(json){
@@ -276,16 +284,14 @@
 			}
 		  },'json');
 		}
-		
 		console.log(specialistIDList);
 		console.log(specialistList);
 		console.log(count);
-		callback();
-		
+		fillSpecialistComboBox();
 	  }
 	  
-	  function fillSpecialistComboBox(problemType){
-		var sql = "SELECT generalisation FROM tblProblemType WHERE typeName = '" + problemType + "';";
+	  function fillSpecialistComboBox(){
+		var sql = "SELECT generalisation FROM tblProblemType WHERE typeName = '" + problemTypeVar + "';";
 		var html;
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
 		  if (json && json[0]){
