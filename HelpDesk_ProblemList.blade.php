@@ -263,9 +263,9 @@
 				<br/><br/>
 				<div id="tabDiv" class="row" align="center">
 					<div class="col-2"></div> <!--Empty div to create indent. -->
-					<button id="btnHardware" style="text-decoration: underline;" class="btn tabButton" onclick="ChangeTab('Hardware')">Hardware</button>
-					<button id="btnSoftware" class="btn tabButton" onclick="ChangeTab('Software')">Software</button>
-					<button id="btnNetwork" class="btn tabButton" onclick="ChangeTab('Network')">Network</button>
+					<input type="button" id="btnHardware" style="text-decoration: underline;" class="btn tabButton" onclick="ChangeTab('Hardware')">Hardware</input>
+					<input type="button" id="btnSoftware" class="btn tabButton" onclick="ChangeTab('Software')">Software</input>
+					<input type="button" id="btnNetwork" class="btn tabButton" onclick="ChangeTab('Network')">Network</input>
 				</div>
 				<br/>
 				<div class="row" align="center">
