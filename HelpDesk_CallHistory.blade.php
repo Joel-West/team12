@@ -64,7 +64,7 @@
 				{
 					
 					str = str.replace(", ", ",").split(","); //Split search text by commas.
-					sql = "SELECT tblCallHistory.*, tblProblem.problem, p1.name AS operatorName, p2.name AS callerName FROM tblCallHistory LEFT JOIN tblProblem ON tblCallHistory.problemNumber = tblProblem.problemNumber LEFT JOIN tblPersonnel p1 ON tblCallHistory.operatorID = p1.userID LEFT JOIN tblPersonnel p2 ON tblCallHistory.CallerID = p2.userID WHERE";
+					sql = "SELECT tblCallHistory.*, tblProblem.problem, p1.name AS operatorName, p2.name AS callerName FROM tblCallHistory LEFT JOIN tblProblem ON tblCallHistory.problemNumber = tblProblem.problemNumber LEFT JOIN tblPersonnel p1 ON tblCallHistory.operatorID = p1.userID LEFT JOIN tblPersonnel p2 ON tblCallHistory.CallerID = p2.userID WHERE ";
 					for (i = 0; i < str.length; i++) //Iterates through list of search terms, adding to the SQL query.
 					{
 						if (i != 0)
@@ -72,7 +72,6 @@
 							sql+=" OR ";
 						}
 						sql += "upper(callNumber) LIKE '%"+str[i]+"%' OR upper(operatorID) LIKE '%"+str[i]+"%' OR upper(callerID) LIKE '%"+str[i]+"%' OR upper(timeDate) LIKE '%"+str[i]+"%' OR upper(problemNumber) LIKE '%"+str[i]+"%' OR upper(notes) LIKE '%"+str[i]+"%' OR upper(problem) LIKE '%"+str[i]+"%' OR upper(operatorName) LIKE '%"+str[i]+"%' OR upper(callerName) LIKE '%"+str[i]+"%'"; //Query that returns all database records with a cell containing search string.
-						alert(sql);
 					}
 				}
 				RunQuery(sql); //Runs function get gets data from database and display it in tableDiv.
