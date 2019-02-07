@@ -246,7 +246,7 @@
 		specialistList = [];
 		count = [];
 		specialistIDList = []; 
-		
+		console.log(specialistIDList);
 		for (i = 0; i < problemTypeList.length; i++){
 		  sql = "SELECT userID FROM tblSpecialisation WHERE typeName = '" + problemTypeList[i] + "';";
 		  $.get("Query.php", {'sql':sql, 'returnData':true},function(json){
@@ -285,9 +285,6 @@
 			}
 		  },'json');
 		}
-		console.log(specialistIDList);
-		console.log(specialistList);
-		console.log(count);
 		fillSpecialistComboBox();
 	  }
 	  
