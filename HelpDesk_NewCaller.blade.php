@@ -295,6 +295,7 @@
 			}
 			console.log(specialistList);
 			html += "<div class='dropdown-divider'></div>"
+			specialistList.splice(0,i);
 			console.log(specialistList);
 			if (specialistList.length > 0){
 			  html+= "<h6 class='dropdown-header'>Specialists to a generalisation of the problem type</h6>";
