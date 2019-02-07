@@ -287,7 +287,7 @@
 	  
 	  function fillSpecialistComboBox(){
 		var sql = "SELECT generalisation FROM tblProblemType WHERE typeName = '" + problemTypeVar + "';";
-		var html;
+		var html = "";
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
 		  if (json && json[0]){
 			html += "<h6 class='dropdown-header'>Specialists to exact problem type</h6>"
