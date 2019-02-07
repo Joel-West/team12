@@ -264,7 +264,6 @@
 	  
 	  function populateCount(){		  
 	    for (i = 0; i < specialistIDList.length; i++){
-		  console.log("LOOP");
 		  sql = "SELECT COUNT(problem) AS occurence FROM tblProblem WHERE specialistID = " + specialistIDList[i] + " AND resolved = 'No';";
 		  $.get("Query.php", {'sql':sql, 'returnData':true},function(json){
 		    if (json && json[0]){
@@ -272,7 +271,6 @@
 			}
 		  },'json');
 		}
-		console.log(count);
 		populateSpecialistList();
 	  }
 	  
@@ -285,7 +283,6 @@
 			}
 		  },'json');
 		}
-		console.log(specialistList);
 		fillSpecialistComboBox();
 	  }
 	  
@@ -294,6 +291,7 @@
 		var html;
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
 		  if (json && json[0]){
+			console.log(json[0].generalisation);
 			html += "<h6 class='dropdown-header'>Specialists to exact problem type</h6>"
 			for (i = 0; i < json.length; i++){
 			  html += "<a class='dropdown-item' href='#'>" + specialistList[i] + " (" + count[i] + " current jobs)</a>"
