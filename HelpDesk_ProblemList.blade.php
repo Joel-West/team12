@@ -91,10 +91,10 @@
 						htm+="<th onclick='SortTable(2)'scope='col'>Problem Type</th>";;
 						htm+="<th onclick='SortTable(3)'scope='col'>Operating System</th>";
 						htm+="<th onclick='SortTable(4)'scope='col'>Software Concerned</th>";
-						htm+="<th onclick='SortTable(" + 3+extraCells + ")'scope='col'>Specialist</th>";
-						htm+="<th onclick='SortTable(" + 4+extraCells + ")'scope='col'>Resolved</th>";
-						htm+="<th onclick='SortTable(" + 5+extraCells + ")'scope='col'>Date/Time Resolved</th>";
-						htm+="<th onclick='SortTable(" + 6+extraCells + ")'scope='col'>Solution</th></tr>"; //Appending column headers.
+						htm+="<th onclick='SortTable(" + (3+extraCells) + ")'scope='col'>Specialist</th>";
+						htm+="<th onclick='SortTable(" + (4+extraCells) + ")'scope='col'>Resolved</th>";
+						htm+="<th onclick='SortTable(" + (5+extraCells) + ")'scope='col'>Date/Time Resolved</th>";
+						htm+="<th onclick='SortTable(" + (6+extraCells) + ")'scope='col'>Solution</th></tr>"; //Appending column headers.
 						for (i = 0; i<json.length; i++) //Iterates through the json array of results.
 						{
 							htm += "<tr style='background-color:rgb(159, 255, 48);'>"; //Sets colour and ID of row.
