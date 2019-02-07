@@ -292,7 +292,7 @@
 		  if (json && json[0]){
 			html += "<h6 class='dropdown-header'>Specialists to exact problem type</h6>"
 			for (i = 0; i < json.length; i++){
-			  console.log(specialistList);
+			  
 			  html += "<a class='dropdown-item' href='#'>" + specialistList[i] + " (" + count[i] + " current jobs)</a>"
 			}
 			console.log(specialistList);
