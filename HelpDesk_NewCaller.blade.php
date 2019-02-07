@@ -264,8 +264,7 @@
 		}
 	  }
 	  
-	  
-		for (i = 0; i < specialistIDList.length; i++){
+	  function AHH(){		for (i = 0; i < specialistIDList.length; i++){
 		  sql = "SELECT COUNT(problem) FROM tblProblem WHERE specialistID = " + specialistIDList[i] + " AND resolved = 'No';";
 		  $.get("Query.php", {'sql':sql, 'returnData':true},function(json){
 		    if (json && json[0]){
