@@ -91,6 +91,7 @@
 						htm+="<th onclick='SortTable(5)'scope='col'>Notes</th></tr>"; //Appending column headers.
 						for (i = 0; i<json.length; i++) //Iterates through the json array of results.
 						{
+							alert(json[i]);
 							htm += "<tr style='background-color:rgb(159, 255, 48);'>"; //Sets colour and ID of row.
 							htm +="<td>"+json[i].callNumber+" - "+json[i].p1.name"</td>";
 							htm +="<td>"+json[i].operatorID+" - "+json[i].p2.name"</td>";
