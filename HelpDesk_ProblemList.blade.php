@@ -173,12 +173,16 @@
 			
 			function ChangeTab(tab)
 			{
+				document.getElementById("btnHardware").style="text-decoration: initial;"
+				document.getElementById("btnSoftware").style="text-decoration: initial;"
+				document.getElementById("btnNetwork").style="text-decoration: initial;"
 				switch (tab)
 				{
 					case 'Hardware':
 						if (extraCells != 1)
 						{
 							extraCells = 1;
+							document.getElementById("btnHardware").style="text-decoration: underline;"
 							sql = "SELECT * FROM tblProblem WHERE problemType = 'Hardware';"; //Simple query to get all hardware problem from table.
 							RunQuery(sql); //Runs function get gets data from database and display it in tableDiv.
 						}
@@ -187,6 +191,7 @@
 						if (extraCells != 2)
 						{
 							extraCells = 2;
+							document.getElementById("btnSoftware").style="text-decoration: underline;"
 							sql = "SELECT * FROM tblProblem WHERE problemType = 'Software';"; //Simple query to get all software problem from table.
 							RunQuery(sql); //Runs function get gets data from database and display it in tableDiv.
 						}
@@ -195,6 +200,7 @@
 						if (extraCells != 0)
 						{
 							extraCells = 0;
+							document.getElementById("btnNetwork").style="text-decoration: underline;"
 							sql = "SELECT * FROM tblProblem WHERE problemType = 'Network';"; //Simple query to get all network problem from table.
 							RunQuery(sql); //Runs function get gets data from database and display it in tableDiv.
 						}
@@ -237,7 +243,7 @@
 		.table-wrapper-scroll-y
 		{
 			display: block;
-			max-height:88vh;
+			max-height:84vh;
 			overflow-y: auto;
 			-ms-overflow-style: -ms-autohiding-scrollbar;
 		}
@@ -256,10 +262,11 @@
 				<br/><br/>
 				<div id="tabDiv" class="row" align="center">
 					<div class="col-2"></div> <!--Empty div to create indent. -->
-					<button id="btnHardware" class="btn tabButton" onclick="ChangeTab('Hardware')">Hardware</button>
+					<button id="btnHardware" style="text-decoration: underline;" class="btn tabButton" onclick="ChangeTab('Hardware')">Hardware</button>
 					<button id="btnSoftware" class="btn tabButton" onclick="ChangeTab('Software')">Software</button>
 					<button id="btnNetwork" class="btn tabButton" onclick="ChangeTab('Network')">Network</button>
 				</div>
+				<br/>
 				<div class="row" align="center">
 					<div id="tableDiv" class="col-9 table-wrapper-scroll-y"> <!-- Div containing data table. -->
 						Loading data...
