@@ -230,7 +230,7 @@
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
 		  if (json && json[0]){
 			console.log(json[0].generalisation);
-			if (json[0].generalisation == 'NULL'){
+			if (json[0].generalisation == 'null'){
 			  problemTypeList.push(problemType);
 			  console.log("MOVING TO ID");
 			  populateIDList();
