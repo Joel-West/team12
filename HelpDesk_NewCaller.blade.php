@@ -302,8 +302,8 @@
 		for (i = 0; i < specialistList.length; i++){
 		  html+= "<a class='dropdown-item' href='#'>" + specialistList[i] + " (" + count[i] + " current jobs)</a>"
 		}
-		console.log(json[0].generalisation);
 		document.getElementById("dropdown-menu4").innerHTML += html;
+		console.log(html);
 	  }
 	    
 	</script>
