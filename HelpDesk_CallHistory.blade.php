@@ -212,7 +212,7 @@
 					{
 						row = document.getElementById("tbl").rows[rowNum]; //Get row of local table that is being saved to database.
 						sql+="UPDATE tblCallHistory SET ";
-						sql+="notes = '"+ row.cells[5].innerHTML + "', ";
+						sql+="notes = '"+ row.cells[5].innerHTML + "' ";
 						sql+="WHERE callNumber = " + callNumber + "; ";
 					}
 				}
