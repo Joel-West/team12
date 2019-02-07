@@ -292,21 +292,20 @@
 		  if (json && json[0]){
 			html += "<h6 class='dropdown-header'>Specialists to exact problem type</h6>"
 			for (i = 0; i < json.length; i++){
-			  
 			  html += "<a class='dropdown-item' href='#'>" + specialistList[i] + " (" + count[i] + " current jobs)</a>"
 			}
 			console.log(specialistList);
 			html += "<div class='dropdown-divider'></div>"
 			console.log(html);
+			html+= "<h6 class='dropdown-header'>Specialists to a generalisation of the problem type</h6>";
+		    for (j = i; j < specialistList.length; j++){
+		      html+= "<a class='dropdown-item' href='#'>" + specialistList[i] + " (" + count[i] + " current jobs)</a>"
+		    }
+		
+		    document.getElementById("dropdown-menu4").innerHTML += html;
+		    console.log(html);
 		  }
 		},'json');
-		html+= "<h6 class='dropdown-header'>Specialists to a generalisation of the problem type</h6>";
-		for (j = i; j < specialistList.length; j++){
-		  html+= "<a class='dropdown-item' href='#'>" + specialistList[i] + " (" + count[i] + " current jobs)</a>"
-		}
-		
-		document.getElementById("dropdown-menu4").innerHTML += html;
-		console.log(html);
 	  }
 	    
 	</script>
