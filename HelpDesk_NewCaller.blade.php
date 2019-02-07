@@ -268,7 +268,7 @@
 		  sql = "SELECT COUNT(problem) FROM tblProblem WHERE specialistID = " + specialistIDList[i] + " AND resolved = 'No';";
 		  $.get("Query.php", {'sql':sql, 'returnData':true},function(json){
 		    if (json && json[0]){
-			  count.push(json[0]);
+			  count.push(json[0].count);
 			}
 		  },'json');
 		}
