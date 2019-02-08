@@ -63,4 +63,5 @@ input[type=button]:disabled
 .tabButton
 {
 	border-color:#000000;
+	display:inline-block;
 }
