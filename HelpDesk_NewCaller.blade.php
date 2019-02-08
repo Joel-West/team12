@@ -184,7 +184,7 @@
 		}
 		html="</div>";
 		document.getElementById("dropdown-menu3").innerHTML += html;
-		$('#resultCollapse').collapse('show');
+		$('#problemTypeCollapse').collapse('show');
 	  }
 	  
 	  function findAllChildren(parent,html){
