@@ -348,12 +348,12 @@
 				switch (extraCells) //Clears tab-specific fields.
 				{
 					case 1: row.deleteCell(3); break;
-					case 2: row.deleteCell(3); row.deleteCell(4); break;
+					case 2: row.deleteCell(3); row.deleteCell(3); break;
 				}
 				switch(newExtraCells) //Add new empty cells based on tab that the record is being moved to.
 				{
 					case 1: row.insertCell(3); break;
-					case 2: row.insertCell(3); row.insertCell(4); break;
+					case 2: row.insertCell(3); row.insertCell(3); break;
 				}
 				rowData = document.getElementById("tbl").rows[GetSelectedRow()].innerHTML; //Gets the details of the row that is selected.
 				document.getElementById("tbl").deleteRow(GetSelectedRow()); //Delete the row from the current tab.
