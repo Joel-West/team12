@@ -238,6 +238,40 @@
 				}
 				return true;
 			}
+			
+			function Delete() //Function for deleting selected rows from a table.
+			{
+				admin = (userData.split(","))[2];
+				if (selected == 0 || admin == 0) //if no rows are selected, or if not admin, leave function.
+				{
+					return;
+				}
+				if (confirm("Delete selected rows?")) //Get user confirmation.
+				{
+					rows = GetRows();
+					for (i = rows-1; i > 0; i--) //Iterate through the rows of the table.
+					{
+						deleteRow = false; //Variable holding if row will actually be deleted.
+						if (document.getElementById("tbl").rows[i].style.backgroundColor != 'rgb(159, 255, 48)') //If row is selected.
+						{
+							deleteRow = true;						
+						}
+						if (deleteRow == true) //If should be deleted after validation.
+						{
+							indexInUpdList = updList.indexOf(document.getElementById("tbl").rows[i].cells[0].innerHTML); //Get index of deleted item in update list.
+							if (indexInUpdList > -1)
+							{
+								updList.splice(indexInUpdList, 1); //Delete row from the update list - if record is deleted, it will not need to be updated.
+							}
+							delList.push(document.getElementById("tbl").rows[i].cells[0].innerHTML); //Add record id to list of rows that will be deleted from the actual database later.
+							document.getElementById("tbl").deleteRow(i); //Delete the row.
+						}
+					}
+					selected = 0;
+					console.log(delList);
+					CheckIfUpdate();
+				}
+			}
 		</script>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"> <!-- Bootstrap CSS stylesheet. -->
 		<link rel="stylesheet" href="{{ asset('css/Styles.css') }}" type="text/css"> <!-- Import external CSS stylesheet that contains presentation info that applies to all the pages. -->
@@ -261,7 +295,7 @@
 					<label id="dtLabel" style="font-size:26px; position:absolute; right:0;"></label> <!-- Label to contain current data/time. -->
 					<h2 id="headerId" style="font-weight:bold; style=display:inline-block; font-size:30px;">Problem List</h2> <!-- Heading containing name of page. -->
 				</div>
-				<br/><br/><br/>
+				<br/><br/>
 				<div class="row" align="center">
 				<div id="leftDiv" align="center" class="col-9">
 						<div id="tabDiv" class="row" align="center" style="text-align:center; display: inline-block;"> <!-- Within this row are three buttons that change the tab of problems listed. -->
