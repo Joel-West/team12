@@ -95,7 +95,6 @@
 			for (i = 0; i < json.length; i++){
 			  html+="<a class='dropdown-item' href='#'>" + json[i].problem + "</a>";
 			}
-			html+="</div>";
 		    document.getElementById("dropdown-menu").innerHTML = html;
 		  }
 		},'json');
@@ -131,15 +130,14 @@
 			for (i = 0; i < json.length; i++){
 			  html+="<a class='dropdown-item' href='#'>" + json[i].problem + "</a>";
 			}
-			html+="</div>";
 		    document.getElementById("dropdown-menu2").innerHTML = html;
 		  }
 		},'json');
 	  }
 	  
-	  function filter(num){
-	    var input = document.getElementById("dropdownSearch" + num);
-		var x = document.getElementById("dropdown-menu" + num).getElementsByTagName("a");
+	  function filter(end){
+	    var input = document.getElementById("dropdownSearch" + end);
+		var x = document.getElementById("dropdown-menu" + end).getElementsByTagName("a");
 		for (i = 0; i < x.length; i++){
 		  txtValue = x[i].textContent || x[i].innerText;
 		  if (txtValue.toUpperCase().indexOf(input.value.toUpperCase()) > -1) {
@@ -199,8 +197,25 @@
 	  }
 	  
 	  function createSerialNumber(){
-		  
+		var html = "<form class ='px-4 py-3'><div class='form-group'><label for='dropdownSearch'>Search</label>"
+		html += "<input type='text' class='form-control' id='dropdownSearchSerial' placeholder='Search' onkeyup='filter(Serial)'></div></form>"
+	    html += "<div class='dropdown-divider'></div>;
+		html += "<h6 class='dropdown-header'>Serial Numbers</h6>";
+		var sql = "SELECT * FROM tblEquipment";
+		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
+		  if (json && json[0]){
+			for (i = 0; i < json.length; i++){
+			  html+="<a class='dropdown-item' href='#'>" + json[i].serialNumber + "(" + equipmentMake + " " + equipmentType + ")</a>";
+			}
+		    document.getElementById("dropdown-menuSerial").innerHTML = html;
+		  }
+		},'json');
 	  }
+	  
+	  $(document).on('click', '#dropdown-menuSerial a', function(){
+        $("#dropdownButtonSerial:first-child").text($(this).text());
+        $("#dropdownButtonSerial:first-child").val($(this).text());
+      });
 	  
 	  $(document).on('click', '#dropdown-menu3 a', function(){
         $("#dropdownButton3:first-child").text($(this).text());
@@ -281,7 +296,7 @@
 	  }
 	  
 	  function fillSpecialistComboBox(){
-		var sql = "SELECT generalisation FROM tblProblemType WHERE typeName = '" + problemTypeVar + "';";
+		var sql = "SELECT userID FROM tblSpecialisation WHERE typeName = '" + problemTypeVar + "';";
 		var html = "";
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
 		  if (json && json[0]){
@@ -428,8 +443,7 @@
 		
 		<div class="col-3"></div>
 		<div class="collapse col-6" id="resultCollapse">
-		  <div id="changeableThings">
-		  </div>
+		
 		  Problem Type:
 		  <div id="problemTypeComboBox">
 		    <button class='btn greenBack dropdown-toggle' type='button' id='dropdownButton3' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>
@@ -439,9 +453,16 @@
 			
 			</div>	
 		  </div>
+		  
 		  <div class="collapse" id="serialNumberCollapse">
-		    
+		    <button class='btn greenBack dropdown-toggle' type='button' id='dropdownButtonSerial' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>
+			  Choose Problem Type<span class='caret'></span>
+			</button>
+			<div class='dropdown-menu' id='dropdown-menuSerial' aria-labelledby='dropdownMenuSerial'>
+			  
+			</div>
 		  </div>
+		  
 		  <div class="collapse" id="result2Collapse">
 		    Specialist:
 		    <div id="specialistComboBox">
