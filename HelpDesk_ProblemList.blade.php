@@ -378,14 +378,12 @@
 				table = document.getElementById("tbl");
 				table.innerHTML += "<tr style='background-color:rgb(0, 255, 255);'>"+rowData+"</tr>"
 				tableDiv = document.getElementById("tableDiv");
-				alert(tableDiv.innerHTML);
 				switch (extraCells)
 				{
 					case 0: networkHTML = tableDiv.innerHTML; break;
 					case 1: hardwareHTML = tableDiv.innerHTML; break;
 					case 2: softwareHTML = tableDiv.innerHTML; break;
 				}
-				alert(tableDiv.innerHTML);
 				CheckIfUpdate();
 			}
 			
