@@ -377,6 +377,7 @@
 			{
 				table = document.getElementById("tbl");
 				table.innerHTML += "<tr style='background-color:rgb(0, 255, 255);'>"+rowData+"</tr>"
+				tableDiv = document.getElementById("tableDiv");
 				switch (extraCells)
 				{
 					case 0: networkHTML = tableDiv.innerHTML; break;
@@ -492,6 +493,7 @@
 				if (selected == 1)
 				{
 					rowNum = GetSelectedRow(); //Gets the row that is selected.
+					alert(getElementById("tbl").innerHTML);
 					document.getElementById("btnUpdate").disabled = false;
 					document.getElementById("selMainType").disabled = false;
 					document.getElementById("txtProblem").disabled = false;
