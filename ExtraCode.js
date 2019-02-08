@@ -134,9 +134,20 @@ function AddPressed() //Function to add new row to the local data table.
 $(document).on('click','tr',function(event) //Function for selecting/deselecting rows.
 {
 	admin = (userData.split(","))[2];
-	if (admin == 0) //If not admin, action is forbidden.
+	analyst = (userData.split(","))[3];
+	if (currentPage == "CallHistory" || currentPage == "ProblemList")
 	{
-		return;
+		if (admin == 0 && analyst == 1) //If not admin, action is forbidden.
+		{
+			return;
+		}
+	}
+	else
+	{
+		if (admin == 0) //If not admin, action is forbidden.
+		{
+			return;
+		}
 	}
 	if ($(this).attr('id') != 't0') //If not the header.
 	{
