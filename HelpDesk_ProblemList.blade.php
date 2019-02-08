@@ -370,7 +370,7 @@
 					case 1: ChangeTab("Hardware", false); break;
 					case 2: ChangeTab("Software", false); break;
 				}
-				setTimeout(TransferRow, rowData);
+				setTimeout(TransferRow(rowData), 1000);
 			}
 			
 			function TransferRow(rowData) //Adds row data to new tab after being removed from another tab.
