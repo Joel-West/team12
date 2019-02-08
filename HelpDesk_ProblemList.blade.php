@@ -343,7 +343,7 @@
 				{
 					return; //If it is on the correct tab already, leave function.
 				}
-				console.log(document.getElementById("tbl").rows(GetSelectedRow().innerHTML);
+				console.log(document.getElementById("tbl").rows(GetSelectedRow().innerHTML));
 				switch (extraCells)
 				{
 					case 0: networkHTML = tableDiv.innerHTML; break;
