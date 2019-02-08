@@ -156,10 +156,11 @@
 					document.getElementById("tableDiv").innerHTML = htm; //Appends HTML to tableDiv.
 					switch (extraCells)
 					{
-						case 0: networkHTML = tableDiv.innerHTML; break;
-						case 1: hardwareHTML = tableDiv.innerHTML; break;
-						case 2: softwareHTML = tableDiv.innerHTML; break;
+						case 0: networkHTML = htm; break;
+						case 1: hardwareHTML = htm; break;
+						case 2: softwareHTML = htm; break;
 					}
+					console.log("yeaaaaah it should exist...");
 					newRowCount = 0;
 				},'json');
 			}
