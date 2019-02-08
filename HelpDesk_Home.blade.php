@@ -14,7 +14,7 @@
 			{
 				userData = "<?php echo $_POST['User']; ?>"; //Gets data from previous form.
 				SetPrivileges(userData) //Enter function that defines what functions are available to user based on status.
-				//Fun();
+				Fun();
 				WriteTime(); //Function that writes the current time at the top of the page.
 			}
 			
@@ -78,7 +78,7 @@
 					<input class="mainButton" type="button" value="View Equipment" onClick="GoToNewPage('EquipmentList');" />
 					<input class="mainButton" type="button" id="btnAnalytics" value="Analytics" onClick="GoToNewPage('Analytics')" />			
 				<br>
-				<!--Fun mode (don't click if you have epilepsy...): <input id="checkFun" type="checkbox" onclick="Fun()"/>-->
+				Fun mode (don't click if you have epilepsy...): <input id="checkFun" type="checkbox" onclick="Fun()"/>
 			</form>
 		</div>
 	</body>
