@@ -19,6 +19,12 @@
 				userData = "<?php echo $_POST['User']; ?>"; //Gets data from previous form.
 				SetPrivileges(userData) //Enter function that defines what functions are available to user based on status.
 				WriteTime(); //Function that writes the current time at the top of the page.
+				sql = "SELECT * FROM tblProblem WHERE problemType = 'Network';"; //Ensure the HTML variables for all 3 tables are created.
+				RunQuery(sql);
+				sql = "SELECT * FROM tblProblem WHERE problemType = 'Hardware';";
+				RunQuery(sql);
+				sql = "SELECT * FROM tblProblem WHERE problemType = 'Software';";
+				RunQuery(sql);
 				ChangeTab("Hardware");
 				CheckIfUpdate()
 			}
@@ -268,6 +274,12 @@
 						}
 					}
 					selected = 0;
+					swith (extraCells)
+					{
+						case 0: networkHTML = tableDiv.innerHTML; break;
+						case 1: hardwareHTML = tableDiv.innerHTML; break;
+						case 2: softwareHTML = tableDiv.innerHTML; break;
+					}
 					console.log(delList);
 					CheckIfUpdate();
 				}
