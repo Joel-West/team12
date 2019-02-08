@@ -13,9 +13,9 @@
 			var currentPage = "ProblemList"; //Variable storing the name of the current page, so it can be passed in the URL to the next page as a 'previous page' variable.
 			var selected = 0; //Global variable corresponding to number of highlighted table rows.
 			var extraCells = -1; //Refers to the numbers of extra cells in the table for the current problem category (software = 2, hardware = 1, network = 0).
-			var hardwareHTML = "<table class='table' id='tbl' border='1'></table>";
-			var softwareHTML = "<table class='table' id='tbl' border='1'></table>";
-			var networkHTML = "<table class='table' id='tbl' border='1'></table>";
+			var hardwareHTML = "";
+			var softwareHTML = "";
+			var networkHTML = "";
 			var specialists = [];
 			var problemTypes = [];
 			
@@ -350,6 +350,11 @@
 					case 2: row.deleteCell(3); row.deleteCell(4); break;
 				}
 				rowData = document.getElementById("tbl").rows[GetSelectedRow()].innerHTML; //Gets the details of the row that is selected.
+				switch(newExtraCells) //Add new empty cells based on tab that the record is being moved to.
+				{
+					case 1: row.insertCell(3); break;
+					case 2: row.insertCell(3); row.insertCell(4); break;
+				}
 				document.getElementById("tbl").deleteRow(GetSelectedRow()); //Delete the row from the current tab.
 				switch (extraCells) //Saves the value of the current tab's innerHTML.
 				{
@@ -369,7 +374,6 @@
 			function TransferRow(rowData) //Adds row data to new tab after being removed from another tab.
 			{
 				table = document.getElementById("tbl");
-				console.log(table.innerHTML);
 				table.innerHTML += "<tr style='background-color:rgb(0, 255, 255);'>"+rowData+"</tr>"
 				switch (extraCells)
 				{
@@ -448,7 +452,7 @@
 					case 'Hardware':
 						extraCells = 1; //There is one extra cell appended to the table when on the hardware tab (serial number).
 						document.getElementById("btnHardware").style="text-decoration: underline;"; //Underlines selected tab.
-						if (hardwareHTML == "<table class='table' id='tbl' border='1'></table>")
+						if (hardwareHTML == "")
 						{
 							sql = "SELECT * FROM tblProblem WHERE problemType = 'Hardware';"; //Simple query to get all hardware problem from table.
 							RunQuery(sql); //Runs function get gets data from database and display it in tableDiv.
@@ -458,7 +462,7 @@
 					case 'Software':
 						extraCells = 2; //There are two extra cells appended to the table when on the software tab (operating system, software concerned).
 						document.getElementById("btnSoftware").style="text-decoration: underline;"; //Underlines selected tab.
-						if (softwareHTML == "<table class='table' id='tbl' border='1'></table>")
+						if (softwareHTML == "")
 						{
 							sql = "SELECT * FROM tblProblem WHERE problemType = 'Software';"; //Simple query to get all software problem from table.
 							RunQuery(sql); //Runs function get gets data from database and display it in tableDiv.
@@ -468,7 +472,7 @@
 					case 'Network':
 						extraCells = 0; //There are no extra cells appended to the table when on the network tab.
 						document.getElementById("btnNetwork").style="text-decoration: underline;"; //Underlines selected tab.
-						if (networkHTML == "<table class='table' id='tbl' border='1'></table>")
+						if (networkHTML == "")
 						{
 							sql = "SELECT * FROM tblProblem WHERE problemType = 'Network';"; //Simple query to get all network problem from table.
 							RunQuery(sql); //Runs function get gets data from database and display it in tableDiv.
