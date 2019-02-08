@@ -353,15 +353,21 @@
 				document.getElementById("tbl").deleteRow(GetSelectedRow()); //Delete the row from the current tab.
 				switch (extraCells)
 				{
-					case 0: networkHTML = tableDiv.innerHTML; ChangeTab("Network", false); console.log(extraCells); TransferRow(rowData); break;
-					case 1: hardwareHTML = tableDiv.innerHTML; ChangeTab("Hardware", false); console.log(extraCells); TransferRow(rowData); break;
-					case 2: softwareHTML = tableDiv.innerHTML; ChangeTab("Software", false); console.log(extraCells); TransferRow(rowData); break;
+					case 0: networkHTML = tableDiv.innerHTML;  break;
+					case 1: hardwareHTML = tableDiv.innerHTML; break;
+					case 2: softwareHTML = tableDiv.innerHTML; break;
 				}
+				switch(newExtraCells)
+				{
+					case 0: ChangeTab("Network", false); break;
+					case 1: ChangeTab("Hardware", false); break;
+					case 2: ChangeTab("Software", false); break;
+				}
+				TransferRow(rowData);
 			}
 			
-			function TransferRow(rowData)
+			function TransferRow(rowData) //Adds row data to new tab after being removed from another tab.
 			{
-				console.log(extraCells);
 				table = document.getElementById("tbl");
 				table.innerHTML += "<tr style='background-color:rgb(0, 255, 255);'>"+rowData+"</tr>"
 				switch (extraCells)
@@ -475,7 +481,6 @@
 					selected = 0;
 				}
 				CheckIfUpdate() //Prevents user input if more or less than one row is selected.
-				console.log(extraCells)
 			}
 			
 			function CheckIfUpdate() //Prevents user input if more or less than one row is selected.
