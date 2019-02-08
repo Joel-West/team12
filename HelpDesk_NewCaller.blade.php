@@ -169,7 +169,7 @@
 		document.getElementById("dropdown-menu3").innerHTML = html;
 		if (num==1){
 		  findAllChildren("Hardware problem", html);
-		  $('#serialNumberCollapse').collapse('show');
+		  createSerialNumber();
 		}
 		else if (num==2){
 		  findAllChildren("Software problem", html);
@@ -209,6 +209,7 @@
 			}
 		    document.getElementById("dropdown-menuSerial").innerHTML = html;
 		  }
+		  $('#serialNumberCollapse').collapse('show');
 		},'json');
 	  }
 	  
