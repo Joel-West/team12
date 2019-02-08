@@ -583,12 +583,12 @@
 					</div>
 					<div id="inputDiv">
 						<input type="button" class="btn" id="btnDelete" value="Delete Selected Items" id="del" style="font-size:16px;" onclick="Delete()"/><br/><br/> <!-- Delete button that calls function when pressed. -->
-						<br/>
 						<select id="selMainType" onchange="MainTypeOptionClicked()" class="greenBack"> <!-- Allows user to move record from one tab to another. -->
 							<option>Hardware Problem</option>
 							<option>Software Problem</option>
 							<option>Network Problem</option>
 						</select>
+						<br/>
 						Problem:<br/><input id="txtProblem" type="text"></input><br/> <!-- Input fields for adding a new row. -->
 						Problem Type:<br/><input id="txtProblemType" type="text" onkeyup="PopulateProblemTypeSelect()"></input><br/>					
 						<select id="selProblemType" onchange="ProblemTypeOptionClicked()" class="greenBack"></select>
