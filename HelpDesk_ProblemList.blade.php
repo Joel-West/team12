@@ -431,25 +431,34 @@
 					document.getElementById("btnUpdate").disabled = false;
 					document.getElementById("txtProblem").disabled = false;
 					document.getElementById("txtProblem").value = document.getElementById("tbl").rows[rowNum].cells[1].innerHTML;
+					document.getElementById("txtProblemType").disabled = false;
+					document.getElementById("txtProblemType").value = document.getElementById("tbl").rows[rowNum].cells[2].innerHTML;
+					document.getElementById("txtSpecialist").disabled = false;
+					document.getElementById("txtSpecialist").value = document.getElementById("tbl").rows[rowNum].cells[3+extraCells].innerHTML;
 					document.getElementById("chkResolved").disabled = false;
 					document.getElementById("chkResolved").checked = GetResolvedAsBool(document.getElementById("tbl").rows[rowNum].cells[4+extraCells].innerHTML);
 					document.getElementById("txtDateTime").value = document.getElementById("tbl").rows[rowNum].cells[5+extraCells].innerHTML;
 					document.getElementById("txtSolution").disabled = false;
 					document.getElementById("txtSolution").value = document.getElementById("tbl").rows[rowNum].cells[6+extraCells].innerHTML;
-					CheckClicked();
 				}
 				else
 				{
 					document.getElementById("btnUpdate").disabled = true;
 					document.getElementById("txtProblem").disabled = true;
 					document.getElementById("txtProblem").value = "";
+					document.getElementById("txtProblemType").disabled = true;
+					document.getElementById("txtProblemType").value = "";
+					document.getElementById("txtSpecialist").disabled = true;
+					document.getElementById("txtSpecialist").value = "";
 					document.getElementById("chkResolved").disabled = true;
 					document.getElementById("chkResolved").checked = false;
 					document.getElementById("txtDateTime").value = "";
 					document.getElementById("txtSolution").disabled = true;
 					document.getElementById("txtSolution").value = "";
-					CheckClicked();
 				}
+				CheckClicked();
+				PopulateSpecialistSelect();
+				PopulateProblemTypeSelect();
 			}
 			
 			function ValidateInput() //Function returns true if the data input box is valid.
