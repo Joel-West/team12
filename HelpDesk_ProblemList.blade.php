@@ -496,7 +496,7 @@
 					document.getElementById("btnUpdate").disabled = false;
 					document.getElementById("selMainType").disabled = false;
 					document.getElementById("txtProblem").disabled = false;
-					alert(document.getElementById("tblDiv").innerHTML);
+					alert(document.getElementById("tableDiv").innerHTML);
 					alert(document.getElementById("tbl").innerHTML)
 					alert(document.getElementById("tbl").rows[rowNum].innerHTML)
 					alert(document.getElementById("tbl").rows[rowNum].cells[1].innerHTML)
