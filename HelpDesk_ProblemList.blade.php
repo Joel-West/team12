@@ -110,7 +110,7 @@
 				{
 					if(json && json[0]) //If result of php file was a json array.	
 					{				
-						var htm = "<table class='table' id='tbl' border='1'><tbody id='tblBody'>";
+						var htm = "<table class='table' id='tbl' border='1'>";
 						htm+="<tr id='t0'><th onclick='SortTable(0)' scope='col'>#</th>";
 						htm+="<th onclick='SortTable(1)' scope='col'>Problem</th>";
 						htm+="<th onclick='SortTable(2)'scope='col'>Problem Type</th>";;
@@ -146,7 +146,7 @@
 							htm +="<td>"+json[i].resolved+"</td>";
 							htm +="<td>"+json[i].dateTimeResolved+"</td>";
 							htm +="<td>"+json[i].solution+"</td>";
-							htm += "</tr></tbody>";							
+							htm += "</tr>";							
 						}
 					}
 					else
@@ -375,10 +375,10 @@
 			
 			function TransferRow(rowData) //Adds row data to new tab after being removed from another tab.
 			{
-				tableBody = document.getElementById("tblBody");
-				alert(tableDiv.innerHTML);
-				tableBody.innerHTML += "<tr style='background-color:rgb(0, 255, 255);'>"+rowData+"</tr>"
+				table = document.getElementById("tbl");
+				table.innerHTML += "<tr style='background-color:rgb(0, 255, 255);'>"+rowData+"</tr>"
 				tableDiv = document.getElementById("tableDiv");
+				alert(tableDiv.innerHTML);
 				switch (extraCells)
 				{
 					case 0: networkHTML = tableDiv.innerHTML; break;
