@@ -357,7 +357,6 @@
 					case 1: hardwareHTML = tableDiv.innerHTML; break;
 					case 2: softwareHTML = tableDiv.innerHTML; break;
 				}
-				selected = 0;
 				switch(newExtraCells) //Changes to tab that record has been moved to.
 				{
 					case 0: ChangeTab("Network", false); break;
@@ -369,15 +368,15 @@
 			
 			function TransferRow(rowData) //Adds row data to new tab after being removed from another tab.
 			{
-				table = document.getElementById("tbl");
+				console.log(table.innerHTML);
 				table.innerHTML += "<tr style='background-color:rgb(0, 255, 255);'>"+rowData+"</tr>"
-				selected = 1;
 				switch (extraCells)
 				{
 					case 0: networkHTML = tableDiv.innerHTML; break;
 					case 1: hardwareHTML = tableDiv.innerHTML; break;
 					case 2: softwareHTML = tableDiv.innerHTML; break;
 				}
+				CheckIfUpdate();
 			}
 			
 			function UpdateTemp()
@@ -481,8 +480,10 @@
 				if (buttonPressed) //If entered via a button press, rather than my changing the tab of a record, set 'selected' to 0. Otherwise, it will remain at 1.
 				{
 					selected = 0;
+					CheckIfUpdate() //Prevents user input if more or less than one row is selected.
 				}
-				CheckIfUpdate() //Prevents user input if more or less than one row is selected.
+				table = document.getElementById("tbl");
+				console.log(table.innerHTML);
 			}
 			
 			function CheckIfUpdate() //Prevents user input if more or less than one row is selected.
