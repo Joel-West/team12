@@ -426,17 +426,17 @@
 			</button>
 			<div class='dropdown-menu' id='dropdown-menu4' aria-labelledby='dropdownMenu4'>
 			</div>
-		  </div
+		  </div>
 		  Resolved:
 		  <div id="resolvedRadioButtons">
 		  </div>
 		</div>
 		<div class="col-3"></div>
+		<br>
 		
 		<div class="collapse col-12" id="existingProblemCollapse">
 		BOO
 		</div>
-		<div class="col-12" id="bottom"></div>
 	  </div>
 	</div>
   </body>
