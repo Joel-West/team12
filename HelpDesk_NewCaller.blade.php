@@ -426,19 +426,19 @@
 		
 		<div class="col-3"></div>
 		<div class="collapse col-6" id="newNewProblemCollapse">
-		  <div class="form-check">
+		  <div class="form-check-inline">
 		    <input class="form-check-input" type="radio" name="Radios" id="Radios1" value="Hardware" onClick = "radios(1);">
 			<label class="form-check-label" for="Radios1">
 			  Hardware
 			</label>
 		  </div>
-		  <div class="form-check">
+		  <div class="form-check-inline">
 		    <input class="form-check-input" type="radio" name="Radios" id="Radios1" value="Software" onClick = "radios(2);">
 			<label class="form-check-label" for="Radios1">
 			  Software
 			</label>
 		  </div>
-		  <div class="form-check">
+		  <div class="form-check-inline">
 		    <input class="form-check-input" type="radio" name="Radios" id="Radios1" value="Network" onClick = "radios(3);">
 			<label class="form-check-label" for="Radios1">
 			  Network
