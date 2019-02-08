@@ -493,7 +493,7 @@
 				if (selected == 1)
 				{
 					rowNum = GetSelectedRow(); //Gets the row that is selected.
-					alert(document.getElementById("tbl").innerHTML);
+					alert(rowNum);
 					document.getElementById("btnUpdate").disabled = false;
 					document.getElementById("selMainType").disabled = false;
 					document.getElementById("txtProblem").disabled = false;
