@@ -322,7 +322,7 @@
 						<div id="searchDiv">
 							<p>
 								Search:<input id="txtSearch" type="text" oninput="ResetTable()"></input> <!-- Box for searching the table for specific strings. -->
-								<input type="button" class="btn" id="btnSearch" value="Submit" onclick="Search()"></input> <!-- Submits search on press. -->
+								<input type="button" id="btnSearch" value="Submit" onclick="Search()"></input> <!-- Submits search on press. -->
 							</p>
 						</div>
 						<div id="inputDiv">
