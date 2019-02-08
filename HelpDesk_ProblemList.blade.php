@@ -19,10 +19,13 @@
 				userData = "<?php echo $_POST['User']; ?>"; //Gets data from previous form.
 				SetPrivileges(userData) //Enter function that defines what functions are available to user based on status.
 				WriteTime(); //Function that writes the current time at the top of the page.
+				extraCells = 0;
 				sql = "SELECT * FROM tblProblem WHERE problemType = 'Network';"; //Ensure the HTML variables for all 3 tables are created.
 				RunQuery(sql);
+				extraCells = 1;
 				sql = "SELECT * FROM tblProblem WHERE problemType = 'Hardware';";
 				RunQuery(sql);
+				extraCells = 2;
 				sql = "SELECT * FROM tblProblem WHERE problemType = 'Software';";
 				RunQuery(sql);
 				ChangeTab("Hardware");
