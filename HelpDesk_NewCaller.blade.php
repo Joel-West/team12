@@ -429,13 +429,24 @@
 			  <div class='dropdown-menu' id='dropdown-menu4' aria-labelledby='dropdownMenu4'>
 			  </div>
 		    </div>
-		  </div>
-		  Resolved:
-		  <div id="resolvedRadioButtons">
+		    Resolved:
+		    <div id="resolvedRadioButtons">
+			  <div class="form-check">
+			    <input class="form-check-input" type="radio" name="Radios" id="Radios2" value="Resolved" onClick = "radios2(1);">
+			    <label class="form-check-label" for="Radios2">
+			    Resolved
+			    </label>
+			  </div>
+			  <div class="form-check">
+			    <input class="form-check-input" type="radio" name="Radios" id="Radios2" value="Unresolved" onClick = "radios2(2);">
+			    <label class="form-check-label" for="Radios2">
+			    Unresolved
+			    </label>
+			  </div>
+		    </div>
 		  </div>
 		</div>
 		<div class="col-3"></div>
-		<br>
 		
 		<div class="collapse col-12" id="existingProblemCollapse">
 		BOO
