@@ -432,6 +432,7 @@
 					document.getElementById("txtProblem").disabled = false;
 					document.getElementById("txtProblem").value = document.getElementById("tbl").rows[rowNum].cells[1].innerHTML;
 					document.getElementById("chkResolved").disabled = false;
+					alert(GetSpecialistAsBool(document.getElementById("tbl").rows[rowNum].cells[4+extraCells].innerHTML));
 					document.getElementById("chkResolved").value = GetSpecialistAsBool(document.getElementById("tbl").rows[rowNum].cells[4+extraCells].innerHTML);
 					document.getElementById("txtDateTime").value = document.getElementById("tbl").rows[rowNum].cells[5+extraCells].innerHTML;
 					document.getElementById("txtSolution").disabled = false;
@@ -575,7 +576,6 @@
 						<label id="lblSpecialistNum"></label>
 						<br/>
 						Resolved? <input id="chkResolved" type="checkbox" onclick="CheckClicked()"></input><br/>
-												<br/>
 						<div id="solutionDiv">
 							<input id="txtDateTime" type="text" disabled></input><br/>
 							Solution:<br/><textArea class="form-control" rows="10" id="txtSolution" maxlength="2048" style="background-color:rgb(159, 255, 48);"></textArea><br/>
