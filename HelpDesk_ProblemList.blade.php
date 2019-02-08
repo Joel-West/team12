@@ -368,6 +368,7 @@
 			
 			function TransferRow(rowData) //Adds row data to new tab after being removed from another tab.
 			{
+				table = document.getElementById("tbl");
 				console.log(table.innerHTML);
 				table.innerHTML += "<tr style='background-color:rgb(0, 255, 255);'>"+rowData+"</tr>"
 				switch (extraCells)
