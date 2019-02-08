@@ -13,9 +13,9 @@
 			var currentPage = "ProblemList"; //Variable storing the name of the current page, so it can be passed in the URL to the next page as a 'previous page' variable.
 			var selected = 0; //Global variable corresponding to number of highlighted table rows.
 			var extraCells = -1; //Refers to the numbers of extra cells in the table for the current problem category (software = 2, hardware = 1, network = 0).
-			var hardwareHTML = "";
-			var softwareHTML = "";
-			var networkHTML = "";
+			var hardwareHTML = "<table class='table' id='tbl' border='1'></table>";
+			var softwareHTML = "<table class='table' id='tbl' border='1'></table>";
+			var networkHTML = "<table class='table' id='tbl' border='1'></table>";
 			var specialists = [];
 			var problemTypes = [];
 			
@@ -482,8 +482,6 @@
 					selected = 0;
 					CheckIfUpdate() //Prevents user input if more or less than one row is selected.
 				}
-				table = document.getElementById("tbl");
-				console.log(table.innerHTML);
 			}
 			
 			function CheckIfUpdate() //Prevents user input if more or less than one row is selected.
