@@ -98,7 +98,7 @@
 					if(json && json[0]) //If result of php file was a json array.	
 					{				
 						var htm = "<table class='table' id='tbl' border='1'>";
-						htm+="<tr id='t0'><th onclick='SortTable(0)' scope='col'>Num</th>";
+						htm+="<tr id='t0'><th onclick='SortTable(0)' scope='col'>#</th>";
 						htm+="<th onclick='SortTable(1)' scope='col'>Problem</th>";
 						htm+="<th onclick='SortTable(2)'scope='col'>Problem Type</th>";;
 						if (extraCells == 1)
@@ -111,7 +111,7 @@
 							htm+="<th onclick='SortTable(4)'scope='col'>Software Concerned</th>";
 						}
 						htm+="<th onclick='SortTable(" + (3+extraCells) + ")'scope='col'>Specialist</th>";
-						htm+="<th onclick='SortTable(" + (4+extraCells) + ")'scope='col'>Resolved</th>";
+						htm+="<th onclick='SortTable(" + (4+extraCells) + ")'scope='col'>Solved</th>";
 						htm+="<th onclick='SortTable(" + (5+extraCells) + ")'scope='col'>Date/Time Resolved</th>";
 						htm+="<th onclick='SortTable(" + (6+extraCells) + ")'scope='col'>Solution</th></tr>"; //Appending column headers.
 						for (i = 0; i<json.length; i++) //Iterates through the json array of results.
