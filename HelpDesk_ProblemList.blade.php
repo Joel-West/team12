@@ -160,7 +160,6 @@
 						case 1: hardwareHTML = htm; break;
 						case 2: softwareHTML = htm; break;
 					}
-					console.log(document.getElementById("tbl").innerHTML);
 					newRowCount = 0;
 				},'json');
 			}
@@ -371,6 +370,11 @@
 					case 2: ChangeTab("Software", false); break;
 				}
 				setTimeout(TransferRow(rowData), 1000);
+				if (!ListContains(updList, row.cells[0].innerHTML)) //If moved row is not already marked to be updated when changes are saved to the database later.
+				{
+					updList.push(row.cells[0].innerHTML); //Add the ID of the row to the list of rows to be updated when changes are commited to the actual database.
+					console.log(updList);
+				}
 			}
 			
 			function TransferRow(rowData) //Adds row data to new tab after being removed from another tab.
@@ -483,6 +487,7 @@
 				document.getElementById("typeSpecificDiv").text = htm; //Appends innerHTML for the input elements that change depending on the tab.
 				if (buttonPressed) //If entered via a button press, rather than my changing the tab of a record, set 'selected' to 0. Otherwise, it will remain at 1.
 				{
+					document.getElementById("tbl").rows[GetSelectedRow()].style='background-color:rgb(159, 255, 48);
 					selected = 0;
 					CheckIfUpdate() //Prevents user input if more or less than one row is selected.
 				}
