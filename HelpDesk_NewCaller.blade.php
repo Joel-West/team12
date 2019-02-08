@@ -432,12 +432,12 @@
 		    Resolved:
 		    <div id="resolvedRadioButtons">
 			  <div class="form-check">
-			    <input class="form-check-input" type="radio" name="Radios" id="Radios2" value="Resolved" onClick = "radios2(1);">
 			    <label class="form-check-label" for="Radios2">
-			    Resolved
+				<input class="form-check-input" type="radio" name="Radios" id="Radios2" value="Resolved" onClick = "radios2(1);">
+				Resolved
 			    </label>
-				<input class="form-check-input" type="radio" name="Radios" id="Radios2" value="Unresolved" onClick = "radios2(2);">
 			    <label class="form-check-label" for="Radios2">
+				<input class="form-check-input" type="radio" name="Radios" id="Radios2" value="Unresolved" onClick = "radios2(2);">
 			    Unresolved
 			    </label>
 			  </div>
