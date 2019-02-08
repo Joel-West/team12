@@ -432,7 +432,7 @@
 					document.getElementById("txtProblem").disabled = false;
 					document.getElementById("txtProblem").value = document.getElementById("tbl").rows[rowNum].cells[1].innerHTML;
 					document.getElementById("chkResolved").disabled = false;
-					document.getElementById("chkResolved").value = GetResolvedAsBool(document.getElementById("tbl").rows[rowNum].cells[4+extraCells].innerHTML);
+					document.getElementById("chkResolved").checked = GetResolvedAsBool(document.getElementById("tbl").rows[rowNum].cells[4+extraCells].innerHTML);
 					document.getElementById("txtDateTime").value = document.getElementById("tbl").rows[rowNum].cells[5+extraCells].innerHTML;
 					document.getElementById("txtSolution").disabled = false;
 					document.getElementById("txtSolution").value = document.getElementById("tbl").rows[rowNum].cells[6+extraCells].innerHTML;
