@@ -498,7 +498,7 @@
 					document.getElementById("txtProblem").disabled = false;
 					alert(document.getElementById("tbl").innerHTML)
 					alert(rowNum);
-					alert(document.getElementById("tbl").rows[rowNum].innerHTML)
+					alert(document.getElementById("tbl").rows[0].innerHTML)
 					document.getElementById("txtProblem").value = document.getElementById("tbl").rows[rowNum].cells[1].innerHTML;
 					document.getElementById("txtProblemType").disabled = false;
 					document.getElementById("txtProblemType").value = document.getElementById("tbl").rows[rowNum].cells[2].innerHTML;
