@@ -207,6 +207,7 @@
 				}
 				selected = 0;
 				CheckIfUpdate() //Prevents user input if more or less than one row is selected.
+				console.log(extraCells);
 			}
 			
 			function CheckIfUpdate() //Prevents user input if more or less than one row is selected.
