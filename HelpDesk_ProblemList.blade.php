@@ -270,7 +270,7 @@
 							<input type="button" id="btnSoftware" class="btn tabButton" value="Software" onclick="ChangeTab('Software')"></input>
 							<input type="button" id="btnNetwork" class="btn tabButton" value="Network" onclick="ChangeTab('Network')"></input>
 						</div>
-						<div id="tableDiv" class="col-9 table-wrapper-scroll-y"> <!-- Div containing data table. -->
+						<div id="tableDiv" class="table-wrapper-scroll-y"> <!-- Div containing data table. -->
 							Loading data...
 						</div>
 					</div>
