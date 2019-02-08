@@ -198,7 +198,7 @@
 	  
 	  function createSerialNumber(){
 		var html = "<form class ='px-4 py-3'><div class='form-group'><label for='dropdownSearch'>Search</label>"
-		html += "<input type='text' class='form-control' id='dropdownSearchSerial' placeholder='Search' onkeyup='filter(Serial)'></div></form>"
+		html += "<input type='text' class='form-control' id='dropdownSearchSerial' placeholder='Search' onkeyup='filter(&quot;Serial&quot;)'></div></form>"
 	    html += "<div class='dropdown-divider'></div>";
 		html += "<h6 class='dropdown-header'>Serial Numbers</h6>";
 		var sql = "SELECT * FROM tblEquipment";
