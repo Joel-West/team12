@@ -197,6 +197,7 @@
 						document.getElementById("btnSoftware").style="text-decoration: underline;"; //Underlines selected tab.
 						sql = "SELECT * FROM tblProblem WHERE problemType = 'Software';"; //Simple query to get all software problem from table.
 						RunQuery(sql); //Runs function get gets data from database and display it in tableDiv.
+						break;
 					case 'Network':
 						extraCells = 0; //There are no extra cells appended to the table when on the network tab.
 						document.getElementById("btnNetwork").style="text-decoration: underline;"; //Underlines selected tab.
