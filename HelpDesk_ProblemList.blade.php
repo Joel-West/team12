@@ -264,7 +264,7 @@
 				<br/><br/><br/>
 				<div class="row" align="center">
 				<div id="leftDiv" align="center" class="col-9">
-						<div id="tabDiv" class="row" align="center"> <!-- Within this row are three buttons that change the tab of problems listed. -->
+						<div id="tabDiv" class="row" align="center" style="text-align:center;"> <!-- Within this row are three buttons that change the tab of problems listed. -->
 							<input type="button" id="btnHardware" class="btn tabButton" value="Hardware" onclick="ChangeTab('Hardware')"></input>
 							<input type="button" id="btnSoftware" class="btn tabButton" value="Software" onclick="ChangeTab('Software')"></input>
 							<input type="button" id="btnNetwork" class="btn tabButton" value="Network" onclick="ChangeTab('Network')"></input>
