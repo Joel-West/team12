@@ -357,6 +357,7 @@
 					case 1: hardwareHTML = tableDiv.innerHTML; break;
 					case 2: softwareHTML = tableDiv.innerHTML; break;
 				}
+				selected = 0;
 				switch(newExtraCells)
 				{
 					case 0: ChangeTab("Network", false); break;
@@ -370,6 +371,7 @@
 			{
 				table = document.getElementById("tbl");
 				table.innerHTML += "<tr style='background-color:rgb(0, 255, 255);'>"+rowData+"</tr>"
+				selected = 1;
 				switch (extraCells)
 				{
 					case 0: networkHTML = tableDiv.innerHTML; break;
