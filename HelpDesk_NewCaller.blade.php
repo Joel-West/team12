@@ -199,7 +199,7 @@
 	  
 	  function createSerialNumber(){
 		var html = "<form class ='px-4 py-3'><div class='form-group'><label for='dropdownSearch'>Search</label>"
-		html += "<input type='text' class='form-control' id='dropdownSearch5' placeholder='Search' onkeyup='filter(5)'></div></form>"
+		html += "<input type='text' class='form-control' id='dropdownSearchSerial' placeholder='Search' onkeyup='filter($quot;Serial$quot;)'></div></form>"
 	    html += "<div class='dropdown-divider'></div>";
 		html += "<h6 class='dropdown-header'>Serial Numbers</h6>";
 		var sql = "SELECT * FROM tblEquipment";
@@ -208,14 +208,13 @@
 			for (i = 0; i < json.length; i++){
 			  html+="<a class='dropdown-item' href='#'>" + json[i].serialNumber + "(" + json[i].equipmentMake + " " + json[i].equipmentType + ")</a>";
 			}
-		    document.getElementById("dropdown-menu5").innerHTML = html;
-			console.log(html);
+		    document.getElementById("dropdown-menuSerial").innerHTML = html;
 		  }
 		  $('#serialNumberCollapse').collapse('show');
 		},'json');
 	  }
 	  
-	  $(document).on('click', '#dropdown-menu5 a', function(){
+	  $(document).on('click', '#dropdown-menuSerial a', function(){
         $("#dropdownButtonSerial:first-child").text($(this).text());
         $("#dropdownButtonSerial:first-child").val($(this).text());
       });
@@ -458,13 +457,11 @@
 		  </div>
 		  
 		  <div class="collapse" id="serialNumberCollapse">
-		    <div>
-		      Serial Number:
-			</div>
+		      Serial Number:<br>
 		    <button class='btn greenBack dropdown-toggle' type='button' id='dropdownButtonSerial' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>
 			  Choose Serial Number<span class='caret'></span>
 			</button>
-			<div class='dropdown-menu' id='dropdown-menu5' aria-labelledby='dropdownMenu5'>
+			<div class='dropdown-menu' id='dropdown-menuSerial' aria-labelledby='dropdownMenuSerial'>
 			  
 			</div>
 		  </div>
