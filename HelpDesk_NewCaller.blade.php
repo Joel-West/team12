@@ -307,6 +307,7 @@
 		
 		    document.getElementById("dropdown-menu4").innerHTML += html;
 		    console.log(html);
+			$('#result2Collapse').collapse('show');
 		  }
 		},'json');
 	  }
@@ -419,13 +420,15 @@
 		  Problem Type:
 		  <div id="problemTypeComboBox">
 		  </div>
-		  Specialist:
-		  <div id="specialistComboBox">
-		    <button class='btn greenBack dropdown-toggle' type='button' id='dropdownButton4' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>
-			  Choose Specialist<span class='caret'></span>
-			</button>
-			<div class='dropdown-menu' id='dropdown-menu4' aria-labelledby='dropdownMenu4'>
-			</div>
+		  <div class="collapse" id="result2Collapse">
+		    Specialist:
+		    <div id="specialistComboBox">
+		      <button class='btn greenBack dropdown-toggle' type='button' id='dropdownButton4' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>
+			    Choose Specialist<span class='caret'></span>
+			  </button>
+			  <div class='dropdown-menu' id='dropdown-menu4' aria-labelledby='dropdownMenu4'>
+			  </div>
+		    </div>
 		  </div>
 		  Resolved:
 		  <div id="resolvedRadioButtons">
