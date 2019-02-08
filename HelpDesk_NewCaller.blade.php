@@ -198,7 +198,7 @@
 		return(html); 
 	  }
 	  
-	  function createSerialNumber{
+	  function createSerialNumber(){
 		  
 	  }
 	  
