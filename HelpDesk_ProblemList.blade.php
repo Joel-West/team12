@@ -96,6 +96,12 @@
 					}
 					console.log(sql);
 				}
+				switch (extraCells)
+				{
+					case 0: networkHTML = htm; break;
+					case 1: hardwareHTML = htm; break;
+					case 2: softwareHTML = htm; break;
+				}
 				RunQuery(sql); //Runs function get gets data from database and display it in tableDiv.
 			}
 			
@@ -148,12 +154,6 @@
 					else
 					{
 						var htm = "Sorry, no results found..."; //If no results, display error.
-					}
-					switch (extraCells)
-					{
-						case 0: networkHTML = htm; break;
-						case 1: hardwareHTML = htm; break;
-						case 2: softwareHTML = htm; break;
 					}
 					document.getElementById("tableDiv").innerHTML = htm; //Appends HTML to tableDiv.
 					console.log(htm);
