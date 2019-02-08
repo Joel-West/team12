@@ -346,19 +346,19 @@
 				row = document.getElementById("tbl").rows[GetSelectedRow()]; //Gets the details of the row that is selected.
 				switch (extraCells) //Clears tab-specific fields.
 				{
-					case 1: row.cells[3] = ""; break;
-					case 2: row.cells[3] = ""; row.cells[4] = "";break;
+					case 1: row.deleteCell(3) = ""; break;
+					case 2: row.deleteCell(3) = ""; row.deleteCell(4) = "";break;
 				}
 				rowData = document.getElementById("tbl").rows[GetSelectedRow()].innerHTML; //Gets the details of the row that is selected.
 				document.getElementById("tbl").deleteRow(GetSelectedRow()); //Delete the row from the current tab.
-				switch (extraCells)
+				switch (extraCells) //Saves the value of the current tab's innerHTML.
 				{
 					case 0: networkHTML = tableDiv.innerHTML;  break;
 					case 1: hardwareHTML = tableDiv.innerHTML; break;
 					case 2: softwareHTML = tableDiv.innerHTML; break;
 				}
 				selected = 0;
-				switch(newExtraCells)
+				switch(newExtraCells) //Changes to tab that record has been moved to.
 				{
 					case 0: ChangeTab("Network", false); break;
 					case 1: ChangeTab("Hardware", false); break;
