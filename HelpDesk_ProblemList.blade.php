@@ -25,9 +25,9 @@
 				SetPrivileges(userData) //Enter function that defines what functions are available to user based on status.
 				WriteTime(); //Function that writes the current time at the top of the page.
 				extraCells = 0;
-				ChangeTab("Network", true);
-				ChangeTab("Software", true);
-				ChangeTab("Hardware", true);
+				ChangeTab("Network", "");
+				ChangeTab("Software", "");
+				ChangeTab("Hardware", "");
 				CheckIfUpdate();
 			}
 			
@@ -350,12 +350,12 @@
 					case 1: row.deleteCell(3); break;
 					case 2: row.deleteCell(3); row.deleteCell(4); break;
 				}
-				rowData = document.getElementById("tbl").rows[GetSelectedRow()].innerHTML; //Gets the details of the row that is selected.
 				switch(newExtraCells) //Add new empty cells based on tab that the record is being moved to.
 				{
 					case 1: row.insertCell(3); break;
 					case 2: row.insertCell(3); row.insertCell(4); break;
 				}
+				rowData = document.getElementById("tbl").rows[GetSelectedRow()].innerHTML; //Gets the details of the row that is selected.
 				document.getElementById("tbl").deleteRow(GetSelectedRow()); //Delete the row from the current tab.
 				switch (extraCells) //Saves the value of the current tab's innerHTML.
 				{
@@ -365,29 +365,10 @@
 				}
 				switch(newExtraCells) //Changes to tab that record has been moved to.
 				{
-					case 0: ChangeTab("Network", false); break;
-					case 1: ChangeTab("Hardware", false); break;
-					case 2: ChangeTab("Software", false); break;
+					case 0: ChangeTab("Network", rowData); break;
+					case 1: ChangeTab("Hardware", rowData); break;
+					case 2: ChangeTab("Software", rowData); break;
 				}
-				TransferRow(rowData);
-			}
-			
-			function TransferRow(rowData) //Adds row data to new tab after being removed from another tab.
-			{
-				table = document.getElementById("tbl");
-				table.innerHTML += "<tr style='background-color:rgb(0, 255, 255);'>"+rowData+"</tr>"
-				switch (extraCells)
-				{
-					case 0: networkHTML = tableDiv.innerHTML; break;
-					case 1: hardwareHTML = tableDiv.innerHTML; break;
-					case 2: softwareHTML = tableDiv.innerHTML; break;
-				}
-				CheckIfUpdate();
-			}
-			
-			function UpdateTemp()
-			{
-
 			}
 			
 			function SpecialistOptionClicked() //Sets specialist text box value to selected option in selection box.
@@ -438,7 +419,7 @@
 				}
 			}
 			
-			function ChangeTab(tab, buttonPressed) //Changes the current tab of problems (hardware, software or network).
+			function ChangeTab(tab, recordToMove) //Changes the current tab of problems (hardware, software or network).
 			{
 				if ((extraCells == 0 && tab == "Network") || (extraCells == 1 && tab == "Hardware") || (extraCells == 2 && tab == "Software"))
 				{
@@ -483,11 +464,22 @@
 					default: break;
 				}
 				document.getElementById("typeSpecificDiv").text = htm; //Appends innerHTML for the input elements that change depending on the tab.
-				if (buttonPressed) //If entered via a button press, rather than my changing the tab of a record, set 'selected' to 0. Otherwise, it will remain at 1.
+				if (recordToMove == "") //If entered via a button press, rather than my changing the tab of a record, set 'selected' to 0. Otherwise, it will remain at 1.
 				{
 					selected = 0;
-					CheckIfUpdate() //Prevents user input if more or less than one row is selected.
 				}
+				else //else, adds row data to new tab after being removed from another tab.
+				{
+					table = document.getElementById("tbl");
+					table.innerHTML += "<tr style='background-color:rgb(0, 255, 255);'>"+recordToMove+"</tr>"
+					switch (extraCells)
+					{
+						case 0: networkHTML = tableDiv.innerHTML; break;
+						case 1: hardwareHTML = tableDiv.innerHTML; break;
+						case 2: softwareHTML = tableDiv.innerHTML; break;
+					}
+				}
+				CheckIfUpdate() //Prevents user input if more or less than one row is selected.
 			}
 			
 			function CheckIfUpdate() //Prevents user input if more or less than one row is selected.
@@ -627,9 +619,9 @@
 				<div class="row" align="center">
 				<div id="leftDiv" align="center" class="col-9">
 						<div id="tabDiv" class="row" align="center" style="text-align:center; display: inline-block;"> <!-- Within this row are three buttons that change the tab of problems listed. -->
-							<input type="button" id="btnHardware" class="btn tabButton" value="Hardware" onclick="ChangeTab('Hardware', true)"></input>
-							<input type="button" id="btnSoftware" class="btn tabButton" value="Software" onclick="ChangeTab('Software', true)"></input>
-							<input type="button" id="btnNetwork" class="btn tabButton" value="Network" onclick="ChangeTab('Network', true)"></input>
+							<input type="button" id="btnHardware" class="btn tabButton" value="Hardware" onclick="ChangeTab('Hardware', "")"></input>
+							<input type="button" id="btnSoftware" class="btn tabButton" value="Software" onclick="ChangeTab('Software', "")"></input>
+							<input type="button" id="btnNetwork" class="btn tabButton" value="Network" onclick="ChangeTab('Network', "")"></input>
 						</div>
 						<br/>
 						<div id="tableDiv" class="table-wrapper-scroll-y"> <!-- Div containing data table. -->
