@@ -185,10 +185,10 @@
 	  
 	  function findAllChildren(parent,html){
 		var sql = "SELECT typeName FROM tblProblemType WHERE generalisation = '" + parent + "';";
+		html="<a class='dropdown-item' href='#'>" + parent + "</a>";
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
 		  if (json && json[0]){
 			for (i = 0; i < json.length; i++){
-			  html="<a class='dropdown-item' href='#'>" + json[i].typeName + "</a>";
 			  document.getElementById("dropdown-menu3").innerHTML += html;
 			  findAllChildren(json[i].typeName,html);
 			}
