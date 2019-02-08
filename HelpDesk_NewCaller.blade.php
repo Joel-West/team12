@@ -385,7 +385,6 @@
 			<div class='dropdown-menu' id='dropdown-menu' aria-labelledby='dropdownMenu1'>
 			
 			</div>
-			
 		</div>
 		<div class="col-4"></div>
 		
