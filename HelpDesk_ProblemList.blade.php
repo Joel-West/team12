@@ -447,7 +447,7 @@
 					case 'Hardware':
 						extraCells = 1; //There is one extra cell appended to the table when on the hardware tab (serial number).
 						document.getElementById("btnHardware").style="text-decoration: underline;"; //Underlines selected tab.
-						if (hardwareHTML == "")
+						if (hardwareHTML == "<table class='table' id='tbl' border='1'></table>")
 						{
 							sql = "SELECT * FROM tblProblem WHERE problemType = 'Hardware';"; //Simple query to get all hardware problem from table.
 							RunQuery(sql); //Runs function get gets data from database and display it in tableDiv.
@@ -457,7 +457,7 @@
 					case 'Software':
 						extraCells = 2; //There are two extra cells appended to the table when on the software tab (operating system, software concerned).
 						document.getElementById("btnSoftware").style="text-decoration: underline;"; //Underlines selected tab.
-						if (softwareHTML == "")
+						if (softwareHTML == "<table class='table' id='tbl' border='1'></table>")
 						{
 							sql = "SELECT * FROM tblProblem WHERE problemType = 'Software';"; //Simple query to get all software problem from table.
 							RunQuery(sql); //Runs function get gets data from database and display it in tableDiv.
@@ -467,7 +467,7 @@
 					case 'Network':
 						extraCells = 0; //There are no extra cells appended to the table when on the network tab.
 						document.getElementById("btnNetwork").style="text-decoration: underline;"; //Underlines selected tab.
-						if (networkHTML == "")
+						if (networkHTML == "<table class='table' id='tbl' border='1'></table>")
 						{
 							sql = "SELECT * FROM tblProblem WHERE problemType = 'Network';"; //Simple query to get all network problem from table.
 							RunQuery(sql); //Runs function get gets data from database and display it in tableDiv.
