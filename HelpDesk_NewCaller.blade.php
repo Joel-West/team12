@@ -198,7 +198,9 @@
 		return(html); 
 	  }
 	  
-	  function createSerialNumber
+	  function createSerialNumber{
+		  
+	  }
 	  
 	  $(document).on('click', '#dropdown-menu3 a', function(){
         $("#dropdownButton3:first-child").text($(this).text());
