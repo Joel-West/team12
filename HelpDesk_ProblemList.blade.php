@@ -240,9 +240,9 @@
 					rowNum = GetSelectedRow(); //Gets the row that is selected.
 					document.getElementById("btnUpdate").disabled = false;
 					document.getElementById("txtProblem").disabled = false;
-					document.getElementById("txtProblem").value = document.getElementById("tbl").rows[rowNum].cells[2+extraCells].innerHTML;
+					document.getElementById("txtProblem").value = document.getElementById("tbl").rows[rowNum].cells[1].innerHTML;
 					document.getElementById("txtSolution").disabled = false;
-					document.getElementById("txtSolution").value = document.getElementById("tbl").rows[rowNum].cells[2+extraCells].innerHTML;
+					document.getElementById("txtSolution").value = document.getElementById("tbl").rows[rowNum].cells[6+extraCells].innerHTML;
 				}
 				else
 				{
