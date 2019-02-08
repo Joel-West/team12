@@ -448,7 +448,7 @@
 		<div class="col-3"></div>
 		
 		<div class="col-3"></div>
-		<div class="collapse col-6" id="resultCollapse">
+		<div class="collapse col-6" id="problemTypeCollapse">
 		
 		  Problem Type:
 		  <div id="problemTypeComboBox">
@@ -459,43 +459,47 @@
 			
 			</div>	
 		  </div>
-		  
-		  <div class="collapse" id="serialNumberCollapse">
-		      Serial Number:<br>
-		    <button class='btn greenBack dropdown-toggle' type='button' id='dropdownButtonSerial' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>
-			  Choose Serial Number<span class='caret'></span>
-			</button>
-			<div class='dropdown-menu' id='dropdown-menuSerial' aria-labelledby='dropdownMenuSerial'>
+		</div>
+		<div class="col-3"></div>
+		
+		<div class="col-3"></div>
+		<div class="collapse col-6" id="serialNumberCollapse">
+		    Serial Number:<br>
+		  <button class='btn greenBack dropdown-toggle' type='button' id='dropdownButtonSerial' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>
+			Choose Serial Number<span class='caret'></span>
+	      </button>
+		  <div class='dropdown-menu' id='dropdown-menuSerial' aria-labelledby='dropdownMenuSerial'>
 			  
+		  </div>
+		</div>
+		<div class="col-3"></div>
+		
+		<div class="col-3"></div>
+		<div class="collapse col-6" id="result2Collapse">
+		  Specialist:
+		  <div id="specialistComboBox">
+		    <button class='btn greenBack dropdown-toggle' type='button' id='dropdownButton4' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>
+			  Choose Specialist:<span class='caret'></span>
+			</button>
+			<div class='dropdown-menu' id='dropdown-menu4' aria-labelledby='dropdownMenu4'>
 			</div>
 		  </div>
-		  
-		  <div class="collapse" id="result2Collapse">
-		    Specialist:
-		    <div id="specialistComboBox">
-		      <button class='btn greenBack dropdown-toggle' type='button' id='dropdownButton4' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>
-			    Choose Specialist:<span class='caret'></span>
-			  </button>
-			  <div class='dropdown-menu' id='dropdown-menu4' aria-labelledby='dropdownMenu4'>
-			  </div>
+		  Resolved:
+		  <div id="resolvedRadioButtons">
+			<div class="form-check">
+			  <label class="form-check-label" for="Radios2">
+			    Resolved:
+			  </label>
+			  <input class="form-check-input" type="radio" name="Radios" id="Radios2" value="Resolved" onClick = "radios2(1);">
+			</div>
+			<div class="form-check">
+			  <label class="form-check-label" for="Radios2">
+			    Unresolved:
+			  </label>
+			  <input class="form-check-input" type="radio" name="Radios" id="Radios2" value="Unresolved" onClick = "radios2(2);">
 		    </div>
-		    Resolved:
-		    <div id="resolvedRadioButtons">
-			  <div class="form-check">
-			    <label class="form-check-label" for="Radios2">
-			      Resolved:
-			    </label>
-			    <input class="form-check-input" type="radio" name="Radios" id="Radios2" value="Resolved" onClick = "radios2(1);">
-			  </div>
-			  <div class="form-check">
-			    <label class="form-check-label" for="Radios2">
-			      Unresolved:
-			    </label>
-			    <input class="form-check-input" type="radio" name="Radios" id="Radios2" value="Unresolved" onClick = "radios2(2);">
-			  </div>
-		    </div>
-			<input type="button" id="btnSave" class="btn" value="Save Changes" onClick="SaveChanges();" />
 		  </div>
+	      <input type="button" id="btnSave" class="btn" value="Save Changes" onClick="SaveChanges();" />
 		</div>
 		<div class="col-3"></div>
 		
