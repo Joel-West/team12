@@ -25,9 +25,9 @@
 				SetPrivileges(userData) //Enter function that defines what functions are available to user based on status.
 				WriteTime(); //Function that writes the current time at the top of the page.
 				extraCells = 0;
-				ChangeTab("Network", "");
-				ChangeTab("Software", "");
-				ChangeTab("Hardware", "");
+				ChangeTab("Network", true);
+				ChangeTab("Software", true);
+				ChangeTab("Hardware", true);
 				CheckIfUpdate();
 			}
 			
@@ -365,10 +365,24 @@
 				}
 				switch(newExtraCells) //Changes to tab that record has been moved to.
 				{
-					case 0: ChangeTab("Network", rowData); break;
-					case 1: ChangeTab("Hardware", rowData); break;
-					case 2: ChangeTab("Software", rowData); break;
+					case 0: ChangeTab("Network", false); break;
+					case 1: ChangeTab("Hardware", false); break;
+					case 2: ChangeTab("Software", false); break;
 				}
+				setTimeout(TransferRow, rowData);
+			}
+			
+			function TransferRow(rowData) //Adds row data to new tab after being removed from another tab.
+			{
+				table = document.getElementById("tbl");
+				table.innerHTML += "<tr style='background-color:rgb(0, 255, 255);'>"+rowData+"</tr>"
+				switch (extraCells)
+				{
+					case 0: networkHTML = tableDiv.innerHTML; break;
+					case 1: hardwareHTML = tableDiv.innerHTML; break;
+					case 2: softwareHTML = tableDiv.innerHTML; break;
+				}
+				CheckIfUpdate();
 			}
 			
 			function SpecialistOptionClicked() //Sets specialist text box value to selected option in selection box.
@@ -419,7 +433,7 @@
 				}
 			}
 			
-			function ChangeTab(tab, recordToMove) //Changes the current tab of problems (hardware, software or network).
+			function ChangeTab(tab, buttonPressed) //Changes the current tab of problems (hardware, software or network).
 			{
 				if ((extraCells == 0 && tab == "Network") || (extraCells == 1 && tab == "Hardware") || (extraCells == 2 && tab == "Software"))
 				{
@@ -460,29 +474,15 @@
 							RunQuery(sql); //Runs function get gets data from database and display it in tableDiv.
 						}
 						tableDiv.innerHTML = networkHTML;
-						console.log("1" + tableDiv.innerHTML);
 						break;
 					default: break;
 				}
-				console.log("2" + tableDiv.innerHTML);
 				document.getElementById("typeSpecificDiv").text = htm; //Appends innerHTML for the input elements that change depending on the tab.
-				if (recordToMove == "") //If entered via a button press, rather than my changing the tab of a record, set 'selected' to 0. Otherwise, it will remain at 1.
+				if (buttonPressed) //If entered via a button press, rather than my changing the tab of a record, set 'selected' to 0. Otherwise, it will remain at 1.
 				{
 					selected = 0;
+					CheckIfUpdate() //Prevents user input if more or less than one row is selected.
 				}
-				else //else, adds row data to new tab after being removed from another tab.
-				{
-					console.log("3" + tableDiv.innerHTML);
-					table = document.getElementById("tbl");
-					table.innerHTML += "<tr style='background-color:rgb(0, 255, 255);'>"+recordToMove+"</tr>"
-					switch (extraCells)
-					{
-						case 0: networkHTML = tableDiv.innerHTML; break;
-						case 1: hardwareHTML = tableDiv.innerHTML; break;
-						case 2: softwareHTML = tableDiv.innerHTML; break;
-					}
-				}
-				CheckIfUpdate() //Prevents user input if more or less than one row is selected.
 			}
 			
 			function CheckIfUpdate() //Prevents user input if more or less than one row is selected.
@@ -622,9 +622,9 @@
 				<div class="row" align="center">
 				<div id="leftDiv" align="center" class="col-9">
 						<div id="tabDiv" class="row" align="center" style="text-align:center; display: inline-block;"> <!-- Within this row are three buttons that change the tab of problems listed. -->
-							<input type="button" id="btnHardware" class="btn tabButton" value="Hardware" onclick="ChangeTab('Hardware', "")"></input>
-							<input type="button" id="btnSoftware" class="btn tabButton" value="Software" onclick="ChangeTab('Software', "")"></input>
-							<input type="button" id="btnNetwork" class="btn tabButton" value="Network" onclick="ChangeTab('Network', "")"></input>
+							<input type="button" id="btnHardware" class="btn tabButton" value="Hardware" onclick="ChangeTab('Hardware', true)"></input>
+							<input type="button" id="btnSoftware" class="btn tabButton" value="Software" onclick="ChangeTab('Software', true)"></input>
+							<input type="button" id="btnNetwork" class="btn tabButton" value="Network" onclick="ChangeTab('Network', true)"></input>
 						</div>
 						<br/>
 						<div id="tableDiv" class="table-wrapper-scroll-y"> <!-- Div containing data table. -->
