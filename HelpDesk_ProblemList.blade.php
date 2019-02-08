@@ -359,11 +359,6 @@
 				}
 				table = document.getElementById("tbl");
 				table.innerHTML += "<tr style='background-color:rgb(159, 255, 48);'>"+rowData+"</tr>"
-				switch (extraCells)
-				{
-					case 0: networkHTML = tableDiv.innerHTML; break;
-					case 1: hardwareHTML = tableDiv.innerHTML; break;
-					case 2: softwareHTML = tableDiv.innerHTML; break;
 
 			}
 			
