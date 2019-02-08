@@ -455,8 +455,9 @@
 		  </div>
 		  
 		  <div class="collapse" id="serialNumberCollapse">
-		  
-		    Serial Number:
+		    <div>
+		      Serial Number:
+			</div>
 		    <button class='btn greenBack dropdown-toggle' type='button' id='dropdownButtonSerial' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>
 			  Choose Serial Number<span class='caret'></span>
 			</button>
