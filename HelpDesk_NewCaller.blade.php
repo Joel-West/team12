@@ -425,7 +425,8 @@
 			  Choose Specialist<span class='caret'></span>
 			</button>
 			<div class='dropdown-menu' id='dropdown-menu4' aria-labelledby='dropdownMenu4'>
-		  </div>
+			</div>
+		  </div
 		  Resolved:
 		  <div id="resolvedRadioButtons">
 		  </div>
@@ -435,6 +436,7 @@
 		<div class="collapse col-12" id="existingProblemCollapse">
 		BOO
 		</div>
+		<div class="col-12" id="bottom"></div>
 	  </div>
 	</div>
   </body>
