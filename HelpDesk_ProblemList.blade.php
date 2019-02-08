@@ -364,7 +364,7 @@
 					case 0: networkHTML = tableDiv.innerHTML; break;
 					case 1: hardwareHTML = tableDiv.innerHTML; break;
 					case 2: softwareHTML = tableDiv.innerHTML; break;
-				table.rows[table.rows.length-1].style = "background-color:rgb(159, 255, 48);';
+				table.rows[table.rows.length-1].style = "background-color:rgb(159, 255, 48);";
 				selected = 1;
 			}
 			
