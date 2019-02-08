@@ -388,7 +388,7 @@
 					case 1: hardwareHTML = tableDiv.innerHTML; break;
 					case 2: softwareHTML = tableDiv.innerHTML; break;
 				}
-				document.getElementById("tbl").rows[GetSelectedRow()].style='background-color:rgb(159, 255, 48)';
+				document.getElementById("tbl").rows[document.getElementById("tbl").rows.length].style='background-color:rgb(159, 255, 48)';
 				CheckIfUpdate();
 			}
 			
