@@ -493,10 +493,13 @@
 				if (selected == 1)
 				{
 					rowNum = GetSelectedRow(); //Gets the row that is selected.
-					alert(rowNum);
 					document.getElementById("btnUpdate").disabled = false;
 					document.getElementById("selMainType").disabled = false;
 					document.getElementById("txtProblem").disabled = false;
+					alert(document.getElementById("tblDiv").innerHTML);
+					alert(document.getElementById("tbl").innerHTML)
+					alert(document.getElementById("tbl").rows[rowNum].innerHTML)
+					alert(document.getElementById("tbl").rows[rowNum].cells[1].innerHTML)
 					document.getElementById("txtProblem").value = document.getElementById("tbl").rows[rowNum].cells[1].innerHTML;
 					document.getElementById("txtProblemType").disabled = false;
 					document.getElementById("txtProblemType").value = document.getElementById("tbl").rows[rowNum].cells[2].innerHTML;
