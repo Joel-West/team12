@@ -346,15 +346,26 @@
 				row = document.getElementById("tbl").rows[GetSelectedRow()]; //Gets the details of the row that is selected.
 				switch (extraCells) //Clears tab-specific fields.
 				{
-					case 1: row.cells[3] = "";	console.log(row.cells[3]); break;
+					case 1: row.cells[3] = ""; break;
 					case 2: row.cells[3] = ""; row.cells[4] = "";break;
 				}
+				rowData = document.getElementById("tbl").rows[GetSelectedRow()].innerHTML; //Gets the details of the row that is selected.
+				document.getElementById("tbl").deleteRow(GetSelectedRow()); //Delete the row from the current tab.
+				switch (extraCells)
+				{
+					case 0: networkHTML = tableDiv.innerHTML; ChangeTab("Network"); break;
+					case 1: hardwareHTML = tableDiv.innerHTML; ChangeTab("Hardware"); break;
+					case 2: softwareHTML = tableDiv.innerHTML; ChangeTab("Software"); break;
+				}
+				table = document.getElementById("tbl")
+				table.innerHTML += "<tr style='background-color:rgb(159, 255, 48);'>"+rowData+"</tr>"
 				switch (extraCells)
 				{
 					case 0: networkHTML = tableDiv.innerHTML; break;
 					case 1: hardwareHTML = tableDiv.innerHTML; break;
 					case 2: softwareHTML = tableDiv.innerHTML; break;
-				}
+				table.rows[table.rows.length-1].style = "background-color:rgb(159, 255, 48);';
+				selected = 1;
 			}
 			
 			function UpdateTemp()
