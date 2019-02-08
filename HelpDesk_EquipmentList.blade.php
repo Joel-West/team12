@@ -3,8 +3,9 @@
 	<head>
 		<meta content="text/html" charset="UTF-8" />
 		<title>HelpDesk_EquipmentList</title>
+		<link rel="icon" href="https://www.goodfreephotos.com/albums/vector-images/screwdriver-and-wrench-vector-clipart.png">
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> <!-- Get JQuery library from google. -->
-		<script type="text/javascript" src="{{ URL::asset('js/ExtraCode.js') }}"></script> <!-- Import JS file containing functions that are used in multiple other files -->
+		<script type="text/javascript" src="{{ URL::asset('js/ExtraCode.js') }}"></script> <!-- Import JS file containing functions that are used in multiple pages. -->
 		<script type="text/javascript">
 			var userData; //Variable containing data about user.
 			var currentPage = "EquipmentList"; //Variable storing the name of the current page, so it can be passed in the URL to the next page as a 'previous page' variable.

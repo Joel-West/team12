@@ -3,8 +3,9 @@
 	<head>
 		<meta content="text/html" charset="UTF-8" />
 		<title>HelpDesk_CallHistory</title>
+		<link rel="icon" href="https://www.goodfreephotos.com/albums/vector-images/screwdriver-and-wrench-vector-clipart.png">
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>	<!-- Get JQuery library from google. -->
-		<script type="text/javascript" src="{{ URL::asset('js/ExtraCode.js') }}"></script> <!-- Import JS file containing functions that are used in multiple other files -->
+		<script type="text/javascript" src="{{ URL::asset('js/ExtraCode.js') }}"></script> <!-- Import JS file containing functions that are used in multiple pages. -->
 		<script type="text/javascript">
 			var userData; //Variable containing data about user.
 			var currentPage = "CallHistory"; //Variable storing the name of the current page, so it can be passed in the URL to the next page as a 'previous page' variable.
@@ -296,7 +297,7 @@
 						</div>
 						<div id="inputDiv">
 							<input type="button" class="btn" id="btnDelete" value="Delete Selected Items" id="del" style="font-size:16px;" onclick="Delete()"/><br/><br/> <!-- Delete button that calls function when pressed. -->
-							Notes:<br/><textArea class="form-control" rows="10" id="txtNotes" maxlength="2048"></textArea><br/> <!-- Input field for updating notes. -->
+							Notes:<br/><textArea class="form-control" rows="10" id="txtNotes" maxlength="2048" style="background-color:rgb(159, 255, 48);"></textArea><br/> <!-- Input field for updating notes. -->
 							<br/><input type="button" class="btn" id="btnUpdate" value="Update Item" style="font-size:16px;" onclick="UpdateRow()"></input>	
 							<br/>
 							<br/>
