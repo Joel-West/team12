@@ -56,7 +56,6 @@ function WriteTime() //Writes current time (up to the minute) to a label at the 
 
 function GoToNewPage(page) //Function that submits the main form of the current page, changing the page to that specified in the 'page' variable.
 {
-	console.log(userData);
 	admin = (userData.split(","))[2]; //Retrieves admin/analyst status from userData that was earlier posted from previous form.
 	analyst = (userData.split(","))[3];
 	go = true; //Variable stores if form should be sent or not.
@@ -97,7 +96,6 @@ function SetUserDataToPost()
 function GetRows() //Function for returning the number of rows in a data table.
 {
 	var rows = document.getElementById('tbl').getElementsByTagName("tr").length;
-	//console.log("Rows = " + rows); //Logs to console for debugging purposes.
 	return rows;
 }
 
@@ -126,7 +124,6 @@ function AddPressed() //Function to add new row to the local data table.
 	}
 	else //Else, if adding row
 	{
-		console.log("entering");
 		AddRow()
 	}
 }
@@ -161,7 +158,6 @@ $(document).on('click','tr',function(event) //Function for selecting/deselecting
 			$(this).css('background-color', '#9FFF30'); //Deselect.
 			selected -= 1;
 		}
-		console.log(selected);
 	}
 	if (currentPage == "CallHistory" || currentPage == "ProblemList")
 	{
