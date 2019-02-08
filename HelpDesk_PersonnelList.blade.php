@@ -392,7 +392,7 @@
 					<div id="rightDiv" align="center" class="col-3">
 						<div id="searchDiv">
 							<p>
-								Search:<input id="txtSearch" type="text" oninput="ResetTable()"></input> <!-- Box for searching the table for specific strings. -->
+								Search:<input id="txtSearch" class="form-control" type="text" oninput="ResetTable()"></input> <!-- Box for searching the table for specific strings. -->
 								<input type="button" class="btn" id="btnSearch" value="Submit" onclick="Search()"></input> <!-- Submits search on press. -->
 							</p>
 						</div>
