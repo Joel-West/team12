@@ -28,7 +28,7 @@
 				ChangeTab("Network", true);
 				ChangeTab("Software", true);
 				ChangeTab("Hardware", true);
-				CheckIfUpdate()
+				CheckIfUpdate();
 			}
 			
 			function SetPrivileges(userData) //Function that checks if user is an admin or analyst and adjusts available buttons accordingly.
@@ -640,7 +640,7 @@
 				<div id="rightDiv" align="center" class="col-3 input-wrapper-scroll-y">
 					<div id="searchDiv">
 						<p>
-							Search:<input id="txtSearch" type="text" oninput="ResetTable()"></input> <!-- Box for searching the table for specific strings. -->
+							Search:<input id="txtSearch" type="text"></input> <!-- Box for searching the table for specific strings. -->
 							<input type="button" class="btn" id="btnSearch" value="Submit" onclick="Search()"></input> <!-- Submits search on press. -->
 						</p>
 					</div>
