@@ -188,6 +188,10 @@
 		$('#problemTypeCollapse').collapse('show');
 	  }
 	  
+	  function radios2(){
+		
+	  }
+	  
 	  function findAllChildren(parent,html){
 		var sql = "SELECT typeName FROM tblProblemType WHERE generalisation = '" + parent + "';";
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
@@ -488,17 +492,11 @@
 		  </div>
 		  <div id="resolvedRadioButtons">
 			<div class="form-check">
-			  <input class="form-check-input" type="radio" name="Radios2" id="Radios2" value="Resolved" onClick = "radios2(1);">
+			  <input class="form-check-input" type="radio" name="Radios2" id="Radios2" value="Resolved" onClick = "radios2();">
 			  <label class="form-check-label" for="Radios2">
 			    Resolved
 			  </label>
 			</div>
-			<div class="form-check">
-			  <input class="form-check-input" type="radio" name="Radios2" id="Radios2" value="Unresolved" onClick = "radios2(2);">
-			  <label class="form-check-label" for="Radios2">
-			    Unresolved
-			  </label>
-		    </div>
 		  </div>
 	      <input type="button" id="btnSave" class="btn" value="Save Changes" onClick="SaveChanges();" />
 		</div>
