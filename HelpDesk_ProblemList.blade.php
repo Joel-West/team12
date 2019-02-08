@@ -263,7 +263,7 @@
 				</div>
 				<br/><br/>
 				<br/>
-				<div id="leftDiv" align="center" class="col-9"></div>
+				<div id="leftDiv" align="center" class="col-9">
 					<div class="row" align="center">
 						<div id="tabDiv" class="row" align="center"> <!-- Within this row are three buttons that change the tab of problems listed. -->
 							<input type="button" id="btnHardware" class="btn tabButton" value="Hardware" onclick="ChangeTab('Hardware')"></input>
@@ -274,26 +274,26 @@
 							Loading data...
 						</div>
 					</div>
-				</div>
 					<br/>
-					<div id="rightDiv" align="center" class="col-3">
-						<div id="searchDiv">
-							<p>
-								Search:<input id="txtSearch" type="text" oninput="ResetTable()"></input> <!-- Box for searching the table for specific strings. -->
-								<input type="button" class="btn" id="btnSearch" value="Submit" onclick="Search()"></input> <!-- Submits search on press. -->
-							</p>
-						</div>
-						<div id="inputDiv">
-							<input type="button" class="btn" id="btnDelete" value="Delete Selected Items" id="del" style="font-size:16px;" onclick="Delete()"/><br/><br/> <!-- Delete button that calls function when pressed. -->
-							Solution:<br/><textArea class="form-control" rows="10" id="txtSolution" maxlength="2048"></textArea><br/> <!-- Input fields for adding a new row. -->
-							<br/><input type="button" class="btn" id="btnUpdate" value="Update Item" style="font-size:16px;" onclick="UpdateRow()"></input>	
-							<br/>
-							<br/>
-							<p align="center">
-							<input type="button" id="btnSave" class="btn" value="Save Changes" style="font-size:26px; padding: 6px 12px;" onClick="SaveChanges();" /> <!-- Button for submitting changes to table. -->
-							</p>
-						</div>
+				</div>
+				<div id="rightDiv" align="center" class="col-3">
+					<div id="searchDiv">
+						<p>
+							Search:<input id="txtSearch" type="text" oninput="ResetTable()"></input> <!-- Box for searching the table for specific strings. -->
+							<input type="button" class="btn" id="btnSearch" value="Submit" onclick="Search()"></input> <!-- Submits search on press. -->
+						</p>
 					</div>
+					<div id="inputDiv">
+						<input type="button" class="btn" id="btnDelete" value="Delete Selected Items" id="del" style="font-size:16px;" onclick="Delete()"/><br/><br/> <!-- Delete button that calls function when pressed. -->
+						Solution:<br/><textArea class="form-control" rows="10" id="txtSolution" maxlength="2048"></textArea><br/> <!-- Input fields for adding a new row. -->
+						<br/><input type="button" class="btn" id="btnUpdate" value="Update Item" style="font-size:16px;" onclick="UpdateRow()"></input>	
+						<br/>
+						<br/>
+						<p align="center">
+						<input type="button" id="btnSave" class="btn" value="Save Changes" style="font-size:26px; padding: 6px 12px;" onClick="SaveChanges();" /> <!-- Button for submitting changes to table. -->
+						</p>
+					</div>
+				</div>
 				</div>
 			</form>
 		</div>
