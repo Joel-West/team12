@@ -335,6 +335,20 @@
 				document.getElementById("txtProblemType").value = document.getElementById("selProblemType").value;
 			}
 			
+			function CheckClicked() //Function that checks if the 'resolved' checkbox is selected, and thus if the 'date-time' and 'solution' input boxes should be visible.
+			{
+				box = document.getElementById("chkResolved");
+				div = document.getElementById("solutionDiv");
+				if (box.checked)
+				{
+					div.style.display = "inline";
+				}
+				else
+				{
+					div.style.display = "none";
+				}
+			}
+			
 			function GetResolvedAsBool(resolved) //Gets the resolved value from a table as a string and returns a boolean.
 			{
 				if (resolved == "Yes")
@@ -389,6 +403,9 @@
 							RunQuery(sql); //Runs function get gets data from database and display it in tableDiv.
 						}
 						tableDiv.innerHTML = softwareHTML;
+						htm = "";
+						htm+=
+						document.getElementById("typeSpecificDiv").text = htm;
 						break;
 					case 'Network':
 						extraCells = 0; //There are no extra cells appended to the table when on the network tab.
@@ -414,16 +431,24 @@
 					document.getElementById("btnUpdate").disabled = false;
 					document.getElementById("txtProblem").disabled = false;
 					document.getElementById("txtProblem").value = document.getElementById("tbl").rows[rowNum].cells[1].innerHTML;
+					document.getElementById("chkResolved").disabled = false;
+					document.getElementById("chkResolved").value = GetSpecialistAsBool(document.getElementById("tbl").rows[rowNum].cells[4+extraCells].innerHTML);
+					document.getElementById("txtDateTime").value = document.getElementById("tbl").rows[rowNum].cells[5+extraCells].innerHTML;
 					document.getElementById("txtSolution").disabled = false;
 					document.getElementById("txtSolution").value = document.getElementById("tbl").rows[rowNum].cells[6+extraCells].innerHTML;
+					CheckClicked();
 				}
 				else
 				{
 					document.getElementById("btnUpdate").disabled = true;
 					document.getElementById("txtProblem").disabled = true;
 					document.getElementById("txtProblem").value = "";
+					document.getElementById("chkResolved").disabled = true;
+					document.getElementById("chkResolved").checked = false;
+					document.getElementById("txtDateTime").value = "";
 					document.getElementById("txtSolution").disabled = true;
 					document.getElementById("txtSolution").value = "";
+					CheckClicked();
 				}
 			}
 			
@@ -538,18 +563,22 @@
 					<div id="inputDiv">
 						<input type="button" class="btn" id="btnDelete" value="Delete Selected Items" id="del" style="font-size:16px;" onclick="Delete()"/><br/><br/> <!-- Delete button that calls function when pressed. -->
 						Problem:<br/><input id="txtProblem" type="text"></input><br/> <!-- Input fields for adding a new row. -->
-						Specialist:<br/><input id="txtSpecialist" type="text" onkeyup="PopulateSpecialistSelect()"></input><br/> <!-- Input fields for adding a new row.-->						
-						<select id="selSpecialist" onchange="SpecialistOptionClicked()" class="greenBack"></select>
-						<br/>
-						<label id="lblSpecialistNum"></label>
-						<br/><br/>
 						Problem Type:<br/><input id="txtProblemType" type="text" onkeyup="PopulateProblemTypeSelect()"></input><br/>					
 						<select id="selProblemType" onchange="ProblemTypeOptionClicked()" class="greenBack"></select>
 						<br/>
 						<label id="lblProblemTypeNum"></label>
 						<br/>
-						<div id="TypeSpecificDiv"></div> <!-- This div may contain input boxes, depending on the tab currently selected. -->
-						Solution:<br/><textArea class="form-control" rows="10" id="txtSolution" maxlength="2048" style="background-color:rgb(159, 255, 48);"></textArea><br/>
+						<div id="typeSpecificDiv"></div> <!-- This div may contain input boxes, depending on the tab currently selected. -->
+						Specialist:<br/><input id="txtSpecialist" type="text" onkeyup="PopulateSpecialistSelect()"></input><br/> <!-- Input fields for adding a new row.-->						
+						<select id="selSpecialist" onchange="SpecialistOptionClicked()" class="greenBack"></select>
+						<br/>
+						<label id="lblSpecialistNum"></label>
+						<br/>
+						Resolved? <input id="chkResolved" type="checkbox" onclick="CheckClicked()"></input><br/>
+						<div id="solutionDiv">
+							<input id="txtDateTime" type="text" disabled></input>
+							Solution:<br/><textArea class="form-control" rows="10" id="txtSolution" maxlength="2048" style="background-color:rgb(159, 255, 48);"></textArea><br/>
+						</div>
 						<br/><input type="button" class="btn" id="btnUpdate" value="Update Item" style="font-size:16px;" onclick="UpdateRow()"></input>	
 						<br/>
 						<br/>
