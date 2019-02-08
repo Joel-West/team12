@@ -45,7 +45,7 @@ input[type=button], [type=submit]
 	border-radius: 8px;
 }
 
-textArea, input[type=text], [type=password]
+textarea, input[type=text], [type=password]
 {
 	background-color: #9FFF30;
 }
