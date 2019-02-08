@@ -455,8 +455,10 @@
 		  </div>
 		  
 		  <div class="collapse" id="serialNumberCollapse">
+		  
+		    Serial Number:
 		    <button class='btn greenBack dropdown-toggle' type='button' id='dropdownButtonSerial' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>
-			  Choose Problem Type<span class='caret'></span>
+			  Choose Serial Number<span class='caret'></span>
 			</button>
 			<div class='dropdown-menu' id='dropdown-menuSerial' aria-labelledby='dropdownMenuSerial'>
 			  
