@@ -10,7 +10,7 @@ window.setInterval(function() //Function used for fun mode.
 		col = GetRandomCol();
 		document.body.style.backgroundColor = "rgb("+col[0]+", "+col[1]+", "+col[2]+")";
 	}
-}, 10);
+}, 50);
 
 function ListContains(list, value) //Function returns true if an item is in a list.
 {
