@@ -87,10 +87,7 @@
       }
 	  
 	  function problemCreation(){
-		var html = "<button class='btn greenBack dropdown-toggle' type='button' id='dropdownButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>";
-	    html += "Choose Problem<span class='caret'></span></button>";
-		html += "<div class='dropdown-menu' id='dropdown-menu' aria-labelledby='dropdownMenu1'>";
-	    html += "<a class='dropdown-item'>New Problem</a><div class='dropdown-divider'></div>";
+	    var html = "<a class='dropdown-item'>New Problem</a><div class='dropdown-divider'></div>";
 		html += "<h6 class='dropdown-header'>Existing Problems</h6>";
 		var sql = "SELECT problem FROM tblProblem WHERE resolved = 'no'";
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
@@ -99,7 +96,7 @@
 			  html+="<a class='dropdown-item' href='#'>" + json[i].problem + "</a>";
 			}
 			html+="</div>";
-		    document.getElementById("dropdownNewOrExisiting").innerHTML = html;
+		    document.getElementById("dropdown-menu").innerHTML = html;
 		  }
 		},'json');
 	  }
@@ -123,10 +120,7 @@
 	  }
 	  
 	  function newProblemCreation(){
-		var html = "<button class='btn greenBack dropdown-toggle' type='button' id='dropdownButton2' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>";
-	    html += "Choose Problem<span class='caret'></span></button>";
-		html += "<div class='dropdown-menu' id='dropdown-menu2' aria-labelledby='dropdownMenu2'>";
-		html += "<form class ='px-4 py-3'><div class='form-group'><label for='dropdownSearch'>Search</label>"
+		var html = "<form class ='px-4 py-3'><div class='form-group'><label for='dropdownSearch'>Search</label>"
 		html += "<input type='text' class='form-control' id='dropdownSearch2' placeholder='Search' onkeyup='filter(2)'></div></form>"
 	    html += "<div class='dropdown-divider'></div><a class='dropdown-item'>New Problem</a><form class='px-4 py-3'>";
 		html += "<input type='text' class='form-control' id='newProblemInput' placeholder='Enter New Problem'></form><div class='dropdown-divider'></div>";
@@ -138,7 +132,7 @@
 			  html+="<a class='dropdown-item' href='#'>" + json[i].problem + "</a>";
 			}
 			html+="</div>";
-		    document.getElementById("chooseNewProblemCombo").innerHTML = html;
+		    document.getElementById("dropdown-menu2").innerHTML = html;
 		  }
 		},'json');
 	  }
@@ -171,15 +165,13 @@
       });
 	  
 	  function radios(num){
-		var html = "<button class='btn greenBack dropdown-toggle' type='button' id='dropdownButton3' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>";
-	    html += "Choose Problem Type<span class='caret'></span></button>";
-		html += "<div class='dropdown-menu' id='dropdown-menu3' aria-labelledby='dropdownMenu3'>";
-		html += "<form class ='px-4 py-3'><div class='form-group'><label for='dropdownSearch'>Search</label>"
+		var html = "<form class ='px-4 py-3'><div class='form-group'><label for='dropdownSearch'>Search</label>"
 		html += "<input type='text' class='form-control' id='dropdownSearch3' placeholder='Search' onkeyup='filter(3)'></div></form>"
 	    html += "<div class='dropdown-divider'></div><h6 class='dropdown-header'>Problem Types</h6>";
-		document.getElementById("problemTypeComboBox").innerHTML = html;
+		document.getElementById("dropdown-menu3").innerHTML = html;
 		if (num==1){
 		  findAllChildren("Hardware problem", html);
+		  $('#serialNumberCollapse').collapse('show');
 		}
 		else if (num==2){
 		  findAllChildren("Software problem", html);
@@ -188,7 +180,7 @@
 		  findAllChildren("Network problem", html);		  
 		}
 		html="</div>";
-		document.getElementById("problemTypeComboBox").innerHTML += html;
+		document.getElementById("dropdown-menu3").innerHTML += html;
 		$('#resultCollapse').collapse('show');
 	  }
 	  
@@ -205,6 +197,8 @@
 		},'json');
 		return(html); 
 	  }
+	  
+	  function createSerialNumber
 	  
 	  $(document).on('click', '#dropdown-menu3 a', function(){
         $("#dropdownButton3:first-child").text($(this).text());
@@ -257,7 +251,7 @@
 			}
 		  },'json');
 		}
-		setTimeout(populateCount,50);
+		setTimeout(populateCount,70);
 	  }
 	  
 	  function populateCount(){		  
@@ -383,6 +377,13 @@
 		  <br>
 		  Select New/Existing Problem:
 		  <div class="dropdownNewOrExisting" id="dropdownNewOrExisiting"> </div>
+		    <button class='btn greenBack dropdown-toggle' type='button' id='dropdownButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>
+			  Choose Problem<span class='caret'></span>
+			</button>
+			<div class='dropdown-menu' id='dropdown-menu' aria-labelledby='dropdownMenu1'>
+			
+			</div>
+			
 		</div>
 		<div class="col-4"></div>
 		
@@ -390,7 +391,13 @@
 		<div class="collapse col-6" id="newProblemCollapse">
 		  Select New Problem:
 		  <div id="chooseNewProblemCombo"></div>
-		</div>
+		    <button class='btn greenBack dropdown-toggle' type='button' id='dropdownButton2' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>
+			  Choose Problem<span class='caret'></span>
+			</button>
+			<div class='dropdown-menu' id='dropdown-menu2' aria-labelledby='dropdownMenu2'>
+				
+			</div>
+		  </div>
 		<div class="col-3"></div>
 		
 		<div class="col-3"></div>
@@ -422,6 +429,15 @@
 		  </div>
 		  Problem Type:
 		  <div id="problemTypeComboBox">
+		    <button class='btn greenBack dropdown-toggle' type='button' id='dropdownButton3' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>
+			  Choose Problem Type<span class='caret'></span>
+			</button>
+			<div class='dropdown-menu' id='dropdown-menu3' aria-labelledby='dropdownMenu3'>
+			
+			</div>	
+		  </div>
+		  <div class="collapse" id="serialNumberCollapse">
+		    
 		  </div>
 		  <div class="collapse" id="result2Collapse">
 		    Specialist:
@@ -447,7 +463,7 @@
 			    <input class="form-check-input" type="radio" name="Radios" id="Radios2" value="Unresolved" onClick = "radios2(2);">
 			  </div>
 		    </div>
-			<input type="button" id="btnSave" class="btn" value="Save Changes" style="font-size:26px; padding: 6px 12px;" onClick="SaveChanges();" />
+			<input type="button" id="btnSave" class="btn" value="Save Changes" onClick="SaveChanges();" />
 		  </div>
 		</div>
 		<div class="col-3"></div>
