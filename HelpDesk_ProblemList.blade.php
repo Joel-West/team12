@@ -353,10 +353,14 @@
 				document.getElementById("tbl").deleteRow(GetSelectedRow()); //Delete the row from the current tab.
 				switch (extraCells)
 				{
-					case 0: networkHTML = tableDiv.innerHTML; ChangeTab("Network", false); break;
-					case 1: hardwareHTML = tableDiv.innerHTML; ChangeTab("Hardware", false); break;
-					case 2: softwareHTML = tableDiv.innerHTML; ChangeTab("Software", false); break;
+					case 0: networkHTML = tableDiv.innerHTML; ChangeTab("Network", false); TransferRow(rowData); break;
+					case 1: hardwareHTML = tableDiv.innerHTML; ChangeTab("Hardware", false); TransferRow(rowData); break;
+					case 2: softwareHTML = tableDiv.innerHTML; ChangeTab("Software", false); TransferRow(rowData); break;
 				}
+			}
+			
+			function TransferRow(rowData)
+			{
 				table = document.getElementById("tbl");
 				table.innerHTML += "<tr style='background-color:rgb(0, 255, 255);'>"+rowData+"</tr>"
 				switch (extraCells)
@@ -365,7 +369,6 @@
 					case 1: hardwareHTML = tableDiv.innerHTML; break;
 					case 2: softwareHTML = tableDiv.innerHTML; break;
 				}
-				selected = 1;
 			}
 			
 			function UpdateTemp()
