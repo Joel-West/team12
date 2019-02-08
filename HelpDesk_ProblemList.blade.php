@@ -16,6 +16,8 @@
 			var hardwareHTML = "";
 			var softwareHTML = "";
 			var networkHTML = "";
+			var specialists = [];
+			var problemTypes = [];
 			
 			function Load() //Function that runs when file loads.
 			{
@@ -160,6 +162,177 @@
 					}
 					newRowCount = 0;
 				},'json');
+			}
+			
+			function GetArrays() //Function to get array of all the specialists and problem types.
+			{
+				sql = "SELECT userID, name FROM tblPersonnel WHERE specialist = 'Yes'";
+				$.get("Query.php", {'sql':sql, 'returnData':true},function(json) //Calls query.php, which handles the SQL query and sorting of result data.
+				{
+					if(json && json[0]) //If result of php file was a json array.	
+					{
+						for (i = 0; i<json.length; i++) //Iterates through the json array of results.
+						{
+							specialists[i] = json[i].userID + " - " + json[i].name;
+						}
+						PopulateSpecialistSelect();
+					}
+				},'json');
+				sql = "SELECT typeName FROM tblProblemType";
+				$.get("Query.php", {'sql':sql, 'returnData':true},function(json) //Calls query.php, which handles the SQL query and sorting of result data.
+				{
+					if(json && json[0]) //If result of php file was a json array.	
+					{
+						for (i = 0; i<json.length; i++) //Iterates through the json array of results.
+						{
+							problemTypes[i] = json[i].typeName
+						}
+						PopulateProblemTypeSelect();
+					}
+				},'json');
+			}
+			
+			function GetIDFromSelBoxItem(item) //Takes an item from a selection box (ID + name) and returns just the ID.
+			{
+				return (item.split(" "))[0]
+			}
+			
+			function IsValidSpecialist(item) //Returns true if specialist is in the list of all specialists.
+			{
+				for (i = 0; i < specialists.length; i++) //Iterates through all specialist ids that exist in the personnel table.
+				{
+					if (GetIDFromSelBoxItem(specialists[i]) == item)
+					{
+						return true;
+					}
+				}
+				return false;
+			}
+			
+			function IsValidProblemType(item) //Returns true if problem type is in the list of all problem types.
+			{
+				for (i = 0; i < problemTypes.length; i++) //Iterates through all problem types that exists in the problem type table.
+				{
+					if (problemTypes[i] == item)
+					{
+						return true;
+					}
+				}
+				return false;
+			}
+			
+			function PopulateSpecialistSelect() //Populates selection box with specialist IDs/names based on searched text.
+			{
+				specialistBox = document.getElementById("txtSpecialist");
+				selBox = document.getElementById("selSpecialist");
+				htm = "<option></option>";
+				size = 0; //Stores size of selection box.
+				matchIndex = -1; //Will be assigned to a natural number if any of the IDs from the specialists list match exactly with the text box input.
+				for (i = 0; i < specialists.length; i++) //Iterates through all specialist IDs that exist in the personnel table.
+				{
+					if (specialists[i].toUpperCase().includes(specialistBox.value.toUpperCase()) || specialistBox.value == "")
+					{
+						size+=1;
+						if (GetIDFromSelBoxItem(specialists[i]) == specialistBox.value)
+						{
+							matchIndex = size; //If the user has input an exact match, assign the variable defining what the default value for the box will be.
+						}
+						htm+="<option>"+specialists[i]+"</option>"; //ID can be selected as an ID for a new user.
+					}
+				}
+				selBox.innerHTML=htm; //Appends values to selection vox.
+				if (matchIndex != -1)
+				{
+					selBox.selectedIndex = matchIndex;
+				}
+				lbl = document.getElementById("lblSpecialistNum");
+				if (size == 0) //If there are no results, hide selection box.
+				{
+					selBox.style.display = "none";
+					lbl.style.display = "none";
+				}
+				else
+				{
+					selBox.style.display = "inline";
+					lbl.style.display = "inline";
+				}
+				if (specialistBox.value.length > 0) //If the text box contains results, give the label the number of results.
+				{
+					if (size == 1)
+					{
+						lbl.innerHTML = "(" + size + " result)";
+					}
+					else
+					{
+						lbl.innerHTML = "(" + size + " results)";
+					}
+				}
+				else
+				{
+					lbl.innerHTML = "";
+				}
+			}
+			
+			function PopulateProblemTypeSelect() //Populates selection box with problem types based on searched text.
+			{
+				problemTypeBox = document.getElementById("txtProblemType");
+				selBox = document.getElementById("selProblemType");
+				htm = "<option></option>";
+				size = 0; //Stores size of selection box.
+				matchIndex = -1; //Will be assigned to a natural number if any of the types from the problemTypes list match exactly with the text box input.
+				for (i = 0; i < problemTypes.length; i++) //Iterates through all problem types that exist in the problem type table.
+				{
+					if (problemTypes[i].toUpperCase().includes(problemTypeBox.value.toUpperCase()) || problemTypeBox.value == "")
+					{
+						size+=1;
+						if (problemTypes[i] == problemTypeBox.value)
+						{
+							matchIndex = size; //If the user has input an exact match, assign the variable defining what the default value for the box will be.
+						}
+						htm+="<option>"+problemTypes[i]+"</option>"; //ID can be selected as an ID for a new user.
+					}
+				}
+				selBox.innerHTML=htm; //Appends values to selection vox.
+				if (matchIndex != -1)
+				{
+					selBox.selectedIndex = matchIndex;
+				}
+				lbl = document.getElementById("lblProblemTypeNum");
+				if (size == 0) //If there are no results, hide selection box.
+				{
+					selBox.style.display = "none";
+					lbl.style.display = "none";
+				}
+				else
+				{
+					selBox.style.display = "inline";
+					lbl.style.display = "inline";
+				}
+				if (specialistBox.value.length > 0) //If the text box contains results, give the label the number of results.
+				{
+					if (size == 1)
+					{
+						lbl.innerHTML = "(" + size + " result)";
+					}
+					else
+					{
+						lbl.innerHTML = "(" + size + " results)";
+					}
+				}
+				else
+				{
+					lbl.innerHTML = "";
+				}
+			}
+			
+			function SpecialistOptionClicked() //Sets specialist text box value to selected option in selection box.
+			{
+				document.getElementById("txtSpecialist").value = GetIDFromSelBoxItem(document.getElementById("selSpecialist").value);
+			}	
+			
+			function ProblemTypeOptionClicked() //Sets problem type text box value to selected option in selection box.
+			{
+				document.getElementById("txtProblemType").value = document.getElementById("selProblemType").value;
 			}
 			
 			function GetResolvedAsBool(resolved) //Gets the resolved value from a table as a string and returns a boolean.
@@ -358,6 +531,17 @@
 					<div id="inputDiv">
 						<input type="button" class="btn" id="btnDelete" value="Delete Selected Items" id="del" style="font-size:16px;" onclick="Delete()"/><br/><br/> <!-- Delete button that calls function when pressed. -->
 						Problem:<br/><input id="txtProblem" type="text"></input><br/> <!-- Input fields for adding a new row. -->
+						Specialist:<br/><input id="txtSpecialist" type="text" onkeyup="PopulateSpecialistSelect()"></input><br/> <!-- Input fields for adding a new row.-->						
+						<select id="selSpecialist" onchange="SpecialistOptionClicked()" class="greenBack"></select>
+						<br/>
+						<label id="lblSpecialistNum"></label>
+						<br/><br/>
+						Problem Type:<br/><input id="txtProblemType" type="text" onkeyup="PopulateProblemTypeSelect()"></input><br/>					
+						<select id="selProblemType" onchange="ProblemTypeOptionClicked()" class="greenBack"></select>
+						<br/>
+						<label id="lblProblemTypeNum"></label>
+						<br/>
+						<div id="TypeSpecificDiv"></div> <!-- This div may contain input boxes, depending on the tab currently selected. -->
 						Solution:<br/><textArea class="form-control" rows="10" id="txtSolution" maxlength="2048" style="background-color:rgb(159, 255, 48);"></textArea><br/>
 						<br/><input type="button" class="btn" id="btnUpdate" value="Update Item" style="font-size:16px;" onclick="UpdateRow()"></input>	
 						<br/>
