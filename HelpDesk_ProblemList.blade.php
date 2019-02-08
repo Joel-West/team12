@@ -241,7 +241,8 @@
 			function Delete() //Function for deleting selected rows from a table.
 			{
 				admin = (userData.split(","))[2];
-				if (selected == 0 || admin == 0) //if no rows are selected, or if not admin, leave function.
+				admin = (userData.split(","))[3];
+				if (selected == 0 || (admin == 0 && analyst == 1)) //if no rows are selected, or if not admin/operator, leave function.
 				{
 					return;
 				}
