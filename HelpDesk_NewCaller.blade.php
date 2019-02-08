@@ -424,7 +424,7 @@
 		    Specialist:
 		    <div id="specialistComboBox">
 		      <button class='btn greenBack dropdown-toggle' type='button' id='dropdownButton4' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>
-			    Choose Specialist<span class='caret'></span>
+			    Choose Specialist:<span class='caret'></span>
 			  </button>
 			  <div class='dropdown-menu' id='dropdown-menu4' aria-labelledby='dropdownMenu4'>
 			  </div>
@@ -432,13 +432,15 @@
 		    Resolved:
 		    <div id="resolvedRadioButtons">
 			  <div class="form-check">
+			    <input class="form-check-input" type="radio" name="Radios" id="Radios2" value="Resolved" onClick = "radios2(1);">
 			    <label class="form-check-label" for="Radios2">
-				<input class="form-check-input" type="radio" name="Radios" id="Radios2" value="Resolved" onClick = "radios2(1);">
-				Resolved
+			      Resolved:
 			    </label>
+			  </div>
+			  <div class="form-check">
+			    <input class="form-check-input" type="radio" name="Radios" id="Radios2" value="Unresolved" onClick = "radios2(2);">
 			    <label class="form-check-label" for="Radios2">
-				<input class="form-check-input" type="radio" name="Radios" id="Radios2" value="Unresolved" onClick = "radios2(2);">
-			    Unresolved
+			      Unresolved:
 			    </label>
 			  </div>
 		    </div>
