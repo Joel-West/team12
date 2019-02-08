@@ -316,7 +316,10 @@
         $("#dropdownButton4:first-child").text($(this).text());
         $("#dropdownButton4:first-child").val($(this).text());
       });
-	    
+	  
+	  function SaveChanges(){
+		
+	  }
 	</script>
 	<style>
 	  .dropdown-menu{
@@ -432,18 +435,19 @@
 		    Resolved:
 		    <div id="resolvedRadioButtons">
 			  <div class="form-check">
-			    <input class="form-check-input" type="radio" name="Radios" id="Radios2" value="Resolved" onClick = "radios2(1);">
 			    <label class="form-check-label" for="Radios2">
 			      Resolved:
 			    </label>
+			    <input class="form-check-input" type="radio" name="Radios" id="Radios2" value="Resolved" onClick = "radios2(1);">
 			  </div>
 			  <div class="form-check">
-			    <input class="form-check-input" type="radio" name="Radios" id="Radios2" value="Unresolved" onClick = "radios2(2);">
 			    <label class="form-check-label" for="Radios2">
 			      Unresolved:
 			    </label>
+			    <input class="form-check-input" type="radio" name="Radios" id="Radios2" value="Unresolved" onClick = "radios2(2);">
 			  </div>
 		    </div>
+			<input type="button" id="btnSave" class="btn" value="Save Changes" style="font-size:26px; padding: 6px 12px;" onClick="SaveChanges();" />
 		  </div>
 		</div>
 		<div class="col-3"></div>
