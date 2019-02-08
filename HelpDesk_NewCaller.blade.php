@@ -209,6 +209,7 @@
 			  html+="<a class='dropdown-item' href='#'>" + json[i].serialNumber + "(" + json[i].equipmentMake + " " + json[i].equipmentType + ")</a>";
 			}
 		    document.getElementById("dropdown-menu5").innerHTML = html;
+			console.log(html);
 		  }
 		  $('#serialNumberCollapse').collapse('show');
 		},'json');
