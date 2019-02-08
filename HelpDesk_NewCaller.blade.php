@@ -214,6 +214,7 @@
 	  }
 	  
 	  $(document).on('click', '#dropdown-menuSerial a', function(){
+		console.log("TRIGG");
         $("#dropdownButtonSerial:first-child").text($(this).text());
         $("#dropdownButtonSerial:first-child").val($(this).text());
       });
