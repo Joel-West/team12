@@ -20,15 +20,8 @@
 				SetPrivileges(userData) //Enter function that defines what functions are available to user based on status.
 				WriteTime(); //Function that writes the current time at the top of the page.
 				extraCells = 0;
-				/*
-				sql = "SELECT * FROM tblProblem WHERE problemType = 'Network';"; //Ensure the HTML variables for all 3 tables are created.
-				RunQuery(sql);
-				extraCells = 1;
-				sql = "SELECT * FROM tblProblem WHERE problemType = 'Hardware';";
-				RunQuery(sql);
-				extraCells = 2;
-				sql = "SELECT * FROM tblProblem WHERE problemType = 'Software';";
-				RunQuery(sql);*/
+				ChangeTab("Network");
+				ChangeTab("Software");
 				ChangeTab("Hardware");
 				CheckIfUpdate()
 			}
@@ -243,12 +236,16 @@
 				{
 					rowNum = GetSelectedRow(); //Gets the row that is selected.
 					document.getElementById("btnUpdate").disabled = false;
+					document.getElementById("txtProblem").disabled = false;
+					document.getElementById("txtProblem").value = document.getElementById("tbl").rows[rowNum].cells[2+extraCells].innerHTML;
 					document.getElementById("txtSolution").disabled = false;
-					document.getElementById("txtSolution").value = document.getElementById("tbl").rows[rowNum].cells[6+extraCells].innerHTML;
+					document.getElementById("txtSolution").value = document.getElementById("tbl").rows[rowNum].cells[2+extraCells].innerHTML;
 				}
 				else
 				{
 					document.getElementById("btnUpdate").disabled = true;
+					document.getElementById("txtProblem").disabled = true;
+					document.getElementById("txtProblem").value = "";
 					document.getElementById("txtSolution").disabled = true;
 					document.getElementById("txtSolution").value = "";
 				}
@@ -256,6 +253,12 @@
 			
 			function ValidateInput() //Function returns true if the data input box is valid.
 			{
+				id = "txtProblem";
+				if (document.getElementById(id).value == false || document.getElementById(id).value.includes("'"))
+				{
+					alert("Invalid problem name."); //Returns error if data input from text box is invalid.
+					return false;
+				}
 				id = "txtSolution";
 				if (document.getElementById(id).value == false || document.getElementById(id).value.includes("'") || document.getElementById(id).value.length > 2047)
 				{
@@ -351,7 +354,8 @@
 					</div>
 					<div id="inputDiv">
 						<input type="button" class="btn" id="btnDelete" value="Delete Selected Items" id="del" style="font-size:16px;" onclick="Delete()"/><br/><br/> <!-- Delete button that calls function when pressed. -->
-						Solution:<br/><textArea class="form-control" rows="10" id="txtSolution" maxlength="2048"></textArea><br/> <!-- Input fields for adding a new row. -->
+						Problem:<br/><input id="txtProblem" type="text"></input><br/> <!-- Input fields for adding a new row. -->
+						Solution:<br/><textArea class="form-control" rows="10" id="txtSolution" maxlength="2048"></textArea><br/>
 						<br/><input type="button" class="btn" id="btnUpdate" value="Update Item" style="font-size:16px;" onclick="UpdateRow()"></input>	
 						<br/>
 						<br/>
