@@ -26,7 +26,6 @@
 				if (admin == 0 && analyst == 1)
 				{
 					$("#inputDiv :input").prop("disabled", true); //If not admin or operator, disable all input fields in the input div.
-					//$("#inputDiv :textArea").prop("disabled", true);
 				}	
 			}
 			
