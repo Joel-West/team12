@@ -495,6 +495,13 @@
 			overflow-y: auto;
 			-ms-overflow-style: -ms-autohiding-scrollbar;
 		}
+		.input-wrapper-scroll-y
+		{
+			display: block;
+			max-height:88vh;
+			overflow-y: auto;
+			-ms-overflow-style: -ms-autohiding-scrollbar;
+		}
 		</style>
 	</head>
 	<body onload="Load()" style="height:100%;">
@@ -521,7 +528,7 @@
 						</div>
 					<br/>
 				</div>
-				<div id="rightDiv" align="center" class="col-3">
+				<div id="rightDiv" align="center" class="col-3 input-wrapper-scroll-y">
 					<div id="searchDiv">
 						<p>
 							Search:<input id="txtSearch" type="text" oninput="ResetTable()"></input> <!-- Box for searching the table for specific strings. -->
