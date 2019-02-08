@@ -19,7 +19,7 @@
 				userData = "<?php echo $_POST['User']; ?>"; //Gets data from previous form.
 				SetPrivileges(userData) //Enter function that defines what functions are available to user based on status.
 				WriteTime(); //Function that writes the current time at the top of the page.
-				extraCells = 0;
+				/*extraCells = 0;
 				sql = "SELECT * FROM tblProblem WHERE problemType = 'Network';"; //Ensure the HTML variables for all 3 tables are created.
 				RunQuery(sql);
 				extraCells = 1;
@@ -27,7 +27,7 @@
 				RunQuery(sql);
 				extraCells = 2;
 				sql = "SELECT * FROM tblProblem WHERE problemType = 'Software';";
-				RunQuery(sql);
+				RunQuery(sql);*/
 				ChangeTab("Hardware");
 				CheckIfUpdate()
 			}
@@ -199,22 +199,22 @@
 					case 'Hardware':
 						extraCells = 1; //There is one extra cell appended to the table when on the hardware tab (serial number).
 						document.getElementById("btnHardware").style="text-decoration: underline;"; //Underlines selected tab.
-						//sql = "SELECT * FROM tblProblem WHERE problemType = 'Hardware';"; //Simple query to get all hardware problem from table.
-						//RunQuery(sql); //Runs function get gets data from database and display it in tableDiv.
+						sql = "SELECT * FROM tblProblem WHERE problemType = 'Hardware';"; //Simple query to get all hardware problem from table.
+						RunQuery(sql); //Runs function get gets data from database and display it in tableDiv.
 						tableDiv.innerHTML = hardwareHTML;
 						break;
 					case 'Software':
 						extraCells = 2; //There are two extra cells appended to the table when on the software tab (operating system, software concerned).
 						document.getElementById("btnSoftware").style="text-decoration: underline;"; //Underlines selected tab.
-						//sql = "SELECT * FROM tblProblem WHERE problemType = 'Software';"; //Simple query to get all software problem from table.
-						//RunQuery(sql); //Runs function get gets data from database and display it in tableDiv.
+						sql = "SELECT * FROM tblProblem WHERE problemType = 'Software';"; //Simple query to get all software problem from table.
+						RunQuery(sql); //Runs function get gets data from database and display it in tableDiv.
 						tableDiv.innerHTML = softwareHTML;
 						break;
 					case 'Network':
 						extraCells = 0; //There are no extra cells appended to the table when on the network tab.
 						document.getElementById("btnNetwork").style="text-decoration: underline;"; //Underlines selected tab.
-						//sql = "SELECT * FROM tblProblem WHERE problemType = 'Network';"; //Simple query to get all network problem from table.
-						//RunQuery(sql); //Runs function get gets data from database and display it in tableDiv.
+						sql = "SELECT * FROM tblProblem WHERE problemType = 'Network';"; //Simple query to get all network problem from table.
+						RunQuery(sql); //Runs function get gets data from database and display it in tableDiv.
 						tableDiv.innerHTML = networkHTML;
 						break;
 					default: break;
