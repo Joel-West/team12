@@ -160,7 +160,7 @@
 						case 1: hardwareHTML = htm; break;
 						case 2: softwareHTML = htm; break;
 					}
-					console.log("yeaaaaah it should exist...");
+					console.log(document.getElementById("tbl").innerHTML();
 					newRowCount = 0;
 				},'json');
 			}
@@ -640,7 +640,7 @@
 				<div id="rightDiv" align="center" class="col-3 input-wrapper-scroll-y">
 					<div id="searchDiv">
 						<p>
-							Search:<input id="txtSearch" type="text"></input> <!-- Box for searching the table for specific strings. -->
+							Search:<input id="txtSearch" type="text" oninput="ResetTable()"></input> <!-- Box for searching the table for specific strings. -->
 							<input type="button" class="btn" id="btnSearch" value="Submit" onclick="Search()"></input> <!-- Submits search on press. -->
 						</p>
 					</div>
