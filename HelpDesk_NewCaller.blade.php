@@ -205,7 +205,7 @@
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
 		  if (json && json[0]){
 			for (i = 0; i < json.length; i++){
-			  html+="<a class='dropdown-item' href='#'>" + json[i].serialNumber + "(" + equipmentMake + " " + equipmentType + ")</a>";
+			  html+="<a class='dropdown-item' href='#'>" + json[i].serialNumber + "(" + json[i].equipmentMake + " " + json[i].equipmentType + ")</a>";
 			}
 		    document.getElementById("dropdown-menuSerial").innerHTML = html;
 		  }
