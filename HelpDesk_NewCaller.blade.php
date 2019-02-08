@@ -169,16 +169,17 @@
 	    html += "<div class='dropdown-divider'></div><h6 class='dropdown-header'>Problem Types</h6>";
 		document.getElementById("dropdown-menu3").innerHTML = html;
 		if (num==1){
-		  console.log("RUNNING");
 		  document.getElementById("dropdown-menu3").innerHTML += "<a class='dropdown-item' >Hardware problem</a>";
 		  findAllChildren("Hardware problem", html);
 		  createSerialNumber();
 		}
 		else if (num==2){
+		  $('#serialNumberCollapse').collapse('hide');
 		  document.getElementById("dropdown-menu3").innerHTML += "<a class='dropdown-item' >Software problem</a>";
 		  findAllChildren("Software problem", html);
 		}
 		else{
+		  $('#serialNumberCollapse').collapse('hide');
 		  document.getElementById("dropdown-menu3").innerHTML += "<a class='dropdown-item' >Network problem</a>";
 		  findAllChildren("Network problem", html);		  
 		}
@@ -322,7 +323,7 @@
 		      }
 		    }
 		
-		    document.getElementById("dropdown-menu4").innerHTML += html;
+		    document.getElementById("dropdown-menu4").innerHTML = html;
 		    console.log(html);
 			$('#result2Collapse').collapse('show');
 		  }
