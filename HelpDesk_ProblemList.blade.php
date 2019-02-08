@@ -261,19 +261,18 @@
 					<label id="dtLabel" style="font-size:26px; position:absolute; right:0;"></label> <!-- Label to contain current data/time. -->
 					<h2 id="headerId" style="font-weight:bold; style=display:inline-block; font-size:30px;">Problem List</h2> <!-- Heading containing name of page. -->
 				</div>
-				<br/><br/>
-				<br/>
+				<br/><br/><br/>
+				<div class="row" align="center">
 				<div id="leftDiv" align="center" class="col-9">
-					<div class="row" align="center">
 						<div id="tabDiv" class="row" align="center"> <!-- Within this row are three buttons that change the tab of problems listed. -->
 							<input type="button" id="btnHardware" class="btn tabButton" value="Hardware" onclick="ChangeTab('Hardware')"></input>
 							<input type="button" id="btnSoftware" class="btn tabButton" value="Software" onclick="ChangeTab('Software')"></input>
 							<input type="button" id="btnNetwork" class="btn tabButton" value="Network" onclick="ChangeTab('Network')"></input>
 						</div>
+						<br/>
 						<div id="tableDiv" class="table-wrapper-scroll-y"> <!-- Div containing data table. -->
 							Loading data...
 						</div>
-					</div>
 					<br/>
 				</div>
 				<div id="rightDiv" align="center" class="col-3">
