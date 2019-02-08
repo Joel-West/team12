@@ -321,15 +321,15 @@
 					<div id="rightDiv" align="center" class="col-3">
 						<div id="searchDiv">
 							<p>
-								Search:<input id="txtSearch" class="form-control" type="text" oninput="ResetTable()"></input> <!-- Box for searching the table for specific strings. -->
+								Search:<input id="txtSearch" type="text" oninput="ResetTable()"></input> <!-- Box for searching the table for specific strings. -->
 								<input type="button" class="btn" id="btnSearch" value="Submit" onclick="Search()"></input> <!-- Submits search on press. -->
 							</p>
 						</div>
 						<div id="inputDiv">
 							<input type="button" class="btn" id="btnDelete" value="Delete Selected Items" id="del" style="font-size:16px;" onclick="Delete()"/><br/><br/> <!-- Delete button that calls function when pressed. -->
-							Serial Number:<br/><input id="txtSerial" class="form-control" type="text"></input><br/> <!-- Input fields for adding a new row. -->
-							Equipment Type:<br/><input id="txtType" class="form-control" type="text"></input><br/>
-							Equipment Make:<br/><input id="txtMake" class="form-control" type="text"></input><br/>
+							Serial Number:<br/><input id="txtSerial" type="text"></input><br/> <!-- Input fields for adding a new row. -->
+							Equipment Type:<br/><input id="txtType" type="text"></input><br/>
+							Equipment Make:<br/><input id="txtMake" type="text"></input><br/>
 							<br/><input type="button" class="btn" id="btnAdd" value="Add New Item" style="font-size:16px;" onclick="AddPressed()"></input>	
 							<br/>
 							<br/>

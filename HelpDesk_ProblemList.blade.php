@@ -351,13 +351,13 @@
 				<div id="rightDiv" align="center" class="col-3">
 					<div id="searchDiv">
 						<p>
-							Search:<input id="txtSearch" class="form-control" type="text" oninput="ResetTable()"></input> <!-- Box for searching the table for specific strings. -->
+							Search:<input id="txtSearch" type="text" oninput="ResetTable()"></input> <!-- Box for searching the table for specific strings. -->
 							<input type="button" class="btn" id="btnSearch" value="Submit" onclick="Search()"></input> <!-- Submits search on press. -->
 						</p>
 					</div>
 					<div id="inputDiv">
 						<input type="button" class="btn" id="btnDelete" value="Delete Selected Items" id="del" style="font-size:16px;" onclick="Delete()"/><br/><br/> <!-- Delete button that calls function when pressed. -->
-						Problem:<br/><input id="txtProblem" class="form-control" type="text"></input><br/> <!-- Input fields for adding a new row. -->
+						Problem:<br/><input id="txtProblem" type="text"></input><br/> <!-- Input fields for adding a new row. -->
 						Solution:<br/><textArea class="form-control" rows="10" id="txtSolution" maxlength="2048" style="background-color:rgb(159, 255, 48);"></textArea><br/>
 						<br/><input type="button" class="btn" id="btnUpdate" value="Update Item" style="font-size:16px;" onclick="UpdateRow()"></input>	
 						<br/>

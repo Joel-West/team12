@@ -464,19 +464,19 @@
 					<div id="rightDiv" align="center" class="col-4">
 						<div id="searchDiv">
 							<p>
-								Search:<input id="txtSearch" class="form-control" type="text" oninput="ResetTable()"></input> <!-- Box for searching the table for specific strings. -->
+								Search:<input id="txtSearch" type="text" oninput="ResetTable()"></input> <!-- Box for searching the table for specific strings. -->
 								<input type="button" class="btn" id="btnSearch" value="Submit" onclick="Search()"></input> <!-- Submits search on press. -->
 							</p>
 						</div>
 						<div id="inputDiv">
 							<input type="button" class="btn" id="btnDelete" value="Delete Selected Items" id="del" style="font-size:16px;" onclick="Delete()"/><br/><br/> <!-- Delete button that calls function when pressed. -->
-							Personnel ID:<br/><input id="txtID" class="form-control" type="text" onkeyup="PopulateIDSelect()"></input><br/> <!-- Input fields for adding a new row.-->						
+							Personnel ID:<br/><input id="txtID" type="text" onkeyup="PopulateIDSelect()"></input><br/> <!-- Input fields for adding a new row.-->						
 							<select id="selID" onchange="IDOptionClicked()" class="greenBack"></select>
 							<br/>
 							<label id="lblIDNum"></label>
 							<br/><br/>
-							Username:<br/><input id="txtUsername" class="form-control" type="text"></input><br/>
-							Password:<br/><input class="hidetext form-control" id="txtPassword" type="text"></input><br/>							
+							Username:<br/><input id="txtUsername" type="text"></input><br/>
+							Password:<br/><input class="hidetext" id="txtPassword" type="text"></input><br/>							
 							Admin? <input id="chkAdmin" type="checkbox"></input><br/>
 							<br/><input type="button" class="btn" id="btnAdd" value="Add New Item" style="font-size:16px;" onclick="AddPressed()"></input>	
 							<br/><br/>
