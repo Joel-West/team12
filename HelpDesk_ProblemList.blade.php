@@ -357,6 +357,7 @@
 				}
 				rowData = document.getElementById("tbl").rows[GetSelectedRow()].innerHTML; //Gets the details of the row that is selected.
 				document.getElementById("tbl").deleteRow(GetSelectedRow()); //Delete the row from the current tab.
+				tableDiv = document.getElementById("tableDiv");
 				switch (extraCells) //Saves the value of the current tab's innerHTML.
 				{
 					case 0: networkHTML = tableDiv.innerHTML;  break;
@@ -443,7 +444,7 @@
 				document.getElementById("btnSoftware").style="text-decoration: initial;"
 				document.getElementById("btnNetwork").style="text-decoration: initial;"
 				htm="";
-				alert(tableDiv.innerHTML);
+				tableDiv = document.getElementById("tableDiv");
 				switch (tab)
 				{
 					case 'Hardware':
@@ -579,6 +580,7 @@
 						}
 					}
 					selected = 0;
+					tableDiv = document.getElementById("tableDiv");
 					switch (extraCells)
 					{
 						case 0: networkHTML = tableDiv.innerHTML; break;
