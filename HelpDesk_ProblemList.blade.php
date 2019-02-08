@@ -460,9 +460,11 @@
 							RunQuery(sql); //Runs function get gets data from database and display it in tableDiv.
 						}
 						tableDiv.innerHTML = networkHTML;
+						console.log("1" + tableDiv.innerHTML);
 						break;
 					default: break;
 				}
+				console.log("2" + tableDiv.innerHTML);
 				document.getElementById("typeSpecificDiv").text = htm; //Appends innerHTML for the input elements that change depending on the tab.
 				if (recordToMove == "") //If entered via a button press, rather than my changing the tab of a record, set 'selected' to 0. Otherwise, it will remain at 1.
 				{
@@ -470,7 +472,7 @@
 				}
 				else //else, adds row data to new tab after being removed from another tab.
 				{
-					while (tableDiv.innerHTML == ""){}
+					console.log("3" + tableDiv.innerHTML);
 					table = document.getElementById("tbl");
 					table.innerHTML += "<tr style='background-color:rgb(0, 255, 255);'>"+recordToMove+"</tr>"
 					switch (extraCells)
