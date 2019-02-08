@@ -380,7 +380,7 @@
 			function TransferRow(rowData) //Adds row data to new tab after being removed from another tab.
 			{
 				table = document.getElementById("tbl");
-				table.innerHTML += "<tr style='background-color:rgb(0, 255, 255);'>"+rowData+"</tr>"
+				table.innerHTML += "<tr>"+rowData+"</tr>"
 				tableDiv = document.getElementById("tableDiv");
 				switch (extraCells)
 				{
@@ -388,6 +388,7 @@
 					case 1: hardwareHTML = tableDiv.innerHTML; break;
 					case 2: softwareHTML = tableDiv.innerHTML; break;
 				}
+				document.getElementById("tbl").rows[GetSelectedRow()].style='background-color:rgb(159, 255, 48)';
 				CheckIfUpdate();
 			}
 			
@@ -487,12 +488,7 @@
 				document.getElementById("typeSpecificDiv").text = htm; //Appends innerHTML for the input elements that change depending on the tab.
 				if (buttonPressed) //If entered via a button press, rather than my changing the tab of a record, set 'selected' to 0. Otherwise, it will remain at 1.
 				{
-					table = document.getElementById("tbl");
-					if (table != null)
-					{
-						table.rows[GetSelectedRow()].style='background-color:rgb(159, 255, 48)';
-						selected = 0;
-					}
+					selected = 0;
 					CheckIfUpdate() //Prevents user input if more or less than one row is selected.
 				}
 			}
