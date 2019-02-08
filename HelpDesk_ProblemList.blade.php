@@ -353,15 +353,15 @@
 				document.getElementById("tbl").deleteRow(GetSelectedRow()); //Delete the row from the current tab.
 				switch (extraCells)
 				{
-					case 0: networkHTML = tableDiv.innerHTML; ChangeTab("Network", false); show_message(extraCells); TransferRow(rowData); break;
-					case 1: hardwareHTML = tableDiv.innerHTML; ChangeTab("Hardware", false); show_message(extraCells); TransferRow(rowData); break;
-					case 2: softwareHTML = tableDiv.innerHTML; ChangeTab("Software", false); show_message(extraCells); TransferRow(rowData); break;
+					case 0: networkHTML = tableDiv.innerHTML; ChangeTab("Network", false); console.log(extraCells); TransferRow(rowData); break;
+					case 1: hardwareHTML = tableDiv.innerHTML; ChangeTab("Hardware", false); console.log(extraCells); TransferRow(rowData); break;
+					case 2: softwareHTML = tableDiv.innerHTML; ChangeTab("Software", false); console.log(extraCells); TransferRow(rowData); break;
 				}
 			}
 			
 			function TransferRow(rowData)
 			{
-				show_message(extraCells);
+				console.log(extraCells);
 				table = document.getElementById("tbl");
 				table.innerHTML += "<tr style='background-color:rgb(0, 255, 255);'>"+rowData+"</tr>"
 				switch (extraCells)
