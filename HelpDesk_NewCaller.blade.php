@@ -94,7 +94,7 @@
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
 		  if (json && json[0]){
 			for (i = 0; i < json.length; i++){
-			  html+="<a class='dropdown-item' href='#'>" + json[i].problem + "</a>";
+			  html+="<a class='dropdown-item' href=''>" + json[i].problem + "</a>";
 			}
 		    document.getElementById("dropdown-menu").innerHTML = html;
 		  }
@@ -129,7 +129,7 @@
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
 		  if (json && json[0]){
 			for (i = 0; i < json.length; i++){
-			  html+="<a class='dropdown-item' href='#'>" + json[i].problem + "</a>";
+			  html+="<a class='dropdown-item' href=''>" + json[i].problem + "</a>";
 			}
 		    document.getElementById("dropdown-menu2").innerHTML = html;
 		  }
@@ -170,16 +170,16 @@
 		document.getElementById("dropdown-menu3").innerHTML = html;
 		if (num==1){
 		  console.log("RUNNING");
-		  document.getElementById("dropdown-menu3").innerHTML += "<a class='dropdown-item' href='#'>Hardware problem</a>";
+		  document.getElementById("dropdown-menu3").innerHTML += "<a class='dropdown-item' href=''>Hardware problem</a>";
 		  findAllChildren("Hardware problem", html);
 		  createSerialNumber();
 		}
 		else if (num==2){
-		  document.getElementById("dropdown-menu3").innerHTML += "<a class='dropdown-item' href='#'>Software problem</a>";
+		  document.getElementById("dropdown-menu3").innerHTML += "<a class='dropdown-item' href=''>Software problem</a>";
 		  findAllChildren("Software problem", html);
 		}
 		else{
-		  document.getElementById("dropdown-menu3").innerHTML += "<a class='dropdown-item' href='#'>Network problem</a>";
+		  document.getElementById("dropdown-menu3").innerHTML += "<a class='dropdown-item' href=''>Network problem</a>";
 		  findAllChildren("Network problem", html);		  
 		}
 		html="</div>";
@@ -192,7 +192,7 @@
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
 		  if (json && json[0]){
 			for (i = 0; i < json.length; i++){
-			  html="<a class='dropdown-item' href='#'>" + json[i].typeName + "</a>";
+			  html="<a class='dropdown-item' href=''>" + json[i].typeName + "</a>";
 			  document.getElementById("dropdown-menu3").innerHTML += html;
 			  findAllChildren(json[i].typeName,html);
 			}
@@ -210,7 +210,7 @@
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
 		  if (json && json[0]){
 			for (i = 0; i < json.length; i++){
-			  html+="<a class='dropdown-item' href='#'>" + json[i].serialNumber + "(" + json[i].equipmentMake + " " + json[i].equipmentType + ")</a>";
+			  html+="<a class='dropdown-item' href=''>" + json[i].serialNumber + "(" + json[i].equipmentMake + " " + json[i].equipmentType + ")</a>";
 			}
 		    document.getElementById("dropdown-menuSerial").innerHTML = html;
 		  }
@@ -308,7 +308,7 @@
 		  if (json && json[0]){
 			html += "<h6 class='dropdown-header'>Specialists to exact problem type</h6>"
 			for (i = 0; i < json.length; i++){
-			  html += "<a class='dropdown-item' href='#'>" + specialistList[i] + " (" + count[i] + " current jobs)</a>"
+			  html += "<a class='dropdown-item' href=''>" + specialistList[i] + " (" + count[i] + " current jobs)</a>"
 			}
 			console.log(specialistList);
 			specialistList.splice(0,i);
@@ -318,7 +318,7 @@
 			  html+= "<h6 class='dropdown-header'>Specialists to a generalisation of the problem type</h6>";
 			  for (j = i; j < specialistList.length; j++){
 				console.log(j);
-		        html+= "<a class='dropdown-item' href='#'>" + specialistList[i] + " (" + count[i] + " current jobs)</a>"
+		        html+= "<a class='dropdown-item' href=''>" + specialistList[i] + " (" + count[i] + " current jobs)</a>"
 		      }
 		    }
 		
