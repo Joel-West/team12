@@ -346,10 +346,9 @@
 				row = document.getElementById("tbl").rows[GetSelectedRow()]; //Gets the details of the row that is selected.
 				switch (extraCells) //Clears tab-specific fields.
 				{
-					case 1: row.cells[3] = ""; break;
+					case 1: row.cells[3] = "";	console.log(row.cells[3]); break;
 					case 2: row.cells[3] = ""; row.cells[4] = "";break;
 				}
-				console.log(row.cells[3]);
 				switch (extraCells)
 				{
 					case 0: networkHTML = tableDiv.innerHTML; break;
