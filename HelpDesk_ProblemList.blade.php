@@ -108,7 +108,6 @@
 			
 			function RunQuery(sql) //Function for running a query to the personnel table and getting building a table.
 			{
-				console.log(extraCells);
 				$.get("Query.php", {'sql':sql, 'returnData':true},function(json) //Calls query.php, which handles the SQL query and sorting of result data.
 				{
 					if(json && json[0]) //If result of php file was a json array.	
@@ -157,7 +156,12 @@
 						var htm = "Sorry, no results found..."; //If no results, display error.
 					}
 					document.getElementById("tableDiv").innerHTML = htm; //Appends HTML to tableDiv.
-					console.log(htm);
+					switch (extraCells)
+					{
+						case 0: networkHTML = tableDiv.innerHTML; break;
+						case 1: hardwareHTML = tableDiv.innerHTML; break;
+						case 2: softwareHTML = tableDiv.innerHTML; break;
+					}
 					newRowCount = 0;
 				},'json');
 			}
@@ -231,7 +235,6 @@
 				}
 				selected = 0;
 				CheckIfUpdate() //Prevents user input if more or less than one row is selected.
-				console.log(extraCells);
 			}
 			
 			function CheckIfUpdate() //Prevents user input if more or less than one row is selected.
