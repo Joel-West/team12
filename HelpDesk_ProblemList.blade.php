@@ -274,7 +274,7 @@
 						}
 					}
 					selected = 0;
-					swith (extraCells)
+					switch (extraCells)
 					{
 						case 0: networkHTML = tableDiv.innerHTML; break;
 						case 1: hardwareHTML = tableDiv.innerHTML; break;
