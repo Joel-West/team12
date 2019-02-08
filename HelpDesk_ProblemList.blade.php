@@ -325,6 +325,11 @@
 				}
 			}
 			
+			function MainTypeOptionClicked() //May move record from one tab to another.
+			{
+				
+			}
+			
 			function SpecialistOptionClicked() //Sets specialist text box value to selected option in selection box.
 			{
 				document.getElementById("txtSpecialist").value = GetIDFromSelBoxItem(document.getElementById("selSpecialist").value);
@@ -382,6 +387,7 @@
 				document.getElementById("btnHardware").style="text-decoration: initial;"
 				document.getElementById("btnSoftware").style="text-decoration: initial;"
 				document.getElementById("btnNetwork").style="text-decoration: initial;"
+				htm="";
 				switch (tab)
 				{
 					case 'Hardware':
@@ -403,9 +409,6 @@
 							RunQuery(sql); //Runs function get gets data from database and display it in tableDiv.
 						}
 						tableDiv.innerHTML = softwareHTML;
-						htm = "";
-						htm+=
-						document.getElementById("typeSpecificDiv").text = htm;
 						break;
 					case 'Network':
 						extraCells = 0; //There are no extra cells appended to the table when on the network tab.
@@ -419,6 +422,7 @@
 						break;
 					default: break;
 				}
+				document.getElementById("typeSpecificDiv").text = htm; //Appends innerHTML for the input elements that change depending on the tab.
 				selected = 0;
 				CheckIfUpdate() //Prevents user input if more or less than one row is selected.
 			}
@@ -429,6 +433,7 @@
 				{
 					rowNum = GetSelectedRow(); //Gets the row that is selected.
 					document.getElementById("btnUpdate").disabled = false;
+					document.getElementById("selMainType").disabled = false;
 					document.getElementById("txtProblem").disabled = false;
 					document.getElementById("txtProblem").value = document.getElementById("tbl").rows[rowNum].cells[1].innerHTML;
 					document.getElementById("txtProblemType").disabled = false;
@@ -444,6 +449,7 @@
 				else
 				{
 					document.getElementById("btnUpdate").disabled = true;
+					document.getElementById("selMainType").disabled = true;
 					document.getElementById("txtProblem").disabled = true;
 					document.getElementById("txtProblem").value = "";
 					document.getElementById("txtProblemType").disabled = true;
@@ -455,6 +461,12 @@
 					document.getElementById("txtDateTime").value = "";
 					document.getElementById("txtSolution").disabled = true;
 					document.getElementById("txtSolution").value = "";
+				}
+				switch (extraCells) //After a selection, in any state of the page, the main type selection box will correlate with the tab.
+				{
+					case 0: document.getElementById("selMainType").value="Network Problem"; break;
+					case 1: document.getElementById("selMainType").value="Hardware Problem"; break;
+					case 2: document.getElementById("selMainType").value="Software Problem"; break;
 				}
 				CheckClicked();
 				PopulateSpecialistSelect();
@@ -571,6 +583,12 @@
 					</div>
 					<div id="inputDiv">
 						<input type="button" class="btn" id="btnDelete" value="Delete Selected Items" id="del" style="font-size:16px;" onclick="Delete()"/><br/><br/> <!-- Delete button that calls function when pressed. -->
+						<br/>
+						<select id="selMainType" onchange="MainTypeOptionClicked()" class="greenBack"> <!-- Allows user to move record from one tab to another. -->
+							<option>Hardware Problem</option>
+							<option>Software Problem</option>
+							<option>Network Problem</option>
+						</select>
 						Problem:<br/><input id="txtProblem" type="text"></input><br/> <!-- Input fields for adding a new row. -->
 						Problem Type:<br/><input id="txtProblemType" type="text" onkeyup="PopulateProblemTypeSelect()"></input><br/>					
 						<select id="selProblemType" onchange="ProblemTypeOptionClicked()" class="greenBack"></select>
