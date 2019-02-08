@@ -327,7 +327,34 @@
 			
 			function MainTypeOptionClicked() //May move record from one tab to another.
 			{
-				
+				if (selected != 1)
+				{
+					return; //If there isn't an item selected, leave function.
+				}
+				box = document.getElementById("selMainType");
+				newExtraCells = -1;
+				switch (box.value) //Gets new number of extra cells based on the input from the selection box (e.g. what tab the selected record in the table will be moved to).
+				{
+					case "Hardware Problem": newExtraCells = 1; break;
+					case "Software Problem": newExtraCells = 2; break;
+					case "Network Problem": newExtraCells = 0; break;
+				}
+				if (extraCells == newExtraCells)
+				{
+					return; //If it is on the correct tab already, leave function.
+				}
+				console.log(document.getElementById("tbl").rows(GetSelectedRow().innerHTML);
+				switch (extraCells)
+				{
+					case 0: networkHTML = tableDiv.innerHTML; break;
+					case 1: hardwareHTML = tableDiv.innerHTML; break;
+					case 2: softwareHTML = tableDiv.innerHTML; break;
+				}
+			}
+			
+			function UpdateTemp()
+			{
+
 			}
 			
 			function SpecialistOptionClicked() //Sets specialist text box value to selected option in selection box.
