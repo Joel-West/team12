@@ -310,6 +310,11 @@
 		  }
 		},'json');
 	  }
+	  
+	  $(document).on('click', '#dropdown-menu4 a', function(){
+        $("#dropdownButton4:first-child").text($(this).text());
+        $("#dropdownButton4:first-child").val($(this).text());
+      });
 	    
 	</script>
 	<style>
