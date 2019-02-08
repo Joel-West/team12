@@ -160,7 +160,7 @@
 						case 1: hardwareHTML = htm; break;
 						case 2: softwareHTML = htm; break;
 					}
-					console.log(document.getElementById("tbl").innerHTML());
+					console.log(document.getElementById("tbl").innerHTML);
 					newRowCount = 0;
 				},'json');
 			}
