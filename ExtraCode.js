@@ -101,6 +101,7 @@ function GetRows() //Function for returning the number of rows in a data table.
 
 function GetSelectedRow() //Returns selected row (if only one is selected).
 {
+	return 1;
 	rows = GetRows();
 	for (i = rows-1; i > 0; i--) //Iterate through the rows of the table.
 	{
