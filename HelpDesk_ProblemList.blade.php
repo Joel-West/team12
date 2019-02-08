@@ -384,7 +384,7 @@
 					case 1: hardwareHTML = tableDiv.innerHTML; break;
 					case 2: softwareHTML = tableDiv.innerHTML; break;
 				}
-				alert(tabDiv.innerHTML);
+				alert(tableDiv.innerHTML);
 				CheckIfUpdate();
 			}
 			
@@ -497,7 +497,6 @@
 					document.getElementById("btnUpdate").disabled = false;
 					document.getElementById("selMainType").disabled = false;
 					document.getElementById("txtProblem").disabled = false;
-					alert(document.getElementById("tbl").rows.length)
 					document.getElementById("txtProblem").value = document.getElementById("tbl").rows[rowNum].cells[1].innerHTML;
 					document.getElementById("txtProblemType").disabled = false;
 					document.getElementById("txtProblemType").value = document.getElementById("tbl").rows[rowNum].cells[2].innerHTML;
