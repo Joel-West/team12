@@ -488,15 +488,13 @@
 		  <div id="resolvedRadioButtons">
 			<div class="form-check">
 			  <label class="form-check-label" for="Radios2">
-			    Resolved:
+			    Resolved:<input class="form-check-input" type="radio" name="Radios2" id="Radios2" value="Resolved" onClick = "radios2(1);">
 			  </label>
-			  <input class="form-check-input" type="radio" name="Radios" id="Radios2" value="Resolved" onClick = "radios2(1);">
 			</div>
 			<div class="form-check">
 			  <label class="form-check-label" for="Radios2">
-			    Unresolved:
+			    Unresolved:<input class="form-check-input" type="radio" name="Radios2" id="Radios2" value="Unresolved" onClick = "radios2(2);">
 			  </label>
-			  <input class="form-check-input" type="radio" name="Radios" id="Radios2" value="Unresolved" onClick = "radios2(2);">
 		    </div>
 		  </div>
 	      <input type="button" id="btnSave" class="btn" value="Save Changes" onClick="SaveChanges();" />
