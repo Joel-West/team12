@@ -343,7 +343,13 @@
 				{
 					return; //If it is on the correct tab already, leave function.
 				}
-				console.log(document.getElementById("tbl").rows[GetSelectedRow()].innerHTML);
+				row = document.getElementById("tbl").rows[GetSelectedRow()]; //Gets the details of the row that is selected.
+				switch (extraCells) //Clears tab-specific fields.
+				{
+					case 1: row.cells[3] = ""; break;
+					case 2: row.cells[3] = ""; row.cells[4] = "";break;
+				}
+				console.log(row[GetSelectedRow()].innerHTML);
 				switch (extraCells)
 				{
 					case 0: networkHTML = tableDiv.innerHTML; break;
