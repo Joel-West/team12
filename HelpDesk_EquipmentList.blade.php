@@ -5,6 +5,8 @@
 		<title>HelpDesk_EquipmentList</title>
 		<link rel="icon" href="https://www.goodfreephotos.com/albums/vector-images/screwdriver-and-wrench-vector-clipart.png">
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> <!-- Get JQuery library from google. -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>	<!-- Importing Bootstrap files. -->
 		<script type="text/javascript" src="{{ URL::asset('js/ExtraCode.js') }}"></script> <!-- Import JS file containing functions that are used in multiple pages. -->
 		<script type="text/javascript">
 			var userData; //Variable containing data about user.
@@ -325,9 +327,9 @@
 						</div>
 						<div id="inputDiv">
 							<input type="button" class="btn" id="btnDelete" value="Delete Selected Items" id="del" style="font-size:16px;" onclick="Delete()"/><br/><br/> <!-- Delete button that calls function when pressed. -->
-							Serial Number:<br/><input id="txtSerial" type="text"></input><br/> <!-- Input fields for adding a new row. -->
-							Equipment Type:<br/><input id="txtType" type="text"></input><br/>
-							Equipment Make:<br/><input id="txtMake" type="text"></input><br/>
+							Serial Number:<br/><input id="txtSerial" class="form-control" type="text"></input><br/> <!-- Input fields for adding a new row. -->
+							Equipment Type:<br/><input id="txtType" class="form-control" type="text"></input><br/>
+							Equipment Make:<br/><input id="txtMake" class="form-control" type="text"></input><br/>
 							<br/><input type="button" class="btn" id="btnAdd" value="Add New Item" style="font-size:16px;" onclick="AddPressed()"></input>	
 							<br/>
 							<br/>

@@ -398,11 +398,11 @@
 						</div>
 						<div id="inputDiv">
 							<input type="button" class="btn" id="btnDelete" value="Delete Selected Items" id="del" style="font-size:16px;" onclick="Delete()"/><br/><br/> <!-- Delete button that calls function when pressed. -->
-							ID:<br/><input id="txtID" type="text"></input><br/> <!-- Input fields for adding a new row. -->
-							Name:<br/><input id="txtName" type="text"></input><br/>
-							Job Title:<br/><input id="txtJobTitle" type="text"></input><br/>
-							Department:<br/><input id="txtDepartment" type="text"></input><br/>
-							Telephone Number:<br/><input id="txtTelephoneNumber" type="text"></input><br/>
+							ID:<br/><input id="txtID" class="form-control" type="text"></input><br/> <!-- Input fields for adding a new row. -->
+							Name:<br/><input id="txtName" class="form-control" type="text"></input><br/>
+							Job Title:<br/><input id="txtJobTitle" class="form-control" class="form-control" type="text"></input><br/>
+							Department:<br/><input id="txtDepartment" class="form-control" class="form-control" type="text"></input><br/>
+							Telephone Number:<br/><input id="txtTelephoneNumber" class="form-control" type="text"></input><br/>
 							Specialist? <input id="chkSpecialist" type="checkbox"></input><br/>
 							<br/><input type="button" class="btn" id="btnAdd" value="Add New Item" style="font-size:16px;" onclick="AddPressed()"></input>	
 							<br/>

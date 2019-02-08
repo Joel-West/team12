@@ -499,13 +499,13 @@
 						</div>
 						<div id="inputDiv">
 							<input type="button" class="btn" id="btnDelete" value="Delete Selected Items" id="del" style="font-size:16px;" onclick="Delete()"/><br/><br/> <!-- Delete button that calls function when pressed. -->
-							Specialist:<br/><input id="txtSpecialist" type="text" onkeyup="PopulateSpecialistSelect()"></input><br/> <!-- Input fields for adding a new row.-->						
-							<select id="selSpecialist" onchange="SpecialistOptionClicked()" class="greenBack"></select>
+							Specialist:<br/><input id="txtSpecialist" class="form-control" type="text" onkeyup="PopulateSpecialistSelect()"></input><br/> <!-- Input fields for adding a new row.-->						
+							<select id="selSpecialist" onchange="SpecialistOptionClicked()" class="greenBack form-control"></select>
 							<br/>
 							<label id="lblSpecialistNum"></label>
 							<br/><br/>
-							Problem Type:<br/><input id="txtProblemType" type="text" onkeyup="PopulateProblemTypeSelect()"></input><br/>					
-							<select id="selProblemType" onchange="ProblemTypeOptionClicked()" class="greenBack"></select>
+							Problem Type:<br/><input id="txtProblemType" class="form-control" type="text" onkeyup="PopulateProblemTypeSelect()"></input><br/>					
+							<select id="selProblemType" onchange="ProblemTypeOptionClicked()" class="greenBack form-control"></select>
 							<br/>
 							<label id="lblProblemTypeNum"></label>
 							<br/>
