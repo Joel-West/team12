@@ -349,7 +349,7 @@
 					case 1: row.cells[3] = ""; break;
 					case 2: row.cells[3] = ""; row.cells[4] = "";break;
 				}
-				console.log(row.innerHTML);
+				console.log(row.cells[3]);
 				switch (extraCells)
 				{
 					case 0: networkHTML = tableDiv.innerHTML; break;
