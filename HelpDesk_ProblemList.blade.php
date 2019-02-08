@@ -155,6 +155,7 @@
 						case 2: softwareHTML = htm; break;
 					}
 					document.getElementById("tableDiv").innerHTML = htm; //Appends HTML to tableDiv.
+					console.log(htm);
 					newRowCount = 0;
 				},'json');
 			}
