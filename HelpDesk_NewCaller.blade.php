@@ -169,13 +169,17 @@
 	    html += "<div class='dropdown-divider'></div><h6 class='dropdown-header'>Problem Types</h6>";
 		document.getElementById("dropdown-menu3").innerHTML = html;
 		if (num==1){
+		  console.log("RUNNING");
+		  document.getElementById("dropdown-menu3").innerHTML += "<a class='dropdown-item' href='#'>Hardware problem</a>";
 		  findAllChildren("Hardware problem", html);
 		  createSerialNumber();
 		}
 		else if (num==2){
+		  document.getElementById("dropdown-menu3").innerHTML += "<a class='dropdown-item' href='#'>Software problem</a>";
 		  findAllChildren("Software problem", html);
 		}
 		else{
+		  document.getElementById("dropdown-menu3").innerHTML += "<a class='dropdown-item' href='#'>Network problem</a>";
 		  findAllChildren("Network problem", html);		  
 		}
 		html="</div>";
