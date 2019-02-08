@@ -470,6 +470,7 @@
 				}
 				else //else, adds row data to new tab after being removed from another tab.
 				{
+					while (tableDiv.innerHTML == ""){}
 					table = document.getElementById("tbl");
 					table.innerHTML += "<tr style='background-color:rgb(0, 255, 255);'>"+recordToMove+"</tr>"
 					switch (extraCells)
