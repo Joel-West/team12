@@ -443,6 +443,7 @@
 				document.getElementById("btnSoftware").style="text-decoration: initial;"
 				document.getElementById("btnNetwork").style="text-decoration: initial;"
 				htm="";
+				alert(tableDiv.innerHTML);
 				switch (tab)
 				{
 					case 'Hardware':
