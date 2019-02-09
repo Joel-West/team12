@@ -336,7 +336,7 @@
       });
 	  
 	  function checkbox(){
-		if(document.getElementById("Checkbox").checked = true){
+		if(document.getElementById("Checkbox").checked == true){
 		  $('#solutionCollapse').collapse('show');
 		}
 		else{
