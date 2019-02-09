@@ -395,7 +395,8 @@
 					case 1: hardwareHTML = tableDiv.innerHTML; break;
 					case 2: softwareHTML = tableDiv.innerHTML; break;
 				}
-				selected = 1;
+				selected = 0;
+				//selected = 1;
 				console.log("a " + GetSelectedRow());
 				console.log(tableDiv.innerHTML.includes("background-color:rgb(0, 255, 255)"));
 				CheckIfUpdate();
