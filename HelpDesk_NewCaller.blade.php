@@ -517,7 +517,7 @@
 			  </div>
 		    </div>
 		  </div>
-		  <div></div>
+		  <br>
 	      <input type="button" id="btnSave" class="btn" value="Save Changes" onClick="SaveChanges();" />
 		</div>
 		<div class="col-3"></div>
