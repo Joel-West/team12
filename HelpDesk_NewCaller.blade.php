@@ -510,10 +510,10 @@
 		    Solution:
 		    <textarea class="form-control" rows="5" id="solution" ></textarea>
 			<div id="specialistComboBox">
-		      <button class='btn greenBack dropdown-toggle' type='button' id='dropdownButton4' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>
-			    Choose Specialist:<span class='caret'></span>
+		      <button class='btn greenBack dropdown-toggle' type='button' id='dropdownButtonSolution' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>
+			    Choose Solution:<span class='caret'></span>
 			  </button>
-			  <div class='dropdown-menu' id='dropdown-menu4' aria-labelledby='dropdownMenu4'>
+			  <div class='dropdown-menu' id='dropdown-menuSolution' aria-labelledby='dropdownMenuSolution'>
 			  </div>
 		    </div>
 		  </div>
