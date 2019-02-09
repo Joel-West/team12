@@ -459,9 +459,9 @@
 		<div class="col-3"></div>
 		
 		<div class="col-3"></div>
-		<div class="collapse col-3 text-right" id="problemTypeCollapse">
+		<div class="collapse col-3" id="problemTypeCollapse">
 		  Problem Type:
-		  <div id="problemTypeComboBox">
+		  <div id="problemTypeComboBox" class="text-right">
 		    <button class='btn greenBack dropdown-toggle' type='button' id='dropdownButton3' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>
 			  Choose Problem Type<span class='caret'></span>
 			</button>
@@ -471,9 +471,9 @@
 		  </div>
 		</div>
 		
-		<div class="collapse col-3 text-left" id="serialNumberCollapse">
+		<div class="collapse col-3 " id="serialNumberCollapse">
 		    Serial Number:
-		  <div id="serialNumberComboBox">
+		  <div id="serialNumberComboBox" class="text-left">
 		    <button class='btn greenBack dropdown-toggle' type='button' id='dropdownButtonSerial' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>
 			  Choose Serial Number<span class='caret'></span>
 	        </button>
