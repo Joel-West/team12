@@ -386,7 +386,8 @@
 				console.log("aa " + GetSelectedRow());
 				table = document.getElementById("tbl");
 				table.innerHTML.replace("background-color:rgb(0, 255, 255)", "background-color:rgb(159, 255, 48)");
-				table.innerHTML += "<tr style='background-color:rgb(0, 255, 255)'>"+rowData+"</tr>";
+				table.innerHTML += "<tr'>"+rowData+"</tr>";
+				//style='background-color:rgb(0, 255, 255)
 				tableDiv = document.getElementById("tableDiv");
 				switch (extraCells)
 				{
