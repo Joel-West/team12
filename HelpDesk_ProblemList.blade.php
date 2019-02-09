@@ -380,7 +380,7 @@
 			function TransferRow(rowData) //Adds row data to new tab after being removed from another tab.
 			{
 				table = document.getElementById("tbl");
-				table.innerHTML += "<tr>"+rowData+"</tr>"
+				table.innerHTML += "<tr id='tempID'>"+rowData+"</tr>";
 				tableDiv = document.getElementById("tableDiv");
 				switch (extraCells)
 				{
@@ -388,7 +388,7 @@
 					case 1: hardwareHTML = tableDiv.innerHTML; break;
 					case 2: softwareHTML = tableDiv.innerHTML; break;
 				}
-				table.rows[table.rows.length-1].style='background-color:rgb(159, 255, 48)';
+				document.getElementById('tempID').style='background-color:rgb(0, 255, 255)';
 				CheckIfUpdate();
 			}
 			
