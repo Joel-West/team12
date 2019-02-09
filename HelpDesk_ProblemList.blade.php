@@ -111,6 +111,7 @@
 						{	
 							for (tempCells = 0; tempCells < 3; tempCells++) //Iterate 3 times to create all three tables.
 							{	
+								console.log(tempCells);
 								switch (tempCells)
 								{
 									case 0: var htm = "<table class='table' id='tblNetwork' border='1'>"; break;
