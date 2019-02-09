@@ -394,6 +394,7 @@
 				}
 				selected = 1;
 				document.getElementById('tempID').style='background-color:rgb(0, 255, 255)';
+				document.getElementById('tempID').removeAttribute("id");
 				console.log("a " + GetSelectedRow());
 				CheckIfUpdate();
 			}
