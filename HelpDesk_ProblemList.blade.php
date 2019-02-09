@@ -532,7 +532,7 @@
 				if (GetCurrentTableDivID() != null)
 				{
 					document.getElementById(GetCurrentTableDivID()).style.display = "none";
-					DeselectAllRows(GetCurrentTableID(0);
+					DeselectAllRows(GetCurrentTableID(0));
 				}
 				switch (tab)
 				{
