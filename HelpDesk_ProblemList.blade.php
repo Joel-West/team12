@@ -357,22 +357,9 @@
 				rowData = document.getElementById("tbl").rows[GetSelectedRow()].innerHTML; //Gets the details of the row that is selected.
 				document.getElementById("tbl").deleteRow(GetSelectedRow()); //Delete the row from the current tab.
 				tableDiv = document.getElementById("tableDiv");
-				//console.log(tableDiv.innerHTML.includes("background-color: rgb(0, 255, 255)"));
-				tableDiv.innerHTML = tableDiv.innerHTML.replace("background-color: rgb(0, 255, 255)", "background-color: rgb(159, 255, 48)");
-				selected = 0;
-				//console.log(tableDiv.innerHTML.includes("background-color: rgb(0, 255, 255)"));
-				switch (extraCells) //Saves the value of the current tab's innerHTML.
-				{
-					case 0: networkHTML = tableDiv.innerHTML;  break;
-					case 1: hardwareHTML = tableDiv.innerHTML; break;
-					case 2: softwareHTML = tableDiv.innerHTML; break;
-				}
-				switch(newExtraCells) //Changes to tab that record has been moved to.
-				{
-					case 0: ChangeTab("Network", false); break;
-					case 1: ChangeTab("Hardware", false); break;
-					case 2: ChangeTab("Software", false); break;
-				}
+
+				//Help
+				
 				setTimeout(TransferRow(rowData), 1000);
 				if (!ListContains(updList, row.cells[0].innerHTML)) //If moved row is not already marked to be updated when changes are saved to the database later.
 				{
@@ -383,24 +370,8 @@
 			
 			function TransferRow(rowData) //Adds row data to new tab after being removed from another tab.
 			{
-				console.log("aa " + GetSelectedRow());
 				table = document.getElementById("tbl");
-				table.innerHTML.replace("background-color:rgb(0, 255, 255)", "background-color:rgb(159, 255, 48)");
 				table.innerHTML += "<tr'>"+rowData+"</tr>";
-				//style='background-color:rgb(0, 255, 255)
-				tableDiv = document.getElementById("tableDiv");
-				console.log(extraCells);
-				switch (extraCells)
-				{
-					case 0: networkHTML = tableDiv.innerHTML; break;
-					case 1: hardwareHTML = tableDiv.innerHTML; break;
-					case 2: softwareHTML = tableDiv.innerHTML; break;
-				}
-				selected = 0;
-				//selected = 1;
-				console.log("a " + GetSelectedRow());
-				console.log(tableDiv.innerHTML.includes("background-color:rgb(0, 255, 255)"));
-				CheckIfUpdate();
 			}
 			
 			function SpecialistOptionClicked() //Sets specialist text box value to selected option in selection box.
@@ -458,7 +429,6 @@
 					return; //If already on selected page, ignore request.
 				}
 				tableDiv = document.getElementById("tableDiv");
-				tableDiv.innerHTML = tableDiv.innerHTML.replace("background-color: rgb(0, 255, 255)", "background-color: rgb(159, 255, 48)");
 				document.getElementById("btnHardware").style="text-decoration: initial;"
 				document.getElementById("btnSoftware").style="text-decoration: initial;"
 				document.getElementById("btnNetwork").style="text-decoration: initial;"
