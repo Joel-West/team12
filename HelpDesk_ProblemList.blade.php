@@ -447,6 +447,13 @@
 				{
 					return; //If already on selected page, ignore request.
 				}
+				if (document.getElementById("tbl") != null && selected > 0) //Deselect all rows on tab.
+				{
+					for (i = 0; i < document.getElementById("tbl").rows.length; i++)
+					{
+						document.getElementById("tbl").rows[i].style='background-color:rgb(159, 255, 48)';
+					}
+				}
 				document.getElementById("btnHardware").style="text-decoration: initial;"
 				document.getElementById("btnSoftware").style="text-decoration: initial;"
 				document.getElementById("btnNetwork").style="text-decoration: initial;"
@@ -487,13 +494,6 @@
 					default: break;
 				}
 				document.getElementById("typeSpecificDiv").text = htm; //Appends innerHTML for the input elements that change depending on the tab.
-				if (document.getElementById("tbl") != null && selected > 0)
-				{
-					for (i = 0; i < document.getElementById("tbl").rows.length; i++)
-					{
-						document.getElementById("tbl").rows[i].style='background-color:rgb(0, 255, 255)';
-					}
-				}
 				if (buttonPressed) //If entered via a button press, rather than my changing the tab of a record, set 'selected' to 0. Otherwise, it will remain at 1.
 				{
 					selected = 0;
