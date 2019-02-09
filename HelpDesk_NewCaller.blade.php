@@ -188,7 +188,7 @@
 		$('#problemTypeCollapse').collapse('show');
 	  }
 	  
-	  function radios2(){
+	  function checkbox(){
 		
 	  }
 	  
@@ -490,10 +490,10 @@
 			<div class='dropdown-menu' id='dropdown-menu4' aria-labelledby='dropdownMenu4'>
 			</div>
 		  </div>
-		  <div id="resolvedRadioButtons">
+		  <div id="resolvedCheckbox">
 			<div class="form-check">
-			  <input class="form-check-input" type="radio" name="Radios2" id="Radios2" value="Resolved" onClick = "radios2();">
-			  <label class="form-check-label" for="Radios2">
+			  <input class="form-check-input" type="checkbox" id="Checkbox" value="Resolved" onClick = "checkbox();">
+			  <label class="form-check-label" for="Checkbox">
 			    Resolved
 			  </label>
 			</div>
