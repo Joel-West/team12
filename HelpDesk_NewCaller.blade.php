@@ -188,10 +188,6 @@
 		$('#problemTypeCollapse').collapse('show');
 	  }
 	  
-	  function checkbox(){
-		
-	  }
-	  
 	  function findAllChildren(parent,html){
 		var sql = "SELECT typeName FROM tblProblemType WHERE generalisation = '" + parent + "';";
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
@@ -338,6 +334,16 @@
         $("#dropdownButton4:first-child").text($(this).text());
         $("#dropdownButton4:first-child").val($(this).text());
       });
+	  
+	  function checkbox(){
+		if(document.getElementById("Checkbox").checked = true){
+		  $('#solutionCollapse').collapse('show');
+		}
+		else{
+		  $('#solutionCollapse').collapse('hide');
+		}
+		
+	  }
 	  
 	  function SaveChanges(){
 		
@@ -497,6 +503,10 @@
 			    Resolved
 			  </label>
 			</div>
+		  </div>
+		  <div class="collapse" id="solutionCollapse">
+		    Solution:
+		    <textarea class="form-control" rows="5" id="solution" ></textarea>
 		  </div>
 	      <input type="button" id="btnSave" class="btn" value="Save Changes" onClick="SaveChanges();" />
 		</div>
