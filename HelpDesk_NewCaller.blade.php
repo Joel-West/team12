@@ -474,11 +474,13 @@
 		</div>
 		
 		<div class="collapse col-3 " id="serialNumberCollapse">
+		  <div class="ml-5 text-left">
+		    Serial Number:
+		  </div>
 		  <div id="serialNumberComboBox" class="text-left">
 		    <button class='btn greenBack dropdown-toggle' type='button' id='dropdownButtonSerial' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>
 			  Choose Serial Number<span class='caret'></span>
 	        </button>
-			:Serial Number
 		    <div class='dropdown-menu' id='dropdown-menuSerial' aria-labelledby='dropdownMenuSerial'>
 			  
 		    </div>
