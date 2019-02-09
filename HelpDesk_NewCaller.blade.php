@@ -459,7 +459,7 @@
 		<div class="col-3"></div>
 		
 		<div class="col-3"></div>
-		<div class="collapse col-3" id="problemTypeCollapse">
+		<div class="collapse col-3 mr-auto" id="problemTypeCollapse">
 		  Problem Type:
 		  <div id="problemTypeComboBox">
 		    <button class='btn greenBack dropdown-toggle' type='button' id='dropdownButton3' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>
@@ -471,7 +471,7 @@
 		  </div>
 		</div>
 		
-		<div class="collapse col-3" id="serialNumberCollapse">
+		<div class="collapse col-3 ml-auto" id="serialNumberCollapse">
 		    Serial Number:
 		  <div id="serialNumberComboBox">
 		    <button class='btn greenBack dropdown-toggle' type='button' id='dropdownButtonSerial' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>
