@@ -468,7 +468,7 @@
 						break;
 					default: break;
 				}
-				document.getElementById("GetCurrentTableDivID").style.display = "inline";
+				document.getElementById(GetCurrentTableDivID()).style.display = "inline";
 				document.getElementById("typeSpecificDiv").text = htm; //Appends innerHTML for the input elements that change depending on the tab.
 				if (buttonPressed) //If entered via a button press, rather than my changing the tab of a record, set 'selected' to 0. Otherwise, it will remain at 1.
 				{
