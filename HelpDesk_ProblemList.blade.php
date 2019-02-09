@@ -513,7 +513,7 @@
 				rows = GetRows();
 				for (i = rows-1; i > 0; i--) //Iterate through the rows of the table.
 				{
-					document.getElementById(GetCurrentTableID())).rows[i].style = "background-color:rgb(159, 255, 48)";
+					document.getElementById(GetCurrentTableID()).rows[i].style = "background-color:rgb(159, 255, 48)";
 				}
 				selected = 0;
 			}
