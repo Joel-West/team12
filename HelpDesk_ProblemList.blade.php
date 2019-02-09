@@ -152,19 +152,19 @@
 									htm +="<td>"+json[i].solution+"</td>";
 									htm += "</tr>";							
 								}
+								console.log(tempCells);
+								console.log(htm);
+								switch (tempCells)
+								{
+									case 0: document.getElementById("tableDivNetwork").innerHTML = htm; break; //Appends HTML to the relevant tableDiv.
+									case 1: document.getElementById("tableDivHardware").innerHTML = htm; break;
+									case 2: document.getElementById("tableDivSoftware").innerHTML = htm; break;
+								}
 							}
 						}
 						else
 						{
 							var htm = "Sorry, no results found..."; //If no results, display error.
-						}
-						console.log(tempCells);
-						console.log(htm);
-						switch (tempCells)
-						{
-							case 0: document.getElementById("tableDivNetwork").innerHTML = htm; break; //Appends HTML to the relevant tableDiv.
-							case 1: document.getElementById("tableDivHardware").innerHTML = htm; break;
-							case 2: document.getElementById("tableDivSoftware").innerHTML = htm; break;
 						}
 						newRowCount = 0;
 						ChangeTab("Hardware");
