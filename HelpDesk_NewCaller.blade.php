@@ -337,11 +337,24 @@
 	  
 	  function checkbox(){
 		if(document.getElementById("Checkbox").checked == true){
-		  $('#solutionCollapse').collapse('show');
+		  solutionCreation(); 
 		}
 		else{
 		  $('#solutionCollapse').collapse('hide');
 		}
+		
+	  function solutionCreation(){
+		var sql = "SELECT solution FROM tblProblem WHERE problemSubType";
+		var html = "";
+		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
+		  for (i = 0; i<json.length; i++){
+			html+= "<a class='dropdown-item' >" + problemtypeVar + "data-toggle='popover' data-trigger='hover' data-content='" + json[i].solution + "';";
+		  }
+		  document.getElementById("dropdown-menuSolution").innerHTML = html;
+		  $('#solutionCollapse').collapse('show');
+		  
+		},'json');
+	  }
 		
 	  }
 	  
