@@ -133,24 +133,27 @@
 								htm+="<th onclick='SortTable(" + (6+tempCells) + ")'scope='col'>Solution</th></tr>"; //Appending column headers.
 								for (i = 0; i<json.length; i++) //Iterates through the json array of results.
 								{
-									htm += "<tr style='background-color:rgb(159, 255, 48);'>"; //Sets colour and ID of row.
-									htm +="<td>"+json[i].problemNumber+"</td>";
-									htm +="<td>"+json[i].problem+"</td>";
-									htm +="<td>"+json[i].problemSubType+"</td>";	
-									if (tempCells == 1)
+									if ((json[i].problemType == "Hardware" && tempCells == 1) || (json[i].problemType == "Software" && tempCells == 2) || (json[i].problemType == "Network" && tempCells == 0)) //If of relevant problem type.
 									{
-										htm +="<td>"+json[i].serialNumber+"</td>";
+										htm += "<tr style='background-color:rgb(159, 255, 48);'>"; //Sets colour and ID of row.
+										htm +="<td>"+json[i].problemNumber+"</td>";
+										htm +="<td>"+json[i].problem+"</td>";
+										htm +="<td>"+json[i].problemSubType+"</td>";	
+										if (tempCells == 1)
+										{
+											htm +="<td>"+json[i].serialNumber+"</td>";
+										}
+										else if (tempCells == 2)
+										{
+											htm +="<td>"+json[i].operatingSystem+"</td>";
+											htm +="<td>"+json[i].softwareConcerned+"</td>";
+										}
+										htm +="<td>"+json[i].specialistID+"</td>";
+										htm +="<td>"+json[i].resolved+"</td>";
+										htm +="<td>"+json[i].dateTimeResolved+"</td>";
+										htm +="<td>"+json[i].solution+"</td>";
+										htm += "</tr>";
 									}
-									else if (tempCells == 2)
-									{
-										htm +="<td>"+json[i].operatingSystem+"</td>";
-										htm +="<td>"+json[i].softwareConcerned+"</td>";
-									}
-									htm +="<td>"+json[i].specialistID+"</td>";
-									htm +="<td>"+json[i].resolved+"</td>";
-									htm +="<td>"+json[i].dateTimeResolved+"</td>";
-									htm +="<td>"+json[i].solution+"</td>";
-									htm += "</tr>";							
 								}
 								console.log(tempCells);
 								console.log(htm);
