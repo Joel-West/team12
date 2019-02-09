@@ -107,8 +107,12 @@
 			
 			function RunQuery(sql) //Function for running a query to the personnel table and getting building a table.
 			{
+				console.log(extraCells);
+				console.log(GetCurrentTableDivID());
 				$.get("Query.php", {'sql':sql, 'returnData':true},function(json) //Calls query.php, which handles the SQL query and sorting of result data.
 				{
+					console.log(extraCells);
+					console.log(GetCurrentTableDivID());
 					if(json && json[0]) //If result of php file was a json array.	
 					{				
 						switch (extraCells)
@@ -159,8 +163,6 @@
 					{
 						var htm = "Sorry, no results found..."; //If no results, display error.
 					}
-					console.log(extraCells);
-					console.log(GetCurrentTableDivID());
 					document.getElementById(GetCurrentTableDivID()).innerHTML = htm; //Appends HTML to tableDiv.
 					newRowCount = 0;
 				},'json');
