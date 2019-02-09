@@ -30,8 +30,6 @@
 				SetPrivileges(userData) //Enter function that defines what functions are available to user based on status.
 				WriteTime(); //Function that writes the current time at the top of the page.
 				RunQuery(""); //Runs function get gets data from database and display it in the three tableDivs.
-				ChangeTab("Hardware");
-				CheckIfUpdate();
 			}
 			
 			function SetPrivileges(userData) //Function that checks if user is an admin or analyst and adjusts available buttons accordingly.
@@ -111,7 +109,6 @@
 						{	
 							for (tempCells = 0; tempCells < 3; tempCells++) //Iterate 3 times to create all three tables.
 							{	
-								console.log(tempCells);
 								switch (tempCells)
 								{
 									case 0: var htm = "<table class='table' id='tblNetwork' border='1'>"; break;
@@ -161,6 +158,8 @@
 						{
 							var htm = "Sorry, no results found..."; //If no results, display error.
 						}
+						console.log(tempCells);
+						console.log(htm);
 						switch (tempCells)
 						{
 							case 0: document.getElementById("tableDivNetwork").innerHTML = htm; break; //Appends HTML to the relevant tableDiv.
@@ -168,6 +167,8 @@
 							case 2: document.getElementById("tableDivSoftware").innerHTML = htm; break;
 						}
 						newRowCount = 0;
+						ChangeTab("Hardware");
+						CheckIfUpdate();
 					},'json');
 				}
 				else
