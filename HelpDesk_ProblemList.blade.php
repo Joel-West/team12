@@ -739,7 +739,7 @@
 						<br/>
 						<label id="lblSpecialistNum"></label>
 						<br/>
-						Resolved?&nbsp&nbsp<input id="chkResolved" type="checkbox" onclick="CheckClicked()"></input><br/>
+						Resolved?&nbsp<input id="chkResolved" type="checkbox" onclick="CheckClicked()"></input><br/>
 						<div id="solutionDiv">
 							<input id="txtDateTime" type="text" disabled></input><br/>
 							Solution:<br/><textArea class="form-control" rows="10" id="txtSolution" maxlength="2048" style="background-color:rgb(159, 255, 48);"></textArea>
