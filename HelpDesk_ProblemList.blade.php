@@ -490,7 +490,7 @@
 				console.log('document.getElementById("tbl") = ' + document.getElementById("tbl") + ', GetSelectedRow() = ' + GetSelectedRow() + ', selected = ' + selected);
 				if (document.getElementById("tbl") != null && GetSelectedRow() != null && selected > 0)
 				{
-					console.log(entered row);
+					console.log("entered");
 					document.getElementById("tbl").rows[GetSelectedRow()].style='background-color:rgb(0, 255, 255)';
 				}
 				if (buttonPressed) //If entered via a button press, rather than my changing the tab of a record, set 'selected' to 0. Otherwise, it will remain at 1.
