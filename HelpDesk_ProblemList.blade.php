@@ -155,8 +155,6 @@
 										htm += "</tr>";
 									}
 								}
-								console.log(tempCells);
-								console.log(htm);
 								switch (tempCells)
 								{
 									case 0: document.getElementById("tableDivNetwork").innerHTML = htm; break; //Appends HTML to the relevant tableDiv.
@@ -503,6 +501,7 @@
 			
 			function GetCurrentTableDivID() //Returns the ID of current tab's table div.
 			{
+				alert(extraCells);
 				switch (extraCells)
 				{
 					case 0: return "tableDivNetwork"; break;
@@ -522,6 +521,7 @@
 				document.getElementById("btnSoftware").style="text-decoration: initial;"
 				document.getElementById("btnNetwork").style="text-decoration: initial;"
 				htm="";
+				alert(GetCurrentTableDivID());
 				document.getElementById(GetCurrentTableDivID()).style.display = "none";
 				switch (tab)
 				{
