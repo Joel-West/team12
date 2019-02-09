@@ -460,7 +460,7 @@
 		
 		<div class="col-3"></div>
 		<div class="collapse col-3" id="problemTypeCollapse">
-		  <label style="padding-left: 70vw">
+		  <label style="padding-left: 1vw">
 		    Problem Type:
 		  </label>
 		  <div id="problemTypeComboBox" class="text-right">
