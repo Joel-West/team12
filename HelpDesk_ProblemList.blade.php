@@ -532,7 +532,7 @@
 				if (GetCurrentTableDivID() != null)
 				{
 					document.getElementById(GetCurrentTableDivID()).style.display = "none";
-					DeselectAllRows(GetCurrentTableID(0));
+					DeselectAllRows(GetCurrentTableID());
 				}
 				switch (tab)
 				{
@@ -693,20 +693,20 @@
 				</div>
 				<br/><br/>
 				<div class="row" align="center">
-				<div id="leftDiv" align="center" class="col-9">
+				<div id="leftDiv" align="center" class="col-9 table-wrapper-scroll-y">
 						<div id="tabDiv" class="row" align="center" style="text-align:center; display: inline-block;"> <!-- Within this row are three buttons that change the tab of problems listed. -->
 							<input type="button" id="btnHardware" class="btn tabButton" value="Hardware" onclick="ChangeTab('Hardware', true)"></input>
 							<input type="button" id="btnSoftware" class="btn tabButton" value="Software" onclick="ChangeTab('Software', true)"></input>
 							<input type="button" id="btnNetwork" class="btn tabButton" value="Network" onclick="ChangeTab('Network', true)"></input>
 						</div>
 						<br/>
-						<div id="tableDivHardware" class="table-wrapper-scroll-y" style="display:none"> <!-- Div containing hardware data table. -->
+						<div id="tableDivHardware" style="display:none"> <!-- Div containing hardware data table. -->
 							Loading data...
 						</div>
-						<div id="tableDivSoftware" class="table-wrapper-scroll-y" style="display:none"> <!-- Div containing software data table. -->
+						<div id="tableDivSoftware" style="display:none"> <!-- Div containing software data table. -->
 							Loading data...
 						</div>
-						<div id="tableDivNetwork" class="table-wrapper-scroll-y" style="display:none"> <!-- Div containing network data table. -->
+						<div id="tableDivNetwork" style="display:none"> <!-- Div containing network data table. -->
 							Loading data...
 						</div>
 					<br/>
