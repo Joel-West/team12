@@ -347,17 +347,21 @@
 		var sql = "SELECT solution FROM tblProblem WHERE problemSubType = '" + problemTypeVar + "';";
 		var html = "";
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
-		  console.log("ENTER");
-		  for (i = 0; i<json.length; i++){
-			console.log("FOR");
-			html+= "<a class='dropdown-item' >" + problemTypeVar + "data-toggle='popover' data-trigger='hover' data-content='" + json[i].solution + "';";
+		  if (json && json[0]){
+		    console.log("ENTER");
+		    for (i = 0; i<json.length; i++){
+			  console.log("FOR");
+			  html+= "<a class='dropdown-item'>" + problemTypeVar + "data-toggle='popover' data-trigger='hover' data-content='" + json[i].solution + "'</a>";
+		    }
+		    document.getElementById("dropdown-menuSolution").innerHTML = html;
+			$('#specialistComboBox').collapse('show');
+		    $('#solutionCollapse').collapse('show');
 		  }
-		  document.getElementById("dropdown-menuSolution").innerHTML = html;
-		  $('#solutionCollapse').collapse('show');
-		  
+		  else{
+			$('#specialistComboBox').collapse('hide');
+		    $('#solutionCollapse').collapse('show');
+		  }
 		},'json');
-	  }
-		
 	  }
 	  
 	  function SaveChanges(){
@@ -524,7 +528,7 @@
 		  <div class="collapse" id="solutionCollapse">
 		    Solution:
 		    <textarea class="form-control" rows="5" id="solution" ></textarea>
-			<div id="specialistComboBox">
+			<div class="collapse" id="specialistComboBox">
 		      <button class='btn greenBack dropdown-toggle' type='button' id='dropdownButtonSolution' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>
 			    Choose Solution:<span class='caret'></span>
 			  </button>
