@@ -359,6 +359,7 @@
 				tableDiv = document.getElementById("tableDiv");
 				//console.log(tableDiv.innerHTML.includes("background-color: rgb(0, 255, 255)"));
 				tableDiv.innerHTML = tableDiv.innerHTML.replace("background-color: rgb(0, 255, 255)", "background-color: rgb(159, 255, 48)");
+				selected = 0;
 				//console.log(tableDiv.innerHTML.includes("background-color: rgb(0, 255, 255)"));
 				switch (extraCells) //Saves the value of the current tab's innerHTML.
 				{
@@ -392,7 +393,7 @@
 					case 1: hardwareHTML = tableDiv.innerHTML.replace("background-color: rgb(0, 255, 255)", "background-color: rgb(159, 255, 48)"); break;
 					case 2: softwareHTML = tableDiv.innerHTML.replace("background-color: rgb(0, 255, 255)", "background-color: rgb(159, 255, 48)"); break;
 				}
-				selected = 1;
+				selected = 0;
 				console.log("a " + GetSelectedRow());
 				CheckIfUpdate();
 			}
