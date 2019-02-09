@@ -460,7 +460,9 @@
 		
 		<div class="col-3"></div>
 		<div class="collapse col-3" id="problemTypeCollapse">
-		 Problem Type:
+		<label class="mr-5 text-right">
+		  Problem Type:
+		</label>
 		  <div id="problemTypeComboBox" class="text-right">
 		    <button class='btn greenBack dropdown-toggle' type='button' id='dropdownButton3' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>
 			  Choose Problem Type<span class='caret'></span>
