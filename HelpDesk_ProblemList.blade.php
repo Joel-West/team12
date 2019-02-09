@@ -382,6 +382,7 @@
 			
 			function TransferRow(rowData) //Adds row data to new tab after being removed from another tab.
 			{
+				console.log("aa " + GetSelectedRow());
 				table = document.getElementById("tbl");
 				table.innerHTML += "<tr id='tempID'>"+rowData+"</tr>";
 				tableDiv = document.getElementById("tableDiv");
@@ -513,7 +514,7 @@
 					document.getElementById("btnUpdate").disabled = false;
 					document.getElementById("selMainType").disabled = false;
 					document.getElementById("txtProblem").disabled = false;
-					console.log("b " + GetSelectedRow());
+					//console.log("b " + GetSelectedRow());
 					document.getElementById("txtProblem").value = document.getElementById("tbl").rows[rowNum].cells[1].innerHTML;
 					document.getElementById("txtProblemType").disabled = false;
 					document.getElementById("txtProblemType").value = document.getElementById("tbl").rows[rowNum].cells[2].innerHTML;
