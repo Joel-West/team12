@@ -508,6 +508,16 @@
 				}
 			}
 			
+			function DeselectAllRows(tabID) //Deselects all rows before leaving a tab.
+			{
+				rows = GetRows();
+				for (i = rows-1; i > 0; i--) //Iterate through the rows of the table.
+				{
+					document.getElementById(GetCurrentTableID())).rows[i].style = "background-color:rgb(159, 255, 48)";
+				}
+				selected = 0;
+			}
+			
 			function ChangeTab(tab, buttonPressed) //Changes the current tab of problems (hardware, software or network).
 			{
 				if ((extraCells == 0 && tab == "Network") || (extraCells == 1 && tab == "Hardware") || (extraCells == 2 && tab == "Software"))
@@ -522,6 +532,7 @@
 				if (GetCurrentTableDivID() != null)
 				{
 					document.getElementById(GetCurrentTableDivID()).style.display = "none";
+					DeselectAllRows(GetCurrentTableID(0);
 				}
 				switch (tab)
 				{
