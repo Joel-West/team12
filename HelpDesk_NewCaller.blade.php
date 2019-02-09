@@ -468,10 +468,9 @@
 			</button>
 			<div class='dropdown-menu' id='dropdown-menu3' aria-labelledby='dropdownMenu3'>
 			
-			</div>	
-		  </div>
-		  
-		  <div class="collapse" id="serialNumberCollapse">
+			</div>
+			
+			<div class="collapse" id="serialNumberCollapse">
 		    Serial Number:
 		    <div id="serialNumberComboBox">
 		      <button class='btn greenBack dropdown-toggle' type='button' id='dropdownButtonSerial' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>
@@ -481,6 +480,8 @@
 			  
 		      </div>
 		    </div>
+			
+		  </div>
 		  </div>
 		  
 		</div>
