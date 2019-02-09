@@ -357,9 +357,9 @@
 				rowData = document.getElementById("tbl").rows[GetSelectedRow()].innerHTML; //Gets the details of the row that is selected.
 				document.getElementById("tbl").deleteRow(GetSelectedRow()); //Delete the row from the current tab.
 				tableDiv = document.getElementById("tableDiv");
-				console.log(tableDiv.innerHTML.includes("background-color: rgb(0, 255, 255)"));
+				//console.log(tableDiv.innerHTML.includes("background-color: rgb(0, 255, 255)"));
 				tableDiv.innerHTML = tableDiv.innerHTML.replace("background-color: rgb(0, 255, 255)", "background-color: rgb(159, 255, 48)");
-				console.log(tableDiv.innerHTML.includes("background-color: rgb(0, 255, 255)"));
+				//console.log(tableDiv.innerHTML.includes("background-color: rgb(0, 255, 255)"));
 				switch (extraCells) //Saves the value of the current tab's innerHTML.
 				{
 					case 0: networkHTML = tableDiv.innerHTML;  break;
@@ -509,6 +509,7 @@
 				if (selected == 1)
 				{
 					rowNum = GetSelectedRow(); //Gets the row that is selected.
+					console.log(rowNum);
 					document.getElementById("btnUpdate").disabled = false;
 					document.getElementById("selMainType").disabled = false;
 					document.getElementById("txtProblem").disabled = false;
