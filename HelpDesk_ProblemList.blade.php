@@ -30,7 +30,6 @@
 				SetPrivileges(userData) //Enter function that defines what functions are available to user based on status.
 				WriteTime(); //Function that writes the current time at the top of the page.
 				RunQuery(""); //Runs function get gets data from database and display it in the three tableDivs.
-				ResetTable();
 				ChangeTab("Hardware");
 				CheckIfUpdate();
 			}
