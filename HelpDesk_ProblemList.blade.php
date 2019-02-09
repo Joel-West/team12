@@ -388,6 +388,7 @@
 					case 1: hardwareHTML = tableDiv.innerHTML; break;
 					case 2: softwareHTML = tableDiv.innerHTML; break;
 				}
+				selected = 1;
 				document.getElementById('tempID').style='background-color:rgb(0, 255, 255)';
 				CheckIfUpdate();
 			}
@@ -486,13 +487,13 @@
 					default: break;
 				}
 				document.getElementById("typeSpecificDiv").text = htm; //Appends innerHTML for the input elements that change depending on the tab.
+				if (document.getElementById("tbl") != null && GetSelectedRow() != null && selected > 0)
+				{
+					console.log(GetSelectedRow());
+					document.getElementById("tbl").rows[GetSelectedRow()].style='background-color:rgb(0, 255, 255)';
+				}
 				if (buttonPressed) //If entered via a button press, rather than my changing the tab of a record, set 'selected' to 0. Otherwise, it will remain at 1.
 				{
-					if (document.getElementById("tbl") != null && GetSelectedRow() != null && selected > 0)
-					{
-						console.log(GetSelectedRow());
-						document.getElementById("tbl").rows[GetSelectedRow()].style='background-color:rgb(0, 255, 255)';
-					}
 					selected = 0;
 					CheckIfUpdate() //Prevents user input if more or less than one row is selected.
 				}
