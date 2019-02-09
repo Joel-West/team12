@@ -420,8 +420,9 @@
 				}
 			}
 			
-			function GetCurrentTableID() //Returns the ID of
+			function GetCurrentTableID() //Returns the ID of current tab's table.
 			{
+				console.log(extraCells);
 				switch (extraCells)
 				{
 					case 0: return "tblNetwork"; break;
@@ -430,7 +431,7 @@
 				}
 			}
 			
-			function GetCurrentTableDivID() //Returns the ID of
+			function GetCurrentTableDivID() //Returns the ID of current tab's table div.
 			{
 				switch (extraCells)
 				{
