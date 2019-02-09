@@ -451,25 +451,24 @@
 				document.getElementById("btnSoftware").style="text-decoration: initial;"
 				document.getElementById("btnNetwork").style="text-decoration: initial;"
 				htm="";
+				document.getElementById("GetCurrentTableDivID").style.display = "none";
 				switch (tab)
 				{
 					case 'Hardware':
 						extraCells = 1; //There is one extra cell appended to the table when on the hardware tab (serial number).
 						document.getElementById("btnHardware").style="text-decoration: underline;"; //Underlines selected tab.
-						tableDiv.innerHTML = hardwareHTML;
 						break;
 					case 'Software':
 						extraCells = 2; //There are two extra cells appended to the table when on the software tab (operating system, software concerned).
 						document.getElementById("btnSoftware").style="text-decoration: underline;"; //Underlines selected tab.
-						tableDiv.innerHTML = softwareHTML;
 						break;
 					case 'Network':
 						extraCells = 0; //There are no extra cells appended to the table when on the network tab.
 						document.getElementById("btnNetwork").style="text-decoration: underline;"; //Underlines selected tab.
-						tableDiv.innerHTML = networkHTML;
 						break;
 					default: break;
 				}
+				document.getElementById("GetCurrentTableDivID").style.display = "inline";
 				document.getElementById("typeSpecificDiv").text = htm; //Appends innerHTML for the input elements that change depending on the tab.
 				if (buttonPressed) //If entered via a button press, rather than my changing the tab of a record, set 'selected' to 0. Otherwise, it will remain at 1.
 				{
@@ -576,12 +575,6 @@
 					}
 					selected = 0;
 					tableDiv = document.getElementById("tableDiv");
-					switch (extraCells)
-					{
-						case 0: networkHTML = tableDiv.innerHTML; break;
-						case 1: hardwareHTML = tableDiv.innerHTML; break;
-						case 2: softwareHTML = tableDiv.innerHTML; break;
-					}
 					console.log(delList);
 					CheckIfUpdate();
 				}
