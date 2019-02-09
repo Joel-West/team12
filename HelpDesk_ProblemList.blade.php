@@ -20,7 +20,7 @@
 			var userData; //Variable containing data about user.
 			var currentPage = "ProblemList"; //Variable storing the name of the current page, so it can be passed in the URL to the next page as a 'previous page' variable.
 			var selected = 0; //Global variable corresponding to number of highlighted table rows.
-			var extraCells = 1; //Refers to the numbers of extra cells in the table for the current problem category (software = 2, hardware = 1, network = 0).
+			var extraCells = -1; //Refers to the numbers of extra cells in the table for the current problem category (software = 2, hardware = 1, network = 0).
 			var specialists = [];
 			var problemTypes = [];
 			
