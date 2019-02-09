@@ -519,7 +519,10 @@
 				document.getElementById("btnSoftware").style="text-decoration: initial;"
 				document.getElementById("btnNetwork").style="text-decoration: initial;"
 				htm="";
-				document.getElementById(GetCurrentTableDivID()).style.display = "none";
+				if (GetCurrentTableDivID() != null)
+				{
+					document.getElementById(GetCurrentTableDivID()).style.display = "none";
+				}
 				switch (tab)
 				{
 					case 'Hardware':
