@@ -9,13 +9,18 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>	<!-- Importing Bootstrap files. -->
 		<script type="text/javascript" src="{{ URL::asset('js/ExtraCode.js') }}"></script> <!-- Import JS file containing functions that are used in multiple pages. -->
 		<script type="text/javascript">	
+			
+			/*switch (extraCells)
+			{
+				case 0: break;
+				case 1: break;
+				case 2: break;
+			}*/
+			
 			var userData; //Variable containing data about user.
 			var currentPage = "ProblemList"; //Variable storing the name of the current page, so it can be passed in the URL to the next page as a 'previous page' variable.
 			var selected = 0; //Global variable corresponding to number of highlighted table rows.
 			var extraCells = -1; //Refers to the numbers of extra cells in the table for the current problem category (software = 2, hardware = 1, network = 0).
-			var hardwareHTML = "";
-			var softwareHTML = "";
-			var networkHTML = "";
 			var specialists = [];
 			var problemTypes = [];
 			
@@ -25,9 +30,12 @@
 				SetPrivileges(userData) //Enter function that defines what functions are available to user based on status.
 				WriteTime(); //Function that writes the current time at the top of the page.
 				extraCells = 0;
-				ChangeTab("Network", true);
-				ChangeTab("Software", true);
-				ChangeTab("Hardware", true);
+				ResetTable();
+				extraCells = 1;
+				ResetTable();
+				extraCells = 2;
+				ResetTable();
+				ChangeTab("Hardware");
 				CheckIfUpdate();
 			}
 			
@@ -93,13 +101,6 @@
 						}
 						sql += "(upper(problemNumber) LIKE '%"+str[i]+"%' OR upper(problem) LIKE '%"+str[i]+"%' OR upper(problemType) LIKE '%"+str[i]+"%' OR upper(problemSubType) LIKE '%"+str[i]+"%' OR upper(serialNumber) LIKE '%"+str[i]+"%' OR upper(operatingSystem) LIKE '%"+str[i]+"%' OR upper(softwareConcerned) LIKE '%"+str[i]+"%' OR upper(specialistID) LIKE '%"+str[i]+"%' OR upper(resolved) LIKE '%"+str[i]+"%' OR upper(dateTimeResolved) LIKE '%"+str[i]+"%' OR upper(solution) LIKE '%"+str[i]+"%')"; //Query that returns all database records with a cell containing search string.
 					}
-					console.log(sql);
-				}
-				switch (extraCells)
-				{
-					case 0: networkHTML = htm; break;
-					case 1: hardwareHTML = htm; break;
-					case 2: softwareHTML = htm; break;
 				}
 				RunQuery(sql); //Runs function get gets data from database and display it in tableDiv.
 			}
@@ -110,7 +111,12 @@
 				{
 					if(json && json[0]) //If result of php file was a json array.	
 					{				
-						var htm = "<table class='table' id='tbl' border='1'>";
+						switch (extraCells)
+						{
+							case 0: var htm = "<table class='table' id='tblNetwork' border='1'>"; break;
+							case 1: var htm = "<table class='table' id='tblHardware' border='1'>"; break;
+							case 2: var htm = "<table class='table' id='tblSoftware' border='1'>"; break;
+						}				
 						htm+="<tr id='t0'><th onclick='SortTable(0)' scope='col'>#</th>";
 						htm+="<th onclick='SortTable(1)' scope='col'>Problem</th>";
 						htm+="<th onclick='SortTable(2)'scope='col'>Problem Type</th>";;
@@ -153,13 +159,7 @@
 					{
 						var htm = "Sorry, no results found..."; //If no results, display error.
 					}
-					document.getElementById("tableDiv").innerHTML = htm; //Appends HTML to tableDiv.
-					switch (extraCells)
-					{
-						case 0: networkHTML = htm; break;
-						case 1: hardwareHTML = htm; break;
-						case 2: softwareHTML = htm; break;
-					}
+					document.getElementById(GetCurrentTableDivID()).innerHTML = htm; //Appends HTML to tableDiv.
 					newRowCount = 0;
 				},'json');
 			}
@@ -343,24 +343,22 @@
 				{
 					return; //If it is on the correct tab already, leave function.
 				}
-				row = document.getElementById("tbl").rows[GetSelectedRow()]; //Gets the details of the row that is selected.
-				switch (extraCells) //Clears tab-specific fields.
+				row = document.getElementById(GetCurrentTableID()).rows[GetSelectedRow()]; //Gets the details of the row that is selected.
+				for (i = 0; i<extraCells; i++) //Clears tab-specific fields.
 				{
-					case 1: row.deleteCell(3); break;
-					case 2: row.deleteCell(3); row.deleteCell(3); break;
+					row.deleteCell(3);
 				}
-				switch(newExtraCells) //Add new empty cells based on tab that the record is being moved to.
+				for (i = 0; i<extraCells; i++) //Add new empty cells based on tab that the record is being moved to.
 				{
-					case 1: row.insertCell(3); break;
-					case 2: row.insertCell(3); row.insertCell(3); break;
+					row.insertCell(3);
 				}
-				rowData = document.getElementById("tbl").rows[GetSelectedRow()].innerHTML; //Gets the details of the row that is selected.
-				document.getElementById("tbl").deleteRow(GetSelectedRow()); //Delete the row from the current tab.
-				tableDiv = document.getElementById("tableDiv");
+				rowData = document.getElementById(GetCurrentTableID()).rows[GetSelectedRow()].innerHTML; //Gets the details of the row that is selected.
+				document.getElementById(GetCurrentTableID()).deleteRow(GetSelectedRow()); //Delete the row from the current tab.
+				tableDiv = document.getElementById(GetCurrentTableDivID());
 
 				//Help
 				
-				setTimeout(TransferRow(rowData), 1000);
+				TransferRow(rowData);
 				if (!ListContains(updList, row.cells[0].innerHTML)) //If moved row is not already marked to be updated when changes are saved to the database later.
 				{
 					updList.push(row.cells[0].innerHTML); //Add the ID of the row to the list of rows to be updated when changes are commited to the actual database.
@@ -370,7 +368,7 @@
 			
 			function TransferRow(rowData) //Adds row data to new tab after being removed from another tab.
 			{
-				table = document.getElementById("tbl");
+				table = document.getElementById(GetCurrentTableID);
 				table.innerHTML += "<tr'>"+rowData+"</tr>";
 			}
 			
@@ -422,13 +420,33 @@
 				}
 			}
 			
+			function GetCurrentTableID() //Returns the ID of
+			{
+				switch (extraCells)
+				{
+					case 0: return "tblNetwork"; break;
+					case 1: return "tblHardware"; break;
+					case 2: return "tblSoftware"; break;
+				}
+			}
+			
+			function GetCurrentTableDivID() //Returns the ID of
+			{
+				switch (extraCells)
+				{
+					case 0: return "tableDivNetwork"; break;
+					case 1: return "tableDivHardware"; break;
+					case 2: return "tableDivSoftware"; break;
+				}
+			}
+			
 			function ChangeTab(tab, buttonPressed) //Changes the current tab of problems (hardware, software or network).
 			{
 				if ((extraCells == 0 && tab == "Network") || (extraCells == 1 && tab == "Hardware") || (extraCells == 2 && tab == "Software"))
 				{
 					return; //If already on selected page, ignore request.
 				}
-				tableDiv = document.getElementById("tableDiv");
+				tableDiv = document.getElementById(GetCurrentTableDivID());
 				document.getElementById("btnHardware").style="text-decoration: initial;"
 				document.getElementById("btnSoftware").style="text-decoration: initial;"
 				document.getElementById("btnNetwork").style="text-decoration: initial;"
@@ -438,31 +456,16 @@
 					case 'Hardware':
 						extraCells = 1; //There is one extra cell appended to the table when on the hardware tab (serial number).
 						document.getElementById("btnHardware").style="text-decoration: underline;"; //Underlines selected tab.
-						if (hardwareHTML == "")
-						{
-							sql = "SELECT * FROM tblProblem WHERE problemType = 'Hardware';"; //Simple query to get all hardware problem from table.
-							RunQuery(sql); //Runs function get gets data from database and display it in tableDiv.
-						}
 						tableDiv.innerHTML = hardwareHTML;
 						break;
 					case 'Software':
 						extraCells = 2; //There are two extra cells appended to the table when on the software tab (operating system, software concerned).
 						document.getElementById("btnSoftware").style="text-decoration: underline;"; //Underlines selected tab.
-						if (softwareHTML == "")
-						{
-							sql = "SELECT * FROM tblProblem WHERE problemType = 'Software';"; //Simple query to get all software problem from table.
-							RunQuery(sql); //Runs function get gets data from database and display it in tableDiv.
-						}
 						tableDiv.innerHTML = softwareHTML;
 						break;
 					case 'Network':
 						extraCells = 0; //There are no extra cells appended to the table when on the network tab.
 						document.getElementById("btnNetwork").style="text-decoration: underline;"; //Underlines selected tab.
-						if (networkHTML == "")
-						{
-							sql = "SELECT * FROM tblProblem WHERE problemType = 'Network';"; //Simple query to get all network problem from table.
-							RunQuery(sql); //Runs function get gets data from database and display it in tableDiv.
-						}
 						tableDiv.innerHTML = networkHTML;
 						break;
 					default: break;
@@ -487,17 +490,16 @@
 					document.getElementById("btnUpdate").disabled = false;
 					document.getElementById("selMainType").disabled = false;
 					document.getElementById("txtProblem").disabled = false;
-					//console.log("b " + GetSelectedRow());
-					document.getElementById("txtProblem").value = document.getElementById("tbl").rows[rowNum].cells[1].innerHTML;
+					document.getElementById("txtProblem").value = document.getElementById(GetCurrentTableID()).rows[rowNum].cells[1].innerHTML;
 					document.getElementById("txtProblemType").disabled = false;
-					document.getElementById("txtProblemType").value = document.getElementById("tbl").rows[rowNum].cells[2].innerHTML;
+					document.getElementById("txtProblemType").value = document.getElementById(GetCurrentTableID()).rows[rowNum].cells[2].innerHTML;
 					document.getElementById("txtSpecialist").disabled = false;
-					document.getElementById("txtSpecialist").value = document.getElementById("tbl").rows[rowNum].cells[3+extraCells].innerHTML;
+					document.getElementById("txtSpecialist").value = document.getElementById(GetCurrentTableID()).rows[rowNum].cells[3+extraCells].innerHTML;
 					document.getElementById("chkResolved").disabled = false;
-					document.getElementById("chkResolved").checked = GetResolvedAsBool(document.getElementById("tbl").rows[rowNum].cells[4+extraCells].innerHTML);
-					document.getElementById("txtDateTime").value = document.getElementById("tbl").rows[rowNum].cells[5+extraCells].innerHTML;
+					document.getElementById("chkResolved").checked = GetResolvedAsBool(document.getElementById(GetCurrentTableID()).rows[rowNum].cells[4+extraCells].innerHTML);
+					document.getElementById("txtDateTime").value = document.getElementById(GetCurrentTableID()).rows[rowNum].cells[5+extraCells].innerHTML;
 					document.getElementById("txtSolution").disabled = false;
-					document.getElementById("txtSolution").value = document.getElementById("tbl").rows[rowNum].cells[6+extraCells].innerHTML;
+					document.getElementById("txtSolution").value = document.getElementById(GetCurrentTableID()).rows[rowNum].cells[6+extraCells].innerHTML;
 				}
 				else
 				{
@@ -557,19 +559,19 @@
 					for (i = rows-1; i > 0; i--) //Iterate through the rows of the table.
 					{
 						deleteRow = false; //Variable holding if row will actually be deleted.
-						if (document.getElementById("tbl").rows[i].style.backgroundColor != 'rgb(159, 255, 48)') //If row is selected.
+						if (document.getElementById(GetCurrentTableID()).rows[i].style.backgroundColor != 'rgb(159, 255, 48)') //If row is selected.
 						{
 							deleteRow = true;						
 						}
 						if (deleteRow == true) //If should be deleted after validation.
 						{
-							indexInUpdList = updList.indexOf(document.getElementById("tbl").rows[i].cells[0].innerHTML); //Get index of deleted item in update list.
+							indexInUpdList = updList.indexOf(GetCurrentTableID()).rows[i].cells[0].innerHTML); //Get index of deleted item in update list.
 							if (indexInUpdList > -1)
 							{
 								updList.splice(indexInUpdList, 1); //Delete row from the update list - if record is deleted, it will not need to be updated.
 							}
-							delList.push(document.getElementById("tbl").rows[i].cells[0].innerHTML); //Add record id to list of rows that will be deleted from the actual database later.
-							document.getElementById("tbl").deleteRow(i); //Delete the row.
+							delList.push(document.getElementById(GetCurrentTableID()).rows[i].cells[0].innerHTML); //Add record id to list of rows that will be deleted from the actual database later.
+							document.getElementById(GetCurrentTableID()).deleteRow(i); //Delete the row.
 						}
 					}
 					selected = 0;
@@ -623,7 +625,13 @@
 							<input type="button" id="btnNetwork" class="btn tabButton" value="Network" onclick="ChangeTab('Network', true)"></input>
 						</div>
 						<br/>
-						<div id="tableDiv" class="table-wrapper-scroll-y"> <!-- Div containing data table. -->
+						<div id="tableDivHardware" class="table-wrapper-scroll-y" style="display='none'"> <!-- Div containing hardware data table. -->
+							Loading data...
+						</div>
+						<div id="tableDivSoftware" class="table-wrapper-scroll-y" style="display='none'"> <!-- Div containing software data table. -->
+							Loading data...
+						</div>
+						<div id="tableDivNetwork" class="table-wrapper-scroll-y" style="display='none'"> <!-- Div containing network data table. -->
 							Loading data...
 						</div>
 					<br/>

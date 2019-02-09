@@ -95,7 +95,7 @@ function SetUserDataToPost()
 
 function GetRows() //Function for returning the number of rows in a data table.
 {
-	var rows = document.getElementById('tbl').getElementsByTagName("tr").length;
+	var rows = document.getElementById(GetTable()).getElementsByTagName("tr").length;
 	return rows;
 }
 
@@ -104,7 +104,7 @@ function GetSelectedRow() //Returns selected row (if only one is selected).
 	rows = GetRows();
 	for (i = rows-1; i > 0; i--) //Iterate through the rows of the table.
 	{
-		if (document.getElementById("tbl").rows[i].style.backgroundColor != 'rgb(159, 255, 48)') //If row is selected.
+		if (document.getElementById(GetTable()).rows[i].style.backgroundColor != 'rgb(159, 255, 48)') //If row is selected.
 		{
 			return i;
 		}
@@ -125,6 +125,18 @@ function AddPressed() //Function to add new row to the local data table.
 	else //Else, if adding row
 	{
 		AddRow()
+	}
+}
+
+function GetTable() //Returns the ID of the current table.
+{
+	if (currentPage == "ProblemList"
+	{
+		return GetCurrentTableID();
+	}
+	else
+	{
+		return "tbl";
 	}
 }
 
@@ -175,7 +187,7 @@ function GetRowWithID(id) //Returns row of a column with a given ID (first colum
 	rows = GetRows();
 	for (j = 1; j<rows; j++)
 	{
-		if (document.getElementById("tbl").rows[j].cells[0].innerHTML == id)
+		if (document.getElementById(GetTable()).rows[j].cells[0].innerHTML == id)
 		{
 			return j;
 		}
@@ -185,7 +197,7 @@ function GetRowWithID(id) //Returns row of a column with a given ID (first colum
 
 function SortTable(column) //Function sorts table by the selected column.
 {
-	table = document.getElementById("tbl");
+	table = GetTable();
 	swapping = true;
 	shouldSwap = false;
 	swapCount = 0;
