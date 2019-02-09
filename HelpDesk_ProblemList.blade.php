@@ -431,7 +431,7 @@
 					case 2: ChangeTab("Software", false); break;
 				}
 				table = document.getElementById(GetCurrentTableID());
-				table.innerHTML += "<tr>"+rowData+"</tr>"; //Adds row data to new tab after being removed from another tab.
+				table.find('tbody').innerHTML += "<tr>"+rowData+"</tr>"; //Adds row data to new tab after being removed from another tab.
 				if (!ListContains(updList, row.cells[0].innerHTML)) //If moved row is not already marked to be updated when changes are saved to the database later.
 				{
 					updList.push(row.cells[0].innerHTML); //Add the ID of the row to the list of rows to be updated when changes are commited to the actual database.
