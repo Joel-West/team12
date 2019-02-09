@@ -453,6 +453,7 @@
 				}
 				tableDiv = document.getElementById("tableDiv");
 				tableDiv.innerHTML = tableDiv.innerHTML.replace("background-color: rgb(0, 255, 255)", "background-color: rgb(159, 255, 48)");
+				selected = 0;
 				document.getElementById("btnHardware").style="text-decoration: initial;"
 				document.getElementById("btnSoftware").style="text-decoration: initial;"
 				document.getElementById("btnNetwork").style="text-decoration: initial;"
@@ -494,7 +495,6 @@
 				document.getElementById("typeSpecificDiv").text = htm; //Appends innerHTML for the input elements that change depending on the tab.
 				if (buttonPressed) //If entered via a button press, rather than my changing the tab of a record, set 'selected' to 0. Otherwise, it will remain at 1.
 				{
-					selected = 0;
 					CheckIfUpdate() //Prevents user input if more or less than one row is selected.
 				}
 				if ((extraCells == 0 && tab == "Network") || (extraCells == 1 && tab == "Hardware") || (extraCells == 2 && tab == "Software"))
