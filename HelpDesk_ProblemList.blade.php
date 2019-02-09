@@ -357,6 +357,7 @@
 				rowData = document.getElementById("tbl").rows[GetSelectedRow()].innerHTML; //Gets the details of the row that is selected.
 				document.getElementById("tbl").deleteRow(GetSelectedRow()); //Delete the row from the current tab.
 				tableDiv = document.getElementById("tableDiv");
+				console.log(tableDiv.innerHTML.includes("background-color: rgb(0, 255, 255)"));
 				tableDiv.innerHTML = tableDiv.innerHTML.replace("background-color: rgb(0, 255, 255)", "");
 				switch (extraCells) //Saves the value of the current tab's innerHTML.
 				{
