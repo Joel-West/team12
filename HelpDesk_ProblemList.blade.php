@@ -384,17 +384,15 @@
 			{
 				console.log("aa " + GetSelectedRow());
 				table = document.getElementById("tbl");
-				table.innerHTML += "<tr id='tempID'>"+rowData+"</tr>";
+				table.innerHTML += "<tr style='background-color:rgb(0, 255, 255)'>"+rowData+"</tr>";
 				tableDiv = document.getElementById("tableDiv");
 				switch (extraCells)
 				{
-					case 0: networkHTML = tableDiv.innerHTML; break;
-					case 1: hardwareHTML = tableDiv.innerHTML; break;
-					case 2: softwareHTML = tableDiv.innerHTML; break;
+					case 0: networkHTML = tableDiv.innerHTML.replace("background-color: rgb(0, 255, 255)", "background-color: rgb(159, 255, 48)"); break;
+					case 1: hardwareHTML = tableDiv.innerHTML.replace("background-color: rgb(0, 255, 255)", "background-color: rgb(159, 255, 48)"); break;
+					case 2: softwareHTML = tableDiv.innerHTML.replace("background-color: rgb(0, 255, 255)", "background-color: rgb(159, 255, 48)"); break;
 				}
 				selected = 1;
-				//document.getElementById('tempID').style='background-color:rgb(0, 255, 255)';
-				document.getElementById('tempID').removeAttribute("id");
 				console.log(document.getElementById('tempID').id);
 				console.log("a " + GetSelectedRow());
 				CheckIfUpdate();
