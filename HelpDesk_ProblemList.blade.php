@@ -565,7 +565,7 @@
 						}
 						if (deleteRow == true) //If should be deleted after validation.
 						{
-							indexInUpdList = updList.indexOf(GetCurrentTableID()).rows[i].cells[0].innerHTML); //Get index of deleted item in update list.
+							indexInUpdList = updList.indexOf(GetCurrentTableID().rows[i].cells[0].innerHTML); //Get index of deleted item in update list.
 							if (indexInUpdList > -1)
 							{
 								updList.splice(indexInUpdList, 1); //Delete row from the update list - if record is deleted, it will not need to be updated.
