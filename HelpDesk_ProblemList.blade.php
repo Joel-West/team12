@@ -393,7 +393,7 @@
 				}
 				selected = 1;
 				document.getElementById('tempID').style='background-color:rgb(0, 255, 255)';
-				console.log(GetSelectedRow());
+				console.log("a " + GetSelectedRow());
 				CheckIfUpdate();
 			}
 			
@@ -510,11 +510,10 @@
 				if (selected == 1)
 				{
 					rowNum = GetSelectedRow(); //Gets the row that is selected.
-					//console.log(rowNum);
 					document.getElementById("btnUpdate").disabled = false;
 					document.getElementById("selMainType").disabled = false;
 					document.getElementById("txtProblem").disabled = false;
-					console.log(GetSelectedRow());
+					console.log("b " + GetSelectedRow());
 					document.getElementById("txtProblem").value = document.getElementById("tbl").rows[rowNum].cells[1].innerHTML;
 					document.getElementById("txtProblemType").disabled = false;
 					document.getElementById("txtProblemType").value = document.getElementById("tbl").rows[rowNum].cells[2].innerHTML;
