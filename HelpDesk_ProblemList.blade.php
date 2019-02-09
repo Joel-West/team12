@@ -490,6 +490,7 @@
 				{
 					if (document.getElementById("tbl") != null && selected > 0)
 					{
+						console.log(GetSelectedRow());
 						document.getElementById("tbl").rows[GetSelectedRow()].style='background-color:rgb(0, 255, 255)';
 					}
 					selected = 0;
