@@ -29,11 +29,7 @@
 				userData = "<?php echo $_POST['User']; ?>"; //Gets data from previous form.
 				SetPrivileges(userData) //Enter function that defines what functions are available to user based on status.
 				WriteTime(); //Function that writes the current time at the top of the page.
-				extraCells = 0;
-				ResetTable();
-				extraCells = 1;
-				ResetTable();
-				extraCells = 2;
+				RunQuery(""); //Runs function get gets data from database and display it in the three tableDivs.
 				ResetTable();
 				ChangeTab("Hardware");
 				CheckIfUpdate();
@@ -107,65 +103,131 @@
 			
 			function RunQuery(sql) //Function for running a query to the personnel table and getting building a table.
 			{
-				console.log(extraCells);
-				console.log(GetCurrentTableDivID());
-				$.get("Query.php", {'sql':sql, 'returnData':true},function(json) //Calls query.php, which handles the SQL query and sorting of result data.
+				if (sql == "") //If no SQL, this indicates that all 3 tables should be built (when page loads).
 				{
-					console.log(extraCells + "2");
-					console.log(GetCurrentTableDivID() + "2");
-					if(json && json[0]) //If result of php file was a json array.	
-					{				
-						switch (extraCells)
-						{
-							case 0: var htm = "<table class='table' id='tblNetwork' border='1'>"; break;
-							case 1: var htm = "<table class='table' id='tblHardware' border='1'>"; break;
-							case 2: var htm = "<table class='table' id='tblSoftware' border='1'>"; break;
-						}				
-						htm+="<tr id='t0'><th onclick='SortTable(0)' scope='col'>#</th>";
-						htm+="<th onclick='SortTable(1)' scope='col'>Problem</th>";
-						htm+="<th onclick='SortTable(2)'scope='col'>Problem Type</th>";;
-						if (extraCells == 1)
-						{
-							htm+="<th onclick='SortTable(3)'scope='col'>Serial Number</th>";
+					sql = "SELECT * FROM tblProblem";
+					$.get("Query.php", {'sql':sql, 'returnData':true},function(json) //Calls query.php, which handles the SQL query and sorting of result data.
+					{
+						if(json && json[0]) //If result of php file was a json array.	
+						{	
+							for (tempCells = 0; tempCells < 3; tempCells++) //Iterate 3 times to create all three tables.
+							{	
+								switch (tempCells)
+								{
+									case 0: var htm = "<table class='table' id='tblNetwork' border='1'>"; break;
+									case 1: var htm = "<table class='table' id='tblHardware' border='1'>"; break;
+									case 2: var htm = "<table class='table' id='tblSoftware' border='1'>"; break;
+								}				
+								htm+="<tr id='t0'><th onclick='SortTable(0)' scope='col'>#</th>";
+								htm+="<th onclick='SortTable(1)' scope='col'>Problem</th>";
+								htm+="<th onclick='SortTable(2)'scope='col'>Problem Type</th>";;
+								if (tempCells == 1)
+								{
+									htm+="<th onclick='SortTable(3)'scope='col'>Serial Number</th>";
+								}
+								else if (tempCells == 2)
+								{
+									htm+="<th onclick='SortTable(3)'scope='col'>Operating System</th>";
+									htm+="<th onclick='SortTable(4)'scope='col'>Software Concerned</th>";
+								}
+								htm+="<th onclick='SortTable(" + (3+tempCells) + ")'scope='col'>Specialist</th>";
+								htm+="<th onclick='SortTable(" + (4+tempCells) + ")'scope='col'>Solved</th>";
+								htm+="<th onclick='SortTable(" + (5+tempCells) + ")'scope='col'>Date/Time Resolved</th>";
+								htm+="<th onclick='SortTable(" + (6+tempCells) + ")'scope='col'>Solution</th></tr>"; //Appending column headers.
+								for (i = 0; i<json.length; i++) //Iterates through the json array of results.
+								{
+									htm += "<tr style='background-color:rgb(159, 255, 48);'>"; //Sets colour and ID of row.
+									htm +="<td>"+json[i].problemNumber+"</td>";
+									htm +="<td>"+json[i].problem+"</td>";
+									htm +="<td>"+json[i].problemSubType+"</td>";	
+									if (tempCells == 1)
+									{
+										htm +="<td>"+json[i].serialNumber+"</td>";
+									}
+									else if (tempCells == 2)
+									{
+										htm +="<td>"+json[i].operatingSystem+"</td>";
+										htm +="<td>"+json[i].softwareConcerned+"</td>";
+									}
+									htm +="<td>"+json[i].specialistID+"</td>";
+									htm +="<td>"+json[i].resolved+"</td>";
+									htm +="<td>"+json[i].dateTimeResolved+"</td>";
+									htm +="<td>"+json[i].solution+"</td>";
+									htm += "</tr>";							
+								}
+							}
 						}
-						else if (extraCells == 2)
+						else
 						{
-							htm+="<th onclick='SortTable(3)'scope='col'>Operating System</th>";
-							htm+="<th onclick='SortTable(4)'scope='col'>Software Concerned</th>";
+							var htm = "Sorry, no results found..."; //If no results, display error.
 						}
-						htm+="<th onclick='SortTable(" + (3+extraCells) + ")'scope='col'>Specialist</th>";
-						htm+="<th onclick='SortTable(" + (4+extraCells) + ")'scope='col'>Solved</th>";
-						htm+="<th onclick='SortTable(" + (5+extraCells) + ")'scope='col'>Date/Time Resolved</th>";
-						htm+="<th onclick='SortTable(" + (6+extraCells) + ")'scope='col'>Solution</th></tr>"; //Appending column headers.
-						for (i = 0; i<json.length; i++) //Iterates through the json array of results.
+						switch (tempCells)
 						{
-							htm += "<tr style='background-color:rgb(159, 255, 48);'>"; //Sets colour and ID of row.
-							htm +="<td>"+json[i].problemNumber+"</td>";
-							htm +="<td>"+json[i].problem+"</td>";
-							htm +="<td>"+json[i].problemSubType+"</td>";	
+							case 0: document.getElementById("tableDivNetwork").innerHTML = htm; break; //Appends HTML to the relevant tableDiv.
+							case 1: document.getElementById("tableDivHardware").innerHTML = htm; break;
+							case 2: document.getElementById("tableDivSoftware").innerHTML = htm; break;
+						}
+						newRowCount = 0;
+					},'json');
+				}
+				else
+				{
+					$.get("Query.php", {'sql':sql, 'returnData':true},function(json) //Calls query.php, which handles the SQL query and sorting of result data.
+					{
+						if(json && json[0]) //If result of php file was a json array.	
+						{				
+							switch (extraCells)
+							{
+								case 0: var htm = "<table class='table' id='tblNetwork' border='1'>"; break;
+								case 1: var htm = "<table class='table' id='tblHardware' border='1'>"; break;
+								case 2: var htm = "<table class='table' id='tblSoftware' border='1'>"; break;
+							}				
+							htm+="<tr id='t0'><th onclick='SortTable(0)' scope='col'>#</th>";
+							htm+="<th onclick='SortTable(1)' scope='col'>Problem</th>";
+							htm+="<th onclick='SortTable(2)'scope='col'>Problem Type</th>";;
 							if (extraCells == 1)
 							{
-								htm +="<td>"+json[i].serialNumber+"</td>";
+								htm+="<th onclick='SortTable(3)'scope='col'>Serial Number</th>";
 							}
 							else if (extraCells == 2)
 							{
-								htm +="<td>"+json[i].operatingSystem+"</td>";
-								htm +="<td>"+json[i].softwareConcerned+"</td>";
+								htm+="<th onclick='SortTable(3)'scope='col'>Operating System</th>";
+								htm+="<th onclick='SortTable(4)'scope='col'>Software Concerned</th>";
 							}
-							htm +="<td>"+json[i].specialistID+"</td>";
-							htm +="<td>"+json[i].resolved+"</td>";
-							htm +="<td>"+json[i].dateTimeResolved+"</td>";
-							htm +="<td>"+json[i].solution+"</td>";
-							htm += "</tr>";							
+							htm+="<th onclick='SortTable(" + (3+extraCells) + ")'scope='col'>Specialist</th>";
+							htm+="<th onclick='SortTable(" + (4+extraCells) + ")'scope='col'>Solved</th>";
+							htm+="<th onclick='SortTable(" + (5+extraCells) + ")'scope='col'>Date/Time Resolved</th>";
+							htm+="<th onclick='SortTable(" + (6+extraCells) + ")'scope='col'>Solution</th></tr>"; //Appending column headers.
+							for (i = 0; i<json.length; i++) //Iterates through the json array of results.
+							{
+								htm += "<tr style='background-color:rgb(159, 255, 48);'>"; //Sets colour and ID of row.
+								htm +="<td>"+json[i].problemNumber+"</td>";
+								htm +="<td>"+json[i].problem+"</td>";
+								htm +="<td>"+json[i].problemSubType+"</td>";	
+								if (extraCells == 1)
+								{
+									htm +="<td>"+json[i].serialNumber+"</td>";
+								}
+								else if (extraCells == 2)
+								{
+									htm +="<td>"+json[i].operatingSystem+"</td>";
+									htm +="<td>"+json[i].softwareConcerned+"</td>";
+								}
+								htm +="<td>"+json[i].specialistID+"</td>";
+								htm +="<td>"+json[i].resolved+"</td>";
+								htm +="<td>"+json[i].dateTimeResolved+"</td>";
+								htm +="<td>"+json[i].solution+"</td>";
+								htm += "</tr>";							
+							}
 						}
-					}
-					else
-					{
-						var htm = "Sorry, no results found..."; //If no results, display error.
-					}
-					document.getElementById(GetCurrentTableDivID()).innerHTML = htm; //Appends HTML to tableDiv.
-					newRowCount = 0;
-				},'json');
+						else
+						{
+							var htm = "Sorry, no results found..."; //If no results, display error.
+						}
+						document.getElementById(GetCurrentTableDivID()).innerHTML = htm; //Appends HTML to tableDiv.
+						newRowCount = 0;
+					},'json');
+				}
 			}
 			
 			function GetArrays() //Function to get array of all the specialists and problem types.
