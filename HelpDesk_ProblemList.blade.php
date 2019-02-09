@@ -488,7 +488,7 @@
 				document.getElementById("typeSpecificDiv").text = htm; //Appends innerHTML for the input elements that change depending on the tab.
 				if (buttonPressed) //If entered via a button press, rather than my changing the tab of a record, set 'selected' to 0. Otherwise, it will remain at 1.
 				{
-					if (document.getElementById("tbl") != null && selected > 0)
+					if (document.getElementById("tbl") != null && GetSelectedRow() != null && selected > 0)
 					{
 						console.log(GetSelectedRow());
 						document.getElementById("tbl").rows[GetSelectedRow()].style='background-color:rgb(0, 255, 255)';
