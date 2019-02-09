@@ -689,13 +689,13 @@
 							<input type="button" id="btnNetwork" class="btn tabButton" value="Network" onclick="ChangeTab('Network', true)"></input>
 						</div>
 						<br/>
-						<div id="tableDivHardware" class="table-wrapper-scroll-y" style="display='none'"> <!-- Div containing hardware data table. -->
+						<div id="tableDivHardware" class="table-wrapper-scroll-y" style="display:none"> <!-- Div containing hardware data table. -->
 							Loading data...
 						</div>
-						<div id="tableDivSoftware" class="table-wrapper-scroll-y" style="display='none'"> <!-- Div containing software data table. -->
+						<div id="tableDivSoftware" class="table-wrapper-scroll-y" style="display:none"> <!-- Div containing software data table. -->
 							Loading data...
 						</div>
-						<div id="tableDivNetwork" class="table-wrapper-scroll-y" style="display='none'"> <!-- Div containing network data table. -->
+						<div id="tableDivNetwork" class="table-wrapper-scroll-y" style="display:none"> <!-- Div containing network data table. -->
 							Loading data...
 						</div>
 					<br/>
