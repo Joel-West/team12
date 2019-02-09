@@ -344,7 +344,7 @@
 		}
 		
 	  function solutionCreation(){
-		var sql = "SELECT solution FROM tblProblem WHERE problemSubType";
+		var sql = "SELECT solution FROM tblProblem WHERE problemSubType = '" + problemtypeVar + "';";
 		var html = "";
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
 		  for (i = 0; i<json.length; i++){
