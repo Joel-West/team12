@@ -389,6 +389,7 @@
 				table.innerHTML += "<tr'>"+rowData+"</tr>";
 				//style='background-color:rgb(0, 255, 255)
 				tableDiv = document.getElementById("tableDiv");
+				console.log(extraCells);
 				switch (extraCells)
 				{
 					case 0: networkHTML = tableDiv.innerHTML; break;
