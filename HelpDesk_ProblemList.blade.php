@@ -385,18 +385,18 @@
 			{
 				console.log("aa " + GetSelectedRow());
 				table = document.getElementById("tbl");
-				table.innerHTML.replace("background-color: rgb(0, 255, 255)", "background-color: rgb(159, 255, 48)");
+				table.innerHTML.replace("background-color:rgb(0, 255, 255)", "background-color:rgb(159, 255, 48)");
 				table.innerHTML += "<tr style='background-color:rgb(0, 255, 255)'>"+rowData+"</tr>";
 				tableDiv = document.getElementById("tableDiv");
 				switch (extraCells)
 				{
-					case 0: networkHTML = tableDiv.innerHTML.replace("background-color: rgb(0, 255, 255)", "background-color: rgb(159, 255, 48)"); break;
-					case 1: hardwareHTML = tableDiv.innerHTML.replace("background-color: rgb(0, 255, 255)", "background-color: rgb(159, 255, 48)"); break;
-					case 2: softwareHTML = tableDiv.innerHTML.replace("background-color: rgb(0, 255, 255)", "background-color: rgb(159, 255, 48)"); break;
+					case 0: networkHTML = tableDiv.innerHTML; break;
+					case 1: hardwareHTML = tableDiv.innerHTML; break;
+					case 2: softwareHTML = tableDiv.innerHTML; break;
 				}
 				selected = 1;
 				console.log("a " + GetSelectedRow());
-				console.log(tableDiv.innerHTML.includes("background-color: rgb(0, 255, 255)"));
+				console.log(tableDiv.innerHTML.includes("background-color:rgb(0, 255, 255)"));
 				CheckIfUpdate();
 			}
 			
