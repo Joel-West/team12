@@ -487,10 +487,8 @@
 					default: break;
 				}
 				document.getElementById("typeSpecificDiv").text = htm; //Appends innerHTML for the input elements that change depending on the tab.
-				console.log('document.getElementById("tbl") = ' + document.getElementById("tbl") + ', GetSelectedRow() = ' + GetSelectedRow() + ', selected = ' + selected);
 				if (document.getElementById("tbl") != null && selected > 0)
 				{
-					console.log("entered");
 					for (i = 0; i < document.getElementById("tbl").rows.length; i++)
 					{
 						document.getElementById("tbl").rows[i].style='background-color:rgb(0, 255, 255)';
