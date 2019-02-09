@@ -416,30 +416,29 @@
 				{
 					row.deleteCell(3);
 				}
-				for (i = 0; i<extraCells; i++) //Add new empty cells based on tab that the record is being moved to.
+				for (i = 0; i<newExtraCells; i++) //Add new empty cells based on tab that the record is being moved to.
 				{
 					row.insertCell(3);
 				}
-				rowData = document.getElementById(GetCurrentTableID()).rows[GetSelectedRow()].innerHTML; //Gets the details of the row that is selected.
-				document.getElementById(GetCurrentTableID()).deleteRow(GetSelectedRow()); //Delete the row from the current tab.
-				tableDiv = document.getElementById(GetCurrentTableDivID());
-
-				//Help
 				
-				TransferRow(rowData);
+				rowData = row.innerHTML; //Gets the details of the row that is selected.
+				document.getElementById(GetCurrentTableID()).deleteRow(GetSelectedRow()); //Delete the row from the current tab.
+				
+				switch (newExtraCells) //Changes tab to the tab that the record will be moved to.
+				{
+					case 0: ChangeTab("Network", false); break;
+					case 1: ChangeTab("Hardware", false); break;
+					case 2: ChangeTab("Software", false); break;
+				}
+				table = document.getElementById(GetCurrentTableID());
+				table.innerHTML += "<tr'>"+rowData+"</tr>"; //Adds row data to new tab after being removed from another tab.
 				if (!ListContains(updList, row.cells[0].innerHTML)) //If moved row is not already marked to be updated when changes are saved to the database later.
 				{
 					updList.push(row.cells[0].innerHTML); //Add the ID of the row to the list of rows to be updated when changes are commited to the actual database.
 					console.log(updList);
 				}
 			}
-			
-			function TransferRow(rowData) //Adds row data to new tab after being removed from another tab.
-			{
-				table = document.getElementById(GetCurrentTableID);
-				table.innerHTML += "<tr'>"+rowData+"</tr>";
-			}
-			
+
 			function SpecialistOptionClicked() //Sets specialist text box value to selected option in selection box.
 			{
 				document.getElementById("txtSpecialist").value = GetIDFromSelBoxItem(document.getElementById("selSpecialist").value);
@@ -552,14 +551,10 @@
 				}
 				document.getElementById(GetCurrentTableDivID()).style.display = "inline";
 				document.getElementById("typeSpecificDiv").text = htm; //Appends innerHTML for the input elements that change depending on the tab.
+				CheckIfUpdate() //Prevents user input if more or less than one row is selected.
 				if (buttonPressed) //If entered via a button press, rather than my changing the tab of a record, set 'selected' to 0. Otherwise, it will remain at 1.
 				{
-					CheckIfUpdate() //Prevents user input if more or less than one row is selected.
 					selected = 0;
-				}
-				if ((extraCells == 0 && tab == "Network") || (extraCells == 1 && tab == "Hardware") || (extraCells == 2 && tab == "Software"))
-				{
-					return; //If already on selected page, ignore request.
 				}
 			}
 			
@@ -686,7 +681,8 @@
 			<form id="mainform" name="mainform" method="post" action=""> <!-- This form will post data to an initially unspecified page when submitted. -->
 				<input type='text' hidden id="user" name="User"/> <!-- Hidden tag used to store posted user data so that it can later be posted back to the home page. -->
 				@csrf <!--Token to validates requests to server. -->
-				<div class="titleDiv"> <!-- Div containing elements at the top of the page. -->
+				<div class="titleDiv"> <!-- Div containing elements
+				at the top of the page. -->
 					<input type="button" id="btnBack" style="font-size:40px; position:absolute; left:0;" value="&#x2190" style="display:inline-block;" onClick="GoToNewPage('Home');" /> <!-- Back button. -->
 					<label id="dtLabel" style="font-size:26px; position:absolute; right:0;"></label> <!-- Label to contain current data/time. -->
 					<h2 id="headerId" style="font-weight:bold; style=display:inline-block; font-size:30px;">Problem List</h2> <!-- Heading containing name of page. -->
