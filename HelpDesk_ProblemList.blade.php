@@ -107,6 +107,7 @@
 			
 			function RunQuery(sql) //Function for running a query to the personnel table and getting building a table.
 			{
+				console.log(extraCells);
 				$.get("Query.php", {'sql':sql, 'returnData':true},function(json) //Calls query.php, which handles the SQL query and sorting of result data.
 				{
 					if(json && json[0]) //If result of php file was a json array.	
