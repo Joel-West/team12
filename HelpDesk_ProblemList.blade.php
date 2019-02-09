@@ -363,6 +363,7 @@
 					case 1: hardwareHTML = tableDiv.innerHTML; break;
 					case 2: softwareHTML = tableDiv.innerHTML; break;
 				}
+				console.log(tableDiv.innerHTML);
 				switch(newExtraCells) //Changes to tab that record has been moved to.
 				{
 					case 0: ChangeTab("Network", false); break;
