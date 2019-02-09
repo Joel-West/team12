@@ -342,6 +342,7 @@
 		else{
 		  $('#solutionCollapse').collapse('hide');
 		}
+	  }
 		
 	  function solutionCreation(){
 		var sql = "SELECT solution FROM tblProblem WHERE problemSubType = '" + problemTypeVar + "';";
