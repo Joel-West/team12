@@ -168,7 +168,7 @@
 							var htm = "Sorry, no results found..."; //If no results, display error.
 						}
 						newRowCount = 0;
-						ChangeTab("Hardware");
+						ChangeTab("Hardware", true);
 						CheckIfUpdate();
 					},'json');
 				}
@@ -490,7 +490,6 @@
 			
 			function GetCurrentTableID() //Returns the ID of current tab's table.
 			{
-				console.log(extraCells);
 				switch (extraCells)
 				{
 					case 0: return "tblNetwork"; break;
@@ -501,7 +500,6 @@
 			
 			function GetCurrentTableDivID() //Returns the ID of current tab's table div.
 			{
-				console.log(extraCells);
 				switch (extraCells)
 				{
 					case 0: return "tableDivNetwork"; break;
@@ -521,7 +519,6 @@
 				document.getElementById("btnSoftware").style="text-decoration: initial;"
 				document.getElementById("btnNetwork").style="text-decoration: initial;"
 				htm="";
-				console.log(GetCurrentTableDivID());
 				document.getElementById(GetCurrentTableDivID()).style.display = "none";
 				switch (tab)
 				{
@@ -689,7 +686,7 @@
 							<input type="button" id="btnNetwork" class="btn tabButton" value="Network" onclick="ChangeTab('Network', true)"></input>
 						</div>
 						<br/>
-						<div id="tableDivHardware" class="table-wrapper-scroll-y" style="display:inline"> <!-- Div containing hardware data table. -->
+						<div id="tableDivHardware" class="table-wrapper-scroll-y" style="display:none"> <!-- Div containing hardware data table. -->
 							Loading data...
 						</div>
 						<div id="tableDivSoftware" class="table-wrapper-scroll-y" style="display:none"> <!-- Div containing software data table. -->
