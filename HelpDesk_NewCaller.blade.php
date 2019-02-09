@@ -347,7 +347,9 @@
 		var sql = "SELECT solution FROM tblProblem WHERE problemSubType = '" + problemTypeVar + "';";
 		var html = "";
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
+		  console.log("ENTER");
 		  for (i = 0; i<json.length; i++){
+			console.log("FOR");
 			html+= "<a class='dropdown-item' >" + problemTypeVar + "data-toggle='popover' data-trigger='hover' data-content='" + json[i].solution + "';";
 		  }
 		  document.getElementById("dropdown-menuSolution").innerHTML = html;
