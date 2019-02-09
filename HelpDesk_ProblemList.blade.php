@@ -501,7 +501,7 @@
 			
 			function GetCurrentTableDivID() //Returns the ID of current tab's table div.
 			{
-				alert(extraCells);
+				console.log(extraCells);
 				switch (extraCells)
 				{
 					case 0: return "tableDivNetwork"; break;
@@ -521,7 +521,7 @@
 				document.getElementById("btnSoftware").style="text-decoration: initial;"
 				document.getElementById("btnNetwork").style="text-decoration: initial;"
 				htm="";
-				alert(GetCurrentTableDivID());
+				console.log(GetCurrentTableDivID());
 				document.getElementById(GetCurrentTableDivID()).style.display = "none";
 				switch (tab)
 				{
