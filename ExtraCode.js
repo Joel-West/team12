@@ -208,8 +208,8 @@ function SortTable(column) //Function sorts table by the selected column.
 		for (i = 1; i < GetRows()-1; i++) //Iterate through all rows apart from top row.
 		{
 			shouldSwap = false;
-			console.log(table);
-			console.log(table.rows[i]);
+			console.log(i);
+			console.log(table.rows.length);
 			console.log(table.rows[i].cells[column])
 			item1 = table.rows[i].cells[column]; //Gets 2 items to compare.
 			item2 = table.rows[i+1].cells[column];
