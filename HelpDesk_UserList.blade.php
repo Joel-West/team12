@@ -477,7 +477,7 @@
 							<br/><br/>
 							Username:<br/><input id="txtUsername" type="text"></input><br/>
 							Password:<br/><input class="hidetext" id="txtPassword" type="text"></input><br/>							
-							Admin? <input id="chkAdmin" type="checkbox"></input><br/>
+							Admin?&nbsp&nbsp<input id="chkAdmin" type="checkbox"></input><br/>
 							<br/><input type="button" class="btn" id="btnAdd" value="Add New Item" style="font-size:16px;" onclick="AddPressed()"></input>	
 							<br/><br/>
 							<p align="center">
