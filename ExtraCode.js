@@ -130,7 +130,7 @@ function AddPressed() //Function to add new row to the local data table.
 
 function GetTable() //Returns the ID of the current table.
 {
-	if (currentPage == "ProblemList"
+	if (currentPage == "ProblemList")
 	{
 		return GetCurrentTableID();
 	}
