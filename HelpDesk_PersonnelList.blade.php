@@ -217,7 +217,7 @@
 				htm +="<td>"+document.getElementById("txtTelephoneNumber").value+"</td>";
 				htm +="<td>"+GetSpecialistAsString(document.getElementById("chkSpecialist").checked)+"</td>";
 				htm += "</tr>";	
-				document.getElementById("tbl").innerHTML += htm; //Appends HTML to tableDiv.				
+				document.getElementById("tbl").tBodies[0].innerHTML += htm; //Appends HTML to tableDiv.				
 				newRowCount+=1;
 				alert("New personnel added."); //Success message.
 				document.getElementById("btnAdd").value = "Add New Item";
@@ -246,7 +246,7 @@
 				CheckIfUpdateOrAdd();
 				if (!ListContains(updList, row.cells[0].innerHTML) && !row.cells[0].innerHTML.includes("(new)")) //If selected row is not already marked to be updated when changes are saved to the database later and is not a new row.
 				{
-					updList.push(row.cells[0].innerHTML); //Add the ID of the row to the list of rows to by updated when changes are commited to the actual database.
+					updList.push(row.cells[0].innerHTML); //Add the ID of the row to the list of rows to be updated when changes are commited to the actual database.
 					console.log(updList);
 				}
 			}
