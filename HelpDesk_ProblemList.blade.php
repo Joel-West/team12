@@ -393,7 +393,6 @@
 					case 2: softwareHTML = tableDiv.innerHTML.replace("background-color: rgb(0, 255, 255)", "background-color: rgb(159, 255, 48)"); break;
 				}
 				selected = 1;
-				console.log(document.getElementById('tempID').id);
 				console.log("a " + GetSelectedRow());
 				CheckIfUpdate();
 			}
