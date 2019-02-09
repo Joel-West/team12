@@ -357,13 +357,13 @@
 				rowData = document.getElementById("tbl").rows[GetSelectedRow()].innerHTML; //Gets the details of the row that is selected.
 				document.getElementById("tbl").deleteRow(GetSelectedRow()); //Delete the row from the current tab.
 				tableDiv = document.getElementById("tableDiv");
+				tableDiv.innerHTML = tableDiv.innerHTML.replace("background-color: rgb(0, 255, 255)", "");
 				switch (extraCells) //Saves the value of the current tab's innerHTML.
 				{
 					case 0: networkHTML = tableDiv.innerHTML;  break;
 					case 1: hardwareHTML = tableDiv.innerHTML; break;
 					case 2: softwareHTML = tableDiv.innerHTML; break;
 				}
-				console.log(tableDiv.innerHTML);
 				switch(newExtraCells) //Changes to tab that record has been moved to.
 				{
 					case 0: ChangeTab("Network", false); break;
