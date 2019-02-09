@@ -509,6 +509,13 @@
 		  <div class="collapse" id="solutionCollapse">
 		    Solution:
 		    <textarea class="form-control" rows="5" id="solution" ></textarea>
+			<div id="specialistComboBox">
+		      <button class='btn greenBack dropdown-toggle' type='button' id='dropdownButton4' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>
+			    Choose Specialist:<span class='caret'></span>
+			  </button>
+			  <div class='dropdown-menu' id='dropdown-menu4' aria-labelledby='dropdownMenu4'>
+			  </div>
+		    </div>
 		  </div>
 	      <input type="button" id="btnSave" class="btn" value="Save Changes" onClick="SaveChanges();" />
 		</div>
