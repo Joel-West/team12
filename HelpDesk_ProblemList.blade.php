@@ -385,6 +385,7 @@
 			{
 				console.log("aa " + GetSelectedRow());
 				table = document.getElementById("tbl");
+				table.innerHTML.replace("background-color: rgb(0, 255, 255)", "background-color: rgb(159, 255, 48)");
 				table.innerHTML += "<tr style='background-color:rgb(0, 255, 255)'>"+rowData+"</tr>";
 				tableDiv = document.getElementById("tableDiv");
 				switch (extraCells)
@@ -393,8 +394,9 @@
 					case 1: hardwareHTML = tableDiv.innerHTML.replace("background-color: rgb(0, 255, 255)", "background-color: rgb(159, 255, 48)"); break;
 					case 2: softwareHTML = tableDiv.innerHTML.replace("background-color: rgb(0, 255, 255)", "background-color: rgb(159, 255, 48)"); break;
 				}
-				selected = 0;
+				selected = 1;
 				console.log("a " + GetSelectedRow());
+				console.log(tableDiv.innerHTML.includes("background-color: rgb(0, 255, 255)"));
 				CheckIfUpdate();
 			}
 			
@@ -454,7 +456,6 @@
 				}
 				tableDiv = document.getElementById("tableDiv");
 				tableDiv.innerHTML = tableDiv.innerHTML.replace("background-color: rgb(0, 255, 255)", "background-color: rgb(159, 255, 48)");
-				selected = 0;
 				document.getElementById("btnHardware").style="text-decoration: initial;"
 				document.getElementById("btnSoftware").style="text-decoration: initial;"
 				document.getElementById("btnNetwork").style="text-decoration: initial;"
@@ -497,6 +498,7 @@
 				if (buttonPressed) //If entered via a button press, rather than my changing the tab of a record, set 'selected' to 0. Otherwise, it will remain at 1.
 				{
 					CheckIfUpdate() //Prevents user input if more or less than one row is selected.
+					selected = 0;
 				}
 				if ((extraCells == 0 && tab == "Network") || (extraCells == 1 && tab == "Hardware") || (extraCells == 2 && tab == "Software"))
 				{
