@@ -111,8 +111,8 @@
 				console.log(GetCurrentTableDivID());
 				$.get("Query.php", {'sql':sql, 'returnData':true},function(json) //Calls query.php, which handles the SQL query and sorting of result data.
 				{
-					console.log(extraCells);
-					console.log(GetCurrentTableDivID());
+					console.log(extraCells + "2");
+					console.log(GetCurrentTableDivID() + "2");
 					if(json && json[0]) //If result of php file was a json array.	
 					{				
 						switch (extraCells)
