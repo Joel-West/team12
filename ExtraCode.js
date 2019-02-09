@@ -196,7 +196,7 @@ function GetRowWithID(id) //Returns row of a column with a given ID (first colum
 
 function SortTable(column) //Function sorts table by the selected column.
 {
-	table = GetTable();
+	table = document.getElementById(GetTable());
 	swapping = true;
 	shouldSwap = false;
 	swapCount = 0;
@@ -208,9 +208,6 @@ function SortTable(column) //Function sorts table by the selected column.
 		for (i = 1; i < GetRows()-1; i++) //Iterate through all rows apart from top row.
 		{
 			shouldSwap = false;
-			console.log(i);
-			console.log(table.rows.length);
-			console.log(table.rows[i].cells[column])
 			item1 = table.rows[i].cells[column]; //Gets 2 items to compare.
 			item2 = table.rows[i+1].cells[column];
 			if (isNaN(item1.innerHTML) || isNaN(item2.innerHTML)) //If either item is not a number, use string comparison.
