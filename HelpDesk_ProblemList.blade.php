@@ -451,18 +451,12 @@
 				{
 					return; //If already on selected page, ignore request.
 				}
-				if (document.getElementById("tbl") != null && selected > 0) //Deselect all rows on tab.
-				{
-					for (i = 0; i < document.getElementById("tbl").rows.length; i++)
-					{
-						document.getElementById("tbl").rows[i].style='background-color:rgb(159, 255, 48)';
-					}
-				}
+				tableDiv = document.getElementById("tableDiv");
+				tableDiv.innerHTML = tableDiv.innerHTML.replace("background-color: rgb(0, 255, 255)", "background-color: rgb(159, 255, 48)");
 				document.getElementById("btnHardware").style="text-decoration: initial;"
 				document.getElementById("btnSoftware").style="text-decoration: initial;"
 				document.getElementById("btnNetwork").style="text-decoration: initial;"
 				htm="";
-				tableDiv = document.getElementById("tableDiv");
 				switch (tab)
 				{
 					case 'Hardware':
@@ -502,6 +496,10 @@
 				{
 					selected = 0;
 					CheckIfUpdate() //Prevents user input if more or less than one row is selected.
+				}
+				if ((extraCells == 0 && tab == "Network") || (extraCells == 1 && tab == "Hardware") || (extraCells == 2 && tab == "Software"))
+				{
+					return; //If already on selected page, ignore request.
 				}
 			}
 			
