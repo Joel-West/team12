@@ -275,16 +275,16 @@
 			
 			function FindAllProblemTypeChildren(parent) //Give it a generalisation and it will find all problem types which stem from this generalisation.
 			{
-				problemTypes.push(parent);
+				//problemTypes.push(parent);
 				console.log("New parent = " + parent);
 				for (i = 0; i < allProblemTypes.length; i++) //Iterates through array of all problem types to find types with the given generalisation.
 				{
-					console.log("Checking " + allProblemTypes[i].typeName)
+					//console.log("Checking " + allProblemTypes[i].typeName)
 					if (allProblemTypes[i].generalisation == parent)
 					{
 						FindAllProblemTypeChildren(allProblemTypes[i].typeName); //Re-runs the function but with the newly discovered problem type as a generalisation.
 					}
-				} 
+				}
 			}
 			
 			function GetIDFromSelBoxItem(item) //Takes an item from a selection box (ID + name) and returns just the ID.
