@@ -278,7 +278,7 @@
 				console.log("New parent = " + parent);
 				for (var i = 0; i < allProblemTypes.length; i++) //Iterates through array of all problem types to find types with the given generalisation.
 				{
-					console.log(i);
+					//console.log(i);
 					if (allProblemTypes[i].generalisation == parent)
 					{
 						FindAllProblemTypeChildren(allProblemTypes[i].typeName); //Re-runs the function but with the newly discovered problem type as a generalisation.
