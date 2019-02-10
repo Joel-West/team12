@@ -282,7 +282,7 @@
 					if (allProblemTypes[i].generalisation == parent)
 					{
 						FindAllProblemTypeChildren(allProblemTypes[i].typeName); //Re-runs the function but with the newly discovered problem type as a generalisation.
-						console.log("uhhhhh hello");
+						console.log(i);
 					}
 				} 
 			}
