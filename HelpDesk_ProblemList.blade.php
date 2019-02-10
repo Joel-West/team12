@@ -250,7 +250,7 @@
 						}
 					}
 				},'json');
-				sql = "SELECT typeName FROM tblProblemType";
+				sql = "SELECT * FROM tblProblemType";
 				$.get("Query.php", {'sql':sql, 'returnData':true},function(json) //Calls query.php, which handles the SQL query and sorting of result data.
 				{
 					if(json && json[0]) //If result of php file was a json array.	
@@ -278,7 +278,7 @@
 				
 				for (i = 0; i < allProblemTypes.length; i++) //Iterates through array of all problem types to find types with the given generalisation.
 				{
-					console.log(allProblemTypes[i]);
+					//console.log(allProblemTypes[i]);
 					if (allProblemTypes[i].generalisation == parent)
 					{
 						problemTypes.push(allProblemTypes[i].typeName);
