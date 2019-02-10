@@ -264,7 +264,6 @@
 			
 			function GetProblemTypeArray() //Function to get array of all the valid problem types for the current tab.
 			{
-				console.log("hey")
 				switch (extraCells)
 				{
 					case 0: FindAllProblemTypeChildren("Network Problem"); break;
@@ -278,7 +277,7 @@
 				console.log(parent);
 				for (i = 0; i < allProblemTypes.length; i++) //Iterates through array of all problem types to find types with the given generalisation.
 				{
-					console.log(allProblemTypes[i].generalisation);
+					console.log(allProblemTypes[i].generalisation == parent);
 					if (allProblemTypes[i].generalisation == parent)
 					{
 						problemTypes.push(allProblemTypes[i].typeName);
