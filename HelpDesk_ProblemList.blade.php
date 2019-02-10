@@ -262,7 +262,7 @@
 			
 			function GetProblemTypeArray()
 			{
-				sql = "SELECT typeName FROM tblProblemType WHERE problemType = ";
+				sql = "SELECT typeName FROM tblProblemType WHERE typeName = ";
 				switch (extraCells)
 				{
 					case 0: sql+="'Network';"; break;
