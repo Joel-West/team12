@@ -171,8 +171,6 @@
 						}
 						newRowCount = 0;
 						GetArrays();
-						ChangeTab("Hardware", true);
-						CheckIfUpdate();
 					},'json');
 				}
 				else
@@ -259,6 +257,8 @@
 							allProblemTypes[i] = json[i];
 						}
 					}
+					ChangeTab("Hardware", true);
+					CheckIfUpdate();
 				},'json');
 			}
 			
