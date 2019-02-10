@@ -274,10 +274,8 @@
 			
 			function FindAllProblemTypeChildren(parent) //Give it a generalisation and it will find all problem types which stem from this generalisation.
 			{
-				console.log(parent);
 				for (i = 0; i < allProblemTypes.length; i++) //Iterates through array of all problem types to find types with the given generalisation.
 				{
-					console.log(allProblemTypes[i].generalisation)
 					if (allProblemTypes[i].generalisation == parent)
 					{
 						problemTypes.push(allProblemTypes[i].typeName);
@@ -429,9 +427,9 @@
 				newExtraCells = -1;
 				switch (box.value) //Gets new number of extra cells based on the input from the selection box (e.g. what tab the selected record in the table will be moved to).
 				{
-					case "Hardware Problem": newExtraCells = 1; break;
-					case "Software Problem": newExtraCells = 2; break;
-					case "Network Problem": newExtraCells = 0; break;
+					case "Hardware problem": newExtraCells = 1; break;
+					case "Software problem": newExtraCells = 2; break;
+					case "Network problem": newExtraCells = 0; break;
 				}
 				if (extraCells == newExtraCells)
 				{
