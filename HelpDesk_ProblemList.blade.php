@@ -264,6 +264,7 @@
 			
 			function GetProblemTypeArray() //Function to get array of all the valid problem types for the current tab.
 			{
+				problemTypes.clear();
 				switch (extraCells)
 				{
 					case 0: FindAllProblemTypeChildren("Network problem"); break;
