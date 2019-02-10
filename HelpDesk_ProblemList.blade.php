@@ -23,6 +23,8 @@
 			var extraCells = -1; //Refers to the numbers of extra cells in the table for the current problem category (software = 2, hardware = 1, network = 0).
 			var specialists = [];
 			var problemTypes = [];
+			var allSpecialists = [];
+			var allProblemTypes = [];
 			
 			function Load() //Function that runs when file loads.
 			{
@@ -30,6 +32,7 @@
 				SetPrivileges(userData) //Enter function that defines what functions are available to user based on status.
 				WriteTime(); //Function that writes the current time at the top of the page.
 				RunQuery(""); //Runs function get gets data from database and display it in the three tableDivs.
+				GetArrays();
 			}
 			
 			function SetPrivileges(userData) //Function that checks if user is an admin or analyst and adjusts available buttons accordingly.
@@ -241,9 +244,9 @@
 					{
 						for (i = 0; i<json.length; i++) //Iterates through the json array of results.
 						{
-							specialists[i] = json[i].userID + " - " + json[i].name;
+							//allSpecialists[i] = json[i].userID + " - " + json[i].name;
+							allSpecialists[i] = json[i];
 						}
-						PopulateSpecialistSelect();
 					}
 				},'json');
 				sql = "SELECT typeName FROM tblProblemType";
@@ -253,28 +256,32 @@
 					{
 						for (i = 0; i<json.length; i++) //Iterates through the json array of results.
 						{
-							problemTypes[i] = json[i].typeName
+							allProblemTypes[i] = json[i];
 						}
-						PopulateProblemTypeSelect();
 					}
 				},'json');
 			}
 			
-			function GetProblemTypeArray()
+			function GetProblemTypeArray() //Function to get array of all the valid problem types for the current tab.
 			{
-				sql = "SELECT typeName FROM tblProblemType";
-				$.get("Query.php", {'sql':sql, 'returnData':true},function(json) //Calls query.php, which handles the SQL query and sorting of result data.
+				switch (extraCells)
 				{
-					if(json && json[0]) //If result of php file was a json array.	
+					case 0: FindAllProblemTypeChildren("Network"); break;
+					case 1: FindAllProblemTypeChildren("Hardware"); break;
+					case 2: FindAllProblemTypeChildren("Software"); break;
+				}
+			}
+			
+			function FindAllProblemTypeChildren(parent) //Give it a generalisation and it will find all problem types which stem from this generalisation.
+			{
+				for (i = 0; i < allProblemTypes.length; i++) //Iterates through array of all problem types to find types with the given generalisation.
+				{
+					if (allProblemTypes[i].generalisation == parent)
 					{
-						for (i = 0; i<json.length; i++) //Iterates through the json array of results.
-						{
-							problemTypes[i] = json[i];
-						}
-						//PopulateProblemTypeSelect();
+						problemTypes.push(allProblemTypes[i].typeName);
+						FindAllProblemTypeChildren(allProblemTypes[i].typeName); //Re-runs the function but with the newly discovered problem type as a generalisation.
 					}
-				},'json');
-				//FIND CHILDREN.
+				} 
 			}
 			
 			function GetIDFromSelBoxItem(item) //Takes an item from a selection box (ID + name) and returns just the ID.
@@ -305,7 +312,6 @@
 				}
 				return false;
 			}
-
 			
 			function PopulateProblemTypeSelect() //Populates selection box with problem types based on searched text.
 			{
