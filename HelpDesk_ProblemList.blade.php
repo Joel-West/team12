@@ -266,9 +266,9 @@
 			{
 				switch (extraCells)
 				{
-					case 0: FindAllProblemTypeChildren("Network Problem"); break;
-					case 1: FindAllProblemTypeChildren("Hardware Problem"); break;
-					case 2: FindAllProblemTypeChildren("Software Problem"); break;
+					case 0: FindAllProblemTypeChildren("Network problem"); break;
+					case 1: FindAllProblemTypeChildren("Hardware problem"); break;
+					case 2: FindAllProblemTypeChildren("Software problem"); break;
 				}
 			}
 			
@@ -427,9 +427,9 @@
 				newExtraCells = -1;
 				switch (box.value) //Gets new number of extra cells based on the input from the selection box (e.g. what tab the selected record in the table will be moved to).
 				{
-					case "Hardware problem": newExtraCells = 1; break;
-					case "Software problem": newExtraCells = 2; break;
-					case "Network problem": newExtraCells = 0; break;
+					case "Hardware Problem": newExtraCells = 1; break;
+					case "Software Problem": newExtraCells = 2; break;
+					case "Network Problem": newExtraCells = 0; break;
 				}
 				if (extraCells == newExtraCells)
 				{
