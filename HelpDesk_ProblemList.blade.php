@@ -172,7 +172,6 @@
 						}
 						newRowCount = 0;
 						ChangeTab("Hardware", true);
-						GetArrays();
 						CheckIfUpdate();
 					},'json');
 				}
@@ -265,6 +264,7 @@
 			
 			function GetProblemTypeArray() //Function to get array of all the valid problem types for the current tab.
 			{
+				console.log("hey")
 				switch (extraCells)
 				{
 					case 0: FindAllProblemTypeChildren("Network Problem"); break;
