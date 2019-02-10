@@ -274,6 +274,7 @@
 			
 			function FindAllProblemTypeChildren(parent) //Give it a generalisation and it will find all problem types which stem from this generalisation.
 			{
+				console.log(parent);
 				for (i = 0; i < allProblemTypes.length; i++) //Iterates through array of all problem types to find types with the given generalisation.
 				{
 					if (allProblemTypes[i].generalisation == parent)
