@@ -277,7 +277,7 @@
 				console.log(parent);
 				for (i = 0; i < allProblemTypes.length; i++) //Iterates through array of all problem types to find types with the given generalisation.
 				{
-					console.log(allProblemTypes[i].generalisation == parent);
+					console.log(String(allProblemTypes[i].generalisation) == parent);
 					if (allProblemTypes[i].generalisation == parent)
 					{
 						problemTypes.push(allProblemTypes[i].typeName);
