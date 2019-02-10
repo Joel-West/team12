@@ -284,6 +284,7 @@
 						FindAllProblemTypeChildren(allProblemTypes[i].typeName); //Re-runs the function but with the newly discovered problem type as a generalisation.
 					}
 				}
+				return;
 			}
 			
 			function GetIDFromSelBoxItem(item) //Takes an item from a selection box (ID + name) and returns just the ID.
