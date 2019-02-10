@@ -32,7 +32,6 @@
 				SetPrivileges(userData) //Enter function that defines what functions are available to user based on status.
 				WriteTime(); //Function that writes the current time at the top of the page.
 				RunQuery(""); //Runs function get gets data from database and display it in the three tableDivs.
-				GetArrays();
 			}
 			
 			function SetPrivileges(userData) //Function that checks if user is an admin or analyst and adjusts available buttons accordingly.
@@ -171,6 +170,7 @@
 							var htm = "Sorry, no results found..."; //If no results, display error.
 						}
 						newRowCount = 0;
+						GetArrays();
 						ChangeTab("Hardware", true);
 						CheckIfUpdate();
 					},'json');
