@@ -276,15 +276,16 @@
 			{
 				problemTypes.push(parent);
 				console.log("New parent = " + parent);
-				for (ghf = 0; ghf < allProblemTypes.length; ghf++) //Iterates through array of all problem types to find types with the given generalisation.
+				for (i = 0; i < allProblemTypes.length; i++) //Iterates through array of all problem types to find types with the given generalisation.
 				{
-					console.log("Checking " + allProblemTypes[ghf].typeName)
-					if (allProblemTypes[ghf].generalisation == parent)
+					console.log("Checking " + allProblemTypes[i].typeName)
+					if (allProblemTypes[i].generalisation == parent)
 					{
-						FindAllProblemTypeChildren(allProblemTypes[ghf].typeName); //Re-runs the function but with the newly discovered problem type as a generalisation.
-						console.log(ghf);
+						FindAllProblemTypeChildren(allProblemTypes[i].typeName); //Re-runs the function but with the newly discovered problem type as a generalisation.
+						console.log(i);
 					}
 				} 
+				console.log(i);
 			}
 			
 			function GetIDFromSelBoxItem(item) //Takes an item from a selection box (ID + name) and returns just the ID.
