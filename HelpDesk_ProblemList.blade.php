@@ -266,9 +266,9 @@
 			{
 				switch (extraCells)
 				{
-					case 0: FindAllProblemTypeChildren("Network"); break;
-					case 1: FindAllProblemTypeChildren("Hardware"); break;
-					case 2: FindAllProblemTypeChildren("Software"); break;
+					case 0: FindAllProblemTypeChildren("Network Problem"); break;
+					case 1: FindAllProblemTypeChildren("Hardware Problem"); break;
+					case 2: FindAllProblemTypeChildren("Software Problem"); break;
 				}
 			}
 			
