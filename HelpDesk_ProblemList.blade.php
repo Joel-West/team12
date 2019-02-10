@@ -282,7 +282,6 @@
 					console.log("Checking " + allProblemTypes[i].typeName)
 					if (allProblemTypes[i].generalisation == parent)
 					{
-						problemTypes.push(allProblemTypes[i].typeName);
 						FindAllProblemTypeChildren(allProblemTypes[i].typeName); //Re-runs the function but with the newly discovered problem type as a generalisation.
 					}
 				} 
