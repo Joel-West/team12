@@ -262,27 +262,19 @@
 			
 			function GetProblemTypeArray()
 			{
-				sql = "SELECT typeName FROM tblProblemType WHERE typeName = ";
-				switch (extraCells)
-				{
-					case 0: sql+="'Network';"; break;
-					case 1: sql+="'Hardware';"; break;
-					case 2: sql+="'Software';"; break;
-				}
-				console.log(sql);
+				sql = "SELECT typeName FROM tblProblemType;
 				$.get("Query.php", {'sql':sql, 'returnData':true},function(json) //Calls query.php, which handles the SQL query and sorting of result data.
 				{
-					console.log("2");
 					if(json && json[0]) //If result of php file was a json array.	
 					{
-						console.log("3");
 						for (i = 0; i<json.length; i++) //Iterates through the json array of results.
 						{
-							problemTypes[i] = json[i].typeName
+							problemTypes[i] = json[i];
 						}
 						//PopulateProblemTypeSelect();
 					}
 				},'json');
+				//FIND CHILDREN.
 			}
 			
 			function GetIDFromSelBoxItem(item) //Takes an item from a selection box (ID + name) and returns just the ID.
