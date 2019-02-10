@@ -269,7 +269,7 @@
 					case 1: sql+="'Hardware';"; break;
 					case 2: sql+="'Software';"; break;
 				}
-				console.log("1");
+				console.log(sql);
 				$.get("Query.php", {'sql':sql, 'returnData':true},function(json) //Calls query.php, which handles the SQL query and sorting of result data.
 				{
 					console.log("2");
