@@ -277,7 +277,7 @@
 						{
 							problemTypes[i] = json[i].typeName
 						}
-						//PopulateProblemTypeSelect();
+						PopulateProblemTypeSelect();
 					}
 				},'json');
 			}
