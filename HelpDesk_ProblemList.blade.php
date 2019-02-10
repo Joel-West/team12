@@ -262,6 +262,7 @@
 			
 			function GetProblemTypeArray()
 			{
+				console.log("");
 				sql = "SELECT typeName FROM tblProblemType WHERE problemType = ";
 				switch (extraCells)
 				{
@@ -271,7 +272,6 @@
 				}
 				$.get("Query.php", {'sql':sql, 'returnData':true},function(json) //Calls query.php, which handles the SQL query and sorting of result data.
 				{
-					console.log(json);
 					if(json && json[0]) //If result of php file was a json array.	
 					{
 						for (i = 0; i<json.length; i++) //Iterates through the json array of results.
