@@ -513,7 +513,7 @@
 		<div class="col-3"></div>
 		<div class="collapse col-6" id="result2Collapse">
 		  Specialist:
-		  <div id="specialistComboBox">
+		  <div class="collapse" id="specialistComboBox">
 		    <button class='btn greenBack dropdown-toggle' type='button' id='dropdownButton4' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>
 			  Choose Specialist:<span class='caret'></span>
 			</button>
