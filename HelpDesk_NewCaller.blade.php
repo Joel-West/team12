@@ -358,7 +358,7 @@
 		    }
 		    document.getElementById("dropdown-menuSolution").innerHTML = html;
 			$('#specialistSolutionComboBox').collapse('show');
-			$('[data-toggle="tooltip"]').tooltip();
+			$('#dropdown-menuSolution a').tooltip();
 		    $('#solutionCollapse').collapse('show');
 		  }
 		  else{
@@ -371,8 +371,9 @@
 	  $(document).on('click', '#dropdown-menuSolution a', function(){
         $("#dropdownButtonSolution:first-child").text($(this).text());
         $("#dropdownButtonSolution:first-child").val($(this).text());
+		document.getElementById('solution').value = $(this).attr('title');
       });
-
+	  
 	  function SaveChanges(){
 		
 	  }
