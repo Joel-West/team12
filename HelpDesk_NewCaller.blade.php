@@ -303,7 +303,6 @@
 	  }
 	  
 	  function fillSpecialistComboBox(){
-		console.log(problemTypeVar);
 		var sql = "SELECT userID FROM tblSpecialisation WHERE typeName = '" + problemTypeVar + "';";
 		var html = "";
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
@@ -312,13 +311,10 @@
 			for (i = 0; i < json.length; i++){
 			  html += "<a class='dropdown-item' >" + specialistList[i] + " (" + count[i] + " current jobs)</a>"
 			}
-			console.log(specialistList);
 			specialistList.splice(0,i);
-			console.log(specialistList);
+			html += "<div class='dropdown-divider'></div>"
 		  }
 		  if (specialistList.length > 0){
-			console.log("ENTER");
-			html += "<div class='dropdown-divider'></div>"
 			html+= "<h6 class='dropdown-header'>Specialists to a generalisation of the problem type</h6>";
 			for (j = 0; j < specialistList.length; j++){
 		      html+= "<a class='dropdown-item' >" + specialistList[j] + " (" + count[j] + " current jobs)</a>"
