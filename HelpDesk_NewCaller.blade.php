@@ -356,7 +356,6 @@
 			  html+= "<a class='dropdown-item' data-toggle='popover' data-trigger='hover' data-content='" + json[i].solution + "'>" + problemTypeVar + "</a>";
 		    }
 		    document.getElementById("dropdown-menuSolution").innerHTML = html;
-			console.log("HELLO HELLO HELLO");
 			$('#specialistSolutionComboBox').collapse('show');
 		    $('#solutionCollapse').collapse('show');
 		  }
@@ -366,6 +365,11 @@
 		  }
 		},'json');
 	  }
+	  
+	  $(document).on('click', '#dropdown-menuSolution a', function(){
+        $("#dropdownButtonSolution:first-child").text($(this).text());
+        $("#dropdownButtonSolution:first-child").val($(this).text());
+      });
 	  
 	  function SaveChanges(){
 		
