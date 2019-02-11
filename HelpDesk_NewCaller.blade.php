@@ -357,11 +357,11 @@
 		    }
 		    document.getElementById("dropdown-menuSolution").innerHTML = html;
 			console.log("HELLO HELLO HELLO");
-			$('#specialistComboBox').collapse('show');
+			$('#specialistSolutionComboBox').collapse('show');
 		    $('#solutionCollapse').collapse('show');
 		  }
 		  else{
-			$('#specialistComboBox').collapse('hide');
+			$('#specialistSolutionComboBox').collapse('hide');
 		    $('#solutionCollapse').collapse('show');
 		  }
 		},'json');
@@ -513,7 +513,7 @@
 		<div class="col-3"></div>
 		<div class="collapse col-6" id="result2Collapse">
 		  Specialist:
-		  <div class="collapse" id="specialistComboBox">
+		  <div id="specialistComboBox">
 		    <button class='btn greenBack dropdown-toggle' type='button' id='dropdownButton4' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>
 			  Choose Specialist:<span class='caret'></span>
 			</button>
@@ -531,7 +531,7 @@
 		  <div class="collapse" id="solutionCollapse">
 		    Solution:
 		    <textarea class="form-control" rows="5" id="solution" ></textarea>
-			<div class="collapse" id="specialistComboBox">
+			<div class="collapse" id="specialistSolutionComboBox">
 		      <button class='btn greenBack dropdown-toggle' type='button' id='dropdownButtonSolution' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>
 			    Choose Solution:<span class='caret'></span>
 			  </button>
