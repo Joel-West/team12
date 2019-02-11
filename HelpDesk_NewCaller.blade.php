@@ -247,8 +247,11 @@
 		var sql = "SELECT generalisation FROM tblProblemType WHERE typeName = '" + problemType + "';";
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
 		  if (json && json[0]){
+			console.log(problemType);
+			console.log(json[0].generalisation);
 			if (json[0].generalisation == null){
 			  problemTypeList.push(problemType);
+			  console.log("Moving On");
 			  populateIDList();
 			}
 			else{
