@@ -382,11 +382,8 @@
 		  max-height:350px;
 		  overflow-y:auto;
 	  }
-	  .tooltop {
+	  .tooltip {
 		pointer-events: none;
-	  }
-	  .a{
-		display: block;
 	  }
 	</style>
   </head>
