@@ -358,7 +358,7 @@
 		    }
 		    document.getElementById("dropdown-menuSolution").innerHTML = html;
 			$('#specialistSolutionComboBox').collapse('show');
-			$('#dropdown-menuSolution').tooltip();
+			$('#dropdown-menuSolution a').tooltip();
 		    $('#solutionCollapse').collapse('show');
 		  }
 		  else{
