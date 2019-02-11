@@ -293,7 +293,7 @@
 			}
 		  },'json');
 		}
-		setTimeout(populateSpecialistList,50);
+		setTimeout(populateSpecialistList,70);
 	  }
 	  
 	  function populateSpecialistList(){
@@ -305,7 +305,7 @@
 			}
 		  },'json');
 		}
-		setTimeout(fillSpecialistComboBox,50);
+		setTimeout(fillSpecialistComboBox,70);
 	  }
 	  
 	  function fillSpecialistComboBox(){
@@ -354,7 +354,7 @@
 		    console.log("ENTER");
 		    for (i = 0; i<json.length; i++){
 			  console.log("FOR");
-			  html+= "<a class='dropdown-item' data-toggle='tooltip' data-placement='top' title='" + json[i].solution + "'>" + problemTypeVar + "</a>";
+			  html+= "<a class='dropdown-item' data-toggle='tooltip' data-placement='bottom' title='" + json[i].solution + "'>" + problemTypeVar + "</a>";
 		    }
 		    document.getElementById("dropdown-menuSolution").innerHTML = html;
 			$('#specialistSolutionComboBox').collapse('show');
