@@ -273,10 +273,9 @@
 				}
 			  }
 			}
-			console.log(specialistIDList);
 		  },'json');
 		}
-		setTimeout(populateCount,70);
+		setTimeout(populateCount,100);
 	  }
 	  
 	  function populateCount(){		  
@@ -288,7 +287,7 @@
 			}
 		  },'json');
 		}
-		setTimeout(populateSpecialistList,50);
+		setTimeout(populateSpecialistList,70);
 	  }
 	  
 	  function populateSpecialistList(){
@@ -300,7 +299,7 @@
 			}
 		  },'json');
 		}
-		setTimeout(fillSpecialistComboBox,50);
+		setTimeout(fillSpecialistComboBox,70);
 	  }
 	  
 	  function fillSpecialistComboBox(){
