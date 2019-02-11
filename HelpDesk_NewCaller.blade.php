@@ -373,7 +373,8 @@
       });
 	  
 	  $(document).on('hover', '#dropdown-menuSolution a', function(){
-		$('#dropdown-menuSolution a').tooltip();
+		console.log("HELLO");
+		$('#dropdown-menuSolution a').tooltip('show');
       });
 
 	  function SaveChanges(){
