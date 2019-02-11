@@ -236,6 +236,7 @@
 	  var specialistList = [];
 	  var problemTypeVar;
 	  function populateSpecialist(problemType){
+		console.log(problemType);
 		problemTypeList = [];
 		problemTypeVar = "";
 		problemTypeVar = problemType;
