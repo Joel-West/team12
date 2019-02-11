@@ -357,7 +357,7 @@
 			  html+= "<a class='dropdown-item' data-toggle='tooltip' data-placement='right' title='" + json[i].solution + "'>" + problemTypeVar + "</a>";
 		    }
 		    document.getElementById("dropdown-menuSolution").innerHTML = html;
-			$('[data-toggle="tooltip"]').tooltip();
+			$('#dropdown-menuSolution a').tooltip();
 			$('#specialistSolutionComboBox').collapse('show');
 		    $('#solutionCollapse').collapse('show');
 		  }
