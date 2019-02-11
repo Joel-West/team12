@@ -303,7 +303,7 @@
 	  }
 	  
 	  function fillSpecialistComboBox(){
-		console.log("problemTypeVar");
+		console.log(problemTypeVar);
 		var sql = "SELECT userID FROM tblSpecialisation WHERE typeName = '" + problemTypeVar + "';";
 		var html = "";
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
