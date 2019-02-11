@@ -354,7 +354,7 @@
 		    console.log("ENTER");
 		    for (i = 0; i<json.length; i++){
 			  console.log("FOR");
-			  html+= "<a class='dropdown-item' data-toggle='tooltip' data-placement='bottom' data-title='" + json[i].solution + "'>" + problemTypeVar + "</a>";
+			  html+= "<a class='dropdown-item' data-toggle='tooltip' data-placement='right' data-title='" + json[i].solution + "'>" + problemTypeVar + "</a>";
 		    }
 		    document.getElementById("dropdown-menuSolution").innerHTML = html;
 			$('#specialistSolutionComboBox').collapse('show');
@@ -541,7 +541,7 @@
 		    Solution:
 		    <textarea class="form-control" rows="5" id="solution" ></textarea>
 			<div class="collapse" id="specialistSolutionComboBox">
-			  <div>
+			  <div class="dropdown">
 		        <button class='btn greenBack dropdown-toggle' type='button' id='dropdownButtonSolution' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>
 			      Choose Solution:<span class='caret'></span>
 			    </button>
