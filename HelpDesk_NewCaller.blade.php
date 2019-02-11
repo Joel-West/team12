@@ -371,7 +371,7 @@
 	  $(document).on('click', '#dropdown-menuSolution a', function(){
         $("#dropdownButtonSolution:first-child").text($(this).text());
         $("#dropdownButtonSolution:first-child").val($(this).text());
-		document.getElementById('solution').value = $(this).attr('title');
+		$("#solution").val($(this).attr('title'));
       });
 	  
 	  function SaveChanges(){
