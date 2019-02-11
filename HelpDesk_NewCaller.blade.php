@@ -353,7 +353,7 @@
 		    console.log("ENTER");
 		    for (i = 0; i<json.length; i++){
 			  console.log("FOR");
-			  html+= "<a class='dropdown-item'>" + problemTypeVar + "data-toggle='popover' data-trigger='hover' data-content='" + json[i].solution + "'</a>";
+			  html+= "<a class='dropdown-item' data-toggle='popover' data-trigger='hover' data-content='" + json[i].solution + "'>" + problemTypeVar + "</a>";
 		    }
 		    document.getElementById("dropdown-menuSolution").innerHTML = html;
 			console.log("HELLO HELLO HELLO");
