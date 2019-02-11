@@ -275,7 +275,7 @@
 			}
 		  },'json');
 		}
-		setTimeout(populateCount,100);
+		setTimeout(populateCount,70);
 	  }
 	  
 	  function populateCount(){		  
@@ -287,7 +287,7 @@
 			}
 		  },'json');
 		}
-		setTimeout(populateSpecialistList,70);
+		setTimeout(populateSpecialistList,50);
 	  }
 	  
 	  function populateSpecialistList(){
@@ -299,10 +299,11 @@
 			}
 		  },'json');
 		}
-		setTimeout(fillSpecialistComboBox,70);
+		setTimeout(fillSpecialistComboBox,50);
 	  }
 	  
 	  function fillSpecialistComboBox(){
+		console.log("YO I AM HERE FAMALAM");
 		var sql = "SELECT userID FROM tblSpecialisation WHERE typeName = '" + problemTypeVar + "';";
 		var html = "";
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
