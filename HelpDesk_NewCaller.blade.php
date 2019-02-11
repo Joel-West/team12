@@ -357,7 +357,6 @@
 			  html+= "<a class='dropdown-item' data-toggle='tooltip' data-placement='right' title='" + json[i].solution + "'>" + problemTypeVar + "</a>";
 		    }
 		    document.getElementById("dropdown-menuSolution").innerHTML = html;
-			$('#dropdown-menuSolution a').tooltip('show');
 			$('#specialistSolutionComboBox').collapse('show');
 		    $('#solutionCollapse').collapse('show');
 		  }
@@ -371,6 +370,10 @@
 	  $(document).on('click', '#dropdown-menuSolution a', function(){
         $("#dropdownButtonSolution:first-child").text($(this).text());
         $("#dropdownButtonSolution:first-child").val($(this).text());
+      });
+	  
+	  $(document).on('hover', '#dropdown-menuSolution a', function(){
+		$('#dropdown-menuSolution a').tooltip();
       });
 
 	  function SaveChanges(){
