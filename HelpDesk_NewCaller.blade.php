@@ -536,10 +536,12 @@
 		    Solution:
 		    <textarea class="form-control" rows="5" id="solution" ></textarea>
 			<div class="collapse" id="specialistSolutionComboBox">
-		      <button class='btn greenBack dropdown-toggle' type='button' id='dropdownButtonSolution' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>
-			    Choose Solution:<span class='caret'></span>
-			  </button>
-			  <div class='dropdown-menu' id='dropdown-menuSolution' aria-labelledby='dropdownMenuSolution'>
+			  <div>
+		        <button class='btn greenBack dropdown-toggle' type='button' id='dropdownButtonSolution' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>
+			      Choose Solution:<span class='caret'></span>
+			    </button>
+			    <div class='dropdown-menu' id='dropdown-menuSolution' aria-labelledby='dropdownMenuSolution'>
+			    </div>
 			  </div>
 		    </div>
 		  </div>
