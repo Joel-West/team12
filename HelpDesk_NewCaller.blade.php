@@ -158,6 +158,7 @@
 		if ($(this).text() == "New Problem"){
 		  $("#dropdownButton2:first-child").text(document.getElementById("newProblemInput").value);
 		  $("#dropdownButton2:first-child").val(document.getElementById("newProblemInput").value);
+		  $('input[name=Radios]').attr('checked',false);
 		  $('#newNewProblemCollapse').collapse('show');
 		}
 		else{
@@ -355,6 +356,7 @@
 			  html+= "<a class='dropdown-item'>" + problemTypeVar + "data-toggle='popover' data-trigger='hover' data-content='" + json[i].solution + "'</a>";
 		    }
 		    document.getElementById("dropdown-menuSolution").innerHTML = html;
+			console.log("HELLO HELLO HELLO");
 			$('#specialistComboBox').collapse('show');
 		    $('#solutionCollapse').collapse('show');
 		  }
