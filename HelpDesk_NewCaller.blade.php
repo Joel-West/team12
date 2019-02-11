@@ -358,7 +358,7 @@
 		    }
 		    document.getElementById("dropdown-menuSolution").innerHTML = html;
 			$('#specialistSolutionComboBox').collapse('show');
-			$('#dropdown-menuSolution a').tooltip();
+			$('[data-toggle="tooltip"]').tooltip();
 		    $('#solutionCollapse').collapse('show');
 		  }
 		  else{
@@ -541,7 +541,7 @@
 		    Solution:
 		    <textarea class="form-control" rows="5" id="solution" ></textarea>
 			<div class="collapse" id="specialistSolutionComboBox">
-			  <div style="background-color: green;">
+			  <div>
 		        <button class='btn greenBack dropdown-toggle' type='button' id='dropdownButtonSolution' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>
 			      Choose Solution:<span class='caret'></span>
 			    </button>
