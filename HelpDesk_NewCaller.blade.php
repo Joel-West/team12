@@ -541,7 +541,7 @@
 		    Solution:
 		    <textarea class="form-control" rows="5" id="solution" ></textarea>
 			<div class="collapse" id="specialistSolutionComboBox">
-			  <div class="dropdown">
+			  <div style="background-color: green;">
 		        <button class='btn greenBack dropdown-toggle' type='button' id='dropdownButtonSolution' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>
 			      Choose Solution:<span class='caret'></span>
 			    </button>
