@@ -358,6 +358,7 @@
 		    }
 		    document.getElementById("dropdown-menuSolution").innerHTML = html;
 			$('#specialistSolutionComboBox').collapse('show');
+			$('#dropdown-menuSolution').tooltip();
 		    $('#solutionCollapse').collapse('show');
 		  }
 		  else{
@@ -370,11 +371,6 @@
 	  $(document).on('click', '#dropdown-menuSolution a', function(){
         $("#dropdownButtonSolution:first-child").text($(this).text());
         $("#dropdownButtonSolution:first-child").val($(this).text());
-      });
-	  
-	  $(document).on('hover', '#dropdown-menuSolution a', function(){
-		console.log("HELLO");
-		$('#dropdown-menuSolution a').tooltip('show');
       });
 
 	  function SaveChanges(){
