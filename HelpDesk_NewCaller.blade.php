@@ -315,19 +315,18 @@
 			console.log(specialistList);
 			specialistList.splice(0,i);
 			console.log(specialistList);
-			if (specialistList.length > 0){
-			  html += "<div class='dropdown-divider'></div>"
-			  html+= "<h6 class='dropdown-header'>Specialists to a generalisation of the problem type</h6>";
-			  for (j = i; j < specialistList.length; j++){
-				console.log(j);
-		        html+= "<a class='dropdown-item' >" + specialistList[i] + " (" + count[i] + " current jobs)</a>"
-		      }
-		    }
-		
-		    document.getElementById("dropdown-menu4").innerHTML = html;
-		    console.log(html);
-			$('#result2Collapse').collapse('show');
 		  }
+		  if (specialistList.length > 0){
+			html += "<div class='dropdown-divider'></div>"
+			html+= "<h6 class='dropdown-header'>Specialists to a generalisation of the problem type</h6>";
+			for (j = i; j < specialistList.length; j++){
+		      console.log(j);
+		      html+= "<a class='dropdown-item' >" + specialistList[i] + " (" + count[i] + " current jobs)</a>"
+		    }
+		  }
+		  document.getElementById("dropdown-menu4").innerHTML = html;
+		  console.log(html);
+	      $('#result2Collapse').collapse('show');
 		},'json');
 	  }
 	  
