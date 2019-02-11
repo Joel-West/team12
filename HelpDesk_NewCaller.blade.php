@@ -357,7 +357,7 @@
 			  html+= "<a class='dropdown-item' data-toggle='tooltip' data-placement='right' title='" + json[i].solution + "'>" + problemTypeVar + "</a>";
 		    }
 		    document.getElementById("dropdown-menuSolution").innerHTML = html;
-			$('#dropdown-menuSolution a').tooltip();
+			$('#dropdown-menuSolution a').tooltip('show');
 			$('#specialistSolutionComboBox').collapse('show');
 		    $('#solutionCollapse').collapse('show');
 		  }
@@ -372,7 +372,7 @@
         $("#dropdownButtonSolution:first-child").text($(this).text());
         $("#dropdownButtonSolution:first-child").val($(this).text());
       });
-	  
+
 	  function SaveChanges(){
 		
 	  }
