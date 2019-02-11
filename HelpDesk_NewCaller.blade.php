@@ -354,7 +354,7 @@
 		    console.log("ENTER");
 		    for (i = 0; i<json.length; i++){
 			  console.log("FOR");
-			  html+= "<a class='dropdown-item' data-toggle='tooltip' data-title='" + json[i].solution + "'>" + problemTypeVar + "</a>";
+			  html+= "<a class='dropdown-item' data-toggle='tooltip' data-placement='right' data-title='" + json[i].solution + "'>" + problemTypeVar + "</a>";
 		    }
 		    document.getElementById("dropdown-menuSolution").innerHTML = html;
 			$('#specialistSolutionComboBox').collapse('show');
