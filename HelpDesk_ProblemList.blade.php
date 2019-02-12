@@ -322,6 +322,7 @@
 			
 			function DoesSpecialistExist(id) //Function returns true if the selected specialists is already in the list of valid specialists.
 			{
+				console.log(specialists[i]);
 				for (i = 0; i<specialists.length; i++)
 				{
 					if (specialists[i].includes(id))
