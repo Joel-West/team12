@@ -368,7 +368,6 @@
 				if (matchIndex != -1)
 				{
 					selBox.selectedIndex = matchIndex;
-					GetSpecialistArray(); //Repopulates array of viable specialists based on new problem type.
 				}
 				lbl = document.getElementById("lblProblemTypeNum");
 				if (size == 0) //If there are no results, hide selection box.
@@ -396,6 +395,8 @@
 				{
 					lbl.innerHTML = "";
 				}
+				GetSpecialistArray(); //Repopulates array of viable specialists based on new problem type.
+				PopulateSpecialistSelect();
 			}
 			
 			function PopulateSpecialistSelect() //Populates selection box with specialist IDs/names based on searched text.
