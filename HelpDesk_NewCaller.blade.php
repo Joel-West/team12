@@ -422,8 +422,8 @@
 			  if (json&&json[0]){
 				var problemNumber = json[0].problemNumber;
 				var notes = document.getElementById("notes").value;
-				sqlCall += "INSERT INTO tblCallHistory ('operatorID', 'callerID', 'timeDate', 'problemNumber', 'notes') VALUES ";
-			    sqlCall += "('" + operatorID + "', '" + callerID + "', '" + dateTime + "', '" + problemNumber + "', '" + notes + "');";
+				sqlCall += "INSERT INTO tblCallHistory VALUES ";
+			    sqlCall += "(NULL, '" + operatorID + "', '" + callerID + "', '" + dateTime + "', '" + problemNumber + "', '" + notes + "');";
 			    alert(sqlCall);
 				$.get("Query.php", {'sql':sqlCall, 'returnData':false},function(json){
 				  if(json && json[0]){ //If result of php file was a json array.					
