@@ -979,15 +979,11 @@
 				{
 					sql+='DELETE FROM tblProblem WHERE problemNumber = ' + delList[i] + '; ';
 				}
-				console.log("a" + i);
 				for (i = 0; i < updList.length; i++) //Iterate through delete list (deletion performed first as it reduces database size, making other operations quicker).
 				{
-					console.log("length = " + updList.length);
 					problemNumber = updList[i];
 					table = GetTableWithID(problemNumber);
-					console.log("b" + i);
 					rowNum = GetRowWithIDFromCertainTable(problemNumber, table); //Gets the row number the correct local table that corresponds to the problem number in the updList.
-					console.log(i);
 					if (rowNum != -1) //If row exists.
 					{
 						row = document.getElementById(table).rows[rowNum]; //Get row of local table that is being saved to database.
@@ -1011,7 +1007,6 @@
 								sql+='softwareConcerned = "'+ row.cells[4].innerHTML + '", ';
 								break;
 						}
-						console.log(i);
 						sql+='problemSubType = "'+ row.cells[2].innerHTML + '", ';
 						sql+='specialistID = '+ row.cells[tempCells+3].innerHTML + ', ';
 						if (row.cells[tempCells+5].innerHTML != '')
@@ -1025,10 +1020,7 @@
 						sql+='resolved = "'+ row.cells[tempCells+4].innerHTML + '" ';
 						sql+='WHERE problemNumber = ' + problemNumber + '; ';
 					}
-					console.log(i);
 				}
-				console.log(i);
-				console.log("length = " + updList.length);
 				alert(sql);
 				sql = "";
 				if (sql != "") //If there is any SQL to run.
