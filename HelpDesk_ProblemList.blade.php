@@ -891,6 +891,7 @@
 				row = document.getElementById(GetCurrentTableID(extraCells)).rows[GetSelectedRow()]; //Gets the details of the row that is selected.
 				row.cells[1].innerHTML = document.getElementById("txtProblem").value;
 				row.cells[2].innerHTML = document.getElementById("txtProblemType").value;
+				console.log("a");
 				switch (extraCells)
 				{
 					case 1:
@@ -902,6 +903,7 @@
 						break;
 				}
 				row.cells[extraCells+3] = document.getElementById("txtSpecialist").value;
+				console.log("b");
 				row.cells[extraCells+4] = GetResolvedAsString(document.getElementById("chkResolved").checkecked);
 				if (document.getElementById("chkResolved").checked)
 				{
