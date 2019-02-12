@@ -660,7 +660,7 @@
 				}
 			}
 			
-			function GetCurrentTableID(cells) //Returns the ID of current tab's table.
+			function GetCurrentTableID(cells) //Returns the ID associated with the number of extra cells given (usually the current tab).
 			{
 				switch (cells)
 				{
