@@ -301,6 +301,7 @@
 				{
 					if (allSpecialisations[i].typeName == child && !(specialists.includes(allSpecialisations[i].userID + " - " + allSpecialisations[i].name)))
 					{
+						console.log(allSpecialisations[i].userID + " - " + allSpecialisations[i].name);
 						specialists[i] = allSpecialisations[i].userID + " - " + allSpecialisations[i].name;
 					}
 				}
