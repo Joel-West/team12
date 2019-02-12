@@ -86,8 +86,8 @@
 					switch (extraCells)
 					{
 						case 0: sql = "SELECT * FROM tblProblem WHERE problemType = 'Network' AND ("; break;
-						case 1: sql = "SELECT * FROM tblProblem WHERE problemType = 'Hardware' AND "; break;
-						case 2: sql = "SELECT * FROM tblProblem WHERE problemType = 'Software' AND "; break;
+						case 1: sql = "SELECT * FROM tblProblem WHERE problemType = 'Hardware' AND ("; break;
+						case 2: sql = "SELECT * FROM tblProblem WHERE problemType = 'Software' AND ("; break;
 					}
 					for (i = 0; i < str.length; i++) //Iterates through list of search terms, adding to the SQL query.
 					{
@@ -893,7 +893,6 @@
 				row = document.getElementById(GetCurrentTableID(extraCells)).rows[GetSelectedRow()]; //Gets the details of the row that is selected.
 				row.cells[1].innerHTML = document.getElementById("txtProblem").value;
 				row.cells[2].innerHTML = document.getElementById("txtProblemType").value;
-				console.log("a");
 				switch (extraCells)
 				{
 					case 1:
@@ -905,7 +904,7 @@
 						break;
 				}
 				row.cells[extraCells+3].innerHTML = document.getElementById("txtSpecialist").value;
-				row.cells[extraCells+4].innerHTML = GetResolvedAsString(document.getElementById("chkResolved").checkecked);
+				row.cells[extraCells+4].innerHTML = GetResolvedAsString(document.getElementById("chkResolved").checked);
 				if (document.getElementById("chkResolved").checked)
 				{
 					row.cells[extraCells+5].innerHTML = document.getElementById("txtDateTime").value;
