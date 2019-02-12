@@ -984,6 +984,7 @@
 					problemNumber = updList[i];
 					table = GetTableWithID(problemNumber);
 					rowNum = GetRowWithIDFromCertainTable(problemNumber, table); //Gets the row number the correct local table that corresponds to the problem number in the updList.
+					console.log(i);
 					if (rowNum != -1) //If row exists.
 					{
 						row = document.getElementById(table).rows[rowNum]; //Get row of local table that is being saved to database.
@@ -1007,6 +1008,7 @@
 								sql+='softwareConcerned = "'+ row.cells[4].innerHTML + '", ';
 								break;
 						}
+						console.log(i);
 						sql+='problemSubType = "'+ row.cells[2].innerHTML + '", ';
 						sql+='specialistID = '+ row.cells[tempCells+3].innerHTML + ', ';
 						if (row.cells[tempCells+5].innerHTML != '')
