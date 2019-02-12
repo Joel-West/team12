@@ -835,7 +835,7 @@
 					return false;
 				}
 				id = "txtSolution";
-				if (document.getElementById(id).value == false || document.getElementById(id).value.includes("'") || document.getElementById(id).value.length > 2047)
+				if (document.getElementById(id).value.includes("'") || document.getElementById(id).value.length > 2047)
 				{
 					alert("Invalid solution."); //Returns error if data input from text box is invalid.
 					return false;
