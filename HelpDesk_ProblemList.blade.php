@@ -638,6 +638,7 @@
 					document.getElementById("txtSpecialist").disabled = false;
 					GetSpecialistArray(); //Repopulates array of viable specialists based on new problem type.
 					document.getElementById("txtSpecialist").value = document.getElementById(GetCurrentTableID()).rows[rowNum].cells[3+extraCells].innerHTML;
+					PopulateSpecialistSelect();
 					document.getElementById("chkResolved").disabled = false;
 					document.getElementById("chkResolved").checked = GetResolvedAsBool(document.getElementById(GetCurrentTableID()).rows[rowNum].cells[4+extraCells].innerHTML);
 					document.getElementById("txtDateTime").value = document.getElementById(GetCurrentTableID()).rows[rowNum].cells[5+extraCells].innerHTML;
@@ -667,7 +668,6 @@
 					case 2: document.getElementById("selMainType").value="Software Problem"; break;
 				}
 				CheckClicked();
-				PopulateSpecialistSelect();
 				PopulateProblemTypeSelect();
 			}
 			
