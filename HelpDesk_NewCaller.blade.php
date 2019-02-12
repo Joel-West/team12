@@ -341,7 +341,7 @@
 	  
 	  function checkbox(){
 		if(document.getElementById("Checkbox").checked == true){
-		  resolveDT = resolveDT.toLocaleDateString("en-GB", resolvedOptions);
+		  resolvedDT = resolvedDT.toLocaleDateString("en-GB", resolvedOptions);
 		  solutionCreation(); 
 		}
 		else{
