@@ -385,6 +385,7 @@
 			var subProblemType = "";
 			var sqlSubProblem = "SELECT generalisation FROM tblProblemType WHERE typeName = '" + problemType + "';";
 			$.get("Query.php", {'sql':sqlSubProblem, 'returnData':true},function(json){
+			  console.log("HELLO");
 			  if(json && json[0]){
 				subProblemType = json[0];
 			  }
