@@ -983,8 +983,8 @@
 				for (i = 0; i < updList.length; i++) //Iterate through delete list (deletion performed first as it reduces database size, making other operations quicker).
 				{
 					console.log("length = " + updList.length);
-					console.log("b" + i);
 					problemNumber = updList[i];
+					console.log("b" + i);
 					table = GetTableWithID(problemNumber);
 					rowNum = GetRowWithIDFromCertainTable(problemNumber, table); //Gets the row number the correct local table that corresponds to the problem number in the updList.
 					console.log(i);
