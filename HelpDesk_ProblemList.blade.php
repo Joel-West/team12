@@ -473,6 +473,7 @@
 					return; //If it is on the correct tab already, leave function.
 				}
 				row = document.getElementById(GetCurrentTableID()).rows[GetSelectedRow()]; //Gets the details of the row that is selected.
+				console.log(row.cells[2);
 				row.cells[2] = "";
 				for (i = 0; i<extraCells; i++) //Clears tab-specific fields.
 				{
@@ -495,8 +496,6 @@
 				table = document.getElementById(GetCurrentTableID());
 				table.tBodies[0].innerHTML += "<tr>"+rowData+"</tr>"; //Adds row data to new tab after being removed from another tab.
 				table.rows[table.rows.length-1].style = "background-color:rgb(0, 255, 255)"; //Reselects the row now that it has been moved.
-				selected = 0;
-				CheckIfUpdate();
 				selected = 1;
 				CheckIfUpdate();
 				if (!ListContains(updList, row.cells[0].innerHTML)) //If moved row is not already marked to be updated when changes are saved to the database later.
