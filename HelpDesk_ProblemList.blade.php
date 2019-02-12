@@ -990,7 +990,7 @@
 						row = document.getElementById(table).rows[rowNum]; //Get row of local table that is being saved to database.
 						sql+='UPDATE tblProblem SET ';
 						sql+='problem = "'+ row.cells[1].innerHTML + '", ';
-
+						tempCells = 0;
 						sql+='problemSubType = "'+ row.cells[2].innerHTML + '", ';
 						sql+='specialistID = '+ row.cells[tempCells+3].innerHTML + ', ';
 						if (row.cells[tempCells+5].innerHTML != '')
