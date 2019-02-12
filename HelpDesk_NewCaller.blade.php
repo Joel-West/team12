@@ -315,15 +315,16 @@
 		  if (json && json[0]){
 			html += "<h6 class='dropdown-header'>Specialists to exact problem type</h6>"
 			for (i = 0; i < json.length; i++){
-			  html += "<a class='dropdown-item' >" + specialistList[i] + " (" + count[i] + " current jobs)</a>"
+			  html += "<a class='dropdown-item' >" + specialistList[i] + " (" + count[i] + " current jobs) (" + specialistIDList[i] + ")</a>"
 			}
 			specialistList.splice(0,i);
+			specialistIDList.splice(0,i);
 			html += "<div class='dropdown-divider'></div>"
 		  }
 		  if (specialistList.length > 0){
 			html+= "<h6 class='dropdown-header'>Specialists to a generalisation of the problem type</h6>";
 			for (j = 0; j < specialistList.length; j++){
-		      html+= "<a class='dropdown-item' >" + specialistList[j] + " (" + count[j] + " current jobs)</a>"
+		      html+= "<a class='dropdown-item' >" + specialistList[j] + " (" + count[j] + " current jobs) (" + specialistIDList[j] + ")</a>"
 		    }
 		  }
 		  document.getElementById("dropdown-menu4").innerHTML = html;
@@ -371,12 +372,45 @@
 	  $(document).on('click', '#dropdown-menuSolution a', function(){
         $("#dropdownButtonSolution:first-child").text($(this).text());
         $("#dropdownButtonSolution:first-child").val($(this).text());
-		console.log($(this).attr('data-title'));
 		$("#solution").val($(this).attr('data-title'));
       });
 	  
 	  function SaveChanges(){
-		
+		sql = "";
+		if (getElementById('dropdownButton').value = "New Problem"){
+		  if (getElementById(Radios1).value == "Hardware"){
+			var problem = getElementById('dropdownButton2').value;
+			var problemType = getElementById('dropdownButton3').value;
+			var subProblemType = "";
+			var sqlSubProblem = "SELECT generalisation FROM tblProblemType WHERE typeName = '" + problemType + "';";
+			$.get("Query.php", {'sqlSubProblem':sql, 'returnData':true},function(json){
+			  if(json && json[0]){
+				subProblemType = json[0];
+			  }
+			},'json');
+			var serialNumber = getElementById('dropdownButtonSerial').value;
+			var specialist = getElementById('dropdownButton4').value;
+			var specialistID = specialist.split(" ");
+			specialistID = specialistID[5];
+			specialistID = specialistID.replace("(", "");
+			specialistID = specialistID.replace(")", "");
+			var resolved = "";
+			if ($('#Checkbox').is(":checked")){
+			  resolved = "Yes";
+			}
+			else{
+			  resolved = "No";
+			}
+			var dateTimeResolved = document.getElementById("dtLabel").innerHTML;
+			var solution = document.getElementById("solution").value;
+		    sql += "INSERT INTO tblProblem ('problem', 'problemType', 'problemSubType', 'serialNumber', 'specialistID', 'resolved', 'dateTimeResolved', 'solution') VALUES ";
+		    sql += "('" + problem + "', '" + problemType + "', '" + problemSubType + "', '" + serialNumber + "', '" + specialistID + "', '" + resolved + "', '" + dateTimeResolved + "', '" + solution + "');"
+		    alert(sql);
+			$.get("Query.php", {'sql':sql, 'returnData':false},function(json){
+			
+			}
+		  }
+		}
 	  }
 	</script>
 	<style>
