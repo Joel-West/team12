@@ -405,10 +405,6 @@
 		    alert(sql);
 			
 			$.get("Query.php", {'sql':sql, 'returnData':false},function(json){
-			  if(json && json[0]){ //If result of php file was a json array.					
-				alert(json);
-				alert(json[0]);
-			  }
 			  console.log("HELLO");
 			  var sqlCall = "";
 			  var operatorID = "<?php echo (explode(",", $_POST['User']))[1]; ?>";
