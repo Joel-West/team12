@@ -867,6 +867,42 @@
 				return true;
 			}
 			
+			function UpdateRow() //Function that updates the selected row.
+			{
+				if (!ValidateInput())
+				{
+					return;
+				}
+				row = document.getElementById("tbl").rows[GetSelectedRow()]; //Gets the details of the row that is selected.
+				row.cells[1].innerHTML = document.getElementById("txtProblem").value;
+				row.cells[2].innerHTML = document.getElementById("txtProblemType").value;
+				switch (extraCells)
+				{
+					case 1:
+						row.cells[3] = document.getElementById("txtSerialNumber").value;
+						break;
+					case 2:
+						row.cells[3] = document.getElementById("txtOperatingSystem").value;
+						row.cells[4] = document.getElementById("txtSoftwareConcerned").value;
+						break;
+				}
+				row.cells[extraCells+3] = document.getElementById("txtSpecialist").value;
+				row.cells[extraCells+4] = GetResolvedAsString(document.getElementById("chkResolved").checkecked);
+				if (document.getElementById(chkResolved).checked)
+				{
+					row.cells[extraCells+5] = document.getElementById("txtDateTime").value;
+					row.cells[extraCells+6] = document.getElementById("txtSolution").value;
+				}
+				row.style.backgroundColor = '#9FFF30';
+				selected = 0;
+				CheckIfUpdate();
+				if (!ListContains(updList, row.cells[0].innerHTML)) //If selected row is not already marked to be updated when changes are saved to the database later.
+				{
+					updList.push(row.cells[0].innerHTML); //Add the ID of the row to the list of rows to be updated when changes are commited to the actual database.
+					console.log(updList);
+				}
+			}
+			
 			function Delete() //Function for deleting selected rows from a table.
 			{
 				admin = (userData.split(","))[2];
