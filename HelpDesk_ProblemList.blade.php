@@ -611,6 +611,8 @@
 				if (box.checked)
 				{
 					div.style.display = "inline";
+					var resolvedDT = new Date();
+					txtDateTime.value = dt.toLocaleString();
 				}
 				else
 				{
