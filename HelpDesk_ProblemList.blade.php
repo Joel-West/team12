@@ -518,7 +518,7 @@
 				{
 					selBox.selectedIndex = matchIndex;
 				}
-				lbl = document.getElementById("lblSpecialistNum");
+				lbl = document.getElementById("lblSerialNumberNum");
 				if (serialBox.value.length > 0) //If the text box contains results, give the label the number of results.
 				{
 					if (size == 1)
