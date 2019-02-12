@@ -297,9 +297,9 @@
 			{
 				for (i = 0; i < allSpecialisations.length; i++) //Iterates through the list of specialists to find which specialists are applicaable for this generalisation.
 				{
-					if (allSpecialisations[i].typeName == child && !(specialists.includes(allSpecialisations[i].userID + " - " + allSpecialisations[i].name + " (" + allSpecialisations[i].typeName + ")"))
+					if (allSpecialisations[i].typeName == child && !(specialists.includes(allSpecialisations[i].userID + " - " + allSpecialisations[i].name + " (" + allSpecialisations[i].typeName + ")")))
 					{
-						specialists[specialists.length] = allSpecialisations[i].userID + " - " + allSpecialisations[i].name + " (" + allSpecialisations[i].typeName + ")");
+						specialists[specialists.length] = allSpecialisations[i].userID + " - " + allSpecialisations[i].name + " (" + allSpecialisations[i].typeName + ")";
 					}
 				}
 				for (var i = 0; i < allProblemTypes.length; i++) //Iterates through array of all problem types to find types with the given generalisation.
