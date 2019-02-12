@@ -325,7 +325,7 @@
 				console.log(id);
 				for (i = 0; i<specialists.length; i++)
 				{
-					if specialists[i].includes(id)
+					if (specialists[i].includes(id))
 					{
 						return false;
 					}
