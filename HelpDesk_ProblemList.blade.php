@@ -838,7 +838,7 @@
 							{
 								updList.splice(indexInUpdList, 1); //Delete row from the update list - if record is deleted, it will not need to be updated.
 							}
-							delList.push(document.getElementById(document.getElementById(GetCurrentTableID())).rows[i].cells[0].innerHTML); //Add record id to list of rows that will be deleted from the actual database later.
+							delList.push(document.getElementById(GetCurrentTableID()).rows[i].cells[0].innerHTML); //Add record id to list of rows that will be deleted from the actual database later.
 							document.getElementById(GetCurrentTableID()).deleteRow(i); //Delete the row.
 						}
 					}
