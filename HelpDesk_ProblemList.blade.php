@@ -309,7 +309,10 @@
 					if (allProblemTypes[i].typeName == child)
 					{
 						parent = allProblemTypes[i].generalisation;
-						FindAllSpecialisationsOfChildren(parent); //Re-runs the function but with the newly discovered problem type as a generalisation.
+						if (parent!=null)
+						{
+							FindAllSpecialisationsOfChildren(parent); //Re-runs the function but with the newly discovered problem type as a generalisation.
+						}
 					}
 				}
 			}
