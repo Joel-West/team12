@@ -25,6 +25,7 @@
 			var problemTypes = [];
 			var allSpecialisations = [];
 			var allProblemTypes = [];
+			var allSerialNumbers = [];
 			
 			function Load() //Function that runs when file loads.
 			{
@@ -621,10 +622,13 @@
 					case 'Hardware':
 						extraCells = 1; //There is one extra cell appended to the table when on the hardware tab (serial number).
 						document.getElementById("btnHardware").style="text-decoration: underline;"; //Underlines selected tab.
+						htm+="Hardware";
 						break;
 					case 'Software':
 						extraCells = 2; //There are two extra cells appended to the table when on the software tab (operating system, software concerned).
 						document.getElementById("btnSoftware").style="text-decoration: underline;"; //Underlines selected tab.
+						htm+="Software";
+						htm+="Software";
 						break;
 					case 'Network':
 						extraCells = 0; //There are no extra cells appended to the table when on the network tab.
