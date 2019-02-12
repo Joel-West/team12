@@ -291,6 +291,7 @@
 				{
 					FindAllSpecialisationsOfChildren(txtProblemType.value);
 				}
+				console.log(specialists);
 			}
 			
 			function FindAllSpecialisationsOfChildren(child) //Give it a problem type generalisation and it will find all specialists for this generalisation.
@@ -410,7 +411,7 @@
 				{
 					if (specialistBox.value != null)
 					{
-						console.log(specialists);
+						//console.log(specialists);
 						if (specialists[i].toUpperCase().includes(specialistBox.value.toUpperCase()) || specialistBox.value == "")
 						{
 							size+=1;
