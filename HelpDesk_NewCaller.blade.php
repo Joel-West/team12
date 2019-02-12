@@ -341,7 +341,7 @@
 	  
 	  function checkbox(){
 		if(document.getElementById("Checkbox").checked == true){
-		  resolvedDT = resolvedDT.toLocaleDateString("en-GB", resolvedOptions);
+		  resolvedDTCurrent = resolvedDT.toLocaleDateString("en-GB", resolvedOptions);
 		  solutionCreation(); 
 		}
 		else{
@@ -380,6 +380,7 @@
 	  resolvedOptions = {day: 'numeric', month: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: false} //Sets the time format.
 	  var startDT = new Date();
 	  var resolvedDT = new Date();
+	  var resolvedDTCurrent = "";
 	  
 	  
 	  function SaveChanges(){
