@@ -405,8 +405,8 @@
 			  }
 			  var dateTime = document.getElementById("dtLabel").innerHTML;
 			  var solution = document.getElementById("solution").value;
-		      sql += "INSERT INTO tblProblem ('problem', 'problemType', 'problemSubType', 'serialNumber', 'operatingSystem', 'softwareConcerned', 'specialistID', 'resolved', 'dateTimeResolved', 'solution') VALUES ";
-		      sql += "('" + problem + "', '" + problemType + "', '" + subProblemType + "', '" + serialNumber + "', '', '', '" + specialistID + "', '" + resolved + "', '" + dateTime + "', '" + solution + "');";
+		      sql += "INSERT INTO tblProblem VALUES ";
+		      sql += "(NULL, '" + problem + "', '" + problemType + "', '" + subProblemType + "', '" + serialNumber + "', '', '', '" + specialistID + "', '" + resolved + "', '" + dateTime + "', '" + solution + "');";
 		      alert(sql);
 			  $.get("Query.php", {'sql':sql, 'returnData':false},function(json){
 				var sqlCall = "";
