@@ -401,11 +401,11 @@
 			var resolved = "";
 			if ($('#Checkbox').is(":checked")){
 			  resolved = "Yes";
-			  var datetime = resolvedDT;
+			  var dateTime = resolvedDT;
 			}
 			else{
 			  resolved = "No";
-			  var datetime = "";
+			  var dateTime = "";
 			}
 			var solution = document.getElementById("solution").value;
 		    sql += "INSERT INTO tblProblem VALUES ";
