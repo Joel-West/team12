@@ -23,7 +23,7 @@
 			var extraCells = -1; //Refers to the numbers of extra cells in the table for the current problem category (software = 2, hardware = 1, network = 0).
 			var specialists = [];
 			var problemTypes = [];
-			var allSpecialists = [];
+			var allSpecialisations = [];
 			var allProblemTypes = [];
 			
 			function Load() //Function that runs when file loads.
@@ -235,19 +235,7 @@
 			
 			function GetArrays() //Function to get array of all the specialists and problem types.
 			{
-				sql = "SELECT userID, name FROM tblPersonnel WHERE specialist = 'Yes'";
-				$.get("Query.php", {'sql':sql, 'returnData':true},function(json) //Calls query.php, which handles the SQL query and sorting of result data.
-				{
-					if(json && json[0]) //If result of php file was a json array.	
-					{
-						for (i = 0; i<json.length; i++) //Iterates through the json array of results.
-						{
-							//allSpecialists[i] = json[i].userID + " - " + json[i].name;
-							allSpecialists[i] = json[i];
-						}
-					}
-				},'json');
-				sql = "SELECT * FROM tblProblemType";
+				sql = "SELECT * FROM tblProblemType;";
 				$.get("Query.php", {'sql':sql, 'returnData':true},function(json) //Calls query.php, which handles the SQL query and sorting of result data.
 				{
 					if(json && json[0]) //If result of php file was a json array.	
@@ -259,6 +247,17 @@
 					}
 					ChangeTab("Hardware", true);
 					CheckIfUpdate();
+				},'json');
+				sql = "SELECT tblPersonnel.userID, tblPersonnel.name, tblSpecialisation.typeName FROM tblPersonnel INNER JOIN tblSpecialisation ON tblPersonnel.userID = tblSpecialisation.userID WHERE tblPersonnel.specialist = 'Yes';";
+				$.get("Query.php", {'sql':sql, 'returnData':true},function(json) //Calls query.php, which handles the SQL query and sorting of result data.
+				{
+					if(json && json[0]) //If result of php file was a json array.	
+					{
+						for (i = 0; i<json.length; i++) //Iterates through the json array of results.
+						{
+							allSpecialists[i] = json[i];
+						}
+					}
 				},'json');
 			}
 			
@@ -276,6 +275,30 @@
 			function FindAllProblemTypeChildren(parent) //Give it a generalisation and it will find all problem types which stem from this generalisation.
 			{
 				problemTypes.push(parent);
+				for (var i = 0; i < allProblemTypes.length; i++) //Iterates through array of all problem types to find types with the given generalisation.
+				{
+					if (allProblemTypes[i].generalisation == parent)
+					{
+						FindAllProblemTypeChildren(allProblemTypes[i].typeName); //Re-runs the function but with the newly discovered problem type as a generalisation.
+					}
+				}
+			}
+			
+			function GetSpecialistArray() //Function to get array of all the valid specialists for the current tab.
+			{
+				specialists = [];
+				FindAllSpecialistsOfChildren(txtProblemType.text);
+			}
+			
+			function FindAllSpecialistsOfChildren(parent) //Give it a problem type generalisation and it will find all specialists for this generalisation.
+			{
+				for (i = 0; i < allSpecialists.length; i++) //Iterates through the list of specialists to find which specialists are applicaable for this generalisation.
+				{
+					if (allSpecialists[i].typeName == parent && !(specialists.includes(allSpecialists[i].userID + " - " + allSpecialists[i].name)))
+					{
+						specialists[i] = allSpecialists[i].userID + " - " + allSpecialists[i].name;
+					}
+				}
 				for (var i = 0; i < allProblemTypes.length; i++) //Iterates through array of all problem types to find types with the given generalisation.
 				{
 					if (allProblemTypes[i].generalisation == parent)
