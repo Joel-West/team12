@@ -386,11 +386,11 @@
 			var sqlSubProblem = "SELECT generalisation FROM tblProblemType WHERE typeName = '" + problemType + "';";
 			$.get("Query.php", {'sql':sqlSubProblem, 'returnData':true},function(json){
 			  if(json && json[0]){
-				subProblemType = json[0];
+				subProblemType = json[0].generalisation;
 			  }
 			  var serialNumber = document.getElementById('dropdownButtonSerial').value;
 			  serialNumber = serialNumber.split("(");
-			  serialNumer = serialNumber[0];
+			  serialNumber = serialNumber[0];
 			  var specialist = document.getElementById('dropdownButton4').value;
 			  var specialistID = specialist.split(" ");
 			  specialistID = specialistID[5];
