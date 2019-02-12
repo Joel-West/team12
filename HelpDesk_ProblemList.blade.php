@@ -660,6 +660,7 @@
 					document.getElementById("txtDateTime").value = "";
 					document.getElementById("txtSolution").disabled = true;
 					document.getElementById("txtSolution").value = "";
+					specialists=[];
 				}
 				switch (extraCells) //After a selection, in any state of the page, the main type selection box will correlate with the tab.
 				{
