@@ -474,6 +474,7 @@
 				}
 				row = document.getElementById(GetCurrentTableID()).rows[GetSelectedRow()]; //Gets the details of the row that is selected.
 				row.cells[2].innerHTML = "";
+				row.cells[3+extraCells].innerHTML = "";
 				for (i = 0; i<extraCells; i++) //Clears tab-specific fields.
 				{
 					row.deleteCell(3);
