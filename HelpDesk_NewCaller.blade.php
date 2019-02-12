@@ -408,7 +408,7 @@
 		    alert(sql);
 			$.get("Query.php", {'sql':sql, 'returnData':false},function(json){
 			
-			}
+			},'json');
 		  }
 		}
 	  }
