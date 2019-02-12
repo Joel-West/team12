@@ -617,6 +617,7 @@
 						var resolvedDT = new Date();
 						document.getElementById("txtDateTime").value = resolvedDT.toLocaleString();
 						console.log(resolvedDT.toLocaleString(false));
+						console.log(resolvedDT.toLocaleString(true));
 					}
 				}
 				else
