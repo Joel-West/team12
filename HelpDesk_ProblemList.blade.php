@@ -888,7 +888,7 @@
 				}
 				row.cells[extraCells+3] = document.getElementById("txtSpecialist").value;
 				row.cells[extraCells+4] = GetResolvedAsString(document.getElementById("chkResolved").checkecked);
-				if (document.getElementById(chkResolved).checked)
+				if (document.getElementById("chkResolved").checked)
 				{
 					row.cells[extraCells+5] = document.getElementById("txtDateTime").value;
 					row.cells[extraCells+6] = document.getElementById("txtSolution").value;
