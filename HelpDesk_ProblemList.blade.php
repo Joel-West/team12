@@ -374,6 +374,7 @@
 				{
 					selBox.style.display = "none";
 					lbl.style.display = "none";
+					txtSpecialist.value = "";
 				}
 				else
 				{
