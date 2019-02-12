@@ -995,7 +995,7 @@
 								tempCells = 0;
 								sql+="problemType = 'Network', ";
 								break;
-							ase "tblHardware":
+							case "tblHardware":
 								tempCells = 1;
 								sql+="problemType = 'Hardware', ";
 								sql+="serialNumber = '"+ row.cells[3].innerHTML + "', ";
