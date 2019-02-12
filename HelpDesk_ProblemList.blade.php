@@ -372,7 +372,7 @@
 			{
 				for (i = 0; i < allSerialNumbers.length; i++) //Iterates through all serial numbers.
 				{
-					if (allSerialNumbers[i] == item)
+					if (GetIDFromSelBoxItem(allSerialNumbers[i]) == item)
 					{
 						return true;
 					}
