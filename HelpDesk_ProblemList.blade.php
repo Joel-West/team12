@@ -308,9 +308,9 @@
 					if (allProblemTypes[i].typeName == child)
 					{
 						parent = allProblemTypes[i].generalisation;
-						console.log("parent = " + parent);
 						if (parent!=null)
 						{
+							console.log("parent = " + parent);
 							FindAllSpecialisationsOfChildren(parent); //Re-runs the function but with the newly discovered problem type as a generalisation.
 						}
 					}
@@ -408,14 +408,17 @@
 				matchIndex = -1; //Will be assigned to a natural number if any of the IDs from the specialists list match exactly with the text box input.
 				for (i = 0; i < specialists.length; i++) //Iterates through all specialist IDs that exist in the personnel table.
 				{
-					if (specialists[i].toUpperCase().includes(specialistBox.value.toUpperCase()) || specialistBox.value == "")
+					if (specialistBox.value != null)
 					{
-						size+=1;
-						if (GetIDFromSelBoxItem(specialists[i]) == specialistBox.value)
+						if (specialists[i].toUpperCase().includes(specialistBox.value.toUpperCase()) || specialistBox.value == "")
 						{
-							matchIndex = size; //If the user has input an exact match, assign the variable defining what the default value for the box will be.
+							size+=1;
+							if (GetIDFromSelBoxItem(specialists[i]) == specialistBox.value)
+							{
+								matchIndex = size; //If the user has input an exact match, assign the variable defining what the default value for the box will be.
+							}
+							htm+="<option>"+specialists[i]+"</option>"; //Specialist can be selected as a specialist for a problem.
 						}
-						htm+="<option>"+specialists[i]+"</option>"; //Specialist can be selected as a specialist for a problem.
 					}
 				}
 				selBox.innerHTML=htm; //Appends values to selection vox.
