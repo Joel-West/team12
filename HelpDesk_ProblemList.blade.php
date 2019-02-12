@@ -297,7 +297,7 @@
 			{
 				for (i = 0; i < allSpecialisations.length; i++) //Iterates through the list of specialists to find which specialists are applicaable for this generalisation.
 				{
-					if (allSpecialisations[i].typeName == child && !(specialists.includes(allSpecialisations[i].userID + " - " + allSpecialisations[i].name)))
+					if (allSpecialisations[i].typeName == child && !DoesSpecialistExist(allSpecialisations[i].id))
 					{
 						specialists[specialists.length] = allSpecialisations[i].userID + " - " + allSpecialisations[i].name + " (" + allSpecialisations[i].typeName + ")";
 					}
@@ -318,6 +318,19 @@
 			function GetIDFromSelBoxItem(item) //Takes an item from a selection box (ID + name) and returns just the ID.
 			{
 				return (item.split(" "))[0]
+			}
+			
+			function DoesSpecialistExist(id) //Function returns true if the selected specialists is already in the list of valid specialists.
+			{
+				console.log(id);
+				for (i = 0; i<specialists.length; i++)
+				{
+					if specialists[i].includes(id)
+					{
+						return false;
+					}
+				}
+				return true;
 			}
 			
 			function IsValidProblemType(item) //Returns true if problem type is in the list of valid problem types.
