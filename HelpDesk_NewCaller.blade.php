@@ -377,10 +377,10 @@
 	  
 	  function SaveChanges(){
 		sql = "";
-		if (getElementById('dropdownButton').value = "New Problem"){
-		  if (getElementById(Radios1).value == "Hardware"){
-			var problem = getElementById('dropdownButton2').value;
-			var problemType = getElementById('dropdownButton3').value;
+		if (document.getElementById('dropdownButton').value = "New Problem"){
+		  if (document.getElementById(Radios1).value == "Hardware"){
+			var problem = document.getElementById('dropdownButton2').value;
+			var problemType = document.getElementById('dropdownButton3').value;
 			var subProblemType = "";
 			var sqlSubProblem = "SELECT generalisation FROM tblProblemType WHERE typeName = '" + problemType + "';";
 			$.get("Query.php", {'sqlSubProblem':sql, 'returnData':true},function(json){
@@ -388,8 +388,8 @@
 				subProblemType = json[0];
 			  }
 			},'json');
-			var serialNumber = getElementById('dropdownButtonSerial').value;
-			var specialist = getElementById('dropdownButton4').value;
+			var serialNumber = document.getElementById('dropdownButtonSerial').value;
+			var specialist = document.getElementById('dropdownButton4').value;
 			var specialistID = specialist.split(" ");
 			specialistID = specialistID[5];
 			specialistID = specialistID.replace("(", "");
