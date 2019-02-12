@@ -287,7 +287,6 @@
 			function GetSpecialistArray() //Function to get array of all the valid specialists for the current tab.
 			{
 				specialists = [];
-				console.log(specialists);
 				if (txtProblemType.value != null)
 				{
 					FindAllSpecialisationsOfChildren(txtProblemType.value);
@@ -297,11 +296,11 @@
 			
 			function FindAllSpecialisationsOfChildren(child) //Give it a problem type generalisation and it will find all specialists for this generalisation.
 			{
+				console.log(specialists);
 				for (i = 0; i < allSpecialisations.length; i++) //Iterates through the list of specialists to find which specialists are applicaable for this generalisation.
 				{
 					if (allSpecialisations[i].typeName == child && !(specialists.includes(allSpecialisations[i].userID + " - " + allSpecialisations[i].name)))
 					{
-						console.log(allSpecialisations[i].userID + " - " + allSpecialisations[i].name);
 						specialists[i] = allSpecialisations[i].userID + " - " + allSpecialisations[i].name;
 					}
 				}
@@ -316,7 +315,6 @@
 						}
 					}
 				}
-				console.log(specialists);
 			}
 			
 			function GetIDFromSelBoxItem(item) //Takes an item from a selection box (ID + name) and returns just the ID.
