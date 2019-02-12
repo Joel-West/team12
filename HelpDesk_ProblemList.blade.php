@@ -234,8 +234,19 @@
 				}
 			}
 			
-			function GetArrays() //Function to get array of all the specialists and problem types.
+			function GetArrays() //Function to get array of all the serial numbers, specialists and problem types.
 			{
+				sql = "SELECT * FROM tblSerialNumber;";
+				$.get("Query.php", {'sql':sql, 'returnData':true},function(json) //Calls query.php, which handles the SQL query and sorting of result data.
+				{
+					if(json && json[0]) //If result of php file was a json array.	
+					{
+						for (i = 0; i<json.length; i++) //Iterates through the json array of results.
+						{
+							allSerialNumbers[i] = json[i].serialNumber + " (" + json[i].make + " " + json[i].model + ")";
+						}
+					}
+				},'json');
 				sql = "SELECT * FROM tblProblemType;";
 				$.get("Query.php", {'sql':sql, 'returnData':true},function(json) //Calls query.php, which handles the SQL query and sorting of result data.
 				{
@@ -246,8 +257,6 @@
 							allProblemTypes[i] = json[i];
 						}
 					}
-					ChangeTab("Hardware", true);
-					CheckIfUpdate();
 				},'json');
 				sql = "SELECT tblPersonnel.userID, tblPersonnel.name, tblSpecialisation.typeName FROM tblPersonnel INNER JOIN tblSpecialisation ON tblPersonnel.userID = tblSpecialisation.userID WHERE tblPersonnel.specialist = 'Yes';";
 				$.get("Query.php", {'sql':sql, 'returnData':true},function(json) //Calls query.php, which handles the SQL query and sorting of result data.
@@ -259,6 +268,8 @@
 							allSpecialisations[i] = json[i];
 						}
 					}
+					ChangeTab("Hardware", true);
+					CheckIfUpdate();
 				},'json');
 			}
 			
