@@ -381,53 +381,47 @@
 		  var radioHardware = $('input[name=RadiosHardware]:checked').val();
 		  if (radioHardware == "Hardware"){
 			var problem = document.getElementById('dropdownButton2').value;
-			var problemType = document.getElementById('dropdownButton3').value;
-			var subProblemType = "";
-			var sqlSubProblem = "SELECT generalisation FROM tblProblemType WHERE typeName = '" + problemType + "';";
-			$.get("Query.php", {'sql':sqlSubProblem, 'returnData':true},function(json){
-			  if(json && json[0]){
-				subProblemType = json[0].generalisation;
-			  }
-			  var serialNumber = document.getElementById('dropdownButtonSerial').value;
-			  serialNumber = serialNumber.split("(");
-			  serialNumber = serialNumber[0];
-			  var specialist = document.getElementById('dropdownButton4').value;
-			  var specialistID = specialist.split(" ");
-			  specialistID = specialistID[5];
-			  specialistID = specialistID.replace("(", "");
-			  specialistID = specialistID.replace(")", "");
-			  var resolved = "";
-			  if ($('#Checkbox').is(":checked")){
-			    resolved = "Yes";
-			  }
-			  else{
-			    resolved = "No";
-			  }
-			  var dateTime = document.getElementById("dtLabel").innerHTML;
-			  var solution = document.getElementById("solution").value;
-		      sql += "INSERT INTO tblProblem VALUES ";
-		      sql += "(NULL, '" + problem + "', '" + problemType + "', '" + subProblemType + "', '" + serialNumber + "', '', '', '" + specialistID + "', '" + resolved + "', '" + dateTime + "', '" + solution + "');";
-		      alert(sql);
-			  $.get("Query.php", {'sql':sql, 'returnData':false},function(json){
-				var sqlCall = "";
-				var operatorID = "<?php echo (explode(",", $_POST['User']))[1]; ?>";
-				var callerID = document.getElementById("CallerID").value;
-				var sqlProblemNumber= "SELECT MAX(problemNumber) FROM tblProblem;";
-				$.get("Query.php", {'sqlProbID':sql, 'returnData':true},function(json){
-				  if (json&&json[0]){
-					var problemNumber = json[0].problemNumber;
-					var notes = document.getElementById("notes").value;
-				    sqlCall += "INSERT INTO tblCallHistory ('operatorID', 'callerID', 'timeDate', 'problemNumber', 'notes') VALUES ";
-				    sqlCall += "('" + operatorID + "', '" + callerID + "', '" + dateTime + "', '" + problemNumber + "', '" + notes + "');";
-				    alert(sqlCall);
-					$.get("Query.php", {'sqlCall':sql, 'returnData':false},function(json){
-					  if(json && json[0]){ //If result of php file was a json array.					
-						alert(json);
-						alert(json[0]);
-					  }
-					},'json');
+			var problemType = "Hardware";
+			var subProblemType = document.getElementById('dropdownButton3').value;;
+			var serialNumber = document.getElementById('dropdownButtonSerial').value;
+			serialNumber = serialNumber.split("(");
+			serialNumber = serialNumber[0];
+			var specialist = document.getElementById('dropdownButton4').value;
+			var specialistID = specialist.split(" ");
+			specialistID = specialistID[5];
+			specialistID = specialistID.replace("(", "");
+			specialistID = specialistID.replace(")", "");
+			var resolved = "";
+			if ($('#Checkbox').is(":checked")){
+			  resolved = "Yes";
+			}
+			else{
+			  resolved = "No";
+			}
+			var dateTime = document.getElementById("dtLabel").innerHTML;
+			var solution = document.getElementById("solution").value;
+		    sql += "INSERT INTO tblProblem VALUES ";
+		    sql += "(NULL, '" + problem + "', '" + problemType + "', '" + subProblemType + "', '" + serialNumber + "', '', '', '" + specialistID + "', '" + resolved + "', '" + dateTime + "', '" + solution + "');";
+		    alert(sql);
+			$.get("Query.php", {'sql':sql, 'returnData':false},function(json){
+			  var sqlCall = "";
+			  var operatorID = "<?php echo (explode(",", $_POST['User']))[1]; ?>";
+			  var callerID = document.getElementById("CallerID").value;
+			  var sqlProblemNumber= "SELECT MAX(problemNumber) FROM tblProblem;";
+			  $.get("Query.php", {'sqlProbID':sql, 'returnData':true},function(json){
+				if (json&&json[0]){
+				  var problemNumber = json[0].problemNumber;
+				  var notes = document.getElementById("notes").value;
+				  sqlCall += "INSERT INTO tblCallHistory ('operatorID', 'callerID', 'timeDate', 'problemNumber', 'notes') VALUES ";
+			      sqlCall += "('" + operatorID + "', '" + callerID + "', '" + dateTime + "', '" + problemNumber + "', '" + notes + "');";
+			      alert(sqlCall);
+				  $.get("Query.php", {'sqlCall':sql, 'returnData':false},function(json){
+				  if(json && json[0]){ //If result of php file was a json array.					
+					alert(json);
+					alert(json[0]);
 				  }
-				},'json');
+				  },'json');
+				}
 			  },'json');
 			},'json');
 		  }
