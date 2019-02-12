@@ -566,7 +566,7 @@
 				{
 					return; //If it is on the correct tab already, leave function.
 				}
-				row = document.getElementById(GetCurrentTableID()).rows[GetSelectedRow()]; //Gets the details of the row that is selected.
+				row = document.getElementById(GetCurrentTableID(extraCells)).rows[GetSelectedRow()]; //Gets the details of the row that is selected.
 				row.cells[2].innerHTML = "";
 				row.cells[3+extraCells].innerHTML = "";
 				for (i = 0; i<extraCells; i++) //Clears tab-specific fields.
@@ -579,7 +579,7 @@
 				}
 				
 				rowData = row.innerHTML; //Gets the details of the row that is selected.
-				document.getElementById(GetCurrentTableID()).deleteRow(GetSelectedRow()); //Delete the row from the current tab.
+				document.getElementById(GetCurrentTableID(extraCells)).deleteRow(GetSelectedRow()); //Delete the row from the current tab.
 				
 				switch (newExtraCells) //Changes tab to the tab that the record will be moved to.
 				{
@@ -587,7 +587,7 @@
 					case 1: ChangeTab("Hardware", false); break;
 					case 2: ChangeTab("Software", false); break;
 				}
-				table = document.getElementById(GetCurrentTableID());
+				table = document.getElementById(GetCurrentTableID(extraCells));
 				table.tBodies[0].innerHTML += "<tr>"+rowData+"</tr>"; //Adds row data to new tab after being removed from another tab.
 				table.rows[table.rows.length-1].style = "background-color:rgb(0, 255, 255)"; //Reselects the row now that it has been moved.
 				selected = 1;
@@ -623,7 +623,7 @@
 				if (box.checked)
 				{
 					div.style.display = "inline";
-					if (GetSelectedRow() != -1 && document.getElementById(GetCurrentTableID()).rows[GetSelectedRow()].cells[5+extraCells].innerHTML == "") //If newly resolved problem is selected.
+					if (GetSelectedRow() != -1 && document.getElementById(GetCurrentTableID(extraCells)).rows[GetSelectedRow()].cells[5+extraCells].innerHTML == "") //If newly resolved problem is selected.
 					{
 						var resolvedDT = new Date();
 						resolvedOptions = {day: 'numeric', month: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: false} //Sets the time format.
@@ -660,9 +660,9 @@
 				}
 			}
 			
-			function GetCurrentTableID() //Returns the ID of current tab's table.
+			function GetCurrentTableID(cells) //Returns the ID of current tab's table.
 			{
-				switch (extraCells)
+				switch (cells)
 				{
 					case 0: return "tblNetwork"; break;
 					case 1: return "tblHardware"; break;
@@ -685,7 +685,7 @@
 				rows = GetRows();
 				for (i = rows-1; i > 0; i--) //Iterate through the rows of the table.
 				{
-					document.getElementById(GetCurrentTableID()).rows[i].style = "background-color:rgb(159, 255, 48)";
+					document.getElementById(GetCurrentTableID(extraCells)).rows[i].style = "background-color:rgb(159, 255, 48)";
 				}
 				selected = 0;
 			}
@@ -695,6 +695,7 @@
 				for (j = 0; j < 3; j++)
 				{
 					returnTable = GetCurrentTableID(j);
+					console.log(j);
 					console.log(returnTable);
 					for (i = 0; i<document.getElementById(returnTable).rows.length; i++)
 					{
@@ -720,7 +721,7 @@
 				if (GetCurrentTableDivID() != null)
 				{
 					document.getElementById(GetCurrentTableDivID()).style.display = "none";
-					DeselectAllRows(GetCurrentTableID());
+					DeselectAllRows(GetCurrentTableID(extraCells));
 				}
 				switch (tab)
 				{
@@ -762,28 +763,28 @@
 					document.getElementById("btnUpdate").disabled = false;
 					document.getElementById("selMainType").disabled = false;
 					document.getElementById("txtProblem").disabled = false;
-					document.getElementById("txtProblem").value = document.getElementById(GetCurrentTableID()).rows[rowNum].cells[1].innerHTML;
+					document.getElementById("txtProblem").value = document.getElementById(GetCurrentTableID(extraCells)).rows[rowNum].cells[1].innerHTML;
 					document.getElementById("txtProblemType").disabled = false;
-					document.getElementById("txtProblemType").value = document.getElementById(GetCurrentTableID()).rows[rowNum].cells[2].innerHTML;
+					document.getElementById("txtProblemType").value = document.getElementById(GetCurrentTableID(extraCells)).rows[rowNum].cells[2].innerHTML;
 					document.getElementById("txtSpecialist").disabled = false;
 					GetSpecialistArray(); //Repopulates array of viable specialists based on new problem type.
-					document.getElementById("txtSpecialist").value = document.getElementById(GetCurrentTableID()).rows[rowNum].cells[3+extraCells].innerHTML;
+					document.getElementById("txtSpecialist").value = document.getElementById(GetCurrentTableID(extraCells)).rows[rowNum].cells[3+extraCells].innerHTML;
 					document.getElementById("chkResolved").disabled = false;
-					document.getElementById("chkResolved").checked = GetResolvedAsBool(document.getElementById(GetCurrentTableID()).rows[rowNum].cells[4+extraCells].innerHTML);
-					document.getElementById("txtDateTime").value = document.getElementById(GetCurrentTableID()).rows[rowNum].cells[5+extraCells].innerHTML;
+					document.getElementById("chkResolved").checked = GetResolvedAsBool(document.getElementById(GetCurrentTableID(extraCells)).rows[rowNum].cells[4+extraCells].innerHTML);
+					document.getElementById("txtDateTime").value = document.getElementById(GetCurrentTableID(extraCells)).rows[rowNum].cells[5+extraCells].innerHTML;
 					document.getElementById("txtSolution").disabled = false;
-					document.getElementById("txtSolution").value = document.getElementById(GetCurrentTableID()).rows[rowNum].cells[6+extraCells].innerHTML;
+					document.getElementById("txtSolution").value = document.getElementById(GetCurrentTableID(extraCells)).rows[rowNum].cells[6+extraCells].innerHTML;
 					if (extraCells == 1)
 					{
 						document.getElementById("txtSerialNumber").disabled = false;
-						document.getElementById("txtSerialNumber").value = document.getElementById(GetCurrentTableID()).rows[rowNum].cells[3].innerHTML;
+						document.getElementById("txtSerialNumber").value = document.getElementById(GetCurrentTableID(extraCells)).rows[rowNum].cells[3].innerHTML;
 					}
 					else if (extraCells == 2)
 					{
 						document.getElementById("txtOperatingSystem").disabled = false;
-						document.getElementById("txtOperatingSystem").value = document.getElementById(GetCurrentTableID()).rows[rowNum].cells[3].innerHTML;
+						document.getElementById("txtOperatingSystem").value = document.getElementById(GetCurrentTableID(extraCells)).rows[rowNum].cells[3].innerHTML;
 						document.getElementById("txtSoftwareConcerned").disabled = false;
-						document.getElementById("txtSoftwareConcerned").value = document.getElementById(GetCurrentTableID()).rows[rowNum].cells[4].innerHTML;
+						document.getElementById("txtSoftwareConcerned").value = document.getElementById(GetCurrentTableID(extraCells)).rows[rowNum].cells[4].innerHTML;
 					}
 				}
 				else
@@ -889,7 +890,7 @@
 				{
 					return;
 				}
-				row = document.getElementById(GetCurrentTableID()).rows[GetSelectedRow()]; //Gets the details of the row that is selected.
+				row = document.getElementById(GetCurrentTableID(extraCells)).rows[GetSelectedRow()]; //Gets the details of the row that is selected.
 				row.cells[1].innerHTML = document.getElementById("txtProblem").value;
 				row.cells[2].innerHTML = document.getElementById("txtProblemType").value;
 				switch (extraCells)
@@ -933,19 +934,19 @@
 					for (i = rows-1; i > 0; i--) //Iterate through the rows of the table.
 					{
 						deleteRow = false; //Variable holding if row will actually be deleted.
-						if (document.getElementById(GetCurrentTableID()).rows[i].style.backgroundColor != 'rgb(159, 255, 48)') //If row is selected.
+						if (document.getElementById(GetCurrentTableID(extraCells)).rows[i].style.backgroundColor != 'rgb(159, 255, 48)') //If row is selected.
 						{
 							deleteRow = true;						
 						}
 						if (deleteRow == true) //If should be deleted after validation.
 						{
-							indexInUpdList = updList.indexOf(document.getElementById(GetCurrentTableID()).rows[i].cells[0].innerHTML); //Get index of deleted item in update list.
+							indexInUpdList = updList.indexOf(document.getElementById(GetCurrentTableID(extraCells)).rows[i].cells[0].innerHTML); //Get index of deleted item in update list.
 							if (indexInUpdList > -1)
 							{
 								updList.splice(indexInUpdList, 1); //Delete row from the update list - if record is deleted, it will not need to be updated.
 							}
-							delList.push(document.getElementById(GetCurrentTableID()).rows[i].cells[0].innerHTML); //Add record id to list of rows that will be deleted from the actual database later.
-							document.getElementById(GetCurrentTableID()).deleteRow(i); //Delete the row.
+							delList.push(document.getElementById(GetCurrentTableID(extraCells)).rows[i].cells[0].innerHTML); //Add record id to list of rows that will be deleted from the actual database later.
+							document.getElementById(GetCurrentTableID(extraCells)).deleteRow(i); //Delete the row.
 						}
 					}
 					selected = 0;
@@ -974,7 +975,7 @@
 					rowNum = GetRowWithID(problemNumber); //Gets the row number in the local table that corresponds to the problem number in the updList.
 					if (rowNum != -1) //If row exists.
 					{
-						row = document.getElementById(GetCurrentTableID()).rows[rowNum]; //Get row of local table that is being saved to database.
+						row = document.getElementById(GetCurrentTableID(extraCells)).rows[rowNum]; //Get row of local table that is being saved to database.
 						sql+="UPDATE tblProblem SET ";
 						sql+="notes = '"+ row.cells[5].innerHTML + "' ";
 						sql+="WHERE callNumber = " + callNumber + "; ";
