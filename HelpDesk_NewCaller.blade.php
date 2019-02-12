@@ -405,7 +405,7 @@
 			var dateTimeResolved = document.getElementById("dtLabel").innerHTML;
 			var solution = document.getElementById("solution").value;
 		    sql += "INSERT INTO tblProblem ('problem', 'problemType', 'problemSubType', 'serialNumber', 'specialistID', 'resolved', 'dateTimeResolved', 'solution') VALUES ";
-		    sql += "('" + problem + "', '" + problemType + "', '" + problemSubType + "', '" + serialNumber + "', '" + specialistID + "', '" + resolved + "', '" + dateTimeResolved + "', '" + solution + "');"
+		    sql += "('" + problem + "', '" + problemType + "', '" + subProblemType + "', '" + serialNumber + "', '" + specialistID + "', '" + resolved + "', '" + dateTimeResolved + "', '" + solution + "');"
 		    alert(sql);
 			$.get("Query.php", {'sql':sql, 'returnData':false},function(json){
 			
