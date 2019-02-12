@@ -323,15 +323,16 @@
 			function DoesSpecialistExist(id) //Function returns true if the selected specialists is already in the list of valid specialists.
 			{
 				console.log(specialists);
+				console.log(id);
 				for (i = 0; i<specialists.length; i++)
 				{
 					if (specialists[i].includes(id))
 					{
 						console.log(id);
-						return false;
+						return true;
 					}
 				}
-				return true;
+				return false;
 			}
 			
 			function IsValidProblemType(item) //Returns true if problem type is in the list of valid problem types.
