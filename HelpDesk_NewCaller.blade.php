@@ -20,6 +20,7 @@
 		WriteTime();
 		userData = "<?php echo $_POST['User']; ?>"; //Gets data from previous form.
 		NavBar();
+		startDT = startDT.toLocaleDateString("en-GB", resolvedOptions);
 	  }
 	  
 	  function NavBar(){
@@ -340,6 +341,7 @@
 	  
 	  function checkbox(){
 		if(document.getElementById("Checkbox").checked == true){
+		  resolveDT = resolveDT.toLocaleDateString("en-GB", resolvedOptions);
 		  solutionCreation(); 
 		}
 		else{
@@ -375,6 +377,11 @@
 		$("#solution").val($(this).attr('data-title'));
       });
 	  
+	  resolvedOptions = {day: 'numeric', month: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: false} //Sets the time format.
+	  var startDT = new Date();
+	  var resolvedDT = new Date();
+	  
+	  
 	  function SaveChanges(){
 		sql = "";
 		if (document.getElementById('dropdownButton').value = "New Problem"){
@@ -398,7 +405,7 @@
 			else{
 			  resolved = "No";
 			}
-			var dateTime = document.getElementById("dtLabel").innerHTML;
+			
 			var solution = document.getElementById("solution").value;
 		    sql += "INSERT INTO tblProblem VALUES ";
 		    sql += "(NULL, '" + problem + "', '" + problemType + "', '" + subProblemType + "', '" + serialNumber + "', '', '', '" + specialistID + "', '" + resolved + "', '" + dateTime + "', '" + solution + "');";
@@ -437,6 +444,7 @@
 			  }
 		    },'json');
 		  }
+		   
 	    },'json');
 	  }
 	  
