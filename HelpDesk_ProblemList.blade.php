@@ -296,7 +296,6 @@
 			
 			function FindAllSpecialisationsOfChildren(child) //Give it a problem type generalisation and it will find all specialists for this generalisation.
 			{
-				console.log(specialists);
 				for (i = 0; i < allSpecialisations.length; i++) //Iterates through the list of specialists to find which specialists are applicaable for this generalisation.
 				{
 					if (allSpecialisations[i].typeName == child && !(specialists.includes(allSpecialisations[i].userID + " - " + allSpecialisations[i].name)))
