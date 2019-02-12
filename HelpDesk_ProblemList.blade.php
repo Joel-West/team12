@@ -680,16 +680,6 @@
 				}
 			}
 			
-			function DeselectAllRows(tabID) //Deselects all rows before leaving a tab.
-			{
-				rows = GetRows();
-				for (i = rows-1; i > 0; i--) //Iterate through the rows of the table.
-				{
-					document.getElementById(GetCurrentTableID(extraCells)).rows[i].style = "background-color:rgb(159, 255, 48)";
-				}
-				selected = 0;
-			}
-			
 			function GetTableWithID(id) //Takes a row ID and returns which table it in is.
 			{			
 				for (j = 0; j < 3; j++)
@@ -703,6 +693,16 @@
 						}
 					}
 				}
+			}
+			
+			function DeselectAllRows(tabID) //Deselects all rows before leaving a tab.
+			{
+				rows = GetRows();
+				for (i = rows-1; i > 0; i--) //Iterate through the rows of the table.
+				{
+					document.getElementById(GetCurrentTableID(extraCells)).rows[i].style = "background-color:rgb(159, 255, 48)";
+				}
+				selected = 0;
 			}
 			
 			function ChangeTab(tab, buttonPressed) //Changes the current tab of problems (hardware, software or network).
@@ -954,6 +954,19 @@
 				}
 			}
 			
+			GetRowWithIDFromCertainTable(id, table) //Finds row with a given unique ID, given a certain table.
+			{
+					rows = GetRows();
+					for (j = 1; j<rows; j++)
+					{
+						if (document.getElementById(table).rows[j].cells[0].innerHTML == id)
+						{
+							return j;
+						}
+					}
+					return -1;
+			}
+			
 			function SaveChanges() //Function that saves table data back to database.
 			{
 				admin = (userData.split(","))[2];
@@ -970,13 +983,37 @@
 				for (i = 0; i < updList.length; i++) //Iterate through delete list (deletion performed first as it reduces database size, making other operations quicker).
 				{
 					problemNumber = updList[i];
-					rowNum = GetRowWithID(problemNumber); //Gets the row number in the local table that corresponds to the problem number in the updList.
+					table = GetTableWithID(problemNumber);
+					rowNum = GetRowWithIDFromCertainTable(problemNumber, table); //Gets the row number the correct local table that corresponds to the problem number in the updList.
 					if (rowNum != -1) //If row exists.
 					{
-						row = document.getElementById(GetCurrentTableID(extraCells)).rows[rowNum]; //Get row of local table that is being saved to database.
+						row = document.getElementById(table).rows[rowNum]; //Get row of local table that is being saved to database.
 						sql+="UPDATE tblProblem SET ";
-						sql+="notes = '"+ row.cells[5].innerHTML + "' ";
-						sql+="WHERE callNumber = " + callNumber + "; ";
+						sql+="problem = '"+ row.cells[1].innerHTML + "', ";
+						switch (table)
+						{
+							case "tblNetwork":
+								tempCells = 0;
+								sql+="problemType = 'Network', ";
+								break;
+							ase "tblHardware":
+								tempCells = 1;
+								sql+="problemType = 'Hardware', ";
+								sql+="serialNumber = '"+ row.cells[3].innerHTML + "', ";
+								break;
+							case "tblSoftware":
+								tempCells = 2;
+								sql+="problemType = 'Software', ";
+								sql+="operatingSystem = '"+ row.cells[3].innerHTML + "', ";
+								sql+="softwareConcerned = '"+ row.cells[4].innerHTML + "', ";
+								break;
+						}
+						sql+="problemSubType = '"+ row.cells[2].innerHTML + "', ";
+						sql+="specialistID = "+ row.cells[tempCells+3].innerHTML + ", ";
+						sql+="resolved = "+ row.cells[tempCells+4].innerHTML + ", ";
+						sql+="dateTimeResolved = "+ row.cells[tempCells+5].innerHTML + ", ";
+						sql+="solution = "+ row.cells[tempCells+6].innerHTML + ", ";
+						sql+="WHERE problemNumber = " + problemNumber + "; ";
 					}
 				}
 				alert(sql);
