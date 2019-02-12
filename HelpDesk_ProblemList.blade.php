@@ -495,6 +495,8 @@
 				table = document.getElementById(GetCurrentTableID());
 				table.tBodies[0].innerHTML += "<tr>"+rowData+"</tr>"; //Adds row data to new tab after being removed from another tab.
 				table.rows[table.rows.length-1].style = "background-color:rgb(0, 255, 255)"; //Reselects the row now that it has been moved.
+				selected = 0;
+				CheckIfUpdate();
 				selected = 1;
 				CheckIfUpdate();
 				if (!ListContains(updList, row.cells[0].innerHTML)) //If moved row is not already marked to be updated when changes are saved to the database later.
