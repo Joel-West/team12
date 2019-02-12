@@ -694,7 +694,8 @@
 			{			
 				for (j = 0; j < 3; j++)
 				{
-					returnTable = GetCurrentTableID(j)
+					returnTable = GetCurrentTableID(j);
+					console.log(returnTable);
 					for (i = 0; i<document.getElementById(returnTable).rows.length; i++)
 					{
 						if (document.getElementById(returnTable).rows[i].cells[0] == id)
