@@ -76,7 +76,7 @@
 					}
 				}
 				str = document.getElementById("txtSearch").value.toUpperCase(); //Gets uppercase array of searched text.
-				if (str.includes("'")) //If contains ' (if it is SQL injection-prone).
+				if (str.includes('"')) //If contains " (if it is SQL injection-prone).
 				{
 					sql = "SELECT * FROM tblProblem WHERE 1 = 0;"; //Get no results.
 				}
@@ -1016,7 +1016,7 @@
 						}
 						if (row.cells[tempCells+6].innerHTML != '')
 						{
-							sql+='solution = '+ row.cells[tempCells+6].innerHTML + ', ';
+							sql+='solution = "'+ row.cells[tempCells+6].innerHTML + '", ';
 						}
 						sql+='resolved = "'+ row.cells[tempCells+4].innerHTML + '" ';
 						sql+='WHERE problemNumber = ' + problemNumber + '; ';
