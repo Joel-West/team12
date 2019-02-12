@@ -895,20 +895,19 @@
 				switch (extraCells)
 				{
 					case 1:
-						row.cells[3] = document.getElementById("txtSerialNumber").value;
+						row.cells[3].innerHTML = document.getElementById("txtSerialNumber").value;
 						break;
 					case 2:
-						row.cells[3] = document.getElementById("txtOperatingSystem").value;
-						row.cells[4] = document.getElementById("txtSoftwareConcerned").value;
+						row.cells[3].innerHTML = document.getElementById("txtOperatingSystem").value;
+						row.cells[4].innerHTML = document.getElementById("txtSoftwareConcerned").value;
 						break;
 				}
-				row.cells[extraCells+3] = document.getElementById("txtSpecialist").value;
-				console.log("b");
-				row.cells[extraCells+4] = GetResolvedAsString(document.getElementById("chkResolved").checkecked);
+				row.cells[extraCells+3].innerHTML = document.getElementById("txtSpecialist").value;
+				row.cells[extraCells+4].innerHTML = GetResolvedAsString(document.getElementById("chkResolved").checkecked);
 				if (document.getElementById("chkResolved").checked)
 				{
-					row.cells[extraCells+5] = document.getElementById("txtDateTime").value;
-					row.cells[extraCells+6] = document.getElementById("txtSolution").value;
+					row.cells[extraCells+5].innerHTML = document.getElementById("txtDateTime").value;
+					row.cells[extraCells+6].innerHTML = document.getElementById("txtSolution").value;
 				}
 				row.style.backgroundColor = '#9FFF30';
 				selected = 0;
