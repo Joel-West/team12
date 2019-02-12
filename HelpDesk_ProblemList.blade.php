@@ -984,8 +984,8 @@
 				{
 					console.log("length = " + updList.length);
 					problemNumber = updList[i];
-					console.log("b" + i);
 					table = GetTableWithID(problemNumber);
+					console.log("b" + i);
 					rowNum = GetRowWithIDFromCertainTable(problemNumber, table); //Gets the row number the correct local table that corresponds to the problem number in the updList.
 					console.log(i);
 					if (rowNum != -1) //If row exists.
