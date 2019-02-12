@@ -481,6 +481,61 @@
 				}
 			}
 			
+			function PopulateSerialNumberSelect() //Populates selection box with equipment info based on searched text.
+			{
+				serialBox = document.getElementById("txtSerialNumber");
+				selBox = document.getElementById("selSerialNumber");
+				if (allSerialNumbers.length == 0) //If there are no results, hide selection box.
+				{
+					selBox.style.display = "none";
+					lbl.style.display = "none";
+				}
+				else
+				{
+					selBox.style.display = "inline";
+					lbl.style.display = "inline";
+				}
+				htm = "<option></option>";
+				size = 0; //Stores size of selection box.
+				matchIndex = -1; //Will be assigned to a natural number if any of the IDs from the specialists list match exactly with the text box input.
+				for (i = 0; i < allSerialNumbers.length; i++) //Iterates through all specialist IDs that exist in the personnel table.
+				{
+					if (serialBox.value != null)
+					{
+						if (allSerialNumbers[i].toUpperCase().includes(serialBox.value.toUpperCase()) || serialBox.value == "")
+						{
+							size+=1;
+							if (allSerialNumbers[i] == serialBox.value)
+							{
+								matchIndex = size; //If the user has input an exact match, assign the variable defining what the default value for the box will be.
+							}
+							htm+="<option>"+allSerialNumbers[i]+"</option>"; //Specialist can be selected as a specialist for a problem.
+						}
+					}
+				}
+				selBox.innerHTML=htm; //Appends values to selection vox.
+				if (matchIndex != -1)
+				{
+					selBox.selectedIndex = matchIndex;
+				}
+				lbl = document.getElementById("lblSpecialistNum");
+				if (serialBox.value.length > 0) //If the text box contains results, give the label the number of results.
+				{
+					if (size == 1)
+					{
+						lbl.innerHTML = "(" + size + " result)";
+					}
+					else
+					{
+						lbl.innerHTML = "(" + size + " results)";
+					}
+				}
+				else
+				{
+					lbl.innerHTML = "";
+				}
+			}
+			
 			function MainTypeOptionClicked() //May move record from one tab to another.
 			{
 				if (selected != 1)
@@ -543,6 +598,11 @@
 				GetSpecialistArray(); //Repopulates array of viable specialists based on new problem type.
 				PopulateSpecialistSelect();
 			}
+			
+			function SerialNumberOptionClicked() //Sets serial number text box value to selected option in selection box.
+			{
+				document.getElementById("txtSerialNumber").value = GetIDFromSelBoxItem(document.getElementById("selSerialNumber").value);
+			}	
 			
 			function CheckClicked() //Function that checks if the 'resolved' checkbox is selected, and thus if the 'date-time' and 'solution' input boxes should be visible.
 			{
@@ -633,13 +693,16 @@
 					case 'Hardware':
 						extraCells = 1; //There is one extra cell appended to the table when on the hardware tab (serial number).
 						document.getElementById("btnHardware").style="text-decoration: underline;"; //Underlines selected tab.
-						htm+="Hardware";
+						htm+='Serial Number: <br/><input id="txtSerialNumber" type="text" onkeyup="PopulateSerialNumberSelect()"></input><br/>';
+						htm+='<select id="selSerialNumber" onchange="SerialNumberOptionClicked()" class="greenBack">'
+						htm+='</select><br/>'
+						htm+='<label id="lblSerialNumberNum"></label>'			
 						break;
 					case 'Software':
 						extraCells = 2; //There are two extra cells appended to the table when on the software tab (operating system, software concerned).
 						document.getElementById("btnSoftware").style="text-decoration: underline;"; //Underlines selected tab.
-						htm+="Software";
-						htm+="Software";
+						htm+='Operating System:<br/><input id="txtOperatingSystem" type="text"></input><br/>'
+						htm+='Software Concerned:<br/><input id="txtSoftwareConcerned" type="text"></input><br/>';
 						break;
 					case 'Network':
 						extraCells = 0; //There are no extra cells appended to the table when on the network tab.
@@ -703,6 +766,7 @@
 				CheckClicked();
 				PopulateProblemTypeSelect();
 				PopulateSpecialistSelect();
+				PopulateSerialNumberSelect();
 			}
 			
 			function ValidateInput() //Function returns true if the data input box is valid.
