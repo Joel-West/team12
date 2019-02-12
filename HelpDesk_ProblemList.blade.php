@@ -255,7 +255,7 @@
 					{
 						for (i = 0; i<json.length; i++) //Iterates through the json array of results.
 						{
-							allSpecialists[i] = json[i];
+							allSpecialisations[i] = json[i];
 						}
 					}
 				},'json');
@@ -287,16 +287,16 @@
 			function GetSpecialistArray() //Function to get array of all the valid specialists for the current tab.
 			{
 				specialists = [];
-				FindAllSpecialistsOfChildren(txtProblemType.text);
+				FindallSpecialisationsOfChildren(txtProblemType.text);
 			}
 			
-			function FindAllSpecialistsOfChildren(parent) //Give it a problem type generalisation and it will find all specialists for this generalisation.
+			function FindallSpecialisationsOfChildren(parent) //Give it a problem type generalisation and it will find all specialists for this generalisation.
 			{
-				for (i = 0; i < allSpecialists.length; i++) //Iterates through the list of specialists to find which specialists are applicaable for this generalisation.
+				for (i = 0; i < allSpecialisations.length; i++) //Iterates through the list of specialists to find which specialists are applicaable for this generalisation.
 				{
-					if (allSpecialists[i].typeName == parent && !(specialists.includes(allSpecialists[i].userID + " - " + allSpecialists[i].name)))
+					if (allSpecialisations[i].typeName == parent && !(specialists.includes(allSpecialisations[i].userID + " - " + allSpecialisations[i].name)))
 					{
-						specialists[i] = allSpecialists[i].userID + " - " + allSpecialists[i].name;
+						specialists[i] = allSpecialisations[i].userID + " - " + allSpecialisations[i].name;
 					}
 				}
 				for (var i = 0; i < allProblemTypes.length; i++) //Iterates through array of all problem types to find types with the given generalisation.
@@ -360,6 +360,7 @@
 				if (matchIndex != -1)
 				{
 					selBox.selectedIndex = matchIndex;
+					GetSpecialistArray(); //Repopulates array of viable specialists based on new problem type.
 				}
 				lbl = document.getElementById("lblProblemTypeNum");
 				if (size == 0) //If there are no results, hide selection box.
@@ -498,6 +499,7 @@
 			function ProblemTypeOptionClicked() //Sets problem type text box value to selected option in selection box.
 			{
 				document.getElementById("txtProblemType").value = document.getElementById("selProblemType").value;
+				GetSpecialistArray(); //Repopulates array of viable specialists based on new problem type.
 			}
 			
 			function CheckClicked() //Function that checks if the 'resolved' checkbox is selected, and thus if the 'date-time' and 'solution' input boxes should be visible.
@@ -622,6 +624,7 @@
 					document.getElementById("txtProblemType").disabled = false;
 					document.getElementById("txtProblemType").value = document.getElementById(GetCurrentTableID()).rows[rowNum].cells[2].innerHTML;
 					document.getElementById("txtSpecialist").disabled = false;
+					GetSpecialistArray(); //Repopulates array of viable specialists based on new problem type.
 					document.getElementById("txtSpecialist").value = document.getElementById(GetCurrentTableID()).rows[rowNum].cells[3+extraCells].innerHTML;
 					document.getElementById("chkResolved").disabled = false;
 					document.getElementById("chkResolved").checked = GetResolvedAsBool(document.getElementById(GetCurrentTableID()).rows[rowNum].cells[4+extraCells].innerHTML);
