@@ -327,7 +327,7 @@
 				}
 			}
 			
-			function GetIDFromSelBoxItem(item) //Takes an item from a selection box (ID + name) and returns just the ID.
+			function GetIDFromSelBoxItem(item) //Takes an item from a selection box (ID + name or serial number + make + type) and returns just the ID or number. 
 			{
 				return (item.split(" "))[0]
 			}
@@ -497,19 +497,19 @@
 				}
 				htm = "<option></option>";
 				size = 0; //Stores size of selection box.
-				matchIndex = -1; //Will be assigned to a natural number if any of the IDs from the specialists list match exactly with the text box input.
-				for (i = 0; i < allSerialNumbers.length; i++) //Iterates through all specialist IDs that exist in the personnel table.
+				matchIndex = -1; //Will be assigned to a natural number if any of the IDs from the serial number list match exactly with the text box input.
+				for (i = 0; i < allSerialNumbers.length; i++) //Iterates through all serial numbers that exist in the serial number table.
 				{
 					if (serialBox.value != null)
 					{
 						if (allSerialNumbers[i].toUpperCase().includes(serialBox.value.toUpperCase()) || serialBox.value == "")
 						{
 							size+=1;
-							if (allSerialNumbers[i] == serialBox.value)
+							if (GetIDFromSelBoxItem(allSerialNumbers[i]) == serialBox.value)
 							{
 								matchIndex = size; //If the user has input an exact match, assign the variable defining what the default value for the box will be.
 							}
-							htm+="<option>"+allSerialNumbers[i]+"</option>"; //Specialist can be selected as a specialist for a problem.
+							htm+="<option>"+allSerialNumbers[i]+"</option>"; //Serial number can be selected as a numberr for a problem.
 						}
 					}
 				}
@@ -766,7 +766,10 @@
 				CheckClicked();
 				PopulateProblemTypeSelect();
 				PopulateSpecialistSelect();
-				PopulateSerialNumberSelect();
+				if (extraCells == 1)
+				{
+					PopulateSerialNumberSelect();
+				}
 			}
 			
 			function ValidateInput() //Function returns true if the data input box is valid.
