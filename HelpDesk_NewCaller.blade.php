@@ -405,8 +405,13 @@
 		    alert(sql);
 			
 			$.get("Query.php", {'sql':sql, 'returnData':false},function(json){
-			  insertHardwareCall();
+			  if(json && json[0]){ //If result of php file was a json array.					
+			    alert(json);
+			    alert(json[0]);
+			  }
 			},'json');
+			
+			setTimeout(insertHardwareCall, 100);
 		  }
 		}
 	  }
