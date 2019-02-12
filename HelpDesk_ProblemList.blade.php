@@ -294,21 +294,22 @@
 				}
 			}
 			
-			function FindAllSpecialisationsOfChildren(parent) //Give it a problem type generalisation and it will find all specialists for this generalisation.
+			function FindAllSpecialisationsOfChildren(child) //Give it a problem type generalisation and it will find all specialists for this generalisation.
 			{
-				console.log(parent);
+				console.log(child);
 				for (i = 0; i < allSpecialisations.length; i++) //Iterates through the list of specialists to find which specialists are applicaable for this generalisation.
 				{
-					if (allSpecialisations[i].typeName == parent && !(specialists.includes(allSpecialisations[i].userID + " - " + allSpecialisations[i].name)))
+					if (allSpecialisations[i].typeName == child && !(specialists.includes(allSpecialisations[i].userID + " - " + allSpecialisations[i].name)))
 					{
 						specialists[i] = allSpecialisations[i].userID + " - " + allSpecialisations[i].name;
 					}
 				}
 				for (var i = 0; i < allProblemTypes.length; i++) //Iterates through array of all problem types to find types with the given generalisation.
 				{
-					if (allProblemTypes[i].generalisation == parent)
+					if (allProblemTypes[i].typeName == child)
 					{
-						FindAllSpecialisationsOfChildren(allProblemTypes[i].typeName); //Re-runs the function but with the newly discovered problem type as a generalisation.
+						parent = allProblemTypes[i].generalisation;
+						FindAllSpecialisationsOfChildren(parent); //Re-runs the function but with the newly discovered problem type as a generalisation.
 					}
 				}
 			}
