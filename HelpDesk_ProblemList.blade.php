@@ -974,10 +974,10 @@
 				{
 					return;
 				}
-				sql = "";
+				sql = '';
 				for (i = 0; i < delList.length; i++) //Iterate through delete list (deletion performed first as it reduces database size, making other operations quicker).
 				{
-					sql+="DELETE FROM tblProblem WHERE problemNumber = " + delList[i] + "; ";
+					sql+='DELETE FROM tblProblem WHERE problemNumber = ' + delList[i] + '; ';
 				}
 				for (i = 0; i < updList.length; i++) //Iterate through delete list (deletion performed first as it reduces database size, making other operations quicker).
 				{
@@ -987,38 +987,38 @@
 					if (rowNum != -1) //If row exists.
 					{
 						row = document.getElementById(table).rows[rowNum]; //Get row of local table that is being saved to database.
-						sql+="UPDATE tblProblem SET ";
-						sql+="problem = '"+ row.cells[1].innerHTML + "', ";
+						sql+='UPDATE tblProblem SET ';
+						sql+='problem = "'+ row.cells[1].innerHTML + '", ';
 						switch (table)
 						{
-							case "tblNetwork":
+							case 'tblNetwork':
 								tempCells = 0;
-								sql+="problemType = 'Network', ";
+								sql+='problemType = "Network", ';
 								break;
-							case "tblHardware":
+							case 'tblHardware':
 								tempCells = 1;
-								sql+="problemType = 'Hardware', ";
-								sql+="serialNumber = '"+ row.cells[3].innerHTML + "', ";
+								sql+='problemType = "Hardware", ';
+								sql+='serialNumber = "'+ row.cells[3].innerHTML + '", ';
 								break;
-							case "tblSoftware":
+							case 'tblSoftware':
 								tempCells = 2;
-								sql+="problemType = 'Software', ";
-								sql+="operatingSystem = '"+ row.cells[3].innerHTML + "', ";
-								sql+="softwareConcerned = '"+ row.cells[4].innerHTML + "', ";
+								sql+='problemType = "Software", ';
+								sql+='operatingSystem = "'+ row.cells[3].innerHTML + '", ';
+								sql+='softwareConcerned = "'+ row.cells[4].innerHTML + '", ';
 								break;
 						}
-						sql+="problemSubType = '"+ row.cells[2].innerHTML + "', ";
-						sql+="specialistID = "+ row.cells[tempCells+3].innerHTML + ", ";
-						if (row.cells[tempCells+5].innerHTML != "")
+						sql+='problemSubType = "'+ row.cells[2].innerHTML + '", ';
+						sql+='specialistID = '+ row.cells[tempCells+3].innerHTML + ', ';
+						if (row.cells[tempCells+5].innerHTML != '')
 						{
-							sql+="dateTimeResolved = "+ row.cells[tempCells+5].innerHTML + ", ";
+							sql+='dateTimeResolved = '+ row.cells[tempCells+5].innerHTML + ', ';
 						}
-						if (row.cells[tempCells+6].innerHTML != "")
+						if (row.cells[tempCells+6].innerHTML != '')
 						{
-							sql+="solution = "+ row.cells[tempCells+6].innerHTML + ", ";
+							sql+='solution = '+ row.cells[tempCells+6].innerHTML + ', ';
 						}
-						sql+="resolved = "+ row.cells[tempCells+4].innerHTML + " ";
-						sql+="WHERE problemNumber = " + problemNumber + "; ";
+						sql+='resolved = "'+ row.cells[tempCells+4].innerHTML + '" ';
+						sql+='WHERE problemNumber = ' + problemNumber + '; ';
 					}
 				}
 				alert(sql);
