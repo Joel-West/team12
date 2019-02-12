@@ -287,7 +287,10 @@
 			function GetSpecialistArray() //Function to get array of all the valid specialists for the current tab.
 			{
 				specialists = [];
-				FindAllSpecialisationsOfChildren(txtProblemType.text);
+				if (txtProblemType.text != null)
+				{
+					FindAllSpecialisationsOfChildren(txtProblemType.text);
+				}
 			}
 			
 			function FindAllSpecialisationsOfChildren(parent) //Give it a problem type generalisation and it will find all specialists for this generalisation.
