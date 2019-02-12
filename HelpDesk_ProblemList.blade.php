@@ -817,19 +817,19 @@
 			function ValidateInput() //Function returns true if the data input box is valid.
 			{
 				id = "txtProblem";
-				if (document.getElementById(id).value == false || document.getElementById(id).value.includes("'"))
+				if (document.getElementById(id).value == false || document.getElementById(id).value.includes('"'))
 				{
 					alert("Invalid problem name."); //Returns error if data input from text box is invalid.
 					return false;
 				}
 				id = "txtProblemType";
-				if (document.getElementById(id).value == false || document.getElementById(id).value.includes("'") || !IsValidProblemType(document.getElementById(id).value))
+				if (document.getElementById(id).value == false || document.getElementById(id).value.includes('"') || !IsValidProblemType(document.getElementById(id).value))
 				{
 					alert("Invalid problem type."); //Returns error if data input from text box is invalid.
 					return false;
 				}	
 				id = "txtSpecialist";
-				if (document.getElementById(id).value == false || isNaN(document.getElementById(id).value) || document.getElementById(id).value.includes("'") || !IsValidSpecialist(document.getElementById(id).value))
+				if (document.getElementById(id).value == false || isNaN(document.getElementById(id).value) || document.getElementById(id).value.includes('"') || !IsValidSpecialist(document.getElementById(id).value))
 				{
 					alert("Invalid specialist."); //Returns error if data input from text box is invalid.
 					return false;
@@ -843,7 +843,7 @@
 				if (extraCells == 1)
 				{
 					id = "txtSerialNumber";
-					if (document.getElementById(id).value == false || document.getElementById(id).value.includes("'") || !IsValidSerialNumber(document.getElementById(id).value))
+					if (document.getElementById(id).value == false || document.getElementById(id).value.includes('"') || !IsValidSerialNumber(document.getElementById(id).value))
 					{
 						alert("Invalid serial number."); //Returns error if data input from text box is invalid.
 						return false;
@@ -852,13 +852,13 @@
 				else if (extraCells == 2)
 				{
 					id = "txtOperatingSystem";
-					if (document.getElementById(id).value == false || document.getElementById(id).value.includes("'"))
+					if (document.getElementById(id).value == false || document.getElementById(id).value.includes('"'))
 					{
 						alert("Invalid operating system."); //Returns error if data input from text box is invalid.
 						return false;
 					}
 					id = "txtSoftwareConcerned";
-					if (document.getElementById(id).value == false || document.getElementById(id).value.includes("'"))
+					if (document.getElementById(id).value == false || document.getElementById(id).value.includes('"'))
 					{
 						alert("Invalid software concerned."); //Returns error if data input from text box is invalid.
 						return false;
