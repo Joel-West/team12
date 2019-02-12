@@ -417,7 +417,7 @@
 			console.log("HELLO2");
 			var callerID = document.getElementById("CallerID").value;
 			var sqlProblemNumber= "SELECT MAX(problemNumber) AS problemNumber FROM tblProblem;";
-			$.get("Query.php", {'sqlProbemNumber':sql, 'returnData':true},function(json){
+			$.get("Query.php", {'sql':sqlProbemNumber, 'returnData':true},function(json){
 			  console.log("HELLO3");
 			  if (json&&json[0]){
 				var problemNumber = json[0].problemNumber;
@@ -425,7 +425,7 @@
 				sqlCall += "INSERT INTO tblCallHistory ('operatorID', 'callerID', 'timeDate', 'problemNumber', 'notes') VALUES ";
 			    sqlCall += "('" + operatorID + "', '" + callerID + "', '" + dateTime + "', '" + problemNumber + "', '" + notes + "');";
 			    alert(sqlCall);
-				$.get("Query.php", {'sqlCall':sql, 'returnData':false},function(json){
+				$.get("Query.php", {'sql':sqlCall, 'returnData':false},function(json){
 				  if(json && json[0]){ //If result of php file was a json array.					
 					alert(json);
 					alert(json[0]);
