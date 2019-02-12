@@ -690,6 +690,34 @@
 				selected = 0;
 			}
 			
+			function GetTableWithID(id) //Takes a row ID and returns which table it in is.
+			{
+				returnTable = "tblHardware";
+				for (i = 0; i<document.getElementById(returnTable).rows.length; i++)
+				{
+					if (document.getElementById(returnTable).rows[i].cells[0] == id)
+					{
+						return returnTable;
+					}
+				}
+				returnTable = "tblSoftware";
+				for (i = 0; i<document.getElementById(returnTable).rows.length; i++)
+				{
+					if (document.getElementById(returnTable).rows[i].cells[0] == id)
+					{
+						return returnTable;
+					}
+				}
+				returnTable = "tblNetwork";
+				for (i = 0; i<document.getElementById(returnTable).rows.length; i++)
+				{
+					if (document.getElementById(returnTable).rows[i].cells[0] == id)
+					{
+						return returnTable;
+					}
+				}
+			}
+			
 			function ChangeTab(tab, buttonPressed) //Changes the current tab of problems (hardware, software or network).
 			{
 				if ((extraCells == 0 && tab == "Network") || (extraCells == 1 && tab == "Hardware") || (extraCells == 2 && tab == "Software"))
@@ -835,7 +863,7 @@
 					return false;
 				}
 				id = "txtSolution";
-				if (document.getElementById(id).value.includes("'") || document.getElementById(id).value.length > 2047)
+				if (document.getElementById(id).value.includes('"') || document.getElementById(id).value.length > 2047)
 				{
 					alert("Invalid solution."); //Returns error if data input from text box is invalid.
 					return false;
@@ -936,6 +964,54 @@
 					tableDiv = document.getElementById("tableDiv");
 					console.log(delList);
 					CheckIfUpdate();
+				}
+			}
+			
+			function SaveChanges() //Function that saves table data back to database.
+			{
+				admin = (userData.split(","))[2];
+				analyst = (userData.split(","))[3];
+				if (admin == 0 && analyst == 1) //If is not an operator or an admin, action is forbidden.
+				{
+					return;
+				}
+				sql = "";
+				for (i = 0; i < delList.length; i++) //Iterate through delete list (deletion performed first as it reduces database size, making other operations quicker).
+				{
+					sql+="DELETE FROM tblProblem WHERE problemNumber = " + delList[i] + "; ";
+				}
+				for (i = 0; i < updList.length; i++) //Iterate through delete list (deletion performed first as it reduces database size, making other operations quicker).
+				{
+					problemNumber = updList[i];
+					rowNum = GetRowWithID(problemNumber); //Gets the row number in the local table that corresponds to the problem number in the updList.
+					if (rowNum != -1) //If row exists.
+					{
+						row = document.getElementById(GetCurrentTableID()).rows[rowNum]; //Get row of local table that is being saved to database.
+						sql+="UPDATE tblProblem SET ";
+						sql+="notes = '"+ row.cells[5].innerHTML + "' ";
+						sql+="WHERE callNumber = " + callNumber + "; ";
+					}
+				}
+				alert(sql);
+				sql = "";
+				if (sql != "") //If there is any SQL to run.
+				{
+					$.get("Query.php", {'sql':sql, 'returnData':false},function(json) //Calls query.php, which handles the SQL query and sorting of result data.
+					{
+						if(json && json[0]) //If result of php file was a json array.	
+						{				
+							alert(json);
+							alert(json[0]);
+						}
+					},'json');
+					updList = []; //Clear lists of pending changes.
+					delList = [];
+					newRowCount = 0;
+					alert("Changes saved.");
+				}
+				else
+				{
+					alert("There are no changes to save.");
 				}
 			}
 		</script>
