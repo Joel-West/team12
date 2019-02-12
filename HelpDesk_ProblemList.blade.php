@@ -691,29 +691,16 @@
 			}
 			
 			function GetTableWithID(id) //Takes a row ID and returns which table it in is.
-			{
-				returnTable = "tblHardware";
-				for (i = 0; i<document.getElementById(returnTable).rows.length; i++)
+			{			
+				for (j = 0; j < 3; j++)
 				{
-					if (document.getElementById(returnTable).rows[i].cells[0] == id)
+					returnTable = GetCurrentTableID(j)
+					for (i = 0; i<document.getElementById(returnTable).rows.length; i++)
 					{
-						return returnTable;
-					}
-				}
-				returnTable = "tblSoftware";
-				for (i = 0; i<document.getElementById(returnTable).rows.length; i++)
-				{
-					if (document.getElementById(returnTable).rows[i].cells[0] == id)
-					{
-						return returnTable;
-					}
-				}
-				returnTable = "tblNetwork";
-				for (i = 0; i<document.getElementById(returnTable).rows.length; i++)
-				{
-					if (document.getElementById(returnTable).rows[i].cells[0] == id)
-					{
-						return returnTable;
+						if (document.getElementById(returnTable).rows[i].cells[0] == id)
+						{
+							return returnTable;
+						}
 					}
 				}
 			}
