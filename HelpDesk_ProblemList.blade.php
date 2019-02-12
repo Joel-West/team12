@@ -301,7 +301,7 @@
 				{
 					if (allSpecialisations[i].typeName == child && !(specialists.includes(allSpecialisations[i].userID + " - " + allSpecialisations[i].name)))
 					{
-						specialists[i] = allSpecialisations[i].userID + " - " + allSpecialisations[i].name;
+						specialists[specialists.length] = allSpecialisations[i].userID + " - " + allSpecialisations[i].name;
 					}
 				}
 				for (var i = 0; i < allProblemTypes.length; i++) //Iterates through array of all problem types to find types with the given generalisation.
