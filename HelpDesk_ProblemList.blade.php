@@ -611,6 +611,7 @@
 				if (box.checked)
 				{
 					div.style.display = "inline";
+					console.log(document.getElementById(GetCurrentTableID()).rows[GetSelectedRow()].cells[5+extraCells] == "");
 					if (GetSelectedRow() != -1 && document.getElementById(GetCurrentTableID()).rows[GetSelectedRow()].cells[5+extraCells] == "")
 					{
 						var resolvedDT = new Date();
