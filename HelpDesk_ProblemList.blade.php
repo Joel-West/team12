@@ -408,7 +408,7 @@
 				matchIndex = -1; //Will be assigned to a natural number if any of the IDs from the specialists list match exactly with the text box input.
 				for (i = 0; i < specialists.length; i++) //Iterates through all specialist IDs that exist in the personnel table.
 				{
-					if (specialistBox.value != null)
+					if (specialistBox.value != null && specialistBox.value != "")
 					{
 						if (specialists[i].toUpperCase().includes(specialistBox.value.toUpperCase()) || specialistBox.value == "")
 						{
@@ -636,8 +636,8 @@
 					document.getElementById("txtProblemType").disabled = false;
 					document.getElementById("txtProblemType").value = document.getElementById(GetCurrentTableID()).rows[rowNum].cells[2].innerHTML;
 					document.getElementById("txtSpecialist").disabled = false;
-					GetSpecialistArray(); //Repopulates array of viable specialists based on new problem type.
 					document.getElementById("txtSpecialist").value = document.getElementById(GetCurrentTableID()).rows[rowNum].cells[3+extraCells].innerHTML;
+					GetSpecialistArray(); //Repopulates array of viable specialists based on new problem type.
 					document.getElementById("chkResolved").disabled = false;
 					document.getElementById("chkResolved").checked = GetResolvedAsBool(document.getElementById(GetCurrentTableID()).rows[rowNum].cells[4+extraCells].innerHTML);
 					document.getElementById("txtDateTime").value = document.getElementById(GetCurrentTableID()).rows[rowNum].cells[5+extraCells].innerHTML;
