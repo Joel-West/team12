@@ -95,7 +95,7 @@
 						{
 							sql+=" OR ";
 						}
-						sql += "(upper(problemNumber) LIKE '%"+str[i]+"%' OR upper(problem) LIKE '%"+str[i]+"%' OR upper(problemType) LIKE '%"+str[i]+"%' OR upper(problemSubType) LIKE '%"+str[i]+"%' OR upper(serialNumber) LIKE '%"+str[i]+"%' OR upper(operatingSystem) LIKE '%"+str[i]+"%' OR upper(softwareConcerned) LIKE '%"+str[i]+"%' OR upper(specialistID) LIKE '%"+str[i]+"%' OR upper(resolved) LIKE '%"+str[i]+"%' OR upper(dateTimeResolved) LIKE '%"+str[i]+"%' OR upper(solution) LIKE '%"+str[i]+"%')"; //Query that returns all database records with a cell containing search string.
+						sql += "upper(problemNumber) LIKE '%"+str[i]+"%' OR upper(problem) LIKE '%"+str[i]+"%' OR upper(problemType) LIKE '%"+str[i]+"%' OR upper(problemSubType) LIKE '%"+str[i]+"%' OR upper(serialNumber) LIKE '%"+str[i]+"%' OR upper(operatingSystem) LIKE '%"+str[i]+"%' OR upper(softwareConcerned) LIKE '%"+str[i]+"%' OR upper(specialistID) LIKE '%"+str[i]+"%' OR upper(resolved) LIKE '%"+str[i]+"%' OR upper(dateTimeResolved) LIKE '%"+str[i]+"%' OR upper(solution) LIKE '%"+str[i]+"%'"; //Query that returns all database records with a cell containing search string.
 					}
 					sql+=")";
 				}
