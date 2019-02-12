@@ -132,7 +132,7 @@ function GetTable() //Returns the ID of the current table.
 {
 	if (currentPage == "ProblemList")
 	{
-		return GetCurrentTableID();
+		return GetCurrentTableID(extraCells);
 	}
 	else
 	{
