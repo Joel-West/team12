@@ -414,9 +414,11 @@
 			console.log("HELLO");
 			var sqlCall = "";
 			var operatorID = "<?php echo (explode(",", $_POST['User']))[1]; ?>";
+			console.log("HELLO2");
 			var callerID = document.getElementById("CallerID").value;
 			var sqlProblemNumber= "SELECT MAX(problemNumber) AS problemNumber FROM tblProblem;";
 			$.get("Query.php", {'sqlProbemNumber':sql, 'returnData':true},function(json){
+			  console.log("HELLO3");
 			  if (json&&json[0]){
 				var problemNumber = json[0].problemNumber;
 				var notes = document.getElementById("notes").value;
