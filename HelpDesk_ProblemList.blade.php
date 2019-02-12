@@ -1025,6 +1025,7 @@
 					console.log(i);
 				}
 				console.log(i);
+				console.log("length = " + updList.length);
 				alert(sql);
 				sql = "";
 				if (sql != "") //If there is any SQL to run.
