@@ -615,7 +615,7 @@
 					{
 						var resolvedDT = new Date();
 						resolvedOptions = {day: 'numeric', month: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric'} //Sets the time format.
-						document.getElementById("txtDateTime").innerHTML = resolvedDT.toLocaleDateString("en-UK", resolvedOptions); //Assigns time to label.
+						document.getElementById("txtDateTime").value = resolvedDT.toLocaleDateString("en-UK", resolvedOptions); //Assigns time to label.
 					}
 				}
 				else
