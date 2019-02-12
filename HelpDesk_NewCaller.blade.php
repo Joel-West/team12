@@ -403,11 +403,32 @@
 			  else{
 			    resolved = "No";
 			  }
-			  var dateTimeResolved = document.getElementById("dtLabel").innerHTML;
+			  var dateTime = document.getElementById("dtLabel").innerHTML;
 			  var solution = document.getElementById("solution").value;
 		      sql += "INSERT INTO tblProblem ('problem', 'problemType', 'problemSubType', 'serialNumber', 'specialistID', 'resolved', 'dateTimeResolved', 'solution') VALUES ";
-		      sql += "('" + problem + "', '" + problemType + "', '" + subProblemType + "', '" + serialNumber + "', '" + specialistID + "', '" + resolved + "', '" + dateTimeResolved + "', '" + solution + "');"
+		      sql += "('" + problem + "', '" + problemType + "', '" + subProblemType + "', '" + serialNumber + "', '" + specialistID + "', '" + resolved + "', '" + dateTime + "', '" + solution + "');";
 		      alert(sql);
+			  $.get("Query.php", {'sql':sql, 'returnData':false},function(json){
+				var sqlCall = "";
+				var operatorID = "<?php echo (explode(",", $_POST['User']))[1]; ?>";
+				var callerID = document.getElementById("CallerID").value;
+				var sqlProblemNumber= "SELECT MAX(problemNumber) FROM tblProblem;";
+				$.get("Query.php", {'sqlProbID':sql, 'returnData':true},function(json){
+				  if (json&&json[0]){
+					var problemNumber = json[0].problemNumber;
+					var notes = document.getElementById("notes").value;
+				    sqlCall += "INSERT INTO tblCallHistory ('operatorID', 'callerID', 'timeDate', 'problemNumber', 'notes') VALUES ";
+				    sqlCall += "('" + operatorID + "', '" + callerID + "', '" + dateTime + "', '" + problemNumber + "', '" + notes + "');";
+				    alert(sqlCall);
+					$.get("Query.php", {'sqlCall':sql, 'returnData':false},function(json){
+					  if(json && json[0]){ //If result of php file was a json array.					
+						alert(json);
+						alert(json[0]);
+					  }
+					},'json');
+				  }
+				},'json');
+			  },'json');
 			},'json');
 		  }
 		}
