@@ -356,11 +356,22 @@
 				return false;
 			}
 			
-			function IsValidSpecialist(item) //Returns true if specialist is in the list of all specialists.
+			function IsValidSpecialist(item) //Returns true if specialist is in the list of all valid specialists.
 			{
-				for (i = 0; i < specialists.length; i++) //Iterates through all specialist ids that exist in the personnel table.
+				for (i = 0; i < specialists.length; i++) //Iterates through all valid specialist IDs that exist in the personnel table.
 				{
 					if (GetIDFromSelBoxItem(specialists[i]) == item)
+					{
+						return true;
+					}
+				}
+				return false;
+			}
+			
+			function IsValidSerialNumber(item) //Returns true if serial number is in the list of all serial numbers.
+			{
+				for (i = 0; i < allSerialNumbers.length; i++) //Iterates through all serial numbers.
+					if (allSerialNumbers[i] == item)
 					{
 						return true;
 					}
@@ -810,11 +821,47 @@
 					alert("Invalid problem name."); //Returns error if data input from text box is invalid.
 					return false;
 				}
+				id = "txtProblemType";
+				if (document.getElementById(id).value == false || document.getElementById(id).value.includes("'") || !IsValidProblemType(document.getElementById(id).value))
+				{
+					alert("Invalid problem type."); //Returns error if data input from text box is invalid.
+					return false;
+				}	
+				id = "txtSpecialist";
+				if (document.getElementById(id).value == false || isNaN(document.getElementById(id).value) || document.getElementById(id).value.includes("'") || !IsValidSpecialist(document.getElementById(id).value))
+				{
+					alert("Invalid specialist."); //Returns error if data input from text box is invalid.
+					return false;
+				}
 				id = "txtSolution";
 				if (document.getElementById(id).value == false || document.getElementById(id).value.includes("'") || document.getElementById(id).value.length > 2047)
 				{
 					alert("Invalid solution."); //Returns error if data input from text box is invalid.
 					return false;
+				}
+				if (extraCells == 1)
+				{
+					id = "txtSerialNumber";
+					if (document.getElementById(id).value == false || document.getElementById(id).value.includes("'") || !IsValidSerialNumber(document.getElementById(id).value))
+					{
+						alert("Invalid serial number."); //Returns error if data input from text box is invalid.
+						return false;
+					}	
+				}
+				else if (extraCells == 2)
+				{
+					id = "txtOperatingSystem";
+					if (document.getElementById(id).value == false || document.getElementById(id).value.includes("'"))
+					{
+						alert("Invalid operating system."); //Returns error if data input from text box is invalid.
+						return false;
+					}
+					id = "txtSoftwareConcerned";
+					if (document.getElementById(id).value == false || document.getElementById(id).value.includes("'"))
+					{
+						alert("Invalid software concerned."); //Returns error if data input from text box is invalid.
+						return false;
+					}
 				}
 				return true;
 			}
