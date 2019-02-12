@@ -697,8 +697,7 @@
 					returnTable = GetCurrentTableID(j);
 					for (i = 0; i<document.getElementById(returnTable).rows.length; i++)
 					{
-						console.log(returnTable);
-						if (document.getElementById(returnTable).rows[i].cells[0] == id)
+						if (document.getElementById(returnTable).rows[i].cells[0].innerHTML == id)
 						{
 							return returnTable;
 						}
