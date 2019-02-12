@@ -612,8 +612,7 @@
 				{
 					div.style.display = "inline";
 					var resolvedDT = new Date();
-					document.getElementById("txtDateTime").value = dt.toLocaleString();
-					console.log(dt.toLocaleString());
+					document.getElementById("txtDateTime").value = resolvedDT.toLocaleString();
 				}
 				else
 				{
