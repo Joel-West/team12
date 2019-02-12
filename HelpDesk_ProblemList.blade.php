@@ -400,6 +400,16 @@
 			
 			function PopulateSpecialistSelect() //Populates selection box with specialist IDs/names based on searched text.
 			{
+				if (specialists.length == 0) //If there are no results, hide selection box.
+				{
+					selBox.style.display = "none";
+					lbl.style.display = "none";
+				}
+				else
+				{
+					selBox.style.display = "inline";
+					lbl.style.display = "inline";
+				}
 				specialistBox = document.getElementById("txtSpecialist");
 				selBox = document.getElementById("selSpecialist");
 				htm = "<option></option>";
@@ -427,16 +437,6 @@
 					selBox.selectedIndex = matchIndex;
 				}
 				lbl = document.getElementById("lblSpecialistNum");
-				if (size == 0) //If there are no results, hide selection box.
-				{
-					selBox.style.display = "none";
-					lbl.style.display = "none";
-				}
-				else
-				{
-					selBox.style.display = "inline";
-					lbl.style.display = "inline";
-				}
 				if (specialistBox.value.length > 0) //If the text box contains results, give the label the number of results.
 				{
 					if (size == 1)
