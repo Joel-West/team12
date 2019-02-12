@@ -49,7 +49,7 @@ function GetRandomCol() //Function chooses 3 random values between 60 and 255, w
 function WriteTime() //Writes current time (up to the minute) to a label at the top-right of the current page.
 {
 	var dt = new Date();
-	options = {day: 'numeric', month: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric'} //Sets the time format.
+	options = {day: 'numeric', month: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric', hour12: false} //Sets the time format.
 	document.getElementById("dtLabel").innerHTML = dt.toLocaleDateString("en-UK", options); //Assigns time to label.
 	var wait = setTimeout(WriteTime, 1000); //Checks the time every second.
 }
