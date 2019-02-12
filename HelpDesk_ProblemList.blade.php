@@ -371,6 +371,7 @@
 			function IsValidSerialNumber(item) //Returns true if serial number is in the list of all serial numbers.
 			{
 				for (i = 0; i < allSerialNumbers.length; i++) //Iterates through all serial numbers.
+				{
 					if (allSerialNumbers[i] == item)
 					{
 						return true;
