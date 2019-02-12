@@ -611,13 +611,11 @@
 				if (box.checked)
 				{
 					div.style.display = "inline";
-					console.log(document.getElementById(GetCurrentTableID()).rows[GetSelectedRow()].cells[5+extraCells].innerHTML);
-					if (GetSelectedRow() != -1 && document.getElementById(GetCurrentTableID()).rows[GetSelectedRow()].cells[5+extraCells].innerHTML == "")
+					if (GetSelectedRow() != -1 && document.getElementById(GetCurrentTableID()).rows[GetSelectedRow()].cells[5+extraCells].innerHTML == "") //If newly resolved problem is selected.
 					{
 						var resolvedDT = new Date();
-						document.getElementById("txtDateTime").value = resolvedDT.toLocaleString();
-						console.log(resolvedDT.toLocaleString(false));
-						console.log(resolvedDT.toLocaleString(true));
+						resolvedOptions = {day: 'numeric', month: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric'} //Sets the time format.
+						document.getElementById("txtDateTime").innerHTML = resolvedDT.toLocaleDateString("en-UK", resolvedOptions); //Assigns time to label.
 					}
 				}
 				else
