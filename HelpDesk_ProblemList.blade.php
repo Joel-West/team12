@@ -374,7 +374,6 @@
 				{
 					selBox.style.display = "none";
 					lbl.style.display = "none";
-					txtSpecialist.value = "";
 				}
 				else
 				{
@@ -395,6 +394,10 @@
 				else
 				{
 					lbl.innerHTML = "";
+				}
+				if (problemTypeBox.value != selBox.value) 
+				{
+					txtSpecialist.value = ""; //If problem type not valid, clear specialist text box.
 				}
 				GetSpecialistArray(); //Repopulates array of viable specialists based on new problem type.
 				PopulateSpecialistSelect();
