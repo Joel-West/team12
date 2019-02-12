@@ -85,7 +85,7 @@
 					str = str.replace(", ", ",").split(","); //Split search text by commas.
 					switch (extraCells)
 					{
-						case 0: sql = "SELECT * FROM tblProblem WHERE problemType = 'Network' AND "; break;
+						case 0: sql = "SELECT * FROM tblProblem WHERE problemType = 'Network' AND ("; break;
 						case 1: sql = "SELECT * FROM tblProblem WHERE problemType = 'Hardware' AND "; break;
 						case 2: sql = "SELECT * FROM tblProblem WHERE problemType = 'Software' AND "; break;
 					}
@@ -97,7 +97,9 @@
 						}
 						sql += "(upper(problemNumber) LIKE '%"+str[i]+"%' OR upper(problem) LIKE '%"+str[i]+"%' OR upper(problemType) LIKE '%"+str[i]+"%' OR upper(problemSubType) LIKE '%"+str[i]+"%' OR upper(serialNumber) LIKE '%"+str[i]+"%' OR upper(operatingSystem) LIKE '%"+str[i]+"%' OR upper(softwareConcerned) LIKE '%"+str[i]+"%' OR upper(specialistID) LIKE '%"+str[i]+"%' OR upper(resolved) LIKE '%"+str[i]+"%' OR upper(dateTimeResolved) LIKE '%"+str[i]+"%' OR upper(solution) LIKE '%"+str[i]+"%')"; //Query that returns all database records with a cell containing search string.
 					}
+					sql+=")";
 				}
+				console.log(sql);
 				RunQuery(sql); //Runs function get gets data from database and display it in tableDiv.
 			}
 			
@@ -1012,7 +1014,7 @@
 						sql+='specialistID = '+ row.cells[tempCells+3].innerHTML + ', ';
 						if (row.cells[tempCells+5].innerHTML != '')
 						{
-							sql+='dateTimeResolved = '+ row.cells[tempCells+5].innerHTML + ', ';
+							sql+='dateTimeResolved = "'+ row.cells[tempCells+5].innerHTML + '", ';
 						}
 						if (row.cells[tempCells+6].innerHTML != '')
 						{
