@@ -473,6 +473,7 @@
 					return; //If it is on the correct tab already, leave function.
 				}
 				row = document.getElementById(GetCurrentTableID()).rows[GetSelectedRow()]; //Gets the details of the row that is selected.
+				row.cells[2] = "";
 				for (i = 0; i<extraCells; i++) //Clears tab-specific fields.
 				{
 					row.deleteCell(3);
