@@ -416,8 +416,8 @@
 			var operatorID = "<?php echo (explode(",", $_POST['User']))[1]; ?>";
 			console.log("HELLO2");
 			var callerID = document.getElementById("CallerID").value;
-			var sqlProblemNumber= "SELECT MAX(problemNumber) AS problemNumber FROM tblProblem;";
-			$.get("Query.php", {'sql':sqlProbemNumber, 'returnData':true},function(json){
+			var sqlProblemNumber = "SELECT MAX(problemNumber) AS problemNumber FROM tblProblem;";
+			$.get("Query.php", {'sql':sqlProblemNumber, 'returnData':true},function(json){
 			  console.log("HELLO3");
 			  if (json&&json[0]){
 				var problemNumber = json[0].problemNumber;
