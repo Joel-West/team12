@@ -411,6 +411,7 @@
 			  }
 			},'json');
 			
+			console.log("HELLO");
 			var sqlCall = "";
 			var operatorID = "<?php echo (explode(",", $_POST['User']))[1]; ?>";
 			var callerID = document.getElementById("CallerID").value;
