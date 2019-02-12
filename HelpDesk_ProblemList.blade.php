@@ -739,6 +739,18 @@
 					document.getElementById("txtDateTime").value = document.getElementById(GetCurrentTableID()).rows[rowNum].cells[5+extraCells].innerHTML;
 					document.getElementById("txtSolution").disabled = false;
 					document.getElementById("txtSolution").value = document.getElementById(GetCurrentTableID()).rows[rowNum].cells[6+extraCells].innerHTML;
+					if (extraCells == 1)
+					{
+						document.getElementById("txtSerialNumber").disabled = false;
+						document.getElementById("txtSerialNumber").value = document.getElementById(GetCurrentTableID()).rows[rowNum].cells[3].innerHTML;
+					}
+					else if (extraCells == 2)
+					{
+						document.getElementById("txtOperatingSystem").disabled = false;
+						document.getElementById("txtOperatingSystem").value = document.getElementById(GetCurrentTableID()).rows[rowNum].cells[3].innerHTML;
+						document.getElementById("txtSoftwareConcerned").disabled = false;
+						document.getElementById("txtSoftwareConcerned").value = document.getElementById(GetCurrentTableID()).rows[rowNum].cells[4].innerHTML;
+					}
 				}
 				else
 				{
@@ -756,6 +768,18 @@
 					document.getElementById("txtDateTime").value = "";
 					document.getElementById("txtSolution").disabled = true;
 					document.getElementById("txtSolution").value = "";
+					if (extraCells == 1)
+					{
+						document.getElementById("txtSerialNumber").disabled = true;
+						document.getElementById("txtSerialNumber").value = "";
+					}
+					else if (extraCells == 2)
+					{
+						document.getElementById("txtOperatingSystem").disabled = true;
+						document.getElementById("txtOperatingSystem").value = "";
+						document.getElementById("txtSoftwareConcerned").disabled = true;
+						document.getElementById("txtSoftwareConcerned").value = "";
+					}
 				}
 				switch (extraCells) //After a selection, in any state of the page, the main type selection box will correlate with the tab.
 				{
