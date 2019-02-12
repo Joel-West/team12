@@ -297,7 +297,7 @@
 			{
 				for (i = 0; i < allSpecialisations.length; i++) //Iterates through the list of specialists to find which specialists are applicaable for this generalisation.
 				{
-					if (allSpecialisations[i].typeName == child && !DoesSpecialistExist(allSpecialisations[i].id))
+					if (allSpecialisations[i].typeName == child && !DoesSpecialistExist(allSpecialisations[i].userID))
 					{
 						specialists[specialists.length] = allSpecialisations[i].userID + " - " + allSpecialisations[i].name + " (" + allSpecialisations[i].typeName + ")";
 					}
