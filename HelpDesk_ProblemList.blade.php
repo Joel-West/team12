@@ -990,24 +990,7 @@
 						row = document.getElementById(table).rows[rowNum]; //Get row of local table that is being saved to database.
 						sql+='UPDATE tblProblem SET ';
 						sql+='problem = "'+ row.cells[1].innerHTML + '", ';
-						switch (table)
-						{
-							case 'tblNetwork':
-								tempCells = 0;
-								sql+='problemType = "Network", ';
-								break;
-							case 'tblHardware':
-								tempCells = 1;
-								sql+='problemType = "Hardware", ';
-								sql+='serialNumber = "'+ row.cells[3].innerHTML + '", ';
-								break;
-							case 'tblSoftware':
-								tempCells = 2;
-								sql+='problemType = "Software", ';
-								sql+='operatingSystem = "'+ row.cells[3].innerHTML + '", ';
-								sql+='softwareConcerned = "'+ row.cells[4].innerHTML + '", ';
-								break;
-						}
+
 						sql+='problemSubType = "'+ row.cells[2].innerHTML + '", ';
 						sql+='specialistID = '+ row.cells[tempCells+3].innerHTML + ', ';
 						if (row.cells[tempCells+5].innerHTML != '')
