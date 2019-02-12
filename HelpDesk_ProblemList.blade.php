@@ -616,7 +616,7 @@
 					{
 						var resolvedDT = new Date();
 						document.getElementById("txtDateTime").value = resolvedDT.toLocaleString();
-						console.log(resolvedDT.toLocaleString("h24"));
+						console.log(resolvedDT.toLocaleString(false));
 					}
 				}
 				else
