@@ -956,15 +956,15 @@
 			
 			GetRowWithIDFromCertainTable(id, table) //Finds row with a given unique ID, given a certain table.
 			{
-					rows = GetRows();
-					for (j = 1; j<rows; j++)
+				
+				for (j = 1; j<document.getElementById(table).rows.length; j++)
+				{
+					if (document.getElementById(table).rows[j].cells[0].innerHTML == id)
 					{
-						if (document.getElementById(table).rows[j].cells[0].innerHTML == id)
-						{
-							return j;
-						}
+						return j;
 					}
-					return -1;
+				}
+				return -1;
 			}
 			
 			function SaveChanges() //Function that saves table data back to database.
