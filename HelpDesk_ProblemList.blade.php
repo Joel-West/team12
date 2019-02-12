@@ -954,9 +954,8 @@
 				}
 			}
 			
-			GetRowWithIDFromCertainTable(id, table) //Finds row with a given unique ID, given a certain table.
-			{
-				
+			function GetRowWithIDFromCertainTable(id, table) //Finds row with a given unique ID, given a certain table.
+			{		
 				for (j = 1; j<document.getElementById(table).rows.length; j++)
 				{
 					if (document.getElementById(table).rows[j].cells[0].innerHTML == id)
