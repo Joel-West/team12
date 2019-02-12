@@ -611,9 +611,12 @@
 				if (box.checked)
 				{
 					div.style.display = "inline";
-					var resolvedDT = new Date();
-					document.getElementById("txtDateTime").value = resolvedDT.toLocaleString();
-					console.log(resolvedDT.toLocaleString());
+					if (GetSelectedRow() != -1 && document.getElementById(GetCurrentTableID).rows[GetSelectedRow()].cells[5+extraCells] == "")
+					{
+						var resolvedDT = new Date();
+						document.getElementById("txtDateTime").value = resolvedDT.toLocaleString();
+						console.log(resolvedDT.toLocaleString());
+					}
 				}
 				else
 				{
