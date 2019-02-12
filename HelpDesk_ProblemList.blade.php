@@ -243,7 +243,7 @@
 					{
 						for (i = 0; i<json.length; i++) //Iterates through the json array of results.
 						{
-							allSerialNumbers[i] = json[i].serialNumber + " (" + json[i].make + " " + json[i].model + ")";
+							allSerialNumbers[i] = json[i].serialNumber + " (" + json[i].equipmentMake + " " + json[i].equipmentType + ")";
 						}
 					}
 				},'json');
