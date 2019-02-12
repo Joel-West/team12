@@ -287,7 +287,6 @@
 			function GetSpecialistArray() //Function to get array of all the valid specialists for the current tab.
 			{
 				specialists = [];
-				console.log(txtProblemType.value);
 				if (txtProblemType.value != null)
 				{
 					FindAllSpecialisationsOfChildren(txtProblemType.value);
@@ -309,6 +308,7 @@
 					if (allProblemTypes[i].typeName == child)
 					{
 						parent = allProblemTypes[i].generalisation;
+						console.log("parent = " + parent);
 						if (parent!=null)
 						{
 							FindAllSpecialisationsOfChildren(parent); //Re-runs the function but with the newly discovered problem type as a generalisation.
