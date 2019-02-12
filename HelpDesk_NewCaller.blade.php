@@ -409,31 +409,29 @@
 				alert(json);
 				alert(json[0]);
 			  }
+			  console.log("HELLO");
+			  var sqlCall = "";
+			  var operatorID = "<?php echo (explode(",", $_POST['User']))[1]; ?>";
+			  console.log("HELLO2");
+			  var callerID = document.getElementById("CallerID").value;
+			  var sqlProblemNumber = "SELECT MAX(problemNumber) AS problemNumber FROM tblProblem;";
+			  $.get("Query.php", {'sql':sqlProblemNumber, 'returnData':true},function(json){
+			    console.log("HELLO3");
+			    if (json&&json[0]){
+				  var problemNumber = json[0].problemNumber;
+				  var notes = document.getElementById("notes").value;
+				  sqlCall += "INSERT INTO tblCallHistory VALUES ";
+			      sqlCall += "(NULL, '" + operatorID + "', '" + callerID + "', '" + dateTime + "', '" + problemNumber + "', '" + notes + "');";
+			      alert(sqlCall);
+				  $.get("Query.php", {'sql':sqlCall, 'returnData':false},function(json){
+				    if(json && json[0]){ //If result of php file was a json array.					
+					  alert(json);
+					  alert(json[0]);
+				    }
+				  },'json');
+			    }
+			  },'json');
 			},'json');
-			
-			console.log("HELLO");
-			var sqlCall = "";
-			var operatorID = "<?php echo (explode(",", $_POST['User']))[1]; ?>";
-			console.log("HELLO2");
-			var callerID = document.getElementById("CallerID").value;
-			var sqlProblemNumber = "SELECT MAX(problemNumber) AS problemNumber FROM tblProblem;";
-			$.get("Query.php", {'sql':sqlProblemNumber, 'returnData':true},function(json){
-			  console.log("HELLO3");
-			  if (json&&json[0]){
-				var problemNumber = json[0].problemNumber;
-				var notes = document.getElementById("notes").value;
-				sqlCall += "INSERT INTO tblCallHistory VALUES ";
-			    sqlCall += "(NULL, '" + operatorID + "', '" + callerID + "', '" + dateTime + "', '" + problemNumber + "', '" + notes + "');";
-			    alert(sqlCall);
-				$.get("Query.php", {'sql':sqlCall, 'returnData':false},function(json){
-				  if(json && json[0]){ //If result of php file was a json array.					
-					alert(json);
-					alert(json[0]);
-				  }
-				},'json');
-			  }
-			},'json');
-			
 		  }
 		}
 	  }
