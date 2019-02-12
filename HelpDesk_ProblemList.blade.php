@@ -1024,6 +1024,7 @@
 					}
 					console.log(i);
 				}
+				console.log(i);
 				alert(sql);
 				sql = "";
 				if (sql != "") //If there is any SQL to run.
