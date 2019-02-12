@@ -404,7 +404,7 @@
 		    sql += "(NULL, '" + problem + "', '" + problemType + "', '" + subProblemType + "', '" + serialNumber + "', '', '', '" + specialistID + "', '" + resolved + "', '" + dateTime + "', '" + solution + "');";
 		    alert(sql);
 			
-			$.get("Query.php", {'sql':sql, 'returnData':false},function(json){
+			$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
 			  console.log("HELLO");
 			  var sqlCall = "";
 			  var operatorID = "<?php echo (explode(",", $_POST['User']))[1]; ?>";
