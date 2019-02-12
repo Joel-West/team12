@@ -404,6 +404,7 @@
 		    sql += "(NULL, '" + problem + "', '" + problemType + "', '" + subProblemType + "', '" + serialNumber + "', '', '', '" + specialistID + "', '" + resolved + "', '" + dateTime + "', '" + solution + "');";
 		    alert(sql);
 			$.get("Query.php", {'sql':sql, 'returnData':false},function(json){
+			  console.log("HELLO");
 			  var sqlCall = "";
 			  var operatorID = "<?php echo (explode(",", $_POST['User']))[1]; ?>";
 			  var callerID = document.getElementById("CallerID").value;
@@ -416,9 +417,9 @@
 			      sqlCall += "('" + operatorID + "', '" + callerID + "', '" + dateTime + "', '" + problemNumber + "', '" + notes + "');";
 			      alert(sqlCall);
 				  $.get("Query.php", {'sqlCall':sql, 'returnData':false},function(json){
-				  if(json && json[0]){ //If result of php file was a json array.					
-					alert(json);
-					alert(json[0]);
+				    if(json && json[0]){ //If result of php file was a json array.					
+					  alert(json);
+					  alert(json[0]);
 				  }
 				  },'json');
 				}
