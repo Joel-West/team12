@@ -611,8 +611,8 @@
 				if (box.checked)
 				{
 					div.style.display = "inline";
-					console.log(document.getElementById(GetCurrentTableID()).rows[GetSelectedRow()].cells[5+extraCells]);
-					if (GetSelectedRow() != -1 && document.getElementById(GetCurrentTableID()).rows[GetSelectedRow()].cells[5+extraCells] == "")
+					console.log(document.getElementById(GetCurrentTableID()).rows[GetSelectedRow()].cells[5+extraCells].innerHTML);
+					if (GetSelectedRow() != -1 && document.getElementById(GetCurrentTableID()).rows[GetSelectedRow()].cells[5+extraCells].innerHTML == "")
 					{
 						var resolvedDT = new Date();
 						document.getElementById("txtDateTime").value = resolvedDT.toLocaleString();
