@@ -873,7 +873,7 @@
 				{
 					return;
 				}
-				row = document.getElementById("tbl").rows[GetSelectedRow()]; //Gets the details of the row that is selected.
+				row = document.getElementById(GetCurrentTableID()).rows[GetSelectedRow()]; //Gets the details of the row that is selected.
 				row.cells[1].innerHTML = document.getElementById("txtProblem").value;
 				row.cells[2].innerHTML = document.getElementById("txtProblemType").value;
 				switch (extraCells)
