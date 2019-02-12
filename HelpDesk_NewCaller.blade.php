@@ -388,27 +388,26 @@
 			  if(json && json[0]){
 				subProblemType = json[0];
 			  }
-			},'json');
-			var serialNumber = document.getElementById('dropdownButtonSerial').value;
-			var specialist = document.getElementById('dropdownButton4').value;
-			var specialistID = specialist.split(" ");
-			specialistID = specialistID[5];
-			specialistID = specialistID.replace("(", "");
-			specialistID = specialistID.replace(")", "");
-			var resolved = "";
-			if ($('#Checkbox').is(":checked")){
-			  resolved = "Yes";
-			}
-			else{
-			  resolved = "No";
-			}
-			var dateTimeResolved = document.getElementById("dtLabel").innerHTML;
-			var solution = document.getElementById("solution").value;
-		    sql += "INSERT INTO tblProblem ('problem', 'problemType', 'problemSubType', 'serialNumber', 'specialistID', 'resolved', 'dateTimeResolved', 'solution') VALUES ";
-		    sql += "('" + problem + "', '" + problemType + "', '" + subProblemType + "', '" + serialNumber + "', '" + specialistID + "', '" + resolved + "', '" + dateTimeResolved + "', '" + solution + "');"
-		    alert(sql);
-			$.get("Query.php", {'sql':sql, 'returnData':false},function(json){
-			
+			  var serialNumber = document.getElementById('dropdownButtonSerial').value;
+			  serialNumber = serialNumber.split("(");
+			  serialNumer = serialNumber[0];
+			  var specialist = document.getElementById('dropdownButton4').value;
+			  var specialistID = specialist.split(" ");
+			  specialistID = specialistID[5];
+			  specialistID = specialistID.replace("(", "");
+			  specialistID = specialistID.replace(")", "");
+			  var resolved = "";
+			  if ($('#Checkbox').is(":checked")){
+			    resolved = "Yes";
+			  }
+			  else{
+			    resolved = "No";
+			  }
+			  var dateTimeResolved = document.getElementById("dtLabel").innerHTML;
+			  var solution = document.getElementById("solution").value;
+		      sql += "INSERT INTO tblProblem ('problem', 'problemType', 'problemSubType', 'serialNumber', 'specialistID', 'resolved', 'dateTimeResolved', 'solution') VALUES ";
+		      sql += "('" + problem + "', '" + problemType + "', '" + subProblemType + "', '" + serialNumber + "', '" + specialistID + "', '" + resolved + "', '" + dateTimeResolved + "', '" + solution + "');"
+		      alert(sql);
 			},'json');
 		  }
 		}
