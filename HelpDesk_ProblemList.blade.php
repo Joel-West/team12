@@ -287,11 +287,12 @@
 			function GetSpecialistArray() //Function to get array of all the valid specialists for the current tab.
 			{
 				specialists = [];
-				FindallSpecialisationsOfChildren(txtProblemType.text);
+				FindAllSpecialisationsOfChildren(txtProblemType.text);
 			}
 			
-			function FindallSpecialisationsOfChildren(parent) //Give it a problem type generalisation and it will find all specialists for this generalisation.
+			function FindAllSpecialisationsOfChildren(parent) //Give it a problem type generalisation and it will find all specialists for this generalisation.
 			{
+				console.log(parent);
 				for (i = 0; i < allSpecialisations.length; i++) //Iterates through the list of specialists to find which specialists are applicaable for this generalisation.
 				{
 					if (allSpecialisations[i].typeName == parent && !(specialists.includes(allSpecialisations[i].userID + " - " + allSpecialisations[i].name)))
@@ -303,7 +304,7 @@
 				{
 					if (allProblemTypes[i].generalisation == parent)
 					{
-						FindAllProblemTypeChildren(allProblemTypes[i].typeName); //Re-runs the function but with the newly discovered problem type as a generalisation.
+						FindAllSpecialisationsOfChildren([i].typeName); //Re-runs the function but with the newly discovered problem type as a generalisation.
 					}
 				}
 			}
