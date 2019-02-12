@@ -981,13 +981,13 @@
 				}
 				for (i = 0; i < updList.length; i++) //Iterate through delete list (deletion performed first as it reduces database size, making other operations quicker).
 				{
-					console.log(i);
-					console.log(updList.length);
+					console.log("a");
 					problemNumber = updList[i];
 					table = GetTableWithID(problemNumber);
 					rowNum = GetRowWithIDFromCertainTable(problemNumber, table); //Gets the row number the correct local table that corresponds to the problem number in the updList.
 					if (rowNum != -1) //If row exists.
 					{
+						console.log("b");
 						row = document.getElementById(table).rows[rowNum]; //Get row of local table that is being saved to database.
 						sql+='UPDATE tblProblem SET ';
 						sql+='problem = "'+ row.cells[1].innerHTML + '", ';
@@ -1009,6 +1009,7 @@
 								sql+='softwareConcerned = "'+ row.cells[4].innerHTML + '", ';
 								break;
 						}
+						console.log("c");
 						sql+='problemSubType = "'+ row.cells[2].innerHTML + '", ';
 						sql+='specialistID = '+ row.cells[tempCells+3].innerHTML + ', ';
 						if (row.cells[tempCells+5].innerHTML != '')
@@ -1019,6 +1020,7 @@
 						{
 							sql+='solution = '+ row.cells[tempCells+6].innerHTML + ', ';
 						}
+						console.log("d");
 						sql+='resolved = "'+ row.cells[tempCells+4].innerHTML + '" ';
 						sql+='WHERE problemNumber = ' + problemNumber + '; ';
 					}
