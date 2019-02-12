@@ -612,7 +612,7 @@
 				{
 					div.style.display = "inline";
 					var resolvedDT = new Date();
-					txtDateTime.value = dt.toLocaleString();
+					document.getElementById("txtDateTime").value = dt.toLocaleString();
 				}
 				else
 				{
