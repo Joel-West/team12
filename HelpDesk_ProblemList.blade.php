@@ -514,6 +514,7 @@
 			{
 				document.getElementById("txtProblemType").value = document.getElementById("selProblemType").value;
 				GetSpecialistArray(); //Repopulates array of viable specialists based on new problem type.
+				PopulateSpecialistSelect();
 			}
 			
 			function CheckClicked() //Function that checks if the 'resolved' checkbox is selected, and thus if the 'date-time' and 'solution' input boxes should be visible.
