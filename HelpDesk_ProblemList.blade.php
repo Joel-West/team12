@@ -685,9 +685,9 @@
 				for (j = 0; j < 3; j++)
 				{
 					returnTable = GetCurrentTableID(j);
-					for (i = 0; i<document.getElementById(returnTable).rows.length; i++)
+					for (k = 0; k<document.getElementById(returnTable).rows.length; k++)
 					{
-						if (document.getElementById(returnTable).rows[i].cells[0].innerHTML == id)
+						if (document.getElementById(returnTable).rows[k].cells[0].innerHTML == id)
 						{
 							return returnTable;
 						}
