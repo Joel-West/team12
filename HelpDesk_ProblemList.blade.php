@@ -614,7 +614,7 @@
 					if (GetSelectedRow() != -1 && document.getElementById(GetCurrentTableID()).rows[GetSelectedRow()].cells[5+extraCells].innerHTML == "") //If newly resolved problem is selected.
 					{
 						var resolvedDT = new Date();
-						resolvedOptions = {day: 'numeric', month: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric'} //Sets the time format.
+						resolvedOptions = {day: 'numeric', month: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: false} //Sets the time format.
 						document.getElementById("txtDateTime").value = resolvedDT.toLocaleDateString("en-GB", resolvedOptions); //Assigns time to label.
 					}
 				}
