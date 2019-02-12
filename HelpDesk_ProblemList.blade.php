@@ -381,7 +381,7 @@
 					selBox.style.display = "inline";
 					lbl.style.display = "inline";
 				}
-				if (specialistBox.value.length > 0) //If the text box contains results, give the label the number of results.
+				if (problemTypeBox.value.length > 0) //If the text box contains results, give the label the number of results.
 				{
 					if (size == 1)
 					{
