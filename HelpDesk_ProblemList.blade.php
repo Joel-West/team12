@@ -638,7 +638,6 @@
 					document.getElementById("txtSpecialist").disabled = false;
 					GetSpecialistArray(); //Repopulates array of viable specialists based on new problem type.
 					document.getElementById("txtSpecialist").value = document.getElementById(GetCurrentTableID()).rows[rowNum].cells[3+extraCells].innerHTML;
-					PopulateSpecialistSelect();
 					document.getElementById("chkResolved").disabled = false;
 					document.getElementById("chkResolved").checked = GetResolvedAsBool(document.getElementById(GetCurrentTableID()).rows[rowNum].cells[4+extraCells].innerHTML);
 					document.getElementById("txtDateTime").value = document.getElementById(GetCurrentTableID()).rows[rowNum].cells[5+extraCells].innerHTML;
@@ -655,12 +654,12 @@
 					document.getElementById("txtProblemType").value = "";
 					document.getElementById("txtSpecialist").disabled = true;
 					document.getElementById("txtSpecialist").value = "";
+					specialists=[];
 					document.getElementById("chkResolved").disabled = true;
 					document.getElementById("chkResolved").checked = false;
 					document.getElementById("txtDateTime").value = "";
 					document.getElementById("txtSolution").disabled = true;
 					document.getElementById("txtSolution").value = "";
-					specialists=[];
 				}
 				switch (extraCells) //After a selection, in any state of the page, the main type selection box will correlate with the tab.
 				{
@@ -670,6 +669,7 @@
 				}
 				CheckClicked();
 				PopulateProblemTypeSelect();
+				PopulateSpecialistSelect();
 			}
 			
 			function ValidateInput() //Function returns true if the data input box is valid.
