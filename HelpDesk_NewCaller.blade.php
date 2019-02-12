@@ -401,11 +401,12 @@
 			var resolved = "";
 			if ($('#Checkbox').is(":checked")){
 			  resolved = "Yes";
+			  var datetime = resolvedDT;
 			}
 			else{
 			  resolved = "No";
+			  var datetime = "";
 			}
-			
 			var solution = document.getElementById("solution").value;
 		    sql += "INSERT INTO tblProblem VALUES ";
 		    sql += "(NULL, '" + problem + "', '" + problemType + "', '" + subProblemType + "', '" + serialNumber + "', '', '', '" + specialistID + "', '" + resolved + "', '" + dateTime + "', '" + solution + "');";
@@ -428,7 +429,7 @@
 		var sqlCall = "";
 		var operatorID = "<?php echo (explode(",", $_POST['User']))[1]; ?>";
 		var callerID = document.getElementById("CallerID").value;
-		var dateTime = document.getElementById("dtLabel").innerHTML;
+		var dateTime = startDT;
 		var sqlProblemNumber = "SELECT MAX(problemNumber) AS problemNumber FROM tblProblem;";
 		$.get("Query.php", {'sql':sqlProblemNumber, 'returnData':true},function(json){
 		  if (json&&json[0]){
