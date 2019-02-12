@@ -287,9 +287,10 @@
 			function GetSpecialistArray() //Function to get array of all the valid specialists for the current tab.
 			{
 				specialists = [];
-				if (txtProblemType.text != null)
+				console.log(txtProblemType.value);
+				if (txtProblemType.value != null)
 				{
-					FindAllSpecialisationsOfChildren(txtProblemType.text);
+					FindAllSpecialisationsOfChildren(txtProblemType.value);
 				}
 			}
 			
@@ -607,7 +608,7 @@
 					default: break;
 				}
 				document.getElementById(GetCurrentTableDivID()).style.display = "inline";
-				document.getElementById("typeSpecificDiv").text = htm; //Appends innerHTML for the input elements that change depending on the tab.
+				document.getElementById("typeSpecificDiv").innerHTML = htm; //Appends innerHTML for the input elements that change depending on the tab.
 				GetProblemTypeArray();
 				CheckIfUpdate() //Prevents user input if more or less than one row is selected.
 				if (buttonPressed) //If entered via a button press, rather than my changing the tab of a record, set 'selected' to 0. Otherwise, it will remain at 1.
