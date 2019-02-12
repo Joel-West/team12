@@ -400,6 +400,8 @@
 			
 			function PopulateSpecialistSelect() //Populates selection box with specialist IDs/names based on searched text.
 			{
+				specialistBox = document.getElementById("txtSpecialist");
+				selBox = document.getElementById("selSpecialist");
 				if (specialists.length == 0) //If there are no results, hide selection box.
 				{
 					selBox.style.display = "none";
@@ -410,8 +412,6 @@
 					selBox.style.display = "inline";
 					lbl.style.display = "inline";
 				}
-				specialistBox = document.getElementById("txtSpecialist");
-				selBox = document.getElementById("selSpecialist");
 				htm = "<option></option>";
 				size = 0; //Stores size of selection box.
 				matchIndex = -1; //Will be assigned to a natural number if any of the IDs from the specialists list match exactly with the text box input.
