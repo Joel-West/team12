@@ -57,14 +57,14 @@ input[type=button]:disabled
 
 h1, h2
 {
-	font-size:3vw;
+	font-size:4vw;
 	font-weight: bold;
 	style=display:inline-block;
 }
 
 .dtLabel
 {
-	font-size:1.5vw;
+	font-size:2vw;
 	position:absolute;
 	right:0;
 }
