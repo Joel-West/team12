@@ -492,7 +492,7 @@
 			var OS = document.getElementById('dropdownButtonOS').value;
 			var concernSoftware = document.getElementById('dropdownButtonConcern').value;
 			sql += "INSERT INTO tblProblem VALUES ";
-			sql += "(NULL , '" + problem + "', '" + problemType + "', '" + subProblemType + "', '', '" + OS + "', '" + concernSoftware + "', '" + specialistID + "', '" + resolved + "', '" + dateTime + "', '" + solution "');";
+			sql += "(NULL, '" + problem + "', '" + problemType + "', '" + subProblemType + "', '', '" + OS + "', '" + concernSoftware + "', '" + specialistID + "', '" + resolved + "', '" + dateTime + "', '" + solution "');";
 			alert(sql);
 			
 			$.get("Query.php", {'sql':sql, 'returnData':false},function(json){
