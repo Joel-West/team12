@@ -72,7 +72,7 @@ h1, h2
 .greenBack
 {
 	background-color:#FFFFFF;
-	background:rgb(145, 92, 182);
+	border: 2px solid #4CAF50;
 	border-radius: 4px
 }
 
@@ -80,6 +80,7 @@ h1, h2
 {
 	border-color:#000000;
 	display:inline-block;
+
 }
 
 .button
@@ -91,7 +92,6 @@ h1, h2
 	width: 80%;
 	text-decoration: none;
 	color:rgba(255, 255, 255, 0.8);
-	background:rgb(145, 92, 182);
 	border-radius: 4px
 	transition-duration: 0.4s;
 	cursor: pointer;
