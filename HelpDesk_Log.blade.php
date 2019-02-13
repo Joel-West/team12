@@ -53,34 +53,7 @@
 						alert("Invalid username or password.");
 					}
 				},'json');
-			}
-			/*<<<Example for extracting data creating a database table that is displayed!>>>
-			function RunQuery()
-			{
-				sql = "SELECT * FROM tblUser;";
-				$.get("Query.php", {'sql':sql},function(json) //Calls Query.php, which handles the SQL query and sorting of result data.
-				{
-					if(json && json[0]) //If result of php was a json array		
-					{				
-						var htm = "<table><tr><td>userID</td><td>username</td><td>Password</td><td>Admin?</td>"; //Appending column headers.
-						for (i = 0; i<json.length; i++) //Iterates through the json array.
-						{
-							col = GetRandomCol(); //Gets a random colour from RGB values.
-							htm += '<tr style="background-color:rgb('+col[0]+', '+col[1]+', '+col[2]+');">'; //Assigns colour to a row.
-							htm +="<td>"+json[i].userID+"</td>";
-							htm +="<td>"+json[i].username+"</td>";
-							htm +="<td>"+json[i].password+"</td>";		
-							htm +="<td>"+json[i].admin+"</td>";
-							htm += "</tr>";
-						}
-					}
-					else
-					{
-						var htm = "Sorry, no results found..."; //If no results, display error.
-					}
-					$("#tableDiv").html(htm) //Appends HTML to the results div.
-				},'json');
-			}*/			
+			}	
 		</script>
 		<link rel="stylesheet" href="{{ asset('css/Styles.css') }}" type="text/css"> <!-- Import external CSS stylesheet that contains presentation info that applies to all the pages. -->
 	</head>
@@ -89,8 +62,8 @@
 		@csrf <!--Token to validates requests to server. -->
 		<h1 class="center">Login</h1>
 		<div class="center">
-			<input type="text" name="Username" id="Username" placeholder="Username" value=""><br>  <!-- HTML input fields for form data. -->
-			<input type="password" name="Password" id="Password" placeholder="Password"><br>
+			<input type="text" name="Username" id="Username" placeholder="Username" style="font-size:5vw;" value=""><br>  <!-- HTML input fields for form data. -->
+			<input type="password" name="Password" id="Password" placeholder="Password" style="font-size:5vw;"><br>
 			<input type="button" name="btnsubmit" class="button, glow-button" id="btnsubmit" value="Submit" style="font-size:18px;" onclick="Validate();"/><br> <!-- Rather than submitting form straight away, the submit button runs function to check if username/password is valid.-->
 		</div>
 		<input type='hidden' id="User" name="User" value="" /> <!-- Hidden tag used to store posted user data before it is submitted. -->
