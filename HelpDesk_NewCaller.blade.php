@@ -185,7 +185,7 @@
 		  $('#concernCollapse').collapse('hide');
 		  document.getElementById("dropdown-menu3").innerHTML += "<a class='dropdown-item' >Hardware problem</a>";
 		  findAllChildren("Hardware problem", html);
-		  createSerialNumber();
+		  setTimeout(createSerialNumber,50);
 		}
 		else if (num==2){
 		  $('#serialNumberCollapse').collapse('hide');
@@ -617,8 +617,10 @@
 		    </div>
 		  </div>
 		</div>
+		<div class="col-3"></div>
 		
-		<div class="collapse col-3 " id="concernCollapse">
+		<div class="col-4"></div>
+		<div class="collapse col-4 " id="concernCollapse">
 		  <div class="ml-5 text-left">
 		    Software Concerned:
 		  </div>
@@ -631,8 +633,7 @@
 		    </div>
 		  </div>
 		</div>
-		
-		<div class="col-3"></div>
+		<div class="col-4"></div>
 		
 		<div class="col-3"></div>
 		<div class="collapse col-6" id="result2Collapse">
