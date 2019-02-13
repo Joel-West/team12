@@ -89,9 +89,9 @@
 		@csrf <!--Token to validates requests to server. -->
 		<h1 class="center">Login</h1>
 		<div class="center">
-			<input type="text" name="Username" class="button, glow-button" id="Username" placeholder="Username" value=""><br>  <!-- HTML input fields for form data. -->
+			<input type="text" name="Username" id="Username" placeholder="Username" value=""><br>  <!-- HTML input fields for form data. -->
 			<input type="password" name="Password" id="Password" placeholder="Password"><br>
-			<input type="button" name="btnsubmit" id="btnsubmit" value="Submit" style="font-size:18px;" onclick="Validate();"/><br> <!-- Rather than submitting form straight away, the submit button runs function to check if username/password is valid.-->
+			<input type="button" name="btnsubmit" class="button, glow-button" id="btnsubmit" value="Submit" style="font-size:18px;" onclick="Validate();"/><br> <!-- Rather than submitting form straight away, the submit button runs function to check if username/password is valid.-->
 		</div>
 		<input type='hidden' id="User" name="User" value="" /> <!-- Hidden tag used to store posted user data before it is submitted. -->
 	</form>
