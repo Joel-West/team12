@@ -185,13 +185,13 @@
 		  $('#concernCollapse').collapse('hide');
 		  document.getElementById("dropdown-menu3").innerHTML += "<a class='dropdown-item' >Hardware problem</a>";
 		  findAllChildren("Hardware problem", html);
-		  setTimeout(createSerialNumber,200);
+		  setTimeout(createSerialNumber,1000);
 		}
 		else if (num==2){
 		  $('#serialNumberCollapse').collapse('hide');
 		  document.getElementById("dropdown-menu3").innerHTML += "<a class='dropdown-item' >Software problem</a>";
 		  findAllChildren("Software problem", html);
-		  setTimeout(createSoftwareDropdown,200);
+		  setTimeout(createSoftwareDropdown,1000);
 		}
 		else{
 		  $('#serialNumberCollapse').collapse('hide');
