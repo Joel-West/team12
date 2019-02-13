@@ -179,7 +179,7 @@
 	    html += "<div class='dropdown-divider'></div><h6 class='dropdown-header'>Problem Types</h6>";
 		document.getElementById("dropdown-menu3").innerHTML = html;
 		$("#dropdownButton3:first-child").text('Choose Problem Type');
-		$("#dropdownButton3:first-child").value('');
+		$("#dropdownButton3:first-child").val('');
 		if (num==1){
 		  document.getElementById("dropdown-menu3").innerHTML += "<a class='dropdown-item' >Hardware problem</a>";
 		  findAllChildren("Hardware problem", html);
