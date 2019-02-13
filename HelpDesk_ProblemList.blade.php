@@ -635,6 +635,8 @@
 				else
 				{
 					div.style.display = "none";
+					document.getElementById("txtDateTime").value = ""; //If not resolved, clear date/time and solution boxes.
+					document.getElementById("txtSolution").value = ""; 
 				}
 			}
 			
@@ -771,11 +773,6 @@
 					document.getElementById("txtSpecialist").value = document.getElementById(GetCurrentTableID(extraCells)).rows[rowNum].cells[3+extraCells].innerHTML;
 					document.getElementById("chkResolved").disabled = false;
 					document.getElementById("chkResolved").checked = GetResolvedAsBool(document.getElementById(GetCurrentTableID(extraCells)).rows[rowNum].cells[4+extraCells].innerHTML);
-					if (document.getElementById("chkResolved").checked)
-					{
-						document.getElementById("txtDateTime").style.display = "inline";
-						document.getElementById("txtSolution").style.display = "inline";
-					}
 					document.getElementById("txtDateTime").value = document.getElementById(GetCurrentTableID(extraCells)).rows[rowNum].cells[5+extraCells].innerHTML;
 					document.getElementById("txtSolution").disabled = false;
 					document.getElementById("txtSolution").value = document.getElementById(GetCurrentTableID(extraCells)).rows[rowNum].cells[6+extraCells].innerHTML;
