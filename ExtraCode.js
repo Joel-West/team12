@@ -132,6 +132,7 @@ $("#txtSearch").keyup(function(event)
 {
     if (event.keyCode === 13)
 	{
+		alert("aaaaay");
         $("#btnSearch").click();
     }
 });
