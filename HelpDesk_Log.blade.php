@@ -60,7 +60,9 @@
 	<body>
 	<form id="mainform" name="mainform" method="post" action="http://35.204.60.31/Home"> <!-- This form will post data to the home page when submitted. -->
 		@csrf <!--Token to validates requests to server. -->
-		<h2 id="header">Login</h2>
+		<div class="titleDiv"> <!-- Div containing elements at the top of the page. -->
+			<h2 id="header" style=">Login</h2>
+		</div>
 		<div class="center">
 			<input type="text" name="Username" id="Username" placeholder="Username" style="font-size:5vw;" value=""><br>  <!-- HTML input fields for form data. -->
 			<input type="password" name="Password" id="Password" placeholder="Password" style="font-size:5vw;"><br><br>
