@@ -185,7 +185,7 @@
 		  $('#concernCollapse').collapse('hide');
 		  document.getElementById("dropdown-menu3").innerHTML += "<a class='dropdown-item' >Hardware problem</a>";
 		  findAllChildren("Hardware problem", html);
-		  setTimeout(createSerialNumber,50);
+		  setTimeout(createSerialNumber,200);
 		}
 		else if (num==2){
 		  $('#serialNumberCollapse').collapse('hide');
