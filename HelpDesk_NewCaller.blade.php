@@ -178,6 +178,8 @@
 		html += "<input type='text' class='form-control' id='dropdownSearch3' placeholder='Search' onkeyup='filter(3)'></div></form>"
 	    html += "<div class='dropdown-divider'></div><h6 class='dropdown-header'>Problem Types</h6>";
 		document.getElementById("dropdown-menu3").innerHTML = html;
+		$("#dropdownButton3:first-child").text('Choose Problem Type');
+		$("#dropdownButton3:first-child").value('');
 		if (num==1){
 		  document.getElementById("dropdown-menu3").innerHTML += "<a class='dropdown-item' >Hardware problem</a>";
 		  findAllChildren("Hardware problem", html);
@@ -393,7 +395,7 @@
 		  if (radioHardware == "Hardware"){
 			var problem = document.getElementById('dropdownButton2').value;
 			var problemType = "Hardware";
-			var subProblemType = document.getElementById('dropdownButton3').value;;
+			var subProblemType = document.getElementById('dropdownButton3').value;
 			var serialNumber = document.getElementById('dropdownButtonSerial').value;
 			serialNumber = serialNumber.split("(");
 			serialNumber = serialNumber[0];
