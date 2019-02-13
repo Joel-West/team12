@@ -236,6 +236,52 @@
 				}
 			}
 			
+			function ShowCallHistory() //Displays call history of selected row in a table below the problem table.
+			{
+				sql = "SELECT * FROM tblCallHistory WHERE problemNumber = " + document.getElementById(GetCurrentTableID()).rows(GetSelectedRow()).cells[4];
+				$.get("Query.php", {'sql':sql, 'returnData':true},function(json) //Calls query.php, which handles the SQL query and sorting of result data.
+				{
+					if(json && json[0]) //If result of php file was a json array.	
+					{				
+						var htm = "<table class='table' id='tblCallHistory' border='1'>";
+						htm+="<tr id='t0'><th onclick='SortTable(0)' scope='col'>#</th>";
+						htm+="<th scope='col'>Operator</th>";
+						htm+="<th scope='col'>Caller</th>";
+						htm+="<th scope='col'>Time/Date</th>";
+						htm+="<th 'scope='col'>Notes</th></tr>"; //Appending column headers.
+						for (i = 0; i<json.length; i++) //Iterates through the json array of results.
+						{
+							htm += "<tr style='background-color:rgb(159, 255, 48);'>"; //Sets colour and ID of row.
+							htm +="<td>"+json[i].callNumber+"</td>";
+							if (json[i].operatorID == null) //If there is no operator ID (the personnel has been deleted since the call was recorded).
+							{
+								htm +="<td>Unidentified</td>";
+							}
+							else
+							{
+								htm +="<td>"+json[i].operatorID+" - "+json[i].operatorName+"</td>";
+							}
+							if (json[i].callerID == null) //If there is no caller ID (the personnel has been deleted since the call was recorded).
+							{
+								htm +="<td>Unidentified</td>";
+							}
+							else
+							{
+								htm +="<td>"+json[i].callerID+" - "+json[i].callerName+"</td>";
+							}
+							htm +="<td>"+json[i].timeDate+"</td>";
+							htm +="<td>"+json[i].notes+"</td>";
+							htm += "</tr>";							
+						}
+					}
+					else
+					{
+						var htm = "Sorry, no results found..."; //If no results, display error.
+					}
+					document.getElementById("CallHistoryDiv").innerHTML = htm; //Appends HTML to tableDiv.
+				},'json');
+			}
+			
 			function GetArrays() //Function to get array of all the serial numbers, specialists and problem types.
 			{
 				sql = "SELECT * FROM tblEquipment;";
@@ -786,10 +832,10 @@
 						document.getElementById("txtSoftwareConcerned").disabled = false;
 						document.getElementById("txtSoftwareConcerned").value = document.getElementById(GetCurrentTableID(extraCells)).rows[rowNum].cells[4].innerHTML;
 					}
+					document.getElementById("CallHistoryDiv").innerHTML = ""; //Hides call history if no problem is selected.
 				}
 				else
 				{
-					document.getElementById("CallHistoryDiv").innerHTML = ""; //Hides call history if no problem is selected.
 					document.getElementById("btnUpdate").disabled = true;
 					document.getElementById("selMainType").disabled = true;
 					document.getElementById("txtProblem").disabled = true;
@@ -830,6 +876,7 @@
 				{
 					PopulateSerialNumberSelect();
 				}
+				ShowCallHistory(); //Calls function to show call history of selected problem.
 			}
 			
 			function ValidateInput() //Function returns true if the data input box is valid.
@@ -1018,8 +1065,8 @@
 						}
 						sql+='problemSubType = "'+ row.cells[2].innerHTML + '", ';
 						sql+='specialistID = '+ row.cells[tempCells+3].innerHTML + ', ';
-							sql+='dateTimeResolved = "'+ row.cells[tempCells+5].innerHTML + '", ';
-							sql+='solution = "'+ row.cells[tempCells+6].innerHTML + '", ';
+						sql+='dateTimeResolved = "'+ row.cells[tempCells+5].innerHTML + '", ';
+						sql+='solution = "'+ row.cells[tempCells+6].innerHTML + '", ';
 						sql+='resolved = "'+ row.cells[tempCells+4].innerHTML + '" ';
 						sql+='WHERE problemNumber = ' + problemNumber + '; ';
 					}
