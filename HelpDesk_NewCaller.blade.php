@@ -389,7 +389,7 @@
 	  function SaveChanges(){
 		sql = "";
 		if (document.getElementById('dropdownButton').value = "New Problem"){
-		  var radioHardware = $('input[name=RadiosHardware]:checked').val();
+		  var radioHardware = $('input[name=Radios]:checked').val();
 		  if (radioHardware == "Hardware"){
 			var problem = document.getElementById('dropdownButton2').value;
 			var problemType = "Hardware";
@@ -547,19 +547,19 @@
 		<div class="col-3"></div>
 		<div class="collapse col-6" id="newNewProblemCollapse">
 		  <div class="form-check-inline">
-		    <input class="form-check-input" type="radio" name="RadiosHardware" id="Radios1" value="Hardware" onClick = "radios(1);">
+		    <input class="form-check-input" type="radio" name="Radios" id="Radios1" value="Hardware" onClick = "radios(1);">
 			<label class="form-check-label" for="Radios1">
 			  Hardware
 			</label>
 		  </div>
 		  <div class="form-check-inline">
-		    <input class="form-check-input" type="radio" name="RadiosSoftware" id="Radios1" value="Software" onClick = "radios(2);">
+		    <input class="form-check-input" type="radio" name="Radios" id="Radios1" value="Software" onClick = "radios(2);">
 			<label class="form-check-label" for="Radios1">
 			  Software
 			</label>
 		  </div>
 		  <div class="form-check-inline">
-		    <input class="form-check-input" type="radio" name="RadiosNetwork" id="Radios1" value="Network" onClick = "radios(3);">
+		    <input class="form-check-input" type="radio" name="Radios" id="Radios1" value="Network" onClick = "radios(3);">
 			<label class="form-check-label" for="Radios1">
 			  Network
 			</label>
