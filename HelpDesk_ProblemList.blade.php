@@ -239,10 +239,8 @@
 			function ShowCallHistory() //Displays call history of selected row in a table below the problem table.
 			{
 				sql = "SELECT * FROM tblCallHistory WHERE problemNumber = " + document.getElementById(GetCurrentTableID(extraCells)).rows[GetSelectedRow()].cells[0].innerHTML + ";";
-				alert(sql);
 				$.get("Query.php", {'sql':sql, 'returnData':true},function(json) //Calls query.php, which handles the SQL query and sorting of result data.
 				{
-					alert(json);
 					if(json && json[0]) //If result of php file was a json array.	
 					{				
 						var htm = "<table class='table' id='tblCallHistory' border='1'>";
