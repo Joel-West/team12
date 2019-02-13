@@ -71,13 +71,13 @@
 				<br/>
 				<div class="grid-class"> <!-- Div containing main buttons that link to other pages. -->
 					<input class="button glow-button" type="button" id="btnNewCall" value="New Call" onClick="GoToNewPage('NewCaller')" />
-					<input class="mainButton" type="button" value="View Call History" onClick="GoToNewPage('CallHistory');" />
-					<input class="mainButton" type="button" value="View Problems List" onClick="GoToNewPage('ProblemList');" />
-					<input class="mainButton" type="button" value="View Personnel" onClick="GoToNewPage('PersonnelList');" />
-					<input class="mainButton" type="button" id="btnUsers" value="View Users" onClick="GoToNewPage('UserList');" />
-					<input class="mainButton" type="button" id="btnSpecialisations" value="View Specialisations" onClick="GoToNewPage('SpecialisationList');" />
-					<input class="mainButton" type="button" value="View Equipment" onClick="GoToNewPage('EquipmentList');" />
-					<input class="mainButton" type="button" id="btnAnalytics" value="Analytics" onClick="GoToNewPage('Analytics')" />			
+					<input class="button glow-button" type="button" value="View Call History" onClick="GoToNewPage('CallHistory');" />
+					<input class="button glow-button" type="button" value="View Problems List" onClick="GoToNewPage('ProblemList');" />
+					<input class="button glow-button" type="button" value="View Personnel" onClick="GoToNewPage('PersonnelList');" />
+					<input class="button glow-button" type="button" id="btnUsers" value="View Users" onClick="GoToNewPage('UserList');" />
+					<input class="button glow-button" type="button" id="btnSpecialisations" value="View Specialisations" onClick="GoToNewPage('SpecialisationList');" />
+					<input class="button glow-button" type="button" value="View Equipment" onClick="GoToNewPage('EquipmentList');" />
+					<input class="button glow-button" type="button" id="btnAnalytics" value="Analytics" onClick="GoToNewPage('Analytics')" />			
 				<br>
 				<!--Fun mode (don't click if you have epilepsy...): <input id="checkFun" type="checkbox" onclick="Fun()"/>-->
 			</form>
