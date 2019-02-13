@@ -619,21 +619,23 @@
 		</div>
 		<div class="col-3"></div>
 		
-		<div class="col-4"></div>
-		<div class="collapse col-4 " id="concernCollapse">
-		  <div class="ml-5 text-left">
-		    Software Concerned:
-		  </div>
-		  <div id="concernComboBox" class="text-left">
-		    <button class='btn greenBack dropdown-toggle' type='button' id='dropdownButtonConcern' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>
-			  Choose Concerning Software<span class='caret'></span>
-	        </button>
-		    <div class='dropdown-menu' id='dropdown-menu7' aria-labelledby='dropdownMenuConcern'>
+		<div class="collaspe" id="concernCollapse">
+		  <div class="col-4"></div>
+		  <div class="col-4">
+		    <div class="ml-5 text-left">
+		      Software Concerned:
+		    </div>
+		    <div id="concernComboBox" class="text-left">
+		      <button class='btn greenBack dropdown-toggle' type='button' id='dropdownButtonConcern' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>
+			    Choose Concerning Software<span class='caret'></span>
+	          </button>
+		      <div class='dropdown-menu' id='dropdown-menu7' aria-labelledby='dropdownMenuConcern'>
 			  
+		      </div>
 		    </div>
 		  </div>
+		  <div class="col-4"></div>
 		</div>
-		<div class="col-4"></div>
 		
 		<div class="col-3"></div>
 		<div class="collapse col-6" id="result2Collapse">
