@@ -237,8 +237,34 @@
 	  }
 	  
 	  function createSoftwareDropdown(){
-		$('#OSCollapse').collapse('show');
-		$('#concernCollapse').collapse('show');
+		var html = "<form class ='px-4 py-3'><div class='form-group'><label for='dropdownSearch'>Search</label>"
+		html += "<input type='text' class='form-control' id='dropdownSearch6' placeholder='Search' onkeyup='filter(6)'></div></form>"
+	    html += "<div class='dropdown-divider'></div>";
+		html += "<h6 class='dropdown-header'>Operating Systems</h6>";
+		var sql = "SELECT operatingSystem FROM tblProblem WHERE operatingSystem != " " GROUP BY operatingSystem;";
+		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
+		  if (json && json[0]){
+			for (i = 0; i < json.length; i++){
+			  html+="<a class='dropdown-item' >" + json[i].operatingSystem + "</a>";
+			}
+		    document.getElementById("dropdown-menu6").innerHTML = html;
+		  }
+		  var concernHtml = "<form class ='px-4 py-3'><div class='form-group'><label for='dropdownSearch'>Search</label>"
+		  concernHtml += "<input type='text' class='form-control' id='dropdownSearch7' placeholder='Search' onkeyup='filter(7)'></div></form>"
+	      concernHtml += "<div class='dropdown-divider'></div>";
+		  concernHtml += "<h6 class='dropdown-header'>Previous Software</h6>";
+		  var concernSql = "SELECT softwareConcerned FROM tblProblem WHERE softwareConcerned != " " GROUP BY softwareConcerned;"
+		  $.get("Query.php", {'sql':concernSql, 'returnData':true},function(json){
+			if (json && json[0]){
+			  for (i = 0; i < json.length; i++){
+			    concernHtml+="<a class='dropdown-item' >" + json[i].softwareConcerned + "</a>";
+			  }
+		      document.getElementById("dropdown-menu7").innerHTML = concernHtml;
+		    }
+			$('#OSCollapse').collapse('show');
+			$('#concernCollapse').collapse('show');
+		  },'json');
+		},'json');
 	  }
 	  
 	  $(document).on('click', '#dropdown-menu5 a', function(){
