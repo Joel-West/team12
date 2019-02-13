@@ -241,7 +241,7 @@
 		html += "<input type='text' class='form-control' id='dropdownSearch6' placeholder='Search' onkeyup='filter(6)'></div></form>"
 	    html += "<div class='dropdown-divider'></div>";
 		html += "<h6 class='dropdown-header'>Operating Systems</h6>";
-		var sql = "SELECT operatingSystem FROM tblProblem WHERE operatingSystem != " " GROUP BY operatingSystem;";
+		var sql = "SELECT operatingSystem FROM tblProblem WHERE operatingSystem != ' ' GROUP BY operatingSystem;";
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
 		  if (json && json[0]){
 			for (i = 0; i < json.length; i++){
