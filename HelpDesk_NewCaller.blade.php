@@ -272,6 +272,16 @@
         $("#dropdownButtonSerial:first-child").val($(this).text());
       });
 	  
+	  $(document).on('click', '#dropdown-menu6 a', function(){
+        $("#dropdownButtonOS:first-child").text($(this).text());
+        $("#dropdownButtonOS:first-child").val($(this).text());
+      });
+	  
+	  $(document).on('click', '#dropdown-menu7 a', function(){
+        $("#dropdownButtonConcern:first-child").text($(this).text());
+        $("#dropdownButtonConcern:first-child").val($(this).text());
+      });
+	  
 	  $(document).on('click', '#dropdown-menu3 a', function(){
         $("#dropdownButton3:first-child").text($(this).text());
         $("#dropdownButton3:first-child").val($(this).text());
