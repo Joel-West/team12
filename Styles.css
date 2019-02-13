@@ -63,6 +63,11 @@ h1, h2
 	display:inline-block;
 }
 
+textArea
+{
+	border: 2px solid #4CAF50;
+}
+
 .dtLabel
 {
 	font-size:2vw;
