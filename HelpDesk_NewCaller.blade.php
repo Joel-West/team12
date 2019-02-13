@@ -490,7 +490,7 @@
 		  else if (radioValue == "Software"){
 			var problemType = "Software";
 			var OS = document.getElementById('dropdownButtonOS').value;
-			var concernSoftware.getElementById('dropdownButtonConcern').value;
+			var concernSoftware = document.getElementById('dropdownButtonConcern').value;
 			sql += "INSERT INTO tblProblem VALUES ";
 			sql += "(NULL , '" + problem + "', '" + problemType + "', '" + subProblemType + "', '', '" + OS + "', '" + concernSoftware + "', '" + specialistID + "', '" + resolved = "', '" + dateTime + "', '" + solution "');";
 			alert(sql);
