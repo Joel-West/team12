@@ -238,7 +238,6 @@
 			
 			function ShowCallHistory() //Displays call history of selected row in a table below the problem table.
 			{
-				//sql = "SELECT * FROM tblCallHistory WHERE problemNumber = " + document.getElementById(GetCurrentTableID(extraCells)).rows[GetSelectedRow()].cells[0].innerHTML + ";";
 				sql = "SELECT tblCallHistory.*, p1.name AS operatorName, p2.name AS callerName FROM tblCallHistory LEFT JOIN tblPersonnel p1 ON tblCallHistory.operatorID = p1.userID LEFT JOIN tblPersonnel p2 ON tblCallHistory.CallerID = p2.userID WHERE tblCallHistory.problemNumber = " + document.getElementById(GetCurrentTableID(extraCells)).rows[GetSelectedRow()].cells[0].innerHTML + ";"; //Query to get all data from table, using left joins to get names in other tables from IDs.
 				$.get("Query.php", {'sql':sql, 'returnData':true},function(json) //Calls query.php, which handles the SQL query and sorting of result data.
 				{
