@@ -1018,14 +1018,8 @@
 						}
 						sql+='problemSubType = "'+ row.cells[2].innerHTML + '", ';
 						sql+='specialistID = '+ row.cells[tempCells+3].innerHTML + ', ';
-						if (row.cells[tempCells+5].innerHTML != '')
-						{
 							sql+='dateTimeResolved = "'+ row.cells[tempCells+5].innerHTML + '", ';
-						}
-						if (row.cells[tempCells+6].innerHTML != '')
-						{
 							sql+='solution = "'+ row.cells[tempCells+6].innerHTML + '", ';
-						}
 						sql+='resolved = "'+ row.cells[tempCells+4].innerHTML + '" ';
 						sql+='WHERE problemNumber = ' + problemNumber + '; ';
 					}
