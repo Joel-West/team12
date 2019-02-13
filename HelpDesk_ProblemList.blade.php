@@ -789,6 +789,7 @@
 				}
 				else
 				{
+					document.getElementById("CallHistoryDiv").innerHTML = ""; //Hides call history if no problem is selected.
 					document.getElementById("btnUpdate").disabled = true;
 					document.getElementById("selMainType").disabled = true;
 					document.getElementById("txtProblem").disabled = true;
@@ -1094,6 +1095,8 @@
 							</div>
 							<div id="tableDivNetwork" style="display:none"> <!-- Div containing network data table. -->
 								Loading data...
+							</div>
+							<div id="CallHistoryDiv"> <!-- Div containing call history data table for the current problem. -->
 							</div>
 						</div>
 					<br/>
