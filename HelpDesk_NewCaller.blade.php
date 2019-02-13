@@ -625,7 +625,7 @@
 		
 		<div class="col-4"></div>
 		<div class="collapse col-4 " id="concernCollapse">
-		  <div class="ml-5 text-left">
+		  <div class="ml-5">
 		    Software Concerned:
 		  </div>
 		  <div id="concernComboBox" class="text-left">
