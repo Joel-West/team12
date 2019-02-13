@@ -832,7 +832,7 @@
 						document.getElementById("txtSoftwareConcerned").disabled = false;
 						document.getElementById("txtSoftwareConcerned").value = document.getElementById(GetCurrentTableID(extraCells)).rows[rowNum].cells[4].innerHTML;
 					}
-					document.getElementById("CallHistoryDiv").innerHTML = ""; //Hides call history if no problem is selected.
+					ShowCallHistory(); //Calls function to show call history of selected problem.
 				}
 				else
 				{
@@ -862,6 +862,7 @@
 						document.getElementById("txtSoftwareConcerned").disabled = true;
 						document.getElementById("txtSoftwareConcerned").value = "";
 					}
+					document.getElementById("CallHistoryDiv").innerHTML = ""; //Hides call history if no problem is selected.
 				}
 				switch (extraCells) //After a selection, in any state of the page, the main type selection box will correlate with the tab.
 				{
@@ -876,7 +877,6 @@
 				{
 					PopulateSerialNumberSelect();
 				}
-				ShowCallHistory(); //Calls function to show call history of selected problem.
 			}
 			
 			function ValidateInput() //Function returns true if the data input box is valid.
