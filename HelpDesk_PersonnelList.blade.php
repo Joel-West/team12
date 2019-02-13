@@ -364,7 +364,10 @@
 			{
 				$('#txtSearch').keydown(function( event )
 				{
-					alert('2');
+					if (event.keyCode === 13)
+					{
+						$("#btnSearch").click();
+					}
 				});
 			});
 		</script>
