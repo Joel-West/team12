@@ -628,7 +628,7 @@
 		  <div class="ml-5">
 		    Software Concerned:
 		  </div>
-		  <div id="concernComboBox" class="text-left">
+		  <div id="concernComboBox">
 		    <button class='btn greenBack dropdown-toggle' type='button' id='dropdownButtonConcern' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>
 			  Choose Concerning Software<span class='caret'></span>
 	        </button>
