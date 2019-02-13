@@ -75,7 +75,6 @@
 						}
 						sql += "upper(tblCallHistory.callNumber) LIKE '%"+str[i]+"%' OR upper(tblCallHistory.operatorID) LIKE '%"+str[i]+"%' OR upper(tblCallHistory.callerID) LIKE '%"+str[i]+"%' OR upper(tblCallHistory.timeDate) LIKE '%"+str[i]+"%' OR upper(tblCallHistory.problemNumber) LIKE '%"+str[i]+"%' OR upper(tblCallHistory.notes) LIKE '%"+str[i]+"%' OR upper(tblProblem.problem) LIKE '%"+str[i]+"%' OR upper(p1.name) LIKE '%"+str[i]+"%' OR upper(p2.name) LIKE '%"+str[i]+"%'"; //Query that returns all database records with a cell containing search string.
 					}
-					console.log(sql);
 				}
 				RunQuery(sql); //Runs function get gets data from database and display it in tableDiv.
 			}
@@ -176,7 +175,7 @@
 				CheckIfUpdate();
 				if (!ListContains(updList, row.cells[0].innerHTML)) //If selected row is not already marked to be updated when changes are saved to the database later.
 				{
-					updList.push(row.cells[0].innerHTML); //Add the ID of the row to the list of rows to by updated when changes are commited to the actual database.
+					updList.push(row.cells[0].innerHTML); //Add the ID of the row to the list of rows to be updated when changes are commited to the actual database.
 					console.log(updList);
 				}
 			}
@@ -299,7 +298,7 @@
 						</div>
 						<div id="inputDiv">
 							<input type="button" class="btn" id="btnDelete" value="Delete Selected Items" id="del" style="font-size:16px;" onclick="Delete()"/><br/><br/> <!-- Delete button that calls function when pressed. -->
-							Notes:<br/><textArea rows="10" id="txtNotes" maxlength="2048" style="background-color:rgb(159, 255, 48);"></textArea><br/> <!-- Input field for updating notes. -->
+							Notes:<br/><textArea class="form-control" rows="10" id="txtNotes" maxlength="2048" style="background-color:rgb(159, 255, 48);"></textArea><br/> <!-- Input field for updating notes. -->
 							<br/><input type="button" class="btn" id="btnUpdate" value="Update Item" style="font-size:16px;" onclick="UpdateRow()"></input>	
 							<br/>
 							<br/>
