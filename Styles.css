@@ -55,6 +55,11 @@ input[type=button]:disabled
 	opacity: 0.3;
 }
 
+h1
+{
+	font-size:5vm;
+}
+
 .greenBack
 {
 	background-color:#9FFF30;
