@@ -3,7 +3,7 @@
 body
 {
 	font-family: "Apple Chancery", Times, serif;
-	background-color: #D0F9CF;
+	background-color: #0F9CF;
 }
 
 .center
@@ -66,12 +66,12 @@ h1, h2
 
 textArea
 {
-	border: 2px solid #4CAF50;
+	border: 2px solid #F3FFED;
 }
 
 .dtLabel
 {
-	font-size:2vw;
+	font-size:2.3vw;
 	position:absolute;
 	right:0;
 }
