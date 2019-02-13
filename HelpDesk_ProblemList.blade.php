@@ -1120,7 +1120,7 @@
 				<div class="titleDiv"> <!-- Div containing elements
 				at the top of the page. -->
 					<input type="button" id="btnBack" style="font-size:40px; position:absolute; left:0;" value="&#x2190" style="display:inline-block;" onClick="GoToNewPage('Home');" /> <!-- Back button. -->
-					<label id="dtLabel" style="font-size:26px; position:absolute; right:0;"></label> <!-- Label to contain current data/time. -->
+					<label id="dtLabel" style="position:absolute; right:0;"></label> <!-- Label to contain current data/time. -->
 					<h2 id="headerId" style="font-weight:bold; style=display:inline-block; font-size:30px;">Problem List</h2> <!-- Heading containing name of page. -->
 				</div>
 				<br/><br/>

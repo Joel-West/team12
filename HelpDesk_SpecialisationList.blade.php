@@ -143,7 +143,7 @@
 			
 			function IsValidSpecialist(item) //Returns true if specialist is in the list of all specialists.
 			{
-				for (i = 0; i < specialists.length; i++) //Iterates through all specialist ids that exist in the personnel table.
+				for (i = 0; i < specialists.length; i++) //Iterates through all specialist IDs that exist in the personnel table.
 				{
 					if (GetIDFromSelBoxItem(specialists[i]) == item)
 					{
@@ -480,7 +480,7 @@
 				@csrf <!--Token to validates requests to server. -->
 				<div class="titleDiv"> <!-- Div containing elements at the top of the page. -->
 					<input type="button" id="btnBack" style="font-size:40px; position:absolute; left:0;" value="&#x2190" style="display:inline-block;" onClick="GoToNewPage('Home');" /> <!-- Back button. -->
-					<label id="dtLabel" style="font-size:26px; position:absolute; right:0;"></label> <!-- Label to contain current data/time. -->
+					<label id="dtLabel" style="position:absolute; right:0;"></label> <!-- Label to contain current data/time. -->
 					<h2 id="headerId" style="font-weight:bold; style=display:inline-block; font-size:30px;">Specialisations</h2> <!-- Heading containing name of page. -->
 				</div>
 				<br/><br/>
