@@ -128,6 +128,14 @@ function AddPressed() //Function to add new row to the local data table.
 	}
 }
 
+$("#txtSearch").keyup(function(event)
+{
+    if (event.keyCode === 13)
+	{
+        $("#btnSearch").click();
+    }
+});
+
 function GetTable() //Returns the ID of the current table.
 {
 	if (currentPage == "ProblemList")
