@@ -253,7 +253,7 @@
 		  concernHtml += "<input type='text' class='form-control' id='dropdownSearch7' placeholder='Search' onkeyup='filter(7)'></div></form>"
 	      concernHtml += "<div class='dropdown-divider'></div>";
 		  concernHtml += "<h6 class='dropdown-header'>Previous Software</h6>";
-		  var concernSql = "SELECT softwareConcerned FROM tblProblem WHERE softwareConcerned != " " GROUP BY softwareConcerned;"
+		  var concernSql = "SELECT softwareConcerned FROM tblProblem WHERE softwareConcerned != ' ' GROUP BY softwareConcerned;"
 		  $.get("Query.php", {'sql':concernSql, 'returnData':true},function(json){
 			if (json && json[0]){
 			  for (i = 0; i < json.length; i++){
