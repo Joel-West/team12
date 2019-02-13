@@ -2,14 +2,13 @@
 
 body, input,label
 {
-  background-image: url("what-the-hex.png");
   text-align: center;
-  font-size: 4vw;
+  
   padding: 50px;
   margin-bottom:10px;
   border-radius: 20px;
   border-width: 5px;
-  border-color: #4CAF50;
+  border-color: ;
   font-family: "Palatino Linotype", "Book Antiqua", "Palatino",serif;
 }
 
