@@ -189,6 +189,8 @@
 		  $('#serialNumberCollapse').collapse('hide');
 		  document.getElementById("dropdown-menu3").innerHTML += "<a class='dropdown-item' >Software problem</a>";
 		  findAllChildren("Software problem", html);
+		  $('#OSCollapse').collapse('show');
+		  $('#concernCollapse').collapse('show');
 		}
 		else{
 		  $('#serialNumberCollapse').collapse('hide');
@@ -487,7 +489,7 @@
 		<input type='text' hidden id="user" name="User"  /> <!-- Hidden tag used to store posted user data so that it can later be posted back to the home page. -->
 		<input type='hidden' name='Previous' id='Previous' value="<?php echo $_GET['previous']; ?>" />
         <div class="titleDiv col-12 d-flex"> <!-- Div containing elements at the top of the page. -->
-			<label id="dtLabel" class="dtLabel" >
+		  <label id="dtLabel" class="ml-auto" >
 	    </div>
 	  </form>
 	  <div class="row" align="center">
@@ -597,6 +599,35 @@
 		    </div>
 		  </div>
 		</div>
+		
+		<div class="collapse col-3 " id="OSCollapse">
+		  <div class="ml-5 text-left">
+		    Operating System:
+		  </div>
+		  <div id="OSComboBox" class="text-left">
+		    <button class='btn greenBack dropdown-toggle' type='button' id='dropdownButtonOS' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>
+			  Choose Operating System<span class='caret'></span>
+	        </button>
+		    <div class='dropdown-menu' id='dropdown-menu6' aria-labelledby='dropdownMenuOS'>
+			  
+		    </div>
+		  </div>
+		</div>
+		
+		<div class="collapse col-3 " id="concernCollapse">
+		  <div class="ml-5 text-left">
+		    Software Concerned:
+		  </div>
+		  <div id="concernComboBox" class="text-left">
+		    <button class='btn greenBack dropdown-toggle' type='button' id='dropdownButtonConcern' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>
+			  Choose Concerning Software<span class='caret'></span>
+	        </button>
+		    <div class='dropdown-menu' id='dropdown-menu7' aria-labelledby='dropdownMenuConcern'>
+			  
+		    </div>
+		  </div>
+		</div>
+		
 		<div class="col-3"></div>
 		
 		<div class="col-3"></div>
