@@ -362,7 +362,7 @@
 			}
 			$('document').ready(function()
 			{
-				$('txtSearch').keydown(function( event )
+				$('#txtSearch').keydown(function( event )
 				{
 					alert('2');
 				});
