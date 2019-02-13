@@ -1,6 +1,6 @@
 /*This file is imported into all the pages, and thus any CSS within will be applied to any page on the host.*/
 
-body
+body, input,label
 {
   background-image: url("what-the-hex.png");
   text-align: center;
