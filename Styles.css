@@ -57,7 +57,16 @@ input[type=button]:disabled
 
 h1, h2
 {
-	font-size:6vw;
+	font-size:5vw;
+	font-weight: bold;
+	style=display:inline-block;
+}
+
+.dtLabel
+{
+	font-size:3vw;
+	position:absolute;
+	right:0;
 }
 
 .greenBack
