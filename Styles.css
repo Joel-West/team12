@@ -3,7 +3,8 @@
 body
 {
 	font-family: "Apple Chancery", Times, serif;
-	background-color: #0F9CF;
+	background-color: #FFFFFF;
+	background-image: url("background.png");
 }
 
 .center
