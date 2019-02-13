@@ -80,13 +80,13 @@ h1, h2
 	display:inline-block;
 }
 
-input[button]
+.button
 {
     font-size:3vw;
     font-family: "Palatino Linotype", "Book Antiqua", "Palatino",serif;
     font-weight:bold;
     padding: 12px 25px;
-	width: 100%;
+	width: 80%;
 	text-decoration: none;
 	color: rgba(255, 255, 255, 0.8);
 	background: rgb(145, 92, 182);
