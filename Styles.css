@@ -71,7 +71,7 @@ h1, h2
 
 .greenBack
 {
-	background-color:#9FFF30;
+	background-color:#FFFFFF;
 }
 
 .tabButton
@@ -88,13 +88,13 @@ h1, h2
     padding: 12px 25px;
 	width: 80%;
 	text-decoration: none;
-	color: rgba(255, 255, 255, 0.8);
-	background: rgb(145, 92, 182);
+	color:rgba(255, 255, 255, 0.8);
+	background:rgb(145, 92, 182);
 	border-radius: 4px
 	transition-duration: 0.4s;
 	cursor: pointer;
 	margin: auto;
-	margin-bottom:0.7%;
+	margin-bottom:0.5%;
 }
       
 .glow-button
