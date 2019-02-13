@@ -979,8 +979,8 @@
 				sql = '';
 				for (i = 0; i < delList.length; i++) //Iterate through delete list (deletion performed first as it reduces database size, making other operations quicker).
 				{
-					sql+='DELETE FROM tblProblem WHERE problemNumber = ' + delList[i] + '; ';
 					sql+="UPDATE tblCallHistory SET problemNumber = NULL WHERE problemNumber = " + delList[i] + "; "
+					sql+='DELETE FROM tblProblem WHERE problemNumber = ' + delList[i] + '; ';
 				}
 				for (i = 0; i < updList.length; i++) //Iterate through delete list (deletion performed first as it reduces database size, making other operations quicker).
 				{
