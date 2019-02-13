@@ -239,7 +239,8 @@
 	  function createSoftwareDropdown(){
 		var html = "<form class ='px-4 py-3'><div class='form-group'><label for='dropdownSearch'>Search</label>"
 		html += "<input type='text' class='form-control' id='dropdownSearch6' placeholder='Search' onkeyup='filter(6)'></div></form>"
-	    html += "<div class='dropdown-divider'></div>";
+	    html += "<div class='dropdown-divider'></div><a class='dropdown-item'>New OS</a><form class='px-4 py-3'>";
+		html += "<input type='text' class='form-control' id='newOSInput' placeholder='Enter New OS'></form><div class='dropdown-divider'></div>";
 		html += "<h6 class='dropdown-header'>Operating Systems</h6>";
 		var sql = "SELECT operatingSystem FROM tblProblem WHERE operatingSystem != ' ' GROUP BY operatingSystem;";
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
@@ -251,7 +252,8 @@
 		  }
 		  var concernHtml = "<form class ='px-4 py-3'><div class='form-group'><label for='dropdownSearch'>Search</label>"
 		  concernHtml += "<input type='text' class='form-control' id='dropdownSearch7' placeholder='Search' onkeyup='filter(7)'></div></form>"
-	      concernHtml += "<div class='dropdown-divider'></div>";
+	      html += "<div class='dropdown-divider'></div><a class='dropdown-item'>New Concerned Software</a><form class='px-4 py-3'>";
+		  html += "<input type='text' class='form-control' id='newConcernInput' placeholder='Enter New Concerned Software'></form><div class='dropdown-divider'></div>";
 		  concernHtml += "<h6 class='dropdown-header'>Previous Software</h6>";
 		  var concernSql = "SELECT softwareConcerned FROM tblProblem WHERE softwareConcerned != ' ' GROUP BY softwareConcerned;"
 		  $.get("Query.php", {'sql':concernSql, 'returnData':true},function(json){
@@ -273,13 +275,25 @@
       });
 	  
 	  $(document).on('click', '#dropdown-menu6 a', function(){
-        $("#dropdownButtonOS:first-child").text($(this).text());
-        $("#dropdownButtonOS:first-child").val($(this).text());
+		if ($(this).text() == "New OS"){
+		  $("#dropdownButtonOS:first-child").text(document.getElementById("newOSInput").value);
+		  $("#dropdownButtonOS:first-child").val(document.getElementById("newOSInput").value);
+		}
+		else{
+          $("#dropdownButtonOS:first-child").text($(this).text());
+          $("#dropdownButtonOS:first-child").val($(this).text());
+		}
       });
 	  
 	  $(document).on('click', '#dropdown-menu7 a', function(){
-        $("#dropdownButtonConcern:first-child").text($(this).text());
-        $("#dropdownButtonConcern:first-child").val($(this).text());
+		if ($(this).text() == "New Concerned Software"){
+		  $("#dropdownButtonConcern:first-child").text(document.getElementById("newConcernInput").value);
+		  $("#dropdownButtonConcern:first-child").val(document.getElementById("newConcernInput").value);
+		}
+		else{
+          $("#dropdownButtonConcern:first-child").text($(this).text());
+          $("#dropdownButtonConcern:first-child").val($(this).text());
+		}
       });
 	  
 	  $(document).on('click', '#dropdown-menu3 a', function(){
