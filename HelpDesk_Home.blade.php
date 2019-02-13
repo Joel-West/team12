@@ -44,7 +44,7 @@
 		<style type="text/css">
 			.mainButton
 			{
-				font-size:40px;
+				font-size:4vq;
 				font-weight:bold;
 				padding: 12px 25px;
 				width: 80%;
@@ -70,7 +70,7 @@
 				</div>
 				<br/>
 				<div class="grid-class"> <!-- Div containing main buttons that link to other pages. -->
-					<input class="mainButton" type="button" id="btnNewCall" value="New Call" onClick="GoToNewPage('NewCaller')" />
+					<input class="button glow-button" type="button" id="btnNewCall" value="New Call" onClick="GoToNewPage('NewCaller')" />
 					<input class="mainButton" type="button" value="View Call History" onClick="GoToNewPage('CallHistory');" />
 					<input class="mainButton" type="button" value="View Problems List" onClick="GoToNewPage('ProblemList');" />
 					<input class="mainButton" type="button" value="View Personnel" onClick="GoToNewPage('PersonnelList');" />
