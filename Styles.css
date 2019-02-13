@@ -1,6 +1,6 @@
 /*This file is imported into all the pages, and thus any CSS within will be applied to any page on the host.*/
 
-body,td,th,h1,input,label
+body
 {
   background-image: url("what-the-hex.png");
   text-align: center;
@@ -11,11 +11,6 @@ body,td,th,h1,input,label
   border-width: 5px;
   border-color: #4CAF50;
   font-family: "Palatino Linotype", "Book Antiqua", "Palatino",serif;
-}
-
-body
-{
-	
 }
 
 table
@@ -31,37 +26,43 @@ input[type=checkbox]
 
 .titleDiv
 {
-              display: flex;
-              justify-content: center;
-              position: relative;
+    display: flex;
+    justify-content: center;
+    position: relative;
 }
 
 input[type=button], [type=submit], th
 {
-              background-color: #ffffff;
-  width: 25%
-  display: block;
+	background-color: #ffffff;
+	width: 25%
+	display: block;
 }
 
 input[type=button], [type=submit]
 {
-              border-radius: 25px;
+    border-radius: 25px;
 }
 
 input[type=text], [type=password], tr
 {
-              background-color: #ffffff
-  margin-bottom: 30px;
+    background-color: #ffffff
+	margin-bottom: 30px;
 }
 
 input[type=button]:disabled
 {
-              opacity: 0.3;
+    opacity: 0.3;
 }
 
 .greenBack
 {
-              background-color:#ffffff;
+    background-color:#ffffff;
+}
+
+.tabButton
+{
+	border-color:#000000;
+	display:inline-block;
 }
 <input class = "button glow-button" type="button" id="btnBack" style="font-size:2vw; position:absolute; left:0; width:8vw; height: 4vw" value="&#x2190"
 .tabButton
