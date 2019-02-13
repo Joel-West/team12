@@ -72,6 +72,8 @@ h1, h2
 .greenBack
 {
 	background-color:#FFFFFF;
+	background:rgb(145, 92, 182);
+	border-radius: 4px
 }
 
 .tabButton
