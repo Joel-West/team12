@@ -635,8 +635,6 @@
 				else
 				{
 					div.style.display = "none";
-					document.getElementById("txtDateTime").value = ""; //If not resolved, clear date/time and solution boxes.
-					document.getElementById("txtSolution").value = ""; 
 				}
 			}
 			
@@ -912,6 +910,11 @@
 				{
 					row.cells[extraCells+5].innerHTML = document.getElementById("txtDateTime").value;
 					row.cells[extraCells+6].innerHTML = document.getElementById("txtSolution").value;
+				}
+				else
+				{
+					row.cells[extraCells+5].innerHTML = "";
+					row.cells[extraCells+6].innerHTML = "";
 				}
 				row.style.backgroundColor = '#9FFF30';
 				selected = 0;
