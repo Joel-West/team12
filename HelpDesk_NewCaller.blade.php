@@ -503,6 +503,7 @@
 			},'json');
 			
 			setTimeout(insertCall, 100);
+		  }
 		  else if(radioValue == "Network"){
 			sql += "INSERT INTO tblProblem VALUES ";
 			sql += "(NULL , '" + problem + "', '" + problemType + "', '" + subProblemType + "', '', '', '', '" + specialistID + "', '" + resolved + "', '" + dateTime + "', '" + solution "');";
