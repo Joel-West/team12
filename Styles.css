@@ -60,7 +60,7 @@ input[type=button]:disabled
 
 h1, h2
 {
-	font-size:4em;
+	font-size:4vw;
 	font-weight: bold;
 	display:inline-block;
 }
@@ -72,7 +72,7 @@ textArea
 
 .dtLabel
 {
-	font-size:2.3em;
+	font-size:2.3vw;
 	position:absolute;
 	right:0;
 }
@@ -93,7 +93,7 @@ textArea
 
 .button
 {
-    font-size:3em;
+    font-size:3vw;
     font-family: "Palatino Linotype", "Book Antiqua", "Palatino",serif;
     font-weight:bold;
     padding: 12px 25px;
