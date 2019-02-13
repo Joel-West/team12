@@ -128,15 +128,6 @@ function AddPressed() //Function to add new row to the local data table.
 	}
 }
 
-$("#txtSearch").keyup(function(event)
-{
-    if (event.keyCode === 13)
-	{
-		alert("aaaaay");
-        $("#btnSearch").click();
-    }
-});
-
 function GetTable() //Returns the ID of the current table.
 {
 	if (currentPage == "ProblemList")
@@ -148,6 +139,17 @@ function GetTable() //Returns the ID of the current table.
 		return "tbl";
 	}
 }
+
+$('document').ready(function() //When document is prepped, ensures enter key allows users to submit search box.
+{
+	$('#txtSearch').keydown(function(event)
+	{
+		if (event.keyCode === 13)
+		{
+			$("#btnSearch").click();
+		}
+	});
+});
 
 $(document).on('click','tr',function(event) //Function for selecting/deselecting rows.
 {
