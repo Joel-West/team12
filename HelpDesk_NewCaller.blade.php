@@ -492,7 +492,7 @@
 	  </form>
 	  <div class="row" align="center">
 		<div class="col-12">
-		  <h1>Call Details</h1>
+		  <h2>Call Details</h2>
 		  <h5>The operator logging is <?php echo (explode(",", $_POST['User']))[0]; ?> #<?php echo (explode(",", $_POST['User']))[1]; ?></h5>
 		  <h6>Time and data will be recorded on submit</h6>
 		  <br>
