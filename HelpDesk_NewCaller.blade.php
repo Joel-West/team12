@@ -181,6 +181,8 @@
 		$("#dropdownButton3:first-child").text('Choose Problem Type');
 		$("#dropdownButton3:first-child").val('');
 		if (num==1){
+		  $('#OSCollapse').collapse('hide');
+		  $('#concernCollapse').collapse('hide');
 		  document.getElementById("dropdown-menu3").innerHTML += "<a class='dropdown-item' >Hardware problem</a>";
 		  findAllChildren("Hardware problem", html);
 		  createSerialNumber();
@@ -194,6 +196,8 @@
 		}
 		else{
 		  $('#serialNumberCollapse').collapse('hide');
+		  $('#OSCollapse').collapse('hide');
+		  $('#concernCollapse').collapse('hide');
 		  document.getElementById("dropdown-menu3").innerHTML += "<a class='dropdown-item' >Network problem</a>";
 		  findAllChildren("Network problem", html);		  
 		}
