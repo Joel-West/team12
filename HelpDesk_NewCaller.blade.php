@@ -487,7 +487,7 @@
 		<input type='text' hidden id="user" name="User"  /> <!-- Hidden tag used to store posted user data so that it can later be posted back to the home page. -->
 		<input type='hidden' name='Previous' id='Previous' value="<?php echo $_GET['previous']; ?>" />
         <div class="titleDiv col-12 d-flex"> <!-- Div containing elements at the top of the page. -->
-		  <label id="dtLabel" class="ml-auto" >
+			<label id="dtLabel" class="dtLabel" >
 	    </div>
 	  </form>
 	  <div class="row" align="center">

@@ -65,8 +65,8 @@
 				<input type='text' hidden id="user" name="User"/> <!-- Hidden tag used to store posted user data so that it can later be posted back to the home page. -->
 				<div class="titleDiv"> <!-- Div containing elements at the top of the page. -->
 					<input type="button" style="font-size:40px; position:absolute; left:0;" value="&#x2190" style="display:inline-block;" onClick="GoToNewPage('');" /> <!-- Back button. -->
-					<label id="dtLabel" style="font-size:26px; position:absolute; right:0;"></label> <!-- Label to contain current data/time. -->
-					<h2 id="header" style="font-weight: bold; style=display:inline-block;">Welcome, <?php echo (explode(",", $_POST['User']))[0]; ?>!</h2> <!-- Heading containing a welcome message to the user. -->
+					<label id="dtLabel" class="dtLabel"></label> <!-- Label to contain current data/time. -->
+					<h2 id="header">Welcome, <?php echo (explode(",", $_POST['User']))[0]; ?>!</h2> <!-- Heading containing a welcome message to the user. -->
 				</div>
 				<br/>
 				<div class="grid-class"> <!-- Div containing main buttons that link to other pages. -->
