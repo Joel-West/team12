@@ -192,9 +192,8 @@
 			
 			function GeneralisationOptionClicked() //Sets generalisation text box value to selected option in selection box.
 			{
-				value = GetIDFromSelBoxItem(document.getElementById("selGeneralisation").value);
+				value = document.getElementById("selGeneralisation").value;
 				document.getElementById("txtGeneralisation").value = value;
-				console.log(value);
 				if (value == "")
 				{
 					PopulateGeneralisationSelect();
@@ -286,13 +285,6 @@
 					rows = GetRows();
 					for (i = rows-1; i > 0; i--) //Iterate through the rows of the table.
 					{
-						name = document.getElementById("tbl").rows[i].cells[0].innerHTML;
-						console.log(name);
-						if (name == "Hardware problem" || name == "Software problem" || name == "Network problem")
-						{
-							alert("You cannot delete one of the base problem types.");
-							return;
-						}
 						deleteRow = false; //Variable holding if row will actually be deleted.
 						if (document.getElementById("tbl").rows[i].classList.contains("rowSelected")) //If row is selected.
 						{
@@ -300,6 +292,12 @@
 						}
 						if (deleteRow == true) //If should be deleted after validation.
 						{
+							name = document.getElementById("tbl").rows[i].cells[0].innerHTML;
+							if (name == "Hardware problem" || name == "Software problem" || name == "Network problem") //You cannot delete the base three problem types.
+							{
+								alert("You cannot delete one of the base problem types.");
+								return;
+							}
 							if (document.getElementById("tbl").rows[i].cells[0].innerHTML.includes("(new)")) //If row is a new row, decrement number of new rows.
 							{
 								newRowCount -=1;
