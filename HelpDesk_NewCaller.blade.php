@@ -170,24 +170,37 @@
           $("#dropdownButton2:first-child").val($(this).text());
 		  $('#problemTypeCollapse').collapse('hide');
 		  $('#serialNumberCollapse').collapse('hide');
+		  $('#OSCollapse').collapse('hide');
+		  $('#concernCollapse').collapse('hide');
+		  $('#concernCollapseDiv').collapse('hide');
+		  $('#concernCollapseDiv2').collapse('hide');
 		  $('#result2Collapse').collapse('hide');
 		  getRelevantInformation($(this).text());
+		  $('input[name=Radios]').attr('checked',false);
 		  $('#newNewProblemCollapse').collapse('show');
 		}
       });
 	  
-	  function getRelevantInformation(parent){
-		var sql = "SELECT typeName FROM tblProblemType WHERE generalisation = '" + parent + "';";
+	  function getGenericProblemType(parent){
+		var sql = "SELECT problemType,problemSubType FROM tblProblem WHERE problem = '" + parent + "';";
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
 		  if (json && json[0]){
-			for (i = 0; i < json.length; i++){
-			  html="<a class='dropdown-item' >" + json[i].typeName + "</a>";
-			  document.getElementById("dropdown-menu3").innerHTML += html;
-			  findAllChildren(json[i].typeName,html);
+			if(json[0].typeName = "Hardware problem"){
+			  document.getElementById("RadiosH").checked = true;
+			  radios(1);
+			}else if(json[0].typeName = "Software problem"){
+			  document.getElementById("RadiosS").checked = true;
+			  radios(2);
+			}else{
+			  document.getElementById("RadiosN").checked = true;
+			  radios(3);
 			}
+			$("#dropdownButton3:first-child").text(json[0].typeName);
+            $("#dropdownButton3:first-child").val(json[0].typeName);
+			populateSpecialist(json[0].typeName);
+			
 		  }
 		},'json');
-		
 	  }
 	  
 	  function radios(num){
@@ -208,8 +221,6 @@
 		}
 		else if (num==2){
 		  $('#serialNumberCollapse').collapse('hide');
-		  $('#concernCollapseDiv').collapse('show');
-		  $('#concernCollapseDiv2').collapse('show');
 		  document.getElementById("dropdown-menu3").innerHTML += "<a class='dropdown-item' >Software problem</a>";
 		  findAllChildren("Software problem", html);
 		  setTimeout(createSoftwareDropdown,300);
@@ -288,6 +299,8 @@
 		    }
 			$('#OSCollapse').collapse('show');
 			$('#concernCollapse').collapse('show');
+			$('#concernCollapseDiv').collapse('show');
+			$('#concernCollapseDiv2').collapse('show');
 		  },'json');
 		},'json');
 	  }
@@ -665,20 +678,20 @@
 		<div class="col-3"></div>
 		<div class="collapse col-6" id="newNewProblemCollapse">
 		  <div class="form-check-inline">
-		    <input class="form-check-input" type="radio" name="Radios" id="Radios1" value="Hardware" onClick = "radios(1);">
-			<label class="form-check-label" for="Radios1">
+		    <input class="form-check-input" type="radio" name="Radios" id="RadiosH" value="Hardware" onClick = "radios(1);">
+			<label class="form-check-label" for="RadiosH">
 			  Hardware
 			</label>
 		  </div>
 		  <div class="form-check-inline">
-		    <input class="form-check-input" type="radio" name="Radios" id="Radios1" value="Software" onClick = "radios(2);">
-			<label class="form-check-label" for="Radios1">
+		    <input class="form-check-input" type="radio" name="Radios" id="RadiosS" value="Software" onClick = "radios(2);">
+			<label class="form-check-label" for="RadiosS">
 			  Software
 			</label>
 		  </div>
 		  <div class="form-check-inline">
-		    <input class="form-check-input" type="radio" name="Radios" id="Radios1" value="Network" onClick = "radios(3);">
-			<label class="form-check-label" for="Radios1">
+		    <input class="form-check-input" type="radio" name="Radios" id="RadiosN" value="Network" onClick = "radios(3);">
+			<label class="form-check-label" for="RadiosN">
 			  Network
 			</label>
 		  </div>
