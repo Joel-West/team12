@@ -104,7 +104,7 @@ function GetSelectedRow() //Returns selected row (if only one is selected).
 	rows = GetRows();
 	for (i = rows-1; i > 0; i--) //Iterate through the rows of the table.
 	{
-		if (document.getElementById(GetTable()).rows[i].style.backgroundColor != 'rgb(159, 255, 48)') //If row is selected.
+		if (document.getElementById(GetTable()).rows[i].classList.contains("rowSelected")) //If row is selected.
 		{
 			return i;
 		}
@@ -178,16 +178,14 @@ $(document).on('click','tr',function(event) //Function for selecting/deselecting
 	}
 	if ($(this).attr('id') != 't0') //If not the header.
 	{
-		if ($(this).css('background-color') == 'rgb(255, 255, 255)') //If deselected (if while).
+		if ($(this).hasClass("rowDeselected")) //If deselected.
 		{	
-			$(this).css('background-color', '#4CAF50'); //Select.
-			$(this).css('color', '#FFFFFF');
+			$(this).addClass("rowSelected"); //Select.
 			selected += 1;
 		}
-		else if ($(this).css('background-color') == 'rgb(76, 175, 80)') //If selected (if green).
+		else if ($(this).hasClass("rowSelected")) //If selected.
 		{
-			$(this).css('background-color', '#FFFFFF'); //Deselect.
-			$(this).css('color', '#000000');
+			$(this).addClass("rowDeselected"); //Deselect.
 			selected -= 1;
 		}
 	}

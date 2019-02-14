@@ -119,3 +119,17 @@ h1, h2
   background-color: #4CAF50;
   color: #ffffff;
 }
+
+.rowSelected
+{
+	background-color: #4CAF50; 
+	color: #000000; 
+	border: 1px solid #000000;
+}
+
+.rowDeselected
+{
+	background-color: #ffffff; 
+	color: #000000; 
+	border: 1px solid #4CAF50;
+}
