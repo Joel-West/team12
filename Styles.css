@@ -83,7 +83,14 @@ input[type=button]:disabled
 	opacity: 0.3;
 }
 
-h1, h2
+h1
+{
+	font-size:4vw;
+	font-weight: bold;
+	display:inline-block;
+}
+
+h2
 {
 	font-size:3vw;
 	font-weight: bold;
