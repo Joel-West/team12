@@ -330,9 +330,9 @@
 				sql = "";
 				for (i = 0; i < delList.length; i++) //Iterate through delete list (deletion performed first as it reduces database size, making other operations quicker).
 				{
-					sql+="UPDATE tblProblem SET problemSubType = NULL WHERE problemSubType = " + delList[i] + "; ";
-					sql+="UPDATE tblProblemType SET generalisation = NULL WHERE generalisation = " + delList[i] + "; ";
-					sql+="DELETE FROM tblProblemType WHERE typeName = " + delList[i] + "; ";
+					sql+="UPDATE tblProblem SET problemSubType = NULL WHERE problemSubType = '" + delList[i] + "'; ";
+					sql+="UPDATE tblProblemType SET generalisation = NULL WHERE generalisation = '" + delList[i] + "'; ";
+					sql+="DELETE FROM tblProblemType WHERE typeName = '" + delList[i] + "'; ";
 				}
 				for (i = 0; i < updList.length; i++) //Iterate through the update list.
 				{
@@ -343,7 +343,7 @@
 						row = document.getElementById("tbl").rows[rowNum]; //Get row of local table that is being saved to database.
 						sql+="UPDATE tblProblemType SET ";
 						sql+="generalisation = '"+ row.cells[1].innerHTML + "', ";
-						sql+="WHERE typeName = " + id + "; ";
+						sql+="WHERE typeName = '" + id + "'; ";
 					}
 				}
 				for (i = 0; i < GetRows(); i++) //Iterate through all rows to find new rows.
