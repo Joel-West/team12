@@ -83,7 +83,7 @@
 				{
 					if(json && json[0]) //If result of php file was a json array.	
 					{				
-						var htm = "<table class='table' id='tbl' border='1'>";
+						var htm = "<table id='tbl' border='1'>";
 						htm+="<tr id='t0'><th onclick='SortTable(0)' scope='col'>userID</th>";
 						htm+="<th onclick='SortTable(1)' scope='col'>Name</th>";
 						htm+="<th onclick='SortTable(2)'scope='col'>Job Title</th>";
