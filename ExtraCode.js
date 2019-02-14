@@ -161,20 +161,26 @@ $('document').ready(function() //When document is prepped, ensures enter key all
 
 $(document).on('click','tr',function(event) //Function for selecting/deselecting rows.
 {
-	admin = (userData.split(","))[2];
+	admin = (userData.split(","))[2]; //Retrieves statuses from userData that was earlier posted from previous form.
 	analyst = (userData.split(","))[3];
-	if (currentPage == "CallHistory" || currentPage == "ProblemList")
+	specialist = (userData.split(","))[4];
+	operator = (userData.split(","))[5];
+	if (currentPage == "ProblemList")
 	{
-		if (admin == 0 && analyst == 1) //If not admin, action is forbidden.
+		if (admin == 0 && operator == 0 && specialist == 0) //If not admin, operator or specialist, action is forbidden.
 		{
 			return;
 		}
-		if (currentPage == "ProblemList")
+		if ($(this).attr('id') == 'callRow') //If trying to select row on the call history table that pops up when a row is selected in the problem table, leave function.
 		{
-			if ($(this).attr('id') == 'callRow') //If trying to select row on the call history table that pops up when a row is selected in the problem table, leave function.
-			{
-				return;
-			}
+			return;
+		}
+	}
+	else if (currentPage == "CallHistory")
+	{
+		if (admin == 0 && operator == 0) //If not admin or operator, action is forbidden.
+		{
+			return;
 		}
 	}
 	else
