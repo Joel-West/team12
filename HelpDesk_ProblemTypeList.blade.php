@@ -194,6 +194,7 @@
 			{
 				value = GetIDFromSelBoxItem(document.getElementById("selGeneralisation").value);
 				document.getElementById("txtGeneralisation").value = value;
+				console.log(value);
 				if (value == "")
 				{
 					PopulateGeneralisationSelect();
@@ -286,6 +287,7 @@
 					for (i = rows-1; i > 0; i--) //Iterate through the rows of the table.
 					{
 						name = document.getElementById("tbl").rows[i].cells[0].innerHTML;
+						console.log(name);
 						if (name == "Hardware problem" || name == "Software problem" || name == "Network problem")
 						{
 							alert("You cannot delete one of the base problem types.");
@@ -383,7 +385,7 @@
 		.table-wrapper-scroll-y
 		{
 			display: block;
-			max-height:88vh;
+			max-height:84vh;
 			overflow-y: auto;
 			-ms-overflow-style: -ms-autohiding-scrollbar;
 		}
