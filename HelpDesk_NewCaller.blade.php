@@ -185,19 +185,19 @@
 		var sql = "SELECT problemType,problemSubType FROM tblProblem WHERE problem = '" + parent + "';";
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
 		  if (json && json[0]){
-			if(json[0].typeName = "Hardware problem"){
+			if(json[0].problemType = "Hardware"){
 			  document.getElementById("RadiosH").checked = true;
 			  radios(1);
-			}else if(json[0].typeName = "Software problem"){
+			}else if(json[0].problemType = "Software"){
 			  document.getElementById("RadiosS").checked = true;
 			  radios(2);
 			}else{
 			  document.getElementById("RadiosN").checked = true;
 			  radios(3);
 			}
-			$("#dropdownButton3:first-child").text(json[0].typeName);
-            $("#dropdownButton3:first-child").val(json[0].typeName);
-			populateSpecialist(json[0].typeName);
+			$("#dropdownButton3:first-child").text(json[0].problemSubType);
+            $("#dropdownButton3:first-child").val(json[0].problemSubType);
+			populateSpecialist(json[0].problemSubType);
 			
 		  }
 		},'json');
