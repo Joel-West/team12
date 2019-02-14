@@ -282,6 +282,8 @@
 		    }
 			$('#OSCollapse').collapse('show');
 			$('#concernCollapse').collapse('show');
+			$('#concernCollapseDiv').collapse('show');
+			$('#concernCollapseDiv2').collapse('show');
 		  },'json');
 		},'json');
 	  }
@@ -737,9 +739,9 @@
 		    </div>
 		  </div>
 		</div>
-		<div class="collapse col-4" id="concernCollapse"></div>
+		<div class="collapse col-4" id="concernCollapseDiv"></div>
 
-		<div class="collapse col-4" id="concernCollapse"></div>
+		<div class="collapse col-4" id="concernCollapseDiv2"></div>
 		
 		<div class="collapse col-4" id="result2Collapse">
 		  Specialist:
