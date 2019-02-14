@@ -18,7 +18,7 @@ body,td,th,input,label
 
 }
 
-td,th,tbody
+td,th
 {
 	border: 1px solid #000000;
 }
@@ -26,6 +26,7 @@ td,th,tbody
 th
 {
 	background-color: #E7F9DB;
+	border-top: 1px solid #000000;
 }
 
 table
