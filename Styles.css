@@ -141,15 +141,15 @@ h2
       
 .glow-button
 {
-  background-color: #ffffff; 
-  color: #000000; 
-  border: 1px solid #4CAF50;
+	background-color: #ffffff; 
+	color: #000000; 
+	border: 1px solid #4CAF50;
 }
 
-.glow-button:hover
+.glow-button:hover:not([disabled])
 {
-  background-color: #4CAF50;
-  color: #FFFFFF;
+	background-color: #4CAF50;
+	color: #FFFFFF;
 }
 
 .rowSelected
