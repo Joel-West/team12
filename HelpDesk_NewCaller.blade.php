@@ -200,6 +200,8 @@
 		if (num==1){
 		  $('#OSCollapse').collapse('hide');
 		  $('#concernCollapse').collapse('hide');
+		  $('#concernCollapseDiv').collapse('hide');
+		  $('#concernCollapseDiv2').collapse('hide');
 		  document.getElementById("dropdown-menu3").innerHTML += "<a class='dropdown-item' >Hardware problem</a>";
 		  findAllChildren("Hardware problem", html);
 		  setTimeout(createSerialNumber,200);
@@ -214,6 +216,8 @@
 		  $('#serialNumberCollapse').collapse('hide');
 		  $('#OSCollapse').collapse('hide');
 		  $('#concernCollapse').collapse('hide');
+		  $('#concernCollapseDiv').collapse('hide');
+		  $('#concernCollapseDiv2').collapse('hide');
 		  document.getElementById("dropdown-menu3").innerHTML += "<a class='dropdown-item' >Network problem</a>";
 		  findAllChildren("Network problem", html);		  
 		}
