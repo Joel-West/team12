@@ -135,17 +135,17 @@
 			
 			function PopulateGeneralisationSelect() //Populates selection box with problem types based on searched text.
 			{
-				IDBox = document.getElementById("txtGeneralisation");
+				generalisationBox = document.getElementById("txtGeneralisation");
 				selBox = document.getElementById("selGeneralisation");
 				htm = "<option></option>";
 				size = 0; //Stores size of selection box.
 				matchIndex = -1; //Will be assigned to a natural number if any of the type names from the generalisations list match exactly with the text box input.
 				for (i = 0; i < generalisations.length; i++) //Iterates through all problem types that exist in the problem type table.
 				{
-					if ((GetRowWithID(GetIDFromSelBoxItem(generalisations[i])) == -1) && ((GetRowWithID(GetIDFromSelBoxItem(generalisations[i])).value + "(new)") != -1) && (generalisations[i].toUpperCase().includes(IDBox.value.toUpperCase()) || IDBox.value == ""))
+					if (generalisations[i].toUpperCase().includes(generalisationBox.value.toUpperCase()) || generalisationBox.value == "")
 					{
 						size+=1;
-						if (GetIDFromSelBoxItem(generalisations[i]) == IDBox.value)
+						if (GetIDFromSelBoxItem(generalisations[i]) == generalisationBox.value)
 						{
 							matchIndex = size; //If the user has input an exact match, assign the variable defining what the default value for the box will be.
 						}
@@ -168,7 +168,7 @@
 					selBox.style.display = "inline";
 					lbl.style.display = "inline";
 				}
-				if (IDBox.value.length > 0) //If the text box contains results, give the label the number of results.
+				if (generalisationBox.value.length > 0) //If the text box contains results, give the label the number of results.
 				{
 					if (size == 1)
 					{
@@ -419,7 +419,7 @@
 							<select id="selGeneralisation" onchange="GeneralisationOptionClicked()" class="greenBack"></select>
 							<br/>
 							<label id="lblGeneralisationNum"></label>
-							<br/><br/>					
+							<br/><				
 							<br/><input type="button" class="btn" id="btnAdd" value="Add New Item" style="font-size:16px;" onclick="AddPressed()"></input>	
 							<br/><br/>
 							<p align="center">
