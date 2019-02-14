@@ -185,15 +185,16 @@
 		var sql = "SELECT problemType,problemSubType FROM tblProblem WHERE problem = '" + parent + "';";
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
 		  if (json && json[0]){
-			console.log(json[0].problemType);
 			if(json[0].problemType == "Hardware"){
+			  console.log("HardwareT");
 			  document.getElementById("RadiosH").checked = true;
 			  radios(1);
 			}else if(json[0].problemType == "Software"){
-			  console.log("TRIGG");
+			  console.log("SoftwareT");
 			  document.getElementById("RadiosS").checked = true;
 			  radios(2);
 			}else{
+			  console.log("NetworkT");
 			  document.getElementById("RadiosN").checked = true;
 			  radios(3);
 			}
