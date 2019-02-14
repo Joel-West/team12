@@ -190,6 +190,7 @@
 			  document.getElementById("RadiosH").checked = true;
 			  radios(1);
 			}else if(json[0].problemType = "Software"){
+			  console.log("TRIGG");
 			  document.getElementById("RadiosS").checked = true;
 			  radios(2);
 			}else{
