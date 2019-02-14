@@ -207,7 +207,12 @@
 			
 			function IDOptionClicked() //Sets ID text box value to selected option in selection box.
 			{
-				document.getElementById("txtID").value = GetIDFromSelBoxItem(document.getElementById("selID").value);
+				value = GetIDFromSelBoxItem(document.getElementById("selID").value);
+				document.getElementById("txtID").value = value;
+				if (value == "")
+				{
+					PopulateIDSelect();
+				}
 			}
 			
 			function GetAdminAsBool(Admin) //Gets the admin value from a table as a string and returns a boolean.
