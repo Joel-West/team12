@@ -45,15 +45,15 @@
 		  }
 		  
 		  html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;EquipmentList&quot;);'>Equipment</a>";
+		  html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;ProblemTypeList&quot;);'>Problem Type List</a>
 		  
 		  if (admin == 0 && analyst == 0){
-			html+= "<a class='nav-item nav-link disabled' href='#'>Analytics</a>";
+			html+= "<a class='nav-item nav-link disabled' href='#'>Analytics</a></ul>";
 		  }
           else{
-		    html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;Analytics&quot;);'>Analytics</a>";
+		    html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;Analytics&quot;);'>Analytics</a></ul>";
 		  }
 		  
-		  html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;ProblemTypeList&quot;);'>Problem Type List</a></ul>"
 		document.getElementById("navbarNavDropdown").innerHTML = html;
 	    }
 	  
@@ -783,7 +783,7 @@
 		  </div>
 		  <div class="collapse" id="solutionCollapse">
 		    Solution:
-		    <textarea class="form-control" rows="5" id="solution" ></textarea>
+		    <textarea class="form-control text" rows="5" id="solution" ></textarea>
 			<div class="collapse" id="specialistSolutionComboBox">
 			  <div>
 		        <button class='btn greenBack dropdown-toggle' type='button' id='dropdownButtonSolution' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>
