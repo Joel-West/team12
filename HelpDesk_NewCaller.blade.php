@@ -508,7 +508,7 @@
 		  
 		  else if (radioValue == "Network"){
 			sql += "INSERT INTO tblProblem VALUES ";
-			sql += "(NULL , '" + problem + "', '" + problemType + "', '" + subProblemType + "', '', '', '', '" + specialistID + "', '" + resolved + "', '" + dateTime + "', '" + solution "');";
+			sql += "(NULL , '" + problem + "', '" + problemType + "', '" + subProblemType + "', '', '', '', '" + specialistID + "', '" + resolved + "', '" + dateTime + "', '" + solution + "');";
 		    alert(sql);
 			
 			$.get("Query.php", {'sql':sql, 'returnData':false},function(json){
