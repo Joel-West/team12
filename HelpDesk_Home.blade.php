@@ -14,7 +14,6 @@
 			function Load()
 			{
 				userData = "<?php echo $_POST['User']; ?>"; //Gets data from previous form.
-				console.log(userData);
 				SetPrivileges(userData) //Enter function that defines what functions are available to user based on status.
 				//Fun();
 				WriteTime(); //Function that writes the current time at the top of the page.
@@ -22,20 +21,25 @@
 			
 			function SetPrivileges(userData) //Function that checks if user is an admin, analyst or specialist and adjusts available buttons accordingly.
 			{
-				admin = (userData.split(","))[2]; //Retrieves admin/analyst status from userData that was earlier posted from previous form.
+				admin = (userData.split(","))[2]; //Retrieves statuses from userData that was earlier posted from previous form.
 				analyst = (userData.split(","))[3];
-				if (admin == 0)
+				specialist = (userData.split(","))[4];
+				operator = (userData.split(","))[5];
+				if (admin != 1)
 				{
 					document.getElementById("btnUsers").disabled = true;
-					document.getElementById("btnSpecialisations").disabled = true;
-				}
-				if (admin == 0 && analyst == 0)
-				{
-					document.getElementById("btnAnalytics").disabled = true;
-				}
-				else if (admin == 0 && analyst == 1)
-				{
-					document.getElementById("btnNewCall").disabled = true;
+					if (operator != 1)
+					{
+						document.getElementById("btnNewCall").disabled = true;
+					}
+					if (analyst != 1)
+					{
+						document.getElementById("btnAnalytics").disabled = true;
+					}
+					if (specialist != 1)
+					{
+						document.getElementById("btnSpecialisations").disabled = true;
+					}
 				}
 			}
 		</script>
