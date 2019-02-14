@@ -180,7 +180,6 @@ $(document).on('click','tr',function(event) //Function for selecting/deselecting
 	{
 		if (admin == 0 && operator == 0) //If not admin or operator, action is forbidden.
 		{
-			alert("aaaah");
 			return;
 		}
 	}
