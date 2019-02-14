@@ -822,9 +822,11 @@
 					document.getElementById("txtProblem").value = document.getElementById(GetCurrentTableID(extraCells)).rows[rowNum].cells[1].innerHTML;
 					document.getElementById("txtProblemType").disabled = false;
 					document.getElementById("txtProblemType").value = document.getElementById(GetCurrentTableID(extraCells)).rows[rowNum].cells[2].innerHTML;
+					document.getElementById("selProblemType").disabled = false;
 					document.getElementById("txtSpecialist").disabled = false;
 					GetSpecialistArray(); //Repopulates array of viable specialists based on new problem type.
 					document.getElementById("txtSpecialist").value = document.getElementById(GetCurrentTableID(extraCells)).rows[rowNum].cells[3+extraCells].innerHTML;
+					document.getElementById("selSpecialist").disabled = false;
 					document.getElementById("chkResolved").disabled = false;
 					document.getElementById("chkResolved").checked = GetResolvedAsBool(document.getElementById(GetCurrentTableID(extraCells)).rows[rowNum].cells[4+extraCells].innerHTML);
 					document.getElementById("txtDateTime").value = document.getElementById(GetCurrentTableID(extraCells)).rows[rowNum].cells[5+extraCells].innerHTML;
@@ -834,6 +836,7 @@
 					{
 						document.getElementById("txtSerialNumber").disabled = false;
 						document.getElementById("txtSerialNumber").value = document.getElementById(GetCurrentTableID(extraCells)).rows[rowNum].cells[3].innerHTML;
+						document.getElementById("selSerialNumber").disabled = false;
 					}
 					else if (extraCells == 2)
 					{
@@ -852,9 +855,11 @@
 					document.getElementById("txtProblem").value = "";
 					document.getElementById("txtProblemType").disabled = true;
 					document.getElementById("txtProblemType").value = "";
+					document.getElementById("selProblemType").disabled = true;
 					document.getElementById("txtSpecialist").disabled = true;
 					document.getElementById("txtSpecialist").value = "";
-					specialists=[];
+					specialists=[]; //Clears list of valid specialists.
+					document.getElementById("selSpecialist").disabled = true;
 					document.getElementById("chkResolved").disabled = true;
 					document.getElementById("chkResolved").checked = false;
 					document.getElementById("txtDateTime").value = "";
@@ -864,6 +869,7 @@
 					{
 						document.getElementById("txtSerialNumber").disabled = true;
 						document.getElementById("txtSerialNumber").value = "";
+						document.getElementById("selSerialNumber").disabled = true;
 					}
 					else if (extraCells == 2)
 					{
@@ -1187,7 +1193,7 @@
 						Resolved?&nbsp&nbsp<input id="chkResolved" type="checkbox" onclick="CheckClicked()"></input><br/>
 						<div id="solutionDiv">
 							<input id="txtDateTime" type="text" disabled></input><br/>
-							Solution:<br/><textArea class="form-control" rows="10" id="txtSolution" maxlength="2048" style="background-color:rgb(159, 255, 48);"></textArea>
+							Solution:<br/><textArea class="form-control text" rows="10" id="txtSolution" maxlength="2048" style="background-color:rgb(159, 255, 48);"></textArea>
 						</div>
 						<br/>
 						<input type="button" class="btn" id="btnUpdate" value="Update Item" style="font-size:16px;" onclick="UpdateRow()"></input>	
