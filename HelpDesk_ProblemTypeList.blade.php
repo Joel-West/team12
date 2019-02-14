@@ -20,7 +20,7 @@
 				SetPrivileges(userData) //Enter function that defines what functions are available to user based on status.
 				ResetTable();
 				WriteTime(); //Function that writes the current time at the top of the page.
-				GetValidIDsArray();
+				GetValidGeneralisationsArray();
 			}
 			
 			function SetPrivileges(userData) //Function that checks if user is an admin, analyst or specialist and adjusts available buttons accordingly.
@@ -107,6 +107,7 @@
 			
 			function GetValidGeneralisationsArray() //Function to get array of all problem types that the user could assign a new user to.
 			{
+				generalisations = [];
 				sql = "SELECT typeName FROM tblProblemType;";
 				$.get("Query.php", {'sql':sql, 'returnData':true},function(json) //Calls query.php, which handles the SQL query and sorting of result data.
 				{
@@ -121,8 +122,12 @@
 				},'json');
 			}
 			
-			function IsValidGeneralisation(item) //Returns true if ID is in the list of valid IDs.
+			function IsValidGeneralisation(item, child) //Returns true if ID is in the list of valid IDs.
 			{
+				if (child == item)
+				{
+					return false;
+				}
 				for (i = 0; i < generalisations.length; i++) //Iterates through all types that exist in the problem type table.
 				{
 					if (generalisations[i] == item)
@@ -229,7 +234,7 @@
 					return false;
 				}
 				id = "txtGeneralisation";
-				if (document.getElementById(id).value == false || document.getElementById(id).value.includes("'") || !IsValidGeneralisation(document.getElementById(id).value))
+				if (document.getElementById(id).value == false || document.getElementById(id).value.includes("'") || !IsValidGeneralisation(document.getElementById(id).value, document.getElementById("txtTypeName").value))
 				{
 					alert("Invalid generalisation."); //Returns error if data input from text box is invalid.
 					return false;
@@ -371,6 +376,7 @@
 					updList = []; //Clear lists of pending changes.
 					delList = [];
 					newRowCount = 0;
+					GetValidGeneralisationsArray(); //Regenerate array of valid generalisations, now that new types may have been added.
 					alert("Changes saved.");
 				}
 			}
