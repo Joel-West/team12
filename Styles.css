@@ -68,12 +68,12 @@ input[type=text], [type=password]
 	border: 1px solid #4CAF50;
 }
 
-input[type=text]:disabled, [type=password]:disabled
+input[type=text]:disabled, [type=password]:disabled, select:disabled
 {
 	background-color: #E9ECEF;
 }
 
-input[type=text]:not([disabled]), [type=password]:not([disabled])
+input[type=text]:not([disabled]), [type=password]:not([disabled]), select:not([disabled])
 {
 	background-color: #FFFFFF;
 }
