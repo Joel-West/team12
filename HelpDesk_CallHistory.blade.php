@@ -25,8 +25,8 @@
 			function SetPrivileges(userData) //Function that checks if user is an admin, analyst or specialist and adjusts available buttons accordingly.
 			{
 				admin = (userData.split(","))[2];
-				analyst = (userData.split(","))[3]; //Retrieves admin and analyst status from userData that was earlier posted from previous form.
-				if (admin == 0 && analyst == 1)
+				operator = (userData.split(","))[5]; //Retrieves statuses from userData that was earlier posted from previous form.
+				if (admin == 0 && operator == 0)
 				{
 					$("#inputDiv :input").prop("disabled", true); //If not admin or operator, disable all input fields in the input div.
 				}	
@@ -217,8 +217,8 @@
 			function SaveChanges() //Function that saves table data back to database.
 			{
 				admin = (userData.split(","))[2];
-				analyst = (userData.split(","))[3];
-				if (admin == 0 && analyst == 1) //If is not an operator or an admin, action is forbidden.
+				operator = (userData.split(","))[5]; //Retrieves statuses from userData that was earlier posted from previous form.
+				if (admin == 0 && operator == 0) //if not admin or operator, action is forbidden.
 				{
 					return;
 				}

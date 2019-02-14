@@ -37,8 +37,8 @@
 			
 			function SetPrivileges(userData) //Function that checks if user is an admin, analyst or specialist and adjusts available buttons accordingly.
 			{
-				admin = (userData.split(","))[2];
-				analyst = (userData.split(","))[3]; //Retrieves admin and analyst status from userData that was earlier posted from previous form.
+				admin = (userData.split(","))[2]; //Retrieves statuses from userData that was earlier posted from previous form.
+				analyst = (userData.split(","))[3];
 				if (admin == 0 && analyst == 1)
 				{
 					$("#inputDiv :input").prop("disabled", true); //If not admin or operator, disable all input fields in the input div.
@@ -991,12 +991,6 @@
 			
 			function Delete() //Function for deleting selected rows from a table.
 			{
-				admin = (userData.split(","))[2];
-				admin = (userData.split(","))[3];
-				if (selected == 0 || (admin == 0 && analyst == 1)) //if no rows are selected, or if not admin/operator, leave function.
-				{
-					return;
-				}
 				if (confirm("Delete selected rows?")) //Get user confirmation.
 				{
 					rows = GetRows();
@@ -1039,7 +1033,7 @@
 			
 			function SaveChanges() //Function that saves table data back to database.
 			{
-				admin = (userData.split(","))[2];
+				admin = (userData.split(","))[2]; //Retrieves statuses from userData that was earlier posted from previous form.
 				analyst = (userData.split(","))[3];
 				if (admin == 0 && analyst == 1) //If is not an operator or an admin, action is forbidden.
 				{
