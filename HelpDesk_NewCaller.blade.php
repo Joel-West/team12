@@ -650,7 +650,7 @@
 		<div class="col-4"></div>
 		<div class="col-4">
 		  Notes on call:<br>
-		  <textarea class="form-control" rows="5" id="notes" ></textarea>
+		  <textarea class="form-control text" rows="5" id="notes" ></textarea>
 		  <br>
 		  <br>
 		  Select New/Existing Problem:
