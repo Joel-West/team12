@@ -180,11 +180,13 @@ $(document).on('click','tr',function(event) //Function for selecting/deselecting
 	{
 		if ($(this).hasClass("rowDeselected")) //If deselected.
 		{	
+			$(this).removeClass("rowSelected");
 			$(this).addClass("rowSelected"); //Select.
 			selected += 1;
 		}
 		else if ($(this).hasClass("rowSelected")) //If selected.
 		{
+			$(this).removeClass("rowDeselected");
 			$(this).addClass("rowDeselected"); //Deselect.
 			selected -= 1;
 		}
