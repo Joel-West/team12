@@ -168,10 +168,10 @@
 		else{
           $("#dropdownButton2:first-child").text($(this).text());
           $("#dropdownButton2:first-child").val($(this).text());
-		  $('#newNewProblemCollapse').collapse('hide');
 		  $('#problemTypeCollapse').collapse('hide');
 		  $('#serialNumberCollapse').collapse('hide');
 		  $('#result2Collapse').collapse('hide');
+		  $('#newNewProblemCollapse').collapse('show');
 		}
       });
 	  
