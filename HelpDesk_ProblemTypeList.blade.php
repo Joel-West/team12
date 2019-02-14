@@ -207,19 +207,15 @@
 					document.getElementById("btnAdd").value = "Update Item";
 					rowNum = GetSelectedRow(); //Gets the row that is selected.
 					document.getElementById("txtTypeName").value = document.getElementById("tbl").rows[rowNum].cells[0].innerHTML;
-					document.getElementById("txtTypeName").disable = true;
+					document.getElementById("txtTypeName").disabled = true;
 					document.getElementById("txtGeneralisation").value = document.getElementById("tbl").rows[rowNum].cells[1].innerHTML;
-					document.getElementById("selGeneralisation").style.display = "none";
-					document.getElementById("lblGeneralisationNum").style.display = "none";
 				}
 				else
 				{
 					document.getElementById("btnAdd").value = "Add New Item";
 					document.getElementById("txtTypeName").value = "";
-					document.getElementById("txtTypeName").disable = false;
+					document.getElementById("txtTypeName").disabled = false;
 					document.getElementById("txtGeneralisation").value = "";
-					document.getElementById("selGeneralisation").style.display = "inline";
-					document.getElementById("lblGeneralisationNum").style.display = "inline";
 					PopulateGeneralisationSelect();
 				}
 			}		
