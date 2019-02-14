@@ -62,7 +62,7 @@
 		<style>
 		.logButton
 			{
-				font-size:2vw;
+				font-size:3vw;
 				font-family: "Palatino Linotype", "Book Antiqua", "Palatino",serif;
 				font-weight:bold;
 				padding: 12px 25px;
@@ -74,6 +74,7 @@
 				cursor: pointer;
 				margin: auto;
 				margin-bottom:0.5%;
+				width:30%;
 			}
 		</style>
 	</head>
@@ -86,7 +87,7 @@
 		<div class="center">
 			<input type="text" name="Username" id="Username" placeholder="Username" style="font-size:4vw; margin-bottom:1%;" value=""><br>  <!-- HTML input fields for form data. -->
 			<input type="password" name="Password" id="Password" placeholder="Password" style="font-size:4vw;"><br><br>
-			<input type="button" name="btnsubmit" class="logButton, glow-button" id="btnsubmit" value="Submit" style="font-size:5vw; width:30%;" onclick="Validate();"/><br> <!-- Rather than submitting form straight away, the submit button runs function to check if username/password is valid.-->
+			<input type="button" name="btnsubmit" class="logButton, glow-button" id="btnsubmit" value="Submit" onclick="Validate();"/><br> <!-- Rather than submitting form straight away, the submit button runs function to check if username/password is valid.-->
 		</div>
 		<input type='hidden' id="User" name="User" value="" /> <!-- Hidden tag used to store posted user data before it is submitted. -->
 	</form>
