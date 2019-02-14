@@ -42,14 +42,6 @@
 		<link rel="stylesheet" href="{{ asset('css/Styles.css') }}" type="text/css"> <!-- Import external CSS stylesheet that contains presentation info that applies to all the pages. -->
 		<!-- CSS that defines appearance and placement of main buttons.-->
 		<style type="text/css">
-			.mainButton
-			{
-				font-size:4vq;
-				font-weight:bold;
-				padding: 12px 25px;
-				width: 80%;
-				margin: auto;
-			}
 			.grid-class
 			{
 				position: relative;

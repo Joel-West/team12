@@ -67,9 +67,9 @@
 			<h1 id="header">Login</h1>
 		</div>
 		<div class="center">
-			<input type="text" name="Username" id="Username" placeholder="Username" style="font-size:4vw; margin-bottom:1%;" value=""><br>  <!-- HTML input fields for form data. -->
-			<input type="password" name="Password" id="Password" placeholder="Password" style="font-size:4vw;"><br><br>
-			<input type="button" name="btnsubmit" class="button, glow-button" id="btnsubmit" value="Submit" style="font-size:5vw; width:30%;" onclick="Validate();"/><br> <!-- Rather than submitting form straight away, the submit button runs function to check if username/password is valid.-->
+			<input type="text" name="Username" id="Username" placeholder="Username" style="font-size:3vw; margin-bottom:1%;" value=""><br>  <!-- HTML input fields for form data. -->
+			<input type="password" name="Password" id="Password" placeholder="Password" style="font-size:3vw;"><br><br>
+			<input type="button" name="btnsubmit" class="button, glow-button" id="btnsubmit" value="Submit" style="font-size:4vw; width:30%;" onclick="Validate();"/><br> <!-- Rather than submitting form straight away, the submit button runs function to check if username/password is valid.-->
 		</div>
 		<input type='hidden' id="User" name="User" value="" /> <!-- Hidden tag used to store posted user data before it is submitted. -->
 	</form>
