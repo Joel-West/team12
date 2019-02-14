@@ -18,7 +18,7 @@ body,td,th,input,label
 
 }
 
-td,th, tr, tbody, table
+td,.table th
 {
 	border: 1px solid #000000;
 	border-top: 1px solid #000000;
