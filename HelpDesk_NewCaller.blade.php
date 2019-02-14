@@ -175,7 +175,7 @@
 		  $('#concernCollapseDiv').collapse('hide');
 		  $('#concernCollapseDiv2').collapse('hide');
 		  $('#result2Collapse').collapse('hide');
-		  getRelevantInformation($(this).text());
+		  getGenericProblemType($(this).text());
 		  $('input[name=Radios]').attr('checked',false);
 		  $('#newNewProblemCollapse').collapse('show');
 		}
