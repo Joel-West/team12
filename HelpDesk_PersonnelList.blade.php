@@ -83,8 +83,8 @@
 				{
 					if(json && json[0]) //If result of php file was a json array.	
 					{				
-						var htm = "<table id='tbl' border='1'>";
-						htm+="<tr id='t0'><th onclick='SortTable(0)' scope='col'>userID</th>";
+						var htm = "<table class='table' id='tbl' border='1'>";
+						htm+="<tr id='t0' class='header'><th onclick='SortTable(0)' scope='col'>userID</th>";
 						htm+="<th onclick='SortTable(1)' scope='col'>Name</th>";
 						htm+="<th onclick='SortTable(2)'scope='col'>Job Title</th>";
 						htm+="<th onclick='SortTable(3)'scope='col'>Department</th>";
@@ -92,7 +92,7 @@
 						htm+="<th onclick='SortTable(5)'scope='col'>Specialist</th></tr>"; //Appending column headers.
 						for (i = 0; i<json.length; i++) //Iterates through the json array of results.
 						{
-							htm += "<tr class='rowDeselected'>"; //Sets colour and ID of row.
+							htm += "<tr class='rowDeselected'>"; //Sets class (deselected) of row.
 							htm +="<td>"+json[i].userID+"</td>";
 							htm +="<td>"+json[i].name+"</td>";
 							htm +="<td>"+json[i].jobTitle+"</td>";		
