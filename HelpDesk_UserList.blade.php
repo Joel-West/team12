@@ -122,7 +122,7 @@
 			
 			function GetValidIDsArray() //Function to get array of all IDs which the user could assign a new user to.
 			{
-				sql = "SELECT userID, name FROM tblPersonnel";
+				sql = "SELECT userID, name FROM tblPersonnel;";
 				$.get("Query.php", {'sql':sql, 'returnData':true},function(json) //Calls query.php, which handles the SQL query and sorting of result data.
 				{
 					if(json && json[0]) //If result of php file was a json array.	
@@ -143,7 +143,7 @@
 			
 			function IsValidID(item) //Returns true if ID is in the list of valid IDs.
 			{
-				for (i = 0; i < validIDs.length; i++) //Iterates through all ids that exist in the personnel table.
+				for (i = 0; i < validIDs.length; i++) //Iterates through all IDs that exist in the personnel table.
 				{
 					if (GetIDFromSelBoxItem(validIDs[i]) == item)
 					{
@@ -172,7 +172,7 @@
 						htm+="<option>"+validIDs[i]+"</option>"; //ID can be selected as an ID for a new user.
 					}
 				}
-				selBox.innerHTML=htm; //Appends values to selection vox.
+				selBox.innerHTML=htm; //Appends values to selection box.
 				if (matchIndex != -1)
 				{
 					selBox.selectedIndex = matchIndex;
@@ -390,7 +390,7 @@
 				{
 					sql+="DELETE FROM tblUser WHERE userID = " + delList[i] + "; ";
 				}
-				for (i = 0; i < updList.length; i++) //Iterate through delete list (deletion performed first as it reduces database size, making other operations quicker).
+				for (i = 0; i < updList.length; i++) //Iterate through the update list.
 				{
 					id = updList[i];
 					rowNum = GetRowWithID(id); //Gets the row number in the local table that corresponds to the ID in the updList.

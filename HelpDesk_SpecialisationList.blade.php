@@ -24,7 +24,7 @@
 				GetArrays();
 			}
 			
-			function SetPrivileges(userData) //Function that checks if user is an admin or analyst and adjusts available buttons accordingly.
+			function SetPrivileges(userData) //Function that checks if user is an admin, analyst or specialist and adjusts available buttons accordingly.
 			{
 				admin = (userData.split(","))[2]; //Retrieves admin status from userData that was earlier posted from previous form.
 				if (admin == 0)
@@ -184,7 +184,7 @@
 						htm+="<option>"+specialists[i]+"</option>"; //Specialist can be selected to be assigned a problem type.
 					}
 				}
-				selBox.innerHTML=htm; //Appends values to selection vox.
+				selBox.innerHTML=htm; //Appends values to selection box.
 				if (matchIndex != -1)
 				{
 					selBox.selectedIndex = matchIndex;
@@ -236,7 +236,7 @@
 						htm+="<option>"+problemTypes[i]+"</option>"; //Problem type can be selected as a problem type for a specialist.
 					}
 				}
-				selBox.innerHTML=htm; //Appends values to selection vox.
+				selBox.innerHTML=htm; //Appends values to selection box.
 				if (matchIndex != -1)
 				{
 					selBox.selectedIndex = matchIndex;
@@ -429,7 +429,7 @@
 				{
 					sql+="DELETE FROM tblSpecialisation WHERE specialisationID = " + delList[i] + "; ";
 				}
-				for (i = 0; i < updList.length; i++) //Iterate through delete list (deletion performed first as it reduces database size, making other operations quicker).
+				for (i = 0; i < updList.length; i++) //Iterate through the update list.
 				{
 					id = updList[i];
 					rowNum = GetRowWithID(id); //Gets the row number in the local table that corresponds to the ID in the updList.

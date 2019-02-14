@@ -21,7 +21,7 @@
 				WriteTime(); //Function that writes the current time at the top of the page.
 			}
 			
-			function SetPrivileges(userData) //Function that checks if user is an admin or analyst and adjusts available buttons accordingly.
+			function SetPrivileges(userData) //Function that checks if user is an admin, analyst or specialist and adjusts available buttons accordingly.
 			{
 				admin = (userData.split(","))[2]; //Retrieves admin status from userData that was earlier posted from previous form.
 				if (admin == 0)
@@ -308,7 +308,7 @@
 					sql+="UPDATE tblCallHistory SET callerID = NULL WHERE callerID = " + delList[i] + "; ";
 					sql+="DELETE FROM tblPersonnel WHERE userID = " + delList[i] + "; ";
 				}
-				for (i = 0; i < updList.length; i++) //Iterate through delete list (deletion performed first as it reduces database size, making other operations quicker).
+				for (i = 0; i < updList.length; i++) //Iterate through the update list.
 				{
 					id = updList[i];
 					rowNum = GetRowWithID(id); //Gets the row number in the local table that corresponds to the ID in the updList.

@@ -2,16 +2,17 @@
 <html>
 	<head>
 		<meta content="text/html" charset="UTF-8" />
-		<title>HelpDesk_EquipmentList</title>
+		<title>HelpDesk_UserList</title>
 		<link rel="icon" href="https://www.goodfreephotos.com/albums/vector-images/screwdriver-and-wrench-vector-clipart.png">
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> <!-- Get JQuery library from google. -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>	<!-- Importing Bootstrap files. -->
 		<script type="text/javascript" src="{{ URL::asset('js/ExtraCode.js') }}"></script> <!-- Import JS file containing functions that are used in multiple pages. -->
-		<script type="text/javascript">
+		<script type="text/javascript">	
 			var userData; //Variable containing data about user.
-			var currentPage = "EquipmentList"; //Variable storing the name of the current page, so it can be passed in the URL to the next page as a 'previous page' variable.
+			var currentPage = "ProblemTypeList"; //Variable storing the name of the current page, so it can be passed in the URL to the next page as a 'previous page' variable.
 			var selected = 0; //Global variable corresponding to number of highlighted table rows.
+			var generalisations = [];
 			
 			function Load() //Function that runs when file loads.
 			{
@@ -19,6 +20,7 @@
 				SetPrivileges(userData) //Enter function that defines what functions are available to user based on status.
 				ResetTable();
 				WriteTime(); //Function that writes the current time at the top of the page.
+				GetValidIDsArray();
 			}
 			
 			function SetPrivileges(userData) //Function that checks if user is an admin, analyst or specialist and adjusts available buttons accordingly.
@@ -34,7 +36,7 @@
 			{
 				if (document.getElementById("txtSearch").value == "") //If not searching anything.
 				{
-					sql = "SELECT * FROM tblEquipment;"; //Simple query to get all data from table.
+					sql = "SELECT * FROM tblProblemType;"; //Simple query to get all data from table.
 					RunQuery(sql); //Runs function get gets data from database and display it in tableDiv.
 				}
 			}
@@ -58,41 +60,39 @@
 				str = document.getElementById("txtSearch").value.toUpperCase(); //Gets uppercase array of searched text.
 				if (str.includes("'")) //If contains ' (if it is SQL injection-prone).
 				{
-					sql = "SELECT * FROM tblEquipment WHERE 1 = 0;"; //Get no results.
+					sql = "SELECT * FROM tblProblemType WHERE 1 = 0;"; //Get no results.
 				}
 				else
 				{
 					
 					str = str.replace(", ", ",").split(","); //Split search text by commas.
-					sql = "SELECT * FROM tblEquipment WHERE ";
+					sql = "SELECT * FROM tblProblemType WHERE ";
 					for (i = 0; i < str.length; i++) //Iterates through list of search terms, adding to the SQL query.
 					{
 						if (i != 0)
 						{
 							sql+=" OR ";
 						}
-						sql += "upper(serialNumber) LIKE '%"+str[i]+"%' OR upper(equipmentType) LIKE '%"+str[i]+"%' OR upper(equipmentMake) LIKE '%"+str[i]+"%'"; //Query that returns all database records with a cell containing search string.
+						sql += "upper(typeName) LIKE '%"+str[i]+"%' OR upper(generalisation) LIKE '%"+str[i]+"%'"; //Query that returns all database records with a cell containing search string.
 					}
 				}
 				RunQuery(sql); //Runs function get gets data from database and display it in tableDiv.
 			}
 			
-			function RunQuery(sql) //Function for running a query to the equipment table and getting building a table.
+			function RunQuery(sql) //Function for running a query to the personnel table and getting building a table.
 			{
 				$.get("Query.php", {'sql':sql, 'returnData':true},function(json) //Calls query.php, which handles the SQL query and sorting of result data.
 				{
 					if(json && json[0]) //If result of php file was a json array.	
 					{				
 						var htm = "<table class='table' id='tbl' border='1'>";
-						htm+="<tr id='t0'><th onclick='SortTable(0)' scope='col'>Serial Number</th>";
-						htm+="<th onclick='SortTable(1)' scope='col'>Equipment Type</th>";
-						htm+="<th onclick='SortTable(2)'scope='col'>Equipment Make</th></tr>"; //Appending column headers.
+						htm+="<tr id='t0'><th onclick='SortTable(0)' scope='col'>Problem Type</th>";
+						htm+="<th onclick='SortTable(1)'scope='col'>Generalisation</th></tr>"; //Appending column headers.
 						for (i = 0; i<json.length; i++) //Iterates through the json array of results.
 						{
 							htm += "<tr class='rowDeselected'>"; //Sets class (deselected) of row.
-							htm +="<td>"+json[i].serialNumber+"</td>";
-							htm +="<td>"+json[i].equipmentType+"</td>";
-							htm +="<td>"+json[i].equipmentMake+"</td>";
+							htm +="<td>"+json[i].typeName+"</td>";
+							htm +="<td>"+json[i].generalisation+"</td>";
 							htm += "</tr>";							
 						}
 					}
@@ -105,46 +105,132 @@
 				},'json');
 			}
 			
+			function GetValidGeneralisationsArray() //Function to get array of all problem types that the user could assign a new user to.
+			{
+				sql = "SELECT typeName FROM tblProblemType;";
+				$.get("Query.php", {'sql':sql, 'returnData':true},function(json) //Calls query.php, which handles the SQL query and sorting of result data.
+				{
+					if(json && json[0]) //If result of php file was a json array.	
+					{
+						for (i = 0; i<json.length; i++) //Iterates through the json array of results.
+						{
+							generalisations[i] = json[i].typeName;
+						}
+						PopulateGeneralisationSelect();
+					}
+				},'json');
+			}
+			
+			function IsValidGeneralisation(item) //Returns true if ID is in the list of valid IDs.
+			{
+				for (i = 0; i < generalisations.length; i++) //Iterates through all types that exist in the problem type table.
+				{
+					if (generalisations[i] == item)
+					{
+						return true;
+					}
+				}
+				return false;
+			}
+			
+			function PopulateGeneralisationSelect() //Populates selection box with problem types based on searched text.
+			{
+				IDBox = document.getElementById("txtGeneralisation");
+				selBox = document.getElementById("selGeneralisation");
+				htm = "<option></option>";
+				size = 0; //Stores size of selection box.
+				matchIndex = -1; //Will be assigned to a natural number if any of the type names from the generalisations list match exactly with the text box input.
+				for (i = 0; i < generalisations.length; i++) //Iterates through all problem types that exist in the problem type table.
+				{
+					if ((GetRowWithID(GetIDFromSelBoxItem(generalisations[i])) == -1) && ((GetRowWithID(GetIDFromSelBoxItem(generalisations[i])).value + "(new)") != -1) && (generalisations[i].toUpperCase().includes(IDBox.value.toUpperCase()) || IDBox.value == ""))
+					{
+						size+=1;
+						if (GetIDFromSelBoxItem(generalisations[i]) == IDBox.value)
+						{
+							matchIndex = size; //If the user has input an exact match, assign the variable defining what the default value for the box will be.
+						}
+						htm+="<option>"+generalisations[i]+"</option>"; //problem type can be selected as an generalisation for a new problem type.
+					}
+				}
+				selBox.innerHTML=htm; //Appends values to selection box.
+				if (matchIndex != -1)
+				{
+					selBox.selectedIndex = matchIndex;
+				}
+				lbl = document.getElementById("lblGeneralisationNum");
+				if (size == 0) //If there are no results, hide selection box.
+				{
+					selBox.style.display = "none";
+					lbl.style.display = "none";
+				}
+				else
+				{
+					selBox.style.display = "inline";
+					lbl.style.display = "inline";
+				}
+				if (IDBox.value.length > 0) //If the text box contains results, give the label the number of results.
+				{
+					if (size == 1)
+					{
+						lbl.innerHTML = "(" + size + " result)";
+					}
+					else
+					{
+						lbl.innerHTML = "(" + size + " results)";
+					}
+				}
+				else
+				{
+					lbl.innerHTML = "";
+				}
+			}
+			
+			function GeneralisationOptionClicked() //Sets generalisation text box value to selected option in selection box.
+			{
+				value = GetIDFromSelBoxItem(document.getElementById("selGeneralisation").value);
+				document.getElementById("txtGeneralisation").value = value;
+				if (value == "")
+				{
+					PopulateGeneralisationSelect();
+				}
+			}	
+			
 			function CheckIfUpdateOrAdd() //Turns the 'add' button into an 'update' button and populates the input fields, if exactly one row is selected.
 			{
 				if (selected == 1)
 				{
 					document.getElementById("btnAdd").value = "Update Item";
 					rowNum = GetSelectedRow(); //Gets the row that is selected.
-					document.getElementById("txtSerial").value = document.getElementById("tbl").rows[rowNum].cells[0].innerHTML;
-					document.getElementById("txtSerial").disabled = true;
-					document.getElementById("txtType").value = document.getElementById("tbl").rows[rowNum].cells[1].innerHTML;
-					document.getElementById("txtMake").value = document.getElementById("tbl").rows[rowNum].cells[2].innerHTML;
-				}
+					document.getElementById("txtTypeName").value = document.getElementById("tbl").rows[rowNum].cells[0].innerHTML;
+					document.getElementById("txtTypeName").disable = true;
+					document.getElementById("txtGeneralisation").value = document.getElementById("tbl").rows[rowNum].cells[1].innerHTML;
+					document.getElementById("selGeneralisation").style.display = "none";
+					document.getElementById("lblGeneralisationNum").style.display = "none";
 				else
 				{
 					document.getElementById("btnAdd").value = "Add New Item";
-					document.getElementById("txtSerial").value = "";
-					document.getElementById("txtSerial").disabled = false;
-					document.getElementById("txtType").value = "";
-					document.getElementById("txtMake").value = "";
+					document.getElementById("txtTypeName").value = "";
+					document.getElementById("txtTypeName").disable = false;
+					document.getElementById("txtGeneralisation").value = "";
+					document.getElementById("selGeneralisation").style.display = "inline";
+					document.getElementById("lblGeneralisationNum").style.display = "inline";
+					PopulateGeneralisationSelect();
 				}
 			}		
 			
 			function ValidateInput() //Function returns true if the data input boxes are all valid.
 			{
-				id = "txtSerial";
+				id = "txtTypeName";
 				if (document.getElementById(id).value == false || document.getElementById(id).value.includes("'") ||
 				((GetRowWithID(document.getElementById(id).value) != -1 || GetRowWithID(document.getElementById(id).value + "(new)") != -1) && document.getElementById(id).disabled == false))
 				{
-					alert("Invalid serial number."); //Returns error if data input from text box is invalid.
+					alert("Invalid problem type name."); //Returns error if data input from text box is invalid.
 					return false;
 				}
-				id = "txtType";
-				if (document.getElementById(id).value == false || document.getElementById(id).value.includes("'"))
+				id = "txtGeneralisation";
+				if (document.getElementById(id).value == false || document.getElementById(id).value.includes("'") || !IsValidGeneralisation(document.getElementById(id).value))
 				{
-					alert("Invalid equipment type."); //Returns error if data input from text box is invalid.
-					return false;
-				}
-				id = "txtMake";
-				if (document.getElementById(id).value == false || document.getElementById(id).value.includes("'"))
-				{
-					alert("Invalid equipment make."); //Returns error if data input from text box is invalid.
+					alert("Invalid generalisation."); //Returns error if data input from text box is invalid.
 					return false;
 				}
 				return true;
@@ -157,17 +243,14 @@
 					return;
 				}
 				htm = "<tr class='rowDeselected'>"; //Sets colour of row.
-				htm +="<td>"+document.getElementById("txtSerial").value + "(new)</td>"; //Until it has been added to the database, the first field is given a '(new)' tag.
-				htm +="<td>"+document.getElementById("txtType").value+"</td>";
-				htm +="<td>"+document.getElementById("txtMake").value+"</td>";		
+				htm +="<td>"+document.getElementById("txtID").value + "(new)</td>"; //Until it has been added to the database, the first field is given a '(new)' tag.
+				htm +="<td>"+document.getElementById("txtGeneralisation").value+"</td>";
 				htm += "</tr>";	
 				document.getElementById("tbl").tBodies[0].innerHTML += htm; //Appends HTML to tableDiv.				
 				newRowCount+=1;
-				alert("New equipment added."); //Success message.
-				document.getElementById("btnAdd").value = "Add New Item";
-				document.getElementById("txtSerial").value = "";
-				document.getElementById("txtType").value = "";
-				document.getElementById("txtMake").value = "";
+				alert("New problem type added."); //Success message.
+				document.getElementById("txtTypeName").value = "";
+				document.getElementById("txtGeneralisation").value = "";
 			}
 			
 			function UpdateRow() //Function that updates the selected row.
@@ -177,8 +260,7 @@
 					return;
 				}
 				row = document.getElementById("tbl").rows[GetSelectedRow()]; //Gets the details of the row that is selected.
-				row.cells[1].innerHTML = document.getElementById("txtType").value;
-				row.cells[2].innerHTML = document.getElementById("txtMake").value;
+				row.cells[1].innerHTML = document.getElementById("txtGeneralisation").value;
 				row.classList.replace("rowSelected", "rowDeselected"); //Deselect updated row.
 				selected = 0;
 				CheckIfUpdateOrAdd();
@@ -201,10 +283,16 @@
 					rows = GetRows();
 					for (i = rows-1; i > 0; i--) //Iterate through the rows of the table.
 					{
+						name = document.getElementById("tbl").rows[i].cells[0].innerHTML;
+						if (name == "Hardware problem" || name == "Software problem" || name == "Network problem")
+						{
+							alert("You cannot delete one of the base problem types.");
+							return;
+						}
 						deleteRow = false; //Variable holding if row will actually be deleted.
 						if (document.getElementById("tbl").rows[i].classList.contains("rowSelected")) //If row is selected.
 						{
-							deleteRow = true;						
+							deleteRow = true;
 						}
 						if (deleteRow == true) //If should be deleted after validation.
 						{
@@ -240,19 +328,20 @@
 				sql = "";
 				for (i = 0; i < delList.length; i++) //Iterate through delete list (deletion performed first as it reduces database size, making other operations quicker).
 				{
-					sql+="DELETE FROM tblEquipment WHERE serialNumber = '" + delList[i] + "'; ";
+					sql+="UPDATE tblProblem SET problemSubType = NULL WHERE problemSubType = " + delList[i] + "; ";
+					sql+="UPDATE tblProblemType SET generalisation = NULL WHERE generalisation = " + delList[i] + "; ";
+					sql+="DELETE FROM tblProblemType WHERE typeName = " + delList[i] + "; ";
 				}
 				for (i = 0; i < updList.length; i++) //Iterate through the update list.
 				{
-					serialNumber = updList[i];
-					rowNum = GetRowWithID(serialNumber); //Gets the row number in the local table that corresponds to the serialNumber in the updList.
+					id = updList[i];
+					rowNum = GetRowWithID(id); //Gets the row number in the local table that corresponds to the type name in the updList.
 					if (rowNum != -1) //If row exists.
 					{
 						row = document.getElementById("tbl").rows[rowNum]; //Get row of local table that is being saved to database.
-						sql+="UPDATE tblEquipment SET ";
-						sql+="equipmentType = '"+ row.cells[1].innerHTML + "', ";
-						sql+="equipmentMake = '"+ row.cells[2].innerHTML + "' ";
-						sql+="WHERE serialNumber = '" + serialNumber + "'; ";
+						sql+="UPDATE tblUser SET ";
+						sql+="generalisation = '"+ row.cells[1].innerHTML + "', ";
+						sql+="WHERE typeName = " + id + "; ";
 					}
 				}
 				for (i = 0; i < GetRows(); i++) //Iterate through all rows to find new rows.
@@ -261,13 +350,13 @@
 					if (row.cells[0].innerHTML.includes("(new)")) //If record is new.
 					{
 						row.cells[0].innerHTML = row.cells[0].innerHTML.replace("(new)", '') //Remove the 'new' tag from the record.
-						sql+="INSERT INTO tblEquipment VALUES (";
+						sql+="INSERT INTO tbl VALUES (";
 						sql+="'" + row.cells[0].innerHTML + "', ";
-						sql+="'" + row.cells[1].innerHTML + "', ";
-						sql+="'" + row.cells[2].innerHTML + "'); ";
+						sql+="'" + row.cells[1].innerHTML + "'); ";
 					}
 				}
 				alert(sql);
+				sql = "";
 				if (sql != "") //If there is any SQL to run.
 				{
 					$.get("Query.php", {'sql':sql, 'returnData':false},function(json) //Calls query.php, which handles the SQL query and sorting of result data.
@@ -282,10 +371,6 @@
 					delList = [];
 					newRowCount = 0;
 					alert("Changes saved.");
-				}
-				else
-				{
-					alert("There are no changes to save.");
 				}
 			}
 		</script>
@@ -302,14 +387,15 @@
 		</style>
 	</head>
 	<body onload="Load()" style="height:100%;">
-		<div autocomplete="off" class="container-fluid"> <!-- Container holds elements together using Bootstrap. -->
-			<form id="mainform" name="mainform" method="post" action=""> <!-- This form will post data to an initially unspecified page when submitted. -->
+		<div class="container-fluid"> <!-- Container holds elements together using Bootstrap. -->
+			<form autocomplete="off" id="mainform" name="mainform" method="post" action=""> <!-- This form will post data to an initially unspecified page when submitted. -->
 				<input type='text' hidden id="user" name="User"/> <!-- Hidden tag used to store posted user data so that it can later be posted back to the home page. -->
+				
 				@csrf <!--Token to validates requests to server. -->
 				<div class="titleDiv"> <!-- Div containing elements at the top of the page. -->
 					<input type="button" id="btnBack" style="font-size:40px; position:absolute; left:0;" value="&#x2190" style="display:inline-block;" onClick="GoToNewPage('Home');" /> <!-- Back button. -->
-					<label id="dtLabel" class="dtLabel"</label> <!-- Label to contain current data/time. -->
-					<h2 id="headerId">Equipment</h2> <!-- Heading containing name of page. -->
+					<label id="dtLabel" class="dtLabel"></label> <!-- Label to contain current data/time. -->
+					<h2 id="headerId">Problem Types</h2> <!-- Heading containing name of page. -->
 				</div>
 				<br/><br/>
 				<div class="row" align="center">
@@ -318,7 +404,7 @@
 						Loading data...
 					</div>
 					<br/>
-					<div id="rightDiv" align="center" class="col-3">
+					<div id="rightDiv" align="center" class="col-4">
 						<div id="searchDiv">
 							<p>
 								Search:<input id="txtSearch" type="text" oninput="ResetTable()"></input> <!-- Box for searching the table for specific strings. -->
@@ -327,19 +413,21 @@
 						</div>
 						<div id="inputDiv">
 							<input type="button" class="btn" id="btnDelete" value="Delete Selected Items" id="del" style="font-size:16px;" onclick="Delete()"/><br/><br/> <!-- Delete button that calls function when pressed. -->
-							Serial Number:<br/><input id="txtSerial" type="text"></input><br/> <!-- Input fields for adding a new row. -->
-							Equipment Type:<br/><input id="txtType" type="text"></input><br/>
-							Equipment Make:<br/><input id="txtMake" type="text"></input><br/>
+							Type Name:<br/><input id="txtTypeName" type="text"></input><br/>		
+							Generalisation:<br/><input id="txtGeneralisation" type="text" onkeyup="PopulateGeneralisationSelect()"></input><br/> <!-- Input fields for adding a new row.-->						
+							<select id="selGeneralisation" onchange="GeneralisationOptionClicked()" class="greenBack"></select>
+							<br/>
+							<label id="lblGeneralisationNum"></label>
+							<br/><br/>					
 							<br/><input type="button" class="btn" id="btnAdd" value="Add New Item" style="font-size:16px;" onclick="AddPressed()"></input>	
-							<br/>
-							<br/>
+							<br/><br/>
 							<p align="center">
 							<input type="button" id="btnSave" class="btn" value="Save Changes" style="font-size:26px; padding: 6px 12px;" onClick="SaveChanges();" /> <!-- Button for submitting changes to table. -->
 							</p>
 						</div>
 					</div>
 				</div>
-			</form>
+		</form>
 		</div>
 	</body>
 </html>

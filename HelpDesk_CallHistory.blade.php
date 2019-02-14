@@ -22,7 +22,7 @@
 				CheckIfUpdate()
 			}
 			
-			function SetPrivileges(userData) //Function that checks if user is an admin or analyst and adjusts available buttons accordingly.
+			function SetPrivileges(userData) //Function that checks if user is an admin, analyst or specialist and adjusts available buttons accordingly.
 			{
 				admin = (userData.split(","))[2];
 				analyst = (userData.split(","))[3]; //Retrieves admin and analyst status from userData that was earlier posted from previous form.
@@ -227,7 +227,7 @@
 				{
 					sql+="DELETE FROM tblCallHistory WHERE callNumber = " + delList[i] + "; ";
 				}
-				for (i = 0; i < updList.length; i++) //Iterate through delete list (deletion performed first as it reduces database size, making other operations quicker).
+				for (i = 0; i < updList.length; i++) //Iterate through the update list.
 				{
 					callNumber = updList[i];
 					rowNum = GetRowWithID(callNumber); //Gets the row number in the local table that corresponds to the call number in the updList.

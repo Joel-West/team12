@@ -35,7 +35,7 @@
 				RunQuery(""); //Runs function get gets data from database and display it in the three tableDivs.
 			}
 			
-			function SetPrivileges(userData) //Function that checks if user is an admin or analyst and adjusts available buttons accordingly.
+			function SetPrivileges(userData) //Function that checks if user is an admin, analyst or specialist and adjusts available buttons accordingly.
 			{
 				admin = (userData.split(","))[2];
 				analyst = (userData.split(","))[3]; //Retrieves admin and analyst status from userData that was earlier posted from previous form.
@@ -447,7 +447,7 @@
 						htm+="<option>"+problemTypes[i]+"</option>"; //Problem type can be selected as a problem type for a a problem.
 					}
 				}
-				selBox.innerHTML=htm; //Appends values to selection vox.
+				selBox.innerHTML=htm; //Appends values to selection box.
 				if (matchIndex != -1)
 				{
 					selBox.selectedIndex = matchIndex;
@@ -518,7 +518,7 @@
 						}
 					}
 				}
-				selBox.innerHTML=htm; //Appends values to selection vox.
+				selBox.innerHTML=htm; //Appends values to selection box.
 				if (matchIndex != -1)
 				{
 					selBox.selectedIndex = matchIndex;
@@ -573,7 +573,7 @@
 						}
 					}
 				}
-				selBox.innerHTML=htm; //Appends values to selection vox.
+				selBox.innerHTML=htm; //Appends values to selection box.
 				if (matchIndex != -1)
 				{
 					selBox.selectedIndex = matchIndex;
@@ -1051,7 +1051,7 @@
 					sql+="UPDATE tblCallHistory SET problemNumber = NULL WHERE problemNumber = " + delList[i] + "; "
 					sql+='DELETE FROM tblProblem WHERE problemNumber = ' + delList[i] + '; ';
 				}
-				for (i = 0; i < updList.length; i++) //Iterate through delete list (deletion performed first as it reduces database size, making other operations quicker).
+				for (i = 0; i < updList.length; i++)//Iterate through the update list.
 				{
 					problemNumber = updList[i];
 					table = GetTableWithID(problemNumber);
