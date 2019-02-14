@@ -63,10 +63,19 @@ input[type=button], [type=submit]
 	border: 1px solid #4CAF50;
 }
 
-input[type=text], [type=password], tr
+input[type=text], [type=password]
+{
+	border: 1px solid #4CAF50;
+}
+
+input[type=text]:disabled, [type=password]:disabled
+{
+	background-color: #E9ECEF;
+}
+
+input[type=text]:not([disabled]), [type=password]:not([disabled])
 {
 	background-color: #FFFFFF;
-	border: 1px solid #4CAF50;
 }
 
 input[type=button]:disabled
