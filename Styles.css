@@ -15,13 +15,13 @@ body
 body,td,th,input,label
 {
 	font-family: "Apple Chancery", Times, serif;
+	border: 1px solid #000000;
 }
 
 table
 {
 	margin-left:auto;
 	margin-right:auto;
-	border: 1px solid #000000;
 }
 
 input[type=checkbox]
@@ -124,10 +124,12 @@ h1, h2
 {
 	background-color: #4CAF50; 
 	color: #FFFFFF;
+	border: 1px solid #000000;
 }
 
 .rowDeselected
 {
 	background-color: #ffffff; 
 	color: #000000;
+	border: 1px solid #000000;
 }
