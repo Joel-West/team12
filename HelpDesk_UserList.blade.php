@@ -23,7 +23,7 @@
 				GetValidIDsArray();
 			}
 			
-			function SetPrivileges(userData) //Function that checks if user is an admin or analyst and adjusts available buttons accordingly.
+			function SetPrivileges(userData) //Function that checks if user is an admin, analyst or specialist and adjusts available buttons accordingly.
 			{
 				admin = (userData.split(","))[2]; //Retrieves admin status from userData that was earlier posted from previous form.
 				if (admin == 0)
@@ -97,7 +97,7 @@
 					if(json && json[0]) //If result of php file was a json array.	
 					{				
 						var htm = "<table class='table' id='tbl' border='1'>";
-						htm+="<tr id='t0'><th onclick='SortTable(0)' scope='col'>userID</th>";
+						htm+="<tr id='t0'><th onclick='SortTable(0)' scope='col'>ID</th>";
 						htm+="<th onclick='SortTable(1)' scope='col'>Username</th>";
 						htm+="<th onclick='SortTable(2)'scope='col'>Password</th>";
 						htm+="<th onclick='SortTable(3)'scope='col'>Admin</th></tr>"; //Appending column headers.
