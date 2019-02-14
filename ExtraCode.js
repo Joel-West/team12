@@ -178,14 +178,16 @@ $(document).on('click','tr',function(event) //Function for selecting/deselecting
 	}
 	if ($(this).attr('id') != 't0') //If not the header.
 	{
-		if ($(this).css('background-color') == 'rgb(159, 255, 48)') //If deselected (if green).
+		if ($(this).css('background-color') == 'rgb(255, 255, 255)') //If deselected (if while).
 		{	
-			$(this).css('background-color', '#00FFFF'); //Select.
+			$(this).css('background-color', '#4CAF50'); //Select.
+			$(this).css('color', '#FFFFFF');
 			selected += 1;
 		}
-		else if ($(this).css('background-color') == 'rgb(0, 255, 255)') //If selected (if blue).
+		else if ($(this).css('background-color') == 'rgb(76, 175, 80)') //If selected (if green).
 		{
-			$(this).css('background-color', '#9FFF30'); //Deselect.
+			$(this).css('background-color', '#FFFFFF'); //Deselect.
+			$(this).css('color', '#000000');
 			selected -= 1;
 		}
 	}
