@@ -161,10 +161,12 @@ $(document).on('click','tr',function(event) //Function for selecting/deselecting
 		{
 			return;
 		}
+		alert("1");
 		if (currentPage == "ProblemList")
 		{
 			if ($(this).attr('id') == 'callRow') //If trying to select row on the call history table that pops up when a row is selected in the problem table, leave function.
 			{
+				alert("2");
 				return;
 			}
 		}
