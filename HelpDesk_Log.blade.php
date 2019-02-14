@@ -60,7 +60,7 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"> <!-- Bootstrap CSS stylesheet. -->
 		<link rel="stylesheet" href="{{ asset('css/Styles.css') }}" type="text/css"> <!-- Import external CSS stylesheet that contains presentation info that applies to all the pages. -->
 		<style>
-		.button
+		.logButton
 			{
 				font-size:2vw;
 				font-family: "Palatino Linotype", "Book Antiqua", "Palatino",serif;
@@ -86,7 +86,7 @@
 		<div class="center">
 			<input type="text" name="Username" id="Username" placeholder="Username" style="font-size:4vw; margin-bottom:1%;" value=""><br>  <!-- HTML input fields for form data. -->
 			<input type="password" name="Password" id="Password" placeholder="Password" style="font-size:4vw;"><br><br>
-			<input type="button" name="btnsubmit" class="button, glow-button" id="btnsubmit" value="Submit" style="font-size:5vw; width:30%;" onclick="Validate();"/><br> <!-- Rather than submitting form straight away, the submit button runs function to check if username/password is valid.-->
+			<input type="button" name="btnsubmit" class="logButton, glow-button" id="btnsubmit" value="Submit" style="font-size:5vw; width:30%;" onclick="Validate();"/><br> <!-- Rather than submitting form straight away, the submit button runs function to check if username/password is valid.-->
 		</div>
 		<input type='hidden' id="User" name="User" value="" /> <!-- Hidden tag used to store posted user data before it is submitted. -->
 	</form>
