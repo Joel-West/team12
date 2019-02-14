@@ -186,10 +186,10 @@
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
 		  if (json && json[0]){
 			console.log(json[0].problemType);
-			if(json[0].problemType = "Hardware"){
+			if(json[0].problemType == "Hardware"){
 			  document.getElementById("RadiosH").checked = true;
 			  radios(1);
-			}else if(json[0].problemType = "Software"){
+			}else if(json[0].problemType == "Software"){
 			  console.log("TRIGG");
 			  document.getElementById("RadiosS").checked = true;
 			  radios(2);
