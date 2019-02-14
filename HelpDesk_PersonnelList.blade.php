@@ -84,7 +84,7 @@
 					if(json && json[0]) //If result of php file was a json array.	
 					{				
 						var htm = "<table class='table' id='tbl' border='1'>";
-						htm+="<tr id='t0' style='border-top: 1px solid #000000;'><th onclick='SortTable(0)' scope='col'>userID</th>";
+						htm+="<tr id='t0'><th onclick='SortTable(0)' scope='col'>userID</th>";
 						htm+="<th onclick='SortTable(1)' scope='col'>Name</th>";
 						htm+="<th onclick='SortTable(2)'scope='col'>Job Title</th>";
 						htm+="<th onclick='SortTable(3)'scope='col'>Department</th>";
@@ -370,6 +370,11 @@
 			max-height:88vh;
 			overflow-y: auto;
 			-ms-overflow-style: -ms-autohiding-scrollbar;
+		}
+		td,th, tr, tbody, table
+		{
+			border: 1px solid #000000;
+			border-top: 1px solid #000000;
 		}
 		</style>
 	</head>
