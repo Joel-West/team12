@@ -997,7 +997,7 @@
 					for (i = rows-1; i > 0; i--) //Iterate through the rows of the table.
 					{
 						deleteRow = false; //Variable holding if row will actually be deleted.
-						if (document.getElementById(GetCurrentTableID()).rows[i].classList.contains("rowSelected")) //If row is selected.
+						if (document.getElementById(GetCurrentTableID(extraCells)).rows[i].classList.contains("rowSelected")) //If row is selected.
 						{
 							deleteRow = true;						
 						}
