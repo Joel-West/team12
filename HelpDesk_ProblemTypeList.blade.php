@@ -206,6 +206,7 @@
 					document.getElementById("txtGeneralisation").value = document.getElementById("tbl").rows[rowNum].cells[1].innerHTML;
 					document.getElementById("selGeneralisation").style.display = "none";
 					document.getElementById("lblGeneralisationNum").style.display = "none";
+				}
 				else
 				{
 					document.getElementById("btnAdd").value = "Add New Item";
