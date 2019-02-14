@@ -15,6 +15,11 @@ body
 body,td,th,input,label
 {
 	font-family: "Apple Chancery", Times, serif;
+
+}
+
+td,th
+{
 	border: 1px solid #000000;
 }
 
@@ -41,7 +46,7 @@ input[type=checkbox]
 	position: relative;
 }
 
-input[type=button], [type=submit], th
+input[type=button], [type=submit]
 {
 	background-color: #FFFFFF;
 }
