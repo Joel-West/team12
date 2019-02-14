@@ -181,17 +181,22 @@
 		$("#dropdownButton3:first-child").text('Choose Problem Type');
 		$("#dropdownButton3:first-child").val('');
 		if (num==1){
+		  $('#OSCollapse').collapse('hide');
+		  $('#concernCollapse').collapse('hide');
 		  document.getElementById("dropdown-menu3").innerHTML += "<a class='dropdown-item' >Hardware problem</a>";
 		  findAllChildren("Hardware problem", html);
-		  createSerialNumber();
+		  setTimeout(createSerialNumber,200);
 		}
 		else if (num==2){
 		  $('#serialNumberCollapse').collapse('hide');
 		  document.getElementById("dropdown-menu3").innerHTML += "<a class='dropdown-item' >Software problem</a>";
 		  findAllChildren("Software problem", html);
+		  setTimeout(createSoftwareDropdown,300);
 		}
 		else{
 		  $('#serialNumberCollapse').collapse('hide');
+		  $('#OSCollapse').collapse('hide');
+		  $('#concernCollapse').collapse('hide');
 		  document.getElementById("dropdown-menu3").innerHTML += "<a class='dropdown-item' >Network problem</a>";
 		  findAllChildren("Network problem", html);		  
 		}
@@ -231,9 +236,64 @@
 		},'json');
 	  }
 	  
+	  function createSoftwareDropdown(){
+		var html = "<form class ='px-4 py-3'><div class='form-group'><label for='dropdownSearch'>Search</label>"
+		html += "<input type='text' class='form-control' id='dropdownSearch6' placeholder='Search' onkeyup='filter(6)'></div></form>"
+	    html += "<div class='dropdown-divider'></div><a class='dropdown-item'>New OS</a><form class='px-4 py-3'>";
+		html += "<input type='text' class='form-control' id='newOSInput' placeholder='Enter New OS'></form><div class='dropdown-divider'></div>";
+		html += "<h6 class='dropdown-header'>Operating Systems</h6>";
+		var sql = "SELECT operatingSystem FROM tblProblem WHERE operatingSystem != ' ' GROUP BY operatingSystem;";
+		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
+		  if (json && json[0]){
+			for (i = 0; i < json.length; i++){
+			  html+="<a class='dropdown-item' >" + json[i].operatingSystem + "</a>";
+			}
+		    document.getElementById("dropdown-menu6").innerHTML = html;
+		  }
+		  var concernHtml = "<form class ='px-4 py-3'><div class='form-group'><label for='dropdownSearch'>Search</label>"
+		  concernHtml += "<input type='text' class='form-control' id='dropdownSearch7' placeholder='Search' onkeyup='filter(7)'></div></form>"
+	      concernHtml += "<div class='dropdown-divider'></div><a class='dropdown-item'>New Concerned Software</a><form class='px-4 py-3'>";
+		  concernHtml += "<input type='text' class='form-control' id='newConcernInput' placeholder='Enter New Concerned Software'></form><div class='dropdown-divider'></div>";
+		  concernHtml += "<h6 class='dropdown-header'>Previous Software</h6>";
+		  var concernSql = "SELECT softwareConcerned FROM tblProblem WHERE softwareConcerned != ' ' GROUP BY softwareConcerned;"
+		  $.get("Query.php", {'sql':concernSql, 'returnData':true},function(json){
+			if (json && json[0]){
+			  for (i = 0; i < json.length; i++){
+			    concernHtml+="<a class='dropdown-item' >" + json[i].softwareConcerned + "</a>";
+			  }
+		      document.getElementById("dropdown-menu7").innerHTML = concernHtml;
+		    }
+			$('#OSCollapse').collapse('show');
+			$('#concernCollapse').collapse('show');
+		  },'json');
+		},'json');
+	  }
+	  
 	  $(document).on('click', '#dropdown-menu5 a', function(){
         $("#dropdownButtonSerial:first-child").text($(this).text());
         $("#dropdownButtonSerial:first-child").val($(this).text());
+      });
+	  
+	  $(document).on('click', '#dropdown-menu6 a', function(){
+		if ($(this).text() == "New OS"){
+		  $("#dropdownButtonOS:first-child").text(document.getElementById("newOSInput").value);
+		  $("#dropdownButtonOS:first-child").val(document.getElementById("newOSInput").value);
+		}
+		else{
+          $("#dropdownButtonOS:first-child").text($(this).text());
+          $("#dropdownButtonOS:first-child").val($(this).text());
+		}
+      });
+	  
+	  $(document).on('click', '#dropdown-menu7 a', function(){
+		if ($(this).text() == "New Concerned Software"){
+		  $("#dropdownButtonConcern:first-child").text(document.getElementById("newConcernInput").value);
+		  $("#dropdownButtonConcern:first-child").val(document.getElementById("newConcernInput").value);
+		}
+		else{
+          $("#dropdownButtonConcern:first-child").text($(this).text());
+          $("#dropdownButtonConcern:first-child").val($(this).text());
+		}
       });
 	  
 	  $(document).on('click', '#dropdown-menu3 a', function(){
@@ -391,29 +451,29 @@
 	  function SaveChanges(){
 		sql = "";
 		if (document.getElementById('dropdownButton').value = "New Problem"){
-		  var radioHardware = $('input[name=Radios]:checked').val();
-		  if (radioHardware == "Hardware"){
-			var problem = document.getElementById('dropdownButton2').value;
+		  var radioValue = $('input[name=Radios]:checked').val();
+		  var problem = document.getElementById('dropdownButton2').value;
+		  var specialist = document.getElementById('dropdownButton4').value;
+		  var specialistID = specialist.split(" ");
+		  specialistID = specialistID[5];
+		  specialistID = specialistID.replace("(", "");
+		  specialistID = specialistID.replace(")", "");
+		  var subProblemType = document.getElementById('dropdownButton3').value;
+		  var resolved = "";
+		  if ($('#Checkbox').is(":checked")){
+			resolved = "Yes";
+			var dateTime = resolvedDT;
+		  }
+		  else{
+			resolved = "No";
+			var dateTime = "";
+		  }
+		  var solution = document.getElementById("solution").value;
+		  if (radioValue == "Hardware"){
 			var problemType = "Hardware";
-			var subProblemType = document.getElementById('dropdownButton3').value;
 			var serialNumber = document.getElementById('dropdownButtonSerial').value;
 			serialNumber = serialNumber.split("(");
 			serialNumber = serialNumber[0];
-			var specialist = document.getElementById('dropdownButton4').value;
-			var specialistID = specialist.split(" ");
-			specialistID = specialistID[5];
-			specialistID = specialistID.replace("(", "");
-			specialistID = specialistID.replace(")", "");
-			var resolved = "";
-			if ($('#Checkbox').is(":checked")){
-			  resolved = "Yes";
-			  var dateTime = resolvedDT;
-			}
-			else{
-			  resolved = "No";
-			  var dateTime = "";
-			}
-			var solution = document.getElementById("solution").value;
 		    sql += "INSERT INTO tblProblem VALUES ";
 		    sql += "(NULL, '" + problem + "', '" + problemType + "', '" + subProblemType + "', '" + serialNumber + "', '', '', '" + specialistID + "', '" + resolved + "', '" + dateTime + "', '" + solution + "');";
 		    alert(sql);
@@ -425,12 +485,43 @@
 			  }
 			},'json');
 			
-			setTimeout(insertHardwareCall, 100);
+			setTimeout(insertCall, 100);
+		  }
+		  else if (radioValue == "Software"){
+			var problemType = "Software";
+			var OS = document.getElementById('dropdownButtonOS').value;
+			var concernSoftware = document.getElementById('dropdownButtonConcern').value;
+			sql += "INSERT INTO tblProblem VALUES ";
+			sql += "(NULL, '" + problem + "', '" + problemType + "', '" + subProblemType + "', '', '" + OS + "', '" + concernSoftware + "', '" + specialistID + "', '" + resolved + "', '" + dateTime + "', '" + solution "');";
+			alert(sql);
+			
+			$.get("Query.php", {'sql':sql, 'returnData':false},function(json){
+			  if(json && json[0]){ //If result of php file was a json array.					
+			    alert(json);
+			    alert(json[0]);
+			  }
+			},'json');
+			
+			setTimeout(insertCall, 100);
+		  }
+		  else if(radioValue == "Network"){
+			sql += "INSERT INTO tblProblem VALUES ";
+			sql += "(NULL , '" + problem + "', '" + problemType + "', '" + subProblemType + "', '', '', '', '" + specialistID + "', '" + resolved + "', '" + dateTime + "', '" + solution "');";
+		    alert(sql);
+			
+			$.get("Query.php", {'sql':sql, 'returnData':false},function(json){
+			  if(json && json[0]){ //If result of php file was a json array.					
+			    alert(json);
+			    alert(json[0]);
+			  }
+			},'json');
+			
+			setTimeout(insertCall, 100);
 		  }
 		}
 	  }
 	  
-	  function insertHardwareCall(){
+	  function insertCall(){
 		console.log("HELLO");
 		var sqlCall = "";
 		var operatorID = "<?php echo (explode(",", $_POST['User']))[1]; ?>";
@@ -487,7 +578,7 @@
 		<input type='text' hidden id="user" name="User"  /> <!-- Hidden tag used to store posted user data so that it can later be posted back to the home page. -->
 		<input type='hidden' name='Previous' id='Previous' value="<?php echo $_GET['previous']; ?>" />
         <div class="titleDiv col-12 d-flex"> <!-- Div containing elements at the top of the page. -->
-			<label id="dtLabel" class="dtLabel" >
+		  <label id="dtLabel" class="ml-auto" >
 	    </div>
 	  </form>
 	  <div class="row" align="center">
@@ -597,7 +688,37 @@
 		    </div>
 		  </div>
 		</div>
-		<div class="col-3"></div>
+		
+		<div class="collapse col-3 " id="OSCollapse">
+		  <div class="ml-5 text-left">
+		    Operating System:
+		  </div>
+		  <div id="OSComboBox" class="text-left">
+		    <button class='btn greenBack dropdown-toggle' type='button' id='dropdownButtonOS' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>
+			  Choose Operating System<span class='caret'></span>
+	        </button>
+		    <div class='dropdown-menu' id='dropdown-menu6' aria-labelledby='dropdownMenuOS'>
+			  
+		    </div>
+		  </div>
+		  <div class="col-3"></div>
+		</div>
+		
+		<div class="col-4"></div>
+		<div class="collapse col-4 " id="concernCollapse">
+		  <div>
+		    Software Concerned:
+		  </div>
+		  <div id="concernComboBox">
+		    <button class='btn greenBack dropdown-toggle' type='button' id='dropdownButtonConcern' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>
+			  Choose Concerning Software<span class='caret'></span>
+	        </button>
+		    <div class='dropdown-menu' id='dropdown-menu7' aria-labelledby='dropdownMenuConcern'>
+			  
+		    </div>
+		  </div>
+		</div>
+		<div class="col-4"></div>
 		
 		<div class="col-3"></div>
 		<div class="collapse col-6" id="result2Collapse">
