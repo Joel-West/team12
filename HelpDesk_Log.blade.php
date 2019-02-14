@@ -62,7 +62,7 @@
 		<style>
 		.logButton
 			{
-				font-size:3vw;
+				font-size:4.5vw;
 				font-family: "Palatino Linotype", "Book Antiqua", "Palatino",serif;
 				font-weight:bold;
 				padding: 12px 25px;
