@@ -251,7 +251,7 @@
 						htm+="<th 'scope='col'>Notes</th></tr>"; //Appending column headers.
 						for (i = 0; i<json.length; i++) //Iterates through the json array of results.
 						{
-							htm += "<tr style='background-color:rgb(159, 255, 48);'>"; //Sets colour and ID of row.
+							htm += "<tr id='callRow' style='background-color:rgb(159, 255, 48);'>"; //Sets colour and ID of row.
 							htm +="<td>"+json[i].callNumber+"</td>";
 							if (json[i].operatorID == null) //If there is no operator ID (the personnel has been deleted since the call was recorded).
 							{
@@ -649,7 +649,12 @@
 
 			function SpecialistOptionClicked() //Sets specialist text box value to selected option in selection box.
 			{
-				document.getElementById("txtSpecialist").value = GetIDFromSelBoxItem(document.getElementById("selSpecialist").value);
+				value = GetIDFromSelBoxItem(document.getElementById("selSpecialist").value);
+				document.getElementById("txtSpecialist").value = value;
+				if (value == "")
+				{
+					PopulateSpecialistSelect();
+				}
 			}	
 			
 			function ProblemTypeOptionClicked() //Sets problem type text box value to selected option in selection box.
@@ -661,9 +666,14 @@
 			
 			function SerialNumberOptionClicked() //Sets serial number text box value to selected option in selection box.
 			{
-				document.getElementById("txtSerialNumber").value = GetIDFromSelBoxItem(document.getElementById("selSerialNumber").value);
-			}	
-			
+				value = GetIDFromSelBoxItem(document.getElementById("selSerialNumber").value);
+				document.getElementById("txtSerialNumber").value = value;
+				if (value == "")
+				{
+					PopulateSerialNumberSelect();
+				}
+			}				
+				
 			function CheckClicked() //Function that checks if the 'resolved' checkbox is selected, and thus if the 'date-time' and 'solution' input boxes should be visible.
 			{
 				box = document.getElementById("chkResolved");

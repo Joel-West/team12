@@ -271,12 +271,22 @@
 			
 			function SpecialistOptionClicked() //Sets specialist text box value to selected option in selection box.
 			{
-				document.getElementById("txtSpecialist").value = GetIDFromSelBoxItem(document.getElementById("selSpecialist").value);
+				value = GetIDFromSelBoxItem(document.getElementById("selSpecialist").value);
+				document.getElementById("txtSpecialist").value = value;
+				if (value == "")
+				{
+					PopulateSpecialistSelect();
+				}
 			}	
 			
 			function ProblemTypeOptionClicked() //Sets problem type text box value to selected option in selection box.
 			{
-				document.getElementById("txtProblemType").value = document.getElementById("selProblemType").value;
+				value = document.getElementById("selProblemType").value;
+				document.getElementById("txtProblemType").value = value;
+				if (value == "")
+				{
+					PopulateProblemTypeSelect();
+				}
 			}
 			
 			function CheckIfUpdateOrAdd() //Turns the 'add' button into an 'update' button and populates the input fields, if exactly one row is selected.
