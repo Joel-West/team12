@@ -94,7 +94,7 @@
 						htm+="<th onclick='SortTable(5)'scope='col'>Notes</th></tr>"; //Appending column headers.
 						for (i = 0; i<json.length; i++) //Iterates through the json array of results.
 						{
-							htm += "<tr style='background-color:rgb(159, 255, 48);'>"; //Sets colour and ID of row.
+							htm += "<tr class='rowDeselected'>"; //Sets class (deselected) of row.
 							htm +="<td>"+json[i].callNumber+"</td>";
 							if (json[i].operatorID == null) //If there is no operator ID (the personnel has been deleted since the call was recorded).
 							{
@@ -170,7 +170,7 @@
 				}
 				row = document.getElementById("tbl").rows[GetSelectedRow()]; //Gets the details of the row that is selected.
 				row.cells[5].innerHTML = document.getElementById("txtNotes").value;
-				row.style.backgroundColor = '#9FFF30';
+				row.classList.replace("rowSelected", "rowDeselected"); //Deselect updated row.
 				selected = 0;
 				CheckIfUpdate();
 				if (!ListContains(updList, row.cells[0].innerHTML)) //If selected row is not already marked to be updated when changes are saved to the database later.
@@ -193,7 +193,7 @@
 					for (i = rows-1; i > 0; i--) //Iterate through the rows of the table.
 					{
 						deleteRow = false; //Variable holding if row will actually be deleted.
-						if (document.getElementById("tbl").rows[i].style.backgroundColor != 'rgb(159, 255, 48)') //If row is selected.
+						if (document.getElementById("tbl").rows[i].classList.contains("rowSelected")) //If row is selected.
 						{
 							deleteRow = true;						
 						}
@@ -298,7 +298,7 @@
 						</div>
 						<div id="inputDiv">
 							<input type="button" class="btn" id="btnDelete" value="Delete Selected Items" id="del" style="font-size:16px;" onclick="Delete()"/><br/><br/> <!-- Delete button that calls function when pressed. -->
-							Notes:<br/><textArea class="form-control text" rows="10" id="txtNotes" maxlength="2048" style="background-color:rgb(159, 255, 48);"></textArea><br/> <!-- Input field for updating notes. -->
+							Notes:<br/><textArea class="form-control text" rows="10" id="txtNotes" maxlength="2048"></textArea><br/> <!-- Input field for updating notes. -->
 							<br/><input type="button" class="btn" id="btnUpdate" value="Update Item" style="font-size:16px;" onclick="UpdateRow()"></input>	
 							<br/>
 							<br/>

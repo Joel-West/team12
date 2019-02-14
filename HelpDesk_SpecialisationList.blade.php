@@ -92,7 +92,7 @@
 						htm+="<th onclick='SortTable(2)'scope='col'>Problem Type</th>";
 						for (i = 0; i<json.length; i++) //Iterates through the json array of results.
 						{
-							htm += "<tr style='background-color:rgb(159, 255, 48);'>"; //Sets colour and ID of row.
+							htm += "<tr class='rowDeselected'>"; //Sets class (deselected) of row.
 							htm +="<td>"+json[i].specialisationID+"</td>";
 							htm +="<td>"+json[i].userID+"</td>";
 							htm +="<td>"+json[i].typeName+"</td>";		
@@ -344,7 +344,7 @@
 				{
 					return;
 				}
-				htm = "<tr style='background-color:rgb(159, 255, 48);'>"; //Sets colour and ID of row.
+				htm = "<tr class='rowDeselected'>"; //Sets colour of row.
 				htm +="<td>-</td>"; //Until it has been added to the database, the first field is given a '(new)' tag.
 				htm +="<td>"+document.getElementById("txtSpecialist").value+"</td>";
 				htm +="<td>"+document.getElementById("txtProblemType").value+"</td>";
@@ -366,7 +366,7 @@
 				row = document.getElementById("tbl").rows[GetSelectedRow()]; //Gets the details of the row that is selected.
 				row.cells[1].innerHTML = document.getElementById("txtSpecialist").value;
 				row.cells[2].innerHTML = document.getElementById("txtProblemType").value;
-				row.style.backgroundColor = '#9FFF30';
+				row.classList.replace("rowSelected", "rowDeselected"); //Deselect updated row.
 				selected = 0;
 				CheckIfUpdateOrAdd();
 				if (!ListContains(updList, row.cells[0].innerHTML) && !row.cells[0].innerHTML.includes("-")) //If selected row is not already marked to be updated when changes are saved to the database later and is not a new row.
@@ -389,7 +389,7 @@
 					for (i = rows-1; i > 0; i--) //Iterate through the rows of the table.
 					{
 						deleteRow = false; //Variable holding if row will actually be deleted.
-						if (document.getElementById("tbl").rows[i].style.backgroundColor != 'rgb(159, 255, 48)') //If row is selected.
+						if (document.getElementById("tbl").rows[i].classList.contains("rowSelected")) //If row is selected.
 						{
 							deleteRow = true;						
 						}

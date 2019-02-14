@@ -103,7 +103,7 @@
 						htm+="<th onclick='SortTable(3)'scope='col'>Admin</th></tr>"; //Appending column headers.
 						for (i = 0; i<json.length; i++) //Iterates through the json array of results.
 						{
-							htm += "<tr style='background-color:rgb(159, 255, 48);'>"; //Sets colour and ID of row.
+							htm += "<tr class='rowDeselected'>"; //Sets class (deselected) of row.
 							htm +="<td>"+json[i].userID+"</td>";
 							htm +="<td>"+json[i].username+"</td>";
 							htm +="<td class='hidetext'>"+json[i].password+"</td>";		
@@ -297,7 +297,7 @@
 				{
 					return;
 				}
-				htm = "<tr style='background-color:rgb(159, 255, 48);'>"; //Sets colour and ID of row.
+				htm = "<tr class='rowDeselected'>"; //Sets colour of row.
 				htm +="<td>"+document.getElementById("txtID").value + "(new)</td>"; //Until it has been added to the database, the first field is given a '(new)' tag.
 				htm +="<td>"+document.getElementById("txtUsername").value+"</td>";
 				htm +="<td class='hidetext'>"+document.getElementById("txtPassword").value+"</td>";		
@@ -327,7 +327,7 @@
 				row.cells[1].innerHTML = document.getElementById("txtUsername").value;
 				row.cells[2].innerHTML = document.getElementById("txtPassword").value;
 				row.cells[3].innerHTML = GetAdminAsString(document.getElementById("chkAdmin").checked);
-				row.style.backgroundColor = '#9FFF30';
+				row.classList.replace("rowSelected", "rowDeselected"); //Deselect updated row.
 				selected = 0;
 				CheckIfUpdateOrAdd();
 				if (!ListContains(updList, row.cells[0].innerHTML) && !row.cells[0].innerHTML.includes("(new)")) //If selected row is not already marked to be updated when changes are saved to the database later and is not a new row.
@@ -350,7 +350,7 @@
 					for (i = rows-1; i > 0; i--) //Iterate through the rows of the table.
 					{
 						deleteRow = false; //Variable holding if row will actually be deleted.
-						if (document.getElementById("tbl").rows[i].style.backgroundColor != 'rgb(159, 255, 48)') //If row is selected.
+						if (document.getElementById("tbl").rows[i].classList.contains("rowSelected")) //If row is selected.
 						{
 							deleteRow = true;						
 						}

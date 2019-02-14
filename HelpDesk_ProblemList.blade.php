@@ -140,7 +140,7 @@
 								{
 									if ((json[i].problemType == "Hardware" && tempCells == 1) || (json[i].problemType == "Software" && tempCells == 2) || (json[i].problemType == "Network" && tempCells == 0)) //If of relevant problem type.
 									{
-										htm += "<tr style='background-color:rgb(159, 255, 48);'>"; //Sets colour and ID of row.
+										htm += "<tr class='rowDeselected'>"; //Sets class (deselected) of row.
 										htm +="<td>"+json[i].problemNumber+"</td>";
 										htm +="<td>"+json[i].problem+"</td>";
 										htm +="<td>"+json[i].problemSubType+"</td>";	
@@ -206,7 +206,7 @@
 							htm+="<th onclick='SortTable(" + (6+extraCells) + ")'scope='col'>Solution</th></tr>"; //Appending column headers.
 							for (i = 0; i<json.length; i++) //Iterates through the json array of results.
 							{
-								htm += "<tr style='background-color:rgb(159, 255, 48);'>"; //Sets colour and ID of row.
+								htm += "<tr class='rowDeselected'>"; //Sets class (deselected) of row.
 								htm +="<td>"+json[i].problemNumber+"</td>";
 								htm +="<td>"+json[i].problem+"</td>";
 								htm +="<td>"+json[i].problemSubType+"</td>";	
@@ -251,7 +251,7 @@
 						htm+="<th 'scope='col'>Notes</th></tr>"; //Appending column headers.
 						for (i = 0; i<json.length; i++) //Iterates through the json array of results.
 						{
-							htm += "<tr id='callRow' style='background-color:rgb(159, 255, 48);'>"; //Sets colour and ID of row.
+							htm += "<tr id='callRow' class='rowDeselected'>"; //Set ID and class (deselected) of row.
 							htm +="<td>"+json[i].callNumber+"</td>";
 							if (json[i].operatorID == null) //If there is no operator ID (the personnel has been deleted since the call was recorded).
 							{
@@ -637,7 +637,7 @@
 				}
 				table = document.getElementById(GetCurrentTableID(extraCells));
 				table.tBodies[0].innerHTML += "<tr>"+rowData+"</tr>"; //Adds row data to new tab after being removed from another tab.
-				table.rows[table.rows.length-1].style = "background-color:rgb(0, 255, 255)"; //Reselects the row now that it has been moved.
+				table.rows[table.rows.length-1].classList.replace("rowDeselected", "rowSelected"); //Reselects the row now that it has been moved.
 				selected = 1;
 				CheckIfUpdate();
 				if (!ListContains(updList, row.cells[0].innerHTML)) //If moved row is not already marked to be updated when changes are saved to the database later.
@@ -758,7 +758,7 @@
 				rows = GetRows();
 				for (i = rows-1; i > 0; i--) //Iterate through the rows of the table.
 				{
-					document.getElementById(GetCurrentTableID(extraCells)).rows[i].style = "background-color:rgb(159, 255, 48)";
+					document.getElementById(GetCurrentTableID(extraCells)).rows[i].classList.replace("rowSelected", "rowDeselected");
 				}
 				selected = 0;
 			}
@@ -979,7 +979,7 @@
 					row.cells[extraCells+5].innerHTML = "";
 					row.cells[extraCells+6].innerHTML = "";
 				}
-				row.style.backgroundColor = '#9FFF30';
+				row.classList.replace("rowSelected", "rowDeselected"); //Deselect updated row.
 				selected = 0;
 				CheckIfUpdate();
 				if (!ListContains(updList, row.cells[0].innerHTML)) //If selected row is not already marked to be updated when changes are saved to the database later.
@@ -1003,7 +1003,7 @@
 					for (i = rows-1; i > 0; i--) //Iterate through the rows of the table.
 					{
 						deleteRow = false; //Variable holding if row will actually be deleted.
-						if (document.getElementById(GetCurrentTableID(extraCells)).rows[i].style.backgroundColor != 'rgb(159, 255, 48)') //If row is selected.
+						if (document.getElementById("tbl").rows[i].classList.contains("rowSelected")) //If row is selected.
 						{
 							deleteRow = true;						
 						}
@@ -1193,7 +1193,7 @@
 						Resolved?&nbsp&nbsp<input id="chkResolved" type="checkbox" onclick="CheckClicked()"></input><br/>
 						<div id="solutionDiv">
 							<input id="txtDateTime" type="text" disabled></input><br/>
-							Solution:<br/><textArea class="form-control text" rows="10" id="txtSolution" maxlength="2048" style="background-color:rgb(159, 255, 48);"></textArea>
+							Solution:<br/><textArea class="form-control text" rows="10" id="txtSolution" maxlength="2048"></textArea>
 						</div>
 						<br/>
 						<input type="button" class="btn" id="btnUpdate" value="Update Item" style="font-size:16px;" onclick="UpdateRow()"></input>	
