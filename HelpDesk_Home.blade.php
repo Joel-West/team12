@@ -43,7 +43,7 @@
 		<style type="text/css"> <!-- CSS that defines the appearance and the placement of buttons in grid. -->
 			.button
 			{
-				font-size:2.8vw;
+				font-size:3vw;
 				font-family: "Palatino Linotype", "Book Antiqua", "Palatino",serif;
 				font-weight:bold;
 				padding: 12px 25px;
