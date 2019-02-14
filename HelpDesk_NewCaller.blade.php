@@ -45,7 +45,7 @@
 		  }
 		  
 		  html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;EquipmentList&quot;);'>Equipment</a>";
-		  html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;ProblemTypeList&quot;);'>Problem Type List</a>
+		  html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;ProblemTypeList&quot;);'>Problem Type List</a>";
 		  
 		  if (admin == 0 && analyst == 0){
 			html+= "<a class='nav-item nav-link disabled' href='#'>Analytics</a></ul>";
