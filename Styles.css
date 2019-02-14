@@ -117,19 +117,19 @@ h1, h2
 .glow-button:hover
 {
   background-color: #4CAF50;
-  color: #ffffff;
+  color: #FFFFFF;
 }
 
 .rowSelected
 {
 	background-color: #4CAF50; 
-	color: #000000; 
+	color: #000000;
 	border: 1px solid #000000;
 }
 
 .rowDeselected
 {
 	background-color: #ffffff; 
-	color: #4CAF50; 
+	color: #FFFFFF;
 	border: 1px solid #4CAF50;
 }
