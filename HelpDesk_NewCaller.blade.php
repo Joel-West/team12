@@ -182,7 +182,7 @@
       });
 	  
 	  function getGenericProblemType(parent){
-		var sql = "SELECT problemType,problemSubType FROM tblProblem WHERE problem = '" + parent + "';";
+		var sql = 'SELECT problemType,problemSubType FROM tblProblem WHERE problem = "' + parent + '";';
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
 		  if (json && json[0]){
 			console.log("ENTERED");
