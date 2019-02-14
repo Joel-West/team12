@@ -18,7 +18,7 @@ body,td,th,input,label
 
 }
 
-td,th
+td,th, tr, tbody, table
 {
 	border: 1px solid #000000;
 	border-top: 1px solid #000000;
@@ -31,10 +31,7 @@ th
 
 .topRow
 {
-	th
-	{
-		border-top: 1px solid #000000;
-	}
+	border-top: 1px solid #000000;
 }
 
 table
