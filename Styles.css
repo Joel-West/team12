@@ -122,22 +122,6 @@ h2
 	display:inline-block;
 
 }
-
-.button
-{
-    font-size:3vw;
-    font-family: "Palatino Linotype", "Book Antiqua", "Palatino",serif;
-    font-weight:bold;
-    padding: 12px 25px;
-	width: 80%;
-	text-decoration: none;
-	color:rgba(255, 255, 255, 0.8);
-	border-radius: 4px
-	transition-duration: 0.4s;
-	cursor: pointer;
-	margin: auto;
-	margin-bottom:0.5%;
-}
       
 .glow-button
 {

@@ -59,6 +59,23 @@
 		</script>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"> <!-- Bootstrap CSS stylesheet. -->
 		<link rel="stylesheet" href="{{ asset('css/Styles.css') }}" type="text/css"> <!-- Import external CSS stylesheet that contains presentation info that applies to all the pages. -->
+		<style>
+		.button
+			{
+				font-size:2vw;
+				font-family: "Palatino Linotype", "Book Antiqua", "Palatino",serif;
+				font-weight:bold;
+				padding: 12px 25px;
+				width: 80%;
+				text-decoration: none;
+				color:rgba(255, 255, 255, 0.8);
+				border-radius: 4px
+				transition-duration: 0.4s;
+				cursor: pointer;
+				margin: auto;
+				margin-bottom:0.5%;
+			}
+		</style>
 	</head>
 	<body>
 	<form id="mainform" name="mainform" method="post" action="http://35.204.60.31/Home"> <!-- This form will post data to the home page when submitted. -->
