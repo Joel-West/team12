@@ -21,12 +21,12 @@ body,td,th,input,label
 td,th
 {
 	border: 1px solid #000000;
-	border-top: 1px solid #000000;
 }
 
-th
+.header
 {
 	background-color: #E7F9DB;
+	border-top: 1px solid #000000;
 }
 
 table
