@@ -40,11 +40,10 @@
 		</script>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"> <!-- Bootstrap CSS stylesheet. -->
 		<link rel="stylesheet" href="{{ asset('css/Styles.css') }}" type="text/css"> <!-- Import external CSS stylesheet that contains presentation info that applies to all the pages. -->
-		<!-- CSS that defines appearance and placement of main buttons.-->
-		<style type="text/css">
+		<style type="text/css"> <!-- CSS that defines appearance and placement of main buttons. -->
 			.mainButton
 			{
-				font-size:4vq;
+				font-size:4vw;
 				font-weight:bold;
 				padding: 12px 25px;
 				width: 80%;
@@ -77,6 +76,7 @@
 					<input class="button glow-button" type="button" id="btnUsers" value="View Users" onClick="GoToNewPage('UserList');" />
 					<input class="button glow-button" type="button" id="btnSpecialisations" value="View Specialisations" onClick="GoToNewPage('SpecialisationList');" />
 					<input class="button glow-button" type="button" value="View Equipment" onClick="GoToNewPage('EquipmentList');" />
+					<input class="button glow-button" type="button" value="View Problem Types" onClick="GoToNewPage('ProblemTypeList');" />
 					<input class="button glow-button" type="button" id="btnAnalytics" value="Analytics" onClick="GoToNewPage('Analytics')" />			
 				<br>
 				<!--Fun mode (don't click if you have epilepsy...): <input id="checkFun" type="checkbox" onclick="Fun()"/>-->
