@@ -171,9 +171,24 @@
 		  $('#problemTypeCollapse').collapse('hide');
 		  $('#serialNumberCollapse').collapse('hide');
 		  $('#result2Collapse').collapse('hide');
+		  getRelevantInformation($(this).text());
 		  $('#newNewProblemCollapse').collapse('show');
 		}
       });
+	  
+	  function getRelevantInformation(parent){
+		var sql = "SELECT typeName FROM tblProblemType WHERE generalisation = '" + parent + "';";
+		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
+		  if (json && json[0]){
+			for (i = 0; i < json.length; i++){
+			  html="<a class='dropdown-item' >" + json[i].typeName + "</a>";
+			  document.getElementById("dropdown-menu3").innerHTML += html;
+			  findAllChildren(json[i].typeName,html);
+			}
+		  }
+		},'json');
+		
+	  }
 	  
 	  function radios(num){
 		var html = "<form class ='px-4 py-3'><div class='form-group'><label for='dropdownSearch'>Search</label>"
@@ -666,16 +681,16 @@
 		
 		<div class="col-3"></div>
 		<div class="collapse col-3" id="problemTypeCollapse">
-		<div class="mr-5 text-right">
-		  Problem Type:
-		</div>
+		  <div class="mr-5 text-right">
+		    Problem Type:
+		  </div>
 		  <div id="problemTypeComboBox" class="text-right">
 		    <button class='btn greenBack dropdown-toggle' type='button' id='dropdownButton3' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>
 			  Choose Problem Type<span class='caret'></span>
 			</button>
-			<div class='dropdown-menu' id='dropdown-menu3' aria-labelledby='dropdownMenu3'>
+		  <div class='dropdown-menu' id='dropdown-menu3' aria-labelledby='dropdownMenu3'>
 			
-			</div>	
+		  </div>	
 		  </div>
 		</div>
 		
@@ -722,10 +737,11 @@
 		    </div>
 		  </div>
 		</div>
-		<div class="col-4"></div>
+		<div class="collapse col-4" id="concernCollapse"></div>
+
+		<div class="collapse col-4" id="concernCollapse"></div>
 		
-		<div class="col-3"></div>
-		<div class="collapse col-6" id="result2Collapse">
+		<div class="collapse col-4" id="result2Collapse">
 		  Specialist:
 		  <div id="specialistComboBox">
 		    <button class='btn greenBack dropdown-toggle' type='button' id='dropdownButton4' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>
@@ -758,7 +774,7 @@
 		  <br>
 	      <input type="button" id="btnSave" class="btn" value="Save Changes" onClick="SaveChanges();" />
 		</div>
-		<div class="col-3"></div>
+		<div class="col-4"></div>
 		
 		<div class="collapse col-12" id="existingProblemCollapse">
 		BOO
