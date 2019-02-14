@@ -14,6 +14,7 @@
 			function Load()
 			{
 				userData = "<?php echo $_POST['User']; ?>"; //Gets data from previous form.
+				console.log(userData);
 				SetPrivileges(userData) //Enter function that defines what functions are available to user based on status.
 				//Fun();
 				WriteTime(); //Function that writes the current time at the top of the page.
