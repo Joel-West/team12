@@ -150,7 +150,7 @@
 					if (generalisations[i].toUpperCase().includes(generalisationBox.value.toUpperCase()) || generalisationBox.value == "")
 					{
 						size+=1;
-						if (GetIDFromSelBoxItem(generalisations[i]) == generalisationBox.value)
+						if (generalisations[i] == generalisationBox.value)
 						{
 							matchIndex = size; //If the user has input an exact match, assign the variable defining what the default value for the box will be.
 						}
@@ -425,7 +425,7 @@
 							<select id="selGeneralisation" onchange="GeneralisationOptionClicked()" class="greenBack"></select>
 							<br/>
 							<label id="lblGeneralisationNum"></label>
-							<br/><				
+							<br/>		
 							<br/><input type="button" class="btn" id="btnAdd" value="Add New Item" style="font-size:16px;" onclick="AddPressed()"></input>	
 							<br/><br/>
 							<p align="center">
