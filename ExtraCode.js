@@ -153,7 +153,6 @@ $('document').ready(function() //When document is prepped, ensures enter key all
 
 $(document).on('click','tr',function(event) //Function for selecting/deselecting rows.
 {
-					alert("2");
 	admin = (userData.split(","))[2];
 	analyst = (userData.split(","))[3];
 	if (currentPage == "CallHistory" || currentPage == "ProblemList")
