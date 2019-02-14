@@ -40,7 +40,16 @@
 		</script>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"> <!-- Bootstrap CSS stylesheet. -->
 		<link rel="stylesheet" href="{{ asset('css/Styles.css') }}" type="text/css"> <!-- Import external CSS stylesheet that contains presentation info that applies to all the pages. -->
-		<style> <!-- CSS that defines the appearance and the placement of buttons in grid. -->
+		<!-- CSS that defines appearance and placement of main buttons.-->
+		<style type="text/css">
+			.mainButton
+			{
+				font-size:4vq;
+				font-weight:bold;
+				padding: 12px 25px;
+				width: 80%;
+				margin: auto;
+			}
 			.grid-class
 			{
 				position: relative;
@@ -61,15 +70,14 @@
 				</div>
 				<br/>
 				<div class="grid-class"> <!-- Div containing main buttons that link to other pages. -->
-					<input class="mainButton glow-button" type="button" id="btnNewCall" value="New Call" onClick="GoToNewPage('NewCaller')" />
-					<input class="mainButton glow-button" type="button" value="View Call History" onClick="GoToNewPage('CallHistory');" />
-					<input class="mainButton glow-button" type="button" value="View Problems List" onClick="GoToNewPage('ProblemList');" />
-					<input class="mainButton glow-button" type="button" value="View Personnel" onClick="GoToNewPage('PersonnelList');" />
-					<input class="mainButton glow-button" type="button" id="btnUsers" value="View Users" onClick="GoToNewPage('UserList');" />
-					<input class="mainButton glow-button" type="button" id="btnSpecialisations" value="View Specialisations" onClick="GoToNewPage('SpecialisationList');" />
-					<input class="mainButton glow-button" type="button" value="View Equipment" onClick="GoToNewPage('EquipmentList');" />
-					<input class="mainButton glow-button" type="button" value="View Problem Types" onClick="GoToNewPage('ProblemTypeList');" />
-					<input class="mainButton glow-button" type="button" id="btnAnalytics" value="Analytics" onClick="GoToNewPage('Analytics')" />			
+					<input class="button glow-button" type="button" id="btnNewCall" value="New Call" onClick="GoToNewPage('NewCaller')" />
+					<input class="button glow-button" type="button" value="View Call History" onClick="GoToNewPage('CallHistory');" />
+					<input class="button glow-button" type="button" value="View Problems List" onClick="GoToNewPage('ProblemList');" />
+					<input class="button glow-button" type="button" value="View Personnel" onClick="GoToNewPage('PersonnelList');" />
+					<input class="button glow-button" type="button" id="btnUsers" value="View Users" onClick="GoToNewPage('UserList');" />
+					<input class="button glow-button" type="button" id="btnSpecialisations" value="View Specialisations" onClick="GoToNewPage('SpecialisationList');" />
+					<input class="button glow-button" type="button" value="View Equipment" onClick="GoToNewPage('EquipmentList');" />
+					<input class="button glow-button" type="button" id="btnAnalytics" value="Analytics" onClick="GoToNewPage('Analytics')" />			
 				<br>
 				<!--Fun mode (don't click if you have epilepsy...): <input id="checkFun" type="checkbox" onclick="Fun()"/>-->
 			</form>
