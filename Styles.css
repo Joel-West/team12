@@ -122,13 +122,13 @@ h1, h2
 .rowSelected
 {
 	background-color: #4CAF50; 
-	color: #000000;
+	color: #FFFFFF;
 	border: 1px solid #000000;
 }
 
 .rowDeselected
 {
 	background-color: #ffffff; 
-	color: #FFFFFF;
+	color: #000000;
 	border: 1px solid #4CAF50;
 }
