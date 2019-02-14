@@ -341,7 +341,7 @@
 					if (rowNum != -1) //If row exists.
 					{
 						row = document.getElementById("tbl").rows[rowNum]; //Get row of local table that is being saved to database.
-						sql+="UPDATE tblUser SET ";
+						sql+="UPDATE tblProblemType SET ";
 						sql+="generalisation = '"+ row.cells[1].innerHTML + "', ";
 						sql+="WHERE typeName = " + id + "; ";
 					}
@@ -352,7 +352,7 @@
 					if (row.cells[0].innerHTML.includes("(new)")) //If record is new.
 					{
 						row.cells[0].innerHTML = row.cells[0].innerHTML.replace("(new)", '') //Remove the 'new' tag from the record.
-						sql+="INSERT INTO tbl VALUES (";
+						sql+="INSERT INTO tblProblemType VALUES (";
 						sql+="'" + row.cells[0].innerHTML + "', ";
 						sql+="'" + row.cells[1].innerHTML + "'); ";
 					}
