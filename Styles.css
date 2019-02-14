@@ -18,6 +18,11 @@ body,td,th,input,label
 	border: 1px solid #000000;
 }
 
+th
+{
+	background-color: #E7F9DB;
+}
+
 table
 {
 	margin-left:auto;
