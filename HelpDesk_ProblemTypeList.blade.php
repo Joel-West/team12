@@ -245,7 +245,7 @@
 					return;
 				}
 				htm = "<tr class='rowDeselected'>"; //Sets colour of row.
-				htm +="<td>"+document.getElementById("txtID").value + "(new)</td>"; //Until it has been added to the database, the first field is given a '(new)' tag.
+				htm +="<td>"+document.getElementById("txtTypeName").value + "(new)</td>"; //Until it has been added to the database, the first field is given a '(new)' tag.
 				htm +="<td>"+document.getElementById("txtGeneralisation").value+"</td>";
 				htm += "</tr>";	
 				document.getElementById("tbl").tBodies[0].innerHTML += htm; //Appends HTML to tableDiv.				
