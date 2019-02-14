@@ -56,13 +56,15 @@ function WriteTime() //Writes current time (up to the minute) to a label at the 
 
 function GoToNewPage(page) //Function that submits the main form of the current page, changing the page to that specified in the 'page' variable.
 {
-	admin = (userData.split(","))[2]; //Retrieves admin/analyst status from userData that was earlier posted from previous form.
+	admin = (userData.split(","))[2]; //Retrieves statuses from userData that was earlier posted from previous form.
 	analyst = (userData.split(","))[3];
+	specialist = (userData.split(","))[4];
+	operator = (userData.split(","))[5];
 	go = true; //Variable stores if form should be sent or not.
 	switch(page) //An additional layer of validation to check that the user is authorised to go to the new page.
 	{
 		case "NewCaller":
-			if ((admin == false) && (analyst == true))
+			if ((admin == false) && (operator == false))
 			{
 				go = false;
 			}
@@ -73,7 +75,13 @@ function GoToNewPage(page) //Function that submits the main form of the current 
 				go = false;
 			}
 		break;
-		case "UserList": case 'SpecialisationList':
+		case 'SpecialisationList':
+		if ((admin == false) && (specialist == false))
+		{
+			go = false;
+		}
+		break;
+		case "UserList":
 			if (admin == false)
 			{
 				go = false;
