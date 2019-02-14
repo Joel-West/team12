@@ -47,11 +47,13 @@
 		  html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;EquipmentList&quot;);'>Equipment</a>";
 		  
 		  if (admin == 0 && analyst == 0){
-			html+= "<a class='nav-item nav-link disabled' href='#'>Analytics</a></ul>";
+			html+= "<a class='nav-item nav-link disabled' href='#'>Analytics</a>";
 		  }
           else{
-		    html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;Analytics&quot;);'>Analytics</a></ul>";
+		    html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;Analytics&quot;);'>Analytics</a>";
 		  }
+		  
+		  html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;ProblemTypeList&quot;);'>Problem Type List</a></ul>"
 		document.getElementById("navbarNavDropdown").innerHTML = html;
 	    }
 	  
