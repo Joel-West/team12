@@ -19,7 +19,7 @@
 				WriteTime(); //Function that writes the current time at the top of the page.
 			}
 			
-			function SetPrivileges(userData) //Function that checks if user is an admin or analyst and adjusts available buttons accordingly.
+			function SetPrivileges(userData) //Function that checks if user is an admin, analyst or specialist and adjusts available buttons accordingly.
 			{
 				admin = (userData.split(","))[2]; //Retrieves admin/analyst status from userData that was earlier posted from previous form.
 				analyst = (userData.split(","))[3];
@@ -40,7 +40,7 @@
 		</script>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"> <!-- Bootstrap CSS stylesheet. -->
 		<link rel="stylesheet" href="{{ asset('css/Styles.css') }}" type="text/css"> <!-- Import external CSS stylesheet that contains presentation info that applies to all the pages. -->
-		<!-- CSS that defines appearance and placement of main buttons.-->
+		<!-- CSS that defines the placement of buttons in a grid.-->
 		<style type="text/css">
 			.grid-class
 			{
@@ -69,6 +69,7 @@
 					<input class="button glow-button" type="button" id="btnUsers" value="View Users" onClick="GoToNewPage('UserList');" />
 					<input class="button glow-button" type="button" id="btnSpecialisations" value="View Specialisations" onClick="GoToNewPage('SpecialisationList');" />
 					<input class="button glow-button" type="button" value="View Equipment" onClick="GoToNewPage('EquipmentList');" />
+					<input class="button glow-button" type="button" value="View Problem Types" onClick="GoToNewPage('ProblemTypeList');" />
 					<input class="button glow-button" type="button" id="btnAnalytics" value="Analytics" onClick="GoToNewPage('Analytics')" />			
 				<br>
 				<!--Fun mode (don't click if you have epilepsy...): <input id="checkFun" type="checkbox" onclick="Fun()"/>-->
