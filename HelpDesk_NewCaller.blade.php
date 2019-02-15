@@ -413,6 +413,7 @@
 		  $.get("Query.php", {'sql':sql, 'returnData':true},function(json){
 		    if (json && json[0]){
 			  count.push(json[0].occurence);
+			  console.log(json[0].occurence);
 			}
 		  },'json');
 		}
