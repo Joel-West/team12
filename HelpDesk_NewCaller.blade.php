@@ -391,8 +391,8 @@
 		specialistList = [];
 		count = [];
 		specialistIDList = []; 
-		for (s = 0; s < problemTypeList.length; s++){
-		  sql = "SELECT userID FROM tblSpecialisation WHERE typeName = '" + problemTypeList[s] + "';";
+		for (a = 0; a < problemTypeList.length; a++){
+		  sql = "SELECT userID FROM tblSpecialisation WHERE typeName = '" + problemTypeList[a] + "';";
 		  $.get("Query.php", {'sql':sql, 'returnData':true},function(json){
 		    if (json && json[0]){
 			  for (t = 0; t < json.length; t++){
@@ -401,7 +401,7 @@
 				}
 			  }
 			}
-			if (s == problemTypeList.length - 1){
+			if (a == problemTypeList.length - 1){
 			  populateCount();
 			  console.log("I OCCURED TWICE");
 			}
