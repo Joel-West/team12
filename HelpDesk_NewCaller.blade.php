@@ -392,12 +392,19 @@
 		count = [];
 		specialistIDList = []; 
 		for (a = 0; a < problemTypeList.length; a++){
+		  console.log(a);
 		  sql = "SELECT userID FROM tblSpecialisation WHERE typeName = '" + problemTypeList[a] + "';";
+		  console.log(a);
 		  $.get("Query.php", {'sql':sql, 'returnData':true},function(json){
+			console.log(a);
 		    if (json && json[0]){
+			  console.log(a);
 			  for (t = 0; t < json.length; t++){
+				console.log(a);
 				if (specialistIDList.indexOf(json[t].userID) == -1){
+				  console.log(a);
 				  specialistIDList.push(json[t].userID);
+				  console.log(a);
 				}
 			  }
 			}
@@ -406,6 +413,7 @@
 			  console.log("I OCCURED TWICE");
 			  populateCount();
 			}
+			console.log(a);
 		  },'json');
 		}
 	  }
