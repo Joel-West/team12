@@ -253,7 +253,7 @@
 		  $('#serialNumberCollapse').collapse('hide');
 		  $('#OSCollapse').collapse('hide');
 		  $('#concernCollapse').collapse('hide');
-		  $('#concernCollapseDiv').collapse('hide');
+		  $('#concernCollapseDiv').collapse('show');
 		  $('#concernCollapseDiv2').collapse('hide');
 		  document.getElementById("dropdown-menu3").innerHTML += "<a class='dropdown-item' >Network problem</a>";
 		  findAllChildren("Network problem", html);		  
