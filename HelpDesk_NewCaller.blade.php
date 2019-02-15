@@ -392,19 +392,19 @@
 		count = [];
 		specialistIDList = []; 
 		for (a = 0; a < problemTypeList.length; a++){
-		  console.log(a);
+		  console.log(a + '-0');
 		  sql = "SELECT userID FROM tblSpecialisation WHERE typeName = '" + problemTypeList[a] + "';";
-		  console.log(a);
+		  console.log(a + '-1');
 		  $.get("Query.php", {'sql':sql, 'returnData':true},function(json){
-			console.log(a);
+			console.log(a + '-2');
 		    if (json && json[0]){
-			  console.log(a);
+			  console.log(a + '-3');
 			  for (t = 0; t < json.length; t++){
-				console.log(a);
+				console.log(a + '-4');
 				if (specialistIDList.indexOf(json[t].userID) == -1){
-				  console.log(a);
+				  console.log(a + '-5');
 				  specialistIDList.push(json[t].userID);
-				  console.log(a);
+				  console.log(a + '-6');
 				}
 			  }
 			}
