@@ -199,7 +199,6 @@
 		var sql = 'SELECT problemType,problemSubType FROM tblProblem WHERE problem = "' + parent + '";';
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
 		  if (json && json[0]){
-			console.log(json);
 			if(json[0].problemType == "Hardware"){
 			  document.getElementById("RadiosH").checked = true;
 			  radios(1);
@@ -255,6 +254,7 @@
 		}
 		html="</div>";
 		document.getElementById("dropdown-menu3").innerHTML += html;
+		console.log("PROBLEM TYPE SHOW");
 		$('#problemTypeCollapse').collapse('show');
 		console.log("radios fini")
 	  }
@@ -287,6 +287,7 @@
 		    document.getElementById("dropdown-menu5").innerHTML = html;
 		  }
 		  $('#serialNumberCollapse').collapse('show');
+		  console.log("SERIAL SHOWN");
 		},'json');
 	  }
 	  
