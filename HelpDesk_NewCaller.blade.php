@@ -229,6 +229,7 @@
 		$("#dropdownButton3:first-child").val('');
 		$('#result2Collapse').collapse('hide');
 		if (num==1){
+		  console.log(1);
 		  $('#OSCollapse').collapse('hide');
 		  $('#concernCollapse').collapse('hide');
 		  $('#concernCollapseDiv').collapse('hide');
@@ -238,12 +239,14 @@
 		  setTimeout(createSerialNumber,200);
 		}
 		else if (num==2){
+		  console.log(2);
 		  $('#serialNumberCollapse').collapse('hide');
 		  document.getElementById("dropdown-menu3").innerHTML += "<a class='dropdown-item' >Software problem</a>";
 		  findAllChildren("Software problem", html);
 		  setTimeout(createSoftwareDropdown,300);
 		}
 		else{
+		  console.log(3);
 		  $('#serialNumberCollapse').collapse('hide');
 		  $('#OSCollapse').collapse('hide');
 		  $('#concernCollapse').collapse('hide');
