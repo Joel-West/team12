@@ -169,7 +169,7 @@
 		  console.log("Entered");
 		  $("#dropdownButton2:first-child").text(document.getElementById("newProblemInput").value);
 		  $("#dropdownButton2:first-child").val(document.getElementById("newProblemInput").value);
-		  $(':radio').attr('checked',false);
+		  $(':radio').prop('checked',false);
 		  $('#newNewProblemCollapse').collapse('show');
 		}
 		else{
