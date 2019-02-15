@@ -174,7 +174,6 @@
 	  
 	  $(document).on('click', '#dropdown-menu2 a', function(){
 		if ($(this).text() == "New Problem"){
-		  console.log("Entered");
 		  $("#dropdownButton2:first-child").text(document.getElementById("newProblemInput").value);
 		  $("#dropdownButton2:first-child").val(document.getElementById("newProblemInput").value);
 		  $(':radio').prop('checked',false);
@@ -252,6 +251,7 @@
 		  document.getElementById("dropdown-menu3").innerHTML += "<a class='dropdown-item' >Network problem</a>";
 		  findAllChildren("Network problem", html);		  
 		}
+		console.log("hello");
 		html="</div>";
 		document.getElementById("dropdown-menu3").innerHTML += html;
 		$('#problemTypeCollapse').collapse('show');
