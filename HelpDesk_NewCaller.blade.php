@@ -401,6 +401,7 @@
 				}
 			  }
 			}
+			console.log(a);
 			if (a == problemTypeList.length - 1){
 			  console.log("I OCCURED TWICE");
 			  populateCount();
