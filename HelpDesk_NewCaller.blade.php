@@ -404,6 +404,7 @@
 			}
 			if (i == problemTypeList.length - 1){
 			  populateCount();
+			  console.log("I OCCURED TWICE");
 			}
 		  },'json');
 		}
