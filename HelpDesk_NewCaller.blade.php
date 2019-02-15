@@ -183,7 +183,6 @@
 		  $('#concernCollapseDiv2').collapse('hide');
 		  $('#result2Collapse').collapse('hide');
 		  getGenericProblemType($(this).text());
-		  $('input[name=Radios]').attr('checked',false);
 		  $('#newNewProblemCollapse').collapse('show');
 		}
       });
