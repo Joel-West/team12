@@ -447,6 +447,7 @@
 			specialistList.splice(0,i);
 			console.log(specialistList);
 			specialistIDList.splice(0,i);
+			count.splice(0,i);
 			html += "<div class='dropdown-divider'></div>"
 		  }
 		  if (specialistList.length > 0){
