@@ -113,7 +113,6 @@
 	  
 	  function problem(){
 		if(document.getElementById("dropdownButton").value == "New Problem"){
-		  console.log("New Problem");
 		  newProblemCreation();
 		  $('#newProblemCollapse').collapse('show');
 		  $('#existingProblemCollapse').collapse('hide');
@@ -123,6 +122,10 @@
 		  $('#newNewProblemCollapse').collapse('hide');
 		  $('#problemTypeCollapse').collapse('hide');
 		  $('#serialNumberCollapse').collapse('hide');
+		  $('#OSCollapse').collapse('hide');
+		  $('#concernCollapse').collapse('hide');
+		  $('#concernCollapseDiv').collapse('hide');
+		  $('#concernCollapseDiv2').collapse('hide');
 		  $('#result2Collapse').collapse('hide');
 		  $('#existingProblemCollapse').collapse('show');
 		}
