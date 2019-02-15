@@ -2,7 +2,7 @@ fun = false;
 delList = []; //List of rows to be deleted when changes are saved to actual database.
 updList = []; //List of rows to be updated when changes are saved to actual database.
 newRowCount = 0; //Variable storing number of new rows.
-logOutTimer = 20. //Auto-log out will occur when this equals 0.
+logOutTimer = 120; //Auto-log out will occur when this equals 0.
 
 function ListContains(list, value) //Function returns true if an item is in a list.
 {
@@ -35,12 +35,14 @@ function UpdateLogOutTimer() //Function for checking whether the program should 
 	}
 }
 
-$(window).keydown(function(event){
-    alert(event.keyCode);
+$(window).keydown(function(event) //If keyboard button is pressed, reset timer for auto-log out.
+{
+   logOutTimer = 120;
 });
 
-$(window).mousemove(function(event){
-    alert("");
+$(window).mousemove(function(event) //If mouse moves, reset timer for auto-log out.
+{
+    logOutTimer = 120;
 });
 
 
