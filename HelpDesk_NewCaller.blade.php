@@ -199,6 +199,7 @@
 		var sql = 'SELECT problemType,problemSubType FROM tblProblem WHERE problem = "' + parent + '";';
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
 		  if (json && json[0]){
+			console.log(json);
 			if(json[0].problemType == "Hardware"){
 			  document.getElementById("RadiosH").checked = true;
 			  radios(1);
