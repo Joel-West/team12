@@ -77,6 +77,8 @@ data: {
         }]
     },
     options: {
+    	responsive: true,
+    	maintainAspectRatio: false,
 		scales: {
 			yAxes: [{
 				ticks: {
@@ -104,6 +106,8 @@ data: {
 		{
 			if(json)
 			{
+			console.log(json);
+			
 			var ctx = document.getElementById("specialistChart").getContext('2d');
 		var myBarChart = new Chart(ctx, {
     type: 'bar',
@@ -198,6 +202,11 @@ data: {
 		{
 			font-size:24px;
 		}
+		.chart-container
+		{
+			width: 600px !important;
+			height: 600px !important;
+		}
 		</style>
 	
 	</head>
@@ -214,7 +223,9 @@ data: {
 				<br/>
 				<br/>
 				
+				<div class="chart-container">
 				<canvas id="hardwareChart" width="400" height="400"></canvas>
+				</div>
 				<canvas id="specialistChart" width="400" height="400"></canvas>
 				
 				<div class="row" align="center">
