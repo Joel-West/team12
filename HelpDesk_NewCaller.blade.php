@@ -113,6 +113,7 @@
 	  
 	  function problem(){
 		if(document.getElementById("dropdownButton").value == "New Problem"){
+		  console.log("New Problem");
 		  newProblemCreation();
 		  $('#newProblemCollapse').collapse('show');
 		  $('#existingProblemCollapse').collapse('hide');
