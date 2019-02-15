@@ -398,13 +398,15 @@
 		    if (json && json[0]){
 			  for (i = 0; i < json.length; i++){
 				if (specialistIDList.indexOf(json[i].userID) == -1){
-				  specialistIDList.push(json[i].userID)
+				  specialistIDList.push(json[i].userID);
 				}
 			  }
 			}
+			if (i == problemTypeList.length - 1){
+			  populateCount();
+			}
 		  },'json');
 		}
-		setTimeout(populateCount,100);
 	  }
 	  
 	  function populateCount(){
@@ -417,9 +419,11 @@
 			  count.push(json[0].occurence);
 			  console.log(json[0].occurence);
 			}
+			if (i == specialistIDList - 1){
+			  populateSpecialistList();
+			}
 		  },'json');
 		}
-		setTimeout(populateSpecialistList,100);
 	  }
 	  
 	  function populateSpecialistList(){
@@ -431,9 +435,11 @@
 		    if (json && json[0]){
 			  specialistList.push(json[0].name);
 			}
+			if (i == specialistIDList - 1){
+			  fillSpecialistComboBox();
+			}
 		  },'json');
 		}
-		setTimeout(fillSpecialistComboBox,100);
 	  }
 	  
 	  function fillSpecialistComboBox(){
