@@ -254,7 +254,6 @@
 		console.log("hello");
 		html="</div>";
 		document.getElementById("dropdown-menu3").innerHTML += html;
-		$('#problemTypeCollapse').collapse('hide');
 		$('#problemTypeCollapse').collapse('show');
 	  }
 	  
