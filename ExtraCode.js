@@ -1,7 +1,8 @@
 fun = false;
 delList = []; //List of rows to be deleted when changes are saved to actual database.
 updList = []; //List of rows to be updated when changes are saved to actual database.
-newRowCount = 0; //Varaible storing number of new rows.
+newRowCount = 0; //Variable storing number of new rows.
+logOutTimer = 20. //Auto-log out will occur when this equals 0.
 
 window.setInterval(function() //Function used for fun mode.
 {
@@ -48,10 +49,21 @@ function GetRandomCol() //Function chooses 3 random values between 60 and 255, w
 
 function WriteTime() //Writes current time (up to the minute) to a label at the top-right of the current page.
 {
+	UpdateLogOutTimer();
 	var dt = new Date();
 	options = {day: 'numeric', month: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric', hour12: false} //Sets the time format.
 	document.getElementById("dtLabel").innerHTML = dt.toLocaleDateString("en-UK", options); //Assigns time to label.
 	var wait = setTimeout(WriteTime, 1000); //Checks the time every second.
+}
+
+function UpdateLogOutTimer() //Function for checking whether the program should log the user out for inactivity.
+{
+	logOutTimer-=1;
+	if (logOutTimer == 0)
+	{
+		alert("You have been logged out due to inactivity");
+		GoToNewPage('');
+	}
 }
 
 function GoToNewPage(page) //Function that submits the main form of the current page, changing the page to that specified in the 'page' variable.
