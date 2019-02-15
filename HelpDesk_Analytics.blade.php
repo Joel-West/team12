@@ -6,12 +6,14 @@
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> <!-- Get JQuery library from google. -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>	<!-- Importing Bootstrap files. -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script>
 		<script type="text/javascript" src="{{ URL::asset('js/ExtraCode.js') }}"></script> <!-- Import JS file containing functions that are used in multiple other files -->
 		<script type="text/javascript">
 			function Load() //Function that runs when file loads.
 			{
 				WriteTime(); //Function that writes the current time at the top of the page.
 				GetWorstHardware();
+				ProblemChartHardware();
 			}
 	function GetWorstHardware()	
 	{
@@ -30,9 +32,155 @@
 		},"json");
 	}	
 	
+	function ProblemChartHardware()
+	{
+		sql= "SELECT tblEquipment.serialNumber, tblEquipment.equipmentType, tblEquipment.equipmentMake, COUNT(tblProblem.serialNumber) AS occurence FROM tblProblem INNER JOIN tblEquipment ON tblProblem.serialNumber = tblEquipment.serialNumber GROUP BY tblEquipment.serialNumber ORDER BY occurence DESC LIMIT 0, 5;"; //SQL statement gets most common serial number in problem list.
+		
+		$.get("Query.php", {'sql':sql, 'returnData':true},function(json)
+		{
+			if(json)
+			{
+			var labels = [];
+			var data = [];
+			for(var i = 0; i < json.length; i++) {
+				var equipment = json[i];
+				
+				labels.push(equipment.equipmentType);
+				data.push(equipment.occurence);
+			}
+			
+			var ctx = document.getElementById("myChart").getContext('2d');
+		var myBarChart = new Chart(ctx, {
+    type: 'line',
+data: {
+        labels: labels,
+        datasets: [{
+            label: '# of Problems',
+            data: data,
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: options
+});
+			}
+			else
+			{
+			document.getElementById("label1").innerHTML="Can't find appropriate data";
+			}
+		},"json");
+		
+	}	
+	
+	function SpecialistChart()
+	{
+		sql= "SELECT COUNT(tblProblem.problemNumber) AS problem_count FROM tblProblem WHERE resolved = 'Yes';"; //SQL statement gets most common serial number in problem list.
+		sql= "SELECT COUNT(tblProblem.problemNumber) AS problem_count FROM tblProblem WHERE resolved = 'Yes' AND specialistID IN (SELECT userID FROM tblPersonnel WHERE specialist = 'Yes');"; //SQL statement gets most common serial number in problem list.
+		
+		$.get("Query.php", {'sql':sql, 'returnData':true},function(json)
+		{
+			if(json && json[0])
+			{
+			document.getElementById("label1").innerHTML = "Hardware with most problems logged: " + json[0].serialNumber + " (" + json[0].equipmentMake + " " + json[0].equipmentType + ") - " + json[0].occurence + " times.";
+			}
+			else
+			{
+			document.getElementById("label1").innerHTML="Can't find appropriate data";
+			}
+		},"json");
+		var ctx = document.getElementById("myChart").getContext('2d');
+		var myBarChart = new Chart(ctx, {
+    type: 'bar',
+data: {
+        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        datasets: [{
+            label: '# of Votes',
+            data: [12, 19, 3, 5, 2, 3],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: options
+});
 
 
-
+	
+	function ResolvedChart()
+	{
+		sql= "SELECT COUNT(tblProblem.problemNumber) AS problem_count FROM tblProblem WHERE resolved = 'Yes';"; //SQL statement gets most common serial number in problem list.
+		sql= "SELECT COUNT(tblProblem.problemNumber) AS problem_count FROM tblProblem WHERE resolved = 'No';"; //SQL statement gets most common serial number in problem list.
+		
+		$.get("Query.php", {'sql':sql, 'returnData':true},function(json)
+		{
+			if(json && json[0])
+			{
+			document.getElementById("label1").innerHTML = "Hardware with most problems logged: " + json[0].serialNumber + " (" + json[0].equipmentMake + " " + json[0].equipmentType + ") - " + json[0].occurence + " times.";
+			}
+			else
+			{
+			document.getElementById("label1").innerHTML="Can't find appropriate data";
+			}
+		},"json");
+		var ctx = document.getElementById("myChart").getContext('2d');
+		var myBarChart = new Chart(ctx, {
+    type: 'bar',
+data: {
+        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        datasets: [{
+            label: '# of Votes',
+            data: [12, 19, 3, 5, 2, 3],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: options
+});
+	}	
 
 		</script>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"> <!-- Bootstrap CSS stylesheet. -->
@@ -57,6 +205,7 @@
 				</div>
 				<br/>
 				<br/>
+				<canvas id="myChart" width="400" height="400"></canvas>
 				<div class="row" align="center">
 					<div id="analyticsDiv">  <!-- Div containing analytics info. -->
 						<!-- Put stuff in here. -->
