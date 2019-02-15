@@ -4,15 +4,6 @@ updList = []; //List of rows to be updated when changes are saved to actual data
 newRowCount = 0; //Variable storing number of new rows.
 logOutTimer = 20. //Auto-log out will occur when this equals 0.
 
-window.setInterval(function() //Function used for fun mode.
-{
-	if (fun == true)
-	{
-		col = GetRandomCol();
-		document.body.style.backgroundColor = "rgb("+col[0]+", "+col[1]+", "+col[2]+")";
-	}
-}, 50);
-
 function ListContains(list, value) //Function returns true if an item is in a list.
 {
 	for (i = 0; i < list.length; i++)
@@ -23,28 +14,6 @@ function ListContains(list, value) //Function returns true if an item is in a li
 		}
 	}
 	return false;
-}
-
-function Fun() //Fun mode function. Used for testing changing colour of elements dynamically.
-{
-	if (document.getElementById("checkFun").checked)
-	{
-		fun = true;
-	}
-	else
-	{
-		fun = false;
-		document.body.style.backgroundColor = "#D6D6D6";
-	}
-}
-
-function GetRandomCol() //Function chooses 3 random values between 60 and 255, which will later be used to generate an RGB colour.
-{
-	var x = [];
-	x[0] = Math.floor(Math.random()*255);
-	x[1] = Math.floor(Math.random()*255);
-	x[2] = Math.floor(Math.random()*255);
-	return x;
 }
 
 function WriteTime() //Writes current time (up to the minute) to a label at the top-right of the current page.
@@ -65,6 +34,15 @@ function UpdateLogOutTimer() //Function for checking whether the program should 
 		GoToNewPage('');
 	}
 }
+
+$(window).keydown(function(event){
+    alert(event.keyCode);
+});
+
+$(window).mousemove(function(event){
+    alert("");
+});
+
 
 function GoToNewPage(page) //Function that submits the main form of the current page, changing the page to that specified in the 'page' variable.
 {
