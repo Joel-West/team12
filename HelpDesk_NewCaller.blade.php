@@ -212,7 +212,6 @@
 			  document.getElementById("RadiosN").checked = true;
 			  radios(3);
 			}
-			console.log("pop special");
 			$('#newNewProblemCollapse').collapse('show');
 			$("#dropdownButton3:first-child").text(json[0].problemSubType);
             $("#dropdownButton3:first-child").val(json[0].problemSubType);
@@ -223,7 +222,6 @@
 	  }
 	  
 	  function radios(num){
-		console.log("radios start")
 		var html = "<form class ='px-4 py-3'><div class='form-group'><label for='dropdownSearch'>Search</label>"
 		html += "<input type='text' class='form-control' id='dropdownSearch3' placeholder='Search' onkeyup='filter(3)'></div></form>"
 	    html += "<div class='dropdown-divider'></div><h6 class='dropdown-header'>Problem Types</h6>";
@@ -232,7 +230,6 @@
 		$("#dropdownButton3:first-child").val('');
 		$('#result2Collapse').collapse('hide');
 		if (num==1){
-		  console.log(1);
 		  $('#OSCollapse').collapse('hide');
 		  $('#concernCollapse').collapse('hide');
 		  $('#concernCollapseDiv').collapse('hide');
@@ -242,14 +239,12 @@
 		  setTimeout(createSerialNumber,200);
 		}
 		else if (num==2){
-		  console.log(2);
 		  $('#serialNumberCollapse').collapse('hide');
 		  document.getElementById("dropdown-menu3").innerHTML += "<a class='dropdown-item' >Software problem</a>";
 		  findAllChildren("Software problem", html);
 		  setTimeout(createSoftwareDropdown,300);
 		}
 		else{
-		  console.log(3);
 		  $('#serialNumberCollapse').collapse('hide');
 		  $('#OSCollapse').collapse('hide');
 		  $('#concernCollapse').collapse('hide');
@@ -260,9 +255,7 @@
 		}
 		html="</div>";
 		document.getElementById("dropdown-menu3").innerHTML += html;
-		console.log("PROBLEM TYPE SHOW");
 		$('#problemTypeCollapse').collapse('show');
-		console.log("radios fini")
 	  }
 	  
 	  function findAllChildren(parent,html){
@@ -293,7 +286,6 @@
 		    document.getElementById("dropdown-menu5").innerHTML = html;
 		  }
 		  $('#serialNumberCollapse').collapse('show');
-		  console.log("SERIAL SHOWN");
 		},'json');
 	  }
 	  
@@ -414,9 +406,10 @@
 		setTimeout(populateCount,100);
 	  }
 	  
-	  function populateCount(){		  
+	  function populateCount(){
 	    for (i = 0; i < specialistIDList.length; i++){
 		  sql = "SELECT COUNT(problem) AS occurence FROM tblProblem WHERE specialistID = " + specialistIDList[i] + " AND resolved = 'No';";
+		  console.log(sql);
 		  $.get("Query.php", {'sql':sql, 'returnData':true},function(json){
 		    if (json && json[0]){
 			  count.push(json[0].occurence);
