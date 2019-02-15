@@ -189,7 +189,6 @@
 		  $('#concernCollapseDiv').collapse('hide');
 		  $('#concernCollapseDiv2').collapse('hide');
 		  $('#result2Collapse').collapse('hide');
-		  $('#problemTypeCollapse').collapse('hide');
 		  getGenericProblemType($(this).text());
 		  $('#newNewProblemCollapse').collapse('show');
 		}
@@ -255,6 +254,7 @@
 		console.log("hello");
 		html="</div>";
 		document.getElementById("dropdown-menu3").innerHTML += html;
+		$('#problemTypeCollapse').collapse('hide');
 		$('#problemTypeCollapse').collapse('show');
 	  }
 	  
