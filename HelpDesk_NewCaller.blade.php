@@ -388,6 +388,7 @@
 	  }
 	  
 	  function populateIDList(){
+		console.log(problemTypeList);
 		specialistList = [];
 		count = [];
 		specialistIDList = []; 
@@ -407,6 +408,7 @@
 	  }
 	  
 	  function populateCount(){
+		console.log(specialistIDList);
 	    for (i = 0; i < specialistIDList.length; i++){
 		  sql = "SELECT COUNT(problem) AS occurence FROM tblProblem WHERE specialistID = " + specialistIDList[i] + " AND resolved = 'No';";
 		  console.log(sql);
@@ -421,6 +423,7 @@
 	  }
 	  
 	  function populateSpecialistList(){
+		console.log(count);
 		for (i = 0; i < specialistIDList.length; i++){
 		  sql = "SELECT name FROM tblPersonnel WHERE userID = " + specialistIDList[i] + ";";
 		  $.get("Query.php", {'sql':sql, 'returnData':true},function(json){
@@ -433,6 +436,7 @@
 	  }
 	  
 	  function fillSpecialistComboBox(){
+		console.log(specialistList);
 		var sql = "SELECT userID FROM tblSpecialisation WHERE typeName = '" + problemTypeVar + "';";
 		var html = "";
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
