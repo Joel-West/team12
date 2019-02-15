@@ -182,7 +182,6 @@
 		else{
           $("#dropdownButton2:first-child").text($(this).text());
           $("#dropdownButton2:first-child").val($(this).text());
-		  $('#problemTypeCollapse').collapse('hide');
 		  $('#serialNumberCollapse').collapse('hide');
 		  $('#OSCollapse').collapse('hide');
 		  $('#concernCollapse').collapse('hide');
