@@ -15,6 +15,7 @@
 				GetWorstHardware();
 				ProblemChartHardware();
 				SpecialistChart();
+				ResolvedChart();
 			}
 	function GetWorstHardware()	
 	{
@@ -171,27 +172,26 @@ data: {
 	function ResolvedChart()
 	{
 		sql= "SELECT COUNT(tblProblem.problemNumber) AS problem_count FROM tblProblem WHERE resolved = 'Yes';"; //SQL statement gets most common serial number in problem list.
-		sql= "SELECT COUNT(tblProblem.problemNumber) AS problem_count FROM tblProblem WHERE resolved = 'No';"; //SQL statement gets most common serial number in problem list.
 		
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json)
 		{
 			if(json && json[0])
 			{
-			document.getElementById("label1").innerHTML = "Hardware with most problems logged: " + json[0].serialNumber + " (" + json[0].equipmentMake + " " + json[0].equipmentType + ") - " + json[0].occurence + " times.";
-			}
-			else
+			var resolved = json[0].problem_count;
+			sql= "SELECT COUNT(tblProblem.problemNumber) AS problem_count FROM tblProblem WHERE resolved = 'No';"; //SQL statement gets most common serial number in problem list.
+			$.get("Query.php", {'sql':sql, 'returnData':true},function(json2)
 			{
-			document.getElementById("label1").innerHTML="Can't find appropriate data";
-			}
-		},"json");
-		var ctx = document.getElementById("myChart").getContext('2d');
+				if(json2 && json2[0]) {
+				var notResolved = json2[0].problem_count;
+			
+				var ctx = document.getElementById("resolvedChart").getContext('2d');
 		var myBarChart = new Chart(ctx, {
     type: 'bar',
 data: {
-        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        labels: ["Resolved", "Not Resolved"],
         datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
+            label: '# of Problems',
+            data: [resolved, notResolved],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -211,8 +211,28 @@ data: {
             borderWidth: 1
         }]
     },
-    options: options
+    options: {
+    	responsive: true,
+    	maintainAspectRatio: false,
+		scales: {
+			yAxes: [{
+				ticks: {
+					beginAtZero: true
+				}
+			}]
+		}    
+    }
 });
+} else {
+			document.getElementById("resolvedChart").innerHTML="Can't find appropriate data";
+}
+			}, 'json');
+			}
+			else
+			{
+			document.getElementById("resolvedChart").innerHTML="Can't find appropriate data";
+			}
+		},"json");
 	}	
 
 		</script>
@@ -249,6 +269,9 @@ data: {
 				</div>
 				<div class="chart-container">
 				<canvas id="specialistChart" width="400" height="400"></canvas>
+				</div>
+				<div class="chart-container">
+				<canvas id="resolvedChart" width="400" height="400"></canvas>
 				</div>
 				
 				<div class="row" align="center">
