@@ -185,11 +185,6 @@
           $("#dropdownButton2:first-child").text($(this).text());
           $("#dropdownButton2:first-child").val($(this).text());
 		  $('#problemTypeCollapse').collapse('hide');
-		  $('#serialNumberCollapse').collapse('hide');
-		  $('#OSCollapse').collapse('hide');
-		  $('#concernCollapse').collapse('hide');
-		  $('#concernCollapseDiv').collapse('hide');
-		  $('#concernCollapseDiv2').collapse('hide');
 		  $('#result2Collapse').collapse('hide');
 		  getGenericProblemType($(this).text());
 		}
@@ -200,12 +195,22 @@
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
 		  if (json && json[0]){
 			if(json[0].problemType == "Hardware"){
+			  $('#OSCollapse').collapse('hide');
+			  $('#concernCollapse').collapse('hide');
+			  $('#concernCollapseDiv').collapse('hide');
+			  $('#concernCollapseDiv2').collapse('hide');
 			  document.getElementById("RadiosH").checked = true;
 			  radios(1);
 			}else if(json[0].problemType == "Software"){
+			  $('#serialNumberCollapse').collapse('hide');
 			  document.getElementById("RadiosS").checked = true;
 			  radios(2);
 			}else{
+			  $('#serialNumberCollapse').collapse('hide');
+			  $('#OSCollapse').collapse('hide');
+			  $('#concernCollapse').collapse('hide');
+			  $('#concernCollapseDiv').collapse('hide');
+			  $('#concernCollapseDiv2').collapse('hide');
 			  document.getElementById("RadiosN").checked = true;
 			  radios(3);
 			}
