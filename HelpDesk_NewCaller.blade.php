@@ -182,13 +182,14 @@
 		else{
           $("#dropdownButton2:first-child").text($(this).text());
           $("#dropdownButton2:first-child").val($(this).text());
+		  $('#problemTypeCollapse').collapse('hide');
 		  $('#serialNumberCollapse').collapse('hide');
 		  $('#OSCollapse').collapse('hide');
 		  $('#concernCollapse').collapse('hide');
 		  $('#concernCollapseDiv').collapse('hide');
 		  $('#concernCollapseDiv2').collapse('hide');
 		  $('#result2Collapse').collapse('hide');
-		  getGenericProblemType($(this).text());
+		  setTimeout(getGenericProblemType($(this).text()),200);
 		  $('#newNewProblemCollapse').collapse('show');
 		}
       });
