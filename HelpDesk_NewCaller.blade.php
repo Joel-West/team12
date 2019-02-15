@@ -192,7 +192,6 @@
 		  $('#concernCollapseDiv2').collapse('hide');
 		  $('#result2Collapse').collapse('hide');
 		  getGenericProblemType($(this).text());
-		  $('#newNewProblemCollapse').collapse('show');
 		}
       });
 	  
@@ -210,6 +209,8 @@
 			  document.getElementById("RadiosN").checked = true;
 			  radios(3);
 			}
+			console.log("pop special");
+			$('#newNewProblemCollapse').collapse('show');
 			$("#dropdownButton3:first-child").text(json[0].problemSubType);
             $("#dropdownButton3:first-child").val(json[0].problemSubType);
 			populateSpecialist(json[0].problemSubType);
@@ -219,6 +220,7 @@
 	  }
 	  
 	  function radios(num){
+		console.log("radios start")
 		var html = "<form class ='px-4 py-3'><div class='form-group'><label for='dropdownSearch'>Search</label>"
 		html += "<input type='text' class='form-control' id='dropdownSearch3' placeholder='Search' onkeyup='filter(3)'></div></form>"
 	    html += "<div class='dropdown-divider'></div><h6 class='dropdown-header'>Problem Types</h6>";
@@ -253,6 +255,7 @@
 		html="</div>";
 		document.getElementById("dropdown-menu3").innerHTML += html;
 		$('#problemTypeCollapse').collapse('show');
+		console.log("radios fini")
 	  }
 	  
 	  function findAllChildren(parent,html){
