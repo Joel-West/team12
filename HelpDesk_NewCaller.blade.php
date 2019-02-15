@@ -123,6 +123,7 @@
 		  $('#concernCollapseDiv').collapse('hide');
 		  $('#concernCollapseDiv2').collapse('hide');
 		  $('#result2Collapse').collapse('hide');
+		  $('#newNewProblemCollapse').collapse('hide');
 		  $('#newProblemCollapse').collapse('show');
 		  $('#existingProblemCollapse').collapse('hide');
 		}
