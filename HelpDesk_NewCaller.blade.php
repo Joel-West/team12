@@ -392,7 +392,7 @@
 		count = [];
 		specialistIDList = []; 
 		for (s = 0; s < problemTypeList.length; s++){
-		  sql = "SELECT userID FROM tblSpecialisation WHERE typeName = '" + problemTypeList[i] + "';";
+		  sql = "SELECT userID FROM tblSpecialisation WHERE typeName = '" + problemTypeList[s] + "';";
 		  $.get("Query.php", {'sql':sql, 'returnData':true},function(json){
 		    if (json && json[0]){
 			  for (t = 0; t < json.length; t++){
