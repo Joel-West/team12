@@ -377,12 +377,10 @@
 			if (json[0].generalisation == null){
 			  problemTypeList.push(problemType);
 			  populateIDList();
-			  console.log("I OCCUR TWICE TWICE?");
 			}
 			else{
 			  problemTypeList.push(problemType);
 			  populateProblemTypeList(json[0].generalisation);
-			  return;
 			}
 		  }
 	    },'json');
@@ -393,17 +391,17 @@
 		specialistList = [];
 		count = [];
 		specialistIDList = []; 
-		for (i = 0; i < problemTypeList.length; i++){
+		for (s = 0; s < problemTypeList.length; s++){
 		  sql = "SELECT userID FROM tblSpecialisation WHERE typeName = '" + problemTypeList[i] + "';";
 		  $.get("Query.php", {'sql':sql, 'returnData':true},function(json){
 		    if (json && json[0]){
-			  for (i = 0; i < json.length; i++){
-				if (specialistIDList.indexOf(json[i].userID) == -1){
-				  specialistIDList.push(json[i].userID);
+			  for (t = 0; t < json.length; t++){
+				if (specialistIDList.indexOf(json[t].userID) == -1){
+				  specialistIDList.push(json[t].userID);
 				}
 			  }
 			}
-			if (i == problemTypeList.length - 1){
+			if (s == problemTypeList.length - 1){
 			  populateCount();
 			  console.log("I OCCURED TWICE");
 			}
