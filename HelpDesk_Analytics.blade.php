@@ -104,25 +104,25 @@ data: {
 		
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json)
 		{
-			if(json)
+			if(json && json[0])
 			{
-			console.log(json);
-			var total = json.problem_count
+			var total = json[0].problem_count
 			sql= "SELECT COUNT(tblProblem.problemNumber) AS problem_count FROM tblProblem WHERE resolved = 'Yes' AND specialistID IN (SELECT userID FROM tblPersonnel WHERE specialist = 'Yes');"; //SQL statement gets most common serial number in problem list.
 			$.get("Query.php", {'sql':sql, 'returnData':true},function(json)
 			{
-				var specialists = json.problem_count;
-				
-				console.log(specialists/total);
+				if(json && json[0]) {
+				var specialists = json[0].problem_count;
+				var specialistsPercent = total > 0 ? Math.round(specialists/total) * 100 : 0;
+				var otherPercent = total > 0 ? 100 - specialistsPercent : 0;
 			
 				var ctx = document.getElementById("specialistChart").getContext('2d');
 		var myBarChart = new Chart(ctx, {
     type: 'bar',
 data: {
-        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        labels: ["Specialists", "Non-Specialists"],
         datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
+            label: '% of Problems Solved',
+            data: [specialistsPercent, otherPercent],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -142,8 +142,21 @@ data: {
             borderWidth: 1
         }]
     },
-    options: options
+    options: {
+    	responsive: true,
+    	maintainAspectRatio: false,
+		scales: {
+			yAxes: [{
+				ticks: {
+					beginAtZero: true
+				}
+			}]
+		}    
+    }
 });
+} else {
+			document.getElementById("specialistChart").innerHTML="Can't find appropriate data";
+}
 			}, 'json');
 			}
 			else
@@ -234,7 +247,9 @@ data: {
 				<div class="chart-container">
 				<canvas id="hardwareChart" width="400" height="400"></canvas>
 				</div>
+				<div class="chart-container">
 				<canvas id="specialistChart" width="400" height="400"></canvas>
+				</div>
 				
 				<div class="row" align="center">
 					<div id="analyticsDiv">  <!-- Div containing analytics info. -->
