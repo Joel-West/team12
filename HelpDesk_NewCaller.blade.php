@@ -377,6 +377,7 @@
 			if (json[0].generalisation == null){
 			  problemTypeList.push(problemType);
 			  populateIDList();
+			  console.log("I OCCUR TWICE TWICE?");
 			}
 			else{
 			  problemTypeList.push(problemType);
