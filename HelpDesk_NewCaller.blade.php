@@ -112,6 +112,8 @@
       });
 	  
 	  function problem(){
+		$("#dropdownButton2:first-child").text('Choose Problem');
+        $("#dropdownButton2:first-child").val('');
 		if(document.getElementById("dropdownButton").value == "New Problem"){
 		  newProblemCreation();
 		  $('#newProblemCollapse').collapse('show');
