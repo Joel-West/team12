@@ -25,12 +25,14 @@
 	  
 	  function NavBar(){
 		  var html = "<ul class='navbar-nav mr-auto'>"
-		  var admin = (userData.split(","))[2]; 
-		  var analyst = (userData.split(","))[3];
+		  admin = (userData.split(","))[2]; //Retrieves statuses from userData that was earlier posted from previous form.
+		  analyst = (userData.split(","))[3];
+		  specialist = (userData.split(","))[4];
+		  operator = (userData.split(","))[5];
 		  
 		  html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage(document.getElementById(&quot;Previous&quot;).value)'>&#x2190 </a>";
 		  html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;Home&quot;);'>Home</a>";
-		  html+= "<a class='nav-item nav-link active' href='#'>New Call <span class='sr-only'>(current)</span></a>";
+		  html+= "<a class='nav-item nav-link active' href='#'>New Call</a>";
 		  html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;CallHistory&quot;);'>Call History</a>";
 		  html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;ProblemList&quot;);'>Problems List</a>";
 		  html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;PersonnelList&quot;);'>Personnel</a>";
