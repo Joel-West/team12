@@ -49,7 +49,7 @@
 				data.push(equipment.occurence);
 			}
 			
-			var ctx = document.getElementById("myChart").getContext('2d');
+			var ctx = document.getElementById("hardwareChart").getContext('2d');
 		var myBarChart = new Chart(ctx, {
     type: 'line',
 data: {
@@ -76,12 +76,20 @@ data: {
             borderWidth: 1
         }]
     },
-    options: options
+    options: {
+		scales: {
+			yAxes: [{
+				ticks: {
+					beginAtZero: true
+				}
+			}]
+		}    
+    }
 });
 			}
 			else
 			{
-			document.getElementById("label1").innerHTML="Can't find appropriate data";
+			document.getElementById("hardwareChart").innerHTML="Can't find appropriate data";
 			}
 		},"json");
 		
@@ -94,16 +102,9 @@ data: {
 		
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json)
 		{
-			if(json && json[0])
+			if(json)
 			{
-			document.getElementById("label1").innerHTML = "Hardware with most problems logged: " + json[0].serialNumber + " (" + json[0].equipmentMake + " " + json[0].equipmentType + ") - " + json[0].occurence + " times.";
-			}
-			else
-			{
-			document.getElementById("label1").innerHTML="Can't find appropriate data";
-			}
-		},"json");
-		var ctx = document.getElementById("myChart").getContext('2d');
+			var ctx = document.getElementById("specialistChart").getContext('2d');
 		var myBarChart = new Chart(ctx, {
     type: 'bar',
 data: {
@@ -132,6 +133,12 @@ data: {
     },
     options: options
 });
+			}
+			else
+			{
+			document.getElementById("specialistChart").innerHTML="Can't find appropriate data";
+			}
+		},"json");
 }
 
 
@@ -206,7 +213,10 @@ data: {
 				</div>
 				<br/>
 				<br/>
-				<canvas id="myChart" width="400" height="400"></canvas>
+				
+				<canvas id="hardwareChart" width="400" height="400"></canvas>
+				<canvas id="specialistChart" width="400" height="400"></canvas>
+				
 				<div class="row" align="center">
 					<div id="analyticsDiv">  <!-- Div containing analytics info. -->
 						<!-- Put stuff in here. -->
