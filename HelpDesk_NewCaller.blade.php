@@ -184,7 +184,6 @@
 		else{
           $("#dropdownButton2:first-child").text($(this).text());
           $("#dropdownButton2:first-child").val($(this).text());
-		  $('#problemTypeCollapse').collapse('hide');
 		  $('#result2Collapse').collapse('hide');
 		  getGenericProblemType($(this).text());
 		}
