@@ -170,6 +170,13 @@
 		  $("#dropdownButton2:first-child").text(document.getElementById("newProblemInput").value);
 		  $("#dropdownButton2:first-child").val(document.getElementById("newProblemInput").value);
 		  $(':radio').prop('checked',false);
+		  $('#problemTypeCollapse').collapse('hide');
+		  $('#serialNumberCollapse').collapse('hide');
+		  $('#OSCollapse').collapse('hide');
+		  $('#concernCollapse').collapse('hide');
+		  $('#concernCollapseDiv').collapse('hide');
+		  $('#concernCollapseDiv2').collapse('hide');
+		  $('#result2Collapse').collapse('hide');
 		  $('#newNewProblemCollapse').collapse('show');
 		}
 		else{
