@@ -189,7 +189,7 @@
 		  $('#concernCollapseDiv').collapse('hide');
 		  $('#concernCollapseDiv2').collapse('hide');
 		  $('#result2Collapse').collapse('hide');
-		  setTimeout(getGenericProblemType($(this).text()),200);
+		  getGenericProblemType($(this).text());
 		  $('#newNewProblemCollapse').collapse('show');
 		}
       });
@@ -227,6 +227,7 @@
 		document.getElementById("dropdown-menu3").innerHTML = html;
 		$("#dropdownButton3:first-child").text('Choose Problem Type');
 		$("#dropdownButton3:first-child").val('');
+		$('#result2Collapse').collapse('hide');
 		if (num==1){
 		  $('#OSCollapse').collapse('hide');
 		  $('#concernCollapse').collapse('hide');
