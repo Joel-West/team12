@@ -200,17 +200,13 @@
 		var sql = 'SELECT problemType,problemSubType FROM tblProblem WHERE problem = "' + parent + '";';
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
 		  if (json && json[0]){
-			console.log("ENTERED");
 			if(json[0].problemType == "Hardware"){
-			  console.log("HardwareT");
 			  document.getElementById("RadiosH").checked = true;
 			  radios(1);
 			}else if(json[0].problemType == "Software"){
-			  console.log("SoftwareT");
 			  document.getElementById("RadiosS").checked = true;
 			  radios(2);
 			}else{
-			  console.log("NetworkT");
 			  document.getElementById("RadiosN").checked = true;
 			  radios(3);
 			}
@@ -254,7 +250,6 @@
 		  document.getElementById("dropdown-menu3").innerHTML += "<a class='dropdown-item' >Network problem</a>";
 		  findAllChildren("Network problem", html);		  
 		}
-		console.log("hello");
 		html="</div>";
 		document.getElementById("dropdown-menu3").innerHTML += html;
 		$('#problemTypeCollapse').collapse('show');
@@ -451,7 +446,6 @@
 		    }
 		  }
 		  document.getElementById("dropdown-menu4").innerHTML = html;
-		  console.log(html);
 	      $('#result2Collapse').collapse('show');
 		},'json');
 	  }
@@ -477,9 +471,7 @@
 		var html = "";
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
 		  if (json && json[0]){
-		    console.log("ENTER");
 		    for (i = 0; i<json.length; i++){
-			  console.log("FOR");
 			  html+= "<a class='dropdown-item' data-toggle='tooltip' data-placement='right' data-title='" + json[i].solution + "'>" + problemTypeVar + "</a>";
 		    }
 		    document.getElementById("dropdown-menuSolution").innerHTML = html;
@@ -581,7 +573,6 @@
 	  }
 	  
 	  function insertCall(){
-		console.log("HELLO");
 		var sqlCall = "";
 		var operatorID = "<?php echo (explode(",", $_POST['User']))[1]; ?>";
 		var callerID = document.getElementById("CallerID").value;
