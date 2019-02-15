@@ -425,6 +425,7 @@
 	  function populateSpecialistList(){
 		console.log(count);
 		for (i = 0; i < specialistIDList.length; i++){
+		  console.log(specialistIDList[i]);
 		  sql = "SELECT name FROM tblPersonnel WHERE userID = " + specialistIDList[i] + ";";
 		  $.get("Query.php", {'sql':sql, 'returnData':true},function(json){
 		    if (json && json[0]){
