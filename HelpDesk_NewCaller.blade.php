@@ -411,7 +411,7 @@
 	  
 	  function populateCount(){
 		console.log(specialistIDList);
-	    for (i = 0; i < specialistIDList.length; i++){
+	    for (j = 0; j < specialistIDList.length; j++){
 		  sql = "SELECT COUNT(problem) AS occurence FROM tblProblem WHERE specialistID = " + specialistIDList[i] + " AND resolved = 'No';";
 		  console.log(sql);
 		  $.get("Query.php", {'sql':sql, 'returnData':true},function(json){
@@ -419,8 +419,8 @@
 			  count.push(json[0].occurence);
 			  console.log(json[0].occurence);
 			}
-			console.log('i = ' + i + ' /' + specialistIDList.length);
-			if (i == specialistIDList.length - 1){
+			console.log('j = ' + j + ' /' + specialistIDList.length);
+			if (j == specialistIDList.length - 1){
 			  populateSpecialistList();
 			}
 		  },'json');
