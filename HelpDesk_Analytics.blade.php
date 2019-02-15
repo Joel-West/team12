@@ -14,6 +14,7 @@
 				WriteTime(); //Function that writes the current time at the top of the page.
 				GetWorstHardware();
 				ProblemChartHardware();
+				SpecialistChart();
 			}
 	function GetWorstHardware()	
 	{
@@ -100,15 +101,21 @@ data: {
 	function SpecialistChart()
 	{
 		sql= "SELECT COUNT(tblProblem.problemNumber) AS problem_count FROM tblProblem WHERE resolved = 'Yes';"; //SQL statement gets most common serial number in problem list.
-		sql= "SELECT COUNT(tblProblem.problemNumber) AS problem_count FROM tblProblem WHERE resolved = 'Yes' AND specialistID IN (SELECT userID FROM tblPersonnel WHERE specialist = 'Yes');"; //SQL statement gets most common serial number in problem list.
 		
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json)
 		{
 			if(json)
 			{
 			console.log(json);
+			var total = json.problem_count
+			sql= "SELECT COUNT(tblProblem.problemNumber) AS problem_count FROM tblProblem WHERE resolved = 'Yes' AND specialistID IN (SELECT userID FROM tblPersonnel WHERE specialist = 'Yes');"; //SQL statement gets most common serial number in problem list.
+			$.get("Query.php", {'sql':sql, 'returnData':true},function(json)
+			{
+				var specialists = json.problem_count;
+				
+				console.log(specialists/total);
 			
-			var ctx = document.getElementById("specialistChart").getContext('2d');
+				var ctx = document.getElementById("specialistChart").getContext('2d');
 		var myBarChart = new Chart(ctx, {
     type: 'bar',
 data: {
@@ -137,6 +144,7 @@ data: {
     },
     options: options
 });
+			}, 'json');
 			}
 			else
 			{
