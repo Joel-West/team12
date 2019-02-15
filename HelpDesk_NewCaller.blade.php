@@ -201,7 +201,7 @@
 		  if (json && json[0]){
 			if(json[0].problemType == "Hardware"){
 			  document.getElementById("RadiosH").checked = true;
-			  
+			  radios(1);
 			}else if(json[0].problemType == "Software"){
 			  document.getElementById("RadiosS").checked = true;
 			  radios(2);
