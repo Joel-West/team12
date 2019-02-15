@@ -440,6 +440,8 @@
 			html += "<h6 class='dropdown-header'>Specialists to exact problem type</h6>"
 			for (i = 0; i < json.length; i++){
 			  html += "<a class='dropdown-item' >" + specialistList[i] + " (" + count[i] + " current jobs) (" + specialistIDList[i] + ")</a>"
+			  console.log(specialistList[i]);
+			  console.log(count[i]);
 			}
 			specialistList.splice(0,i);
 			specialistIDList.splice(0,i);
@@ -449,7 +451,9 @@
 			html+= "<h6 class='dropdown-header'>Specialists to a generalisation of the problem type</h6>";
 			for (j = 0; j < specialistList.length; j++){
 		      html+= "<a class='dropdown-item' >" + specialistList[j] + " (" + count[j] + " current jobs) (" + specialistIDList[j] + ")</a>"
-		    }
+		      console.log(specialistList[j]);
+			  console.log(count[j]);
+			}
 		  }
 		  document.getElementById("dropdown-menu4").innerHTML = html;
 	      $('#result2Collapse').collapse('show');
