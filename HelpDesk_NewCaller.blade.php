@@ -189,6 +189,7 @@
 		  $('#concernCollapseDiv').collapse('hide');
 		  $('#concernCollapseDiv2').collapse('hide');
 		  $('#result2Collapse').collapse('hide');
+		  $('#problemTypeCollapse').collapse('hide');
 		  getGenericProblemType($(this).text());
 		  $('#newNewProblemCollapse').collapse('show');
 		}
