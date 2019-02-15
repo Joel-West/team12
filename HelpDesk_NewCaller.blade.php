@@ -208,7 +208,6 @@
 			  $('#serialNumberCollapse').collapse('hide');
 			  $('#OSCollapse').collapse('hide');
 			  $('#concernCollapse').collapse('hide');
-			  $('#concernCollapseDiv').collapse('hide');
 			  $('#concernCollapseDiv2').collapse('hide');
 			  document.getElementById("RadiosN").checked = true;
 			  radios(3);
