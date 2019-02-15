@@ -412,11 +412,16 @@
 	  function populateCount(){
 		console.log(specialistIDList);
 	    for (k = 0; k < specialistIDList.length; k++){
+		  console.log(k + '-1');
 		  sql = "SELECT COUNT(problem) AS occurence FROM tblProblem WHERE specialistID = " + specialistIDList[i] + " AND resolved = 'No';";
 		  console.log(sql);
+		  console.log(k + '-2');
 		  $.get("Query.php", {'sql':sql, 'returnData':true},function(json){
+			console.log(k + '-3');
 		    if (json && json[0]){
+			  console.log(k + '-4');
 			  count.push(json[0].occurence);
+			  console.log(k + '-5');
 			  console.log(json[0].occurence);
 			}
 			console.log('k = ' + k + ' /' + specialistIDList.length);
