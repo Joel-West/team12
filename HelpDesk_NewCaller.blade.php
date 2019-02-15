@@ -116,6 +116,13 @@
         $("#dropdownButton2:first-child").val('');
 		if(document.getElementById("dropdownButton").value == "New Problem"){
 		  newProblemCreation();
+		  $('#problemTypeCollapse').collapse('hide');
+		  $('#serialNumberCollapse').collapse('hide');
+		  $('#OSCollapse').collapse('hide');
+		  $('#concernCollapse').collapse('hide');
+		  $('#concernCollapseDiv').collapse('hide');
+		  $('#concernCollapseDiv2').collapse('hide');
+		  $('#result2Collapse').collapse('hide');
 		  $('#newProblemCollapse').collapse('show');
 		  $('#existingProblemCollapse').collapse('hide');
 		}
@@ -170,13 +177,6 @@
 		  $("#dropdownButton2:first-child").text(document.getElementById("newProblemInput").value);
 		  $("#dropdownButton2:first-child").val(document.getElementById("newProblemInput").value);
 		  $(':radio').prop('checked',false);
-		  $('#problemTypeCollapse').collapse('hide');
-		  $('#serialNumberCollapse').collapse('hide');
-		  $('#OSCollapse').collapse('hide');
-		  $('#concernCollapse').collapse('hide');
-		  $('#concernCollapseDiv').collapse('hide');
-		  $('#concernCollapseDiv2').collapse('hide');
-		  $('#result2Collapse').collapse('hide');
 		  $('#newNewProblemCollapse').collapse('show');
 		}
 		else{
