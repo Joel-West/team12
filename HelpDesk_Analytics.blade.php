@@ -106,13 +106,13 @@ data: {
 		{
 			if(json && json[0])
 			{
-			var total = json[0].problem_count
+			var total = json[0].problem_count;
 			sql= "SELECT COUNT(tblProblem.problemNumber) AS problem_count FROM tblProblem WHERE resolved = 'Yes' AND specialistID IN (SELECT userID FROM tblPersonnel WHERE specialist = 'Yes');"; //SQL statement gets most common serial number in problem list.
 			$.get("Query.php", {'sql':sql, 'returnData':true},function(json2)
 			{
 				if(json2 && json2[0]) {
 				var specialists = json2[0].problem_count;
-				var specialistsPercent = total > 0 ? Math.round(specialists/total) * 100 : 0;
+				var specialistsPercent = total > 0 ? Math.round((specialists/total) * 100) : 0;
 				var otherPercent = total > 0 ? 100 - specialistsPercent : 0;
 			
 				var ctx = document.getElementById("specialistChart").getContext('2d');
