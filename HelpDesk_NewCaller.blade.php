@@ -419,7 +419,7 @@
 			  count.push(json[0].occurence);
 			  console.log(json[0].occurence);
 			}
-			if (i == specialistIDList - 1){
+			if (i == specialistIDList.length - 1){
 			  populateSpecialistList();
 			}
 		  },'json');
@@ -436,7 +436,7 @@
 			  specialistList.push(json[0].name);
 			}
 			console.log('i = ' + i + ' /' + specialistIDList.length);
-			if (i == specialistIDList - 1){
+			if (i == specialistIDList.length - 1){
 			  fillSpecialistComboBox();
 			}
 		  },'json');
