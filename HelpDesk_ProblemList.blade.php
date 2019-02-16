@@ -345,6 +345,7 @@
 								{
 									document.getElementById("callHistoryDiv").innerHTML = ""; //Hides call history if no problem is now selected.
 								}
+								CheckIfUpdate();
 							}
 							rows[j].style.display = "none"; //Makes rows assigned to other specialist invisible.
 							hiddenNum+=1;
@@ -1061,6 +1062,10 @@
 				{
 					row.cells[extraCells+5].innerHTML = "";
 					row.cells[extraCells+6].innerHTML = "";
+				}
+				if (document.getElementById("txtSpecialist").value != userData.split(",")[1] && !document.getElementById("chkAllProblems").checked) //If changing problem to other specialist and only the user's problems are being shown, hide problem.
+				{
+					row.style.display = "none";
 				}
 				row.classList.replace("rowSelected", "rowDeselected"); //Deselect updated row.
 				selected = 0;
