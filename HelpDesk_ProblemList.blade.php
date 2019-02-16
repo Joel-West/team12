@@ -314,7 +314,7 @@
 					if (rows[0].style.display == "none") //If header was hidden from there being no relevant rows earlier.
 					{
 						rows[0].style.display = "";
-						//div.innerHTML = div.innerHTML.replace('<label>There are no problems to show for this type...</label>', ' ');
+						document.getElementById("lblError").remove();
 					}
 					for (j = 1; j < rows.length; j++) //Iterates through each row in the table.
 					{
@@ -357,7 +357,7 @@
 					if (hiddenNum == rows.length-1) //If all rows are hidden, hide header row and show error.
 					{
 						rows[0].style.display = "none";
-						if (!div.innerHTML.includes("<label>There are no problems to show for this type...</label>"))
+						if (!div.innerHTML.includes("<label id='lblError'>There are no problems to show for this type...</label>"))
 						{
 							div.innerHTML+="<label>There are no problems to show for this type...</label>";
 						}
