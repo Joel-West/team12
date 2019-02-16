@@ -155,16 +155,19 @@
 			$("#dropdownButtonSerial:first-child").text(json[0].serialNumber);
             $("#dropdownButtonSerial:first-child").val(json[0].serialNumber);
 		  }
-		  sql2 = "SELECT specialistID FROM tblProblem WHERE problemNumber = '" + problemNumber + "';";
-		  console.log("AH"+problemNumber);
-		  $.get("Query.php", {'sql':sql2, 'returnData':true},function(json){
-		    if(json && json[0]){
-			  index = specialistIDList.indexOf(json[0].specialistID);
-			  $("#dropdownButton4:first-child").text(specialistList[index] + " (" + count[index] + " current jobs) (" + json[0].specialistID + ")");
-			  $("#dropdownButton4:first-child").val(specialistList[index] + " (" + count[index] + " current jobs) (" + json[0].specialistID + ")");
-		    }
+		},'json');
+	  }
+	  
+	  function updateSpecialist(){
+		sql2 = "SELECT specialistID FROM tblProblem WHERE problemNumber = '" + problemNumber + "';";
+		console.log("AH"+problemNumber);
+		$.get("Query.php", {'sql':sql2, 'returnData':true},function(json){
+		  if(json && json[0]){
+			index = specialistIDList.indexOf(json[0].specialistID);
+			$("#dropdownButton4:first-child").text(specialistList[index] + " (" + count[index] + " current jobs) (" + json[0].specialistID + ")");
+			$("#dropdownButton4:first-child").val(specialistList[index] + " (" + count[index] + " current jobs) (" + json[0].specialistID + ")");
+		  }
 		  sqlUpdate();
-		  },'json');
 		},'json');
 	  }
 	  
@@ -466,6 +469,9 @@
 	  }
 	  
 	  function fillSpecialistComboBox(){
+		if(flag == 1){
+		  updateSpecialist();
+		}
 		console.log(specialistList);
 		var sql = "SELECT userID FROM tblSpecialisation WHERE typeName = '" + problemTypeVar + "';";
 		var html = "";
