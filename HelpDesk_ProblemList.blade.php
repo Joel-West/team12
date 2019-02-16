@@ -319,8 +319,11 @@
 					for (j = 1; j < rows.length; j++) //Iterates through each row in the table.
 					{
 						console.log(rows[j].style.display);
+						if (rows[j].style.display == "none")
+						{
 							console.log("aaaay");
 							rows[j].style.display = ""; //Makes every row visible.
+						}
 						console.log(rows[j].style.display);
 					}
 				}
@@ -328,6 +331,7 @@
 			
 			function HideRows() //Hides all rows not associated with the specialist that is currently logged in.
 			{
+				console.log("hide");
 				for (i = 0; i < 3; i++) //Iterates through each of the three tables in the tabs.
 				{
 					hiddenNum = 0;
