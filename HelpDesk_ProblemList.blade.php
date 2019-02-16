@@ -287,7 +287,7 @@
 					{
 						var htm = "Sorry, no results found..."; //If no results, display error.
 					}
-					document.getElementById("CallHistoryDiv").innerHTML = htm; //Appends HTML to tableDiv.
+					document.getElementById("callHistoryDiv").innerHTML = htm; //Appends HTML to tableDiv.
 				},'json');
 			}
 			
@@ -309,6 +309,11 @@
 				for (i = 0; i < 3; i++) //Iterates through each of the three tables in the tabs.
 				{
 					rows = document.getElementById(GetCurrentTableID(i)).rows;
+					if (rows[0].style.display == "none") //If header was hidden from there being no relevant rows earlier.
+					{
+						rows[0].style.display = "";
+						rows[0].innerHTML.replace("There are no problems to show for this type...", "");
+					}
 					for (j = 1; j < rows.length; j++) //Iterates through each row in the table.
 					{
 						if (rows[j].style.display = "none")
@@ -326,16 +331,26 @@
 					rows = document.getElementById(GetCurrentTableID(i)).rows;
 					for (j = 1; j < rows.length; j++) //Iterates through each row in the table.
 					{
-						console.log("table " + i + ": " + rows[j].cells[i+3].innerHTML + " vs " + userData.split(",")[1]);
+						hiddenNum = 0;
 						if (rows[j].style.display == "" && rows[j].cells[i+3].innerHTML != userData.split(",")[1])
 						{
 							if (rows[j].classList.contains("rowSelected")) //If selected.
 							{
 								rows[j].classList.replace("rowSelected", "rowDeselected") //Deselect row.
 								selected-=1;
+								if (selected == 0)
+								{
+									document.getElementById("callHistoryDiv").innerHTML = ""; //Hides call history if no problem is now selected.
+								}
 							}
 							rows[j].style.display = "none"; //Makes rows assigned to other specialist invisible.
+							hiddenNum+=1;
 						}
+					}
+					if (hiddenNum == rows.length) //If all rows are hidden, hide header row and show error.
+					{
+						rows[0].style.display = "none";
+						document.getElementById(GetCurrentTableID(i)).innerHTML+="There are no problems to show for this type...";
 					}
 				}
 			}
@@ -936,7 +951,7 @@
 						document.getElementById("txtSoftwareConcerned").disabled = true;
 						document.getElementById("txtSoftwareConcerned").value = "";
 					}
-					document.getElementById("CallHistoryDiv").innerHTML = ""; //Hides call history if no problem is selected.
+					document.getElementById("callHistoryDiv").innerHTML = ""; //Hides call history if no problem is selected.
 				}
 				switch (extraCells) //After a selection, in any state of the page, the main type selection box will correlate with the tab.
 				{
@@ -1209,7 +1224,7 @@
 							<div id="tableDivNetwork" style="display:none"> <!-- Div containing network data table. -->
 								Loading data...
 							</div>
-							<div id="CallHistoryDiv"> <!-- Div containing call history data table for the current problem. -->
+							<div id="callHistoryDiv"> <!-- Div containing call history data table for the current problem. -->
 							</div>
 						</div>
 					<br/>
