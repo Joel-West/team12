@@ -46,7 +46,7 @@
 				}
 				if (specialist != 1)
 				{
-					document.getElementById("chkAllProblems").style.display = "none";
+					document.getElementById("lblAllProblems").style.display = "none";
 				}
 			}
 			
@@ -1131,8 +1131,7 @@
 			<form id="mainform" name="mainform" method="post" action=""> <!-- This form will post data to an initially unspecified page when submitted. -->
 				<input type='text' hidden id="user" name="User"/> <!-- Hidden tag used to store posted user data so that it can later be posted back to the home page. -->
 				@csrf <!--Token to validates requests to server. -->
-				<div class="titleDiv"> <!-- Div containing elements
-				at the top of the page. -->
+				<div class="titleDiv"> <!-- Div containing elements at the top of the page. -->
 					<input type="button" id="btnBack" style="font-size:40px; position:absolute; left:0;" value="&#x2190" style="display:inline-block;" onClick="GoToNewPage('Home');" /> <!-- Back button. -->
 					<label id="dtLabel"  class="dtLabel"></label> <!-- Label to contain current data/time. -->
 					<h2 id="headerId">Problem List</h2> <!-- Heading containing name of page. -->
@@ -1144,7 +1143,7 @@
 							<input type="button" id="btnHardware" class="btn tabButton" value="Hardware" onclick="ChangeTab('Hardware', true)"></input>
 							<input type="button" id="btnSoftware" class="btn tabButton" value="Software" onclick="ChangeTab('Software', true)"></input>
 							<input type="button" id="btnNetwork" class="btn tabButton" value="Network" onclick="ChangeTab('Network', true)"></input>
-							Show all problems?&nbsp&nbsp<input id="chkAllProblems" type="checkbox" onclick="AllProblemsClicked()"></input><br/> <!-- Checkbox that appears when the user is a specialist, allows them to show only their own problems. -->
+							<label id="lblAllProblems" align="right">Show all problems?&nbsp&nbsp<input id="chkAllProblems" type="checkbox" onclick="AllProblemsClicked()"></input></label><br/> <!-- Checkbox that appears when the user is a specialist, allows them to show only their own problems. -->
 						</div>
 						<br/>
 						<div id="tableOuterDiv" class="table-wrapper-scroll-y">
