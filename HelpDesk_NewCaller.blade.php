@@ -133,11 +133,6 @@
 		}
 		else{
 		  $('#newProblemCollapse').collapse('hide');
-		  $('#serialNumberCollapse').collapse('hide');
-		  $('#OSCollapse').collapse('hide');
-		  $('#concernCollapse').collapse('hide');
-		  $('#concernCollapseDiv').collapse('hide');
-		  $('#concernCollapseDiv2').collapse('hide');
 		  $('#result2Collapse').collapse('hide');
 		  $('#updateDiv1').collapse('hide');
 		  $('#updateDiv2').collapse('hide');
