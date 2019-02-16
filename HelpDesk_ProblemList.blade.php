@@ -311,11 +311,7 @@
 					div = document.getElementById(GetCurrentTableDivID(i));
 					table = document.getElementById(GetCurrentTableID(i));
 					rows = table.rows;
-					if (rows[0].style.display == "none") //If header was hidden from there being no relevant rows earlier.
-					{
-						rows[0].style.display = "";
-						div.innerHTML = div.innerHTML.replace('<label>There are no problems to show for this type...</label>', ' ');
-					}
+
 					for (j = 1; j < rows.length; j++) //Iterates through each row in the table.
 					{
 						console.log(rows[j].style.display);
@@ -331,7 +327,6 @@
 			
 			function HideRows() //Hides all rows not associated with the specialist that is currently logged in.
 			{
-				console.log("hide");
 				for (i = 0; i < 3; i++) //Iterates through each of the three tables in the tabs.
 				{
 					hiddenNum = 0;
