@@ -428,6 +428,7 @@
 		  if (json && json[0]){
 			specialistList.push(json[0].name);
 		  }
+		  console.log(c);
 		  if (c == specialistIDList.length - 1){
 			fillSpecialistComboBox();
 		  }
