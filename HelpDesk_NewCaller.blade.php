@@ -146,9 +146,9 @@
 	  function updateExistingProblem(){
 		getGenericProblemType(document.getElementById("dropdownButton").value);
 		var problemNumber = document.getElementById("dropdownButton").value;
-		console.log(problemNumber);
 		problemNumber = problemNumber.split(" ");
 		problemNumber = problemNumber[problemNumber.length - 1];
+		console.log(problemNumber);
 		sql = "SELECT serialNumber FROM tblProblem WHERE problemNumber = '" + problemNumber + "';";
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
 		  if(json && json[0]){
