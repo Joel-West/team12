@@ -1144,7 +1144,7 @@
 							<input type="button" id="btnHardware" class="btn tabButton" value="Hardware" onclick="ChangeTab('Hardware', true)"></input>
 							<input type="button" id="btnSoftware" class="btn tabButton" value="Software" onclick="ChangeTab('Software', true)"></input>
 							<input type="button" id="btnNetwork" class="btn tabButton" value="Network" onclick="ChangeTab('Network', true)"></input>
-							<input id="chkAllProblems" type="checkbox" onclick="AllProblemsClicked()"></input><br/> <!-- Checkbox that appears when the user is a specialist, allows them to show only their own problems. -->
+							Show all problems?&nbsp&nbsp<input id="chkAllProblems" type="checkbox" onclick="AllProblemsClicked()"></input><br/> <!-- Checkbox that appears when the user is a specialist, allows them to show only their own problems. -->
 						</div>
 						<br/>
 						<div id="tableOuterDiv" class="table-wrapper-scroll-y">
@@ -1179,7 +1179,7 @@
 						<br/>
 						Problem:<br/><input id="txtProblem" type="text"></input><br/> <!-- Input fields for adding a new row. -->
 						Problem Type:<br/><input id="txtProblemType" type="text" onkeyup="PopulateProblemTypeSelect()"></input><br/>					
-						Show all problems?&nbsp&nbsp<select id="selProblemType" onchange="ProblemTypeOptionClicked()" class="greenBack"></select>
+						<select id="selProblemType" onchange="ProblemTypeOptionClicked()" class="greenBack"></select>
 						<br/>
 						<label id="lblProblemTypeNum"></label>
 						<br/>
