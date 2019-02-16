@@ -350,7 +350,10 @@
 					if (hiddenNum == rows.length-1) //If all rows are hidden, hide header row and show error.
 					{
 						rows[0].style.display = "none";
-						document.getElementById(GetCurrentTableID(i)).innerHTML+="There are no problems to show for this type...";
+						if (!document.getElementById(GetCurrentTableID(i)).innerHTML.includes("There are no problems to show for this type..."))
+						{
+							document.getElementById(GetCurrentTableID(i)).innerHTML+="There are no problems to show for this type...";
+						}
 					}
 				}
 			}
