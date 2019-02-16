@@ -139,8 +139,12 @@
 		  $('#concernCollapseDiv').collapse('hide');
 		  $('#concernCollapseDiv2').collapse('hide');
 		  $('#result2Collapse').collapse('hide');
-		  $('#existingProblemCollapse').collapse('show');
+		  updateExistingProblem();
 		}
+	  }
+	  
+	  function updateExistingProblem(){
+		getGenericProblemtype(document.getElementById("dropdownButton").value);
 	  }
 	  
 	  function newProblemCreation(){
@@ -824,10 +828,6 @@
 	      <input type="button" id="btnSave" class="btn" value="Save Changes" onClick="SaveChanges();" />
 		</div>
 		<div class="col-4"></div>
-		
-		<div class="collapse col-12" id="existingProblemCollapse">
-		BOO
-		</div>
 	  </div>
 	</div>
   </body>
