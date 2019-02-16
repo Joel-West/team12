@@ -308,11 +308,12 @@
 			{
 				for (i = 0; i < 3; i++) //Iterates through each of the three tables in the tabs.
 				{
-					rows = document.getElementById(GetCurrentTableID(i)).rows;
+					table = document.getElementById(GetCurrentTableID(i));
+					rows = table.rows;
 					if (rows[0].style.display == "none") //If header was hidden from there being no relevant rows earlier.
 					{
 						rows[0].style.display = "";
-						rows[0].innerHTML.replace("There are no problems to show for this type...", "");
+						table.innerHTML.replace("There are no problems to show for this type...", "");
 					}
 					for (j = 1; j < rows.length; j++) //Iterates through each row in the table.
 					{
@@ -329,7 +330,8 @@
 				for (i = 0; i < 3; i++) //Iterates through each of the three tables in the tabs.
 				{
 					hiddenNum = 0;
-					rows = document.getElementById(GetCurrentTableID(i)).rows;
+					table = document.getElementById(GetCurrentTableID(i));
+					rows = table.rows;
 					for (j = 1; j < rows.length; j++) //Iterates through each row in the table.
 					{
 						if (rows[j].style.display == "" && rows[j].cells[i+3].innerHTML != userData.split(",")[1])
@@ -350,9 +352,9 @@
 					if (hiddenNum == rows.length-1) //If all rows are hidden, hide header row and show error.
 					{
 						rows[0].style.display = "none";
-						if (!document.getElementById(GetCurrentTableID(i)).innerHTML.includes("There are no problems to show for this type..."))
+						if (!table.innerHTML.includes("There are no problems to show for this type..."))
 						{
-							document.getElementById(GetCurrentTableID(i)).innerHTML+="There are no problems to show for this type...";
+							table.innerHTML+="There are no problems to show for this type...";
 						}
 					}
 				}
