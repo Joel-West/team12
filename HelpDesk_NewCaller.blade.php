@@ -376,7 +376,10 @@
 		  if (json && json[0]){
 			if (json[0].generalisation == null){
 			  problemTypeList.push(problemType);
-			  populateIDList();
+			  specialistList = [];
+			  count = [];
+			  specialistIDList = []; 
+			  populateIDList(0);
 			}
 			else{
 			  problemTypeList.push(problemType);
@@ -386,36 +389,22 @@
 	    },'json');
 	  }
 	  
-	  function populateIDList(){
-		console.log(problemTypeList);
-		specialistList = [];
-		count = [];
-		specialistIDList = []; 
-		for (a = 0; a < problemTypeList.length; a++){
-		  console.log(a + '-0');
-		  sql = "SELECT userID FROM tblSpecialisation WHERE typeName = '" + problemTypeList[a] + "';";
-		  console.log(a + '-1');
-		  $.get("Query.php", {'sql':sql, 'returnData':true},function(json){
-			console.log(a + '-2');
-		    if (json && json[0]){
-			  console.log(a + '-3');
-			  for (t = 0; t < json.length; t++){
-				console.log(a + '-4');
-				if (specialistIDList.indexOf(json[t].userID) == -1){
-				  console.log(a + '-5');
-				  specialistIDList.push(json[t].userID);
-				  console.log(a + '-6');
-				}
+	  function populateIDList(a){
+		sql = "SELECT userID FROM tblSpecialisation WHERE typeName = '" + problemTypeList[a] + "';";
+		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
+		  if (json && json[0]){
+			for (t = 0; t < json.length; t++){
+			  if (specialistIDList.indexOf(json[t].userID) == -1){
+				specialistIDList.push(json[t].userID);
 			  }
 			}
-			console.log(a);
-			if (a == problemTypeList.length - 1){
-			  console.log("I OCCURED TWICE");
-			  populateCount();
-			}
-			console.log(a);
-		  },'json');
-		}
+		  }
+		  if (a == problemTypeList.length - 1){
+			populateCount();
+		  }
+		  a++;
+		  populateIDList(a);
+		},'json');
 	  }
 	  
 	  function populateCount(){
