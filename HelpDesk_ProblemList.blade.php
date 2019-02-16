@@ -318,6 +318,7 @@
 					}
 					for (j = 1; j < rows.length; j++) //Iterates through each row in the table.
 					{
+						console.log(j);
 						if (rows[j].style.display == "none")
 						{
 							rows[j].style.display = ""; //Makes every row visible.
