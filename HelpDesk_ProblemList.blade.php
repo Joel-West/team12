@@ -321,8 +321,10 @@
 						console.log(rows[j].style.display);
 						if (rows[j].style.display == "none")
 						{
+							console.log("aaaay");
 							rows[j].style.display = ""; //Makes every row visible.
 						}
+						console.log(rows[j].style.display);
 					}
 				}
 			}
