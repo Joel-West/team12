@@ -412,8 +412,8 @@
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
 		  if (json && json[0]){
 			count.push(json[0].occurence);
-			console.log(json[0].occurence);
 		  }
+		  console.log(b);
 		  if (b == specialistIDList.length - 1){
 			populateSpecialistList(0);
 		  }
@@ -428,7 +428,6 @@
 		  if (json && json[0]){
 			specialistList.push(json[0].name);
 		  }
-		  console.log(c);
 		  if (c == specialistIDList.length - 1){
 			fillSpecialistComboBox();
 		  }
