@@ -48,6 +48,10 @@
 				{
 					document.getElementById("lblAllProblems").style.display = "none";
 				}
+				else
+				{
+					HideRows();
+				}
 			}
 			
 			function ResetTable()
@@ -292,7 +296,17 @@
 				box = document.getElementById("chkAllProblems");
 				if (box.checked)
 				{
-					for (i = 0; i < 3; i++) //Iterates through each of the three tables in the tabs.
+					ShowRows(); //If checked, show all rows.
+				}
+				else
+				{
+					HideRows(); //If unchecked, hide rows not associated with current specialist.
+				}
+			}
+			
+			function HideRows() //Hides all rows not associated with the specialist that is currently logged in.
+			{
+				for (i = 0; i < 3; i++) //Iterates through each of the three tables in the tabs.
 					{
 						rows = document.getElementById(GetCurrentTableID(i)).rows;
 						for (j = 0; j < rows.length; j++) //Iterates through each row in the table.
@@ -303,18 +317,18 @@
 							}
 						}
 					}
-				}
-				else
+			}
+			
+			function ShowRows() //Makes all rows of the table visible.
+			{
+				for (i = 0; i < 3; i++) //Iterates through each of the three tables in the tabs.
 				{
-					for (i = 0; i < 3; i++) //Iterates through each of the three tables in the tabs.
+					rows = document.getElementById(GetCurrentTableID(i)).rows;
+					for (j = 0; j < rows.length; j++) //Iterates through each row in the table.
 					{
-						rows = document.getElementById(GetCurrentTableID(i)).rows;
-						for (j = 0; j < rows.length; j++) //Iterates through each row in the table.
+						if (rows[i].style.display = "inline" && rows[i].cells[i+3] != userData.split(",")[1])
 						{
-							if (rows[i].style.display = "none" && rows[i].cells[i+3] != userData.split(",")[1])
-							{
-								rows[i].style.display = "inline"; //Makes rows assigned to other specialist invisible.
-							}
+							rows[i].style.display = "none"; //Makes rows assigned to other specialist invisible.
 						}
 					}
 				}
