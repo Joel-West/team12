@@ -157,7 +157,7 @@
 		  }
 		},'json');
 		sql2 = "SELECT specialistID FROM tblProblem WHERE problemNumber = '" + problemNumber + "';";
-		console.log(problemNumber);
+		console.log("AH"+problemNumber);
 		$.get("Query.php", {'sql':sql2, 'returnData':true},function(json){
 		  if(json && json[0]){
 			index = specialistIDList.indexOf(json[0].specialistID);
