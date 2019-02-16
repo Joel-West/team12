@@ -415,28 +415,25 @@
 			console.log(json[0].occurence);
 		  }
 		  if (b == specialistIDList.length - 1){
-			populateSpecialistList();
+			populateSpecialistList(0);
 		  }
 		  b++;
 		  populateIDList(b);
 		},'json');
 	  }
 	  
-	  function populateSpecialistList(){
-		console.log(count);
-		for (i = 0; i < specialistIDList.length; i++){
-		  console.log(specialistIDList[i]);
-		  sql = "SELECT name FROM tblPersonnel WHERE userID = " + specialistIDList[i] + ";";
-		  $.get("Query.php", {'sql':sql, 'returnData':true},function(json){
-		    if (json && json[0]){
-			  specialistList.push(json[0].name);
-			}
-			console.log('i = ' + i + ' /' + specialistIDList.length);
-			if (i == specialistIDList.length - 1){
-			  fillSpecialistComboBox();
-			}
-		  },'json');
-		}
+	  function populateSpecialistList(c){
+		sql = "SELECT name FROM tblPersonnel WHERE userID = " + specialistIDList[c] + ";";
+		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
+		  if (json && json[0]){
+			specialistList.push(json[0].name);
+		  }
+		  if (c == specialistIDList.length - 1){
+			fillSpecialistComboBox();
+		  }
+		  c++;
+		  populateIDList(c);
+		},'json');
 	  }
 	  
 	  function fillSpecialistComboBox(){
