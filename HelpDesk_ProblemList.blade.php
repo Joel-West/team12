@@ -356,7 +356,6 @@
 			
 			CheckIfHideHeader(rows) //Checks if all rows of the table are hidden, and thus if the header should be hidden.
 			{
-				alert("hello there");
 				for (i = 1; i < rows.length; i++)
 				{
 					if (rows[i].style.display != "none")
