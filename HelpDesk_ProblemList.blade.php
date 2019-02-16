@@ -311,7 +311,11 @@
 					div = document.getElementById(GetCurrentTableDivID(i));
 					table = document.getElementById(GetCurrentTableID(i));
 					rows = table.rows;
-
+					if (rows[0].style.display == "none") //If header was hidden from there being no relevant rows earlier.
+					{
+						rows[0].style.display = "";
+						//div.innerHTML = div.innerHTML.replace('<label>There are no problems to show for this type...</label>', ' ');
+					}
 					for (j = 1; j < rows.length; j++) //Iterates through each row in the table.
 					{
 						console.log(rows[j].style.display);
