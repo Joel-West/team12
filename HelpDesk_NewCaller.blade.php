@@ -133,8 +133,6 @@
 		}
 		else{
 		  $('#newProblemCollapse').collapse('hide');
-		  $('#newNewProblemCollapse').collapse('hide');
-		  $('#problemTypeCollapse').collapse('hide');
 		  $('#serialNumberCollapse').collapse('hide');
 		  $('#OSCollapse').collapse('hide');
 		  $('#concernCollapse').collapse('hide');
