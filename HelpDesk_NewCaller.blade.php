@@ -100,7 +100,7 @@
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
 		  if (json && json[0]){
 			for (i = 0; i < json.length; i++){
-			  html+="<a class='dropdown-item' >" + json[i].problem + " Problem Number: " + json[i].problemNumber + "</a>";
+			  html+="<a class='dropdown-item' >" + json[i].problem + ". Problem Number: " + json[i].problemNumber + "</a>";
 			}
 		    document.getElementById("dropdown-menu").innerHTML = html;
 		  }
@@ -145,7 +145,7 @@
 	  
 	  function updateExistingProblem(){
 		getGenericProblemType(document.getElementById("dropdownButton").value);
-		var problemNumber = $("#dropdownButton:first-child").val;
+		var problemNumber = document.getElementById("dropdownButton").value;
 		console.log(problemNumber);
 		problemNumber = problemNumber.split(" ");
 		problemNumber = problemNumber[problemNumber.length - 1];
