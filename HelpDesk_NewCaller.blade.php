@@ -418,7 +418,7 @@
 			populateSpecialistList(0);
 		  }
 		  b++;
-		  populateIDList(b);
+		  populateCount(b);
 		},'json');
 	  }
 	  
@@ -432,7 +432,7 @@
 			fillSpecialistComboBox();
 		  }
 		  c++;
-		  populateIDList(c);
+		  populateSpecialistList(c);
 		},'json');
 	  }
 	  
