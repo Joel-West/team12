@@ -179,7 +179,7 @@
 						}
 						newRowCount = 0;
 						GetArrays();
-						if (specialist != 1)
+						if (specialist == 1)
 						{
 							HideRows(); //If user is a specialist, hide problems that are not assigned to them.
 						}
