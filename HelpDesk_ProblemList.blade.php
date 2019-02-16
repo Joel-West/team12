@@ -331,7 +331,7 @@
 						{
 							if (rows[j].classList.contains("rowSelected")) //If selected.
 							{
-								classList.replace("rowSelected", "rowDeselected") //Deselect row.
+								rows[j].classList.replace("rowSelected", "rowDeselected") //Deselect row.
 								selected-=1;
 							}
 							rows[j].style.display = "none"; //Makes rows assigned to other specialist invisible.
