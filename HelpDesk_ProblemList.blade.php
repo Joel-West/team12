@@ -46,7 +46,7 @@
 				}
 				if (specialist != 1)
 				{
-					document.getElementById("chkAllProblems").display = "none";
+					document.getElementById("chkAllProblems").style.display = "none";
 				}
 			}
 			
@@ -1179,7 +1179,7 @@
 						<br/>
 						Problem:<br/><input id="txtProblem" type="text"></input><br/> <!-- Input fields for adding a new row. -->
 						Problem Type:<br/><input id="txtProblemType" type="text" onkeyup="PopulateProblemTypeSelect()"></input><br/>					
-						<select id="selProblemType" onchange="ProblemTypeOptionClicked()" class="greenBack"></select>
+						Show all problems?&nbsp&nbsp<select id="selProblemType" onchange="ProblemTypeOptionClicked()" class="greenBack"></select>
 						<br/>
 						<label id="lblProblemTypeNum"></label>
 						<br/>
