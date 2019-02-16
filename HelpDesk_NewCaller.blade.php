@@ -142,9 +142,9 @@
 		  updateExistingProblem();
 		}
 	  }
-	  
+	  var problemNumber;
 	  function updateExistingProblem(){
-		var problemNumber = document.getElementById("dropdownButton").value;
+		problemNumber = document.getElementById("dropdownButton").value;
 		problemNumber = problemNumber.split(" ");
 		problemNumber = problemNumber[problemNumber.length - 1];
 		getGenericProblemType(problemNumber);
