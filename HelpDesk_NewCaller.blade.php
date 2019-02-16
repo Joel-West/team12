@@ -119,6 +119,8 @@
 		if(document.getElementById("dropdownButton").value == "New Problem"){
 		  newProblemCreation();
 		  $('#problemTypeCollapse').collapse('hide');
+		  $('#updateDiv1').collapse('hide');
+		  $('#updateDiv2').collapse('hide');
 		  $('#serialNumberCollapse').collapse('hide');
 		  $('#OSCollapse').collapse('hide');
 		  $('#concernCollapse').collapse('hide');
@@ -139,6 +141,8 @@
 		  $('#concernCollapseDiv').collapse('hide');
 		  $('#concernCollapseDiv2').collapse('hide');
 		  $('#result2Collapse').collapse('hide');
+		  $('#updateDiv1').collapse('show');
+		  $('#updateDiv2').collapse('show');
 		  updateExistingProblem();
 		}
 	  }
@@ -707,9 +711,9 @@
 			</div>
 		  </div>
 		</div>
-		<div class="col-3"></div>
+		<div class="collapse col-3" id="updateDiv1"></div>
 		
-		<div class="col-3"></div>
+		<div class="collapse col-3" id="updateDiv2"></div>
 		<div class="collapse col-6" id="newNewProblemCollapse">
 		  <div class="form-check-inline">
 		    <input class="form-check-input" type="radio" name="Radios" id="RadiosH" value="Hardware" onClick = "radios(1);">
