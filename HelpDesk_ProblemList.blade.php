@@ -315,6 +315,7 @@
 					{
 						rows[0].style.display = "";
 						div.innerHTML.replace("<label>There are no problems to show for this type...</label>", "");
+						console.log(div.innerHTML);
 					}
 					for (j = 1; j < rows.length; j++) //Iterates through each row in the table.
 					{
