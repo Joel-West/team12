@@ -715,8 +715,7 @@
 					case 2: ChangeTab("Software", false); break;
 				}
 				table = document.getElementById(GetCurrentTableID(extraCells));
-				table.tBodies[0].innerHTML += "<tr>"+rowData+"</tr>"; //Adds row data to new tab after being removed from another tab.
-				table.rows[table.rows.length-1].classList.replace("rowDeselected", "rowSelected"); //Reselects the row now that it has been moved.
+				table.tBodies[0].innerHTML += "<tr class='rowSelected'>"+rowData+"</tr>"; //Adds row data to new tab after being removed from another tab.
 				selected = 1;
 				CheckIfUpdate();
 				if (!ListContains(updList, row.cells[0].innerHTML)) //If moved row is not already marked to be updated when changes are saved to the database later.
@@ -895,7 +894,6 @@
 				if (selected == 1)
 				{
 					rowNum = GetSelectedRow(); //Gets the row that is selected.
-					console.log(rowNum);
 					document.getElementById("btnUpdate").disabled = false;
 					document.getElementById("selMainType").disabled = false;
 					document.getElementById("txtProblem").disabled = false;
