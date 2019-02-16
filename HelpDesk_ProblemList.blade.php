@@ -715,9 +715,9 @@
 					case 2: ChangeTab("Software", false); break;
 				}
 				table = document.getElementById(GetCurrentTableID(extraCells));
-				if (document.getElementById("chkAllProblems").checked)
+				if (!document.getElementById("chkAllProblems").checked)
 				{
-					table.tBodies[0].innerHTML += "<tr class='rowDeselected' style='display: none;'>"+rowData+"</tr>"; //If being transferred such that it will become a hidden row, due to a specialist having selected only to view their own assigned problems, hide row.
+					table.tBodies[0].innerHTML += "<tr class='rowDeselected' style='display: none;'>"+rowData+"</tr>"; //If being transferred such that it will become a hidden row, due to a specialist having selected only to view their own assigned problems, hide row after adding it to new tab's table.
 				}
 				else
 				{
