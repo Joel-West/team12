@@ -96,11 +96,11 @@
 	  function problemCreation(){
 	    var html = "<a class='dropdown-item'>New Problem</a><div class='dropdown-divider'></div>";
 		html += "<h6 class='dropdown-header'>Existing Problems</h6>";
-		var sql = "SELECT problem FROM tblProblem WHERE resolved = 'no'";
+		var sql = "SELECT problem, problemNumber FROM tblProblem WHERE resolved = 'no'";
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
 		  if (json && json[0]){
 			for (i = 0; i < json.length; i++){
-			  html+="<a class='dropdown-item' >" + json[i].problem + "</a>";
+			  html+="<a class='dropdown-item' >" + json[i].problem + " " + json[i].problemNumber + "</a>";
 			}
 		    document.getElementById("dropdown-menu").innerHTML = html;
 		  }
@@ -113,10 +113,12 @@
 	    problem();
       });
 	  
+	  var flag = 0;
 	  function problem(){
 		$("#dropdownButton2:first-child").text('Choose Problem');
         $("#dropdownButton2:first-child").val('');
 		if(document.getElementById("dropdownButton").value == "New Problem"){
+		  flag = 0;
 		  newProblemCreation();
 		  $('#problemTypeCollapse').collapse('hide');
 		  $('#updateDiv1').collapse('show');
@@ -132,6 +134,7 @@
 		  $('#existingProblemCollapse').collapse('hide');
 		}
 		else{
+		  flag = 1;
 		  $('#newProblemCollapse').collapse('hide');
 		  $('#result2Collapse').collapse('hide');
 		  $('#updateDiv1').collapse('hide');
@@ -142,6 +145,29 @@
 	  
 	  function updateExistingProblem(){
 		getGenericProblemType(document.getElementById("dropdownButton").value);
+		var problemNumber = $("#dropdownButton:first-child").val;
+		problemNumber = problemNumber.split(" ");
+		problemNumber = problemNumber[problemNumber.length - 1];
+		sql = "SELECT serialNumber FROM tblProblem WHERE problemNumber = '" + problemNumber + "';";
+		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
+		  if(json && json[0]){
+			$("#dropdownButtonSerial:first-child").text(json[0].serialNumber);
+            $("#dropdownButtonSerial:first-child").val(json[0].serialNumber);
+		  }
+		},'json');
+		sql2 = "SELECT specialistID FROM tblProblem WHERE problemNumber = '" + problemNumber "';";
+		$.get("Query.php", {'sql':sql2, 'returnData':true},function(json){
+		  if(json && json[0]){
+			index = specialistIDList.indexOf(json[0].specialistID);
+			$("#dropdownButton4:first-child").text(specialistList[index] + "(" + count[index] + " current jobs) (" + json[0].specialistID + ")");
+			$("#dropdownButton4:first-child").val(specialistList[index] + "(" + count[index] + " current jobs) (" + json[0].specialistID + ")");
+		  }
+		  sqlUpdate();
+		},'json');
+	  }
+	  
+	  function sqlUpdate(){
+		console.log("TRIGGE");
 	  }
 	  
 	  function newProblemCreation(){
