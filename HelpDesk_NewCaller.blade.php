@@ -155,7 +155,7 @@
             $("#dropdownButtonSerial:first-child").val(json[0].serialNumber);
 		  }
 		},'json');
-		sql2 = "SELECT specialistID FROM tblProblem WHERE problemNumber = '" + problemNumber "';";
+		sql2 = "SELECT specialistID FROM tblProblem WHERE problemNumber = '" + problemNumber + "';";
 		$.get("Query.php", {'sql':sql2, 'returnData':true},function(json){
 		  if(json && json[0]){
 			index = specialistIDList.indexOf(json[0].specialistID);
