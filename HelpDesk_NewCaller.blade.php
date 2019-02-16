@@ -144,7 +144,7 @@
 	  }
 	  
 	  function updateExistingProblem(){
-		getGenericProblemtype(document.getElementById("dropdownButton").value);
+		getGenericProblemType(document.getElementById("dropdownButton").value);
 	  }
 	  
 	  function newProblemCreation(){
