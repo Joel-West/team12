@@ -287,6 +287,39 @@
 				},'json');
 			}
 			
+			function AllProblemsClicked() //Runs when the 'show all problems' checkbox is pressed when the user is a specialist.
+			{
+				box = document.getElementById("chkAllProblems");
+				if (box.checked)
+				{
+					for (i = 0; i < 3; i++) //Iterates through each of the three tables in the tabs.
+					{
+						rows = document.getElementById(GetCurrentTableID(i)).rows;
+						for (j = 0; j < rows.length; j++) //Iterates through each row in the table.
+						{
+							if (rows[i].style.display = "none")
+							{
+								rows[i].style.display = "inline"; //Makes every row visible.
+							}
+						}
+					}
+				}
+				else
+				{
+					for (i = 0; i < 3; i++) //Iterates through each of the three tables in the tabs.
+					{
+						rows = document.getElementById(GetCurrentTableID(i)).rows;
+						for (j = 0; j < rows.length; j++) //Iterates through each row in the table.
+						{
+							if (rows[i].style.display = "none" && rows[i].cells[i+3] != userData.split(",")[1])
+							{
+								rows[i].style.display = "inline"; //Makes rows assigned to other specialist invisible.
+							}
+						}
+					}
+				}
+			}
+			
 			function GetArrays() //Function to get array of all the serial numbers, specialists and problem types.
 			{
 				sql = "SELECT * FROM tblEquipment;";
