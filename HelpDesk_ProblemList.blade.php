@@ -306,6 +306,7 @@
 			
 			function ShowRows() //Makes all rows of the table visible.
 			{
+				console.log("show");
 				for (i = 0; i < 3; i++) //Iterates through each of the three tables in the tabs.
 					{
 						rows = document.getElementById(GetCurrentTableID(i)).rows;
@@ -321,6 +322,7 @@
 			
 			function HideRows() //Hides all rows not associated with the specialist that is currently logged in.
 			{
+				console.log("hide");
 				for (i = 0; i < 3; i++) //Iterates through each of the three tables in the tabs.
 				{
 					rows = document.getElementById(GetCurrentTableID(i)).rows;
