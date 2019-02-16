@@ -314,7 +314,7 @@
 					if (rows[0].style.display == "none") //If header was hidden from there being no relevant rows earlier.
 					{
 						rows[0].style.display = "";
-						body.innerHTML.replace("There are no problems to show for this type...", "");
+						div.innerHTML.replace("<label>There are no problems to show for this type...</label>", "");
 					}
 					for (j = 1; j < rows.length; j++) //Iterates through each row in the table.
 					{
@@ -354,9 +354,9 @@
 					if (hiddenNum == rows.length-1) //If all rows are hidden, hide header row and show error.
 					{
 						rows[0].style.display = "none";
-						if (!div.innerHTML.includes("There are no problems to show for this type..."))
+						if (!div.innerHTML.includes("<label>There are no problems to show for this type...</label>"))
 						{
-							div.innerHTML+="There are no problems to show for this type...";
+							div.innerHTML+="<label>There are no problems to show for this type...</label>";
 						}
 					}
 				}
