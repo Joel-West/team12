@@ -329,12 +329,12 @@
 						console.log("table " + i + ": " + rows[j].cells[i+3].innerHTML + " vs " + userData.split(",")[1]);
 						if (rows[j].style.display == "" && rows[j].cells[i+3].innerHTML != userData.split(",")[1])
 						{
-							rows[j].style.display = "none"; //Makes rows assigned to other specialist invisible.
 							if (rows[j].classList.contains("rowSelected")) //If selected.
 							{
 								classList.replace("rowSelected", "rowDeselected") //Deselect row.
 								selected-=1;
 							}
+							rows[j].style.display = "none"; //Makes rows assigned to other specialist invisible.
 						}
 					}
 				}
