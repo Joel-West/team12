@@ -157,11 +157,12 @@
 		  }
 		},'json');
 		sql2 = "SELECT specialistID FROM tblProblem WHERE problemNumber = '" + problemNumber + "';";
+		console.log(problemNumber);
 		$.get("Query.php", {'sql':sql2, 'returnData':true},function(json){
 		  if(json && json[0]){
 			index = specialistIDList.indexOf(json[0].specialistID);
-			$("#dropdownButton4:first-child").text(specialistList[index] + "(" + count[index] + " current jobs) (" + json[0].specialistID + ")");
-			$("#dropdownButton4:first-child").val(specialistList[index] + "(" + count[index] + " current jobs) (" + json[0].specialistID + ")");
+			$("#dropdownButton4:first-child").text(specialistList[index] + " (" + count[index] + " current jobs) (" + json[0].specialistID + ")");
+			$("#dropdownButton4:first-child").val(specialistList[index] + " (" + count[index] + " current jobs) (" + json[0].specialistID + ")");
 		  }
 		  sqlUpdate();
 		},'json');
