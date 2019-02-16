@@ -102,11 +102,11 @@ function GetRows() //Function for returning the number of rows in a data table.
 function GetSelectedRow() //Returns selected row (if only one is selected).
 {
 	rows = GetRows();
-	for (i = rows-1; i > 0; i--) //Iterate through the rows of the table.
+	for (k = rows-1; k > 0; k--) //Iterate through the rows of the table.
 	{
-		if (document.getElementById(GetTable()).rows[i].classList.contains("rowSelected")) //If row is selected.
+		if (document.getElementById(GetTable()).rows[k].classList.contains("rowSelected")) //If row is selected.
 		{
-			return i;
+			return k;
 		}
 	}
 }
