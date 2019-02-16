@@ -314,7 +314,7 @@
 						{
 							if (rows[j].style.display = "none")
 							{
-								rows[j].style.display = "default"; //Makes every row visible.
+								rows[j].style.display = ""; //Makes every row visible.
 							}
 						}
 					}
@@ -328,9 +328,8 @@
 					rows = document.getElementById(GetCurrentTableID(i)).rows;
 					for (j = 1; j < rows.length; j++) //Iterates through each row in the table.
 					{
-						console.log(rows[j].style.display);
 						console.log("table " + i + ": " + rows[i].cells[i+3].innerHTML + " vs " + userData.split(",")[1]);
-						if (rows[j].style.display == "default" && rows[i].cells[i+3].innerHTML != userData.split(",")[1])
+						if (rows[j].style.display == "" && rows[i].cells[i+3].innerHTML != userData.split(",")[1])
 						{
 							rows[j].style.display = "none"; //Makes rows assigned to other specialist invisible.
 						}
