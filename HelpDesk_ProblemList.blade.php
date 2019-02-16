@@ -328,10 +328,10 @@
 			{
 				for (i = 0; i < 3; i++) //Iterates through each of the three tables in the tabs.
 				{
+					hiddenNum = 0;
 					rows = document.getElementById(GetCurrentTableID(i)).rows;
 					for (j = 1; j < rows.length; j++) //Iterates through each row in the table.
 					{
-						hiddenNum = 0;
 						if (rows[j].style.display == "" && rows[j].cells[i+3].innerHTML != userData.split(",")[1])
 						{
 							if (rows[j].classList.contains("rowSelected")) //If selected.
