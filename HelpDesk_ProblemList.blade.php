@@ -1143,7 +1143,7 @@
 							<input type="button" id="btnHardware" class="btn tabButton" value="Hardware" onclick="ChangeTab('Hardware', true)"></input>
 							<input type="button" id="btnSoftware" class="btn tabButton" value="Software" onclick="ChangeTab('Software', true)"></input>
 							<input type="button" id="btnNetwork" class="btn tabButton" value="Network" onclick="ChangeTab('Network', true)"></input>
-							<label id="lblAllProblems" style="position:absolute; right:5%;">Show all problems?&nbsp&nbsp<input id="chkAllProblems" type="checkbox" onclick="AllProblemsClicked()"></input></label><br/> <!-- Checkbox that appears when the user is a specialist, allows them to show only their own problems. -->
+							<label id="lblAllProblems" style="position:absolute; top:10%; right:3%;">Show all problems?&nbsp&nbsp<input id="chkAllProblems" type="checkbox" onclick="AllProblemsClicked()"></input></label><br/> <!-- Checkbox that appears when the user is a specialist, allows them to show only their own problems. -->
 						</div>
 						<br/>
 						<div id="tableOuterDiv" class="table-wrapper-scroll-y">
