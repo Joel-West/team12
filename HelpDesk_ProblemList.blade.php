@@ -304,7 +304,7 @@
 				}
 			}
 			
-			function HideRows() //Hides all rows not associated with the specialist that is currently logged in.
+			function ShowRows() //Makes all rows of the table visible.
 			{
 				for (i = 0; i < 3; i++) //Iterates through each of the three tables in the tabs.
 					{
@@ -319,7 +319,7 @@
 					}
 			}
 			
-			function ShowRows() //Makes all rows of the table visible.
+			function HideRows() //Hides all rows not associated with the specialist that is currently logged in.
 			{
 				for (i = 0; i < 3; i++) //Iterates through each of the three tables in the tabs.
 				{
