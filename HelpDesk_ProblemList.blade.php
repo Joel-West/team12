@@ -48,10 +48,6 @@
 				{
 					document.getElementById("lblAllProblems").style.display = "none";
 				}
-				else
-				{
-					HideRows();
-				}
 			}
 			
 			function ResetTable()
@@ -183,6 +179,10 @@
 						}
 						newRowCount = 0;
 						GetArrays();
+						if (specialist != 1)
+						{
+							HideRows(); //If user is a specialist, hide problems that are not assigned to them.
+						}
 					},'json');
 				}
 				else
@@ -309,6 +309,7 @@
 				for (i = 0; i < 3; i++) //Iterates through each of the three tables in the tabs.
 					{
 						rows = document.getElementById(GetCurrentTableID(i)).rows;
+						console.log(i);
 						for (j = 0; j < rows.length; j++) //Iterates through each row in the table.
 						{
 							if (rows[i].style.display = "none")
