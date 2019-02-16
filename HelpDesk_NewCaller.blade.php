@@ -119,8 +119,8 @@
 		if(document.getElementById("dropdownButton").value == "New Problem"){
 		  newProblemCreation();
 		  $('#problemTypeCollapse').collapse('hide');
-		  $('#updateDiv1').collapse('hide');
-		  $('#updateDiv2').collapse('hide');
+		  $('#updateDiv1').collapse('show');
+		  $('#updateDiv2').collapse('show');
 		  $('#serialNumberCollapse').collapse('hide');
 		  $('#OSCollapse').collapse('hide');
 		  $('#concernCollapse').collapse('hide');
@@ -141,8 +141,8 @@
 		  $('#concernCollapseDiv').collapse('hide');
 		  $('#concernCollapseDiv2').collapse('hide');
 		  $('#result2Collapse').collapse('hide');
-		  $('#updateDiv1').collapse('show');
-		  $('#updateDiv2').collapse('show');
+		  $('#updateDiv1').collapse('hide');
+		  $('#updateDiv2').collapse('hide');
 		  updateExistingProblem();
 		}
 	  }
