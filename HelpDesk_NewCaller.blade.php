@@ -144,10 +144,10 @@
 	  }
 	  
 	  function updateExistingProblem(){
-		getGenericProblemType(document.getElementById("dropdownButton").value);
 		var problemNumber = document.getElementById("dropdownButton").value;
 		problemNumber = problemNumber.split(" ");
 		problemNumber = problemNumber[problemNumber.length - 1];
+		getGenericProblemType(problemNumber);
 		console.log(problemNumber);
 		sql = "SELECT serialNumber FROM tblProblem WHERE problemNumber = '" + problemNumber + "';";
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
@@ -218,7 +218,7 @@
       });
 	  
 	  function getGenericProblemType(parent){
-		var sql = 'SELECT problemType,problemSubType FROM tblProblem WHERE problem = "' + parent + '";';
+		var sql = 'SELECT problemType,problemSubType FROM tblProblem WHERE problemNumber = "' + parent + '";';
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
 		  if (json && json[0]){
 			if(json[0].problemType == "Hardware"){
