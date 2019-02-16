@@ -239,7 +239,7 @@
 						{
 							var htm = "Sorry, no results found..."; //If no results, display error.
 						}
-						document.getElementById(GetCurrentTableDivID()).innerHTML = htm; //Appends HTML to tableDiv.
+						document.getElementById(GetCurrentTableDivID(extraCells)).innerHTML = htm; //Appends HTML to tableDiv.
 						newRowCount = 0;
 					},'json');
 				}
@@ -308,12 +308,13 @@
 			{
 				for (i = 0; i < 3; i++) //Iterates through each of the three tables in the tabs.
 				{
+					div = document.getElementById(GetCurrentTableDivID(i));
 					table = document.getElementById(GetCurrentTableID(i));
 					rows = table.rows;
 					if (rows[0].style.display == "none") //If header was hidden from there being no relevant rows earlier.
 					{
 						rows[0].style.display = "";
-						table.innerHTML.replace("There are no problems to show for this type...", "");
+						div.innerHTML.replace("There are no problems to show for this type...", "");
 					}
 					for (j = 1; j < rows.length; j++) //Iterates through each row in the table.
 					{
@@ -330,6 +331,7 @@
 				for (i = 0; i < 3; i++) //Iterates through each of the three tables in the tabs.
 				{
 					hiddenNum = 0;
+					div = document.getElementById(GetCurrentTableDivID(i));
 					table = document.getElementById(GetCurrentTableID(i));
 					rows = table.rows;
 					for (j = 1; j < rows.length; j++) //Iterates through each row in the table.
@@ -352,9 +354,9 @@
 					if (hiddenNum == rows.length-1) //If all rows are hidden, hide header row and show error.
 					{
 						rows[0].style.display = "none";
-						if (!table.innerHTML.includes("There are no problems to show for this type..."))
+						if (!div.innerHTML.includes("There are no problems to show for this type..."))
 						{
-							table.innerHTML+="There are no problems to show for this type...";
+							div.innerHTML+="There are no problems to show for this type...";
 						}
 					}
 				}
@@ -806,9 +808,9 @@
 				}
 			}
 			
-			function GetCurrentTableDivID() //Returns the ID of current tab's table div.
+			function GetCurrentTableDivID(extraCellscells) //Returns the ID of current tab's table div.
 			{
-				switch (extraCells)
+				switch (cells)
 				{
 					case 0: return "tableDivNetwork"; break;
 					case 1: return "tableDivHardware"; break;
@@ -847,14 +849,14 @@
 				{
 					return; //If already on selected page, ignore request.
 				}
-				tableDiv = document.getElementById(GetCurrentTableDivID());
+				tableDiv = document.getElementById(GetCurrentTableDivID(extraCells));
 				document.getElementById("btnHardware").style="text-decoration: initial;"
 				document.getElementById("btnSoftware").style="text-decoration: initial;"
 				document.getElementById("btnNetwork").style="text-decoration: initial;"
 				htm="";
-				if (GetCurrentTableDivID() != null)
+				if (GetCurrentTableDivID(extraCells) != null)
 				{
-					document.getElementById(GetCurrentTableDivID()).style.display = "none";
+					document.getElementById(GetCurrentTableDivID(extraCells)).style.display = "none";
 					DeselectAllRows(GetCurrentTableID(extraCells));
 				}
 				switch (tab)
@@ -879,7 +881,7 @@
 						break;
 					default: break;
 				}
-				document.getElementById(GetCurrentTableDivID()).style.display = "inline";
+				document.getElementById(GetCurrentTableDivID(extraCells)).style.display = "inline";
 				document.getElementById("typeSpecificDiv").innerHTML = htm; //Appends innerHTML for the input elements that change depending on the tab.
 				GetProblemTypeArray();
 				CheckIfUpdate() //Prevents user input if more or less than one row is selected.
