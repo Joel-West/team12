@@ -347,7 +347,7 @@
 							hiddenNum+=1;
 						}
 					}
-					if (hiddenNum == rows.length) //If all rows are hidden, hide header row and show error.
+					if (hiddenNum == rows.length-1) //If all rows are hidden, hide header row and show error.
 					{
 						rows[0].style.display = "none";
 						document.getElementById(GetCurrentTableID(i)).innerHTML+="There are no problems to show for this type...";
