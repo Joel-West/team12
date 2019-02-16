@@ -350,13 +350,20 @@
 							hiddenNum+=1;
 						}
 					}
-					if (hiddenNum == rows.length-1) //If all rows are hidden, hide header row and show error.
-					{
-						rows[0].style.display = "none";
-						
-					}
 				}
 				CheckIfUpdate();
+			}
+			
+			CheckIfHideHeader(rows) //Checks if all rows of the table are hidden, and thus if the header should be hidden.
+			{
+				for (i = 1; i < rows.length; i++)
+				{
+					if (rows[i].style.display != "none")
+					{
+						return; //If a row is visible, leave function.
+					}
+				}
+				rows[0].style.display = "none"; //If all rows are invisible, hide header.
 			}
 			
 			function GetArrays() //Function to get array of all the serial numbers, specialists and problem types.
@@ -705,7 +712,7 @@
 				
 				rowData = row.innerHTML; //Gets the details of the row that is selected.
 				document.getElementById(GetCurrentTableID(extraCells)).deleteRow(GetSelectedRow()); //Delete the row from the current tab.
-				
+				CheckIfHideHeader(GetCurrentTableID(extraCells).rows);
 				switch (newExtraCells) //Changes tab to the tab that the record will be moved to.
 				{
 					case 0: ChangeTab("Network", false); break;
@@ -1066,6 +1073,7 @@
 				if (document.getElementById("txtSpecialist").value != userData.split(",")[1] && !document.getElementById("chkAllProblems").checked) //If changing problem to other specialist and only the user's problems are being shown, hide problem.
 				{
 					row.style.display = "none";
+					CheckIfHideHeader(document.getElementById(GetCurrentTableID(extraCells)).rows);
 				}
 				row.classList.replace("rowSelected", "rowDeselected"); //Deselect updated row.
 				selected = 0;
