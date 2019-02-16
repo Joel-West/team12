@@ -808,7 +808,7 @@
 				}
 			}
 			
-			function GetCurrentTableDivID(extraCellscells) //Returns the ID of current tab's table div.
+			function GetCurrentTableDivID(cells) //Returns the ID of current tab's table div.
 			{
 				switch (cells)
 				{
