@@ -720,8 +720,8 @@
 				else
 				{
 					table.tBodies[0].innerHTML += "<tr class='rowSelected'>"+rowData+"</tr>"; //Else, adds row data to new tab after being removed from another tab.
+					selected = 1;
 				}
-				selected = 1;
 				CheckIfUpdate();
 				if (!ListContains(updList, row.cells[0].innerHTML)) //If moved row is not already marked to be updated when changes are saved to the database later.
 				{
