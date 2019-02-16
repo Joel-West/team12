@@ -310,11 +310,11 @@
 					{
 						rows = document.getElementById(GetCurrentTableID(i)).rows;
 						console.log(i);
-						for (j = 0; j < rows.length; j++) //Iterates through each row in the table.
+						for (j = 1; j < rows.length; j++) //Iterates through each row in the table.
 						{
-							if (rows[i].style.display = "none")
+							if (rows[j].style.display = "none")
 							{
-								rows[i].style.display = "default"; //Makes every row visible.
+								rows[j].style.display = "default"; //Makes every row visible.
 							}
 						}
 					}
@@ -325,11 +325,11 @@
 				for (i = 0; i < 3; i++) //Iterates through each of the three tables in the tabs.
 				{
 					rows = document.getElementById(GetCurrentTableID(i)).rows;
-					for (j = 0; j < rows.length; j++) //Iterates through each row in the table.
+					for (j = 1; j < rows.length; j++) //Iterates through each row in the table.
 					{
-						if (rows[i].style.display = "default" && rows[i].cells[i+3] != userData.split(",")[1])
+						if (rows[j].style.display = "default" && rows[i].cells[i+3] != userData.split(",")[1])
 						{
-							rows[i].style.display = "none"; //Makes rows assigned to other specialist invisible.
+							rows[j].style.display = "none"; //Makes rows assigned to other specialist invisible.
 						}
 					}
 				}
