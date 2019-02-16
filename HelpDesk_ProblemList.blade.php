@@ -39,10 +39,15 @@
 			{
 				admin = (userData.split(","))[2]; //Retrieves statuses from userData that was earlier posted from previous form.
 				analyst = (userData.split(","))[3];
+				specialist = (userData.split(","))[4];
 				if (admin == 0 && analyst == 1)
 				{
 					$("#inputDiv :input").prop("disabled", true); //If not admin or operator, disable all input fields in the input div.
-				}	
+				}
+				if (specialist != 1)
+				{
+					document.getElementById("chkAllProblems").display = "none";
+				}
 			}
 			
 			function ResetTable()
@@ -1139,6 +1144,7 @@
 							<input type="button" id="btnHardware" class="btn tabButton" value="Hardware" onclick="ChangeTab('Hardware', true)"></input>
 							<input type="button" id="btnSoftware" class="btn tabButton" value="Software" onclick="ChangeTab('Software', true)"></input>
 							<input type="button" id="btnNetwork" class="btn tabButton" value="Network" onclick="ChangeTab('Network', true)"></input>
+							<input id="chkAllProblems" type="checkbox" onclick="AllProblemsClicked()"></input><br/> <!-- Checkbox that appears when the user is a specialist, allows them to show only their own problems. -->
 						</div>
 						<br/>
 						<div id="tableOuterDiv" class="table-wrapper-scroll-y">
