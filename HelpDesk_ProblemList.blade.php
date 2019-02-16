@@ -345,7 +345,6 @@
 								{
 									document.getElementById("callHistoryDiv").innerHTML = ""; //Hides call history if no problem is now selected.
 								}
-								CheckIfUpdate();
 							}
 							rows[j].style.display = "none"; //Makes rows assigned to other specialist invisible.
 							hiddenNum+=1;
@@ -357,6 +356,7 @@
 						
 					}
 				}
+				CheckIfUpdate();
 			}
 			
 			function GetArrays() //Function to get array of all the serial numbers, specialists and problem types.
