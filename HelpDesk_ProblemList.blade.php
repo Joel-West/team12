@@ -353,7 +353,6 @@
 					if (hiddenNum == rows.length-1) //If all rows are hidden, hide header row and show error.
 					{
 						rows[0].style.display = "none";
-						
 					}
 				}
 				CheckIfUpdate();
@@ -718,7 +717,7 @@
 				
 				rowData = row.innerHTML; //Gets the details of the row that is selected.
 				document.getElementById(GetCurrentTableID(extraCells)).deleteRow(GetSelectedRow()); //Delete the row from the current tab.
-				CheckIfHideHeader(GetCurrentTableID(extraCells).rows);
+				CheckIfHideHeader(document.getElementById(GetCurrentTableID(extraCells)).rows);
 				switch (newExtraCells) //Changes tab to the tab that the record will be moved to.
 				{
 					case 0: ChangeTab("Network", false); break;
