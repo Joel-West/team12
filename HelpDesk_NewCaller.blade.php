@@ -233,17 +233,6 @@
 		},'json');
 	  }
 	  
-	  function updateSpecialist(){ //Selects the specialist for a existing problem
-		sql2 = "SELECT specialistID FROM tblProblem WHERE problemNumber = '" + problemNumber + "';";
-		$.get("Query.php", {'sql':sql2, 'returnData':true},function(json){
-		  if(json && json[0]){
-			index = specialistIDList.indexOf(json[0].specialistID);
-			$("#dropdownButton4:first-child").text(specialistList[index] + " (" + count[index] + " current jobs) (" + json[0].specialistID + ")");
-			$("#dropdownButton4:first-child").val(specialistList[index] + " (" + count[index] + " current jobs) (" + json[0].specialistID + ")");
-		  }
-		},'json');
-	  }
-	  
 	  function radios(num){ //Occurs when the radio buttons are clicked to choose the general problem type, collpases the correct divs and calls specific functions depending on the decision
 		var html = "<form class ='px-4 py-3'><div class='form-group'><label for='dropdownSearch'>Search</label>"
 		html += "<input type='text' class='form-control' id='dropdownSearch3' placeholder='Search' onkeyup='filter(3)'></div></form>"
@@ -481,6 +470,17 @@
 			  updateSpecialist();
 		  }
 	      $('#result2Collapse').collapse('show');
+		},'json');
+	  }
+	  
+	  function updateSpecialist(){ //Selects the specialist for a existing problem
+		sql2 = "SELECT specialistID FROM tblProblem WHERE problemNumber = '" + problemNumber + "';";
+		$.get("Query.php", {'sql':sql2, 'returnData':true},function(json){
+		  if(json && json[0]){
+			index = specialistIDList.indexOf(json[0].specialistID);
+			$("#dropdownButton4:first-child").text(specialistList[index] + " (" + count[index] + " current jobs) (" + json[0].specialistID + ")");
+			$("#dropdownButton4:first-child").val(specialistList[index] + " (" + count[index] + " current jobs) (" + json[0].specialistID + ")");
+		  }
 		},'json');
 	  }
 	  
