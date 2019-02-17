@@ -13,7 +13,9 @@
 	<script type="text/javascript" src="{{ URL::asset('js/ExtraCode.js') }}"></script>
 	<script type="text/javascript">
 	  var userData; //Variable containing data about user
-	  var currentPage = "NewCaller";
+	  var currentPage = "NewCaller"; //Variable containing current page user is on
+	  var flag = 0; //Flag, 0 if problem the caller is calling about is new, 1 if it is about a existing problem
+	  var problemNumber; //Global Variable to hold the problem number of the chosen unsolved problem
 	  
 	  function Load(){ //Runs on load of the page
 		problemCreation();
@@ -57,7 +59,7 @@
 	    }
       }
 	  
-	  function problemCreation(){ //Dynamically fills the 
+	  function problemCreation(){ //Dynamically fills the dropdown box for deciding if the call is about a new or existing problem
 	    var html = "<a class='dropdown-item'>New Problem</a><div class='dropdown-divider'></div>";
 		html += "<h6 class='dropdown-header'>Existing Problems</h6>";
 		var sql = "SELECT problem, problemNumber FROM tblProblem WHERE resolved = 'no'";
@@ -71,17 +73,17 @@
 		},'json');
 	  }
 	  
+	  //JQuery to check when dropdown dynamically filled in the above function was clicked
       $(document).on('click', '#dropdown-menu a', function(){
-        $("#dropdownButton:first-child").text($(this).text());
-        $("#dropdownButton:first-child").val($(this).text());
+        $("#dropdownButton:first-child").text($(this).text()); // When clicked set the button text to the option clicked
+        $("#dropdownButton:first-child").val($(this).text()); // When clicked set the button value to the option clicked
 	    problem();
       });
 	  
-	  var flag = 0;
-	  function problem(){
+	  function problem(){ //Shows/hides divs depending on if the call is about a new problem or a existing ,unsolved problem.
 		$("#dropdownButton2:first-child").text('Choose Problem');
         $("#dropdownButton2:first-child").val('');
-		$('#Checkbox').prop('checked', false);
+		$('#Checkbox').prop('checked', false); //Sets the solved checkbox to false
 		checkbox();
 		if(document.getElementById("dropdownButton").value == "New Problem"){
 		  flag = 0;
@@ -105,22 +107,11 @@
 		  $('#result2Collapse').collapse('hide');
 		  $('#updateDiv1').collapse('hide');
 		  $('#updateDiv2').collapse('hide');
-		  updateExistingProblem();
+		  problemNumber = document.getElementById("dropdownButton").value;
+		  problemNumber = problemNumber.split(" ");
+		  problemNumber = problemNumber[problemNumber.length - 1];
+		  getGenericProblemType(problemNumber);
 		}
-	  }
-	  var problemNumber;
-	  function updateExistingProblem(){
-		problemNumber = document.getElementById("dropdownButton").value;
-		problemNumber = problemNumber.split(" ");
-		problemNumber = problemNumber[problemNumber.length - 1];
-		getGenericProblemType(problemNumber);
-		sql = "SELECT serialNumber FROM tblProblem WHERE problemNumber = '" + problemNumber + "';";
-		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
-		  if(json && json[0]){
-			$("#dropdownButtonSerial:first-child").text(json[0].serialNumber);
-            $("#dropdownButtonSerial:first-child").val(json[0].serialNumber);
-		  }
-		},'json');
 	  }
 	  
 	  function updateSpecialist(){
@@ -134,24 +125,24 @@
 		},'json');
 	  }
 	  
-	  function newProblemCreation(){
+	  function newProblemCreation(){ //Dynamically fills the dropdown menu which allows the operator to choose options for the new problem the caller is calling about
 		var html = "<form class ='px-4 py-3'><div class='form-group'><label for='dropdownSearch'>Search</label>"
 		html += "<input type='text' class='form-control' id='dropdownSearch2' placeholder='Search' onkeyup='filter(2)'></div></form>"
 	    html += "<div class='dropdown-divider'></div><a class='dropdown-item'>New Problem</a><form class='px-4 py-3'>";
 		html += "<input type='text' class='form-control' id='newProblemInput' placeholder='Enter New Problem'></form><div class='dropdown-divider'></div>";
 		html += "<h6 class='dropdown-header'>Previously Problems</h6>";
-		var sql = "SELECT problem FROM tblProblem";
+		var sql = "SELECT problem,problemNumber FROM tblProblem";
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
 		  if (json && json[0]){
 			for (i = 0; i < json.length; i++){
-			  html+="<a class='dropdown-item' >" + json[i].problem + "</a>";
+			  html+="<a class='dropdown-item' >" + json[i].problem + ". Problem Number: " + json[i].problemNumber + "</a>";
 			}
 		    document.getElementById("dropdown-menu2").innerHTML = html;
 		  }
 		},'json');
 	  }
 	  
-	  function filter(end){
+	  function filter(end){ //Filters the contents of the dropdown depending on the contents of its search bar
 	    var input = document.getElementById("dropdownSearch" + end);
 		var x = document.getElementById("dropdown-menu" + end).getElementsByTagName("a");
 		for (i = 0; i < x.length; i++){
@@ -165,7 +156,7 @@
 		}
 	  }
 	  
-	  $(document).on('click', '#dropdown-menu2 a', function(){
+	  $(document).on('click', '#dropdown-menu2 a', function(){ //Checks if the dropdown containing the options of the new problem has been clicked
 		if ($(this).text() == "New Problem"){
 		  $("#dropdownButton2:first-child").text(document.getElementById("newProblemInput").value);
 		  $("#dropdownButton2:first-child").val(document.getElementById("newProblemInput").value);
@@ -176,20 +167,18 @@
           $("#dropdownButton2:first-child").text($(this).text());
           $("#dropdownButton2:first-child").val($(this).text());
 		  $('#result2Collapse').collapse('hide');
-		  getGenericProblemType($(this).text());
+		  problemNumber = document.getElementById("dropdownButton2").value;
+		  problemNumber = problemNumber.split(" ");
+		  problemNumber = problemNumber[problemNumber.length - 1];
+		  getGenericProblemType(problemNumber);
 		}
       });
 	  
-	  function getGenericProblemType(parent){
+	  function getGenericProblemType(parent){ //
 		var sql;
 		$("#dropdownButton4:first-child").text('Choose Specialist:');
         $("#dropdownButton4:first-child").val('');
-		if (flag == 1){
-		  sql = 'SELECT problemType,problemSubType FROM tblProblem WHERE problemNumber = "' + parent + '";';
-		}
-		else{
-		  sql = 'SELECT problemType,problemSubType FROM tblProblem WHERE problem = "' + parent + '";';
-		}
+		sql = 'SELECT problemType,problemSubType FROM tblProblem WHERE problemNumber = "' + parent + '";';
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
 		  if (json && json[0]){
 			if(json[0].problemType == "Hardware"){
