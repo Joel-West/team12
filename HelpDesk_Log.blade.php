@@ -29,7 +29,7 @@
 				    console.log(Password);
 				  }
 				  console.log("HELLO");
-				},'Hashed');
+				},'json');
 				
 				if (Username.includes("'")) //Protects against SQL injection.
 				{
