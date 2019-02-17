@@ -21,9 +21,9 @@
 				var Username=document.getElementById("Username").value; //Get username and password from text boxes.
 				var Password=document.getElementById("Password").value;
 				console.log(Password);
-				$.get("Hash.php", {'Password':Password},function(Hashed){
-				  if(hashed){
-				    Password = Hashed;
+				$.get("Hash.php", {'Password':Password},function(json){
+				  if(json && json[0]){
+				    Password = json;
 				    console.log(Password);
 				  }
 				  console.log("HELLO");
