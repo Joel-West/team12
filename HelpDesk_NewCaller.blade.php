@@ -114,7 +114,6 @@
 		problemNumber = problemNumber.split(" ");
 		problemNumber = problemNumber[problemNumber.length - 1];
 		getGenericProblemType(problemNumber);
-		console.log(problemNumber);
 		sql = "SELECT serialNumber FROM tblProblem WHERE problemNumber = '" + problemNumber + "';";
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
 		  if(json && json[0]){
@@ -126,19 +125,13 @@
 	  
 	  function updateSpecialist(){
 		sql2 = "SELECT specialistID FROM tblProblem WHERE problemNumber = '" + problemNumber + "';";
-		console.log("AH"+problemNumber);
 		$.get("Query.php", {'sql':sql2, 'returnData':true},function(json){
 		  if(json && json[0]){
 			index = specialistIDList.indexOf(json[0].specialistID);
 			$("#dropdownButton4:first-child").text(specialistList[index] + " (" + count[index] + " current jobs) (" + json[0].specialistID + ")");
 			$("#dropdownButton4:first-child").val(specialistList[index] + " (" + count[index] + " current jobs) (" + json[0].specialistID + ")");
 		  }
-		  sqlUpdate();
 		},'json');
-	  }
-	  
-	  function sqlUpdate(){
-		console.log("TRIGGE");
 	  }
 	  
 	  function newProblemCreation(){
@@ -446,7 +439,6 @@
 		  if (json && json[0]){
 			count.push(json[0].occurence);
 		  }
-		  console.log(b);
 		  if (b == specialistIDList.length - 1){
 			populateSpecialistList(0);
 		  }
@@ -473,7 +465,6 @@
 		if(flag == 1){
 		  updateSpecialist();
 		}
-		console.log(specialistList);
 		var sql = "SELECT userID FROM tblSpecialisation WHERE typeName = '" + problemTypeVar + "';";
 		var html = "";
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
@@ -481,12 +472,8 @@
 			html += "<h6 class='dropdown-header'>Specialists to exact problem type</h6>"
 			for (i = 0; i < json.length; i++){
 			  html += "<a class='dropdown-item' >" + specialistList[i] + " (" + count[i] + " current jobs) (" + specialistIDList[i] + ")</a>"
-			  console.log(specialistList[i]);
-			  console.log(count[i]);
 			}
-			console.log(specialistList);
 			specialistList.splice(0,i);
-			console.log(specialistList);
 			specialistIDList.splice(0,i);
 			count.splice(0,i);
 			html += "<div class='dropdown-divider'></div>"
@@ -495,8 +482,6 @@
 			html+= "<h6 class='dropdown-header'>Specialists to a generalisation of the problem type</h6>";
 			for (j = 0; j < specialistList.length; j++){
 		      html+= "<a class='dropdown-item' >" + specialistList[j] + " (" + count[j] + " current jobs) (" + specialistIDList[j] + ")</a>"
-		      console.log(specialistList[j]);
-			  console.log(count[j]);
 			}
 		  }
 		  document.getElementById("dropdown-menu4").innerHTML = html;
