@@ -577,7 +577,7 @@
 		  else{
 		    SaveChanges();
 		  }
-		}
+		},'json');
 	  }
 	  
 	  function SaveChanges(){
