@@ -16,6 +16,14 @@
 	  var currentPage = "NewCaller"; //Variable containing current page user is on
 	  var flag = 0; //Flag, 0 if problem the caller is calling about is new, 1 if it is about a existing problem
 	  var problemNumber; //Global Variable to hold the problem number of the chosen unsolved problem
+	  var problemTypeList = []; //Holds all the problemType
+	  var specialistIDList = []; //Holds specialistID 
+	  var count = []; //Holds job count for specialists
+	  var specialistList = []; //Holds specialist names
+	  var problemTypeVar; //Holds the problem type of the problem given by the operator
+	  resolvedOptions = {day: 'numeric', month: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: false} //Sets the time format.
+	  var startDT = new Date();
+	  var resolvedDTCurrent = "";
 	  
 	  function Load(){ //Runs on load of the page
 		problemCreation();
@@ -174,7 +182,7 @@
 		}
       });
 	  
-	  function getGenericProblemType(parent){ //
+	  function getGenericProblemType(parent){ //Collapses the correct divs based on the problem type 
 		var sql;
 		$("#dropdownButton4:first-child").text('Choose Specialist:');
         $("#dropdownButton4:first-child").val('');
@@ -235,7 +243,7 @@
 		},'json');
 	  }
 	  
-	  function radios(num){
+	  function radios(num){ //Occurs when the radio buttons are clicked to choose the general problem type, collpases the correct divs and calls secific functions depending on the decision
 		var html = "<form class ='px-4 py-3'><div class='form-group'><label for='dropdownSearch'>Search</label>"
 		html += "<input type='text' class='form-control' id='dropdownSearch3' placeholder='Search' onkeyup='filter(3)'></div></form>"
 	    html += "<div class='dropdown-divider'></div><h6 class='dropdown-header'>Problem Types</h6>";
@@ -272,7 +280,7 @@
 		$('#problemTypeCollapse').collapse('show');
 	  }
 	  
-	  function findAllChildren(parent,html){
+	  function findAllChildren(parent,html){ //Finds all branching typenames from a given typename e.g. if given Hardware it will find all problem types related to Hardware, like Keyboard problem.
 		var sql = "SELECT typeName FROM tblProblemType WHERE generalisation = '" + parent + "';";
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
 		  if (json && json[0]){
@@ -286,7 +294,7 @@
 		return(html); 
 	  }
 	  
-	  function createSerialNumber(){
+	  function createSerialNumber(){ //Fills in the dropdown box for the serial number
 		var html = "<form class ='px-4 py-3'><div class='form-group'><label for='dropdownSearch'>Search</label>"
 		html += "<input type='text' class='form-control' id='dropdownSearch5' placeholder='Search' onkeyup='filter(5)'></div></form>"
 	    html += "<div class='dropdown-divider'></div>";
@@ -303,7 +311,7 @@
 		},'json');
 	  }
 	  
-	  function createSoftwareDropdown(){
+	  function createSoftwareDropdown(){ //Fills in the dropdown box for the concerned software and operating system
 		var html = "<form class ='px-4 py-3'><div class='form-group'><label for='dropdownSearch'>Search</label>"
 		html += "<input type='text' class='form-control' id='dropdownSearch6' placeholder='Search' onkeyup='filter(6)'></div></form>"
 	    html += "<div class='dropdown-divider'></div><a class='dropdown-item'>New OS</a><form class='px-4 py-3'>";
@@ -338,12 +346,12 @@
 		},'json');
 	  }
 	  
-	  $(document).on('click', '#dropdown-menu5 a', function(){
+	  $(document).on('click', '#dropdown-menu5 a', function(){ //Occurs on click of the serial number dropdown
         $("#dropdownButtonSerial:first-child").text($(this).text());
         $("#dropdownButtonSerial:first-child").val($(this).text());
       });
 	  
-	  $(document).on('click', '#dropdown-menu6 a', function(){
+	  $(document).on('click', '#dropdown-menu6 a', function(){ //Occurs on click of the OS dropdown
 		if ($(this).text() == "New OS"){
 		  $("#dropdownButtonOS:first-child").text(document.getElementById("newOSInput").value);
 		  $("#dropdownButtonOS:first-child").val(document.getElementById("newOSInput").value);
@@ -354,7 +362,7 @@
 		}
       });
 	  
-	  $(document).on('click', '#dropdown-menu7 a', function(){
+	  $(document).on('click', '#dropdown-menu7 a', function(){ //Occurs on the click of the concerned software dropdown
 		if ($(this).text() == "New Concerned Software"){
 		  $("#dropdownButtonConcern:first-child").text(document.getElementById("newConcernInput").value);
 		  $("#dropdownButtonConcern:first-child").val(document.getElementById("newConcernInput").value);
@@ -365,18 +373,12 @@
 		}
       });
 	  
-	  $(document).on('click', '#dropdown-menu3 a', function(){
+	  $(document).on('click', '#dropdown-menu3 a', function(){ //Occurs on the click of the problem Type dropdown
         $("#dropdownButton3:first-child").text($(this).text());
         $("#dropdownButton3:first-child").val($(this).text());
 		populateSpecialist($(this).text());
 		checkbox();
       });
-	  
-	  var problemTypeList = [];
-	  var specialistIDList = [];
-	  var count = [];
-	  var specialistList = [];
-	  var problemTypeVar;
 	  
 	  function populateSpecialist(problemType){
 		problemTypeList = [];
@@ -385,7 +387,7 @@
 		populateProblemTypeList(problemType);
 	  }
 	  
-	  function populateProblemTypeList(problemType){
+	  function populateProblemTypeList(problemType){ //Fills the problemTypeList with problemtypes with a specific generalisation
 		var sql = "SELECT generalisation FROM tblProblemType WHERE typeName = '" + problemType + "';";
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
 		  if (json && json[0]){
@@ -404,7 +406,7 @@
 	    },'json');
 	  }
 	  
-	  function populateIDList(a){
+	  function populateIDList(a){ //Populates the id list with specialists to each problem type in the problem type list
 		sql = "SELECT userID FROM tblSpecialisation WHERE typeName = '" + problemTypeList[a] + "';";
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
 		  if (json && json[0]){
@@ -422,7 +424,7 @@
 		},'json');
 	  }
 	  
-	  function populateCount(b){
+	  function populateCount(b){ //Populates count with the amount of jobs each specialist in IDList
 		sql = "SELECT COUNT(problem) AS occurence FROM tblProblem WHERE specialistID = " + specialistIDList[b] + " AND resolved = 'No';";
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
 		  if (json && json[0]){
@@ -436,7 +438,7 @@
 		},'json');
 	  }
 	  
-	  function populateSpecialistList(c){
+	  function populateSpecialistList(c){ //Populates this list with the names of the specialists in the ID list
 		sql = "SELECT name FROM tblPersonnel WHERE userID = " + specialistIDList[c] + ";";
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
 		  if (json && json[0]){
@@ -450,10 +452,7 @@
 		},'json');
 	  }
 	  
-	  function fillSpecialistComboBox(){
-		if(flag == 1){
-		  updateSpecialist();
-		}
+	  function fillSpecialistComboBox(){ //Fills the specialist combo box with the information gathered in previous functions
 		var sql = "SELECT userID FROM tblSpecialisation WHERE typeName = '" + problemTypeVar + "';";
 		var html = "";
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
@@ -483,7 +482,7 @@
         $("#dropdownButton4:first-child").val($(this).text());
       });
 	  
-	  function checkbox(){
+	  function checkbox(){ //Runs when the solution checkbox is clicked
 		if(document.getElementById("Checkbox").checked == true){
 		  var resolvedDT = new Date();
 		  resolvedDTCurrent = resolvedDT.toLocaleDateString("en-GB", resolvedOptions);
@@ -494,7 +493,7 @@
 		}
 	  }
 		
-	  function solutionCreation(){
+	  function solutionCreation(){ //Fills and shows the solution dropdown box underneath the solution text area, only appears if the selected problem has a previous problem with the same type which has been solved.
 		$("#solution").val('');
 		var sql = "SELECT solution FROM tblProblem WHERE problemSubType = '" + problemTypeVar + "';";
 		var html = "";
@@ -517,17 +516,13 @@
 		},'json');
 	  }
 	  
-	  $(document).on('click', '#dropdown-menuSolution a', function(){
+	  $(document).on('click', '#dropdown-menuSolution a', function(){ //Occurs on click of the solution dropdown
         $("#dropdownButtonSolution:first-child").text($(this).text());
         $("#dropdownButtonSolution:first-child").val($(this).text());
 		$("#solution").val($(this).attr('data-title'));
       });
 	  
-	  resolvedOptions = {day: 'numeric', month: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: false} //Sets the time format.
-	  var startDT = new Date();
-	  var resolvedDTCurrent = "";
-	  
-	  function Validation(){
+	  function Validation(){ //Validates the data before being added to the database
 		var validation = 0;
 		var radioValue = $('input[name=Radios]:checked').val();
 		if (radioValue == "Hardware"){
@@ -565,6 +560,7 @@
 		    alert("There is a invalid field");
 		  }
 		  else{
+			console.log("ENTER");
 		    SaveChanges();
 		  }
 		},'json');
