@@ -22,6 +22,7 @@
 				var Password=document.getElementById("Password").value;
 				console.log(Password);
 				$.get("Hash.php", {'Password':Password},function(Hashed){
+				  console.log(Hashed);
 				  if(Hashed){
 				    Password = Hashed;
 				    console.log(Password);
