@@ -237,6 +237,8 @@
 			  $('#concernCollapseDiv').collapse('hide');
 			  $('#concernCollapseDiv2').collapse('hide');
 			  document.getElementById("RadiosH").checked = true;
+			  $("#dropdownButtonSerial:first-child").text('Choose Serial Number');
+			  $("#dropdownButtonSerial:first-child").val('');
 			  if (flag == 1){
 				var sqlH = "SELECT serialNumber FROM tblProblem WHERE problemNumber = '" + problemNumber + "';";
 				$.get("Query.php", {'sql':sqlH, 'returnData':true},function(json){
