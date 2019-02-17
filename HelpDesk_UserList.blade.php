@@ -334,6 +334,7 @@
 				  if(Hashed){
 					row.cells[2].innerHTML = Hashed;
 					row.cells[3].innerHTML = GetAdminAsString(document.getElementById("chkAdmin").checked);
+					console.log(row.cells[3]);
 				    row.classList.replace("rowSelected", "rowDeselected"); //Deselect updated row.
 				  }
 				},'json');
