@@ -343,7 +343,6 @@
 						sql+="'" + row.cells[5].innerHTML + "'); ";
 					}
 				}
-				alert(sql);
 				if (sql != "") //If there is any SQL to run.
 				{
 					$.get("Query.php", {'sql':sql, 'returnData':false},function(json) //Calls query.php, which handles the SQL query and sorting of result data.
@@ -374,12 +373,35 @@
 		</style>
 	</head>
 	<body onload="Load()" style="height:100%;">
+		<header class="navbar flex-column flex-md-row bd-navbar navbar-dark navbar-expand-lg bg-dark">
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="navbar-collapse collapse" id="navbarNavDropdown">
+			<ul class='navbar-nav mr-auto'>
+			<a class='nav-item nav-link' href='#' onClick='GoToNewPage(document.getElementById(&quot;Previous&quot;).value)'>&#x2190 </a>
+			 <a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;Home&quot;);'>Home</a>";
+			  <a class='nav-item nav-link active' href='#'>New Call</a>";
+			  <a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;CallHistory&quot;);'>Call History</a>
+			  <a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;ProblemList&quot;);'>Problems List</a>
+			 <a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;PersonnelList&quot;);'>Personnel</a>
+			 <a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;UserList&quot;);'>Users</a>
+			 <a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;SpecialisationList&quot;);'>Specialisations</a>
+			 <a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;EquipmentList&quot;);'>Equipment</a>
+			 <a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;ProblemTypeList&quot;);'>Problem Type List</a>
+			 <a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;Analytics&quot;);'>Analytics</a></ul>
+		</div>
+		<a class='nav-item nav-link' href='#' onClick='GoToNewPage("");'>Logout</a>
+		<a class="navbar-brand ml-md-auto" href="#">
+		<img src="https://www.goodfreephotos.com/albums/vector-images/screwdriver-and-wrench-vector-clipart.png" width="30" height="30" class="d-inline-block align-top" alt="">
+		  Make-It-All
+		</a>
+		</header>
 		<div class="container-fluid"> <!-- Container holds elements together using Bootstrap. -->
 			<form autocomplete="off" id="mainform" name="mainform" method="post" action=""> <!-- This form will post data to an initially unspecified page when submitted. -->
 				<input type='text' hidden id="user" name="User"/> <!-- Hidden tag used to store posted user data so that it can later be posted back to the home page. -->
 				@csrf <!--Token to validates requests to server. -->
 				<div class="titleDiv"> <!-- Div containing elements at the top of the page. -->
-					<input type="button" id="btnBack" style="font-size:40px; position:absolute; left:0;" value="&#x2190" style="display:inline-block;" onClick="GoToNewPage('Home');" /> <!-- Back button. -->
 					<label id="dtLabel" class="dtLabel"></label> <!-- Label to contain current data/time. -->
 					<h2 id="headerId">Personnel</h2> <!-- Heading containing name of page. -->
 				</div>
