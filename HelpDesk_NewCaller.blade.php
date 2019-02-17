@@ -125,9 +125,9 @@
 	  
 	  function newProblemCreation(){ //Dynamically fills the dropdown menu which allows the operator to choose options for the new problem the caller is calling about
 		var html = "<form class ='px-4 py-3'><div class='form-group'><label for='dropdownSearch'>Search</label>"
-		html += "<input type='text' class='form-control' id='dropdownSearch2' placeholder='Search' onkeyup='filter(2)'></div></form>"
+		html += "<input type='text' class='form-control' id='dropdownSearch2' placeholder='Search' onkeyup='filter(2)'></div></form>" //Adds the search bar
 	    html += "<div class='dropdown-divider'></div><a class='dropdown-item'>New Problem</a><form class='px-4 py-3'>";
-		html += "<input type='text' class='form-control' id='newProblemInput' placeholder='Enter New Problem'></form><div class='dropdown-divider'></div>";
+		html += "<input type='text' class='form-control' id='newProblemInput' placeholder='Enter New Problem'></form><div class='dropdown-divider'></div>"; //Adds the new problem box
 		html += "<h6 class='dropdown-header'>Previously Problems</h6>";
 		var sql = "SELECT problem,problemNumber FROM tblProblem";
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
@@ -141,11 +141,11 @@
 	  }
 	  
 	  function filter(end){ //Filters the contents of the dropdown depending on the contents of its search bar
-	    var input = document.getElementById("dropdownSearch" + end);
-		var x = document.getElementById("dropdown-menu" + end).getElementsByTagName("a");
+	    var input = document.getElementById("dropdownSearch" + end); //Each dropdownSearch is numbered, the end number is passed to this function so filter can filter the correct dropdown box
+		var x = document.getElementById("dropdown-menu" + end).getElementsByTagName("a"); //Gets all a tags, all options in dropdownbox
 		for (i = 0; i < x.length; i++){
 		  txtValue = x[i].textContent || x[i].innerText;
-		  if (txtValue.toUpperCase().indexOf(input.value.toUpperCase()) > -1) {
+		  if (txtValue.toUpperCase().indexOf(input.value.toUpperCase()) > -1) { //If the search is matching up then keep its css style, if it isn't then remove its style making it disappear
 		    x[i].style.display = "";
 		  }
 		  else{
@@ -155,13 +155,13 @@
 	  }
 	  
 	  $(document).on('click', '#dropdown-menu2 a', function(){ //Checks if the dropdown containing the options of the new problem has been clicked
-		if ($(this).text() == "New Problem"){
+		if ($(this).text() == "New Problem"){ //If the new problem is entirely new, no instance of this problem has occured in the past
 		  $("#dropdownButton2:first-child").text(document.getElementById("newProblemInput").value);
 		  $("#dropdownButton2:first-child").val(document.getElementById("newProblemInput").value);
 		  $(':radio').prop('checked',false);
 		  $('#newNewProblemCollapse').collapse('show');
 		}
-		else{
+		else{ //A similar previous problem was picked
           $("#dropdownButton2:first-child").text($(this).text());
           $("#dropdownButton2:first-child").val($(this).text());
 		  $('#result2Collapse').collapse('hide');
@@ -176,10 +176,10 @@
 		var sql;
 		$("#dropdownButton4:first-child").text('Choose Specialist:');
         $("#dropdownButton4:first-child").val('');
-		sql = 'SELECT problemType,problemSubType FROM tblProblem WHERE problemNumber = "' + parent + '";';
+		sql = 'SELECT problemType,problemSubType FROM tblProblem WHERE problemNumber = "' + parent + '";';//Gets the problemType and problemSubType of the chosen problem
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
 		  if (json && json[0]){
-			if(json[0].problemType == "Hardware"){
+			if(json[0].problemType == "Hardware"){ //If a hardware problem
 			  $('#OSCollapse').collapse('hide');
 			  $('#concernCollapse').collapse('hide');
 			  $('#concernCollapseDiv').collapse('hide');
@@ -187,16 +187,16 @@
 			  document.getElementById("RadiosH").checked = true;
 			  $("#dropdownButtonSerial:first-child").text('Choose Serial Number');
 			  $("#dropdownButtonSerial:first-child").val('');
-			  if (flag == 1){
-				var sqlH = "SELECT serialNumber FROM tblProblem WHERE problemNumber = '" + problemNumber + "';";
+			  if (flag == 1){ //If a existing problem was picked
+				var sqlH = "SELECT serialNumber FROM tblProblem WHERE problemNumber = '" + problemNumber + "';"; //Get the serial number of the affected hardware
 				$.get("Query.php", {'sql':sqlH, 'returnData':true},function(json){
 				  if(json && json[0]){
-					$("#dropdownButtonSerial:first-child").text(json[0].serialNumber);
+					$("#dropdownButtonSerial:first-child").text(json[0].serialNumber); //Update the button with the affected hardwares serial number
 					$("#dropdownButtonSerial:first-child").val(json[0].serialNumber);
 				  }
 				},'json');
 			  }
-			  radios(1);
+			  radios(1); //Runs radios, the function which occurs when the radio button is clicked
 			}else if(json[0].problemType == "Software"){
 			  $('#serialNumberCollapse').collapse('hide');
 			  document.getElementById("RadiosS").checked = true;
@@ -227,13 +227,13 @@
 			$('#newNewProblemCollapse').collapse('show');
 			$("#dropdownButton3:first-child").text(json[0].problemSubType);
             $("#dropdownButton3:first-child").val(json[0].problemSubType);
-			populateSpecialist(json[0].problemSubType);
+			populateSpecialist(json[0].problemSubType); //Populates the specialist dropdown box
 			
 		  }
 		},'json');
 	  }
 	  
-	  function radios(num){ //Occurs when the radio buttons are clicked to choose the general problem type, collpases the correct divs and calls secific functions depending on the decision
+	  function radios(num){ //Occurs when the radio buttons are clicked to choose the general problem type, collpases the correct divs and calls specific functions depending on the decision
 		var html = "<form class ='px-4 py-3'><div class='form-group'><label for='dropdownSearch'>Search</label>"
 		html += "<input type='text' class='form-control' id='dropdownSearch3' placeholder='Search' onkeyup='filter(3)'></div></form>"
 	    html += "<div class='dropdown-divider'></div><h6 class='dropdown-header'>Problem Types</h6>";
@@ -241,22 +241,22 @@
 		$("#dropdownButton3:first-child").text('Choose Problem Type');
 		$("#dropdownButton3:first-child").val('');
 		$('#result2Collapse').collapse('hide');
-		if (num==1){
+		if (num==1){ //If Hardware
 		  $('#OSCollapse').collapse('hide');
 		  $('#concernCollapse').collapse('hide');
 		  $('#concernCollapseDiv').collapse('hide');
 		  $('#concernCollapseDiv2').collapse('hide');
 		  document.getElementById("dropdown-menu3").innerHTML += "<a class='dropdown-item' >Hardware problem</a>";
-		  findAllChildren("Hardware problem", html);
-		  setTimeout(createSerialNumber,200);
+		  findAllChildren("Hardware problem", html); //Gets all branching problem types from Hardware
+		  setTimeout(createSerialNumber,200); //Timeouts needed to allow the collapse animation to occur, not allowing the animation to occur causes the page to mess up for a brief second, looking unprofessional
 		}
-		else if (num==2){
+		else if (num==2){ //If Software
 		  $('#serialNumberCollapse').collapse('hide');
 		  document.getElementById("dropdown-menu3").innerHTML += "<a class='dropdown-item' >Software problem</a>";
 		  findAllChildren("Software problem", html);
 		  setTimeout(createSoftwareDropdown,300);
 		}
-		else{
+		else{ //If Network
 		  $('#serialNumberCollapse').collapse('hide');
 		  $('#OSCollapse').collapse('hide');
 		  $('#concernCollapse').collapse('hide');
@@ -370,7 +370,7 @@
 		checkbox();
       });
 	  
-	  function populateSpecialist(problemType){
+	  function populateSpecialist(problemType){ //Resets global variables
 		problemTypeList = [];
 		problemTypeVar = "";
 		problemTypeVar = problemType;
@@ -396,6 +396,7 @@
 	    },'json');
 	  }
 	  
+	  //This function simulates a for loop through recursion, this is done as using a for loop to loop the query causes asynchronus issues but recursion doesn't
 	  function populateIDList(a){ //Populates the id list with specialists to each problem type in the problem type list
 		sql = "SELECT userID FROM tblSpecialisation WHERE typeName = '" + problemTypeList[a] + "';";
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
@@ -414,6 +415,7 @@
 		},'json');
 	  }
 	  
+	  //This function simulates a for loop through recursion, this is done as using a for loop to loop the query causes asynchronus issues but recursion doesn't
 	  function populateCount(b){ //Populates count with the amount of jobs each specialist in IDList
 		sql = "SELECT COUNT(problem) AS occurence FROM tblProblem WHERE specialistID = " + specialistIDList[b] + " AND resolved = 'No';";
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
@@ -428,6 +430,7 @@
 		},'json');
 	  }
 	  
+	  //This function simulates a for loop through recursion, this is done as using a for loop to loop the query causes asynchronus issues but recursion doesn't
 	  function populateSpecialistList(c){ //Populates this list with the names of the specialists in the ID list
 		sql = "SELECT name FROM tblPersonnel WHERE userID = " + specialistIDList[c] + ";";
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
@@ -451,7 +454,7 @@
 			for (i = 0; i < json.length; i++){
 			  html += "<a class='dropdown-item' >" + specialistList[i] + " (" + count[i] + " current jobs) (" + specialistIDList[i] + ")</a>"
 			}
-			specialistList.splice(0,i);
+			specialistList.splice(0,i); //Splices the added users from the specialistList, so they aren't repeated
 			specialistIDList.splice(0,i);
 			count.splice(0,i);
 			html += "<div class='dropdown-divider'></div>"
@@ -535,8 +538,23 @@
 		}catch(err){
 		  validation = 1;
 		}
-		var callerID = document.getElementById("CallerID").value;
 		
+		var dropdownButton2Var = document.getElementById('dropdownButton2').value;
+		if(dropdownButton2Var == "" || dropdownButton2.includes('"')){
+		  validation = 1;
+		}
+		
+		var notesVar = document.getElementById(notes).value; //Basic sql injection precautions
+		if(notesVar.includes('"')){
+		  validation = 1;
+		}
+		
+		var solutionVar = document.getElementById(solution).value;
+		if(solutionVar.includes('"')){
+		  validation = 1;
+		}
+		
+		var callerID = document.getElementById("CallerID").value;
 		sql = "SELECT userID FROM tblPersonnel WHERE userID = '" + callerID + "';";
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
 
@@ -576,7 +594,7 @@
 		  var dateTime = "";
 		}
 		var solution = document.getElementById("solution").value;
-		if (document.getElementById('dropdownButton').value = "New Problem"){
+		if (document.getElementById('dropdownButton').value = "New Problem"){ //New Problem requires a insert
 		  if (radioValue == "Hardware"){
 			var problemType = "Hardware";
 			var serialNumber = document.getElementById('dropdownButtonSerial').value;
@@ -629,7 +647,7 @@
 			setTimeout(insertCall, 100);
 		  }
 		}
-		else{
+		else{ //Existing problem, therefore needs a update
 		  if (radioValue == "Hardware"){
 			var problemType = "Hardware";
 			var serialNumber = document.getElementById('dropdownButtonSerial').value;
