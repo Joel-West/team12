@@ -540,7 +540,7 @@
 		}
 		
 		var dropdownButton2Var = document.getElementById('dropdownButton2').value;
-		if(dropdownButton2Var == "" || dropdownButton2.includes('"')){
+		if(dropdownButton2Var == "" || dropdownButton2Var.includes('"')){
 		  validation = 1;
 		}
 		
