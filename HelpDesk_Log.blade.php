@@ -21,7 +21,7 @@
 				var Username=document.getElementById("Username").value; //Get username and password from text boxes.
 				var Password=document.getElementById("Password").value;
 				$.get("Hash.php", {'password':Password},function(hashed){
-				  Password == hashed;
+				  Password = hashed;
 				  console.log(Password);
 				},'hashed');
 				if (Username.includes("'")) //Protects against SQL injection.
