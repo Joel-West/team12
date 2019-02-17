@@ -224,9 +224,6 @@
 			  document.getElementById("RadiosN").checked = true;
 			  radios(3);
 			}
-			if (flag == 1){
-			  updateSpecialist();
-			}
 			$('#newNewProblemCollapse').collapse('show');
 			$("#dropdownButton3:first-child").text(json[0].problemSubType);
             $("#dropdownButton3:first-child").val(json[0].problemSubType);
@@ -480,6 +477,9 @@
 			}
 		  }
 		  document.getElementById("dropdown-menu4").innerHTML = html;
+		  if (flag == 1){
+			  updateSpecialist();
+		  }
 	      $('#result2Collapse').collapse('show');
 		},'json');
 	  }
