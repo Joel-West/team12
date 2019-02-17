@@ -494,7 +494,7 @@
 		  if (json && json[0]){
 			if (json[0].solution != ''){
 		      for (i = 0; i<json.length; i++){
-			    html+= "<a class='dropdown-item'  data-placement='right' data-title='" + json[i].solution + "'>" + problemTypeVar + "</a>";
+			    html+= "<a class='dropdown-item' title='" + json[i].solution + "'>" + problemTypeVar + "</a>";
 		      }
 		      document.getElementById("dropdown-menuSolution").innerHTML = html;
 			  $('#specialistSolutionComboBox').collapse('show');
@@ -511,7 +511,7 @@
 	  $(document).on('click', '#dropdown-menuSolution a', function(){ //Occurs on click of the solution dropdown
         $("#dropdownButtonSolution:first-child").text($(this).text());
         $("#dropdownButtonSolution:first-child").val($(this).text());
-		$("#solution").val($(this).attr('data-title'));
+		$("#solution").val($(this).attr('title'));
       });
 	  
 	  function Validation(){ //Validates the data before being added to the database
