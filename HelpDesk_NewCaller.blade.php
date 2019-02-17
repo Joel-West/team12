@@ -222,7 +222,13 @@
       });
 	  
 	  function getGenericProblemType(parent){
-		var sql = 'SELECT problemType,problemSubType FROM tblProblem WHERE problemNumber = "' + parent + '";';
+		var sql;
+		if (flag = 1){
+		  sql = 'SELECT problemType,problemSubType FROM tblProblem WHERE problemNumber = "' + parent + '";';
+		}
+		else{
+		  sql = 'SELECT problemType,problemSubType FROM tblProblem WHERE problem = "' + parent + '";';
+		}
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
 		  if (json && json[0]){
 			if(json[0].problemType == "Hardware"){
@@ -231,10 +237,30 @@
 			  $('#concernCollapseDiv').collapse('hide');
 			  $('#concernCollapseDiv2').collapse('hide');
 			  document.getElementById("RadiosH").checked = true;
+			  if (flag == 1){
+				var sqlH = "SELECT serialNumber FROM tblProblem WHERE problemNumber = '" + problemNumber + "';";
+				$.get("Query.php", {'sql':sqlH, 'returnData':true},function(json){
+				  if(json && json[0]){
+					$("#dropdownButtonSerial:first-child").text(json[0].serialNumber);
+					$("#dropdownButtonSerial:first-child").val(json[0].serialNumber);
+				  }
+				},'json');
+			  }
 			  radios(1);
 			}else if(json[0].problemType == "Software"){
 			  $('#serialNumberCollapse').collapse('hide');
 			  document.getElementById("RadiosS").checked = true;
+			  if (flag = 1){
+			    var sqlS = "SELECT operatingSystem, softwareConcerned FROM tblProblem WHERE problemNumber = '" + problemNumber + "';";
+				$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
+				  if(json && json[0]){
+					$("#dropdownButtonOS:first-child").text(json[0].operatingSystem);
+					$("#dropdownButtonOS:first-child").val(json[0].operatingSystem);
+					$("#dropdownButtonConcern:first-child").text(json[0].softwareConcerned);
+					$("#dropdownButtonConcern:first-child").val(json[0].softwareConcerned);
+				  }
+				},'json');
+			  }
 			  radios(2);
 			}else{
 			  $('#serialNumberCollapse').collapse('hide');
