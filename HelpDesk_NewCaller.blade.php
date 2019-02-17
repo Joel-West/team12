@@ -538,6 +538,46 @@
 	  var startDT = new Date();
 	  var resolvedDTCurrent = "";
 	  
+	  function Validation(){
+		var validation = 0;
+		var radioValue = $('input[name=Radios]:checked').val();
+		if (radioValue == "Hardware"){
+		  var serialNumber = document.getElementById('dropdownButtonSerial').value;
+		  if (serialNumber == "Choose Serial Number" || serialNumber == ""){
+			validation = 1;
+		  }
+		} else if (radioValue == "Software"){
+		  var OS = document.getElementById('dropdownButtonOS').value;
+		  var concernSoftware = document.getElementById('dropdownButtonConcern').value;
+		  if ((OS == "Choose Operating System" || OS == "") || (concernSoftware == "Choose Concerning Software" || concernSoftware == "")){
+			validation = 1;
+		  }
+		}
+		var specialistID = specialist.split(" ");
+		specialistID = specialistID[specialistID.length - 1];
+		try{
+		  specialistID = specialistID.replace("(", "");
+		  specialistID = specialistID.replace(")", "");
+		}catch(err){
+		  validation = 1;
+		}
+		var callerID = document.getElementById("CallerID").value;
+		sql = "SELECT userID FROM tblPersonnel WHERE userID = '" + callerID + "';";
+		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
+		  if(json&&json[0]){
+		  }
+		  else{
+			validation = 1;
+		  }
+		}
+		if(validation == 1){
+		  alert("There is a invalid field");
+		}
+		else{
+		  SaveChanges();
+		}
+		
+	  }
 	  
 	  function SaveChanges(){
 		sql = "";
@@ -545,7 +585,7 @@
 		var problem = document.getElementById('dropdownButton2').value;
 		var specialist = document.getElementById('dropdownButton4').value;
 		var specialistID = specialist.split(" ");
-		specialistID = specialistID[5];
+		specialistID = specialistID[specialistID.length - 1];
 		specialistID = specialistID.replace("(", "");
 		specialistID = specialistID.replace(")", "");
 		var subProblemType = document.getElementById('dropdownButton3').value;
