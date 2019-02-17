@@ -224,11 +224,25 @@
 			  document.getElementById("RadiosN").checked = true;
 			  radios(3);
 			}
+			if (flag == 1){
+			  updateSpecialist();
+			}
 			$('#newNewProblemCollapse').collapse('show');
 			$("#dropdownButton3:first-child").text(json[0].problemSubType);
             $("#dropdownButton3:first-child").val(json[0].problemSubType);
 			populateSpecialist(json[0].problemSubType); //Populates the specialist dropdown box
 			
+		  }
+		},'json');
+	  }
+	  
+	  function updateSpecialist(){ //Selects the specialist for a existing problem
+		sql2 = "SELECT specialistID FROM tblProblem WHERE problemNumber = '" + problemNumber + "';";
+		$.get("Query.php", {'sql':sql2, 'returnData':true},function(json){
+		  if(json && json[0]){
+			index = specialistIDList.indexOf(json[0].specialistID);
+			$("#dropdownButton4:first-child").text(specialistList[index] + " (" + count[index] + " current jobs) (" + json[0].specialistID + ")");
+			$("#dropdownButton4:first-child").val(specialistList[index] + " (" + count[index] + " current jobs) (" + json[0].specialistID + ")");
 		  }
 		},'json');
 	  }
