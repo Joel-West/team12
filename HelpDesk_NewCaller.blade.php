@@ -252,10 +252,10 @@
 			}else if(json[0].problemType == "Software"){
 			  $('#serialNumberCollapse').collapse('hide');
 			  document.getElementById("RadiosS").checked = true;
-			  $("#dropdownButtonOS:first-child").text(json[0].operatingSystem);
-			  $("#dropdownButtonOS:first-child").val(json[0].operatingSystem);
-			  $("#dropdownButtonConcern:first-child").text(json[0].softwareConcerned);
-			  $("#dropdownButtonConcern:first-child").val(json[0].softwareConcerned);
+			  $("#dropdownButtonOS:first-child").text('Choose Operating System');
+			  $("#dropdownButtonOS:first-child").val('Choose Operating System');
+			  $("#dropdownButtonConcern:first-child").text('Choose Concerning Software');
+			  $("#dropdownButtonConcern:first-child").val('Choose Concerning Software');
 			  if (flag == 1){
 			    var sqlS = "SELECT operatingSystem, softwareConcerned FROM tblProblem WHERE problemNumber = '" + problemNumber + "';";
 				$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
