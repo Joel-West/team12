@@ -23,6 +23,11 @@
 				var Hash = '';
 				console.log(Password);
 				
+				if (Username.includes("'")) //Protects against SQL injection.
+				{
+					return;
+				}
+				
 				$.get("Hash.php", {'Password':Password},function(Hashed){
 				  if(Hashed){
 				    Hash = Hashed;
@@ -30,16 +35,17 @@
 				    $.get("Verify.php", {'Password':Password, 'Hashed':Hash},function(Bool){
 				      console.log("BOOL IS " + Bool);
 				      if(Bool == true){
-				        console.log("YES");
+				        Query();
+				      }
+				      else{
+				        alert("Invalid password.");
 				      }
 				    },'json');
 				  }
 				},'json');
-				
-				if (Username.includes("'")) //Protects against SQL injection.
-				{
-					return;
-				}
+			}
+			
+			Query(){
 				sql = "SELECT tblUser.password, tblUser.admin, tblPersonnel.name, tblPersonnel.department, tblPersonnel.userID, tblPersonnel.specialist FROM tblUser INNER JOIN tblPersonnel ON tblUser.userID = tblPersonnel.userID WHERE tblUser.username = '" + Username + "'"; //Query retrieves password, admin status, specialist status, name, ID and department associated with input username.
 				
 				$.get("Query.php", {'sql':sql, 'returnData':true},function(json) //Calls Query.php, which handles the SQL query and sorting of result data.
@@ -47,44 +53,38 @@
 					valid = true;
 					if (json && json[0]) //If any data has been retrieved.
 					{
-						if (json[0].password == Password) //If input password is valid.
+						analysis = 0;
+						if (json[0].department == "Analysis") //Checks if user is in the analytics department.
 						{
-							analysis = 0;
-							if (json[0].department == "Analysis") //Checks if user is in the analytics department.
-							{
-								analysis = 1;
-							}
-							if (json[0].specialist == "Yes") //Checks if user is a specialist.
-							{
-								specialist = 1;
-							}
-							else
-							{
-								specialist = 0;
-							}
-							if (analysis == 0 && specialist == 0)
-							{
-								operator = 1; //If not analyst or specialist, assume user is operator.
-							}
-							else
-							{
-								operator = 0;
-							}
-							document.getElementById("User").value =  (json[0].name).split(' ')[0]+ "," + json[0].userID + "," + json[0].admin + "," + analysis + "," + specialist + "," + operator; //Sets user data to be posted (name, ID and admin/analysis/specialist/operator status).
-							document.getElementById("mainform").submit(); //Submit the form (moving to the home page).
+							analysis = 1;
+						}
+						if (json[0].specialist == "Yes") //Checks if user is a specialist.
+						{
+							specialist = 1;
 						}
 						else
 						{
-							valid = false;
+							specialist = 0;
 						}
-					}
+						if (analysis == 0 && specialist == 0)
+						{
+							operator = 1; //If not analyst or specialist, assume user is operator.
+						}
+						else
+						{
+							operator = 0;
+						}
+						document.getElementById("User").value =  (json[0].name).split(' ')[0]+ "," + json[0].userID + "," + json[0].admin + "," + analysis + "," + specialist + "," + operator; //Sets user data to be posted (name, ID and admin/analysis/specialist/operator status).
+						document.getElementById("mainform").submit(); //Submit the form (moving to the home page).
+						}
 					else
 					{
 						valid = false;
 					}
-					if (!valid) //If either username or password are irrelevant.
+					}
+					if (!valid) //If either username is irrelevant.
 					{
-						alert("Invalid username or password.");
+						alert("Invalid username.");
 					}
 				},'json');
 			}	
