@@ -223,7 +223,7 @@
 	  
 	  function getGenericProblemType(parent){
 		var sql;
-		if (flag = 1){
+		if (flag == 1){
 		  sql = 'SELECT problemType,problemSubType FROM tblProblem WHERE problemNumber = "' + parent + '";';
 		}
 		else{
