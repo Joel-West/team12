@@ -22,6 +22,7 @@
 				var Password=document.getElementById("Password").value;
 				$.get("Hash.php", {'password':Password},function(hashed){
 				  Password == hashed;
+				  console.log(Password);
 				},'hashed');
 				if (Username.includes("'")) //Protects against SQL injection.
 				{
