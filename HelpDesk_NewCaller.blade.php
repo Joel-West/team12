@@ -518,7 +518,7 @@
 	  }
 		
 	  function solutionCreation(){
-		document.getElementById("dropdown-menuSolution").innerHTML = '';
+		$("#solution").val('');
 		var sql = "SELECT solution FROM tblProblem WHERE problemSubType = '" + problemTypeVar + "';";
 		var html = "";
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
