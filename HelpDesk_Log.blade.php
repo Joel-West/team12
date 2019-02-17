@@ -19,8 +19,8 @@
 			function Validate() //Function to check if username/password are valid.
 			{
 				var Username=document.getElementById("Username").value; //Get username and password from text boxes.
-				var Password=document.getElementById("Password").value;
-				Password = <?php Hash::make(Password);?>;
+				var Password1=document.getElementById("Password").value;
+				Password = <?php Hash::make(Password1);?>;
 				if (Username.includes("'")) //Protects against SQL injection.
 				{
 					return;
