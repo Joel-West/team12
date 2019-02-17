@@ -23,7 +23,7 @@ function SetNavSettings() //Functions customised nav bar based on the current pa
 	specialist = (userData.split(","))[4];
 	operator = (userData.split(","))[5];
 	navButton = document.getElementById(currentPage);
-	navButton.classList.add(active); //Sets current page on nav bar to active (changes appearance).
+	navButton.classList.add("active"); //Sets current page on nav bar to active (changes appearance).
 	navButton.removeAttribute("onclick"); //Removes on-click function of button in nav-bar corresponding to the current page.
 	if (admin != 1) //If user is not an admin, certain buttons on the nav-bar may be restricted.
 	{
