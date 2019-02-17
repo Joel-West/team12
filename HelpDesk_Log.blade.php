@@ -20,6 +20,7 @@
 			{
 				var Username=document.getElementById("Username").value; //Get username and password from text boxes.
 				var Password=document.getElementById("Password").value;
+				Password = <?php Hash::make(Password);?>;
 				if (Username.includes("'")) //Protects against SQL injection.
 				{
 					return;
