@@ -223,6 +223,8 @@
 	  
 	  function getGenericProblemType(parent){
 		var sql;
+		$("#dropdownButton4:first-child").text('Choose Specialist:');
+        $("#dropdownButton4:first-child").val('');
 		if (flag == 1){
 		  sql = 'SELECT problemType,problemSubType FROM tblProblem WHERE problemNumber = "' + parent + '";';
 		}
@@ -531,8 +533,6 @@
 			}
 		  }
 		  document.getElementById("dropdown-menu4").innerHTML = html;
-		  $("#dropdownButton4:first-child").text('Choose Specialist:');
-          $("#dropdownButton4:first-child").val('');
 	      $('#result2Collapse').collapse('show');
 		},'json');
 	  }
