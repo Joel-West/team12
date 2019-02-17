@@ -12,27 +12,11 @@
 			function Load() //Function that runs when file loads.
 			{
 				WriteTime(); //Function that writes the current time at the top of the page.
-				GetWorstHardware();
-				ProblemChartHardware();
-				SpecialistChart();
-				ResolvedChart();
+				ProblemChartHardware(); // Line chart showing the number of times problems for a particular hardware were solved.
+				SpecialistChart(); // Bar graph showing the percentage how problems solved by specialists and non-specialists. 
+				ResolvedChart(); // Bar chart showing the percentage of problems resolved and not resolved.
 			}
-	function GetWorstHardware()	
-	{
-		sql= "SELECT tblEquipment.serialNumber, tblEquipment.equipmentType, tblEquipment.equipmentMake, COUNT(tblProblem.serialNumber) AS occurence FROM tblProblem INNER JOIN tblEquipment ON tblProblem.serialNumber = tblEquipment.serialNumber GROUP BY tblEquipment.serialNumber ORDER BY occurence DESC LIMIT 0, 1;"; //SQL statement gets most common serial number in problem list.
-		
-		$.get("Query.php", {'sql':sql, 'returnData':true},function(json)
-		{
-			if(json && json[0])
-			{
-			document.getElementById("label1").innerHTML = "Hardware with most problems logged: " + json[0].serialNumber + " (" + json[0].equipmentMake + " " + json[0].equipmentType + ") - " + json[0].occurence + " times.";
-			}
-			else
-			{
-			document.getElementById("label1").innerHTML="Can't find appropriate data";
-			}
-		},"json");
-	}	
+
 	
 	function ProblemChartHardware()
 	{
@@ -42,30 +26,30 @@
 		{
 			if(json)
 			{
-			var labels = [];
-			var data = [];
+			var labels = []; // New Array 
+			var data = []; 
 			for(var i = 0; i < json.length; i++) {
 				var equipment = json[i];
 				
-				labels.push(equipment.equipmentType);
+				labels.push(equipment.equipmentType); // New label to the end of array.
 				data.push(equipment.occurence);
 			}
 			
 			var ctx = document.getElementById("hardwareChart").getContext('2d');
 		var myBarChart = new Chart(ctx, {
-    type: 'line',
+    type: 'line', // Graph type Line
 data: {
         labels: labels,
         datasets: [{
             label: '# of Problems',
             data: data,
             backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
+                'rgba(255, 99, 132, 0.2)', 
                 'rgba(54, 162, 235, 0.2)',
                 'rgba(255, 206, 86, 0.2)',
                 'rgba(75, 192, 192, 0.2)',
                 'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
+                'rgba(255, 159, 64, 0.2)'         
             ],
             borderColor: [
                 'rgba(255,99,132,1)',
@@ -93,7 +77,7 @@ data: {
 			}
 			else
 			{
-			document.getElementById("hardwareChart").innerHTML="Can't find appropriate data";
+			document.getElementById("hardwareChart").innerHTML="Can't find appropriate data"; // If Problems are not found.
 			}
 		},"json");
 		
@@ -101,24 +85,24 @@ data: {
 	
 	function SpecialistChart()
 	{
-		sql= "SELECT COUNT(tblProblem.problemNumber) AS problem_count FROM tblProblem WHERE resolved = 'Yes';"; //SQL statement gets most common serial number in problem list.
+		sql= "SELECT COUNT(tblProblem.problemNumber) AS problem_count FROM tblProblem WHERE resolved = 'Yes';"; //SQL statement gets Problem solved but not by specialists.
 		
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json)
 		{
 			if(json && json[0])
 			{
 			var total = json[0].problem_count;
-			sql= "SELECT COUNT(tblProblem.problemNumber) AS problem_count FROM tblProblem WHERE resolved = 'Yes' AND specialistID IN (SELECT userID FROM tblPersonnel WHERE specialist = 'Yes');"; //SQL statement gets most common serial number in problem list.
+			sql= "SELECT COUNT(tblProblem.problemNumber) AS problem_count FROM tblProblem WHERE resolved = 'Yes' AND specialistID IN (SELECT userID FROM tblPersonnel WHERE specialist = 'Yes');"; //SQL statement gets Problems solved by Specialists
 			$.get("Query.php", {'sql':sql, 'returnData':true},function(json2)
 			{
 				if(json2 && json2[0]) {
 				var specialists = json2[0].problem_count;
-				var specialistsPercent = total > 0 ? Math.round((specialists/total) * 100) : 0;
+				var specialistsPercent = total > 0 ? Math.round((specialists/total) * 100) : 0;   // Representing in Percentages
 				var otherPercent = total > 0 ? 100 - specialistsPercent : 0;
 			
 				var ctx = document.getElementById("specialistChart").getContext('2d');
 		var myBarChart = new Chart(ctx, {
-    type: 'bar',
+    type: 'bar',								// Graph type Bar.
 data: {
         labels: ["Specialists", "Non-Specialists"],
         datasets: [{
@@ -171,14 +155,14 @@ data: {
 	
 	function ResolvedChart()
 	{
-		sql= "SELECT COUNT(tblProblem.problemNumber) AS problem_count FROM tblProblem WHERE resolved = 'Yes';"; //SQL statement gets most common serial number in problem list.
+		sql= "SELECT COUNT(tblProblem.problemNumber) AS problem_count FROM tblProblem WHERE resolved = 'Yes';"; //SQL statement gets number of problems not resolved.
 		
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json)
 		{
 			if(json && json[0])
 			{
 			var resolved = json[0].problem_count;
-			sql= "SELECT COUNT(tblProblem.problemNumber) AS problem_count FROM tblProblem WHERE resolved = 'No';"; //SQL statement gets most common serial number in problem list.
+			sql= "SELECT COUNT(tblProblem.problemNumber) AS problem_count FROM tblProblem WHERE resolved = 'No';"; //SQL statement gets the number of problems not resolved
 			$.get("Query.php", {'sql':sql, 'returnData':true},function(json2)
 			{
 				if(json2 && json2[0]) {
@@ -192,7 +176,7 @@ data: {
         datasets: [{
             label: '# of Problems',
             data: [resolved, notResolved],
-            backgroundColor: [
+            backgroundColor: [    // Defining the backgroundColor
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
                 'rgba(255, 206, 86, 0.2)',
@@ -200,7 +184,7 @@ data: {
                 'rgba(153, 102, 255, 0.2)',
                 'rgba(255, 159, 64, 0.2)'
             ],
-            borderColor: [
+            borderColor: [		// Defining the borderColor
                 'rgba(255,99,132,1)',
                 'rgba(54, 162, 235, 1)',
                 'rgba(255, 206, 86, 1)',
