@@ -13,9 +13,8 @@
 	<script type="text/javascript" src="{{ URL::asset('js/ExtraCode.js') }}"></script>
 	<script type="text/javascript">
 	  var userData; //Variable containing data about user
-	  var currentPage = "NewCaller";
 	  
-	  function Load(){
+	  function Load(){ //Runs on load of the page
 		problemCreation();
 		WriteTime();
 		userData = "<?php echo $_POST['User']; ?>"; //Gets data from previous form.
@@ -23,7 +22,7 @@
 		startDT = startDT.toLocaleDateString("en-GB", resolvedOptions);
 	  }
 	  
-	  function autofillId(){
+	  function autofillId(){ //Autofills ID field depending on Caller Name field
 	    var Username=document.getElementById("CallerName").value;
 	    if (Username.includes("'")){
 		} else{
@@ -42,7 +41,7 @@
 	    }
       }
 	  
-	  function autofillName(){
+	  function autofillName(){ //Autofills Caller Name field depending on ID field
 	    var UserID=document.getElementById("CallerID").value;
 	    if (UserID.includes("'")){
 		} else{
@@ -57,7 +56,7 @@
 	    }
       }
 	  
-	  function problemCreation(){
+	  function problemCreation(){ //Dynamically fills the 
 	    var html = "<a class='dropdown-item'>New Problem</a><div class='dropdown-divider'></div>";
 		html += "<h6 class='dropdown-header'>Existing Problems</h6>";
 		var sql = "SELECT problem, problemNumber FROM tblProblem WHERE resolved = 'no'";
@@ -562,21 +561,23 @@
 		  validation = 1;
 		}
 		var callerID = document.getElementById("CallerID").value;
+		
 		sql = "SELECT userID FROM tblPersonnel WHERE userID = '" + callerID + "';";
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
+
 		  if(json&&json[0]){
 		  }
 		  else{
 			validation = 1;
 		  }
+		  
+		  if(validation == 1){
+		    alert("There is a invalid field");
+		  }
+		  else{
+		    SaveChanges();
+		  }
 		}
-		if(validation == 1){
-		  alert("There is a invalid field");
-		}
-		else{
-		  SaveChanges();
-		}
-		
 	  }
 	  
 	  function SaveChanges(){
