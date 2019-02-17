@@ -19,45 +19,9 @@
 		problemCreation();
 		WriteTime();
 		userData = "<?php echo $_POST['User']; ?>"; //Gets data from previous form.
-		NavBar();
+		SetNavSettings();
 		startDT = startDT.toLocaleDateString("en-GB", resolvedOptions);
 	  }
-	  
-	  function NavBar(){
-		  var html = "<ul class='navbar-nav mr-auto'>"
-		  admin = (userData.split(","))[2]; //Retrieves statuses from userData that was earlier posted from previous form.
-		  analyst = (userData.split(","))[3];
-		  specialist = (userData.split(","))[4];
-		  operator = (userData.split(","))[5];
-		  
-		  html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage(document.getElementById(&quot;Previous&quot;).value)'>&#x2190 </a>";
-		  html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;Home&quot;);'>Home</a>";
-		  html+= "<a class='nav-item nav-link active' href='#'>New Call</a>";
-		  html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;CallHistory&quot;);'>Call History</a>";
-		  html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;ProblemList&quot;);'>Problems List</a>";
-		  html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;PersonnelList&quot;);'>Personnel</a>";
-		 
-		 if (admin==1){
-			html+="<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;UserList&quot;);'>Users</a>";
-			html+="<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;SpecialisationList&quot;);'>Specialisations</a>";
-		  }
-		  else{
-			html+= "<a class='nav-item nav-link disabled' href='#'>Users</a>";
-			html+= "<a class='nav-item nav-link disabled' href='#'>Specialisations</a>"
-		  }
-		  
-		  html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;EquipmentList&quot;);'>Equipment</a>";
-		  html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;ProblemTypeList&quot;);'>Problem Type List</a>";
-		  
-		  if (admin == 0 && analyst == 0){
-			html+= "<a class='nav-item nav-link disabled' href='#'>Analytics</a></ul>";
-		  }
-          else{
-		    html+= "<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;Analytics&quot;);'>Analytics</a></ul>";
-		  }
-		  
-		document.getElementById("navbarNavDropdown").innerHTML = html;
-	    }
 	  
 	  function autofillId(){
 	    var Username=document.getElementById("CallerName").value;
@@ -716,28 +680,41 @@
 	</style>
   </head>
   
-  <body onload="Load()">
-    <header class="navbar flex-column flex-md-row bd-navbar navbar-dark navbar-expand-lg bg-dark">
-	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="navbar-collapse collapse" id="navbarNavDropdown">
-	  </div>
-	  <a class='nav-item nav-link' href='#' onClick='GoToNewPage("");'>Logout</a>
-	  <a class="navbar-brand ml-md-auto" href="#">
-		<img src="https://www.goodfreephotos.com/albums/vector-images/screwdriver-and-wrench-vector-clipart.png" width="30" height="30" class="d-inline-block align-top" alt="">
-		  Make-It-All
-	  </a>
-	</header>
-	<div class="container-fluid">
-	  <form id="mainform" name="mainform" method="post" action="">
-	    @csrf
-		<input type='text' hidden id="user" name="User"  /> <!-- Hidden tag used to store posted user data so that it can later be posted back to the home page. -->
-		<input type='hidden' name='Previous' id='Previous' value="<?php echo $_GET['previous']; ?>" />
-        <div class="titleDiv col-12 d-flex"> <!-- Div containing elements at the top of the page. -->
-		  <label id="dtLabel" class="ml-auto" >
-	    </div>
-	  </form>
+	<body onload="Load()">
+		<header class="navbar flex-column flex-md-row bd-navbar navbar-dark navbar-expand-lg bg-dark"> <!-- Header contains Bootstrap nav-bar. -->
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="navbar-collapse collapse" id="navbarNavDropdown"> <!-- Collapsable menu for nav-bar elements that appears when view width is low. -->
+				<ul class='navbar-nav mr-auto'>
+				<a class='nav-item nav-link' href='#' onClick='GoToNewPage(document.getElementById(&quot;previous&quot;).value)'>&#x2190 </a> <!-- Back button using unicode backwards arrow character. -->
+				<a class='nav-item nav-link' id='Home' href='#' onClick='GoToNewPage(&quot;Home&quot;);'>Home</a>
+				<a class='nav-item nav-link' id='NewCaller' href='#' onClick='GoToNewPage(&quot;NewCaller&quot;);'>New Call</a>
+				<a class='nav-item nav-link' id='CallHistory' href='#' onClick='GoToNewPage(&quot;CallHistory&quot;);'>Call History</a>
+				<a class='nav-item nav-link' id='ProblemList' href='#' onClick='GoToNewPage(&quot;ProblemList&quot;);'>Problems List</a>
+				<a class='nav-item nav-link' id='PersonnelList' href='#' onClick='GoToNewPage(&quot;PersonnelList&quot;);'>Personnel</a>
+				<a class='nav-item nav-link' id='UserList' href='#' onClick='GoToNewPage(&quot;UserList&quot;);'>Users</a>
+				<a class='nav-item nav-link' id='SpecialisationList' href='#' onClick='GoToNewPage(&quot;SpecialisationList&quot;);'>Specialisations</a>
+				<a class='nav-item nav-link' id='EquipmentList' href='#' onClick='GoToNewPage(&quot;EquipmentList&quot;);'>Equipment</a>
+				<a class='nav-item nav-link'id='ProblemTypeList' href='#' onClick='GoToNewPage(&quot;ProblemTypeList&quot;);'>Problem Type List</a>
+				<a class='nav-item nav-link'id='Analytics' href='#' onClick='GoToNewPage(&quot;Analytics&quot;);'>Analytics</a></ul>
+			</div>
+			<a class='nav-item nav-link' href='#' onClick='GoToNewPage("");'>Logout</a>
+			<a class="navbar-brand ml-md-auto" href="#">
+			<img src="https://www.goodfreephotos.com/albums/vector-images/screwdriver-and-wrench-vector-clipart.png" width="30" height="30" class="d-inline-block align-top" alt=""> <!-- Loads company icon -->
+			  Make-It-All
+			</a>
+		</header>
+	<div autocomplete="off" class="container-fluid"> <!-- Container holds elements together using Bootstrap. -->
+		<form id="mainform" name="mainform" method="post" action=""> <!-- This form will post data to an initially unspecified page when submitted. -->
+			<input type='text' hidden id="user" name="User"  /> <!-- Hidden tag used to store posted user data so that it can later be posted back to the home page. -->
+			<input type='hidden' id='previous' name='Previous' value="<?php echo $_GET['previous']; ?>" /> <!-- Hidden tag holding name of previous page. -->
+			@csrf <!--Token to validates requests to server. -->
+			<div class="titleDiv"> <!-- Div containing elements at the top of the page. -->
+				<label id="dtLabel" class="dtLabel"></label> <!-- Label to contain current date/time. -->
+				<h2 id="headerId">Equipment</h2> <!-- Heading containing name of page. -->
+			</div>
+		</form>
 	  <div class="row" align="center">
 		<div class="col-12">
 		  <h2>Call Details</h2>
