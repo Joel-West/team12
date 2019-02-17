@@ -373,13 +373,13 @@
 		</style>
 	</head>
 	<body onload="Load()" style="height:100%;">
-		<header class="navbar flex-column flex-md-row bd-navbar navbar-dark navbar-expand-lg bg-dark">
+		<header class="navbar flex-column flex-md-row bd-navbar navbar-dark navbar-expand-lg bg-dark"> <!-- Header contains Bootstrap nav-bar. -->
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown">
 			<span class="navbar-toggler-icon"></span>
 		</button>
-		<div class="navbar-collapse collapse" id="navbarNavDropdown" onload="SetNavSettings()">
+		<div class="navbar-collapse collapse" id="navbarNavDropdown" onload="SetNavSettings()"> <!-- Collapsable menu for nav-bar elements that appears when view width is low. -->
 			<ul class='navbar-nav mr-auto'>
-			<a class='nav-item nav-link' href='#' onClick='GoToNewPage(document.getElementById(&quot;previous&quot;).value)'>&#x2190 </a>
+			<a class='nav-item nav-link' href='#' onClick='GoToNewPage(document.getElementById(&quot;previous&quot;).value)'>&#x2190 </a> <!-- Back button using unicode backwards arrow character. -->
 			<a  class='nav-item nav-link' href='#' onClick='GoToNewPage&quot;Home&quot;);'>Home</a>
 			<a  class='nav-item nav-link' href='#' onClick='GoToNewPage&quot;NewCaller&quot;);'>New Call</a>
 			<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;CallHistory&quot;);'>Call History</a>
@@ -393,7 +393,7 @@
 		</div>
 		<a class='nav-item nav-link' href='#' onClick='GoToNewPage("");'>Logout</a>
 		<a class="navbar-brand ml-md-auto" href="#">
-		<img src="https://www.goodfreephotos.com/albums/vector-images/screwdriver-and-wrench-vector-clipart.png" width="30" height="30" class="d-inline-block align-top" alt="">
+		<img src="https://www.goodfreephotos.com/albums/vector-images/screwdriver-and-wrench-vector-clipart.png" width="30" height="30" class="d-inline-block align-top" alt=""> <!-- Loads company icon -->
 		  Make-It-All
 		</a>
 		</header>
