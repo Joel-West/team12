@@ -379,10 +379,8 @@
 		</button>
 		<div class="navbar-collapse collapse" id="navbarNavDropdown" onload="SetNavSettings()">
 			<ul class='navbar-nav mr-auto'>
-			<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;CallHistory&quot;);'>Call History</a>
-			<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;ProblemList&quot;);'>Problems List</a>
 			<a class='nav-item nav-link' href='#' onClick='GoToNewPage(document.getElementById(&quot;previous&quot;).value)'>&#x2190 </a>
-			<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;Home&quot;);'>Home</a>;
+		
 			<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;NewCaller&quot;);'>New Call</a>;
 			<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;PersonnelList&quot;);'>Personnel</a>
 			<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;UserList&quot;);'>Users</a>
