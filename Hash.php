@@ -1,5 +1,5 @@
 <?php
-  $password = $_REQUEST['password'];
-  $hashed = password_hash($password, PASSWORD_DEFAULT);
-  echo ($hashed);
+  $Password = $_REQUEST['Password'];
+  $Hashed = password_hash($Password, PASSWORD_DEFAULT);
+  echo $Hashed;
 ?>
