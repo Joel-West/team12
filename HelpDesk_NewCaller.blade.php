@@ -627,10 +627,38 @@
 			var serialNumber = document.getElementById('dropdownButtonSerial').value;
 			serialNumber = serialNumber.split("(");
 			serialNumber = serialNumber[0];
-		    sql += "INSERT INTO tblProblem VALUES ";
-		    sql += "(NULL, '" + problem + "', '" + problemType + "', '" + subProblemType + "', '" + serialNumber + "', '', '', '" + specialistID + "', '" + resolved + "', '" + dateTime + "', '" + solution + "');";
+		    sql += "UPDATE tblProblem SET problemType = '" + problemType + "', problemSubType = '" + subProblemType + "', serialNumber = '" + serialNumber + "', specialistID = '" + specialistID + "', resolved = '" + resolved + "', solution = '" + solution + "' WHERE problemNumber = '" + problemNumber + "';";
 		    alert(sql);
 			
+			$.get("Query.php", {'sql':sql, 'returnData':false},function(json){
+			  if(json && json[0]){ //If result of php file was a json array.					
+			    alert(json);
+			    alert(json[0]);
+			  }
+			},'json');
+			
+			setTimeout(insertCall, 100);
+		  }
+		  else if (radioValue == "Software"){
+			var problemType = "Software";
+			var OS = document.getElementById('dropdownButtonOS').value;
+			var concernSoftware = document.getElementById('dropdownButtonConcern').value;
+			sql += "UPDATE tblProblem SET problemType = '" + problemType + "', problemSubType = '" + subProblemType + "', operatingSystem = '" + OS + "', softwareConcerned = '" + concernSoftware + "', specialistID = '" + specialistID + "', resolved = '" + resolved + "', solution = '" + solution + "' WHERE problemNumber = '" + problemNumber + "';";
+		    alert(sql);
+			
+			$.get("Query.php", {'sql':sql, 'returnData':false},function(json){
+			  if(json && json[0]){ //If result of php file was a json array.					
+			    alert(json);
+			    alert(json[0]);
+			  }
+			},'json');
+			
+			setTimeout(insertCall, 100);
+		  }
+		  else if (radioValue == "Network"){
+			var problemType = "Network";
+			sql += "UPDATE tblProblem SET problemType = '" + problemType + "', problemSubType = '" + subProblemType + "', specialistID = '" + specialistID + "', resolved = '" + resolved + "', solution = '" + solution + "' WHERE problemNumber = '" + problemNumber + "';"; 
+		    
 			$.get("Query.php", {'sql':sql, 'returnData':false},function(json){
 			  if(json && json[0]){ //If result of php file was a json array.					
 			    alert(json);
