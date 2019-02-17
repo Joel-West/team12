@@ -45,7 +45,7 @@
 				},'json');
 			}
 			
-			Query(){
+			function Query(){
 				sql = "SELECT tblUser.password, tblUser.admin, tblPersonnel.name, tblPersonnel.department, tblPersonnel.userID, tblPersonnel.specialist FROM tblUser INNER JOIN tblPersonnel ON tblUser.userID = tblPersonnel.userID WHERE tblUser.username = '" + Username + "'"; //Query retrieves password, admin status, specialist status, name, ID and department associated with input username.
 				
 				$.get("Query.php", {'sql':sql, 'returnData':true},function(json) //Calls Query.php, which handles the SQL query and sorting of result data.
