@@ -332,8 +332,8 @@
 				<input type='hidden' id='previous' name='Previous' value="<?php echo $_GET['previous']; ?>" /> <!-- Hidden tag holding name of previous page. -->
 				@csrf <!--Token to validates requests to server. -->
 				<div class="titleDiv"> <!-- Div containing elements at the top of the page. -->
-					<label id="dtLabel" class="dtLabel"</label> <!-- Label to contain current date/time. -->
-					<h2 id="headerId">Equipment</h2> <!-- Heading containing name of page. -->
+					<label id="dtLabel" class="dtLabel"></label> <!-- Label to contain current date/time. -->
+					<h2 id="headerId">Specialisations</h2> <!-- Heading containing name of page. -->
 				</div>
 				<br/><br/>
 				<div class="row" align="center">

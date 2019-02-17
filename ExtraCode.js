@@ -27,18 +27,18 @@ function SetNavSettings() //Functions customised nav bar based on the current pa
 	navButton.removeAttribute("onclick"); //Removes on-click function of button in nav-bar corresponding to the current page.
 	if (admin != 1) //If user is not an admin, certain buttons on the nav-bar may be restricted.
 	{
-		document.getElementById("UserList").disabled = true;
+		document.getElementById("UserList").classList.add("disabled");
 		if (operator != 1)
 		{
-			document.getElementById("NewCaller").disabled = true;
+			document.getElementById("NewCaller").classList.add("disabled");
 		}
 		if (analyst != 1)
 		{
-			document.getElementById("Analytics").disabled = true;
+			document.getElementById("Analytics").classList.add("disabled");
 		}
 		if (specialist != 1)
 		{
-			document.getElementById("SpecialisationList").disabled = true;
+			document.getElementById("SpecialisationList").classList.add("disabled");
 		}
 	}
 }
