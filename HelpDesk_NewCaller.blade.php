@@ -494,11 +494,10 @@
 		  if (json && json[0]){
 			if (json[0].solution != ''){
 		      for (i = 0; i<json.length; i++){
-			    html+= "<a class='dropdown-item' data-toggle='tooltip' data-placement='right' data-title='" + json[i].solution + "'>" + problemTypeVar + "</a>";
+			    html+= "<a class='dropdown-item'  data-placement='right' data-title='" + json[i].solution + "'>" + problemTypeVar + "</a>";
 		      }
 		      document.getElementById("dropdown-menuSolution").innerHTML = html;
 			  $('#specialistSolutionComboBox').collapse('show');
-			  $('#dropdown-menuSolution a').tooltip();
 		      $('#solutionCollapse').collapse('show');
 		    }
 			else{
@@ -734,9 +733,6 @@
 	  .dropdown-menu{
 		  max-height:350px;
 		  overflow-y:auto;
-	  }
-	  .tooltip {
-		pointer-events: none;
 	  }
 	</style>
   </head>
