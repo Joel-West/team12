@@ -252,7 +252,11 @@
 			}else if(json[0].problemType == "Software"){
 			  $('#serialNumberCollapse').collapse('hide');
 			  document.getElementById("RadiosS").checked = true;
-			  if (flag = 1){
+			  $("#dropdownButtonOS:first-child").text(json[0].operatingSystem);
+			  $("#dropdownButtonOS:first-child").val(json[0].operatingSystem);
+			  $("#dropdownButtonConcern:first-child").text(json[0].softwareConcerned);
+			  $("#dropdownButtonConcern:first-child").val(json[0].softwareConcerned);
+			  if (flag == 1){
 			    var sqlS = "SELECT operatingSystem, softwareConcerned FROM tblProblem WHERE problemNumber = '" + problemNumber + "';";
 				$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
 				  if(json && json[0]){
