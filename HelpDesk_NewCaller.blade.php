@@ -566,7 +566,7 @@
 		},'json');
 	  }
 	  
-	  function SaveChanges(){
+	  function SaveChanges(){ //Handles saving the data to the problem table, handles Inserts and Updates
 		sql = "";
 		var radioValue = $('input[name=Radios]:checked').val();
 		var problem = document.getElementById('dropdownButton2').value;
@@ -689,7 +689,7 @@
 		}
 	  }
 	  
-	  function insertCall(){
+	  function insertCall(){ //Handles the Insert of the call history
 		var sqlCall = "";
 		var operatorID = "<?php echo (explode(",", $_POST['User']))[1]; ?>";
 		var callerID = document.getElementById("CallerID").value;
@@ -763,11 +763,11 @@
 	  <div class="row" align="center">
 		<div class="col-12">
 		  <h2>Call Details</h2>
-		  <h5>The operator logging is <?php echo (explode(",", $_POST['User']))[0]; ?> #<?php echo (explode(",", $_POST['User']))[1]; ?></h5>
+		  <h5>The operator logging is <?php echo (explode(",", $_POST['User']))[0]; ?> #<?php echo (explode(",", $_POST['User']))[1]; ?></h5> <!-- The user explode adds the currently logged in user to the page, including ID -->
 		  <h6>Time and data will be recorded on submit</h6>
 		  <br>
 		</div>
-		<div class="col-3"></div>
+		<div class="col-3"></div> <!-- Empty divs to format the page -->
 		<div class="col-6 ">
 		  <form>
 		    <div class="form-row">
@@ -814,7 +814,7 @@
 			</div>
 		  </div>
 		</div>
-		<div class="collapse col-3" id="updateDiv1"></div>
+		<div class="collapse col-3" id="updateDiv1"></div> <!-- Collapse empty divs to format the page depending on options the operator can choose which reshape the page layout -->
 		
 		<div class="collapse col-3" id="updateDiv2"></div>
 		<div class="collapse col-6" id="newNewProblemCollapse">
