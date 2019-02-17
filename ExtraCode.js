@@ -16,6 +16,33 @@ function ListContains(list, value) //Function returns true if an item is in a li
 	return false;
 }
 
+function SetNavSettings() //Functions customised nav bar based on the current page.
+{
+	admin = (userData.split(","))[2]; //Retrieves statuses from userData that was earlier posted from previous form.
+	analyst = (userData.split(","))[3];
+	specialist = (userData.split(","))[4];
+	operator = (userData.split(","))[5];
+	navButton = document.getElementById(currentPage);
+	navButton.classList.add(active); //Sets current page on nav bar to active (changes appearance).
+	navButton.removeAttribute("onclick"); //Removes on-click function of button in nav-bar corresponding to the current page.
+	if (admin != 1) //If user is not an admin, certain buttons on the nav-bar may be restricted.
+	{
+		document.getElementById("UserList").disabled = true;
+		if (operator != 1)
+		{
+			document.getElementById("NewCaller").disabled = true;
+		}
+		if (analyst != 1)
+		{
+			document.getElementById("Analytics").disabled = true;
+		}
+		if (specialist != 1)
+		{
+			document.getElementById("SpecialisationList").disabled = true;
+		}
+	}
+}
+
 function WriteTime() //Writes current time (up to the minute) to a label at the top-right of the current page.
 {
 	UpdateLogOutTimer();

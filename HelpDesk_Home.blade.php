@@ -77,7 +77,6 @@
 					<input class="button glow-button" type="button" value="View Problem Types" onClick="GoToNewPage('ProblemTypeList');" />
 					<input class="button glow-button" type="button" id="btnAnalytics" value="Analytics" onClick="GoToNewPage('Analytics')" />			
 				<br>
-				<!--Fun mode (don't click if you have epilepsy...): <input id="checkFun" type="checkbox" onclick="Fun()"/>-->
 			</form>
 		</div>
 	</body>
