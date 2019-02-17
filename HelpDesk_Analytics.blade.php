@@ -15,6 +15,7 @@
 				ProblemChartHardware(); // Line chart showing the number of times problems for a particular hardware were solved.
 				SpecialistChart(); // Bar graph showing the percentage how problems solved by specialists and non-specialists. 
 				ResolvedChart(); // Bar chart showing the percentage of problems resolved and not resolved.
+				SetNavSettings();
 			}
 
 	
@@ -262,7 +263,7 @@ data: {
 		</header>
 		<div class="container"> <!-- Container holds elements together using Bootstrap. -->
 			<form id="mainform" name="mainform" method="post" action=""> <!-- This form will post data to an initially unspecified page when submitted. -->
-				<input type='hidden' name="User" value="<?php echo $_POST['User']; ?>" /> <!-- Hidden tag used to store posted user data so that it can later be posted back to the home page. -->
+				<input type='text' hidden id="user" name="User"/> <!-- Hidden tag used to store posted user data so that it can later be posted back to the home page. -->
 				<input type='hidden' id='previous' name='Previous' value="<?php echo $_GET['previous']; ?>" /> <!-- Hidden tag holding name of previous page. -->
 				@csrf <!--Token to validates requests to server. -->
 				<div class="titleDiv"> <!-- Div containing elements at the top of the page. -->
