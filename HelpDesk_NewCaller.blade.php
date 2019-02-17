@@ -594,7 +594,7 @@
 		var resolved = "";
 		if ($('#Checkbox').is(":checked")){
 		  resolved = "Yes";
-		  var dateTime = resolvedDT;
+		  var dateTime = resolvedDTCurrent;
 		}
 		else{
 		  resolved = "No";
