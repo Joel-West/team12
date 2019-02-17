@@ -335,7 +335,7 @@
 					row.cells[2].innerHTML = Hashed;
 					row.cells[3].innerHTML = GetAdminAsString(document.getElementById("chkAdmin").checked);
 				    row.classList.replace("rowSelected", "rowDeselected"); //Deselect updated row.
-				  }.'json');
+				  },'json');
 				selected = 0;
 				CheckIfUpdateOrAdd();
 				if (!ListContains(updList, row.cells[0].innerHTML) && !row.cells[0].innerHTML.includes("(new)")) //If selected row is not already marked to be updated when changes are saved to the database later and is not a new row.
