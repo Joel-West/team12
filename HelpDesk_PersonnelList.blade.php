@@ -379,7 +379,7 @@
 		</button>
 		<div class="navbar-collapse collapse" id="navbarNavDropdown" onload="SetNavSettings()">
 			<ul class='navbar-nav mr-auto'>
-			<a class='nav-item nav-link' href='#' onClick='GoToNewPage(document.getElementById(&quot;Previous&quot;).value)'>&#x2190</a>
+			<a class='nav-item nav-link' href='#' onClick='GoToNewPage(document.getElementById(&quot;previous&quot;).value)'>&#x2190</a>
 			<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;Home&quot;);'>Home</a>;
 			<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;NewCaller&quot;);'>New Call</a>;
 			<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;CallHistory&quot;);'>Call History</a>
@@ -400,6 +400,7 @@
 		<div class="container-fluid"> <!-- Container holds elements together using Bootstrap. -->
 			<form autocomplete="off" id="mainform" name="mainform" method="post" action=""> <!-- This form will post data to an initially unspecified page when submitted. -->
 				<input type='text' hidden id="user" name="User"/> <!-- Hidden tag used to store posted user data so that it can later be posted back to the home page. -->
+				<input type='hidden' id='previous' name='Previous' value="<?php echo $_GET['previous']; ?>" /> <!-- Hidden tag holding nam of previous page. -->
 				@csrf <!--Token to validates requests to server. -->
 				<div class="titleDiv"> <!-- Div containing elements at the top of the page. -->
 					<label id="dtLabel" class="dtLabel"></label> <!-- Label to contain current data/time. -->
