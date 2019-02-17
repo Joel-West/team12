@@ -534,11 +534,8 @@
 		    }
 			else{
 			  $('#specialistSolutionComboBox').collapse('hide');
-		      $('#solutionCollapse').collapse('show'); 
+			  $('#solutionCollapse').collapse('show');
 			}
-		  else{
-			$('#specialistSolutionComboBox').collapse('hide');
-		    $('#solutionCollapse').collapse('show');
 		  }
 		},'json');
 	  }
