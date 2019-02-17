@@ -41,7 +41,6 @@
 						document.getElementById("btnSpecialisations").disabled = true;
 					}
 				}
-				SetNavSettings();
 			}
 		</script>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"> <!-- Bootstrap CSS stylesheet. -->
