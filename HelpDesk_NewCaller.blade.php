@@ -518,18 +518,24 @@
 	  }
 		
 	  function solutionCreation(){
+		document.getElementById("dropdown-menuSolution").innerHTML = '';
 		var sql = "SELECT solution FROM tblProblem WHERE problemSubType = '" + problemTypeVar + "';";
 		var html = "";
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
 		  if (json && json[0]){
-		    for (i = 0; i<json.length; i++){
-			  html+= "<a class='dropdown-item' data-toggle='tooltip' data-placement='right' data-title='" + json[i].solution + "'>" + problemTypeVar + "</a>";
+			if (json[0].solution != ''){
+		      for (i = 0; i<json.length; i++){
+			    html+= "<a class='dropdown-item' data-toggle='tooltip' data-placement='right' data-title='" + json[i].solution + "'>" + problemTypeVar + "</a>";
+		      }
+		      document.getElementById("dropdown-menuSolution").innerHTML = html;
+			  $('#specialistSolutionComboBox').collapse('show');
+			  $('#dropdown-menuSolution a').tooltip();
+		      $('#solutionCollapse').collapse('show');
 		    }
-		    document.getElementById("dropdown-menuSolution").innerHTML = html;
-			$('#specialistSolutionComboBox').collapse('show');
-			$('#dropdown-menuSolution a').tooltip();
-		    $('#solutionCollapse').collapse('show');
-		  }
+			else{
+			  $('#specialistSolutionComboBox').collapse('hide');
+		      $('#solutionCollapse').collapse('show'); 
+			}
 		  else{
 			$('#specialistSolutionComboBox').collapse('hide');
 		    $('#solutionCollapse').collapse('show');
