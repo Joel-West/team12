@@ -531,6 +531,8 @@
 			}
 		  }
 		  document.getElementById("dropdown-menu4").innerHTML = html;
+		  $("#dropdownButton4:first-child").text('Choose Specialist:');
+          $("#dropdownButton4:first-child").val('');
 	      $('#result2Collapse').collapse('show');
 		},'json');
 	  }
