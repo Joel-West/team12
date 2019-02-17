@@ -377,19 +377,19 @@
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown">
 			<span class="navbar-toggler-icon"></span>
 		</button>
-		<div class="navbar-collapse collapse" id="navbarNavDropdown">
+		<div class="navbar-collapse collapse" id="navbarNavDropdown" onload="SetNavSettings()">
 			<ul class='navbar-nav mr-auto'>
-			<a class='nav-item nav-link' href='#' onClick='GoToNewPage(document.getElementById(&quot;Previous&quot;).value)'>&#x2190 </a>
-			 <a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;Home&quot;);'>Home</a>";
-			  <a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;NewCaller&quot;);'>New Call</a>";
-			  <a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;CallHistory&quot;);'>Call History</a>
-			  <a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;ProblemList&quot;);'>Problems List</a>
-			 <a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;PersonnelList&quot;);'>Personnel</a>
-			 <a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;UserList&quot;);'>Users</a>
-			 <a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;SpecialisationList&quot;);'>Specialisations</a>
-			 <a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;EquipmentList&quot;);'>Equipment</a>
-			 <a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;ProblemTypeList&quot;);'>Problem Type List</a>
-			 <a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;Analytics&quot;);'>Analytics</a></ul>
+			<a class='nav-item nav-link' href='#' onClick='GoToNewPage(document.getElementById(&quot;Previous&quot;).value)'>&#x2190</a>
+			<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;Home&quot;);'>Home</a>;
+			<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;NewCaller&quot;);'>New Call</a>;
+			<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;CallHistory&quot;);'>Call History</a>
+			<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;ProblemList&quot;);'>Problems List</a>
+			<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;PersonnelList&quot;);'>Personnel</a>
+			<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;UserList&quot;);'>Users</a>
+			<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;SpecialisationList&quot;);'>Specialisations</a>
+			<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;EquipmentList&quot;);'>Equipment</a>
+			<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;ProblemTypeList&quot;);'>Problem Type List</a>
+			<a class='nav-item nav-link' href='#' onClick='GoToNewPage(&quot;Analytics&quot;);'>Analytics</a></ul>
 		</div>
 		<a class='nav-item nav-link' href='#' onClick='GoToNewPage("");'>Logout</a>
 		<a class="navbar-brand ml-md-auto" href="#">
