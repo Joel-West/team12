@@ -38,9 +38,9 @@
 	    if (Username.includes("'")){
 		} else{
 		  sql = "SELECT userID FROM tblPersonnel WHERE name = '" + Username +"'"; 
-		  $.get("Query.php", {'sql':sql, 'returnData':true},function(json){
+		  $.get("Query.php", {'sql':sql, 'returnData':true},function(json){ //Query to get userID from the given name
 			if (json && json[0]){
-			  if (json[1]){
+			  if (json[1]){ //If multiple names were found, alert the user
 				alert("There are multiple " + Username + ". Please type their user ID as well");
 			  } else{
 				document.getElementById("CallerID").value = json[0].userID;
@@ -70,7 +70,7 @@
 	  function problemCreation(){ //Dynamically fills the dropdown box for deciding if the call is about a new or existing problem
 	    var html = "<a class='dropdown-item'>New Problem</a><div class='dropdown-divider'></div>";
 		html += "<h6 class='dropdown-header'>Existing Problems</h6>";
-		var sql = "SELECT problem, problemNumber FROM tblProblem WHERE resolved = 'no'";
+		var sql = "SELECT problem, problemNumber FROM tblProblem WHERE resolved = 'no'"; //Query to get all unresolved problems
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
 		  if (json && json[0]){
 			for (i = 0; i < json.length; i++){
@@ -93,9 +93,10 @@
         $("#dropdownButton2:first-child").val('');
 		$('#Checkbox').prop('checked', false); //Sets the solved checkbox to false
 		checkbox();
-		if(document.getElementById("dropdownButton").value == "New Problem"){
+		if(document.getElementById("dropdownButton").value == "New Problem"){ //If the call is about a new problem
 		  flag = 0;
-		  newProblemCreation();
+		  newProblemCreation(); //Create the dropdown box which allows the operator to choose more exact details about the new problem
+		  //Hiding and showing divs to reformat the page to the current situation
 		  $('#problemTypeCollapse').collapse('hide');
 		  $('#updateDiv1').collapse('show');
 		  $('#updateDiv2').collapse('show');
@@ -118,19 +119,8 @@
 		  problemNumber = document.getElementById("dropdownButton").value;
 		  problemNumber = problemNumber.split(" ");
 		  problemNumber = problemNumber[problemNumber.length - 1];
-		  getGenericProblemType(problemNumber);
+		  getGenericProblemType(problemNumber); //Takes the problem number of the chosen existing problem and passes it
 		}
-	  }
-	  
-	  function updateSpecialist(){
-		sql2 = "SELECT specialistID FROM tblProblem WHERE problemNumber = '" + problemNumber + "';";
-		$.get("Query.php", {'sql':sql2, 'returnData':true},function(json){
-		  if(json && json[0]){
-			index = specialistIDList.indexOf(json[0].specialistID);
-			$("#dropdownButton4:first-child").text(specialistList[index] + " (" + count[index] + " current jobs) (" + json[0].specialistID + ")");
-			$("#dropdownButton4:first-child").val(specialistList[index] + " (" + count[index] + " current jobs) (" + json[0].specialistID + ")");
-		  }
-		},'json');
 	  }
 	  
 	  function newProblemCreation(){ //Dynamically fills the dropdown menu which allows the operator to choose options for the new problem the caller is calling about
