@@ -76,11 +76,10 @@
 						}
 						document.getElementById("User").value =  (json[0].name).split(' ')[0]+ "," + json[0].userID + "," + json[0].admin + "," + analysis + "," + specialist + "," + operator; //Sets user data to be posted (name, ID and admin/analysis/specialist/operator status).
 						document.getElementById("mainform").submit(); //Submit the form (moving to the home page).
-						}
+					}
 					else
 					{
 						valid = false;
-					}
 					}
 					if (!valid) //If either username is irrelevant.
 					{
