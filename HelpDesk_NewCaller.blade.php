@@ -13,6 +13,7 @@
 	<script type="text/javascript" src="{{ URL::asset('js/ExtraCode.js') }}"></script>
 	<script type="text/javascript">
 	  var userData; //Variable containing data about user
+	  var currentPage = "NewCaller";
 	  
 	  function Load(){ //Runs on load of the page
 		problemCreation();
