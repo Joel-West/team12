@@ -9,13 +9,16 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script>
 		<script type="text/javascript" src="{{ URL::asset('js/ExtraCode.js') }}"></script> <!-- Import JS file containing functions that are used in multiple other files -->
 		<script type="text/javascript">
+		var userData; //Variable containing data about user.
+		var currentPage = "Analytics"; //Variable storing the name of the current page, so it can be passed in the URL to the next page as a 'previous page' variable.
 			function Load() //Function that runs when file loads.
 			{
+				userData = "<?php echo $_POST['User']; ?>"; //Gets data from previous form.
 				WriteTime(); //Function that writes the current time at the top of the page.
+				SetNavSettings();
 				ProblemChartHardware(); // Line chart showing the number of times problems for a particular hardware were solved.
 				SpecialistChart(); // Bar graph showing the percentage how problems solved by specialists and non-specialists. 
 				ResolvedChart(); // Bar chart showing the percentage of problems resolved and not resolved.
-				SetNavSettings();
 			}
 
 	
