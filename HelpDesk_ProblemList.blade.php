@@ -48,6 +48,7 @@
 				{
 					document.getElementById("lblAllProblems").style.display = "none";
 				}
+				SetNavSettings();
 			}
 			
 			function ResetTable()
@@ -1226,7 +1227,7 @@
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown">
 				<span class="navbar-toggler-icon"></span>
 			</button>
-			<div class="navbar-collapse collapse" id="navbarNavDropdown" onload="SetNavSettings()"> <!-- Collapsable menu for nav-bar elements that appears when view width is low. -->
+			<div class="navbar-collapse collapse" id="navbarNavDropdown"> <!-- Collapsable menu for nav-bar elements that appears when view width is low. -->
 				<ul class='navbar-nav mr-auto'>
 				<a class='nav-item nav-link' href='#' onClick='GoToNewPage(document.getElementById(&quot;previous&quot;).value)'>&#x2190 </a> <!-- Back button using unicode backwards arrow character. -->
 				<a class='nav-item nav-link' id='Home' href='#' onClick='GoToNewPage(&quot;Home&quot;);'>Home</a>
