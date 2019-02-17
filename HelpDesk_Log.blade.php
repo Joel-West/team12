@@ -35,7 +35,7 @@
 					valid = true;
 					if (json && json[0]) //If any data has been retrieved.
 					{
-						$.get("Verify.php", {'Password':Password, 'Hashed':json[0].password},function(Bool){
+						$.get("Verify.php", {'Password':Password, 'Hashed':json[0].password},function(Bool){ //Runs a php file which returns a boolean if the given password matches the hashed password on the database
 				      			if(Bool == true){
 				        			analysis = 0;
 								if (json[0].department == "Analysis") //Checks if user is in the analytics department.
