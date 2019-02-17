@@ -26,8 +26,9 @@
 				$.get("Hash.php", {'Password':Password},function(Hashed){
 				  if(Hashed){
 				    Hash = Hashed;
-				    console.log(Hash);
+				    console.log("HASH IS " + Hash);
 				    $.get("Verify.php", {'Password':Password, 'Hashed':Hash},function(Bool){
+				      console.log("BOOL IS " + Bool);
 				      if(Bool == true){
 				        console.log("YES");
 				      }
