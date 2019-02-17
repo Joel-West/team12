@@ -251,7 +251,7 @@
 					document.getElementById("selID").style.display = "none";
 					document.getElementById("lblIDNum").style.display = "none";
 					document.getElementById("txtUsername").value = document.getElementById("tbl").rows[rowNum].cells[1].innerHTML;
-					document.getElementById("txtPassword").value = document.getElementById("tbl").rows[rowNum].cells[2].innerHTML;
+					document.getElementById("txtPassword").value = "";
 					document.getElementById("chkAdmin").checked = GetAdminAsBool(document.getElementById("tbl").rows[rowNum].cells[3].innerHTML);
 				}
 				else
@@ -301,10 +301,14 @@
 				htm = "<tr class='rowDeselected'>"; //Sets colour of row.
 				htm +="<td>"+document.getElementById("txtID").value + "(new)</td>"; //Until it has been added to the database, the first field is given a '(new)' tag.
 				htm +="<td>"+document.getElementById("txtUsername").value+"</td>";
-				htm +="<td class='hidetext'>"+document.getElementById("txtPassword").value+"</td>";		
-				htm +="<td>"+GetAdminAsString(document.getElementById("chkAdmin").checked)+"</td>";
-				htm += "</tr>";	
-				document.getElementById("tbl").tBodies[0].innerHTML += htm; //Appends HTML to tableDiv.				
+				$.get("Hash.php", {'Password':document.getElementById("txtPassword").value},function(Hashed){
+				  if(Hashed){
+				    htm +="<td class='hidetext'>"+Hashed+"</td>";
+					htm +="<td>"+GetAdminAsString(document.getElementById("chkAdmin").checked)+"</td>";
+					htm += "</tr>";	
+					document.getElementById("tbl").tBodies[0].innerHTML += htm; //Appends HTML to tableDiv.
+				  }
+				},'json');				
 				newRowCount+=1;
 				alert("New user info added."); //Success message.
 				document.getElementById("txtID").value = "";
@@ -326,9 +330,12 @@
 				}
 				row = document.getElementById("tbl").rows[GetSelectedRow()]; //Gets the details of the row that is selected.
 				row.cells[1].innerHTML = document.getElementById("txtUsername").value;
-				row.cells[2].innerHTML = document.getElementById("txtPassword").value;
-				row.cells[3].innerHTML = GetAdminAsString(document.getElementById("chkAdmin").checked);
-				row.classList.replace("rowSelected", "rowDeselected"); //Deselect updated row.
+				$.get("Hash.php", {'Password':document.getElementById("txtPassword").value},function(Hashed){
+				  if(Hashed){
+					row.cells[2].innerHTML = Hashed;
+					row.cells[3].innerHTML = GetAdminAsString(document.getElementById("chkAdmin").checked);
+				    row.classList.replace("rowSelected", "rowDeselected"); //Deselect updated row.
+				  }.'json');
 				selected = 0;
 				CheckIfUpdateOrAdd();
 				if (!ListContains(updList, row.cells[0].innerHTML) && !row.cells[0].innerHTML.includes("(new)")) //If selected row is not already marked to be updated when changes are saved to the database later and is not a new row.
