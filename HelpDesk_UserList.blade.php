@@ -330,25 +330,25 @@
 				}
 				row = document.getElementById("tbl").rows[GetSelectedRow()]; //Gets the details of the row that is selected.
 				row.cells[1].innerHTML = document.getElementById("txtUsername").value;
-									console.log(document.getElementById("chkAdmin").checked);
-				$.get("Hash.php", {'Password':document.getElementById("txtPassword").value},function(Hashed){
-										console.log(document.getElementById("chkAdmin").checked);
-				  if(Hashed){
-					row.cells[2].innerHTML = Hashed;
-					row.cells[3].innerHTML = GetAdminAsString(document.getElementById("chkAdmin").checked);
-					console.log(document.getElementById("chkAdmin").checked);
-					console.log(GetAdminAsString(document.getElementById("chkAdmin").checked));
-					console.log(row.cells[3]);
-				    row.classList.replace("rowSelected", "rowDeselected"); //Deselect updated row.
-				  }
-				},'json');
-				selected = 0;
-				CheckIfUpdateOrAdd();
-				if (!ListContains(updList, row.cells[0].innerHTML) && !row.cells[0].innerHTML.includes("(new)")) //If selected row is not already marked to be updated when changes are saved to the database later and is not a new row.
+				$.get("Hash.php", {'Password':document.getElementById("txtPassword").value},function(Hashed)
 				{
-					updList.push(row.cells[0].innerHTML); //Add the ID of the row to the list of rows to be updated when changes are commited to the actual database.
-					console.log(updList);
-				}
+					if(Hashed)
+					{
+						row.cells[2].innerHTML = Hashed;
+						row.cells[3].innerHTML = GetAdminAsString(document.getElementById("chkAdmin").checked);
+						console.log(document.getElementById("chkAdmin").checked);
+						console.log(GetAdminAsString(document.getElementById("chkAdmin").checked));
+						console.log(row.cells[3]);
+						row.classList.replace("rowSelected", "rowDeselected"); //Deselect updated row.
+						selected = 0;
+						CheckIfUpdateOrAdd();
+						if (!ListContains(updList, row.cells[0].innerHTML) && !row.cells[0].innerHTML.includes("(new)")) //If selected row is not already marked to be updated when changes are saved to the database later and is not a new row.
+						{
+							updList.push(row.cells[0].innerHTML); //Add the ID of the row to the list of rows to be updated when changes are commited to the actual database.
+							console.log(updList);
+						}
+					}
+				},'json');
 			}
 			
 			function Delete() //Function for deleting selected rows from a table.
