@@ -540,8 +540,15 @@
 		}
 		
 		var dropdownButton2Var = document.getElementById('dropdownButton2').value;
-		if(dropdownButton2Var == "" || dropdownButton2Var.includes('"')){
-		  validation = 1;
+		if (flag = 1){
+		  if(dropdownButton2Var.includes('"')){
+		    validation = 1;
+		  }
+		}
+		else{
+		  if(dropdownButton2Var == "" || dropdownButton2Var.includes('"')){
+		    validation = 1;
+		  }
 		}
 		
 		var notesVar = document.getElementById('notes').value; //Basic sql injection precautions
