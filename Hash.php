@@ -1,6 +1,6 @@
 <?php
   use Illuminate\Support\Facades\Hash;
   $password = $_REQUEST['password'];
-  $hashed = Hash::make($password);
+  $hashed = bcrypt($password);
   echo (json_encode($hashed));
 ?>
