@@ -379,8 +379,8 @@
 	  $(document).on('click', '#dropdown-menu3 a', function(){
         $("#dropdownButton3:first-child").text($(this).text());
         $("#dropdownButton3:first-child").val($(this).text());
-		checkbox();
 		populateSpecialist($(this).text());
+		checkbox();
       });
 	  
 	  var problemTypeList = [];
@@ -507,7 +507,6 @@
 		
 	  function solutionCreation(){
 		$("#solution").val('');
-		console.log(problemTypeVar);
 		var sql = "SELECT solution FROM tblProblem WHERE problemSubType = '" + problemTypeVar + "';";
 		var html = "";
 		$.get("Query.php", {'sql':sql, 'returnData':true},function(json){
