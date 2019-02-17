@@ -932,7 +932,7 @@
 		    </div>
 		  </div>
 		  <br>
-	      <input type="button" id="btnSave" class="btn" value="Save Changes" onClick="SaveChanges();" />
+	      <input type="button" id="btnSave" class="btn" value="Save Changes" onClick="Validation();" />
 		</div>
 		<div class="col-4"></div>
 	  </div>
