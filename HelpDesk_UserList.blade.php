@@ -330,7 +330,9 @@
 				}
 				row = document.getElementById("tbl").rows[GetSelectedRow()]; //Gets the details of the row that is selected.
 				row.cells[1].innerHTML = document.getElementById("txtUsername").value;
+									console.log(document.getElementById("chkAdmin").checked);
 				$.get("Hash.php", {'Password':document.getElementById("txtPassword").value},function(Hashed){
+										console.log(document.getElementById("chkAdmin").checked);
 				  if(Hashed){
 					row.cells[2].innerHTML = Hashed;
 					row.cells[3].innerHTML = GetAdminAsString(document.getElementById("chkAdmin").checked);
