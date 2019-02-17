@@ -544,12 +544,12 @@
 		  validation = 1;
 		}
 		
-		var notesVar = document.getElementById(notes).value; //Basic sql injection precautions
+		var notesVar = document.getElementById('notes').value; //Basic sql injection precautions
 		if(notesVar.includes('"')){
 		  validation = 1;
 		}
 		
-		var solutionVar = document.getElementById(solution).value;
+		var solutionVar = document.getElementById('solution').value;
 		if(solutionVar.includes('"')){
 		  validation = 1;
 		}
