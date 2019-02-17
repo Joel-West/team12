@@ -81,6 +81,8 @@
 	  function problem(){
 		$("#dropdownButton2:first-child").text('Choose Problem');
         $("#dropdownButton2:first-child").val('');
+		$('#Checkbox').prop('checked', false);
+		checkbox();
 		if(document.getElementById("dropdownButton").value == "New Problem"){
 		  flag = 0;
 		  newProblemCreation();
