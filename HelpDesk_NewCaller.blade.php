@@ -586,25 +586,25 @@
 	  
 	  function SaveChanges(){
 		sql = "";
+		var radioValue = $('input[name=Radios]:checked').val();
+		var problem = document.getElementById('dropdownButton2').value;
+		var specialist = document.getElementById('dropdownButton4').value;
+		var specialistID = specialist.split(" ");
+		specialistID = specialistID[5];
+		specialistID = specialistID.replace("(", "");
+		specialistID = specialistID.replace(")", "");
+		var subProblemType = document.getElementById('dropdownButton3').value;
+		var resolved = "";
+		if ($('#Checkbox').is(":checked")){
+		  resolved = "Yes";
+		  var dateTime = resolvedDT;
+		}
+		else{
+		  resolved = "No";
+		  var dateTime = "";
+		}
+		var solution = document.getElementById("solution").value;
 		if (document.getElementById('dropdownButton').value = "New Problem"){
-		  var radioValue = $('input[name=Radios]:checked').val();
-		  var problem = document.getElementById('dropdownButton2').value;
-		  var specialist = document.getElementById('dropdownButton4').value;
-		  var specialistID = specialist.split(" ");
-		  specialistID = specialistID[5];
-		  specialistID = specialistID.replace("(", "");
-		  specialistID = specialistID.replace(")", "");
-		  var subProblemType = document.getElementById('dropdownButton3').value;
-		  var resolved = "";
-		  if ($('#Checkbox').is(":checked")){
-			resolved = "Yes";
-			var dateTime = resolvedDT;
-		  }
-		  else{
-			resolved = "No";
-			var dateTime = "";
-		  }
-		  var solution = document.getElementById("solution").value;
 		  if (radioValue == "Hardware"){
 			var problemType = "Hardware";
 			var serialNumber = document.getElementById('dropdownButtonSerial').value;
@@ -645,6 +645,26 @@
 		  else if (radioValue == "Network"){
 			sql += "INSERT INTO tblProblem VALUES ";
 			sql += "(NULL , '" + problem + "', '" + problemType + "', '" + subProblemType + "', '', '', '', '" + specialistID + "', '" + resolved + "', '" + dateTime + "', '" + solution + "');";
+		    alert(sql);
+			
+			$.get("Query.php", {'sql':sql, 'returnData':false},function(json){
+			  if(json && json[0]){ //If result of php file was a json array.					
+			    alert(json);
+			    alert(json[0]);
+			  }
+			},'json');
+			
+			setTimeout(insertCall, 100);
+		  }
+		}
+		else{
+		  if (radioValue == "Hardware"){
+			var problemType = "Hardware";
+			var serialNumber = document.getElementById('dropdownButtonSerial').value;
+			serialNumber = serialNumber.split("(");
+			serialNumber = serialNumber[0];
+		    sql += "INSERT INTO tblProblem VALUES ";
+		    sql += "(NULL, '" + problem + "', '" + problemType + "', '" + subProblemType + "', '" + serialNumber + "', '', '', '" + specialistID + "', '" + resolved + "', '" + dateTime + "', '" + solution + "');";
 		    alert(sql);
 			
 			$.get("Query.php", {'sql':sql, 'returnData':false},function(json){
