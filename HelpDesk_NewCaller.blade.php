@@ -622,7 +622,6 @@
 			serialNumber = serialNumber[0];
 		    sql += "INSERT INTO tblProblem VALUES ";
 		    sql += "(NULL, '" + problem + "', '" + problemType + "', '" + subProblemType + "', '" + serialNumber + "', '', '', '" + specialistID + "', '" + resolved + "', '" + dateTime + "', '" + solution + "');";
-		    alert(sql);
 			
 			$.get("Query.php", {'sql':sql, 'returnData':false},function(json){
 			  if(json && json[0]){ //If result of php file was a json array.					
@@ -640,7 +639,6 @@
 			var concernSoftware = document.getElementById('dropdownButtonConcern').value;
 			sql += "INSERT INTO tblProblem VALUES ";
 			sql += "(NULL, '" + problem + "', '" + problemType + "', '" + subProblemType + "', '', '" + OS + "', '" + concernSoftware + "', '" + specialistID + "', '" + resolved + "', '" + dateTime + "', '" + solution + "');";
-			alert(sql);
 			
 			$.get("Query.php", {'sql':sql, 'returnData':false},function(json){
 			  if(json && json[0]){ //If result of php file was a json array.					
@@ -655,8 +653,7 @@
 		  else if (radioValue == "Network"){
 			sql += "INSERT INTO tblProblem VALUES ";
 			sql += "(NULL , '" + problem + "', '" + problemType + "', '" + subProblemType + "', '', '', '', '" + specialistID + "', '" + resolved + "', '" + dateTime + "', '" + solution + "');";
-		    alert(sql);
-			
+
 			$.get("Query.php", {'sql':sql, 'returnData':false},function(json){
 			  if(json && json[0]){ //If result of php file was a json array.					
 			    alert(json);
@@ -674,7 +671,6 @@
 			serialNumber = serialNumber.split("(");
 			serialNumber = serialNumber[0];
 		    sql += "UPDATE tblProblem SET problemType = '" + problemType + "', problemSubType = '" + subProblemType + "', serialNumber = '" + serialNumber + "', specialistID = '" + specialistID + "', resolved = '" + resolved + "', solution = '" + solution + "' WHERE problemNumber = '" + problemNumber + "';";
-		    alert(sql);
 			
 			$.get("Query.php", {'sql':sql, 'returnData':false},function(json){
 			  if(json && json[0]){ //If result of php file was a json array.					
@@ -729,13 +725,14 @@
 		    var notes = document.getElementById("notes").value;
 		    sqlCall += "INSERT INTO tblCallHistory VALUES ";
 		    sqlCall += "(NULL, '" + operatorID + "', '" + callerID + "', '" + dateTime + "', '" + problemNumber + "', '" + notes + "');";
-		    alert(sqlCall);
+
 		    $.get("Query.php", {'sql':sqlCall, 'returnData':false},function(json){
 			  if(json && json[0]){ //If result of php file was a json array.					
 			    alert(json);
 			    alert(json[0]);
 			  }
 		    },'json');
+			alert("The call has been added to the database.")
 			GoToNewPage('Home');
 		  }
 		   
