@@ -614,7 +614,7 @@
 		  var dateTime = "";
 		}
 		var solution = document.getElementById("solution").value;
-		if (document.getElementById('dropdownButton').value = "New Problem"){ //New Problem requires a insert
+		if (document.getElementById('dropdownButton').value == "New Problem"){ //New Problem requires a insert
 		  if (radioValue == "Hardware"){
 			var problemType = "Hardware";
 			var serialNumber = document.getElementById('dropdownButtonSerial').value;
