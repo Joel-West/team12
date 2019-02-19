@@ -588,7 +588,6 @@
 		    alert("There is a invalid field");
 		  }
 		  else{
-			console.log("ENTER");
 		    SaveChanges();
 		  }
 		},'json');
@@ -622,7 +621,6 @@
 			serialNumber = serialNumber[0];
 		    sql += "INSERT INTO tblProblem VALUES ";
 		    sql += "(NULL, '" + problem + "', '" + problemType + "', '" + subProblemType + "', '" + serialNumber + "', '', '', '" + specialistID + "', '" + resolved + "', '" + dateTime + "', '" + solution + "');";
-			alert(sql);
 			$.get("Query.php", {'sql':sql, 'returnData':false},function(json){
 			  if(json && json[0]){ //If result of php file was a json array.					
 			    alert(json);
@@ -639,7 +637,6 @@
 			var concernSoftware = document.getElementById('dropdownButtonConcern').value;
 			sql += "INSERT INTO tblProblem VALUES ";
 			sql += "(NULL, '" + problem + "', '" + problemType + "', '" + subProblemType + "', '', '" + OS + "', '" + concernSoftware + "', '" + specialistID + "', '" + resolved + "', '" + dateTime + "', '" + solution + "');";
-			alert(sql);
 			$.get("Query.php", {'sql':sql, 'returnData':false},function(json){
 			  if(json && json[0]){ //If result of php file was a json array.					
 			    alert(json);
@@ -654,7 +651,6 @@
 			var problemType = "Network";
 			sql += "INSERT INTO tblProblem VALUES ";
 			sql += "(NULL , '" + problem + "', '" + problemType + "', '" + subProblemType + "', '', '', '', '" + specialistID + "', '" + resolved + "', '" + dateTime + "', '" + solution + "');";
-			alert(sql);
 			$.get("Query.php", {'sql':sql, 'returnData':false},function(json){
 			  if(json && json[0]){ //If result of php file was a json array.					
 			    alert(json);
@@ -665,16 +661,14 @@
 			setTimeout(insertCall, 100);
 		  }
 		}
-		else{
-			console.log("YES");//Existing problem, therefore needs a update
+		else{//Existing problem, therefore needs a update
 		  if (radioValue == "Hardware"){
-			console.log("YESH");
 			var problemType = "Hardware";
 			var serialNumber = document.getElementById('dropdownButtonSerial').value;
 			serialNumber = serialNumber.split("(");
 			serialNumber = serialNumber[0];
 		    sql += "UPDATE tblProblem SET problemType = '" + problemType + "', problemSubType = '" + subProblemType + "', serialNumber = '" + serialNumber + "', specialistID = '" + specialistID + "', resolved = '" + resolved + "', solution = '" + solution + "' WHERE problemNumber = '" + problemNumber + "';";
-			alert(sql);
+
 			$.get("Query.php", {'sql':sql, 'returnData':false},function(json){
 			  if(json && json[0]){ //If result of php file was a json array.					
 			    alert(json);
@@ -685,12 +679,10 @@
 			setTimeout(insertCall, 100);
 		  }
 		  else if (radioValue == "Software"){
-			console.log("YESS");
 			var problemType = "Software";
 			var OS = document.getElementById('dropdownButtonOS').value;
 			var concernSoftware = document.getElementById('dropdownButtonConcern').value;
 			sql += "UPDATE tblProblem SET problemType = '" + problemType + "', problemSubType = '" + subProblemType + "', operatingSystem = '" + OS + "', softwareConcerned = '" + concernSoftware + "', specialistID = '" + specialistID + "', resolved = '" + resolved + "', solution = '" + solution + "' WHERE problemNumber = '" + problemNumber + "';";
-		    alert(sql);
 			
 			$.get("Query.php", {'sql':sql, 'returnData':false},function(json){
 			  if(json && json[0]){ //If result of php file was a json array.					
@@ -702,10 +694,8 @@
 			setTimeout(insertCall, 100);
 		  }
 		  else if (radioValue == "Network"){
-			console.log("YESN");
 			var problemType = "Network";
 			sql += "UPDATE tblProblem SET problemType = '" + problemType + "', problemSubType = '" + subProblemType + "', specialistID = '" + specialistID + "', resolved = '" + resolved + "', solution = '" + solution + "' WHERE problemNumber = '" + problemNumber + "';"; 
-		    alert(sql); 
 			
 			$.get("Query.php", {'sql':sql, 'returnData':false},function(json){
 			  if(json && json[0]){ //If result of php file was a json array.					
@@ -738,7 +728,6 @@
 			    alert(json[0]);
 			  }
 		    },'json');
-			alert(sqlCall);
 			alert("The call has been added to the database.")
 			GoToNewPage('Home');
 		  }
