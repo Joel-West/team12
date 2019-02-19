@@ -604,6 +604,8 @@
 		specialistID = specialistID.replace("(", "");
 		specialistID = specialistID.replace(")", "");
 		var subProblemType = document.getElementById('dropdownButton3').value;
+		subProblemType.split(". Problem Number: ");
+		subProblemType = subProblemType[0];
 		var resolved = "";
 		if ($('#Checkbox').is(":checked")){
 		  resolved = "Yes";
@@ -651,6 +653,7 @@
 		  }
 		  
 		  else if (radioValue == "Network"){
+			var problemType = "Network";
 			sql += "INSERT INTO tblProblem VALUES ";
 			sql += "(NULL , '" + problem + "', '" + problemType + "', '" + subProblemType + "', '', '', '', '" + specialistID + "', '" + resolved + "', '" + dateTime + "', '" + solution + "');";
 			alert(sql);
