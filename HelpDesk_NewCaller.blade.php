@@ -622,7 +622,7 @@
 			serialNumber = serialNumber[0];
 		    sql += "INSERT INTO tblProblem VALUES ";
 		    sql += "(NULL, '" + problem + "', '" + problemType + "', '" + subProblemType + "', '" + serialNumber + "', '', '', '" + specialistID + "', '" + resolved + "', '" + dateTime + "', '" + solution + "');";
-			
+			alert(sql);
 			$.get("Query.php", {'sql':sql, 'returnData':false},function(json){
 			  if(json && json[0]){ //If result of php file was a json array.					
 			    alert(json);
@@ -639,7 +639,7 @@
 			var concernSoftware = document.getElementById('dropdownButtonConcern').value;
 			sql += "INSERT INTO tblProblem VALUES ";
 			sql += "(NULL, '" + problem + "', '" + problemType + "', '" + subProblemType + "', '', '" + OS + "', '" + concernSoftware + "', '" + specialistID + "', '" + resolved + "', '" + dateTime + "', '" + solution + "');";
-			
+			alert(sql);
 			$.get("Query.php", {'sql':sql, 'returnData':false},function(json){
 			  if(json && json[0]){ //If result of php file was a json array.					
 			    alert(json);
@@ -653,7 +653,7 @@
 		  else if (radioValue == "Network"){
 			sql += "INSERT INTO tblProblem VALUES ";
 			sql += "(NULL , '" + problem + "', '" + problemType + "', '" + subProblemType + "', '', '', '', '" + specialistID + "', '" + resolved + "', '" + dateTime + "', '" + solution + "');";
-
+			alert(sql);
 			$.get("Query.php", {'sql':sql, 'returnData':false},function(json){
 			  if(json && json[0]){ //If result of php file was a json array.					
 			    alert(json);
