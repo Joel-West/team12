@@ -665,8 +665,10 @@
 			setTimeout(insertCall, 100);
 		  }
 		}
-		else{ //Existing problem, therefore needs a update
+		else{
+			console.log("YES");//Existing problem, therefore needs a update
 		  if (radioValue == "Hardware"){
+			console.log("YESH");
 			var problemType = "Hardware";
 			var serialNumber = document.getElementById('dropdownButtonSerial').value;
 			serialNumber = serialNumber.split("(");
@@ -683,6 +685,7 @@
 			setTimeout(insertCall, 100);
 		  }
 		  else if (radioValue == "Software"){
+			console.log("YESS");
 			var problemType = "Software";
 			var OS = document.getElementById('dropdownButtonOS').value;
 			var concernSoftware = document.getElementById('dropdownButtonConcern').value;
@@ -699,6 +702,7 @@
 			setTimeout(insertCall, 100);
 		  }
 		  else if (radioValue == "Network"){
+			console.log("YESN");
 			var problemType = "Network";
 			sql += "UPDATE tblProblem SET problemType = '" + problemType + "', problemSubType = '" + subProblemType + "', specialistID = '" + specialistID + "', resolved = '" + resolved + "', solution = '" + solution + "' WHERE problemNumber = '" + problemNumber + "';"; 
 		    
