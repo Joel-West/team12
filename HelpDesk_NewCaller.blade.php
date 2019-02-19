@@ -674,7 +674,7 @@
 			serialNumber = serialNumber.split("(");
 			serialNumber = serialNumber[0];
 		    sql += "UPDATE tblProblem SET problemType = '" + problemType + "', problemSubType = '" + subProblemType + "', serialNumber = '" + serialNumber + "', specialistID = '" + specialistID + "', resolved = '" + resolved + "', solution = '" + solution + "' WHERE problemNumber = '" + problemNumber + "';";
-			
+			alert(sql);
 			$.get("Query.php", {'sql':sql, 'returnData':false},function(json){
 			  if(json && json[0]){ //If result of php file was a json array.					
 			    alert(json);
@@ -705,7 +705,8 @@
 			console.log("YESN");
 			var problemType = "Network";
 			sql += "UPDATE tblProblem SET problemType = '" + problemType + "', problemSubType = '" + subProblemType + "', specialistID = '" + specialistID + "', resolved = '" + resolved + "', solution = '" + solution + "' WHERE problemNumber = '" + problemNumber + "';"; 
-		    
+		    alert(sql); 
+			
 			$.get("Query.php", {'sql':sql, 'returnData':false},function(json){
 			  if(json && json[0]){ //If result of php file was a json array.					
 			    alert(json);
