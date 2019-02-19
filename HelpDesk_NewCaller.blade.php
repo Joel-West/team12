@@ -604,8 +604,6 @@
 		specialistID = specialistID.replace("(", "");
 		specialistID = specialistID.replace(")", "");
 		var subProblemType = document.getElementById('dropdownButton3').value;
-		subProblemType.split(". Problem Number: ");
-		subProblemType = subProblemType[0];
 		var resolved = "";
 		if ($('#Checkbox').is(":checked")){
 		  resolved = "Yes";
@@ -735,6 +733,7 @@
 			    alert(json[0]);
 			  }
 		    },'json');
+			alert(sqlCall);
 			alert("The call has been added to the database.")
 			GoToNewPage('Home');
 		  }
